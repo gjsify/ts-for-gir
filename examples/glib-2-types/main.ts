@@ -230,15 +230,10 @@ function testPrecisionTimeAndTimeouts(): void {
 		const largeTimeoutMs = 2147483647; // Large timeout value
 		console.log(`Setting timeout with large value: ${largeTimeoutMs}ms`);
 
-		const timeoutId = GLib.timeout_add(
-			50,
-			largeTimeoutMs,
-			() => {
-				console.log("  Large timeout value processed successfully");
-				return false;
-			},
-			null,
-		);
+		const timeoutId = GLib.timeout_add(50, largeTimeoutMs, () => {
+			console.log("  Large timeout value processed successfully");
+			return false;
+		});
 
 		console.log(`  Timeout ID: ${timeoutId}`);
 	} catch (error) {
@@ -306,13 +301,47 @@ function testNullableParamsRequired(): void {
 	console.log(`  canonicalize_filename("foo.txt", null): "${canonical}"`);
 	console.log(`  strcmp0(null, null): ${cmp}`);
 
-	// Omitting nullable params must be a type error — GJS throws at runtime if omitted
-	// @ts-expect-error
-	GLib.base64_encode();
-	// @ts-expect-error
-	GLib.canonicalize_filename("foo.txt");
-	// @ts-expect-error
-	GLib.strcmp0();
+	// Omitting nullable params is a compile-time type error.
+	// Wrapped in `if (false)` so TypeScript still checks the types but the code never runs.
+	if (false as boolean) {
+		// @ts-expect-error
+		GLib.base64_encode();
+		// @ts-expect-error
+		GLib.canonicalize_filename("foo.txt");
+		// @ts-expect-error
+		GLib.strcmp0();
+	}
+}
+
+/**
+ * Tests that GLib.DestroyNotify params are stripped from _full-shadowed functions.
+ * GJS handles destroy-notify internally for scope="notified" callbacks and does not
+ * expose that parameter — idle_add and timeout_add only accept (priority, fn).
+ * Relates to: https://github.com/gjsify/ts-for-gir/issues/369
+ */
+function testDestroyNotifyParamsFiltered(): void {
+	// idle_add takes only (priority, callback) — no notify argument
+	const id = GLib.idle_add(GLib.PRIORITY_DEFAULT_IDLE, () => {
+		GLib.Source.remove(id);
+		return GLib.SOURCE_REMOVE;
+	});
+	console.log(`  idle_add id: ${id}`);
+
+	// timeout_add takes (priority, interval, callback) — no notify argument
+	const tid = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 1, () => {
+		GLib.Source.remove(tid);
+		return GLib.SOURCE_REMOVE;
+	});
+	console.log(`  timeout_add id: ${tid}`);
+
+	// Passing a spurious null as notify is a compile-time type error.
+	// Wrapped in `if (false)` so TypeScript still checks the types but the code never runs.
+	if (false as boolean) {
+		// @ts-expect-error
+		GLib.idle_add(GLib.PRIORITY_DEFAULT_IDLE, () => false, null);
+		// @ts-expect-error
+		GLib.timeout_add(GLib.PRIORITY_DEFAULT, 1, () => false, null);
+	}
 }
 
 /**
@@ -327,6 +356,7 @@ function displaySummary(): void {
 	console.log("✓ Large number ranges work with GObject property specifications");
 	console.log("✓ High-precision time functions return proper numeric types");
 	console.log("✓ Trailing nullable params are required (not optional) — GJS throws if omitted");
+	console.log("✓ DestroyNotify params stripped from idle_add/timeout_add — GJS handles destroy internally");
 	console.log("✓ All type mappings provide TypeScript safety");
 }
 
@@ -336,16 +366,11 @@ function displaySummary(): void {
 function runMainLoop(): void {
 	const loop = GLib.MainLoop.new(null, false);
 
-	GLib.timeout_add(
-		100,
-		0,
-		() => {
-			console.log("\nExample completed successfully!");
-			loop.quit();
-			return false;
-		},
-		null,
-	);
+	GLib.timeout_add(100, 0, () => {
+		console.log("\nExample completed successfully!");
+		loop.quit();
+		return false;
+	});
 
 	loop.run();
 }
@@ -363,6 +388,7 @@ function main(): void {
 	testEnumGType();
 	testEnumNotIntrospectable();
 	testBigintOrNumber();
+	testDestroyNotifyParamsFiltered();
 	testNullableParamsRequired();
 	displaySummary();
 	runMainLoop();

@@ -40,7 +40,7 @@ export interface MetaInfo<Props, Interfaces, Sigs> {
 
 export type Property<K extends ParamSpec> = K extends ParamSpec<infer T> ? T : any
 
-<% if (!noAdvancedVariants) { %>
+<%_ if (!noAdvancedVariants) { _%>
 // Advanced type inference for GObject class registration
 // String conversion utilities for property names
 type SnakeToUnderscoreCase<S extends string> = S extends `${infer T}-${infer U}`
@@ -111,7 +111,7 @@ export type SignalDefinitionType = {
     param_types?: readonly GTypeInput[]
     [key: string]: any
 }
-<% } %>
+<%_ } _%>
 
 // Correctly types interface checks.
 export function type_is_a<T extends Object>(obj: Object, is_a_type: { $gtype: GType<T> }): obj is T
@@ -336,7 +336,7 @@ export function registerClass<
     },
 >(options: MetaInfo<Props, Interfaces, Sigs>, cls: T): T
 
-<% if (!noAdvancedVariants) { %>
+<%_ if (!noAdvancedVariants) { _%>
 // Enhanced registerClass overloads with advanced type inference
 
 export function registerClass<P extends {}, T extends new (...args: any[]) => P>(
@@ -367,4 +367,4 @@ export function registerClass<
     },
     klass: T,
 ): RegisteredClass<T, Props, Interfaces>
-<% } %>
+<%_ } _%>

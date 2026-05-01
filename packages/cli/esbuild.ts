@@ -23,7 +23,6 @@ await build({
 		"cosmiconfig",
 		"glob",
 		"inquirer",
-		"prettier",
 		"colorette",
 		"typedoc",
 		"yargs",

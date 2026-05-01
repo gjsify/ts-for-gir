@@ -1,24 +1,17 @@
 /**
- * TypeScript formatter using Prettier
+ * TypeScript formatter — pass-through.
+ *
+ * The generator's templates and string-builders emit the desired output
+ * shape directly; we no longer round-trip through Prettier. This shrinks
+ * the generation pipeline (no AST parse + reprint per file), drops a
+ * heavy bundler-hostile dependency for non-Node consumers, and makes
+ * generated output deterministic without an external formatter.
  */
 
-import { Formatter, Logger } from "@ts-for-gir/lib";
-import prettier from "prettier";
-
-const logger = new Logger(false, "TypeScriptFormatter");
+import { Formatter } from "@ts-for-gir/lib";
 
 export class TypeScriptFormatter extends Formatter {
 	format(input: string): Promise<string> {
-		try {
-			return prettier.format(input, {
-				singleQuote: true,
-				parser: "typescript",
-				printWidth: 120,
-				tabWidth: 4,
-			});
-		} catch (error) {
-			logger.warn("Failed to format with prettier, returning original input", error);
-			return Promise.resolve(input);
-		}
+		return Promise.resolve(input);
 	}
 }

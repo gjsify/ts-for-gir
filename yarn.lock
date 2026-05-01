@@ -16821,7 +16821,6 @@ __metadata:
     esbuild: "npm:^0.28.0"
     glob: "npm:^13.0.6"
     inquirer: "npm:^13.4.2"
-    prettier: "npm:^3.8.3"
     typedoc: "npm:^0.28.19"
     typescript: "npm:^6.0.3"
     yargs: "npm:^18.0.0"
@@ -21218,15 +21217,6 @@ __metadata:
   version: 0.2.0
   resolution: "powershell-utils@npm:0.2.0"
   checksum: 10/49aa144effed21a03c095d0825455e44051110006fd05cd0e41431e1f09d0e111a62fd14d6d017113cca7ac3a69d37cd5b2ae8f1c4ba2685d5562158ff66836f
-  languageName: node
-  linkType: hard
-
-"prettier@npm:^3.8.3":
-  version: 3.8.3
-  resolution: "prettier@npm:3.8.3"
-  bin:
-    prettier: bin/prettier.cjs
-  checksum: 10/4b3b12cbb29e4c96bed936e5d070167552500c18d37676fb3e0caae6199c42860662608e4dc116230698f6e2bb0267ef2548158224c92d40f188d309d72fdd6f
   languageName: node
   linkType: hard
 

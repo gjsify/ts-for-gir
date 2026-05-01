@@ -200,7 +200,6 @@ export class SignalGenerator {
 			`${indent} * @internal`,
 			`${indent} */`,
 			`${indent}$signals: ${girClass.name}.SignalSignatures;`,
-			"",
 		];
 	}
 

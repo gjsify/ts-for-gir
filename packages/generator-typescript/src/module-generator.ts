@@ -959,7 +959,12 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		const def: string[] = [];
 
 		for (const girFunction of tsFunctions) {
-			def.push(...this.generateFunction(girFunction, indentCount));
+			const fnLines = this.generateFunction(girFunction, indentCount);
+			if (fnLines.length === 0) continue;
+			def.push(...fnLines);
+			// Blank line between adjacent member functions/methods so
+			// JSDoc + signature pairs are visually distinct.
+			def.push("");
 		}
 
 		if (def.length > 0) {
@@ -1134,7 +1139,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 		const exp = !this.config.noNamespace ? "" : "export ";
 
-		desc.push(`${indent}${exp}type ${girAlias.name}${generics} = ${girAlias.type.print(this.namespace, this.config)}`);
+		desc.push(`${indent}${exp}type ${girAlias.name}${generics} = ${girAlias.type.print(this.namespace, this.config)};`);
 		return desc;
 	}
 
@@ -1831,6 +1836,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 								injectInheritedTags(memberLines, source);
 							}
 							def.push(...indentMember(memberLines));
+							def.push("");
 						}
 					}
 				}
@@ -1851,6 +1857,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 								injectInheritedTags(memberLines, source);
 							}
 							def.push(...indentMember(memberLines));
+							def.push("");
 						}
 					}
 				}
@@ -1960,12 +1967,16 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 		if (girModule.members) {
 			for (const m of girModule.members.values()) {
-				out.push(
-					...(Array.isArray(m) ? m : [m])
-						.flatMap((m) => (m as IntrospectedNamespaceMember) ?? [])
-						.filter((m) => m.emit)
-						.flatMap((m) => m.asString(this as FormatGenerator<string[]>) ?? ""),
-				);
+				const memberLines = (Array.isArray(m) ? m : [m])
+					.flatMap((m) => (m as IntrospectedNamespaceMember) ?? [])
+					.filter((m) => m.emit)
+					.flatMap((m) => m.asString(this as FormatGenerator<string[]>) ?? "");
+				if (memberLines.length === 0) continue;
+				out.push(...memberLines);
+				// Blank-line separator between top-level namespace declarations
+				// (classes, interfaces, type aliases, constants) so adjacent
+				// definitions are visually distinct.
+				out.push("");
 			}
 		}
 

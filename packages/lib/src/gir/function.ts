@@ -235,7 +235,10 @@ export class IntrospectedFunction extends IntrospectedNamespaceMember {
 	): IntrospectedFunctionParameter[] {
 		return parameters
 			.filter((_, i) => !length_params.includes(i) && !user_data_params.includes(i))
-			.filter((v) => !(v.type instanceof TypeIdentifier && v.type.is("GLib", "DestroyNotify")));
+			.filter((v) => {
+				const unwrapped = v.type.unwrap();
+				return !(unwrapped instanceof TypeIdentifier && unwrapped.is("GLib", "DestroyNotify"));
+			});
 	}
 
 	private static processOptionalParameters(

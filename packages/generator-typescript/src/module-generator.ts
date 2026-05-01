@@ -2027,6 +2027,21 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			out.push("", overrideSuffix);
 		}
 
+		// Indent every line by 4 spaces when the body is wrapped in
+		// `export namespace X { … }` by the module template. Each entry in
+		// `out` may itself be a multi-line string (from a member's asString
+		// returning multiple joined lines), so split on `\n` per entry, prefix
+		// each non-empty line with the namespace-body indent, and rejoin.
+		if (!this.config.noNamespace) {
+			const indent = generateIndent(1);
+			for (let i = 0; i < out.length; i++) {
+				out[i] = out[i]
+					.split("\n")
+					.map((line) => (line.length === 0 ? line : `${indent}${line}`))
+					.join("\n");
+			}
+		}
+
 		return Promise.resolve(out);
 	}
 

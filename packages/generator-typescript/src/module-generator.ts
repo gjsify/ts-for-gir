@@ -595,7 +595,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		// the sound read type — users writing a raw bigint can convert via `Number(bigInt)`.
 		const typeStr = this.generateDirectedType(type, GirDirection.Out);
 
-		desc.push(`${indent}${commentOut}${staticStr}${readonly}${name}${affix}: ${typeStr}`);
+		desc.push(`${indent}${commentOut}${staticStr}${readonly}${name}${affix}: ${typeStr};`);
 		return desc;
 	}
 
@@ -933,7 +933,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		def.push(
 			`${indent}${commentOut}${exportStr}${staticStr}${globalStr}${name}${genericStr}(${inParamsDef.join(
 				", ",
-			)})${retSep} ${returnType}`,
+			)})${retSep} ${returnType};`,
 		);
 
 		return def;
@@ -992,7 +992,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		const interfaceHead = `${name}${genericParameters}`;
 
 		def.push(this.generateExport("interface", `${interfaceHead}`, "{", indentCount));
-		def.push(`${indentBody}(${inParamsDef.join(", ")}): ${returnTypeStr}`);
+		def.push(`${indentBody}(${inParamsDef.join(", ")}): ${returnTypeStr};`);
 		def.push(`${indent}}`);
 
 		return def;
@@ -1089,7 +1089,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		const ComputedName = generateMemberName(tsConst);
 		const typeStr = this.generateType(resolveDirectedType(tsConst.type, GirDirection.Out) ?? tsConst.type);
 
-		desc.push(`${indent}${exp}const ${ComputedName}: ${typeStr}`);
+		desc.push(`${indent}${exp}const ${ComputedName}: ${typeStr};`);
 		return desc;
 	}
 
@@ -1183,12 +1183,14 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 		// START BODY
 
-		const ConstructorProps = filterConflicts(girClass.namespace, girClass, props, FilterBehavior.PRESERVE)
+		const memberIndent = generateIndent(indentCount + 1);
+		const constructorPropMembers = filterConflicts(girClass.namespace, girClass, props, FilterBehavior.PRESERVE)
 			.flatMap((v) => v.asString(this, true))
-			.join("\n    ");
+			.map((m) => `${memberIndent}${m}`)
+			.join("\n");
 
 		def.push(`${indent}${exp}interface ${constructPropInterfaceName}${genericTypes} ${ext} {`);
-		def.push(ConstructorProps);
+		def.push(constructorPropMembers);
 		def.push(`${indent}}`, "");
 
 		// END BODY
@@ -1758,7 +1760,8 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 			// $gtype compatibility
 			const gtypeNamespace = this.namespace.namespace === "GObject" ? "" : "GObject.";
-			def.push(`static $gtype: ${gtypeNamespace}GType<${girClass.gtype}>;`);
+			const classBodyIndent = generateIndent(1);
+			def.push(`${classBodyIndent}static $gtype: ${gtypeNamespace}GType<${girClass.gtype}>;`);
 
 			if (girClass.__ts__indexSignature) {
 				def.push(`\n${girClass.__ts__indexSignature}\n`);

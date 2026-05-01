@@ -44,7 +44,6 @@ export class SignalGenerator {
 		const indent = generateIndent(indentCount);
 
 		def.push(`${indent}// Signal signatures`);
-		def.push(`${indent}interface SignalSignatures`);
 
 		const parentSignatures: string[] = [];
 
@@ -85,13 +84,14 @@ export class SignalGenerator {
 
 		parentSignatures.push(...interfaceSignatures);
 
+		let signatureHead: string;
 		if (parentSignatures.length > 0) {
-			def.push(` extends ${parentSignatures.join(", ")} {`);
+			signatureHead = `${indent}interface SignalSignatures extends ${parentSignatures.join(", ")} {`;
 		} else {
 			const isGObjectObject = girClass.name === "Object" && girClass.namespace.namespace === "GObject";
 
 			if (isGObjectObject) {
-				def.push(" {");
+				signatureHead = `${indent}interface SignalSignatures {`;
 			} else {
 				const gobjectNamespace = this.namespace.assertInstalledImport("GObject");
 				const gobjectObjectClass = gobjectNamespace.assertClass("Object");
@@ -101,9 +101,10 @@ export class SignalGenerator {
 					?.print(this.namespace, this.config);
 
 				const fallbackRef = gobjectRef ? `${gobjectRef}.SignalSignatures` : "GObject.Object.SignalSignatures";
-				def.push(` extends ${fallbackRef} {`);
+				signatureHead = `${indent}interface SignalSignatures extends ${fallbackRef} {`;
 			}
 		}
+		def.push(signatureHead);
 
 		const allSignals = girClass.getAllSignals();
 

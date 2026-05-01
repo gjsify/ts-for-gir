@@ -1,5 +1,11 @@
 # Changelog
 
+## [4.0.0-rc.9](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-rc.8...v4.0.0-rc.9) (2026-05-01)
+
+### Bug Fixes
+
+* **lib:** unwrap NullableType before filtering DestroyNotify params ([#377](https://github.com/gjsify/ts-for-gir/issues/377)) ([4729269](https://github.com/gjsify/ts-for-gir/commit/4729269b03948a0f402ef6ac1ebbd969540bf4a8)), closes [#369](https://github.com/gjsify/ts-for-gir/issues/369) [#369](https://github.com/gjsify/ts-for-gir/issues/369) [#369](https://github.com/gjsify/ts-for-gir/issues/369)
+
 ## [4.0.0-rc.8](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-rc.7...v4.0.0-rc.8) (2026-05-01)
 
 ### Features

@@ -376,29 +376,32 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 				}),
 			);
 		const gtypeNamespace = namespace.namespace === "GObject" ? "" : "GObject.";
-		return [
-			`export interface ${node.name}Namespace {
-      ${isGObject ? `$gtype: ${gtypeNamespace}GType<${node.name}>;` : ""}
-      prototype: ${node.name};
-      ${staticFields.length > 0 ? staticFields.flatMap((sf) => sf.asString(this)).join("\n") : ""}
-      ${
-				staticFunctions.length > 0
-					? staticFunctions
-							.flatMap((sf) => {
-								// TODO: We're passing "node" as the parent, even though that isn't technically accurate.
-								return sf.asClassFunction(node).asString(this);
-							})
-							.join("\n")
-					: ""
-			}    
-      }`,
-		];
+		const bodyIndent = generateIndent(1);
+
+		const bodyLines: string[] = [];
+		if (isGObject) bodyLines.push(`${bodyIndent}$gtype: ${gtypeNamespace}GType<${node.name}>;`);
+		bodyLines.push(`${bodyIndent}prototype: ${node.name};`);
+		for (const sf of staticFields) {
+			for (const line of sf.asString(this)) {
+				if (line.length === 0) continue;
+				bodyLines.push(`${bodyIndent}${line.replace(/^\s+/, "")}`);
+			}
+		}
+		for (const sf of staticFunctions) {
+			// TODO: We're passing "node" as the parent, even though that isn't technically accurate.
+			for (const line of sf.asClassFunction(node).asString(this)) {
+				if (line.length === 0) continue;
+				bodyLines.push(`${bodyIndent}${line.replace(/^\s+/, "")}`);
+			}
+		}
+		return [`export interface ${node.name}Namespace {`, ...bodyLines, "}"];
 	}
 	generateInterfaceDeclaration(node: IntrospectedInterface): string[] {
 		return [
-			`\n\nexport const ${node.name}: ${node.name}Namespace & {
-        new (): ${node.name} // This allows \`obj instanceof ${node.name}\`
-    }\n`,
+			"",
+			`export const ${node.name}: ${node.name}Namespace & {`,
+			`    new (): ${node.name}; // This allows \`obj instanceof ${node.name}\``,
+			"};",
 		];
 	}
 	generateError(node: IntrospectedError): string[] {

@@ -273,20 +273,28 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 	generateClassCallback(node: IntrospectedClassCallback): string[] {
 		return this.generateCallback(node);
 	}
-	generateConstructor(node: IntrospectedConstructor): string[] {
+	generateConstructor(node: IntrospectedConstructor, indentCount = 0): string[] {
 		const Parameters = this.generateParameters(node.parameters);
+		const indent = generateIndent(indentCount);
 
-		return [`constructor(${Parameters});`];
+		return [`${indent}constructor(${Parameters});`];
 	}
-	generateDirectAllocationConstructor(node: IntrospectedDirectAllocationConstructor): string[] {
-		const ConstructorFields = node.parameters.map((param) => param.asField().asString(this)).join("\n");
+	generateDirectAllocationConstructor(node: IntrospectedDirectAllocationConstructor, indentCount = 1): string[] {
+		const indent = generateIndent(indentCount);
+		const fieldIndent = generateIndent(indentCount + 1);
+		// `param.asField().asString(this)` already includes a trailing newline
+		// for some flavours of fields; strip leading whitespace per line and
+		// prepend the inner-block indent so the raw column-0 output lands at
+		// the right level inside `Partial<{ ... }>`.
+		const constructorFields = node.parameters
+			.flatMap((param) => param.asField().asString(this))
+			.flatMap((line) => line.split("\n"))
+			.map((line) => line.replace(/^\s+/, ""))
+			.filter((line) => line.length > 0)
+			.map((line) => `${fieldIndent}${line}`)
+			.join("\n");
 
-		return [
-			`
-    constructor(properties?: Partial<{
-      ${ConstructorFields}
-    }>);`,
-		];
+		return ["", `${indent}constructor(properties?: Partial<{`, constructorFields, `${indent}}>);`];
 	}
 	protected generateParameters(parameters: IntrospectedFunctionParameter[]): string {
 		return parameters
@@ -296,10 +304,11 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			.join(", ");
 	}
 
-	generateConstructorFunction(node: IntrospectedConstructor): string[] {
+	generateConstructorFunction(node: IntrospectedConstructor, indentCount = 0): string[] {
 		const { namespace, options } = this;
 
 		const Parameters = this.generateParameters(node.parameters);
+		const indent = generateIndent(indentCount);
 
 		const invalid = isInvalid(node.name);
 		const name = invalid ? `["${node.name}"]` : node.name;
@@ -307,9 +316,9 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		const genericTypes = this.generateGenericParameters(node.generics);
 
 		return [
-			`${warning ? `${warning}\n` : ""}`,
-			...this.addGirDocComment(node.doc),
-			`static ${name}${genericTypes}(${Parameters}): ${node
+			`${warning ? `${indent}${warning}\n` : ""}`,
+			...this.addGirDocComment(node.doc, [], indentCount),
+			`${indent}static ${name}${genericTypes}(${Parameters}): ${node
 				.return()
 				.resolve(namespace, options)
 				.rootPrint(namespace, options)};`,
@@ -615,7 +624,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 	generateFields(tsProps: IntrospectedField[], comment: string, indentCount = 0) {
 		const def: string[] = [];
 		for (const tsProp of tsProps) {
-			def.push(...this.generateField(tsProp));
+			def.push(...this.generateField(tsProp, indentCount));
 		}
 
 		if (def.length > 0) {
@@ -848,8 +857,8 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		return typeStr;
 	}
 
-	generateClassFunction(node: IntrospectedClassFunction): string[] {
-		return this.generateFunction(node);
+	generateClassFunction(node: IntrospectedClassFunction, indentCount = 0): string[] {
+		return this.generateFunction(node, indentCount);
 	}
 
 	generateFunction(
@@ -1308,17 +1317,19 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 	generateClassConstructors(girClass: IntrospectedClass | IntrospectedRecord | IntrospectedInterface, indentCount = 1) {
 		const def: string[] = [];
+		const indent = generateIndent(indentCount);
 
 		// Constructors
 		if (girClass.mainConstructor instanceof IntrospectedDirectAllocationConstructor)
-			def.push(...this.generateDirectAllocationConstructor(girClass.mainConstructor));
+			def.push(...this.generateDirectAllocationConstructor(girClass.mainConstructor, indentCount));
 		else if (girClass.mainConstructor instanceof IntrospectedConstructor)
-			def.push(...this.generateConstructor(girClass.mainConstructor));
+			def.push(...this.generateConstructor(girClass.mainConstructor, indentCount));
 		else if (
 			(girClass.namespace.namespace === "GObject" && girClass.name === "Object") ||
 			girClass.someParent((p: IntrospectedBaseClass) => p.namespace.namespace === "GObject" && p.name === "Object")
-		)
-			def.push(`\nconstructor(properties?: Partial<${girClass.name}.ConstructorProps>, ...args: any[]);\n`);
+		) {
+			def.push(`${indent}constructor(properties?: Partial<${girClass.name}.ConstructorProps>, ...args: any[]);`);
+		}
 
 		// Don't inject a constructor hook if a stricter index signature is set,
 		// as the types may not be compatible.
@@ -1329,12 +1340,12 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			(!girClass.__ts__indexSignature || girClass.__ts__indexSignature.includes("[key: string]: any"))
 		) {
 			// _init method
-			def.push("_init(...args: any[]): void;\n");
+			def.push(`${indent}_init(...args: any[]): void;`);
 		}
 
 		def.push(
 			...filterFunctionConflict(girClass.parent, girClass, girClass.constructors, []).flatMap((constructorFunction) =>
-				this.generateConstructorFunction(constructorFunction),
+				this.generateConstructorFunction(constructorFunction, indentCount),
 			),
 		);
 
@@ -1796,6 +1807,14 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 				const rawProperties = girClass.implementedProperties();
 				const rawMethods = girClass.implementedMethods(rawProperties);
 				const selfName = `${girClass.namespace.namespace}.${girClass.name}`;
+				const memberIndent = generateIndent(1);
+
+				// `asString` calls back into generateClassFunction / generateField
+				// with the default `indentCount = 0`, so the inherited-member
+				// lines come out at column 0. Prepend the class-body indent to
+				// every non-empty line before pushing.
+				const indentMember = (lines: string[]): string[] =>
+					lines.map((line) => (line.length === 0 ? line : `${memberIndent}${line}`));
 
 				// Group inherited properties by source interface
 				const propsBySource = groupBySource(rawProperties);
@@ -1808,7 +1827,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 							if (source !== selfName) {
 								injectInheritedTags(memberLines, source);
 							}
-							def.push(...memberLines);
+							def.push(...indentMember(memberLines));
 						}
 					}
 				}
@@ -1828,7 +1847,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 							if (source !== selfName) {
 								injectInheritedTags(memberLines, source);
 							}
-							def.push(...memberLines);
+							def.push(...indentMember(memberLines));
 						}
 					}
 				}

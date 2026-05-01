@@ -18,11 +18,18 @@ function getPackageVersion(): string {
 	if (typeof __TS_FOR_GIR_VERSION__ !== "undefined") {
 		return __TS_FOR_GIR_VERSION__;
 	}
-	const currentModulePath = fileURLToPath(import.meta.url);
-	const currentDir = dirname(currentModulePath);
-	const packageJsonPath = join(currentDir, "..", "package.json");
-	const content = readFileSync(packageJsonPath, "utf-8");
-	return (JSON.parse(content) as { version: string }).version;
+	// Dev mode reads the sibling package.json relative to this source file.
+	// Wrapped in try/catch so a bundle missing the __TS_FOR_GIR_VERSION__ define
+	// degrades to a fallback string instead of throwing at module load.
+	try {
+		const currentModulePath = fileURLToPath(import.meta.url);
+		const currentDir = dirname(currentModulePath);
+		const packageJsonPath = join(currentDir, "..", "package.json");
+		const content = readFileSync(packageJsonPath, "utf-8");
+		return (JSON.parse(content) as { version: string }).version;
+	} catch {
+		return "0.0.0-unknown";
+	}
 }
 
 export const APP_NAME = "ts-for-gir";

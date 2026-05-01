@@ -31,7 +31,7 @@
  * ```
  *
  */
-export function _promisify(proto: any, asyncFunc: string, finishFunc?: string): void
+export function _promisify(proto: any, asyncFunc: string, finishFunc?: string): void;
 
 /** Temporary Gio.File.prototype fix */
-export const _LocalFilePrototype: typeof File.prototype
+export const _LocalFilePrototype: typeof File.prototype;

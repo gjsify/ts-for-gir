@@ -273,20 +273,28 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 	generateClassCallback(node: IntrospectedClassCallback): string[] {
 		return this.generateCallback(node);
 	}
-	generateConstructor(node: IntrospectedConstructor): string[] {
+	generateConstructor(node: IntrospectedConstructor, indentCount = 0): string[] {
 		const Parameters = this.generateParameters(node.parameters);
+		const indent = generateIndent(indentCount);
 
-		return [`constructor(${Parameters});`];
+		return [`${indent}constructor(${Parameters});`];
 	}
-	generateDirectAllocationConstructor(node: IntrospectedDirectAllocationConstructor): string[] {
-		const ConstructorFields = node.parameters.map((param) => param.asField().asString(this)).join("\n");
+	generateDirectAllocationConstructor(node: IntrospectedDirectAllocationConstructor, indentCount = 1): string[] {
+		const indent = generateIndent(indentCount);
+		const fieldIndent = generateIndent(indentCount + 1);
+		// `param.asField().asString(this)` already includes a trailing newline
+		// for some flavours of fields; strip leading whitespace per line and
+		// prepend the inner-block indent so the raw column-0 output lands at
+		// the right level inside `Partial<{ ... }>`.
+		const constructorFields = node.parameters
+			.flatMap((param) => param.asField().asString(this))
+			.flatMap((line) => line.split("\n"))
+			.map((line) => line.replace(/^\s+/, ""))
+			.filter((line) => line.length > 0)
+			.map((line) => `${fieldIndent}${line}`)
+			.join("\n");
 
-		return [
-			`
-    constructor(properties?: Partial<{
-      ${ConstructorFields}
-    }>);`,
-		];
+		return ["", `${indent}constructor(properties?: Partial<{`, constructorFields, `${indent}}>);`];
 	}
 	protected generateParameters(parameters: IntrospectedFunctionParameter[]): string {
 		return parameters
@@ -296,24 +304,27 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			.join(", ");
 	}
 
-	generateConstructorFunction(node: IntrospectedConstructor): string[] {
+	generateConstructorFunction(node: IntrospectedConstructor, indentCount = 0): string[] {
 		const { namespace, options } = this;
 
 		const Parameters = this.generateParameters(node.parameters);
+		const indent = generateIndent(indentCount);
 
 		const invalid = isInvalid(node.name);
 		const name = invalid ? `["${node.name}"]` : node.name;
 		const warning = node.getWarning();
 		const genericTypes = this.generateGenericParameters(node.generics);
 
-		return [
-			`${warning ? `${warning}\n` : ""}`,
-			...this.addGirDocComment(node.doc),
-			`static ${name}${genericTypes}(${Parameters}): ${node
+		const lines: string[] = [];
+		if (warning) lines.push(`${indent}${warning}`);
+		lines.push(...this.addGirDocComment(node.doc, [], indentCount));
+		lines.push(
+			`${indent}static ${name}${genericTypes}(${Parameters}): ${node
 				.return()
 				.resolve(namespace, options)
 				.rootPrint(namespace, options)};`,
-		];
+		);
+		return lines;
 	}
 	generateRecord(node: IntrospectedRecord): string[] {
 		const structFor = node.structFor;
@@ -367,29 +378,32 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 				}),
 			);
 		const gtypeNamespace = namespace.namespace === "GObject" ? "" : "GObject.";
-		return [
-			`export interface ${node.name}Namespace {
-      ${isGObject ? `$gtype: ${gtypeNamespace}GType<${node.name}>;` : ""}
-      prototype: ${node.name};
-      ${staticFields.length > 0 ? staticFields.flatMap((sf) => sf.asString(this)).join("\n") : ""}
-      ${
-				staticFunctions.length > 0
-					? staticFunctions
-							.flatMap((sf) => {
-								// TODO: We're passing "node" as the parent, even though that isn't technically accurate.
-								return sf.asClassFunction(node).asString(this);
-							})
-							.join("\n")
-					: ""
-			}    
-      }`,
-		];
+		const bodyIndent = generateIndent(1);
+
+		const bodyLines: string[] = [];
+		if (isGObject) bodyLines.push(`${bodyIndent}$gtype: ${gtypeNamespace}GType<${node.name}>;`);
+		bodyLines.push(`${bodyIndent}prototype: ${node.name};`);
+		for (const sf of staticFields) {
+			for (const line of sf.asString(this)) {
+				if (line.length === 0) continue;
+				bodyLines.push(`${bodyIndent}${line.replace(/^\s+/, "")}`);
+			}
+		}
+		for (const sf of staticFunctions) {
+			// TODO: We're passing "node" as the parent, even though that isn't technically accurate.
+			for (const line of sf.asClassFunction(node).asString(this)) {
+				if (line.length === 0) continue;
+				bodyLines.push(`${bodyIndent}${line.replace(/^\s+/, "")}`);
+			}
+		}
+		return [`export interface ${node.name}Namespace {`, ...bodyLines, "}"];
 	}
 	generateInterfaceDeclaration(node: IntrospectedInterface): string[] {
 		return [
-			`\n\nexport const ${node.name}: ${node.name}Namespace & {
-        new (): ${node.name} // This allows \`obj instanceof ${node.name}\`
-    }\n`,
+			"",
+			`export const ${node.name}: ${node.name}Namespace & {`,
+			`    new (): ${node.name}; // This allows \`obj instanceof ${node.name}\``,
+			"};",
 		];
 	}
 	generateError(node: IntrospectedError): string[] {
@@ -595,14 +609,20 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		// the sound read type — users writing a raw bigint can convert via `Number(bigInt)`.
 		const typeStr = this.generateDirectedType(type, GirDirection.Out);
 
-		desc.push(`${indent}${commentOut}${staticStr}${readonly}${name}${affix}: ${typeStr}`);
+		desc.push(`${indent}${commentOut}${staticStr}${readonly}${name}${affix}: ${typeStr};`);
 		return desc;
 	}
 
 	generateProperties(tsProps: IntrospectedProperty[], comment: string, indentCount = 0) {
 		const def: string[] = [];
 		for (const tsProp of tsProps) {
-			def.push(...this.generateProperty(tsProp, false, indentCount));
+			const propLines = this.generateProperty(tsProp, false, indentCount);
+			if (propLines.length === 0) continue;
+			// Blank line BETWEEN entries (not trailing) so the section's last
+			// entry sits flush against the next section's `addInfoComment`
+			// leading blank, avoiding double-gaps between section headers.
+			if (def.length > 0) def.push("");
+			def.push(...propLines);
 		}
 
 		if (def.length > 0) {
@@ -615,7 +635,10 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 	generateFields(tsProps: IntrospectedField[], comment: string, indentCount = 0) {
 		const def: string[] = [];
 		for (const tsProp of tsProps) {
-			def.push(...this.generateField(tsProp));
+			const fieldLines = this.generateField(tsProp, indentCount);
+			if (fieldLines.length === 0) continue;
+			if (def.length > 0) def.push("");
+			def.push(...fieldLines);
 		}
 
 		if (def.length > 0) {
@@ -848,8 +871,8 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		return typeStr;
 	}
 
-	generateClassFunction(node: IntrospectedClassFunction): string[] {
-		return this.generateFunction(node);
+	generateClassFunction(node: IntrospectedClassFunction, indentCount = 0): string[] {
+		return this.generateFunction(node, indentCount);
 	}
 
 	generateFunction(
@@ -933,7 +956,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		def.push(
 			`${indent}${commentOut}${exportStr}${staticStr}${globalStr}${name}${genericStr}(${inParamsDef.join(
 				", ",
-			)})${retSep} ${returnType}`,
+			)})${retSep} ${returnType};`,
 		);
 
 		return def;
@@ -947,7 +970,10 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		const def: string[] = [];
 
 		for (const girFunction of tsFunctions) {
-			def.push(...this.generateFunction(girFunction, indentCount));
+			const fnLines = this.generateFunction(girFunction, indentCount);
+			if (fnLines.length === 0) continue;
+			if (def.length > 0) def.push("");
+			def.push(...fnLines);
 		}
 
 		if (def.length > 0) {
@@ -992,7 +1018,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		const interfaceHead = `${name}${genericParameters}`;
 
 		def.push(this.generateExport("interface", `${interfaceHead}`, "{", indentCount));
-		def.push(`${indentBody}(${inParamsDef.join(", ")}): ${returnTypeStr}`);
+		def.push(`${indentBody}(${inParamsDef.join(", ")}): ${returnTypeStr};`);
 		def.push(`${indent}}`);
 
 		return def;
@@ -1089,7 +1115,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		const ComputedName = generateMemberName(tsConst);
 		const typeStr = this.generateType(resolveDirectedType(tsConst.type, GirDirection.Out) ?? tsConst.type);
 
-		desc.push(`${indent}${exp}const ${ComputedName}: ${typeStr}`);
+		desc.push(`${indent}${exp}const ${ComputedName}: ${typeStr};`);
 		return desc;
 	}
 
@@ -1122,7 +1148,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 		const exp = !this.config.noNamespace ? "" : "export ";
 
-		desc.push(`${indent}${exp}type ${girAlias.name}${generics} = ${girAlias.type.print(this.namespace, this.config)}`);
+		desc.push(`${indent}${exp}type ${girAlias.name}${generics} = ${girAlias.type.print(this.namespace, this.config)};`);
 		return desc;
 	}
 
@@ -1183,13 +1209,15 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 		// START BODY
 
-		const ConstructorProps = filterConflicts(girClass.namespace, girClass, props, FilterBehavior.PRESERVE)
+		const memberIndent = generateIndent(indentCount + 1);
+		const constructorPropMembers = filterConflicts(girClass.namespace, girClass, props, FilterBehavior.PRESERVE)
 			.flatMap((v) => v.asString(this, true))
-			.join("\n    ");
+			.map((m) => `${memberIndent}${m}`)
+			.join("\n");
 
 		def.push(`${indent}${exp}interface ${constructPropInterfaceName}${genericTypes} ${ext} {`);
-		def.push(ConstructorProps);
-		def.push(`${indent}}`, "");
+		def.push(constructorPropMembers);
+		def.push(`${indent}}`);
 
 		// END BODY
 
@@ -1306,35 +1334,38 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 	generateClassConstructors(girClass: IntrospectedClass | IntrospectedRecord | IntrospectedInterface, indentCount = 1) {
 		const def: string[] = [];
+		const indent = generateIndent(indentCount);
 
 		// Constructors
 		if (girClass.mainConstructor instanceof IntrospectedDirectAllocationConstructor)
-			def.push(...this.generateDirectAllocationConstructor(girClass.mainConstructor));
+			def.push(...this.generateDirectAllocationConstructor(girClass.mainConstructor, indentCount));
 		else if (girClass.mainConstructor instanceof IntrospectedConstructor)
-			def.push(...this.generateConstructor(girClass.mainConstructor));
+			def.push(...this.generateConstructor(girClass.mainConstructor, indentCount));
 		else if (
 			(girClass.namespace.namespace === "GObject" && girClass.name === "Object") ||
 			girClass.someParent((p: IntrospectedBaseClass) => p.namespace.namespace === "GObject" && p.name === "Object")
-		)
-			def.push(`\nconstructor(properties?: Partial<${girClass.name}.ConstructorProps>, ...args: any[]);\n`);
+		) {
+			def.push(`${indent}constructor(properties?: Partial<${girClass.name}.ConstructorProps>, ...args: any[]);`);
+		}
 
 		// Don't inject a constructor hook if a stricter index signature is set,
 		// as the types may not be compatible.
 		//
 		// TODO: Don't hardcode string index signatures
-		if (
+		const hasInit =
 			girClass instanceof IntrospectedClass &&
-			(!girClass.__ts__indexSignature || girClass.__ts__indexSignature.includes("[key: string]: any"))
-		) {
-			// _init method
-			def.push("_init(...args: any[]): void;\n");
+			(!girClass.__ts__indexSignature || girClass.__ts__indexSignature.includes("[key: string]: any"));
+		if (hasInit) {
+			// Blank line between the GObject `constructor` and `_init` so the
+			// two declarations are visually distinct.
+			if (def.length > 0) def.push("");
+			def.push(`${indent}_init(...args: any[]): void;`);
 		}
 
-		def.push(
-			...filterFunctionConflict(girClass.parent, girClass, girClass.constructors, []).flatMap((constructorFunction) =>
-				this.generateConstructorFunction(constructorFunction),
-			),
-		);
+		for (const constructorFunction of filterFunctionConflict(girClass.parent, girClass, girClass.constructors, [])) {
+			if (def.length > 0) def.push("");
+			def.push(...this.generateConstructorFunction(constructorFunction, indentCount));
+		}
 
 		if (def.length) {
 			def.unshift(...addInfoComment("Constructors", indentCount));
@@ -1758,7 +1789,8 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 			// $gtype compatibility
 			const gtypeNamespace = this.namespace.namespace === "GObject" ? "" : "GObject.";
-			def.push(`static $gtype: ${gtypeNamespace}GType<${girClass.gtype}>;`);
+			const classBodyIndent = generateIndent(1);
+			def.push(`${classBodyIndent}static $gtype: ${gtypeNamespace}GType<${girClass.gtype}>;`);
 
 			if (girClass.__ts__indexSignature) {
 				def.push(`\n${girClass.__ts__indexSignature}\n`);
@@ -1793,6 +1825,14 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 				const rawProperties = girClass.implementedProperties();
 				const rawMethods = girClass.implementedMethods(rawProperties);
 				const selfName = `${girClass.namespace.namespace}.${girClass.name}`;
+				const memberIndent = generateIndent(1);
+
+				// `asString` calls back into generateClassFunction / generateField
+				// with the default `indentCount = 0`, so the inherited-member
+				// lines come out at column 0. Prepend the class-body indent to
+				// every non-empty line before pushing.
+				const indentMember = (lines: string[]): string[] =>
+					lines.map((line) => (line.length === 0 ? line : `${memberIndent}${line}`));
 
 				// Group inherited properties by source interface
 				const propsBySource = groupBySource(rawProperties);
@@ -1805,7 +1845,8 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 							if (source !== selfName) {
 								injectInheritedTags(memberLines, source);
 							}
-							def.push(...memberLines);
+							def.push("");
+							def.push(...indentMember(memberLines));
 						}
 					}
 				}
@@ -1825,7 +1866,8 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 							if (source !== selfName) {
 								injectInheritedTags(memberLines, source);
 							}
-							def.push(...memberLines);
+							def.push("");
+							def.push(...indentMember(memberLines));
 						}
 					}
 				}
@@ -1935,17 +1977,23 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 		if (girModule.members) {
 			for (const m of girModule.members.values()) {
-				out.push(
-					...(Array.isArray(m) ? m : [m])
-						.flatMap((m) => (m as IntrospectedNamespaceMember) ?? [])
-						.filter((m) => m.emit)
-						.flatMap((m) => m.asString(this as FormatGenerator<string[]>) ?? ""),
-				);
+				const memberLines = (Array.isArray(m) ? m : [m])
+					.flatMap((m) => (m as IntrospectedNamespaceMember) ?? [])
+					.filter((m) => m.emit)
+					.flatMap((m) => m.asString(this as FormatGenerator<string[]>) ?? "");
+				if (memberLines.length === 0) continue;
+				// Blank-line separator BETWEEN top-level namespace declarations
+				// (classes, interfaces, type aliases, constants) — placed before
+				// each entry except the first so we don't end with a trailing
+				// blank that compounds with `__name__`'s own leading spacing.
+				if (out.length > 0) out.push("");
+				out.push(...memberLines);
 			}
 		}
 
 		// Properties added to every GIRepositoryNamespace
 		// https://gitlab.gnome.org/GNOME/gjs/-/blob/master/gi/ns.cpp#L186-190
+		if (out.length > 0) out.push("");
 		out.push(
 			...this.generateConst(
 				new IntrospectedConstant({
@@ -1973,6 +2021,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 				}),
 				0,
 			),
+			"",
 			...this.generateConst(
 				new IntrospectedConstant({
 					doc: printGirDocComment(
@@ -2000,6 +2049,21 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 		// Add the override suffix after generating members
 		if (overrideSuffix) {
 			out.push("", overrideSuffix);
+		}
+
+		// Indent every line by 4 spaces when the body is wrapped in
+		// `export namespace X { … }` by the module template. Each entry in
+		// `out` may itself be a multi-line string (from a member's asString
+		// returning multiple joined lines), so split on `\n` per entry, prefix
+		// each non-empty line with the namespace-body indent, and rejoin.
+		if (!this.config.noNamespace) {
+			const indent = generateIndent(1);
+			for (let i = 0; i < out.length; i++) {
+				out[i] = out[i]
+					.split("\n")
+					.map((line) => (line.length === 0 ? line : `${indent}${line}`))
+					.join("\n");
+			}
 		}
 
 		return Promise.resolve(out);

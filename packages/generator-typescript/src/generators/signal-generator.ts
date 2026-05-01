@@ -44,7 +44,6 @@ export class SignalGenerator {
 		const indent = generateIndent(indentCount);
 
 		def.push(`${indent}// Signal signatures`);
-		def.push(`${indent}interface SignalSignatures`);
 
 		const parentSignatures: string[] = [];
 
@@ -85,13 +84,14 @@ export class SignalGenerator {
 
 		parentSignatures.push(...interfaceSignatures);
 
+		let signatureHead: string;
 		if (parentSignatures.length > 0) {
-			def.push(` extends ${parentSignatures.join(", ")} {`);
+			signatureHead = `${indent}interface SignalSignatures extends ${parentSignatures.join(", ")} {`;
 		} else {
 			const isGObjectObject = girClass.name === "Object" && girClass.namespace.namespace === "GObject";
 
 			if (isGObjectObject) {
-				def.push(" {");
+				signatureHead = `${indent}interface SignalSignatures {`;
 			} else {
 				const gobjectNamespace = this.namespace.assertInstalledImport("GObject");
 				const gobjectObjectClass = gobjectNamespace.assertClass("Object");
@@ -101,9 +101,10 @@ export class SignalGenerator {
 					?.print(this.namespace, this.config);
 
 				const fallbackRef = gobjectRef ? `${gobjectRef}.SignalSignatures` : "GObject.Object.SignalSignatures";
-				def.push(` extends ${fallbackRef} {`);
+				signatureHead = `${indent}interface SignalSignatures extends ${fallbackRef} {`;
 			}
 		}
+		def.push(signatureHead);
 
 		const allSignals = girClass.getAllSignals();
 
@@ -165,7 +166,6 @@ export class SignalGenerator {
 		});
 
 		def.push(`${indent}}`);
-		def.push("");
 
 		return def;
 	}
@@ -199,7 +199,6 @@ export class SignalGenerator {
 			`${indent} * @internal`,
 			`${indent} */`,
 			`${indent}$signals: ${girClass.name}.SignalSignatures;`,
-			"",
 		];
 	}
 
@@ -233,32 +232,40 @@ export class SignalGenerator {
 
 		const gobjectRef = this.namespace.namespace === "GObject" ? "" : "GObject.";
 
-		const methods: string[] = [];
+		const groups: string[][] = [];
 
 		if (allowedNames.has("connect")) {
-			methods.push(
+			groups.push([
 				SIGNAL_JSDOC,
 				`connect<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, callback: ${gobjectRef}SignalCallback<this, ${girClass.name}.SignalSignatures[K]>): number;`,
 				"connect(signal: string, callback: (...args: any[]) => any): number;",
-			);
+			]);
 		}
 
 		if (allowedNames.has("connect_after")) {
-			methods.push(
+			groups.push([
 				SIGNAL_JSDOC,
 				`connect_after<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, callback: ${gobjectRef}SignalCallback<this, ${girClass.name}.SignalSignatures[K]>): number;`,
 				"connect_after(signal: string, callback: (...args: any[]) => any): number;",
-			);
+			]);
 		}
 
 		if (allowedNames.has("emit")) {
-			methods.push(
+			groups.push([
 				SIGNAL_JSDOC,
 				`emit<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, ...args: ${gobjectRef}GjsParameters<${girClass.name}.SignalSignatures[K]> extends [any, ...infer Q] ? Q : never): void;`,
 				"emit(signal: string, ...args: any[]): void;",
-			);
+			]);
 		}
 
+		// Blank line between connect / connect_after / emit groups so the
+		// JSDoc + overload pair for each is visually distinct. Overloads
+		// inside a group stay tight (TS typically renders them adjacent).
+		const methods: string[] = [];
+		for (const group of groups) {
+			if (methods.length > 0) methods.push("");
+			methods.push(...group);
+		}
 		return methods;
 	}
 }

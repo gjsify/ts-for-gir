@@ -21,15 +21,15 @@
 export namespace Builder {
     interface ConstructorProps {
         /** Inline XML interface description. Calls `add_from_string` on construction. */
-        data?: string | Uint8Array
+        data?: string | Uint8Array;
         /** Path to a UI file. Calls `add_from_file` on construction. */
-        filename?: string
+        filename?: string;
         /** Resource path to a UI file. Calls `add_from_resource` on construction. */
-        resource?: string
+        resource?: string;
         /** Named signal callbacks resolved against `<signal>` `handler` attributes. */
-        callbacks?: Record<string, (...args: any[]) => any>
+        callbacks?: Record<string, (...args: any[]) => any>;
         /** Pre-existing objects exposed to the UI via {@link Builder.exposeObjects}. */
-        objects?: Record<string, GObject.Object>
+        objects?: Record<string, GObject.Object>;
     }
 }
 
@@ -40,5 +40,5 @@ export namespace Builder {
  * @see https://gitlab.gnome.org/GNOME/gjs/-/blob/master/modules/core/overrides/Gtk.js
  */
 export interface Builder {
-    exposeObjects(objects: Record<string, GObject.Object>): void
+    exposeObjects(objects: Record<string, GObject.Object>): void;
 }

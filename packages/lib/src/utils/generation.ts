@@ -37,7 +37,9 @@ export function addTSDocCommentLines(lines: string[], indentCount = 0): string[]
 }
 
 /**
- * Adds an info comment, is used for debugging the generated types
+ * Adds an info comment, is used for debugging the generated types.
+ * One blank line before the comment, one after — readers see a single
+ * blank-line separator on each side without a double-blank gap.
  */
 export function addInfoComment(comment?: string, indentCount = 0): string[] {
 	const def: string[] = [];
@@ -45,7 +47,6 @@ export function addInfoComment(comment?: string, indentCount = 0): string[] {
 	if (comment) {
 		def.push("");
 		def.push(`${indent}// ${comment}`);
-		def.push("");
 	}
 	return def;
 }
@@ -58,7 +59,8 @@ export function mergeDescs(descs: string[], comment?: string, indentCount = 1): 
 	const indent = generateIndent(indentCount);
 
 	for (const desc of descs) {
-		def.push(`${indent}${desc}`);
+		// Empty separator strings stay empty; only real content gets indented.
+		def.push(desc.length === 0 ? desc : `${indent}${desc}`);
 	}
 
 	if (def.length > 0) {

@@ -27,8 +27,8 @@ async function fetchJson(url: string): Promise<unknown> {
 		Accept: "application/vnd.github.v3+json",
 		"User-Agent": `ts-for-gir/${APP_VERSION}`,
 	};
-	const token = process.env["GITHUB_TOKEN"];
-	if (token) headers["Authorization"] = `token ${token}`;
+	const token = process.env.GITHUB_TOKEN;
+	if (token) headers.Authorization = `token ${token}`;
 
 	const response = await fetch(url, { headers });
 	if (!response.ok) {
@@ -86,7 +86,7 @@ const handler = async (args: SelfUpdateCommandArgs): Promise<void> => {
 		return;
 	}
 
-	const latestVersion = (release["tag_name"] as string).replace(/^v/, "");
+	const latestVersion = (release.tag_name as string).replace(/^v/, "");
 
 	if (latestVersion === APP_VERSION && !args.force) {
 		console.log(`Already up to date (v${APP_VERSION})`);
@@ -101,11 +101,11 @@ const handler = async (args: SelfUpdateCommandArgs): Promise<void> => {
 
 	console.log(`Updating to v${latestVersion}...`);
 
-	const assets = release["assets"] as Array<Record<string, string>>;
-	const asset = assets.find((a) => a["name"] === GJS_ASSET_NAME);
+	const assets = release.assets as Array<Record<string, string>>;
+	const asset = assets.find((a) => a.name === GJS_ASSET_NAME);
 	if (!asset) {
 		process.stderr.write(
-			`No GJS binary found in release ${release["tag_name"]}.\n` +
+			`No GJS binary found in release ${release.tag_name}.\n` +
 				"self-update requires the GJS bundle to be installed via install.js.\n" +
 				"For npm installations use: npm update -g @ts-for-gir/cli\n",
 		);
@@ -124,7 +124,7 @@ const handler = async (args: SelfUpdateCommandArgs): Promise<void> => {
 	}
 
 	try {
-		await downloadBinary(asset["browser_download_url"], currentPath);
+		await downloadBinary(asset.browser_download_url, currentPath);
 		console.log(`Successfully updated to v${latestVersion}`);
 	} catch (err) {
 		const msg = err instanceof Error ? err.message : String(err);

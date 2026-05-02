@@ -5,4 +5,3 @@ import { EMBEDDED_TEMPLATES } from "./generated/templates-bundle.ts";
 // requiring @ts-for-gir/templates to be present on the filesystem at runtime.
 // Long-term: revert to dynamic loading once gjsify supports require.resolve.
 TemplateEngine.registerEmbedded(EMBEDDED_TEMPLATES);
-

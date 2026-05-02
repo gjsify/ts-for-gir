@@ -32,8 +32,7 @@ const handler = async (args: ConfigFlags) => {
 	// typedoc is not bundled in the GJS binary
 	if (typeof __GJS_BUNDLE__ !== "undefined") {
 		process.stderr.write(
-			"The 'doc' command is not yet supported in the GJS bundle.\n" +
-				"Use Node.js instead: npx @ts-for-gir/cli doc\n",
+			"The 'doc' command is not yet supported in the GJS bundle.\n" + "Use Node.js instead: npx @ts-for-gir/cli doc\n",
 		);
 		process.exitCode = 1;
 		return;

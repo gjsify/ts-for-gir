@@ -19,12 +19,12 @@
  *  esbuild emits for @girs/glib-2.0) before any module body code runs.
  */
 
-import { readFileSync, chmodSync, mkdirSync, rmSync, readdirSync, existsSync } from "node:fs";
 import { execFileSync } from "node:child_process";
-import { join, dirname } from "node:path";
+import { chmodSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync } from "node:fs";
+import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { build, type Plugin } from "esbuild";
 import gjsifyPlugin from "@gjsify/esbuild-plugin-gjsify";
+import { build, type Plugin } from "esbuild";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const CLI_ROOT = join(__dirname, "..");
@@ -72,7 +72,7 @@ function resolveGjsifyPackage(pkgName: string, subPath?: string): string | null 
 		if (typeof exp === "string") rel = exp;
 		else if (typeof exp?.default === "string") rel = exp.default;
 		else if (typeof exp?.import === "string") rel = exp.import;
-		else if (typeof exp?.["module"] === "string") rel = exp["module"];
+		else if (typeof exp?.module === "string") rel = exp.module;
 		if (rel) return join(pkgRoot, rel);
 		return null;
 	}
@@ -92,47 +92,47 @@ function resolveGjsifyPackage(pkgName: string, subPath?: string): string | null 
 
 /** The built-in Node.js → @gjsify/* mapping from the gjsify plugin. */
 const NODE_TO_GJSIFY: Record<string, string> = {
-	"assert": "@gjsify/assert",
-	"async_hooks": "@gjsify/async_hooks",
-	"buffer": "@gjsify/buffer",
-	"child_process": "@gjsify/child_process",
-	"cluster": "@gjsify/cluster",
-	"console": "@gjsify/console",
-	"constants": "@gjsify/constants",
-	"crypto": "@gjsify/crypto",
-	"dgram": "@gjsify/dgram",
-	"diagnostics_channel": "@gjsify/diagnostics_channel",
-	"dns": "@gjsify/dns",
-	"domain": "@gjsify/domain",
-	"events": "@gjsify/events",
-	"fs": "@gjsify/fs",
+	assert: "@gjsify/assert",
+	async_hooks: "@gjsify/async_hooks",
+	buffer: "@gjsify/buffer",
+	child_process: "@gjsify/child_process",
+	cluster: "@gjsify/cluster",
+	console: "@gjsify/console",
+	constants: "@gjsify/constants",
+	crypto: "@gjsify/crypto",
+	dgram: "@gjsify/dgram",
+	diagnostics_channel: "@gjsify/diagnostics_channel",
+	dns: "@gjsify/dns",
+	domain: "@gjsify/domain",
+	events: "@gjsify/events",
+	fs: "@gjsify/fs",
 	"fs/promises": "@gjsify/fs/promises",
-	"http": "@gjsify/http",
-	"http2": "@gjsify/http2",
-	"https": "@gjsify/https",
-	"inspector": "@gjsify/inspector",
-	"module": "@gjsify/module",
-	"net": "@gjsify/net",
-	"os": "@gjsify/os",
-	"path": "@gjsify/path",
+	http: "@gjsify/http",
+	http2: "@gjsify/http2",
+	https: "@gjsify/https",
+	inspector: "@gjsify/inspector",
+	module: "@gjsify/module",
+	net: "@gjsify/net",
+	os: "@gjsify/os",
+	path: "@gjsify/path",
 	"path/posix": "@gjsify/path",
-	"perf_hooks": "@gjsify/perf_hooks",
-	"process": "@gjsify/process",
-	"querystring": "@gjsify/querystring",
-	"readline": "@gjsify/readline",
-	"stream": "@gjsify/stream",
-	"string_decoder": "@gjsify/string_decoder",
-	"sys": "@gjsify/sys",
-	"timers": "@gjsify/timers",
-	"tls": "@gjsify/tls",
-	"tty": "@gjsify/tty",
-	"url": "@gjsify/url",
-	"util": "@gjsify/util",
+	perf_hooks: "@gjsify/perf_hooks",
+	process: "@gjsify/process",
+	querystring: "@gjsify/querystring",
+	readline: "@gjsify/readline",
+	stream: "@gjsify/stream",
+	string_decoder: "@gjsify/string_decoder",
+	sys: "@gjsify/sys",
+	timers: "@gjsify/timers",
+	tls: "@gjsify/tls",
+	tty: "@gjsify/tty",
+	url: "@gjsify/url",
+	util: "@gjsify/util",
 	"util/types": "@gjsify/util/types",
-	"v8": "@gjsify/v8",
-	"vm": "@gjsify/vm",
-	"worker_threads": "@gjsify/worker_threads",
-	"zlib": "@gjsify/zlib",
+	v8: "@gjsify/v8",
+	vm: "@gjsify/vm",
+	worker_threads: "@gjsify/worker_threads",
+	zlib: "@gjsify/zlib",
 };
 
 function makePolyfillResolverPlugin(): Plugin {
@@ -280,7 +280,7 @@ try {
 		platform: "node",
 		format: "esm",
 		banner: {
-			js: "#!/usr/bin/env -S gjs -m\n" + PROCESS_BANNER,
+			js: `#!/usr/bin/env -S gjs -m\n${PROCESS_BANNER}`,
 		},
 		define: {
 			__TS_FOR_GIR_VERSION__: JSON.stringify(pkg.version),

@@ -8,8 +8,8 @@
  * Output:  packages/cli/src/generated/templates-bundle.ts
  */
 
-import { readFileSync, writeFileSync, readdirSync, statSync, mkdirSync } from "node:fs";
-import { join, relative, dirname } from "node:path";
+import { mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
+import { dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));

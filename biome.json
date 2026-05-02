@@ -39,7 +39,8 @@
 			"!**/*.cjs",
 			"!**/.*",
 			"!**/*.json",
-			"!json"
+			"!json",
+			"!**/src/generated"
 		]
 	}
 }

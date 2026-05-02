@@ -8,7 +8,8 @@
 	"bin": {
 		"cli": "bin/ts-for-gir",
 		"ts-for-gir": "bin/ts-for-gir",
-		"ts-for-gir-dev": "bin/ts-for-gir-dev"
+		"ts-for-gir-dev": "bin/ts-for-gir-dev",
+		"ts-for-gir-gjs": "bin/ts-for-gir-gjs"
 	},
 	"engines": {
 		"node": ">=18"
@@ -16,7 +17,9 @@
 	"scripts": {
 		"start": "node bin/ts-for-gir-dev",
 		"start:prod": "node bin/ts-for-gir",
-		"build": "node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings esbuild.ts && chmod +x bin/ts-for-gir-dev && chmod +x bin/ts-for-gir",
+		"bundle-templates": "node --experimental-strip-types --no-warnings scripts/bundle-templates.ts",
+		"build": "yarn bundle-templates && node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings esbuild.ts && chmod +x bin/ts-for-gir-dev && chmod +x bin/ts-for-gir",
+		"build:gjs": "yarn bundle-templates && node --experimental-strip-types --no-warnings scripts/build-gjs.ts",
 		"build:templates": "node scripts/process-templates.mjs",
 		"prepack": "node scripts/process-templates.mjs",
 		"check:types": "tsc --noEmit",
@@ -56,6 +59,23 @@
 	},
 	"devDependencies": {
 		"@gi.ts/parser": "workspace:^",
+		"@gjsify/async_hooks": "^0.2.0",
+		"@gjsify/buffer": "^0.2.0",
+		"@gjsify/child_process": "^0.2.0",
+		"@gjsify/cli": "^0.2.0",
+		"@gjsify/empty": "^0.2.0",
+		"@gjsify/esbuild-plugin-gjsify": "^0.2.0",
+		"@gjsify/events": "^0.2.0",
+		"@gjsify/fs": "^0.2.0",
+		"@gjsify/module": "^0.2.0",
+		"@gjsify/node-polyfills": "^0.2.0",
+		"@gjsify/os": "^0.2.0",
+		"@gjsify/path": "^0.2.0",
+		"@gjsify/process": "^0.2.0",
+		"@gjsify/readline": "^0.2.0",
+		"@gjsify/stream": "^0.2.0",
+		"@gjsify/url": "^0.2.0",
+		"@gjsify/util": "^0.2.0",
 		"@ts-for-gir/generator-base": "workspace:^",
 		"@ts-for-gir/generator-html-doc": "workspace:^",
 		"@ts-for-gir/generator-json": "workspace:^",

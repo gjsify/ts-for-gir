@@ -145,3 +145,10 @@ export interface AnalyzeCommandArgs {
 	/** Switch on/off the verbose mode */
 	verbose?: boolean;
 }
+
+export interface SelfUpdateCommandArgs {
+	/** Only check for a newer version, do not install */
+	check: boolean;
+	/** Force reinstall even if already on the latest version */
+	force: boolean;
+}

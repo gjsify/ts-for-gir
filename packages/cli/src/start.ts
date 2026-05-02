@@ -1,8 +1,11 @@
+// Must be first: registers embedded templates with TemplateEngine
+import "./init.ts";
+
 import { APP_NAME, APP_USAGE, APP_VERSION } from "@ts-for-gir/lib";
 import yargs, { type CommandModule } from "yargs";
 import { hideBin } from "yargs/helpers";
 
-import { analyze, copy, create, doc, generate, json, list } from "./commands/index.ts";
+import { analyze, copy, create, doc, generate, json, list, selfUpdate } from "./commands/index.ts";
 
 try {
 	await yargs(hideBin(process.argv))
@@ -24,6 +27,7 @@ try {
 		.command(list as unknown as CommandModule)
 		.command(copy as unknown as CommandModule)
 		.command(doc as unknown as CommandModule)
+		.command(selfUpdate as unknown as CommandModule)
 		.demandCommand(1)
 		.help()
 		.parseAsync();

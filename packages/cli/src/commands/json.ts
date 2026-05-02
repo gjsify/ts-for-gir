@@ -2,6 +2,8 @@
  * Everything you need for the `ts-for-gir json` command is located here
  */
 
+declare const __GJS_BUNDLE__: boolean | undefined;
+
 import { GeneratorType } from "@ts-for-gir/generator-base";
 import { APP_NAME, type ConfigFlags } from "@ts-for-gir/lib";
 import { generateOptions } from "../config.ts";
@@ -25,6 +27,15 @@ const examples: ReadonlyArray<[string, string?]> = [
 const builder = createBuilder<GenerateCommandArgs>(generateOptions, examples);
 
 const handler = async (args: ConfigFlags) => {
+	// typedoc-pipeline (used by JSON generator) is not bundled in the GJS binary
+	if (typeof __GJS_BUNDLE__ !== "undefined") {
+		process.stderr.write(
+			"The 'json' command is not yet supported in the GJS bundle.\n" +
+				"Use Node.js instead: npx @ts-for-gir/cli json\n",
+		);
+		process.exitCode = 1;
+		return;
+	}
 	await runGenerationCommand(args, {
 		generatorType: GeneratorType.JSON,
 		loggerName: "JsonCommand",

@@ -119,7 +119,16 @@ function walkAndSubstitute(rootDir: string, projectName: string): void {
 	}
 }
 
+declare const __GJS_BUNDLE__: boolean | undefined;
+
 const handler = async (args: ConfigFlags) => {
+	if (typeof __GJS_BUNDLE__ !== "undefined") {
+		process.stderr.write(
+			"The 'create' command is not yet supported in the GJS bundle.\nUse Node.js instead: npx @ts-for-gir/cli create ...\n",
+		);
+		process.exitCode = 1;
+		return;
+	}
 	const opts = args as unknown as CreateCommandArgs;
 	const log = new Logger(opts.verbose ?? false, "CreateCommand");
 

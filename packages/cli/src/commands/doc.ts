@@ -2,6 +2,8 @@
  * Everything you need for the `ts-for-gir doc` command is located here
  */
 
+declare const __GJS_BUNDLE__: boolean | undefined;
+
 import { GeneratorType } from "@ts-for-gir/generator-base";
 import { HtmlDocGenerator } from "@ts-for-gir/generator-html-doc";
 import { APP_NAME, type ConfigFlags, NSRegistry } from "@ts-for-gir/lib";
@@ -27,6 +29,15 @@ const examples: ReadonlyArray<[string, string?]> = [
 const builder = createBuilder<DocCommandArgs>(docOptions, examples);
 
 const handler = async (args: ConfigFlags) => {
+	// typedoc is not bundled in the GJS binary
+	if (typeof __GJS_BUNDLE__ !== "undefined") {
+		process.stderr.write(
+			"The 'doc' command is not yet supported in the GJS bundle.\n" +
+				"Use Node.js instead: npx @ts-for-gir/cli doc\n",
+		);
+		process.exitCode = 1;
+		return;
+	}
 	const config = getOptionsGeneration(await load(args));
 	if (config.merge) {
 		if (!config.jsonDir) {

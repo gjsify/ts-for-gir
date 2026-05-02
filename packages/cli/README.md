@@ -22,20 +22,44 @@ CLI tool to generate TypeScript type definitions and HTML documentation for GObj
 
 ## Getting started
 
-``` bash
+### Install (GJS — no Node.js required)
+
+```bash
+gjs -m https://raw.githubusercontent.com/gjsify/ts-for-gir/main/install.js
+```
+
+Installs `ts-for-gir` to `~/.local/bin/ts-for-gir`. Update later with:
+
+```bash
+ts-for-gir self-update
+```
+
+### Install (Node.js)
+
+```bash
 npx @ts-for-gir/cli --help
 ```
 
-> Alternatively you can also add @ts-for-gir/cli to your dependencies:
+> Alternatively add `@ts-for-gir/cli` to your dependencies:
 > ```bash
 > npm install --save-dev @ts-for-gir/cli
 > ```
 >
-> Or globally install it:
+> Or install globally:
 > ```bash
 > npm install -g @ts-for-gir/cli
 > ts-for-gir --help
 > ```
+
+### GJS bundle limitations
+
+The GJS bundle (`ts-for-gir-gjs`) does not include TypeDoc integration.
+The following commands are **not yet** available in the GJS bundle:
+
+- `ts-for-gir doc` — requires TypeDoc (Node.js)
+- `ts-for-gir json` — requires TypeDoc pipeline (Node.js)
+
+All other commands work fully: `generate`, `list`, `copy`, `create`, `analyze`, `self-update`.
 
 ```
 TypeScript type definition generator for GObject introspection GIR files

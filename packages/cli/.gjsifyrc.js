@@ -22,28 +22,6 @@ export default {
 			__GJS_BUNDLE__: "true",
 		},
 		nodePaths,
-		// Install a minimal synchronous `process` global before any bundled code runs.
-		// Needed because top-level code in bundled deps (glob, path-scurry) accesses
-		// `globalThis.process.platform` before any module-level init functions fire.
-		// The full @gjsify/process polyfill is wired up later in init.ts.
-		banner: {
-			js: [
-				"if(typeof globalThis.process===\"undefined\"){",
-				"  const _sys=imports.system,_GLib=imports.gi.GLib;",
-				"  globalThis.process={",
-				"    platform:\"linux\",arch:\"x64\",version:\"v18.0.0\",",
-				"    env:{},argv:[\"gjs\"],versions:{node:\"18.0.0\"},config:{},",
-				"    cwd(){return _GLib.get_current_dir()||_sys?.programInvocationName?.[0]?.replace(/\\/[^/]*$/,\"\")||\"/\";},",
-				"    exit(c){_sys.exit(c??0);},",
-				"    stderr:{write(s){printerr(s);}},",
-				"    stdout:{write(s){print(s);}},",
-				"    stdin:null,pid:_sys.version??0,ppid:0,",
-				"    nextTick(fn,...a){Promise.resolve().then(()=>fn(...a));},",
-				"    hrtime:(t)=>t?[0,0]:[0,0],",
-				"  };",
-				"}",
-			].join(""),
-		},
 	},
 	typescript: {
 		// Disable Deepkit reflection — it transforms `extends()` methods into

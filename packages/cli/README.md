@@ -65,8 +65,12 @@ The only command not supported on GJS:
 
 - `ts-for-gir doc` — TypeDoc's HTML renderer uses
   [shiki](https://shiki.matsu.io/) for syntax highlighting, which
-  requires WebAssembly Promise APIs that GJS / SpiderMonkey 128
-  doesn't yet ship. Use the Node.js bundle for HTML output.
+  loads the [oniguruma](https://github.com/kkos/oniguruma) regex engine
+  via `WebAssembly.compile(...)`. GJS 1.88 (SpiderMonkey 140) exposes
+  the WebAssembly object but throws _"WebAssembly Promise APIs not
+  supported in this runtime"_ at the first compile call — a known
+  upstream GJS limitation. Use the Node.js bundle for HTML output
+  until the gap is closed upstream.
 
 ```
 TypeScript type definition generator for GObject introspection GIR files

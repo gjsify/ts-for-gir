@@ -29,12 +29,19 @@ const examples: ReadonlyArray<[string, string?]> = [
 const builder = createBuilder<DocCommandArgs>(docOptions, examples);
 
 const handler = async (args: ConfigFlags) => {
-	// HTML generation uses TypeDoc's shiki syntax highlighter which requires
-	// WebAssembly Promise APIs. GJS / SpiderMonkey 128 does not support WASM,
-	// so HTML output cannot run in the GJS bundle. Use Node for `doc`.
+	// HTML generation uses TypeDoc's shiki syntax highlighter which compiles
+	// the oniguruma regex engine via `WebAssembly.compile(...)`. GJS 1.88.0
+	// (SpiderMonkey 140) exposes `WebAssembly.compile` / `WebAssembly.instantiate`
+	// as functions but the runtime throws `Error: WebAssembly Promise APIs not
+	// supported in this runtime.` at the first call — a known upstream GJS gap.
+	// Track at https://gitlab.gnome.org/GNOME/gjs/-/issues — once GJS ships the
+	// Promise-based WASM APIs, this bail can be removed.
 	if (typeof __GJS_BUNDLE__ !== "undefined") {
 		process.stderr.write(
-			"The 'doc' command is not supported in the GJS bundle (shiki / WebAssembly).\n" +
+			"The 'doc' command is not supported in the GJS bundle.\n" +
+				"TypeDoc's shiki highlighter calls WebAssembly.compile() to load\n" +
+				"the oniguruma regex engine — GJS 1.88 throws 'WebAssembly Promise\n" +
+				"APIs not supported in this runtime.'\n" +
 				"Use Node.js instead: npx @ts-for-gir/cli doc\n",
 		);
 		process.exit(1);

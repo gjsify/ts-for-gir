@@ -102,13 +102,14 @@ describe('ts-for-gir GJS bundle E2E', { timeout: 10 * 60 * 1000 }, () => {
     assert.ok(existsSync(join(outdir, 'gtk-4.0.d.ts')), 'Expected gtk-4.0.d.ts to be generated');
   });
 
-  it('doc command bails with WASM-specific message', () => {
-    // TypeDoc HTML generation needs shiki/WebAssembly which GJS lacks.
+  it('doc command bails with WebAssembly Promise API message', () => {
+    // TypeDoc HTML generation calls shiki → WebAssembly.compile(oniguruma).
+    // GJS 1.88 (SM 140) throws "WebAssembly Promise APIs not supported".
     const result = runGjs(['doc', '--girDirectories', GIRS_DIR]);
     assert.ok(result.error, 'Expected doc command to fail in GJS bundle');
     assert.ok(
-      result.stderr.includes('shiki') || result.stderr.includes('WebAssembly'),
-      `Expected WASM/shiki bail message, got: ${result.stderr}`
+      result.stderr.includes('WebAssembly') || result.stderr.includes('shiki'),
+      `Expected WebAssembly bail message, got: ${result.stderr}`
     );
   });
 

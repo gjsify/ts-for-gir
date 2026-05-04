@@ -1,30 +1,33 @@
 /**
  * GJS bundle build script.
  *
- * Yarn PnP stores packages in zip files, and esbuild's build.resolve() goes
- * through PnP (which blocks transitive @gjsify/* access in strict mode).
+ * Yarn PnP stores packages in zip files, and esbuild's Go file resolver does
+ * not read through PnP zip archives.
  *
  * Strategy:
- *  1. Extract all @gjsify-* zip files from the PnP cache to a temp dir.
+ *  1. Extract all @gjsify-* and @girs-* zip files from the PnP cache to a
+ *     temp dir so esbuild can read them from disk.
  *  2. Register a custom esbuild plugin (runs BEFORE gjsify) that intercepts
- *     @gjsify/* and node:* resolution and returns the extracted paths directly,
- *     bypassing PnP entirely.
- *  3. Run the gjsify plugin with reflection disabled.
+ *     @gjsify/*, @girs/*, and node:* resolution and returns the extracted
+ *     paths directly, bypassing PnP entirely.
+ *  3. Run detectAutoGlobals to iteratively detect free globals (URL,
+ *     URLSearchParams, etc.) and produce an inject stub.
+ *  4. Run the final gjsify build with the detected globals inject stub.
  *
- * process global:
- *  @gjsify/process ends up in a lazy __esm block and is never called before
- *  module-level code (e.g. from glob) accesses `process`.  We therefore put a
- *  minimal synchronous process stub directly in the banner.  GLib is available
- *  as a live ESM binding (from the static `import GLib from "gi://GLib"` that
- *  esbuild emits for @girs/glib-2.0) before any module body code runs.
+ * @gjsify/esbuild-plugin-gjsify v0.3.0 automatically injects a synchronous
+ * process stub (GJS_PROCESS_STUB) as the bundle banner, so no manual banner
+ * is needed here.  The shebang is prepended to the output file post-build so
+ * it remains the very first line (the plugin prepends its stub before any
+ * user-supplied banner text).
  */
 
 import { execFileSync } from "node:child_process";
-import { chmodSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync } from "node:fs";
+import { chmodSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import gjsifyPlugin from "@gjsify/esbuild-plugin-gjsify";
-import { build, type Plugin } from "esbuild";
+import { detectAutoGlobals, resolveGlobalsList, writeRegisterInjectFile } from "@gjsify/esbuild-plugin-gjsify/globals";
+import { type BuildOptions, build, type Plugin } from "esbuild";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const CLI_ROOT = join(__dirname, "..");
@@ -184,143 +187,88 @@ function makePolyfillResolverPlugin(): Plugin {
 	};
 }
 
-/**
- * Minimal synchronous process stub for the banner.
- *
- * @gjsify/process ends up in a lazy __esm block; module-level code from deps
- * like `glob` accesses `process.platform` before any lazy init runs.  We set
- * up a lightweight stub here so those accesses succeed.  GLib is already a
- * live ESM binding (from the static gi:// import esbuild generates) before any
- * module body code executes.
- */
-const PROCESS_BANNER = `\
-if (typeof globalThis.URL === "undefined") {
-  globalThis.URL = class URL {
-    constructor(input, base) { this.href = String(input); }
-    toString() { return this.href; }
-    toJSON() { return this.href; }
-  };
-}
-if (typeof globalThis.URLSearchParams === "undefined") {
-  globalThis.URLSearchParams = class URLSearchParams {
-    constructor(init) {
-      this._e = [];
-      if (typeof init === "string") {
-        var s = init.startsWith("?") ? init.slice(1) : init;
-        s.split("&").forEach(function(p) {
-          if (!p) return;
-          var i = p.indexOf("=");
-          this._e.push([decodeURIComponent(i < 0 ? p : p.slice(0, i)), decodeURIComponent(i < 0 ? "" : p.slice(i + 1))]);
-        }.bind(this));
-      }
-    }
-    get(k) { var e = this._e.find(function(x){return x[0]===k;}); return e ? e[1] : null; }
-    has(k) { return this._e.some(function(x){return x[0]===k;}); }
-    set(k, v) { var i = this._e.findIndex(function(x){return x[0]===k;}); if(i>=0) this._e[i][1]=v; else this._e.push([k,v]); }
-    append(k, v) { this._e.push([k,v]); }
-    toString() { return this._e.map(function(e){return encodeURIComponent(e[0])+"="+encodeURIComponent(e[1]);}).join("&"); }
-    entries() { return this._e[Symbol.iterator](); }
-    [Symbol.iterator]() { return this._e[Symbol.iterator](); }
-  };
-}
-if (typeof globalThis.process === "undefined") {
-  var __gjsify_proc_env__ = new Proxy({}, {
-    get: function(_, k) { return GLib.getenv(String(k)) ?? undefined; },
-    has: function(_, k) { return GLib.getenv(String(k)) !== null; },
-    ownKeys: function() { return GLib.listenv() || []; },
-    getOwnPropertyDescriptor: function(_, k) {
-      var v = GLib.getenv(String(k));
-      return v !== null ? { value: v, writable: true, enumerable: true, configurable: true } : undefined;
-    }
-  });
-  var __gjsify_proc_cols__ = parseInt(GLib.getenv("COLUMNS") || "0") || 80;
-  var __gjsify_proc_stdout__ = {
-    columns: __gjsify_proc_cols__, isTTY: false,
-    write: function(s) {
-      var lines = String(s).split("\\n");
-      for (var i = 0; i < lines.length - 1; i++) { print(lines[i]); }
-      if (lines[lines.length - 1]) { print(lines[lines.length - 1]); }
-    }
-  };
-  var __gjsify_proc_stderr__ = {
-    columns: __gjsify_proc_cols__, isTTY: false,
-    write: function(s) {
-      var lines = String(s).split("\\n");
-      for (var i = 0; i < lines.length - 1; i++) { printerr(lines[i]); }
-      if (lines[lines.length - 1]) { printerr(lines[lines.length - 1]); }
-    }
-  };
-  globalThis.process = {
-    platform: "linux",
-    cwd: function() { return GLib.get_current_dir(); },
-    chdir: function(d) { GLib.chdir(d); },
-    env: __gjsify_proc_env__,
-    argv: ["/usr/bin/gjs", import.meta.url ? import.meta.url.replace("file://", "") : "/ts-for-gir-gjs"].concat(typeof ARGV !== "undefined" ? Array.from(ARGV) : []),
-    exit: function(code) {
-      try { globalThis.imports.system.exit(typeof code === "number" ? code : 0); } catch (_) {}
-    },
-    exitCode: 0,
-    pid: 0,
-    version: "v22.0.0",
-    versions: {},
-    execPath: "/usr/bin/gjs",
-    nextTick: function(fn) { var a = Array.prototype.slice.call(arguments, 1); Promise.resolve().then(function() { fn.apply(null, a); }); },
-    stdout: __gjsify_proc_stdout__,
-    stderr: __gjsify_proc_stderr__
-  };
-}`;
+const OUTFILE = join(CLI_ROOT, "bin", "ts-for-gir-gjs");
+
+const pluginOptions = {
+	app: "gjs" as const,
+	reflection: false,
+	aliases: {
+		typedoc: join(CLI_ROOT, "src", "stubs", "typedoc-stub.ts"),
+		"@ts-for-gir/typedoc-theme": join(CLI_ROOT, "src", "stubs", "typedoc-stub.ts"),
+	},
+};
+
+// Base esbuild options shared by analysis and final build.
+// makePolyfillResolverPlugin() is included so detectAutoGlobals analysis
+// passes can resolve @gjsify/* packages stored in Yarn PnP zip archives.
+const esbuildBaseOptions: BuildOptions = {
+	entryPoints: [join(CLI_ROOT, "src", "start.ts")],
+	outfile: OUTFILE,
+	bundle: true,
+	platform: "node",
+	format: "esm",
+	define: {
+		__TS_FOR_GIR_VERSION__: JSON.stringify(pkg.version),
+		__GJS_BUNDLE__: "true",
+		process: "globalThis.process",
+	},
+	alias: {
+		typedoc: join(CLI_ROOT, "src", "stubs", "typedoc-stub.ts"),
+		"@ts-for-gir/typedoc-theme": join(CLI_ROOT, "src", "stubs", "typedoc-stub.ts"),
+		"@inquirer/prompts": join(CLI_ROOT, "src", "stubs", "inquirer-stub.ts"),
+		inquirer: join(CLI_ROOT, "src", "stubs", "inquirer-stub.ts"),
+		"@inquirer/checkbox": join(CLI_ROOT, "src", "stubs", "inquirer-stub.ts"),
+		"@inquirer/confirm": join(CLI_ROOT, "src", "stubs", "inquirer-stub.ts"),
+		"@inquirer/core": join(CLI_ROOT, "src", "stubs", "inquirer-stub.ts"),
+		"@inquirer/editor": join(CLI_ROOT, "src", "stubs", "inquirer-stub.ts"),
+		"@inquirer/expand": join(CLI_ROOT, "src", "stubs", "inquirer-stub.ts"),
+		"@inquirer/input": join(CLI_ROOT, "src", "stubs", "inquirer-stub.ts"),
+		"@inquirer/number": join(CLI_ROOT, "src", "stubs", "inquirer-stub.ts"),
+		"@inquirer/password": join(CLI_ROOT, "src", "stubs", "inquirer-stub.ts"),
+		"@inquirer/rawlist": join(CLI_ROOT, "src", "stubs", "inquirer-stub.ts"),
+		"@inquirer/search": join(CLI_ROOT, "src", "stubs", "inquirer-stub.ts"),
+		"@inquirer/select": join(CLI_ROOT, "src", "stubs", "inquirer-stub.ts"),
+	},
+	plugins: [makePolyfillResolverPlugin()],
+};
 
 extractGjsifyPolyfills();
 
 try {
+	// Iteratively detect free globals (URL, URLSearchParams, etc.) so
+	// the gjsify plugin can inject the corresponding register modules.
+	// makePolyfillResolverPlugin() in esbuildBaseOptions.plugins is preserved
+	// by detectAutoGlobals (v0.3.1+) across all analysis passes.
+	const { detected } = await detectAutoGlobals(esbuildBaseOptions, pluginOptions);
+
+	// ts-for-gir is a file-processing CLI — it has no need for HTTP. The fetch/
+	// XMLHttpRequest globals appear as false positives from dead browser-compat
+	// code in npm dependencies. Injecting them would bundle @gjsify/fetch which
+	// imports gi://GjsifyHttpSoupBridge (custom Vala typelib, not in standard GJS).
+	const HTTP_GLOBALS = new Set(["fetch", "Headers", "Request", "Response", "XMLHttpRequest", "XMLHttpRequestUpload"]);
+	const filteredList = [...detected].filter((g) => !HTTP_GLOBALS.has(g)).join(",");
+	const registerPaths = resolveGlobalsList(filteredList);
+	const injectPath = (await writeRegisterInjectFile(registerPaths)) ?? undefined;
+
 	await build({
-		entryPoints: [join(CLI_ROOT, "src", "start.ts")],
-		outfile: join(CLI_ROOT, "bin", "ts-for-gir-gjs"),
-		bundle: true,
-		platform: "node",
-		format: "esm",
-		banner: {
-			js: `#!/usr/bin/env -S gjs -m\n${PROCESS_BANNER}`,
-		},
-		define: {
-			__TS_FOR_GIR_VERSION__: JSON.stringify(pkg.version),
-			__GJS_BUNDLE__: "true",
-			global: "globalThis",
-			window: "globalThis",
-			process: "globalThis.process",
-		},
-		alias: {
-			typedoc: join(CLI_ROOT, "src", "stubs", "typedoc-stub.ts"),
-			"@ts-for-gir/typedoc-theme": join(CLI_ROOT, "src", "stubs", "typedoc-stub.ts"),
-			"@inquirer/prompts": join(CLI_ROOT, "src", "stubs", "inquirer-stub.ts"),
-			inquirer: join(CLI_ROOT, "src", "stubs", "inquirer-stub.ts"),
-			"@inquirer/checkbox": join(CLI_ROOT, "src", "stubs", "inquirer-stub.ts"),
-			"@inquirer/confirm": join(CLI_ROOT, "src", "stubs", "inquirer-stub.ts"),
-			"@inquirer/core": join(CLI_ROOT, "src", "stubs", "inquirer-stub.ts"),
-			"@inquirer/editor": join(CLI_ROOT, "src", "stubs", "inquirer-stub.ts"),
-			"@inquirer/expand": join(CLI_ROOT, "src", "stubs", "inquirer-stub.ts"),
-			"@inquirer/input": join(CLI_ROOT, "src", "stubs", "inquirer-stub.ts"),
-			"@inquirer/number": join(CLI_ROOT, "src", "stubs", "inquirer-stub.ts"),
-			"@inquirer/password": join(CLI_ROOT, "src", "stubs", "inquirer-stub.ts"),
-			"@inquirer/rawlist": join(CLI_ROOT, "src", "stubs", "inquirer-stub.ts"),
-			"@inquirer/search": join(CLI_ROOT, "src", "stubs", "inquirer-stub.ts"),
-			"@inquirer/select": join(CLI_ROOT, "src", "stubs", "inquirer-stub.ts"),
-		},
+		...esbuildBaseOptions,
 		plugins: [
-			// Must run BEFORE the gjsify plugin so our resolver wins for @gjsify/* and node:* imports
 			makePolyfillResolverPlugin(),
 			gjsifyPlugin({
-				app: "gjs",
-				reflection: false,
-				aliases: {
-					typedoc: join(CLI_ROOT, "src", "stubs", "typedoc-stub.ts"),
-					"@ts-for-gir/typedoc-theme": join(CLI_ROOT, "src", "stubs", "typedoc-stub.ts"),
-				},
+				...pluginOptions,
+				autoGlobalsInject: injectPath,
 			}),
 		],
 	});
 
-	chmodSync(join(CLI_ROOT, "bin", "ts-for-gir-gjs"), 0o755);
+	// @gjsify/esbuild-plugin-gjsify v0.3.0 prepends its GJS_PROCESS_STUB before
+	// any user banner, so we add the shebang after the build to guarantee it
+	// stays on line 1 of the output file.
+	const content = readFileSync(OUTFILE, "utf-8");
+	if (!content.startsWith("#!")) {
+		writeFileSync(OUTFILE, `#!/usr/bin/env -S gjs -m\n${content}`);
+	}
+	chmodSync(OUTFILE, 0o755);
 	console.log("[build-gjs] GJS bundle written to bin/ts-for-gir-gjs");
 } finally {
 	rmSync(TMP_DIR, { recursive: true, force: true });

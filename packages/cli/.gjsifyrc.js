@@ -13,15 +13,11 @@ export default {
 			__GJS_BUNDLE__: "true",
 		},
 	},
-	typescript: {
-		// Disable Deepkit reflection — it transforms `extends()` methods into
-		// `function extends()` which is invalid JS and breaks esbuild's parser
-		reflection: false,
-	},
-	aliases: {},
-	globals: "auto",
-	// fetch/XHR appear as false positives from dead browser-compat code in npm deps.
-	// Their polyfills require gi://GjsifyHttpSoupBridge (custom Vala typelib).
+	// Tree-shaking can't drop these — they appear as `typeof fetch !== "undefined"`
+	// guards inside dead browser-compat fallbacks of npm deps (e.g. cosmiconfig,
+	// glob), so `--globals auto` detects them as free identifiers and would
+	// otherwise inject @gjsify/fetch + @gjsify/xmlhttprequest registers (~MB of
+	// libsoup-backed code) we never call. Exclude them to keep the bundle slim;
+	// the runtime never reaches the polyfilled code paths.
 	excludeGlobals: ["fetch", "Headers", "Request", "Response", "XMLHttpRequest", "XMLHttpRequestUpload"],
-	shebang: true,
 };

@@ -53,13 +53,20 @@ npx @ts-for-gir/cli --help
 
 ### GJS bundle limitations
 
-The GJS bundle (`ts-for-gir-gjs`) does not include TypeDoc integration.
-The following commands are **not yet** available in the GJS bundle:
+The GJS bundle (`ts-for-gir-gjs`) supports the full TypeScript /
+TypeDoc pipeline thanks to gjsify's runtime-relative `import.meta.url`
+rewrite. The following commands work natively on GJS:
 
-- `ts-for-gir doc` — requires TypeDoc (Node.js)
-- `ts-for-gir json` — requires TypeDoc pipeline (Node.js)
+- `ts-for-gir generate` — `.d.ts` generation
+- `ts-for-gir json` — TypeDoc-backed JSON export
+- `ts-for-gir list` / `copy` / `create` / `analyze` / `self-update`
 
-All other commands work fully: `generate`, `list`, `copy`, `create`, `analyze`, `self-update`.
+The only command not supported on GJS:
+
+- `ts-for-gir doc` — TypeDoc's HTML renderer uses
+  [shiki](https://shiki.matsu.io/) for syntax highlighting, which
+  requires WebAssembly Promise APIs that GJS / SpiderMonkey 128
+  doesn't yet ship. Use the Node.js bundle for HTML output.
 
 ```
 TypeScript type definition generator for GObject introspection GIR files

@@ -37,8 +37,7 @@ const handler = async (args: ConfigFlags) => {
 			"The 'doc' command is not supported in the GJS bundle (shiki / WebAssembly).\n" +
 				"Use Node.js instead: npx @ts-for-gir/cli doc\n",
 		);
-		process.exitCode = 1;
-		return;
+		process.exit(1);
 	}
 	const config = getOptionsGeneration(await load(args));
 	if (config.merge) {

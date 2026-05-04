@@ -102,22 +102,28 @@ describe('ts-for-gir GJS bundle E2E', { timeout: 10 * 60 * 1000 }, () => {
     assert.ok(existsSync(join(outdir, 'gtk-4.0.d.ts')), 'Expected gtk-4.0.d.ts to be generated');
   });
 
-  it('doc command fails with clear GJS bundle error', () => {
+  it('doc command bails with WASM-specific message', () => {
+    // TypeDoc HTML generation needs shiki/WebAssembly which GJS lacks.
     const result = runGjs(['doc', '--girDirectories', GIRS_DIR]);
     assert.ok(result.error, 'Expected doc command to fail in GJS bundle');
     assert.ok(
-      result.stderr.includes('not yet supported in the GJS bundle'),
-      `Expected GJS bundle error message, got: ${result.stderr}`
+      result.stderr.includes('shiki') || result.stderr.includes('WebAssembly'),
+      `Expected WASM/shiki bail message, got: ${result.stderr}`
     );
   });
 
-  it('json command fails with clear GJS bundle error', () => {
-    const result = runGjs(['json', '--girDirectories', GIRS_DIR]);
-    assert.ok(result.error, 'Expected json command to fail in GJS bundle');
-    assert.ok(
-      result.stderr.includes('not yet supported in the GJS bundle'),
-      `Expected GJS bundle error message, got: ${result.stderr}`
-    );
+  it('json GLib-2.0 generates valid JSON natively', () => {
+    const outdir = join(__dirname, 'tmp-json');
+    if (!existsSync(outdir)) mkdirSync(outdir, { recursive: true });
+    const result = runGjs([
+      'json',
+      'GLib-2.0',
+      '--girDirectories', GIRS_DIR,
+      '--outdir', outdir,
+    ]);
+    assert.ok(!result.error, `json failed: ${result.stderr}`);
+    const outFile = join(outdir, 'GLib-2.0.json');
+    assert.ok(existsSync(outFile), 'Expected GLib-2.0.json to be generated');
   });
 
   it('self-update --check reports version status', () => {

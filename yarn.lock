@@ -14069,10 +14069,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@gjsify/empty@npm:^0.3.0":
-  version: 0.3.0
-  resolution: "@gjsify/empty@npm:0.3.0"
-  checksum: 10/b960f1f3ad80c9c17b063eea3c8428bfe35bf0b12f41facb21207e7fb3bd4c1f0452347c1f85f7d419b37d79b70bcb0051f6c494054a45046138746e20665039
+"@gjsify/empty@npm:^0.3.4":
+  version: 0.3.4
+  resolution: "@gjsify/empty@npm:0.3.4"
+  checksum: 10/6d16a5ab25a529f3cc5cb3929bef8987166e095df89a4e1379b8af9a695549a179e11ea07c89661fe7fcb1c4a6524174dcb8ec7f0c651a0caedba6d031950c35
   languageName: node
   linkType: hard
 
@@ -18078,18 +18078,15 @@ __metadata:
     "@gjsify/compression-streams": "npm:^0.3.4"
     "@gjsify/dom-events": "npm:^0.3.4"
     "@gjsify/dom-exception": "npm:^0.3.4"
-    "@gjsify/empty": "npm:^0.3.0"
-    "@gjsify/fetch": "npm:^0.3.4"
+    "@gjsify/empty": "npm:^0.3.4"
     "@gjsify/fs": "npm:^0.3.4"
     "@gjsify/module": "npm:^0.3.4"
     "@gjsify/node-globals": "npm:^0.3.4"
-    "@gjsify/node-polyfills": "npm:^0.3.4"
     "@gjsify/os": "npm:^0.3.4"
     "@gjsify/path": "npm:^0.3.4"
     "@gjsify/url": "npm:^0.3.4"
     "@gjsify/util": "npm:^0.3.4"
     "@gjsify/web-globals": "npm:^0.3.4"
-    "@gjsify/web-polyfills": "npm:^0.3.4"
     "@gjsify/web-streams": "npm:^0.3.4"
     "@gjsify/webcrypto": "npm:^0.3.4"
     "@gjsify/zlib": "npm:^0.3.4"

@@ -139,6 +139,9 @@
 		},
 		"msgpackr-extract": {
 			"built": true
+		},
+		"typescript@6.0.3": {
+			"unplugged": true
 		}
 	},
 	"packageManager": "yarn@4.14.1"

@@ -29,10 +29,13 @@ const examples: ReadonlyArray<[string, string?]> = [
 const builder = createBuilder<DocCommandArgs>(docOptions, examples);
 
 const handler = async (args: ConfigFlags) => {
-	// typedoc is not bundled in the GJS binary
+	// HTML generation uses TypeDoc's shiki syntax highlighter which requires
+	// WebAssembly Promise APIs. GJS / SpiderMonkey 128 does not support WASM,
+	// so HTML output cannot run in the GJS bundle. Use Node for `doc`.
 	if (typeof __GJS_BUNDLE__ !== "undefined") {
 		process.stderr.write(
-			"The 'doc' command is not yet supported in the GJS bundle.\n" + "Use Node.js instead: npx @ts-for-gir/cli doc\n",
+			"The 'doc' command is not supported in the GJS bundle (shiki / WebAssembly).\n" +
+				"Use Node.js instead: npx @ts-for-gir/cli doc\n",
 		);
 		process.exitCode = 1;
 		return;

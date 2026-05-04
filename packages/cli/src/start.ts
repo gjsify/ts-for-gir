@@ -14,9 +14,11 @@ try {
 		.usage(APP_USAGE)
 		.version(APP_VERSION)
 		// Disable yargs's internal `process.exit` and route both success
-		// and failure through `parseAsync` + `process.exitCode` so async
-		// command handlers complete and stdout drains before the runtime
-		// (Node or the gjsify Node-compat loader on GJS) tears down.
+		// and failure through `parseAsync` + an explicit `process.exit` so
+		// async command handlers complete and stdout drains before the
+		// runtime (Node or the gjsify Node-compat loader on GJS, which
+		// keeps a GLib main loop alive that would otherwise prevent the
+		// process from exiting after main() returns) tears down.
 		.exitProcess(false)
 		.fail(false)
 		// TODO: Fix this
@@ -31,8 +33,9 @@ try {
 		.demandCommand(1)
 		.help()
 		.parseAsync();
+	process.exit(0);
 } catch (err) {
 	const message = err instanceof Error ? err.message : String(err);
 	process.stderr.write(`${message}\n`);
-	process.exitCode = 1;
+	process.exit(1);
 }

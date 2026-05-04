@@ -22,7 +22,7 @@
 		"build:gjs": "yarn bundle-templates && gjsify build src/start.ts --shebang",
 		"build:templates": "node scripts/process-templates.mjs",
 		"prepack": "node scripts/process-templates.mjs",
-		"check:types": "yarn bundle-templates && tsc --noEmit",
+		"check:types": "tsc --noEmit",
 		"check": "yarn check:types"
 	},
 	"repository": {

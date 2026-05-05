@@ -11,6 +11,23 @@
 		"ts-for-gir-dev": "bin/ts-for-gir-dev",
 		"ts-for-gir-gjs": "bin/ts-for-gir-gjs"
 	},
+	"gjsify": {
+		"bin": {
+			"ts-for-gir": "bin/ts-for-gir-gjs"
+		},
+		"shebang": true,
+		"esbuild": {
+			"outfile": "bin/ts-for-gir-gjs"
+		},
+		"excludeGlobals": [
+			"fetch",
+			"Headers",
+			"Request",
+			"Response",
+			"XMLHttpRequest",
+			"XMLHttpRequestUpload"
+		]
+	},
 	"engines": {
 		"node": ">=18"
 	},
@@ -19,7 +36,7 @@
 		"start:prod": "node bin/ts-for-gir",
 		"bundle-templates": "node --experimental-strip-types --no-warnings scripts/bundle-templates.ts",
 		"build": "yarn bundle-templates && node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings esbuild.ts && chmod +x bin/ts-for-gir-dev && chmod +x bin/ts-for-gir",
-		"build:gjs": "yarn bundle-templates && gjsify build src/start.ts",
+		"build:gjs": "yarn bundle-templates && node scripts/build-gjs.mjs",
 		"build:templates": "node scripts/process-templates.mjs",
 		"prepack": "node scripts/process-templates.mjs",
 		"check:types": "tsc --noEmit",
@@ -59,8 +76,8 @@
 	},
 	"devDependencies": {
 		"@gi.ts/parser": "workspace:^",
-		"@gjsify/cli": "^0.3.7",
-		"@gjsify/empty": "^0.3.7",
+		"@gjsify/cli": "^0.3.8",
+		"@gjsify/empty": "^0.3.8",
 		"@ts-for-gir/generator-base": "workspace:^",
 		"@ts-for-gir/generator-html-doc": "workspace:^",
 		"@ts-for-gir/generator-json": "workspace:^",

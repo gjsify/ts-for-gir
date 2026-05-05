@@ -13820,13 +13820,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@gjsify/empty@npm:^0.3.8":
-  version: 0.3.8
-  resolution: "@gjsify/empty@npm:0.3.8"
-  checksum: 10/adaf763afc008bb8b852383ceb5d1e2be904f8c4dd21acd888c6a0257c102afa31f96ec922da0b55f9c363268395a207627ec136b155d5826f94e98e7602b0fa
-  languageName: node
-  linkType: hard
-
 "@gjsify/esbuild-plugin-alias@npm:^0.3.8":
   version: 0.3.8
   resolution: "@gjsify/esbuild-plugin-alias@npm:0.3.8"
@@ -17788,7 +17781,6 @@ __metadata:
   dependencies:
     "@gi.ts/parser": "workspace:^"
     "@gjsify/cli": "npm:^0.3.8"
-    "@gjsify/empty": "npm:^0.3.8"
     "@inquirer/prompts": "npm:^8.4.2"
     "@ts-for-gir/generator-base": "workspace:^"
     "@ts-for-gir/generator-html-doc": "workspace:^"

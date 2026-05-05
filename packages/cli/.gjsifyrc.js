@@ -12,9 +12,9 @@ export default {
 			__TS_FOR_GIR_VERSION__: JSON.stringify(pkg.version),
 		},
 	},
-	// Prepend `#!/usr/bin/env -S gjs -m` and chmod +x. v0.3.5 (gjsify) made
-	// the `--shebang` CLI flag default `undefined` so config-file values are
-	// honoured; in v0.3.4 this had to be passed on the command line.
+	// Prepend `#!/usr/bin/env -S gjs -m` and chmod +x. gjsify v0.3.5+ honours
+	// this config-file value (the `--shebang` CLI-flag default was dropped so
+	// it no longer overrides the config).
 	shebang: true,
 	// Tree-shaking can't drop these — they appear as `typeof fetch !== "undefined"`
 	// guards inside dead browser-compat fallbacks of npm deps (e.g. cosmiconfig,

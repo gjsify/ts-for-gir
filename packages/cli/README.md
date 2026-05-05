@@ -65,7 +65,7 @@ rewrite. All non-interactive commands run natively on GJS:
   exposes the synchronous `WebAssembly.{Module,Instance}` constructors
   but ships the Promise APIs as stubs that throw on first call;
   [`@gjsify/webassembly`](https://www.npmjs.com/package/@gjsify/webassembly)
-  (gjsify v0.3.5+) wraps the synchronous constructors with
+  (gjsify v0.3.6+) wraps the synchronous constructors with
   `Promise.{resolve,reject}` so `compile`/`instantiate` resolve
   natively in the GJS bundle.
 - `ts-for-gir list` / `copy` / `analyze` / `self-update`

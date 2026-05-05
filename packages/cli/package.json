@@ -59,8 +59,8 @@
 	},
 	"devDependencies": {
 		"@gi.ts/parser": "workspace:^",
-		"@gjsify/cli": "^0.3.6",
-		"@gjsify/empty": "^0.3.6",
+		"@gjsify/cli": "^0.3.7",
+		"@gjsify/empty": "^0.3.7",
 		"@ts-for-gir/generator-base": "workspace:^",
 		"@ts-for-gir/generator-html-doc": "workspace:^",
 		"@ts-for-gir/generator-json": "workspace:^",

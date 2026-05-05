@@ -51,26 +51,29 @@ npx @ts-for-gir/cli --help
 > ts-for-gir --help
 > ```
 
-### GJS bundle limitations
+### GJS bundle
 
 The GJS bundle (`ts-for-gir-gjs`) supports the full TypeScript /
 TypeDoc pipeline thanks to gjsify's runtime-relative `import.meta.url`
-rewrite. The following commands work natively on GJS:
+rewrite. All non-interactive commands run natively on GJS:
 
 - `ts-for-gir generate` — `.d.ts` generation
 - `ts-for-gir json` — TypeDoc-backed JSON export
-- `ts-for-gir list` / `copy` / `create` / `analyze` / `self-update`
+- `ts-for-gir doc` — HTML documentation. TypeDoc's shiki highlighter
+  loads the [oniguruma](https://github.com/kkos/oniguruma) regex
+  engine via `WebAssembly.compile(...)`. GJS 1.88 (SpiderMonkey 140)
+  exposes the synchronous `WebAssembly.{Module,Instance}` constructors
+  but ships the Promise APIs as stubs that throw on first call;
+  [`@gjsify/webassembly`](https://www.npmjs.com/package/@gjsify/webassembly)
+  (gjsify v0.3.5+) wraps the synchronous constructors with
+  `Promise.{resolve,reject}` so `compile`/`instantiate` resolve
+  natively in the GJS bundle.
+- `ts-for-gir list` / `copy` / `analyze` / `self-update`
 
-The only command not supported on GJS:
-
-- `ts-for-gir doc` — TypeDoc's HTML renderer uses
-  [shiki](https://shiki.matsu.io/) for syntax highlighting, which
-  loads the [oniguruma](https://github.com/kkos/oniguruma) regex engine
-  via `WebAssembly.compile(...)`. GJS 1.88 (SpiderMonkey 140) exposes
-  the WebAssembly object but throws _"WebAssembly Promise APIs not
-  supported in this runtime"_ at the first compile call — a known
-  upstream GJS limitation. Use the Node.js bundle for HTML output
-  until the gap is closed upstream.
+The only command still gated on Node.js is `create` — its
+[`inquirer`](https://www.npmjs.com/package/inquirer)-based interactive
+prompt cannot run on GJS without a TTY-aware port. Use
+`npx @ts-for-gir/cli create ...` from a Node install for now.
 
 ```
 TypeScript type definition generator for GObject introspection GIR files

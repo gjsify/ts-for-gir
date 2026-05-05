@@ -102,15 +102,19 @@ describe('ts-for-gir GJS bundle E2E', { timeout: 10 * 60 * 1000 }, () => {
     assert.ok(existsSync(join(outdir, 'gtk-4.0.d.ts')), 'Expected gtk-4.0.d.ts to be generated');
   });
 
-  it('doc command bails with WebAssembly Promise API message', () => {
+  it('doc generates HTML documentation natively', () => {
     // TypeDoc HTML generation calls shiki → WebAssembly.compile(oniguruma).
-    // GJS 1.88 (SM 140) throws "WebAssembly Promise APIs not supported".
-    const result = runGjs(['doc', '--girDirectories', GIRS_DIR]);
-    assert.ok(result.error, 'Expected doc command to fail in GJS bundle');
-    assert.ok(
-      result.stderr.includes('WebAssembly') || result.stderr.includes('shiki'),
-      `Expected WebAssembly bail message, got: ${result.stderr}`
-    );
+    // GJS 1.88 (SM 140) lacks the WebAssembly Promise APIs natively, but
+    // @gjsify/webassembly (≥0.3.5) registers a polyfill backed by the
+    // synchronous `new WebAssembly.{Module,Instance}` constructors.
+    const outdir = join(tmpDir, 'docs');
+    const result = runGjs([
+      'doc', 'GLib-2.0',
+      '--girDirectories', GIRS_DIR,
+      '--outdir', outdir,
+    ]);
+    assert.ok(!result.error, `doc command failed: ${result.stderr}`);
+    assert.ok(existsSync(join(outdir, 'index.html')), 'Expected index.html in HTML output');
   });
 
   it('json GLib-2.0 generates valid JSON natively', () => {

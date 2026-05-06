@@ -5,3 +5,4 @@ export * from "./doc.ts";
 export * from "./generate.ts";
 export * from "./json.ts";
 export * from "./list.ts";
+export * from "./self-update.ts";

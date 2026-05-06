@@ -17,13 +17,13 @@ jobs:
     name: Publish App to NPM
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       id-token: write
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-    
+
     # This also setups a .npmrc file to publish to npm
     - name: Setup Node.js
       uses: actions/setup-node@v4
@@ -31,7 +31,7 @@ jobs:
         node-version: '24.x'
         registry-url: 'https://registry.npmjs.org'
         always-auth: true
-          
+
     - name: Configure Yarn for npm publishing
       run: |
         yarn config set npmRegistryServer "https://registry.npmjs.org"
@@ -39,19 +39,31 @@ jobs:
         yarn config set npmAuthToken "${NODE_AUTH_TOKEN}"
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
-        
+
     - name: Install yarn dependencies (CLI workspace only)
       run: yarn workspaces focus @ts-for-gir/cli
-      
-    - name: Build app
+
+    - name: Build Node.js app bundle
       run: yarn build:app
-        
+
+    - name: Build GJS bundle
+      run: yarn build:app:gjs
+
+    - name: Upload GJS bundle to GitHub Release
+      if: github.event_name == 'release'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        RELEASE_TAG="${{ github.event.release.tag_name }}"
+        gh release upload "$RELEASE_TAG" packages/cli/bin/ts-for-gir-gjs --clobber
+
     - name: Publish app packages to npm
       run: yarn publish:app
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
-        
+
     - name: Summary
       run: |
-        echo "✅ App packages successfully published to npm for release ${{ github.event.release.tag_name || github.event.inputs.release_tag || 'unknown' }}"
+        TAG="${{ github.event.release.tag_name || github.event.inputs.release_tag || 'unknown' }}"
+        echo "✅ App packages successfully published to npm for release $TAG"
         echo "Published packages: @ts-for-gir/* and @gi.ts/*"

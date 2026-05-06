@@ -22,6 +22,22 @@ Browse the full **[TypeScript API Documentation](https://gjsify.github.io/docs)*
 
 ## Getting Started
 
+### Install (GJS — no Node.js required)
+
+If you have GJS installed, download and run the installer:
+
+```bash
+gjs -m https://raw.githubusercontent.com/gjsify/ts-for-gir/main/install.js
+```
+
+This installs `ts-for-gir` to `~/.local/bin/ts-for-gir`. Update anytime with:
+
+```bash
+ts-for-gir self-update
+```
+
+### Install (Node.js / npx)
+
 Install the latest LTS version of Node.js — we recommend using [NVM](https://github.com/nvm-sh/nvm). The fastest path to a working GJS + TypeScript project:
 
 ```bash
@@ -44,16 +60,20 @@ npm start
 If you already have a project and just need type definitions, invoke `ts-for-gir` without scaffolding:
 
 ```bash
+# GJS (no Node.js required):
+ts-for-gir generate Gtk-4.0
+
+# Node.js / npx:
 npx @ts-for-gir/cli generate Gtk-4.0
 ```
 
-Run `npx @ts-for-gir/cli --help` for all commands. See the [CLI documentation](/packages/cli/README.md) for detailed options and advanced usage.
+Run `ts-for-gir --help` or `npx @ts-for-gir/cli --help` for all commands. See the [CLI documentation](/packages/cli/README.md) for detailed options and advanced usage.
 
 **Debug Generation Issues:**
 If you encounter type generation problems, enable the reporter and use the analyze command:
 ```bash
-npx @ts-for-gir/cli generate Gtk-4.0 --reporter
-npx @ts-for-gir/cli analyze -f ./ts-for-gir-report.json
+ts-for-gir generate Gtk-4.0 --reporter
+ts-for-gir analyze -f ./ts-for-gir-report.json
 ```
 
 ## Showcase

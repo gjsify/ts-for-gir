@@ -22,20 +22,58 @@ CLI tool to generate TypeScript type definitions and HTML documentation for GObj
 
 ## Getting started
 
-``` bash
+### Install (GJS — no Node.js required)
+
+```bash
+gjs -m https://raw.githubusercontent.com/gjsify/ts-for-gir/main/install.js
+```
+
+Installs `ts-for-gir` to `~/.local/bin/ts-for-gir`. Update later with:
+
+```bash
+ts-for-gir self-update
+```
+
+### Install (Node.js)
+
+```bash
 npx @ts-for-gir/cli --help
 ```
 
-> Alternatively you can also add @ts-for-gir/cli to your dependencies:
+> Alternatively add `@ts-for-gir/cli` to your dependencies:
 > ```bash
 > npm install --save-dev @ts-for-gir/cli
 > ```
 >
-> Or globally install it:
+> Or install globally:
 > ```bash
 > npm install -g @ts-for-gir/cli
 > ts-for-gir --help
 > ```
+
+### GJS bundle
+
+The GJS bundle (`ts-for-gir-gjs`) supports the full TypeScript /
+TypeDoc pipeline thanks to gjsify's runtime-relative `import.meta.url`
+rewrite. All non-interactive commands run natively on GJS:
+
+- `ts-for-gir generate` — `.d.ts` generation
+- `ts-for-gir json` — TypeDoc-backed JSON export
+- `ts-for-gir doc` — HTML documentation. TypeDoc's shiki highlighter
+  loads the [oniguruma](https://github.com/kkos/oniguruma) regex
+  engine via `WebAssembly.compile(...)`. GJS 1.88 (SpiderMonkey 140)
+  exposes the synchronous `WebAssembly.{Module,Instance}` constructors
+  but ships the Promise APIs as stubs that throw on first call;
+  [`@gjsify/webassembly`](https://www.npmjs.com/package/@gjsify/webassembly)
+  (gjsify v0.3.6+) wraps the synchronous constructors with
+  `Promise.{resolve,reject}` so `compile`/`instantiate` resolve
+  natively in the GJS bundle.
+- `ts-for-gir list` / `copy` / `analyze` / `self-update`
+
+The only command still gated on Node.js is `create` — its
+[`inquirer`](https://www.npmjs.com/package/inquirer)-based interactive
+prompt cannot run on GJS without a TTY-aware port. Use
+`npx @ts-for-gir/cli create ...` from a Node install for now.
 
 ```
 TypeScript type definition generator for GObject introspection GIR files

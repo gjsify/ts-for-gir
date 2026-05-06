@@ -1,6 +1,3 @@
-// Must be first: registers embedded templates with TemplateEngine
-import "./init.ts";
-
 import { APP_NAME, APP_USAGE, APP_VERSION } from "@ts-for-gir/lib";
 import yargs, { type CommandModule } from "yargs";
 import { hideBin } from "yargs/helpers";

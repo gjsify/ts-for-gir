@@ -13,17 +13,6 @@ const require = createRequire(import.meta.url);
  * This is a generic utility that can be used by different generators
  */
 export class TemplateEngine {
-	// Populated at startup by registerEmbedded(). Templates are read by names
-	// computed at runtime, so they cannot be inlined statically by the gjsify
-	// build-time `readFileSync` rewriter — they must be embedded as a map
-	// instead. Empty in dev mode, where `resolveTemplateDirectory()` finds the
-	// @ts-for-gir/templates package on the filesystem.
-	private static _embedded: Record<string, string> = {};
-
-	static registerEmbedded(templates: Record<string, string>): void {
-		TemplateEngine._embedded = templates;
-	}
-
 	protected log: Logger;
 	protected readonly templateDir: string;
 
@@ -33,8 +22,8 @@ export class TemplateEngine {
 	}
 
 	/**
-	 * Resolves the templates directory from the @ts-for-gir/templates package.
-	 * Used as filesystem fallback when no embedded templates are registered (dev mode).
+	 * Resolves the templates directory from the @ts-for-gir/templates package
+	 * Try require.resolve first, fallback to workspace path for development
 	 */
 	private resolveTemplateDirectory(): string {
 		try {
@@ -63,18 +52,9 @@ export class TemplateEngine {
 	}
 
 	/**
-	 * Checks if the template file or directory exists and returns the path if found.
-	 * Checks embedded templates first, then the filesystem.
+	 * Checks if the template file or directory exists and returns the path if found
 	 */
 	public async exists(templateFilename: string): Promise<string | null> {
-		const key = templateFilename.replace(/\\/g, "/");
-		if (key in TemplateEngine._embedded) {
-			return `__embedded__/${key}`;
-		}
-		// For directory lookups: check if any embedded key starts with "dir/"
-		if (Object.keys(TemplateEngine._embedded).some((k) => k.startsWith(`${key}/`))) {
-			return `__embedded__/${key}`;
-		}
 		const fullTemplatePath = join(this.templateDir, templateFilename);
 		if (await fileExists(fullTemplatePath)) {
 			return fullTemplatePath;
@@ -95,14 +75,9 @@ export class TemplateEngine {
 	}
 
 	/**
-	 * Reads a template file and gets the raw string back.
-	 * Returns from embedded templates if available, otherwise reads from filesystem.
+	 * Reads a template file from filesystem and gets the raw string back
 	 */
 	protected async read(templateFilename: string): Promise<string> {
-		const key = templateFilename.replace(/\\/g, "/");
-		if (key in TemplateEngine._embedded) {
-			return this.removeTypeScriptDirectives(TemplateEngine._embedded[key]);
-		}
 		const path = await this.exists(templateFilename);
 		if (path) {
 			const content = await readFile(path, "utf8");
@@ -112,22 +87,9 @@ export class TemplateEngine {
 	}
 
 	/**
-	 * Reads all template files from a directory and gets the raw strings back.
-	 * Returns from embedded templates if available, otherwise reads from filesystem.
+	 * Reads all template files from a directory and gets the raw strings back
 	 */
 	protected async readAll(templateDirname: string, fileExtension: string): Promise<{ [path: string]: string }> {
-		const prefix = templateDirname.replace(/\\/g, "/") + "/";
-		const embeddedKeys = Object.keys(TemplateEngine._embedded).filter(
-			(k) => k.startsWith(prefix) && k.endsWith(fileExtension),
-		);
-		if (embeddedKeys.length > 0) {
-			const results: { [path: string]: string } = {};
-			for (const key of embeddedKeys) {
-				const filename = key.slice(prefix.length);
-				results[filename] = this.removeTypeScriptDirectives(TemplateEngine._embedded[key]);
-			}
-			return results;
-		}
 		const path = await this.exists(templateDirname);
 		if (path) {
 			const files = (await readdir(path)).filter((file) => file.endsWith(fileExtension));

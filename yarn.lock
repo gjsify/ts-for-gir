@@ -23508,34 +23508,6 @@ __metadata:
     rimraf: "npm:^6.1.3"
     typescript: "npm:^6.0.3"
   dependenciesMeta:
-    "@gjsify/async_hooks@0.2.0":
-      unplugged: true
-    "@gjsify/buffer@0.2.0":
-      unplugged: true
-    "@gjsify/child_process@0.2.0":
-      unplugged: true
-    "@gjsify/events@0.2.0":
-      unplugged: true
-    "@gjsify/fs@0.2.0":
-      unplugged: true
-    "@gjsify/module@0.2.0":
-      unplugged: true
-    "@gjsify/node-polyfills@0.2.0":
-      unplugged: true
-    "@gjsify/os@0.2.0":
-      unplugged: true
-    "@gjsify/path@0.2.0":
-      unplugged: true
-    "@gjsify/process@0.2.0":
-      unplugged: true
-    "@gjsify/readline@0.2.0":
-      unplugged: true
-    "@gjsify/stream@0.2.0":
-      unplugged: true
-    "@gjsify/url@0.2.0":
-      unplugged: true
-    "@gjsify/util@0.2.0":
-      unplugged: true
     "@swc/core":
       built: true
     esbuild:

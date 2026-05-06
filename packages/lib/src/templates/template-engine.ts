@@ -13,8 +13,11 @@ const require = createRequire(import.meta.url);
  * This is a generic utility that can be used by different generators
  */
 export class TemplateEngine {
-	// Populated at startup by registerEmbedded() — avoids runtime require.resolve.
-	// Long-term: revert to dynamic loading once gjsify supports require.resolve.
+	// Populated at startup by registerEmbedded(). Templates are read by names
+	// computed at runtime, so they cannot be inlined statically by the gjsify
+	// build-time `readFileSync` rewriter — they must be embedded as a map
+	// instead. Empty in dev mode, where `resolveTemplateDirectory()` finds the
+	// @ts-for-gir/templates package on the filesystem.
 	private static _embedded: Record<string, string> = {};
 
 	static registerEmbedded(templates: Record<string, string>): void {

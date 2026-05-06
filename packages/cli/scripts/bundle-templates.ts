@@ -1,8 +1,17 @@
 #!/usr/bin/env node
 /**
- * Reads all files from @ts-for-gir/templates and writes them as an embedded
- * TypeScript module. Both the Node.js bundle and the GJS bundle import this
- * module so that neither needs to resolve the templates package at runtime.
+ * Reads every EJS template from @ts-for-gir/templates and emits a single
+ * TypeScript module that exports them as a `Record<string, string>` keyed by
+ * the template's path relative to the templates dir.
+ *
+ * Why not load them dynamically? `TemplateEngine.read()` looks up template
+ * names computed at runtime (e.g. "class.d.ts", "interface.d.ts"), so the
+ * paths are never statically resolvable. The gjsify build-time
+ * `readFileSync(new URL(…, import.meta.url))` inliner only handles paths it
+ * can resolve at build time, and Yarn PnP zip caches break the legacy
+ * `import.meta.url` URL-rewrite fallback at runtime. Embedding the contents
+ * up-front is the only approach that works for both layouts (PnP zip cache
+ * and unzipped node_modules) and for both bundles (Node.js + GJS).
  *
  * Run via: yarn bundle-templates
  * Output:  packages/cli/src/generated/templates-bundle.ts

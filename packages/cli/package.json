@@ -16,14 +16,12 @@
 			"ts-for-gir": "bin/ts-for-gir-gjs"
 		},
 		"shebang": true,
-		"esbuild": {
-			"outfile": "bin/ts-for-gir-gjs"
+		"bundler": {
+			"output": {
+				"file": "bin/ts-for-gir-gjs"
+			}
 		},
 		"excludeGlobals": [
-			"fetch",
-			"Headers",
-			"Request",
-			"Response",
 			"XMLHttpRequest",
 			"XMLHttpRequestUpload"
 		]
@@ -75,7 +73,7 @@
 	},
 	"devDependencies": {
 		"@gi.ts/parser": "workspace:^",
-		"@gjsify/cli": "^0.3.13",
+		"@gjsify/cli": "^0.3.14",
 		"@ts-for-gir/generator-base": "workspace:^",
 		"@ts-for-gir/generator-html-doc": "workspace:^",
 		"@ts-for-gir/generator-json": "workspace:^",

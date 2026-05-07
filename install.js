@@ -3,7 +3,8 @@
  * ts-for-gir installer / updater for GJS
  *
  * Usage:
- *   gjs -m install.js
+ *   gjs -m install.js               # install or update
+ *   gjs -m install.js --force       # reinstall even if already up to date
  *   # or, if the shebang is supported:
  *   ./install.js
  *
@@ -14,7 +15,7 @@
 import GLib from "gi://GLib";
 import Gio from "gi://Gio";
 import Soup from "gi://Soup?version=3.0";
-import { exit } from "system";
+import system, { exit } from "system";
 
 // GJS does not auto-promisify libsoup methods; wire it up explicitly so we can
 // `await session.send_and_read_async(...)` with the standard 3-arg signature.
@@ -106,7 +107,37 @@ async function downloadToFile(session, url, destPath) {
 	tmpFile.move(destFile, Gio.FileCopyFlags.OVERWRITE, null, null);
 }
 
+function parseArgs() {
+	// system.programArgs is the canonical GJS API for argv (excludes the
+	// interpreter and script path). Older versions expose programArgs as a
+	// plain array of strings.
+	const argv = system?.programArgs ?? [];
+	const force = argv.includes("--force") || argv.includes("-f");
+	const help = argv.includes("--help") || argv.includes("-h");
+	return { force, help };
+}
+
+function printUsage() {
+	print("Usage: gjs -m install.js [--force] [--help]");
+	print("");
+	print("Installs or updates the ts-for-gir GJS binary to ~/.local/bin/ts-for-gir.");
+	print("");
+	print("Options:");
+	print("  --force, -f   Reinstall even if the latest version is already installed.");
+	print("                Useful for recovering from a broken local binary when");
+	print("                `ts-for-gir self-update` cannot run.");
+	print("  --help,  -h   Show this message.");
+	print("");
+	print("Set GITHUB_TOKEN to avoid GitHub API rate limits.");
+}
+
 async function main() {
+	const { force, help } = parseArgs();
+	if (help) {
+		printUsage();
+		exit(0);
+	}
+
 	const session = new Soup.Session();
 
 	info("Fetching release information from GitHub...");
@@ -143,12 +174,15 @@ async function main() {
 	const latestVersion = release.tag_name.replace(/^v/, "");
 	const installedVersion = getInstalledVersion();
 
-	if (installedVersion === latestVersion) {
+	if (installedVersion === latestVersion && !force) {
 		info(`Already up to date (v${installedVersion})`);
+		info("Run with --force to reinstall anyway.");
 		exit(0);
 	}
 
-	if (installedVersion) {
+	if (installedVersion === latestVersion) {
+		info(`Reinstalling v${installedVersion} (--force)...`);
+	} else if (installedVersion) {
 		info(`Updating from v${installedVersion} to v${latestVersion}...`);
 	} else {
 		info(`Installing ts-for-gir v${latestVersion}...`);

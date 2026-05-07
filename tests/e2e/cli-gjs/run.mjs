@@ -132,14 +132,36 @@ describe('ts-for-gir GJS bundle E2E', { timeout: 10 * 60 * 1000 }, () => {
   });
 
   it('self-update --check reports version status', () => {
-    // Network may not be available in all CI environments — accept network errors gracefully
+    // Network may not be available in all CI environments — tolerate HTTP /
+    // network errors, but reject runtime errors that indicate the GJS bundle
+    // is missing a required global. The original failure mode was
+    // `Failed to fetch release information: fetch is not defined`, which the
+    // previous lenient assertion (matching `Failed to fetch`) accepted as a
+    // pass — masking the missing @gjsify/fetch polyfill for an entire release.
     const result = runGjs(['self-update', '--check']);
     const combined = result.stdout + result.stderr;
+
+    const runtimeFailureSignals = [
+      'is not defined',     // ReferenceError (e.g. `fetch is not defined`)
+      'is not a function',  // TypeError when a global is wrong shape
+      'ReferenceError',
+    ];
+    for (const signal of runtimeFailureSignals) {
+      assert.ok(
+        !combined.includes(signal),
+        `self-update --check hit a runtime error (${signal}): ${combined}`,
+      );
+    }
+
+    // Success path or network/HTTP error — both acceptable.
     const hasExpectedOutput =
       combined.includes('up to date') ||
       combined.includes('version available') ||
-      combined.includes('Checking for updates') ||
-      combined.includes('Failed to fetch');
+      // `Checking for updates` is printed before the network call; an HTTP /
+      // socket error is then reported via `Failed to fetch release information`
+      // followed by an HTTP status or libsoup error message.
+      (combined.includes('Checking for updates') &&
+        (combined.includes('HTTP ') || combined.includes('Failed to fetch')));
     assert.ok(hasExpectedOutput, `Unexpected output from self-update --check: ${combined}`);
   });
 });

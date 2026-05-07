@@ -14,6 +14,14 @@ import { dirname, join } from 'node:path';
 const here = dirname(fileURLToPath(import.meta.url));
 const pkg = JSON.parse(readFileSync(join(here, '..', 'package.json'), 'utf-8'));
 
+// __GJS_BUNDLE__=true: trips the early-return guard in commands that aren't
+// yet supported on the GJS bundle (currently only `create`, which depends on
+// dist-templates/ shipping alongside the binary — install.js downloads the
+// single binary asset only). Without the define, the guard's `typeof !==
+// "undefined"` check is dead code and the command falls through to
+// findTemplatesRoot(), printing a confusing "Could not locate templates
+// directory" error instead of the intended "not yet supported, use Node"
+// message. Track templates-shipping work in CHANGELOG.md.
 const result = spawnSync(
     'gjsify',
     [
@@ -21,6 +29,8 @@ const result = spawnSync(
         'src/start.ts',
         '--define',
         `__TS_FOR_GIR_VERSION__=${JSON.stringify(pkg.version)}`,
+        '--define',
+        '__GJS_BUNDLE__=true',
     ],
     { stdio: 'inherit', cwd: join(here, '..') },
 );

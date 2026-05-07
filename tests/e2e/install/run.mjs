@@ -13,7 +13,7 @@
 
 import { describe, it, before, after } from "node:test";
 import assert from "node:assert/strict";
-import { spawn } from "node:child_process";
+import { execFileSync, spawn } from "node:child_process";
 import { createServer } from "node:http";
 import { mkdtempSync, rmSync, existsSync, statSync, readFileSync } from "node:fs";
 import { tmpdir } from "node:os";
@@ -34,16 +34,6 @@ case "$1" in
   *) echo "fake ts-for-gir binary v${version}"; exit 0 ;;
 esac
 `;
-}
-
-function gjsAvailable() {
-	try {
-		const { execFileSync } = require("node:child_process");
-		execFileSync("gjs", ["--version"], { stdio: "pipe" });
-		return true;
-	} catch {
-		return false;
-	}
 }
 
 function runGjs({ env, args = [] } = {}) {
@@ -88,9 +78,9 @@ describe("install.js E2E", { timeout: 5 * 60 * 1000 }, () => {
 	let mockState;
 
 	before(async () => {
-		// Skip cleanly when gjs is not available — same pattern the cli-gjs
-		// e2e suite uses, so this test is a soft-fail on Node-only sandboxes.
-		const { execFileSync } = await import("node:child_process");
+		// Same precondition pattern the cli-gjs e2e suite uses: hard-fail with
+		// an actionable message rather than silently passing on Node-only
+		// sandboxes.
 		try {
 			execFileSync("gjs", ["--version"], { stdio: "pipe" });
 		} catch {

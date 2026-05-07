@@ -1,5 +1,11 @@
 # Changelog
 
+## [4.0.0-rc.13](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-rc.12...v4.0.0-rc.13) (2026-05-07)
+
+### Bug Fixes
+
+* **cli:** convert config path to file:// URL for spec-compliant import() ([#385](https://github.com/gjsify/ts-for-gir/issues/385)) ([899e2c4](https://github.com/gjsify/ts-for-gir/commit/899e2c4a05a038fae87b9df1c9840058ba754786))
+
 ## [4.0.0-rc.12](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-rc.11...v4.0.0-rc.12) (2026-05-07)
 
 ### Bug Fixes

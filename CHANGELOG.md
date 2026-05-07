@@ -1,5 +1,11 @@
 # Changelog
 
+## [4.0.0-rc.12](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-rc.11...v4.0.0-rc.12) (2026-05-07)
+
+### Bug Fixes
+
+* **cli:** declare source-map-support so the GJS-bundle release builds ([#384](https://github.com/gjsify/ts-for-gir/issues/384)) ([7ff6b14](https://github.com/gjsify/ts-for-gir/commit/7ff6b148a119a11e408f5bb60082fa6061161373))
+
 ## [4.0.0-rc.11](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-rc.10...v4.0.0-rc.11) (2026-05-07)
 
 ### Bug Fixes

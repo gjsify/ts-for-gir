@@ -17,8 +17,19 @@ function getTsForGirVersion(): string {
 	if (typeof __TS_FOR_GIR_VERSION__ !== "undefined") {
 		return __TS_FOR_GIR_VERSION__;
 	}
-	const __dirname = dirname(fileURLToPath(import.meta.url));
-	return JSON.parse(readFileSync(join(__dirname, "..", "..", "package.json"), "utf8")).version as string;
+	// Dev mode reads the sibling package.json relative to this source file.
+	// Wrapped in try/catch so a bundle missing the __TS_FOR_GIR_VERSION__ define
+	// (or whose path math doesn't line up with its install location — e.g.
+	// when the GJS bundle lives at node_modules/@ts-for-gir/cli/bin/ rather
+	// than the typedoc-theme source layout) degrades to an empty string and
+	// downstream renderers fall back to "no version" instead of crashing the
+	// whole CLI at module load.
+	try {
+		const __dirname = dirname(fileURLToPath(import.meta.url));
+		return JSON.parse(readFileSync(join(__dirname, "..", "..", "package.json"), "utf8")).version as string;
+	} catch {
+		return "";
+	}
 }
 
 const TSFOR_GIR_VERSION = getTsForGirVersion();

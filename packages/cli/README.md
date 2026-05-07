@@ -25,7 +25,9 @@ CLI tool to generate TypeScript type definitions and HTML documentation for GObj
 ### Install (GJS — no Node.js required)
 
 ```bash
-gjs -m https://raw.githubusercontent.com/gjsify/ts-for-gir/main/install.js
+curl -fsSL https://raw.githubusercontent.com/gjsify/ts-for-gir/main/install.js -o /tmp/ts-for-gir-install.js
+gjs -m /tmp/ts-for-gir-install.js
+rm /tmp/ts-for-gir-install.js
 ```
 
 Installs `ts-for-gir` to `~/.local/bin/ts-for-gir`. Update later with:

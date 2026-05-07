@@ -40,7 +40,6 @@ _%>
     "moduleResolution": "NodeNext",
     "noEmit": true,
     "noEmitOnError": false,
-    "baseUrl": "./",
     "rootDir": ".",
     // General settings for code generation
     "removeComments": false,

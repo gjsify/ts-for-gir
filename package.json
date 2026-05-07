@@ -85,6 +85,10 @@
 		"packages/*",
 		"types-dev/*"
 	],
+	"resolutions": {
+		"_comment_typescript": "Pin types-dev's `typescript@*` devDep to 5.9. The lockfile regen for rc.10 deduplicated `typescript@*` onto `typescript@^6.0.3`, which surfaces three latent TS6-strictness errors in pre-existing generated d.ts (TS1540 module keyword, TS2416 get_toplevel signature, TS2320 duplicate ConstructorProps extends). They predate this PR and need follow-up generator fixes; pinning matches what main's lockfile resolved before the rc.10 bump. Workspace's own `typescript@^6.0.3` toolchain is unaffected.",
+		"typescript@*": "~5.9.2"
+	},
 	"dependenciesMeta": {
 		"@swc/core": {
 			"built": true

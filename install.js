@@ -16,6 +16,10 @@ import Gio from "gi://Gio";
 import Soup from "gi://Soup?version=3.0";
 import { exit } from "system";
 
+// GJS does not auto-promisify libsoup methods; wire it up explicitly so we can
+// `await session.send_and_read_async(...)` with the standard 3-arg signature.
+Gio._promisify(Soup.Session.prototype, "send_and_read_async");
+
 const REPO = "gjsify/ts-for-gir";
 const GJS_ASSET_NAME = "ts-for-gir-gjs";
 const INSTALL_DIR = GLib.build_filenamev([GLib.get_home_dir(), ".local", "bin"]);
@@ -105,13 +109,34 @@ async function downloadToFile(session, url, destPath) {
 async function main() {
 	const session = new Soup.Session();
 
-	info("Fetching latest release information from GitHub...");
+	info("Fetching release information from GitHub...");
 
-	let release;
+	// We scan the recent releases instead of using /releases/latest because the
+	// latter skips prereleases. During the rc cycle the most recent stable may
+	// not yet ship the GJS bundle, so picking the newest release that actually
+	// contains the asset is more robust.
+	let releases;
 	try {
-		release = await fetchJson(session, `${GITHUB_API}/repos/${REPO}/releases/latest`);
+		releases = await fetchJson(session, `${GITHUB_API}/repos/${REPO}/releases?per_page=20`);
 	} catch (err) {
 		error(`Failed to fetch release info: ${err.message}`);
+		exit(1);
+	}
+
+	let release;
+	let asset;
+	for (const candidate of releases) {
+		if (candidate.draft) continue;
+		const match = candidate.assets?.find((a) => a.name === GJS_ASSET_NAME);
+		if (match) {
+			release = candidate;
+			asset = match;
+			break;
+		}
+	}
+
+	if (!release || !asset) {
+		error(`No release with a ${GJS_ASSET_NAME} asset found in the last 20 releases`);
 		exit(1);
 	}
 
@@ -127,13 +152,6 @@ async function main() {
 		info(`Updating from v${installedVersion} to v${latestVersion}...`);
 	} else {
 		info(`Installing ts-for-gir v${latestVersion}...`);
-	}
-
-	const asset = release.assets.find((a) => a.name === GJS_ASSET_NAME);
-	if (!asset) {
-		error(`No GJS binary (${GJS_ASSET_NAME}) found in release ${release.tag_name}`);
-		error("Assets: " + release.assets.map((a) => a.name).join(", "));
-		exit(1);
 	}
 
 	ensureInstallDir();

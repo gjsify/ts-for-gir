@@ -3,6 +3,7 @@
  */
 
 import { dirname, resolve } from "node:path";
+import { pathToFileURL } from "node:url";
 import type { ConfigFlags, OptionsGeneration, UserConfig, UserConfigLoadResult } from "@ts-for-gir/lib";
 import { APP_NAME, isEqual } from "@ts-for-gir/lib";
 import { type Options as ConfigSearchOptions, cosmiconfig } from "cosmiconfig";
@@ -18,9 +19,12 @@ import { docOptions, options } from "./options.ts";
 export async function loadConfigFile(configName?: string): Promise<UserConfigLoadResult | null> {
 	const configSearchOptions: Partial<ConfigSearchOptions> = {
 		loaders: {
-			// ESM loader
+			// ESM loader. cosmiconfig hands us an absolute filesystem path; Node's import()
+			// tolerates that as a non-spec extension, but spec-compliant runtimes (GJS /
+			// SpiderMonkey) reject it with "Module not found: <abs-path>". Convert to a
+			// file:// URL so the loader works in both runtimes.
 			".js": async (filepath) => {
-				const file = await import(filepath);
+				const file = await import(pathToFileURL(filepath).href);
 
 				// Files with `exports.default = { ... }`
 				if (file?.default?.default) {

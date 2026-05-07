@@ -6,7 +6,8 @@
 	"scripts": {
 		"test:cli": "node --test --test-timeout=600000 cli/run.mjs",
 		"test:cli:gjs": "node --test --test-timeout=300000 cli-gjs/run.mjs",
+		"test:install": "node --test --test-timeout=300000 install/run.mjs",
 		"test:create": "node --test --test-timeout=1200000 create/run.mjs",
-		"test": "yarn test:cli && yarn test:create && yarn test:cli:gjs"
+		"test": "yarn test:cli && yarn test:create && yarn test:cli:gjs && yarn test:install"
 	}
 }

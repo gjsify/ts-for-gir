@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.0.0-rc.11](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-rc.10...v4.0.0-rc.11) (2026-05-07)
+
+### Bug Fixes
+
+* GJS-bundle self-update fetch + install.js --force + gjsify 0.3.14 ([#383](https://github.com/gjsify/ts-for-gir/issues/383)) ([659cd89](https://github.com/gjsify/ts-for-gir/commit/659cd890899e3519b336a6b86e0f0f3304957ad8)), closes [#378](https://github.com/gjsify/ts-for-gir/issues/378)
+* **install:** make install.js usable from a downloaded copy ([#381](https://github.com/gjsify/ts-for-gir/issues/381)) ([f525038](https://github.com/gjsify/ts-for-gir/commit/f525038bed333896d9c55410135b7f8458f2f80a)), closes [gjsify/types#11](https://github.com/gjsify/types/issues/11)
+
 ## [4.0.0-rc.10](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-rc.9...v4.0.0-rc.10) (2026-05-07)
 
 ### Features

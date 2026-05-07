@@ -23,9 +23,13 @@ Gio._promisify(Soup.Session.prototype, "send_and_read_async");
 
 const REPO = "gjsify/ts-for-gir";
 const GJS_ASSET_NAME = "ts-for-gir-gjs";
-const INSTALL_DIR = GLib.build_filenamev([GLib.get_home_dir(), ".local", "bin"]);
+// Test hooks: production builds always use the defaults below; the e2e suite
+// overrides these to point at a localhost mock GitHub API and a tmpdir target.
+const INSTALL_DIR =
+	GLib.getenv("TS_FOR_GIR_INSTALL_DIR") ||
+	GLib.build_filenamev([GLib.get_home_dir(), ".local", "bin"]);
 const INSTALL_PATH = GLib.build_filenamev([INSTALL_DIR, "ts-for-gir"]);
-const GITHUB_API = "https://api.github.com";
+const GITHUB_API = GLib.getenv("TS_FOR_GIR_INSTALL_GITHUB_API") || "https://api.github.com";
 
 function info(msg) {
 	print(`[ts-for-gir] ${msg}`);

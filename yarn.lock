@@ -17229,6 +17229,7 @@ __metadata:
     esbuild: "npm:^0.28.0"
     glob: "npm:^13.0.6"
     inquirer: "npm:^13.4.2"
+    source-map-support: "npm:^0.5.21"
     typedoc: "npm:^0.28.19"
     typescript: "npm:^6.0.3"
     yargs: "npm:^18.0.0"
@@ -21650,7 +21651,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"source-map-support@npm:~0.5.20":
+"source-map-support@npm:^0.5.21, source-map-support@npm:~0.5.20":
   version: 0.5.21
   resolution: "source-map-support@npm:0.5.21"
   dependencies:

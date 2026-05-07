@@ -5,7 +5,6 @@ import {
 	ClosureType,
 	type Generic,
 	makeNullable,
-	NullableType,
 	type TypeExpression,
 	TypeIdentifier,
 	UnknownType,

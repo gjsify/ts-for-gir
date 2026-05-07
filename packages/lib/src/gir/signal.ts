@@ -3,6 +3,7 @@ import { GirDirection } from "@gi.ts/parser";
 import type { FormatGenerator } from "../generators/generator.ts";
 import {
 	ArrayType,
+	makeNullable,
 	NativeType,
 	NullableType,
 	NumberType,
@@ -171,7 +172,7 @@ export class IntrospectedSignal extends IntrospectedClassMember<IntrospectedClas
 						}
 					} else {
 						if (isOptional) {
-							params.push(p.copy({ type: new NullableType(type), isOptional: false }));
+							params.push(p.copy({ type: makeNullable(type), isOptional: false }));
 						} else {
 							params.push(p);
 						}

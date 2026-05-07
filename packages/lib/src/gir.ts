@@ -624,12 +624,18 @@ export class NullableType extends BinaryType {
 	}
 
 	rewrap(type: TypeExpression): TypeExpression {
-		return new NullableType(this.a.rewrap(type));
+		return makeNullable(this.a.rewrap(type));
 	}
 
 	get type() {
 		return this.a;
 	}
+}
+
+export function makeNullable(type: TypeExpression) {
+	if (type === RawPointerType) return NullType;
+	if (type === AnyType) return AnyType;
+	return new NullableType(type);
 }
 
 export class PromiseType extends TypeExpression {
@@ -866,5 +872,8 @@ export const NullType = new NativeType("null");
 export const VoidType = new NativeType("void");
 export const UnknownType = new NativeType("unknown");
 export const AnyFunctionType = new NativeType("(...args: any[]) => any");
+// Distinct from NeverType, so that we can transform it into NullType when
+// marshalled from C to JS
+export const RawPointerType = new NativeType("never");
 
 export type GirClassField = IntrospectedProperty | IntrospectedField;

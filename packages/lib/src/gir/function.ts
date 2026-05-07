@@ -4,6 +4,7 @@ import {
 	ArrayType,
 	ClosureType,
 	type Generic,
+	makeNullable,
 	NullableType,
 	type TypeExpression,
 	TypeIdentifier,
@@ -259,7 +260,7 @@ export class IntrospectedFunction extends IntrospectedNamespaceMember {
 						}
 					} else {
 						if (isOptional) {
-							params.push(p.copy({ type: new NullableType(type), isOptional: false }));
+							params.push(p.copy({ type: makeNullable(type), isOptional: false }));
 						} else {
 							params.push(p);
 						}

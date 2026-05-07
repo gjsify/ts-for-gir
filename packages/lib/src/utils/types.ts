@@ -10,10 +10,12 @@ import {
 	NativeType,
 	NeverType,
 	NullableType,
+	NullType,
 	NumberType,
 	ObjectType,
 	OrType,
 	PromiseType,
+	RawPointerType,
 	StringType,
 	ThisType,
 	TupleType,
@@ -188,8 +190,13 @@ export function resolvePrimitiveType(name: string): TypeExpression | null {
 			return BigintOrNumberType;
 		case "gboolean":
 			return BooleanType;
-		case "gpointer": // This is typically used in callbacks to pass data, so we'll allow anything.
-			return AnyType;
+		case "gpointer":
+			// You can't use pointers. Pointer arguments are mostly not exposed
+			// in GJS, but any exposed pointer arguments are always marshalled
+			// as null pointers. If the argument is nullable, this will combine
+			// with `null` to produce `null`, but if the argument isn't nullable
+			// it's impossible to pass a valid parameter to the function.
+			return RawPointerType;
 		case "object": // Support TS "object"
 			return ObjectType;
 		case "va_list":
@@ -251,6 +258,9 @@ export function resolveDirectedType(type: TypeExpression, direction: GirDirectio
 	} else if (type === BigintOrNumberType && direction === GirDirection.Out) {
 		// 64-bit integers accept number or bigint, but only return number to JS
 		return NumberType;
+	} else if (type === RawPointerType && direction === GirDirection.Out) {
+		// Raw pointers are always marshalled as JS null.
+		return NullType;
 	} else if (type instanceof PromiseType) {
 		// Propagate direction into the Promise's inner type so e.g. async
 		// functions returning 64-bit ints resolve to `Promise<number>` rather

@@ -28,7 +28,9 @@
 			}
 		},
 		"defineFromPackageJson": {
-			"__TS_FOR_GIR_VERSION__": { "field": "version" }
+			"__TS_FOR_GIR_VERSION__": {
+				"field": "version"
+			}
 		},
 		"excludeGlobals": [
 			"XMLHttpRequest",

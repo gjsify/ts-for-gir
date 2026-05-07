@@ -1,3 +1,17 @@
+<!--
+  PR title must follow Conventional Commits: <type>(<optional-scope>): <subject>
+
+  PRs are squash-merged, so the PR title becomes the commit message that
+  release-it parses to build the changelog. Titles that don't match the
+  spec are silently dropped from release notes (the PR Lint check enforces
+  this on every PR).
+
+  Allowed types: feat, fix, docs, refactor, perf, test, build, ci, chore, revert
+  Examples:
+    feat(cli): add --external-deps mode
+    fix(lib): handle raw pointers (void*) like GJS
+-->
+
 ## Description
 <!-- Describe your changes in detail -->
 

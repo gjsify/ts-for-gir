@@ -3,7 +3,7 @@
  */
 
 import { spawnSync } from "node:child_process";
-import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, realpathSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -55,18 +55,44 @@ const builder = createBuilder<CreateCommandArgs>(createOptions, examples);
 function findTemplatesRoot(): string {
 	const __filename = fileURLToPath(import.meta.url);
 	const __dirname = dirname(__filename);
+	// Resolve symlinks too. When the CLI is installed via `npm i -g`,
+	// `gjsify install -g`, or any tool that lands a symlink in the user's PATH
+	// (Yarn Berry's bin links, asdf shims, ...), `import.meta.url` resolves to
+	// the symlink path — `<dir>/../dist-templates` would then look for the
+	// templates next to the symlink (e.g. `~/.local/bin/../dist-templates`)
+	// instead of next to the real package. Resolving via realpath first lets
+	// the same `<dir>/../dist-templates` candidate hit the actual install dir.
+	let realDirname = __dirname;
+	try {
+		realDirname = dirname(realpathSync(__filename));
+	} catch {
+		// `realpathSync` can throw on bundled paths that don't exist on disk
+		// (e.g. virtual entries in a single-file binary). Fall through to the
+		// direct __dirname — the candidate list below is a superset and will
+		// still find templates when they live alongside the bundle.
+	}
 	const candidates = [
-		// Bundled production binary (bin/ts-for-gir): ../dist-templates
+		// Symlink-resolved binary (`npm i -g` / `gjsify install -g`): the
+		// realpath-aware candidate is required when the CLI is launched via a
+		// `~/.local/bin/<name>` symlink that points at the real package's
+		// `bin/<name>`. Try it first so the success path is symmetric across
+		// install modes.
+		resolve(realDirname, "..", "dist-templates"),
+		// Bundled production binary invoked at its real path (no symlink),
+		// or a tarball extracted into a flat `bin/` + `dist-templates/` layout.
 		resolve(__dirname, "..", "dist-templates"),
 		// Source layout (src/commands/create.ts): ../../dist-templates then ../../templates
 		resolve(__dirname, "..", "..", "dist-templates"),
 		resolve(__dirname, "..", "..", "templates"),
 	];
+	const seen = new Set<string>();
 	for (const path of candidates) {
+		if (seen.has(path)) continue;
+		seen.add(path);
 		if (existsSync(path)) return path;
 	}
 	throw new Error(
-		`Could not locate templates directory. Looked in:\n  ${candidates.join("\n  ")}\n` +
+		`Could not locate templates directory. Looked in:\n  ${[...seen].join("\n  ")}\n` +
 			"If you are running from source, make sure packages/cli/templates/ exists. " +
 			"If you are running the published CLI, make sure dist-templates/ was packed.",
 	);
@@ -122,17 +148,33 @@ function walkAndSubstitute(rootDir: string, projectName: string): void {
 declare const __GJS_BUNDLE__: boolean | undefined;
 
 const handler = async (args: ConfigFlags) => {
-	if (typeof __GJS_BUNDLE__ !== "undefined") {
-		process.stderr.write(
-			"The 'create' command is not yet supported in the GJS bundle.\nUse Node.js instead: npx @ts-for-gir/cli create ...\n",
-		);
-		process.exitCode = 1;
-		return;
-	}
 	const opts = args as unknown as CreateCommandArgs;
 	const log = new Logger(opts.verbose ?? false, "CreateCommand");
 
-	const templatesRoot = findTemplatesRoot();
+	let templatesRoot: string;
+	try {
+		templatesRoot = findTemplatesRoot();
+	} catch (err) {
+		// `dist-templates/` not next to the running file. Two known scenarios:
+		//   1. `install.js` (or any flow) deployed only the single-file GJS
+		//      binary without the package tree. We can't scaffold without
+		//      templates — point the user at the working install path.
+		//   2. Source-mode mis-checkout (no `packages/cli/templates/`). Surface
+		//      the original error so the developer can fix their layout.
+		// The `__GJS_BUNDLE__` define lets us discriminate at build time.
+		if (typeof __GJS_BUNDLE__ !== "undefined") {
+			process.stderr.write(
+				"The 'create' command needs templates that aren't shipped alongside this binary.\n" +
+					"Install the full package instead so `dist-templates/` lives next to the bin:\n" +
+					"  gjsify install -g @ts-for-gir/cli\n" +
+					"  npm  install -g @ts-for-gir/cli\n" +
+					"  npx  @ts-for-gir/cli create ...   # one-shot, no install\n",
+			);
+			process.exitCode = 1;
+			return;
+		}
+		throw err;
+	}
 	const available = listTemplates(templatesRoot);
 	if (available.length === 0) {
 		throw new Error(`No templates found in ${templatesRoot}`);

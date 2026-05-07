@@ -17,9 +17,18 @@
 		},
 		"shebang": true,
 		"bundler": {
+			"input": "src/start.ts",
 			"output": {
 				"file": "bin/ts-for-gir-gjs"
+			},
+			"transform": {
+				"define": {
+					"__GJS_BUNDLE__": "true"
+				}
 			}
+		},
+		"defineFromPackageJson": {
+			"__TS_FOR_GIR_VERSION__": { "field": "version" }
 		},
 		"excludeGlobals": [
 			"XMLHttpRequest",
@@ -33,7 +42,7 @@
 		"start": "node bin/ts-for-gir-dev",
 		"start:prod": "node bin/ts-for-gir",
 		"build": "node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings esbuild.ts && chmod +x bin/ts-for-gir-dev && chmod +x bin/ts-for-gir",
-		"build:gjs": "node scripts/build-gjs.mjs",
+		"build:gjs": "gjsify build",
 		"build:templates": "node scripts/process-templates.mjs",
 		"prepack": "node scripts/process-templates.mjs",
 		"check:types": "tsc --noEmit",
@@ -73,7 +82,7 @@
 	},
 	"devDependencies": {
 		"@gi.ts/parser": "workspace:^",
-		"@gjsify/cli": "^0.3.14",
+		"@gjsify/cli": "^0.3.15",
 		"@ts-for-gir/generator-base": "workspace:^",
 		"@ts-for-gir/generator-html-doc": "workspace:^",
 		"@ts-for-gir/generator-json": "workspace:^",

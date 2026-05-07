@@ -1,6 +1,6 @@
 {
 	"name": "ts-for-gir",
-	"version": "4.0.0-rc.9",
+	"version": "4.0.0-rc.10",
 	"description": "Typescript .d.ts generator from GIR for gjs",
 	"type": "module",
 	"private": true,

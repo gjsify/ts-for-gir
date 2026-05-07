@@ -1,5 +1,11 @@
 # Changelog
 
+## [4.0.0-rc.10](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-rc.9...v4.0.0-rc.10) (2026-05-07)
+
+### Features
+
+* **cli:** add GJS bundle — run ts-for-gir without Node.js ([#378](https://github.com/gjsify/ts-for-gir/issues/378)) ([6e5a8aa](https://github.com/gjsify/ts-for-gir/commit/6e5a8aa015c919f2a55b6ce01f8410be41f404ec)), closes [gjsify/gjsify#60](https://github.com/gjsify/gjsify/issues/60) [#3](https://github.com/gjsify/ts-for-gir/issues/3) [gjsify/gjsify#67](https://github.com/gjsify/gjsify/issues/67) [#68](https://github.com/gjsify/ts-for-gir/issues/68) [package.json#version](https://github.com/gjsify/package.json/issues/version) [#70](https://github.com/gjsify/ts-for-gir/issues/70) [gjsify#79](https://github.com/gjsify/gjsify/issues/79)
+
 ## [4.0.0-rc.9](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-rc.8...v4.0.0-rc.9) (2026-05-01)
 
 ### Bug Fixes

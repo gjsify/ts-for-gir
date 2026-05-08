@@ -49,13 +49,14 @@ jobs:
     - name: Build GJS bundle
       run: yarn build:app:gjs
 
-    - name: Upload GJS bundle to GitHub Release
-      if: github.event_name == 'release'
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        RELEASE_TAG="${{ github.event.release.tag_name }}"
-        gh release upload "$RELEASE_TAG" packages/cli/bin/ts-for-gir-gjs --clobber
+    # The GJS bundle ships inside the npm tarball under bin/ts-for-gir-gjs
+    # (declared via `gjsify.bin` in @ts-for-gir/cli's package.json). Both
+    # `npm i -g`, `gjsify install -g`, and the GJS-native install.js
+    # bootstrapper resolve it from there. The previous "upload the single
+    # binary as a GitHub release asset" step is gone — the asset couldn't
+    # carry `dist-templates/` alongside the bin, so `ts-for-gir create`
+    # failed when launched through the old install.js. This comment is
+    # here so we don't reintroduce the asset-upload by reflex.
 
     - name: Publish app packages to npm
       run: yarn publish:app

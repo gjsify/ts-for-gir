@@ -5,11 +5,27 @@
  * Usage:
  *   gjs -m install.js               # install or update
  *   gjs -m install.js --force       # reinstall even if already up to date
+ *   gjs -m install.js --tag=next    # install a specific dist-tag (default: latest)
  *   # or, if the shebang is supported:
  *   ./install.js
  *
- * Installs or updates the ts-for-gir GJS binary to ~/.local/bin/ts-for-gir.
- * Set GITHUB_TOKEN environment variable to avoid GitHub API rate limits.
+ * Fetches `@ts-for-gir/cli` from the npm registry (full package tarball, not
+ * just the GJS binary), extracts it to ~/.local/share/ts-for-gir/, and writes
+ * a small POSIX `sh` launcher at ~/.local/bin/ts-for-gir that exec's the GJS
+ * bundle inside the install dir.
+ *
+ * Why the npm tarball + launcher (vs. the previous single-binary download
+ * from a GitHub release): commands like `ts-for-gir create` rely on assets
+ * shipped *next to* the bin (e.g. dist-templates/), which the old
+ * one-asset-only path could not deliver. Going through the published npm
+ * package gives us the whole package tree — same artefact npm/gjsify-install-g
+ * use — so package-relative `__dirname/..` resolution Just Works.
+ *
+ * Test hooks (set in tests/e2e/install/run.mjs):
+ *   TS_FOR_GIR_INSTALL_REGISTRY  override the npm registry origin
+ *   TS_FOR_GIR_INSTALL_DIR       override the launcher dir (~/.local/bin)
+ *   TS_FOR_GIR_INSTALL_DATA_DIR  override the package install dir
+ *                                (XDG_DATA_HOME/ts-for-gir)
  */
 
 import GLib from "gi://GLib";
@@ -17,19 +33,28 @@ import Gio from "gi://Gio";
 import Soup from "gi://Soup?version=3.0";
 import system, { exit } from "system";
 
-// GJS does not auto-promisify libsoup methods; wire it up explicitly so we can
-// `await session.send_and_read_async(...)` with the standard 3-arg signature.
+// GJS does not auto-promisify libsoup methods; wire them up explicitly so
+// `await session.send_and_read_async(...)` uses the standard 3-arg signature.
 Gio._promisify(Soup.Session.prototype, "send_and_read_async");
+Gio._promisify(Gio.Subprocess.prototype, "wait_check_async");
 
-const REPO = "gjsify/ts-for-gir";
-const GJS_ASSET_NAME = "ts-for-gir-gjs";
-// Test hooks: production builds always use the defaults below; the e2e suite
-// overrides these to point at a localhost mock GitHub API and a tmpdir target.
-const INSTALL_DIR =
+const PACKAGE = "@ts-for-gir/cli";
+const DEFAULT_REGISTRY = "https://registry.npmjs.org";
+const DEFAULT_BIN_NAME = "ts-for-gir";
+
+const REGISTRY = (GLib.getenv("TS_FOR_GIR_INSTALL_REGISTRY") || DEFAULT_REGISTRY).replace(/\/+$/, "");
+// `~/.local/bin` style — where the launcher script lives, expected to be on $PATH.
+const BIN_DIR =
 	GLib.getenv("TS_FOR_GIR_INSTALL_DIR") ||
 	GLib.build_filenamev([GLib.get_home_dir(), ".local", "bin"]);
-const INSTALL_PATH = GLib.build_filenamev([INSTALL_DIR, "ts-for-gir"]);
-const GITHUB_API = GLib.getenv("TS_FOR_GIR_INSTALL_GITHUB_API") || "https://api.github.com";
+// `~/.local/share/ts-for-gir/` — the extracted npm package tree (bin/, dist-templates/, …).
+const DATA_DIR =
+	GLib.getenv("TS_FOR_GIR_INSTALL_DATA_DIR") ||
+	GLib.build_filenamev([
+		GLib.getenv("XDG_DATA_HOME") || GLib.build_filenamev([GLib.get_home_dir(), ".local", "share"]),
+		"ts-for-gir",
+	]);
+const LAUNCHER_PATH = GLib.build_filenamev([BIN_DIR, DEFAULT_BIN_NAME]);
 
 function info(msg) {
 	print(`[ts-for-gir] ${msg}`);
@@ -39,46 +64,46 @@ function error(msg) {
 	printerr(`[ts-for-gir] ERROR: ${msg}`);
 }
 
-function getInstalledVersion() {
-	const file = Gio.File.new_for_path(INSTALL_PATH);
+function readJsonFile(path) {
+	const file = Gio.File.new_for_path(path);
 	if (!file.query_exists(null)) return null;
 	try {
-		const [ok, stdout] = GLib.spawn_command_line_sync(`${INSTALL_PATH} --version`);
-		if (!ok) return null;
-		const output = new TextDecoder().decode(stdout).trim();
-		const match = output.match(/(\d+\.\d+\.\d+(?:-\S+)?)/);
-		return match ? match[1] : null;
+		const [, bytes] = file.load_contents(null);
+		return JSON.parse(new TextDecoder().decode(bytes));
 	} catch {
 		return null;
 	}
 }
 
-function ensureInstallDir() {
-	const dir = Gio.File.new_for_path(INSTALL_DIR);
-	if (!dir.query_exists(null)) {
-		dir.make_directory_with_parents(null);
-		info(`Created ${INSTALL_DIR}`);
+function getInstalledVersion() {
+	// Prefer the package.json — single-source-of-truth that doesn't require
+	// spawning the bundle (which can be slow and may itself be broken on a
+	// half-finished install).
+	const pkg = readJsonFile(GLib.build_filenamev([DATA_DIR, "package.json"]));
+	return pkg?.version ?? null;
+}
+
+function ensureDir(dir) {
+	const file = Gio.File.new_for_path(dir);
+	if (!file.query_exists(null)) {
+		file.make_directory_with_parents(null);
 	}
 }
 
 function checkPath() {
 	const pathEnv = GLib.getenv("PATH") ?? "";
-	if (!pathEnv.split(":").includes(INSTALL_DIR)) {
+	if (!pathEnv.split(":").includes(BIN_DIR)) {
 		info("");
-		info(`Note: ${INSTALL_DIR} is not in your PATH.`);
+		info(`Note: ${BIN_DIR} is not in your PATH.`);
 		info("Add the following line to your ~/.bashrc or ~/.profile:");
-		info(`  export PATH="$HOME/.local/bin:$PATH"`);
+		info(`  export PATH="${BIN_DIR}:$PATH"`);
 	}
 }
 
-async function fetchJson(session, url) {
+async function fetchJson(session, url, accept = "application/json") {
 	const message = Soup.Message.new("GET", url);
-	message.request_headers.append("Accept", "application/vnd.github.v3+json");
-	message.request_headers.append("User-Agent", "ts-for-gir-installer/1.0");
-	const token = GLib.getenv("GITHUB_TOKEN");
-	if (token) {
-		message.request_headers.append("Authorization", `token ${token}`);
-	}
+	message.request_headers.append("Accept", accept);
+	message.request_headers.append("User-Agent", "ts-for-gir-installer/2.0");
 	const bytes = await session.send_and_read_async(message, GLib.PRIORITY_DEFAULT, null);
 	const status = message.get_status();
 	if (status !== Soup.Status.OK) {
@@ -87,56 +112,165 @@ async function fetchJson(session, url) {
 	return JSON.parse(new TextDecoder().decode(bytes.get_data()));
 }
 
-async function downloadToFile(session, url, destPath) {
+async function fetchBytes(session, url) {
 	const message = Soup.Message.new("GET", url);
-	message.request_headers.append("User-Agent", "ts-for-gir-installer/1.0");
+	message.request_headers.append("User-Agent", "ts-for-gir-installer/2.0");
 	const bytes = await session.send_and_read_async(message, GLib.PRIORITY_DEFAULT, null);
 	const status = message.get_status();
 	if (status !== Soup.Status.OK) {
-		throw new Error(`HTTP ${status} downloading binary`);
+		throw new Error(`HTTP ${status} from ${url}`);
 	}
+	return bytes.get_data();
+}
 
-	// Atomic write: write to tmp then rename
-	const tmpPath = destPath + ".tmp";
-	const tmpFile = Gio.File.new_for_path(tmpPath);
-	tmpFile.replace_contents(bytes.get_data(), null, false, Gio.FileCreateFlags.REPLACE_DESTINATION, null);
+/**
+ * Pick the version that satisfies the requested dist-tag. We deliberately
+ * don't implement full semver-range resolution here — `install.js` is meant
+ * to be a thin bootstrapper, and any user who needs sharper version control
+ * already has a real package manager.
+ */
+function pickVersion(packument, tag) {
+	const distTags = packument["dist-tags"] || {};
+	const version = distTags[tag];
+	if (!version) {
+		const known = Object.keys(distTags).join(", ");
+		throw new Error(`Unknown dist-tag '${tag}' on ${PACKAGE}. Known tags: ${known || "(none)"}`);
+	}
+	const meta = packument.versions?.[version];
+	if (!meta?.dist?.tarball) {
+		throw new Error(`Packument lists version ${version} but has no dist.tarball entry`);
+	}
+	return { version, tarballUrl: meta.dist.tarball };
+}
 
-	// Make executable
+async function extractTarball(tarballPath, destDir) {
+	// Layout note: npm tarballs always nest contents under a leading
+	// `package/` directory. `--strip-components=1` collapses that prefix so
+	// `package/bin/x` lands at `<destDir>/bin/x`.
+	//
+	// Why subprocess instead of a pure-JS tar reader: GJS has no built-in
+	// tarball parser, every Linux distro ships GNU/BSD tar with `-z`, and the
+	// subprocess hop is invisibly cheap next to a network round-trip. This
+	// keeps install.js short and inspectable.
+	const proc = Gio.Subprocess.new(
+		[
+			"tar",
+			"-xzf",
+			tarballPath,
+			"-C",
+			destDir,
+			"--strip-components=1",
+		],
+		Gio.SubprocessFlags.STDOUT_PIPE | Gio.SubprocessFlags.STDERR_PIPE,
+	);
+	await proc.wait_check_async(null);
+}
+
+async function downloadTarballToTmp(session, url) {
+	const bytes = await fetchBytes(session, url);
+	// `Gio.File.new_tmp` returns [file, IOStream]; close the stream before
+	// handing the path to `tar` so there's no contention on the fd.
+	const [file, iostream] = Gio.File.new_tmp("ts-for-gir-XXXXXX.tgz");
+	iostream.close(null);
+	file.replace_contents(bytes, null, false, Gio.FileCreateFlags.REPLACE_DESTINATION, null);
+	return file.get_path();
+}
+
+function rmRecursive(path) {
+	const file = Gio.File.new_for_path(path);
+	if (!file.query_exists(null)) return;
+	const enumerator = file.enumerate_children(
+		"standard::name,standard::type",
+		Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
+		null,
+	);
+	let childInfo;
+	while ((childInfo = enumerator.next_file(null))) {
+		const child = file.resolve_relative_path(childInfo.get_name());
+		if (childInfo.get_file_type() === Gio.FileType.DIRECTORY) {
+			rmRecursive(child.get_path());
+		} else {
+			child.delete(null);
+		}
+	}
+	enumerator.close(null);
+	file.delete(null);
+}
+
+function shQuote(s) {
+	return `'${s.replace(/'/g, `'\\''`)}'`;
+}
+
+function pickLauncherTarget(pkg) {
+	// Prefer `gjsify.bin[<bin-name>]` (GJS bundle), fall back to npm `bin`
+	// (Node script). Only the plain string and `Record<name, target>` shapes
+	// matter here — none of the bins we care about use the npm "single
+	// string" form because @ts-for-gir/cli has multiple bins.
+	const gjsifyBin = pkg?.gjsify?.bin;
+	if (gjsifyBin && typeof gjsifyBin === "object" && gjsifyBin[DEFAULT_BIN_NAME]) {
+		return gjsifyBin[DEFAULT_BIN_NAME];
+	}
+	const npmBin = pkg?.bin;
+	if (npmBin && typeof npmBin === "object" && npmBin[DEFAULT_BIN_NAME]) {
+		return npmBin[DEFAULT_BIN_NAME];
+	}
+	throw new Error(`No '${DEFAULT_BIN_NAME}' bin declared in package.json (looked at gjsify.bin and bin)`);
+}
+
+function writeLauncher(target) {
+	const launcher = `#!/bin/sh\nexec ${shQuote(target)} "$@"\n`;
+	const file = Gio.File.new_for_path(LAUNCHER_PATH);
+	file.replace_contents(
+		new TextEncoder().encode(launcher),
+		null,
+		false,
+		Gio.FileCreateFlags.REPLACE_DESTINATION,
+		null,
+	);
 	const fileInfo = new Gio.FileInfo();
 	fileInfo.set_attribute_uint32("unix::mode", 0o755);
-	tmpFile.set_attributes_from_info(fileInfo, Gio.FileQueryInfoFlags.NONE, null);
+	file.set_attributes_from_info(fileInfo, Gio.FileQueryInfoFlags.NONE, null);
+}
 
-	// Rename to final destination (atomic on Linux)
-	const destFile = Gio.File.new_for_path(destPath);
-	tmpFile.move(destFile, Gio.FileCopyFlags.OVERWRITE, null, null);
+function makeBinExecutable(target) {
+	const file = Gio.File.new_for_path(target);
+	if (!file.query_exists(null)) return;
+	const fileInfo = new Gio.FileInfo();
+	fileInfo.set_attribute_uint32("unix::mode", 0o755);
+	try {
+		file.set_attributes_from_info(fileInfo, Gio.FileQueryInfoFlags.NONE, null);
+	} catch {
+		/* best effort */
+	}
 }
 
 function parseArgs() {
-	// system.programArgs is the canonical GJS API for argv (excludes the
-	// interpreter and script path). Older versions expose programArgs as a
-	// plain array of strings.
 	const argv = system?.programArgs ?? [];
 	const force = argv.includes("--force") || argv.includes("-f");
 	const help = argv.includes("--help") || argv.includes("-h");
-	return { force, help };
+	let tag = "latest";
+	for (const a of argv) {
+		const m = a.match(/^--tag=(.+)$/);
+		if (m) tag = m[1];
+	}
+	return { force, help, tag };
 }
 
 function printUsage() {
-	print("Usage: gjs -m install.js [--force] [--help]");
+	print("Usage: gjs -m install.js [--force] [--tag=<dist-tag>] [--help]");
 	print("");
-	print("Installs or updates the ts-for-gir GJS binary to ~/.local/bin/ts-for-gir.");
+	print(`Installs or updates ${PACKAGE} from the npm registry.`);
+	print(`  package tree → ${DATA_DIR}`);
+	print(`  launcher     → ${LAUNCHER_PATH}`);
 	print("");
 	print("Options:");
-	print("  --force, -f   Reinstall even if the latest version is already installed.");
-	print("                Useful for recovering from a broken local binary when");
-	print("                `ts-for-gir self-update` cannot run.");
-	print("  --help,  -h   Show this message.");
-	print("");
-	print("Set GITHUB_TOKEN to avoid GitHub API rate limits.");
+	print("  --force, -f         Reinstall even if the latest version is already installed.");
+	print("  --tag=<dist-tag>    Install a specific dist-tag (default: latest, e.g. next).");
+	print("  --help,  -h         Show this message.");
 }
 
 async function main() {
-	const { force, help } = parseArgs();
+	const { force, help, tag } = parseArgs();
 	if (help) {
 		printUsage();
 		exit(0);
@@ -144,67 +278,93 @@ async function main() {
 
 	const session = new Soup.Session();
 
-	info("Fetching release information from GitHub...");
-
-	// We scan the recent releases instead of using /releases/latest because the
-	// latter skips prereleases. During the rc cycle the most recent stable may
-	// not yet ship the GJS bundle, so picking the newest release that actually
-	// contains the asset is more robust.
-	let releases;
+	const packumentUrl = `${REGISTRY}/${encodeURIComponent(PACKAGE).replace("%40", "@")}`;
+	info(`Fetching ${packumentUrl} ...`);
+	let packument;
 	try {
-		releases = await fetchJson(session, `${GITHUB_API}/repos/${REPO}/releases?per_page=20`);
+		packument = await fetchJson(session, packumentUrl, "application/vnd.npm.install-v1+json");
 	} catch (err) {
-		error(`Failed to fetch release info: ${err.message}`);
+		error(`Failed to fetch packument: ${err.message}`);
 		exit(1);
 	}
 
-	let release;
-	let asset;
-	for (const candidate of releases) {
-		if (candidate.draft) continue;
-		const match = candidate.assets?.find((a) => a.name === GJS_ASSET_NAME);
-		if (match) {
-			release = candidate;
-			asset = match;
-			break;
-		}
-	}
-
-	if (!release || !asset) {
-		error(`No release with a ${GJS_ASSET_NAME} asset found in the last 20 releases`);
+	let target;
+	try {
+		target = pickVersion(packument, tag);
+	} catch (err) {
+		error(err.message);
 		exit(1);
 	}
 
-	const latestVersion = release.tag_name.replace(/^v/, "");
 	const installedVersion = getInstalledVersion();
-
-	if (installedVersion === latestVersion && !force) {
+	if (installedVersion === target.version && !force) {
 		info(`Already up to date (v${installedVersion})`);
 		info("Run with --force to reinstall anyway.");
 		exit(0);
 	}
 
-	if (installedVersion === latestVersion) {
-		info(`Reinstalling v${installedVersion} (--force)...`);
+	if (installedVersion === target.version) {
+		info(`Reinstalling v${installedVersion} (--force) ...`);
 	} else if (installedVersion) {
-		info(`Updating from v${installedVersion} to v${latestVersion}...`);
+		info(`Updating from v${installedVersion} to v${target.version} ...`);
 	} else {
-		info(`Installing ts-for-gir v${latestVersion}...`);
+		info(`Installing ${PACKAGE}@${target.version} ...`);
 	}
 
-	ensureInstallDir();
-
-	info(`Downloading ${asset.browser_download_url}...`);
+	let tarballPath;
 	try {
-		await downloadToFile(session, asset.browser_download_url, INSTALL_PATH);
+		info(`Downloading ${target.tarballUrl} ...`);
+		tarballPath = await downloadTarballToTmp(session, target.tarballUrl);
 	} catch (err) {
 		error(`Download failed: ${err.message}`);
 		exit(1);
 	}
 
-	info(`Installed to ${INSTALL_PATH}`);
+	try {
+		// Wipe the previous install before extracting so we don't leave stale
+		// files when a release removes something. The launcher is rewritten
+		// below regardless, so a half-finished extract is recoverable by
+		// re-running with --force.
+		rmRecursive(DATA_DIR);
+		ensureDir(DATA_DIR);
+		await extractTarball(tarballPath, DATA_DIR);
+	} catch (err) {
+		error(`Extraction failed: ${err.message}`);
+		exit(1);
+	} finally {
+		try {
+			Gio.File.new_for_path(tarballPath).delete(null);
+		} catch {
+			/* best effort */
+		}
+	}
+
+	// Resolve the launcher target via the freshly-extracted package.json so
+	// the install path stays in sync with whatever the published package
+	// declares (gjsify.bin can change in future releases).
+	const pkg = readJsonFile(GLib.build_filenamev([DATA_DIR, "package.json"]));
+	if (!pkg) {
+		error("Extracted package is missing package.json");
+		exit(1);
+	}
+	let binRel;
+	try {
+		binRel = pickLauncherTarget(pkg);
+	} catch (err) {
+		error(err.message);
+		exit(1);
+	}
+	const binAbs = GLib.build_filenamev([DATA_DIR, binRel]);
+	makeBinExecutable(binAbs);
+
+	ensureDir(BIN_DIR);
+	writeLauncher(binAbs);
+
+	info(`Installed ${PACKAGE}@${target.version}`);
+	info(`  package tree → ${DATA_DIR}`);
+	info(`  launcher     → ${LAUNCHER_PATH}  →  ${binAbs}`);
 	checkPath();
-	info("Done! Run: ts-for-gir --help");
+	info(`Done! Run: ${DEFAULT_BIN_NAME} --help`);
 }
 
 await main();

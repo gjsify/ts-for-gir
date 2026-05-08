@@ -26,7 +26,7 @@ Browse the full **[TypeScript API Documentation](https://gjsify.github.io/docs)*
 
 > The GJS build is **experimental** and made possible by [GJSify](https://gjsify.github.io/gjsify/), which provides Node.js + Web APIs on top of GJS.
 
-With GJS installed, run the installer (saved to disk because GJS can't `import` over HTTPS or read `-m /dev/stdin`):
+With GJS installed, run the installer:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/gjsify/ts-for-gir/main/install.js -o /tmp/ts-for-gir-install.js

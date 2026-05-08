@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.0.0-rc.14](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-rc.13...v4.0.0-rc.14) (2026-05-08)
+
+### Features
+
+* **cli:** drop build-gjs.mjs wrapper, use gjsify.defineFromPackageJson ([#387](https://github.com/gjsify/ts-for-gir/issues/387)) ([c7e3257](https://github.com/gjsify/ts-for-gir/commit/c7e3257bbf1f99234148e43bbe7a1529f124d0e2)), closes [package.json#version](https://github.com/gjsify/package.json/issues/version)
+* **install.js:** fetch full npm tarball + write sh launcher ([#389](https://github.com/gjsify/ts-for-gir/issues/389)) ([b2caaf4](https://github.com/gjsify/ts-for-gir/commit/b2caaf4adf9f16f7519b0da3635797e4f1f4496e)), closes [gjsify/gjsify#91](https://github.com/gjsify/gjsify/issues/91) [gjsify/ts-for-gir#388](https://github.com/gjsify/ts-for-gir/issues/388)
+
+### Bug Fixes
+
+* **cli, typedoc-theme:** defensive symlink + missing-package.json handling ([#388](https://github.com/gjsify/ts-for-gir/issues/388)) ([fbe2851](https://github.com/gjsify/ts-for-gir/commit/fbe28515a5cc9324894b0463b5f5e8915ea143c3))
+
 ## [4.0.0-rc.13](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-rc.12...v4.0.0-rc.13) (2026-05-07)
 
 ### Bug Fixes

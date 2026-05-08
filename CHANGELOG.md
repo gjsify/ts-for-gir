@@ -1,5 +1,7 @@
 # Changelog
 
+## [4.0.0-rc.15](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-rc.14...v4.0.0-rc.15) (2026-05-08)
+
 ## [4.0.0-rc.14](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-rc.13...v4.0.0-rc.14) (2026-05-08)
 
 ### Features

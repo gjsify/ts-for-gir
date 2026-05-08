@@ -22,25 +22,18 @@ Browse the full **[TypeScript API Documentation](https://gjsify.github.io/docs)*
 
 ## Getting Started
 
-### Install (GJS — no Node.js required)
+### Install (GJS — no Node.js required) <sub>experimental</sub>
 
-If you have GJS installed, download and run the installer:
+> The GJS build is **experimental** and made possible by [GJSify](https://gjsify.github.io/gjsify/), which provides Node.js + Web APIs on top of GJS.
+
+With GJS installed, run the installer (saved to disk because GJS can't `import` over HTTPS or read `-m /dev/stdin`):
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/gjsify/ts-for-gir/main/install.js -o /tmp/ts-for-gir-install.js
-gjs -m /tmp/ts-for-gir-install.js
-rm /tmp/ts-for-gir-install.js
+gjs -m /tmp/ts-for-gir-install.js && rm /tmp/ts-for-gir-install.js
 ```
 
-> GJS does not allow ESM imports from `https://` URLs and `gjs -m /dev/stdin`
-> doesn't work on a pipe, so the script must be saved to disk before running.
-> `wget` works just as well in place of `curl`.
-
-This installs `ts-for-gir` to `~/.local/bin/ts-for-gir`. Update anytime with:
-
-```bash
-ts-for-gir self-update
-```
+This installs `ts-for-gir` to `~/.local/bin/`. Update anytime with `ts-for-gir self-update`.
 
 ### Install (Node.js / npx)
 

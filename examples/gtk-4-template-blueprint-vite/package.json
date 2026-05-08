@@ -14,7 +14,7 @@
 	"author": "Pascal Garber <pascal@mailfreun.de>",
 	"license": "MIT",
 	"devDependencies": {
-		"@gjsify/vite-plugin-blueprint": "^0.3.16",
+		"@gjsify/vite-plugin-blueprint": "^0.3.17",
 		"typescript": "^6.0.3",
 		"vite": "^8.0.11"
 	},

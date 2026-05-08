@@ -1243,14 +1243,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/cairo-1.0@npm:1.0.0-4.0.0-rc.9":
-  version: 1.0.0-4.0.0-rc.9
-  resolution: "@girs/cairo-1.0@npm:1.0.0-4.0.0-rc.9"
+"@girs/cairo-1.0@npm:1.0.0-4.0.0-rc.14":
+  version: 1.0.0-4.0.0-rc.14
+  resolution: "@girs/cairo-1.0@npm:1.0.0-4.0.0-rc.14"
   dependencies:
-    "@girs/gjs": "npm:4.0.0-rc.9"
-    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/gobject-2.0": "npm:2.88.0-4.0.0-rc.9"
-  checksum: 10/cd9709f7a02aeb02aae0dcb0090dee1a33090e174d48b72e2946cbd621b29c01dd61f735e5c3577d90b109b1637cc13dc0daf5c5a9f33820c919d4a1e03a99ed
+    "@girs/gjs": "npm:4.0.0-rc.14"
+    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/gobject-2.0": "npm:2.88.0-4.0.0-rc.14"
+  checksum: 10/fe459c4fe2f2cc173ea67c1bec47a1cae4f87064732b7d5d9bb5561a88a4e43b6a39c951a4f1780dc665ce39d4eed2f297a2b2cd7d42b4dfdd5925b3095455b4
   languageName: node
   linkType: hard
 
@@ -4550,17 +4550,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gda-6.0@npm:6.0.0-4.0.0-rc.9":
-  version: 6.0.0-4.0.0-rc.9
-  resolution: "@girs/gda-6.0@npm:6.0.0-4.0.0-rc.9"
+"@girs/gda-6.0@npm:6.0.0-4.0.0-rc.14":
+  version: 6.0.0-4.0.0-rc.14
+  resolution: "@girs/gda-6.0@npm:6.0.0-4.0.0-rc.14"
   dependencies:
-    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/gjs": "npm:4.0.0-rc.9"
-    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/gmodule-2.0": "npm:2.0.0-4.0.0-rc.9"
-    "@girs/gobject-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/libxml2-2.0": "npm:2.0.0-4.0.0-rc.9"
-  checksum: 10/61501d427fae60b156080689de218aa7b617b858a6aaac7b6f13082dad19c164a9f450a339d0e73409ca558651c51581d6bb1e4a81c5942e9d44f05e7e402e06
+    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/gjs": "npm:4.0.0-rc.14"
+    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/gmodule-2.0": "npm:2.0.0-4.0.0-rc.14"
+    "@girs/gobject-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/libxml2-2.0": "npm:2.0.0-4.0.0-rc.14"
+  checksum: 10/cc8162d2f4067786cbd1a3be8ade7c63c29bc743bffacdd28ef090abb8b3b6d41cfb21398a3fc24bc7987a4c6755aa6278a8f8029ebd5af4da24c1e77c0ee118
   languageName: node
   linkType: hard
 
@@ -5241,15 +5241,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gio-2.0@npm:2.88.0-4.0.0-rc.9":
-  version: 2.88.0-4.0.0-rc.9
-  resolution: "@girs/gio-2.0@npm:2.88.0-4.0.0-rc.9"
+"@girs/gio-2.0@npm:2.88.0-4.0.0-rc.14":
+  version: 2.88.0-4.0.0-rc.14
+  resolution: "@girs/gio-2.0@npm:2.88.0-4.0.0-rc.14"
   dependencies:
-    "@girs/gjs": "npm:4.0.0-rc.9"
-    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/gmodule-2.0": "npm:2.0.0-4.0.0-rc.9"
-    "@girs/gobject-2.0": "npm:2.88.0-4.0.0-rc.9"
-  checksum: 10/780b54eea689688feacc911cf27dd9b898abcf0695ba41a09c2fd7d22b6002b4a21c87319e3b97b246a5db2363607838045db9ef4cc5134ff9631f2e944528ef
+    "@girs/gjs": "npm:4.0.0-rc.14"
+    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/gmodule-2.0": "npm:2.0.0-4.0.0-rc.14"
+    "@girs/gobject-2.0": "npm:2.88.0-4.0.0-rc.14"
+  checksum: 10/8f9ec1dd7ecdc11d6ed9b0a3f1c1ff65a1414aa4c179ec064be68f44d15af9eaac67e398dc38181db069738f1e1cb86a190d407f35df2e5d4ae26526ccf230a3
   languageName: node
   linkType: hard
 
@@ -5265,16 +5265,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/giounix-2.0@npm:2.0.0-4.0.0-rc.9":
-  version: 2.0.0-4.0.0-rc.9
-  resolution: "@girs/giounix-2.0@npm:2.0.0-4.0.0-rc.9"
+"@girs/giounix-2.0@npm:2.0.0-4.0.0-rc.14":
+  version: 2.0.0-4.0.0-rc.14
+  resolution: "@girs/giounix-2.0@npm:2.0.0-4.0.0-rc.14"
   dependencies:
-    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/gjs": "npm:4.0.0-rc.9"
-    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/gmodule-2.0": "npm:2.0.0-4.0.0-rc.9"
-    "@girs/gobject-2.0": "npm:2.88.0-4.0.0-rc.9"
-  checksum: 10/98ac94ccef5cbddf70d0f22971301dbffbc76cd90b2b4c7de76c627f412798fb53c554f9f02f8913cd6905ac0aa30101d3891a6cc4a8858048873af705da5606
+    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/gjs": "npm:4.0.0-rc.14"
+    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/gmodule-2.0": "npm:2.0.0-4.0.0-rc.14"
+    "@girs/gobject-2.0": "npm:2.88.0-4.0.0-rc.14"
+  checksum: 10/2b0c578ddbeb13859037b15a7d0735ea3adf01ab582b64bd7092e53a3d86ba2f2ee6d305b0f0e93ab24bb3bd809ec44e251a8b20bb8ed1a7c56f54a5d37332bf
   languageName: node
   linkType: hard
 
@@ -5377,15 +5377,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gjs@npm:4.0.0-rc.9":
-  version: 4.0.0-rc.9
-  resolution: "@girs/gjs@npm:4.0.0-rc.9"
+"@girs/gjs@npm:4.0.0-rc.14":
+  version: 4.0.0-rc.14
+  resolution: "@girs/gjs@npm:4.0.0-rc.14"
   dependencies:
-    "@girs/cairo-1.0": "npm:1.0.0-4.0.0-rc.9"
-    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/gobject-2.0": "npm:2.88.0-4.0.0-rc.9"
-  checksum: 10/f1b28a3be1bc36840eebd8e889b3e77009efa7352e2ff909068cc8c23fb6c96393956c93c4f39d567f1205e193bc20654d11c518b18a8cfe55728698c70061c8
+    "@girs/cairo-1.0": "npm:1.0.0-4.0.0-rc.14"
+    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/gobject-2.0": "npm:2.88.0-4.0.0-rc.14"
+  checksum: 10/b6e71c8e77ebaa159d03e074a82c240de742a12d632a42a7668a52f09ebb1c3c5c2110d619b116a3a9123867fc5276fc801b23f090b41d95120ff8e311053837
   languageName: node
   linkType: hard
 
@@ -5482,13 +5482,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/glib-2.0@npm:2.88.0-4.0.0-rc.9":
-  version: 2.88.0-4.0.0-rc.9
-  resolution: "@girs/glib-2.0@npm:2.88.0-4.0.0-rc.9"
+"@girs/glib-2.0@npm:2.88.0-4.0.0-rc.14":
+  version: 2.88.0-4.0.0-rc.14
+  resolution: "@girs/glib-2.0@npm:2.88.0-4.0.0-rc.14"
   dependencies:
-    "@girs/gjs": "npm:4.0.0-rc.9"
-    "@girs/gobject-2.0": "npm:2.88.0-4.0.0-rc.9"
-  checksum: 10/5aa1eb199e46a002e464416ff75687446151c9486c327d09eb1379974b0f6149dbe5c99337550d518ed668fe017cb7313e5f579932d5a02342ddbb10c25d5a43
+    "@girs/gjs": "npm:4.0.0-rc.14"
+    "@girs/gobject-2.0": "npm:2.88.0-4.0.0-rc.14"
+  checksum: 10/21e3b483642f1b2afd94cacfd999a3484c2e45783ea17ac42dc86d722b138765507900e94d2f99f0d8f7b8bf07496e2f18434e7e8ff44379f1f44b8fe078f61b
   languageName: node
   linkType: hard
 
@@ -5651,14 +5651,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gmodule-2.0@npm:2.0.0-4.0.0-rc.9":
-  version: 2.0.0-4.0.0-rc.9
-  resolution: "@girs/gmodule-2.0@npm:2.0.0-4.0.0-rc.9"
+"@girs/gmodule-2.0@npm:2.0.0-4.0.0-rc.14":
+  version: 2.0.0-4.0.0-rc.14
+  resolution: "@girs/gmodule-2.0@npm:2.0.0-4.0.0-rc.14"
   dependencies:
-    "@girs/gjs": "npm:4.0.0-rc.9"
-    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/gobject-2.0": "npm:2.88.0-4.0.0-rc.9"
-  checksum: 10/9a121f9c86ff6513dd7a9ffbde388ac48a38a2aad5ecabef0dcb59d256ea9a68a611477ee8e0b24aea254d8ac95e1070e9ba400cff6a572e9ab6c6755228f37a
+    "@girs/gjs": "npm:4.0.0-rc.14"
+    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/gobject-2.0": "npm:2.88.0-4.0.0-rc.14"
+  checksum: 10/c2342bd17ee5da42ffb9a2f27b67a072542cdefc08f70ee63e28c2a2924df30323ff368c160eeabfe2f18ed7275a67604493efc0a28eb9d09854adbac71e79b7
   languageName: node
   linkType: hard
 
@@ -5878,13 +5878,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/gobject-2.0@npm:2.88.0-4.0.0-rc.9":
-  version: 2.88.0-4.0.0-rc.9
-  resolution: "@girs/gobject-2.0@npm:2.88.0-4.0.0-rc.9"
+"@girs/gobject-2.0@npm:2.88.0-4.0.0-rc.14":
+  version: 2.88.0-4.0.0-rc.14
+  resolution: "@girs/gobject-2.0@npm:2.88.0-4.0.0-rc.14"
   dependencies:
-    "@girs/gjs": "npm:4.0.0-rc.9"
-    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.9"
-  checksum: 10/8a0f698e34a20411e5b2f173bfb1a6d81a4d7accd10a44ba8611e3df35e8eb8431d69ca6c167a1c45715112bafdd8fbc486b0d714677b84c07e8f2479ee0d76f
+    "@girs/gjs": "npm:4.0.0-rc.14"
+    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.14"
+  checksum: 10/11bd436a2d5f76c29e899b668f1fc82d819168e794dfc432c050064c0b4c999bfe40de36137890e5665c40e2cf6e09cf3e96524ad7d6a32a64ffe2731e67a770
   languageName: node
   linkType: hard
 
@@ -8832,13 +8832,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/libxml2-2.0@npm:2.0.0-4.0.0-rc.9":
-  version: 2.0.0-4.0.0-rc.9
-  resolution: "@girs/libxml2-2.0@npm:2.0.0-4.0.0-rc.9"
+"@girs/libxml2-2.0@npm:2.0.0-4.0.0-rc.14":
+  version: 2.0.0-4.0.0-rc.14
+  resolution: "@girs/libxml2-2.0@npm:2.0.0-4.0.0-rc.14"
   dependencies:
-    "@girs/gjs": "npm:4.0.0-rc.9"
-    "@girs/gobject-2.0": "npm:2.88.0-4.0.0-rc.9"
-  checksum: 10/dbd1e208e18f368c09df61f32b1608ecbc65d00f7afbbb4a77142ceae2f55f53e664aa8cbe545eb79a6ed7649445c3b1aabefddc87d2922b397cdfbc1779655c
+    "@girs/gjs": "npm:4.0.0-rc.14"
+    "@girs/gobject-2.0": "npm:2.88.0-4.0.0-rc.14"
+  checksum: 10/80187e3b913bfb9ce9efb2978ba96a2243683a7ebb54a3bd74f15c6f8dabda84e37f9dd42902ceb3fd1c5403796ae80534c875f062c2a3b6bf05624809e5c218
   languageName: node
   linkType: hard
 
@@ -11772,16 +11772,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@girs/soup-3.0@npm:3.6.6-4.0.0-rc.9":
-  version: 3.6.6-4.0.0-rc.9
-  resolution: "@girs/soup-3.0@npm:3.6.6-4.0.0-rc.9"
+"@girs/soup-3.0@npm:3.6.6-4.0.0-rc.14":
+  version: 3.6.6-4.0.0-rc.14
+  resolution: "@girs/soup-3.0@npm:3.6.6-4.0.0-rc.14"
   dependencies:
-    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/gjs": "npm:4.0.0-rc.9"
-    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/gmodule-2.0": "npm:2.0.0-4.0.0-rc.9"
-    "@girs/gobject-2.0": "npm:2.88.0-4.0.0-rc.9"
-  checksum: 10/c80243f3dc80066690ff006aa76f03c361e38931871896d8645b5f37969bd6e7cad6f5f0b99d4ee291aa155297551e526e1684357a82ec3d852b3f688d37e989
+    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/gjs": "npm:4.0.0-rc.14"
+    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/gmodule-2.0": "npm:2.0.0-4.0.0-rc.14"
+    "@girs/gobject-2.0": "npm:2.88.0-4.0.0-rc.14"
+  checksum: 10/e659b852e783d566d065a5047b19fed93db34b359d8fbbb93bf6d37ca1104f3c0db6a6b30209fae832af8af47a18ab55e680e4f42b6093ec8a6758163c11acbc
   languageName: node
   linkType: hard
 
@@ -13577,484 +13577,484 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@gjsify/abort-controller@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/abort-controller@npm:0.3.16"
+"@gjsify/abort-controller@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/abort-controller@npm:0.3.17"
   dependencies:
-    "@gjsify/dom-events": "npm:^0.3.16"
-  checksum: 10/9f92c3e941c70be86323fcf840894758468a4ecf39286b3e9046c8979f6820c4e9d77d3e9cf0fb56f84e0d32c12a3e80f2217c68032d1562ccaa13b384ff195e
+    "@gjsify/dom-events": "npm:^0.3.17"
+  checksum: 10/07ad3039d74d6fd6b40e919be1fc14b34a7ec559e6d8078a4886809cbec43bb4aa49414b77ed0518022c30d7a1456ffa7ca5d2f6a24e23b0d2db7db8a2bf8204
   languageName: node
   linkType: hard
 
-"@gjsify/assert@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/assert@npm:0.3.16"
-  checksum: 10/ee9a40591d00d5202696aed6df9ea3c667fa4de3d59404dc591eaf8900a15c1dd30b3fd2add55f1c08b571d12ff6cfb5123efeb128120470ffad4eca20fd3734
+"@gjsify/assert@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/assert@npm:0.3.17"
+  checksum: 10/bb3ec0c495eaf22b3b0731c18795987a2e4e1dfd1c8eca2b1ea80c56a7c2d885e2cc8011a23913096fbd1b72f158e160ebf11e898f43d544b05117378d46bf01
   languageName: node
   linkType: hard
 
-"@gjsify/async_hooks@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/async_hooks@npm:0.3.16"
+"@gjsify/async_hooks@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/async_hooks@npm:0.3.17"
   dependencies:
-    "@gjsify/events": "npm:^0.3.16"
-  checksum: 10/88bd9bb0111414d58b0ff71468bd7d0aad476689827bbf6a9622f8303ece3eaae708de75c1dceb1a6d7a7da0d88242f933b940db213f8d60dd1aaa17b1eab4c3
+    "@gjsify/events": "npm:^0.3.17"
+  checksum: 10/025f58422b18850699e97ec2ee68244a2bdd2dc055bbcf3738d8e20382aa258cec389ed9c9fde36a1f9e80d4d5fd64a90d3c42d8c6e5ede0663831d1facf098c
   languageName: node
   linkType: hard
 
-"@gjsify/buffer@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/buffer@npm:0.3.16"
+"@gjsify/buffer@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/buffer@npm:0.3.17"
   dependencies:
-    "@gjsify/utils": "npm:^0.3.16"
-  checksum: 10/e7ec574bef4aed4aa5475d87d26cd4173ee979be69e4e2624c805d4a23bf2c811577fe6985309eb2afae6dffb0d17403bcf01d44e69ad845701eebb680721d70
+    "@gjsify/utils": "npm:^0.3.17"
+  checksum: 10/ddcbb0651b722e18eb8fab5ac48835d173a2b806ddae83337309a8394018b57a304a7eb1e20d301f78cac7afbcf173ae717c835f14732034785c721cdec7145d
   languageName: node
   linkType: hard
 
-"@gjsify/child_process@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/child_process@npm:0.3.16"
+"@gjsify/child_process@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/child_process@npm:0.3.17"
   dependencies:
-    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@gjsify/buffer": "npm:^0.3.16"
-    "@gjsify/events": "npm:^0.3.16"
-    "@gjsify/utils": "npm:^0.3.16"
-  checksum: 10/0e4bb6d7522d007ee419249fc6f5d6a443c714377a56b338c1f5ee9ff96573da208632863ff10f7d7f71e188c4970a92fc36749d5d1a0e2cde5fe45ba5c9ac1c
+    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@gjsify/buffer": "npm:^0.3.17"
+    "@gjsify/events": "npm:^0.3.17"
+    "@gjsify/utils": "npm:^0.3.17"
+  checksum: 10/d9c8291df3e70f218f3d06b8e187933fbfbba3784b9611be3dedb7acb6a9f6b49b61633a70885e73aa5a346ac901de6f3caa9413967863f22bb3365610153f17
   languageName: node
   linkType: hard
 
-"@gjsify/cli@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/cli@npm:0.3.16"
+"@gjsify/cli@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/cli@npm:0.3.17"
   dependencies:
-    "@gjsify/create-app": "npm:^0.3.16"
-    "@gjsify/node-polyfills": "npm:^0.3.16"
-    "@gjsify/npm-registry": "npm:^0.3.16"
-    "@gjsify/resolve-npm": "npm:^0.3.16"
-    "@gjsify/rolldown-plugin-gjsify": "npm:^0.3.16"
-    "@gjsify/rolldown-plugin-pnp": "npm:^0.3.16"
-    "@gjsify/semver": "npm:^0.3.16"
-    "@gjsify/tar": "npm:^0.3.16"
-    "@gjsify/web-polyfills": "npm:^0.3.16"
+    "@gjsify/create-app": "npm:^0.3.17"
+    "@gjsify/node-polyfills": "npm:^0.3.17"
+    "@gjsify/npm-registry": "npm:^0.3.17"
+    "@gjsify/resolve-npm": "npm:^0.3.17"
+    "@gjsify/rolldown-plugin-gjsify": "npm:^0.3.17"
+    "@gjsify/rolldown-plugin-pnp": "npm:^0.3.17"
+    "@gjsify/semver": "npm:^0.3.17"
+    "@gjsify/tar": "npm:^0.3.17"
+    "@gjsify/web-polyfills": "npm:^0.3.17"
     cosmiconfig: "npm:^9.0.1"
     get-tsconfig: "npm:^4.14.0"
     pkg-types: "npm:^2.3.1"
-    rolldown: "npm:^1.0.0-rc.18"
+    rolldown: "npm:^1.0.0"
     yargs: "npm:^18.0.0"
   bin:
     gjsify: ./lib/index.js
-  checksum: 10/ad6a9c1fd262c92ad5e399135564458af9b9be32f3a58e8029c9c7562d776282b0bb2675af06bbcc8d2a4eb0536914e2115423ff8bd9b74dacd06254512da885
+  checksum: 10/c5f92c8b1c03c365ff634a11876e8a0465e6354f943c66d5a48cb0596cb345dc6dd0b4ded695cf8946f96e082bf72ce05b1a3e17472fba917c71c7928f8dff8a
   languageName: node
   linkType: hard
 
-"@gjsify/cluster@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/cluster@npm:0.3.16"
+"@gjsify/cluster@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/cluster@npm:0.3.17"
   dependencies:
-    "@gjsify/events": "npm:^0.3.16"
-  checksum: 10/7ab85d6fbb5c07f3a61ac08f1f9d5cfbcaeb8ea71ef46aacfa3dfb4398868e6a7fadae2331dbee3f987d2db67657a79b0ac44a2a735bd2a2119055e4a0357a0f
+    "@gjsify/events": "npm:^0.3.17"
+  checksum: 10/cc5cc300f14e8a61fcbe86cc938e7101eb38f47488cf7e99cb6d716e85733d7162682952f7674b21fe73e20f5e8c88c988dbd0275e344bdf02020f2797e45fdb
   languageName: node
   linkType: hard
 
-"@gjsify/compression-streams@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/compression-streams@npm:0.3.16"
+"@gjsify/compression-streams@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/compression-streams@npm:0.3.17"
   dependencies:
-    "@gjsify/web-streams": "npm:^0.3.16"
-  checksum: 10/1aeab2e50bc56879fffba1d0938a42faea6f9d737fa8850219263e9cf7d61d3f5f67eea85f37ac17dc2e1a39480aad49ba4f6974bfbe6f8cc5330bb07368e7eb
+    "@gjsify/web-streams": "npm:^0.3.17"
+  checksum: 10/246c09c1ffb713eb1dac67176149ccf2b91503cc14c62154eeca054a2d87f4ccff479f8f4d5ccfa6d4a1e6a1f1c76788a72b261b9872f9f6c906623b4978e466
   languageName: node
   linkType: hard
 
-"@gjsify/console@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/console@npm:0.3.16"
-  checksum: 10/77c276b6e4e8ed02ab7ce3d9756287a356c45497dfa17382f4c55acce6a1049e09dc4d816d87fa26678b2f2b372786c56857da97f1dd648cedb9cb784fc36cde
+"@gjsify/console@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/console@npm:0.3.17"
+  checksum: 10/7cb50810be218e81361ae80dfa31e514827b18416228bfd6cbde1e9a1f438e26ed5b7edbea4da25958298eccf9e3222a6873ce4d9a0c6e4028645e4363424c94
   languageName: node
   linkType: hard
 
-"@gjsify/constants@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/constants@npm:0.3.16"
+"@gjsify/constants@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/constants@npm:0.3.17"
   dependencies:
-    "@gjsify/crypto": "npm:^0.3.16"
-    "@gjsify/fs": "npm:^0.3.16"
-    "@gjsify/os": "npm:^0.3.16"
-  checksum: 10/7b0e40ee44c1ba389a435ed3dd440d97f2ab8dbc77b0d361241433bcbd3661b0f8c0bb779d67756a5e31653b962510b7fe1fdbaabadea8c42a0d3af402ee7894
+    "@gjsify/crypto": "npm:^0.3.17"
+    "@gjsify/fs": "npm:^0.3.17"
+    "@gjsify/os": "npm:^0.3.17"
+  checksum: 10/4a32d1439542120009682ab2093f7c29fc7bedd4ce9d84af6715240e21138521b1feefb2b59f6cbd818b06f541755af2e25c2774c34977a3fa270b37e4319e08
   languageName: node
   linkType: hard
 
-"@gjsify/create-app@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/create-app@npm:0.3.16"
+"@gjsify/create-app@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/create-app@npm:0.3.17"
   dependencies:
     yargs: "npm:^18.0.0"
   bin:
     create-app: ./lib/index.js
-  checksum: 10/e480f846fd923aae0140f4903b35ab3486d38a7deb0899df69405eb3c494685e2f7fab8de34ef27493ba600bb6488e6a9af30d3dc525304b5866caea02382fd2
+  checksum: 10/8797c51c3165420fb13117cd318f80fef213468fb31758b5e9c9dc50bfeea6fe0c345ccb47e15d24672bd2663b94bc7e9313d3a062f51a6ffbdb665bb8e3f279
   languageName: node
   linkType: hard
 
-"@gjsify/crypto@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/crypto@npm:0.3.16"
+"@gjsify/crypto@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/crypto@npm:0.3.17"
   dependencies:
-    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@gjsify/buffer": "npm:^0.3.16"
-    "@gjsify/stream": "npm:^0.3.16"
-    "@gjsify/utils": "npm:^0.3.16"
-  checksum: 10/f8823fd827382413912fae2119266a8236cb9dc8f804f87846c9a6cc123fecbd00abf20fda590a9a3eb8a8281fb29c97f3e03e3f6e3f637b940c6969d4996e02
+    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@gjsify/buffer": "npm:^0.3.17"
+    "@gjsify/stream": "npm:^0.3.17"
+    "@gjsify/utils": "npm:^0.3.17"
+  checksum: 10/82998360e20dec11598f893b6db8b64e17972882a9bbbde1261ba6265cde91a1008f482957c0e36cbc92285cc9f9c97d4e898a9e4427000cd11e9467b5338136
   languageName: node
   linkType: hard
 
-"@gjsify/dgram@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/dgram@npm:0.3.16"
+"@gjsify/dgram@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/dgram@npm:0.3.17"
   dependencies:
-    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@gjsify/buffer": "npm:^0.3.16"
-    "@gjsify/events": "npm:^0.3.16"
-    "@gjsify/utils": "npm:^0.3.16"
-  checksum: 10/d5201261eb044933adeffb54b6358b3a96fe2ddba83b038dcefbca2ff5979ead1db414bdaa19f772462649c3cc3c294bdf5968c6cdcc1240703abef8f6d9feda
+    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@gjsify/buffer": "npm:^0.3.17"
+    "@gjsify/events": "npm:^0.3.17"
+    "@gjsify/utils": "npm:^0.3.17"
+  checksum: 10/04a1e42c8507e598c9e94acbb0c1bc927ff49ad00d3dd97caf500d0c807b6cf0afacd1dcbea8dfde0e69882cb4a41261f797150d3c65b649968b591645ff82b9
   languageName: node
   linkType: hard
 
-"@gjsify/diagnostics_channel@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/diagnostics_channel@npm:0.3.16"
-  checksum: 10/08e1129d967fdb110b266293f56789ae2701c6ba2f804748c6b6aa1fbec8996dabbccea7e20fac179e963bdc71146516958804da0e4c75c945d92cc2f1d0cec1
+"@gjsify/diagnostics_channel@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/diagnostics_channel@npm:0.3.17"
+  checksum: 10/65a71f292e465dae4d3e612f744fe712b962fef77c07dfd225c5eab914f9954ed87f24006c16d3372d7f0c5a40f3974ef60591a4c237477741db9a7fc672bac2
   languageName: node
   linkType: hard
 
-"@gjsify/dns@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/dns@npm:0.3.16"
+"@gjsify/dns@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/dns@npm:0.3.17"
   dependencies:
-    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@gjsify/net": "npm:^0.3.16"
-    "@gjsify/utils": "npm:^0.3.16"
-  checksum: 10/43864a1e992476a53bfe5dac0747f52cb6eef57b5c2baac908de1a0ba628f6acc8a1277b7f3f9d0216722a77a84f2ec6cb0004b09c57a1edd26d073531b10a94
+    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@gjsify/net": "npm:^0.3.17"
+    "@gjsify/utils": "npm:^0.3.17"
+  checksum: 10/8a594d4b559408710d881a4ddb9d179f7622700762c2266569a300a00248d889c5a9612609bad8319947d596ed03ed0ce6235f99e176e1e9d0f75940473d1385
   languageName: node
   linkType: hard
 
-"@gjsify/dom-events@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/dom-events@npm:0.3.16"
+"@gjsify/dom-events@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/dom-events@npm:0.3.17"
   dependencies:
-    "@gjsify/dom-exception": "npm:^0.3.16"
-  checksum: 10/9bdb9bd81425e74dfc28d84ff92b952addaf7c783208276a4fe96d9a7f4e2243015679efda8ee0f31d79c21004d5ad474907a7e722f620ca35c954dafef8893a
+    "@gjsify/dom-exception": "npm:^0.3.17"
+  checksum: 10/fd1d0d6a397046768dcf4cda897fcd4c74bab608f9a301f30fffa245a4713b4e1f5cfcf5d1c267dbffbac639ca4afc7fda0e6ef26a696fd5d76bb36a77ea21cd
   languageName: node
   linkType: hard
 
-"@gjsify/dom-exception@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/dom-exception@npm:0.3.16"
-  checksum: 10/1d200934fc3fede141605bc7d25ec2b7387a64c0fffed14eb556c669d2a0a6b4cfabec62bc8fdbc1802fb0232082c0c84a0e34f71fec62b9d2d2477351caa042
+"@gjsify/dom-exception@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/dom-exception@npm:0.3.17"
+  checksum: 10/e93c3ab134c588c2716c10af3771a0ffbdde5b986feffc70e1176c5a3be7171ed5c7135f3a8bcdb19f19641423f9c920f35eca31ddf5915da85d534d4924a5aa
   languageName: node
   linkType: hard
 
-"@gjsify/domain@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/domain@npm:0.3.16"
+"@gjsify/domain@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/domain@npm:0.3.17"
   dependencies:
-    "@gjsify/events": "npm:^0.3.16"
-  checksum: 10/26d52aca629db3105305657ee7f9d169fbf625edc8a0c957ec8ee6fc7ea8009373fbc199045f08d31777f3db90363a29c5ab127598650042167369a8e5260e82
+    "@gjsify/events": "npm:^0.3.17"
+  checksum: 10/55450703a54a4ec92363414f0781cbdb32a858b2b6172731b6bfc7da77a22640b02fc18d6a66fa7145a44038bf91f464c760b37127e4aa9694587ba3a9b72f5e
   languageName: node
   linkType: hard
 
-"@gjsify/domparser@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/domparser@npm:0.3.16"
-  checksum: 10/7a63aff8200ee3a5f401cf40cb160fbb6bff178a764dfa1179b9260363549a32a5f7c85829f68341b8a8e59830f5cfd3b5d4083ca6bc9ad79e9435b2c7de1bc9
+"@gjsify/domparser@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/domparser@npm:0.3.17"
+  checksum: 10/e308fce4489d09d148317df5cce0d50e624bdb0a12a4e0cddb41b961855e5fa58f8a7947feb84c7388d762cd4f3d36232009bd0a3ca8f9260afc284dc6bd019e
   languageName: node
   linkType: hard
 
-"@gjsify/events@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/events@npm:0.3.16"
+"@gjsify/events@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/events@npm:0.3.17"
   dependencies:
-    "@gjsify/utils": "npm:^0.3.16"
-  checksum: 10/1e3e86ebf48922a24116a50077ea31692741e6f9575257f3298801d60f4a7a8cfe07958bc78e256a9c60b5c2cef4196119df19ba342452dba57639cacbd302f0
+    "@gjsify/utils": "npm:^0.3.17"
+  checksum: 10/48b0756aa5d5dfdc687b368e7e15ca11ef0aa6c394f163d426a33ba9ea4894e0a7e570864aa1d3c443f840bfde53df3f027b61536405cfe415498c40df20dbb6
   languageName: node
   linkType: hard
 
-"@gjsify/eventsource@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/eventsource@npm:0.3.16"
+"@gjsify/eventsource@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/eventsource@npm:0.3.17"
   dependencies:
-    "@gjsify/dom-events": "npm:^0.3.16"
-    "@gjsify/web-streams": "npm:^0.3.16"
-  checksum: 10/d490fa72918ad06db37ba376c29c16127c022ed5a76eb84d18f45ddf0571ef133ecd159645b8ff6fabb308918705f05f2143880c4f93943aa2f1f2843d59bada
+    "@gjsify/dom-events": "npm:^0.3.17"
+    "@gjsify/web-streams": "npm:^0.3.17"
+  checksum: 10/101f7fa186b2a729048023c9afaa9e685ee70a87df900decd189f6bc54524ea5de99574eb09a554e14657fd4aea9964948d7ec4d74feb8cac9a42975e47314ea
   languageName: node
   linkType: hard
 
-"@gjsify/fetch@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/fetch@npm:0.3.16"
+"@gjsify/fetch@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/fetch@npm:0.3.17"
   dependencies:
-    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/gjs": "npm:4.0.0-rc.9"
-    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/soup-3.0": "npm:3.6.6-4.0.0-rc.9"
-    "@gjsify/formdata": "npm:^0.3.16"
-    "@gjsify/http": "npm:^0.3.16"
-    "@gjsify/url": "npm:^0.3.16"
-    "@gjsify/utils": "npm:^0.3.16"
-  checksum: 10/188003fb835fb4fdf39fc09eec498870ffbbf797e63033512476ea6b0b2b6a54688d2a597a2568c495fe2c682a45e93be4790bf9bf90218ac121b4fcfba61524
+    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/gjs": "npm:4.0.0-rc.14"
+    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/soup-3.0": "npm:3.6.6-4.0.0-rc.14"
+    "@gjsify/formdata": "npm:^0.3.17"
+    "@gjsify/http": "npm:^0.3.17"
+    "@gjsify/url": "npm:^0.3.17"
+    "@gjsify/utils": "npm:^0.3.17"
+  checksum: 10/381b4499c66efbe41acb84b27ec3ab765fcb13fd44c0abec69cb2073c407c70256b962a0730ca97bf65d770aa227c45eb144775fa82efd5bb78af490e3da8110
   languageName: node
   linkType: hard
 
-"@gjsify/formdata@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/formdata@npm:0.3.16"
-  checksum: 10/a9c7bc436573d6f61303f623c8478d9a510059784c30bc323bb935e4514ca2090760f8fde10fc0be4e30a2394be6af625573931a7956ae362de6ab8805910c35
+"@gjsify/formdata@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/formdata@npm:0.3.17"
+  checksum: 10/7d107fc8f0e80aee053167a6b945135551721744fff4699346b1eeae46198ee6fe528a96814170a40f1dfe8ec2b6e2e6b9acc623e38f4a3ad454bf469f3a6181
   languageName: node
   linkType: hard
 
-"@gjsify/fs@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/fs@npm:0.3.16"
+"@gjsify/fs@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/fs@npm:0.3.17"
   dependencies:
-    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@gjsify/buffer": "npm:^0.3.16"
-    "@gjsify/events": "npm:^0.3.16"
-    "@gjsify/stream": "npm:^0.3.16"
-    "@gjsify/url": "npm:^0.3.16"
-    "@gjsify/utils": "npm:^0.3.16"
-  checksum: 10/c7278465f76e1d8c24c7ab5b524bae6152fc3698fcadfd9b3aa9ef4e0fbfcfdfa08787e321e81bc27901ef58590e380dff3827b92814d00e8aa6700f0f47b087
+    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@gjsify/buffer": "npm:^0.3.17"
+    "@gjsify/events": "npm:^0.3.17"
+    "@gjsify/stream": "npm:^0.3.17"
+    "@gjsify/url": "npm:^0.3.17"
+    "@gjsify/utils": "npm:^0.3.17"
+  checksum: 10/fde476bbb58c1237dd591a2e53886bedc627e3d37c9c16579ecdd4d9f17ff922de5144823a9e9396acf1f3b33f148bafbcf38ad23337c5003a9ab9c38c2c5417
   languageName: node
   linkType: hard
 
-"@gjsify/gamepad@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/gamepad@npm:0.3.16"
+"@gjsify/gamepad@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/gamepad@npm:0.3.17"
   dependencies:
-    "@gjsify/dom-events": "npm:^0.3.16"
-  checksum: 10/6830be350be6c36c39d7d17361565a85d655c8db386366139bfdc9fb2c1f1891f0024e650c07f9c383a42710602ff89056aa86b017c2f36330cd44835cf4427e
+    "@gjsify/dom-events": "npm:^0.3.17"
+  checksum: 10/87d10c797451f120a43b39cc80398ac2b5033d43e52b44bb985b7b926f1302f6ac4e86805c78cc0a716e6bb64dcd56726d747481e17633050858c2fc5e64f4ee
   languageName: node
   linkType: hard
 
-"@gjsify/http-soup-bridge@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/http-soup-bridge@npm:0.3.16"
+"@gjsify/http-soup-bridge@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/http-soup-bridge@npm:0.3.17"
   dependencies:
-    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/gjs": "npm:4.0.0-rc.9"
-    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/gobject-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/soup-3.0": "npm:3.6.6-4.0.0-rc.9"
-  checksum: 10/aef9c74c802e818760d34ea9fa3d5b77877b17e2d292db64762cd3c2c35e79d9c17f3b8730f626805e3cf5710de12768679471971ca373505a012abccf7915b1
+    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/gjs": "npm:4.0.0-rc.14"
+    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/gobject-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/soup-3.0": "npm:3.6.6-4.0.0-rc.14"
+  checksum: 10/34e86224c7680e4531268ac2deed4b9aeb61d7c2885f12174270293cdd1cbb186fc385049d889ec8f83b7a82bc169a7af32303db6a4b37444f9c02767a02856b
   languageName: node
   linkType: hard
 
-"@gjsify/http2@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/http2@npm:0.3.16"
+"@gjsify/http2@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/http2@npm:0.3.17"
   dependencies:
-    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/gobject-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/soup-3.0": "npm:3.6.6-4.0.0-rc.9"
-    "@gjsify/events": "npm:^0.3.16"
-    "@gjsify/utils": "npm:^0.3.16"
-  checksum: 10/98f51fb8ae8d2ef9404857dc1eb7aa91ee0a058192124d9ffe39d2c610d3711a4bd83d85df7fe4084aa1d07d658ea9db89a60fa55e49f556cccba8c8b5b65a91
+    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/gobject-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/soup-3.0": "npm:3.6.6-4.0.0-rc.14"
+    "@gjsify/events": "npm:^0.3.17"
+    "@gjsify/utils": "npm:^0.3.17"
+  checksum: 10/7055cba73324d2d15ab8fbc4553da420dcbc65a3bd4c9dde3f9e92aff466730e3fdbb05a299a033c1b8382600b5cabc1e4850149c13c7589b38d55b0f259d0e0
   languageName: node
   linkType: hard
 
-"@gjsify/http@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/http@npm:0.3.16"
+"@gjsify/http@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/http@npm:0.3.17"
   dependencies:
-    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/soup-3.0": "npm:3.6.6-4.0.0-rc.9"
-    "@gjsify/buffer": "npm:^0.3.16"
-    "@gjsify/events": "npm:^0.3.16"
-    "@gjsify/http-soup-bridge": "npm:^0.3.16"
-    "@gjsify/net": "npm:^0.3.16"
-    "@gjsify/stream": "npm:^0.3.16"
-    "@gjsify/url": "npm:^0.3.16"
-    "@gjsify/utils": "npm:^0.3.16"
-  checksum: 10/3ffebf57c3a3c3907806c2240c868020e486ae68bd46d8f56b18f695a9efa40a6f3f07ff4040e83aa97b3fbb7bc2c44e9888c862a713f44a51eac0196060e071
+    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/soup-3.0": "npm:3.6.6-4.0.0-rc.14"
+    "@gjsify/buffer": "npm:^0.3.17"
+    "@gjsify/events": "npm:^0.3.17"
+    "@gjsify/http-soup-bridge": "npm:^0.3.17"
+    "@gjsify/net": "npm:^0.3.17"
+    "@gjsify/stream": "npm:^0.3.17"
+    "@gjsify/url": "npm:^0.3.17"
+    "@gjsify/utils": "npm:^0.3.17"
+  checksum: 10/df87456b14e831d5dea0e592533c21b37a2b6f42f6b7db86565a62588365449233dda8e5ed65663deb745443af1a6d69d28a30d6082477869dee5040a3cc6084
   languageName: node
   linkType: hard
 
-"@gjsify/https@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/https@npm:0.3.16"
+"@gjsify/https@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/https@npm:0.3.17"
   dependencies:
-    "@gjsify/http": "npm:^0.3.16"
-    "@gjsify/tls": "npm:^0.3.16"
-  checksum: 10/f4d7fc95d786f5e90684aee80aa2f6eec75312eb291e9fcaacc41f9c018f4808b30821a2833fd7028ebd2b8dde18af8097fcbc5cef5c267704e7373c180a7339
+    "@gjsify/http": "npm:^0.3.17"
+    "@gjsify/tls": "npm:^0.3.17"
+  checksum: 10/38a5fe1158f904f442cb1893bd7b171c0f8c33c20c1d66e43e35a9059d1cb3ca8696f62070116798e85587e0ee3e1af34391f1a7a0fc67bac93148e29e420a6d
   languageName: node
   linkType: hard
 
-"@gjsify/inspector@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/inspector@npm:0.3.16"
-  checksum: 10/ea995f706338288dfd00ead0db647b790c3f62c14d1f53e834530d2987b7da5b980c45fa966adc5ef9270c8054c858f57200157ce4bfe67e602dd48382b812d7
+"@gjsify/inspector@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/inspector@npm:0.3.17"
+  checksum: 10/b5edbf1f8f51810129ba3342b43dbc35193c2fa750dac8e830f951cf1aab40929cf516be3e8aea373ef07e2cf805d6a03d7926b11ab3e8d1e3e22d7c7d64718e
   languageName: node
   linkType: hard
 
-"@gjsify/module@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/module@npm:0.3.16"
+"@gjsify/module@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/module@npm:0.3.17"
   dependencies:
-    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/gjs": "npm:4.0.0-rc.9"
-    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@gjsify/utils": "npm:^0.3.16"
-  checksum: 10/97bca0609b6bf75875eeaf51dcbb2a1c63f833fffc376e4330ef1e42448d487e9b3d0fbab07dbfc31af440192852fbe3a6579a155b1df3216fabde5cd0854ea9
+    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/gjs": "npm:4.0.0-rc.14"
+    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@gjsify/utils": "npm:^0.3.17"
+  checksum: 10/7b8db2f7a712e9c7ae99fe20f0e2fd2544e57fec1e7d9e9791959f429cafdae78eedde599ff5fc2c12dd37c623c5c8910684975525f06c1961e651add613d4ef
   languageName: node
   linkType: hard
 
-"@gjsify/net@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/net@npm:0.3.16"
+"@gjsify/net@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/net@npm:0.3.17"
   dependencies:
-    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@gjsify/buffer": "npm:^0.3.16"
-    "@gjsify/events": "npm:^0.3.16"
-    "@gjsify/stream": "npm:^0.3.16"
-    "@gjsify/utils": "npm:^0.3.16"
-  checksum: 10/15ebb2b05aa8c36a4d38281db335c3e60315143f824fe69c4e9e44aceb3206d1eb8784d180c1fa9673bdb3f93b23569e97c009ccd62e1bd5dbef819651a4ab10
+    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@gjsify/buffer": "npm:^0.3.17"
+    "@gjsify/events": "npm:^0.3.17"
+    "@gjsify/stream": "npm:^0.3.17"
+    "@gjsify/utils": "npm:^0.3.17"
+  checksum: 10/7926397c48582eb85bac86ba5b09245faf5ef84efebdcfe7577e9fbbad2c75486e6efaa14447ccade66bbc7fe6a7e9ba04d9d8eef3e64bc7c474f67087a55d4d
   languageName: node
   linkType: hard
 
-"@gjsify/node-globals@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/node-globals@npm:0.3.16"
+"@gjsify/node-globals@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/node-globals@npm:0.3.17"
   dependencies:
-    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@gjsify/buffer": "npm:^0.3.16"
-    "@gjsify/process": "npm:^0.3.16"
-    "@gjsify/url": "npm:^0.3.16"
-    "@gjsify/utils": "npm:^0.3.16"
-  checksum: 10/8f65d930cb96a42f7ff9450decb0f30a7f776c84fad243b49447f5e831ead18184d8dab052d74b3b783c52bcaab1ec37d317d3a8672767ef7a86c1d4a50af4cc
+    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@gjsify/buffer": "npm:^0.3.17"
+    "@gjsify/process": "npm:^0.3.17"
+    "@gjsify/url": "npm:^0.3.17"
+    "@gjsify/utils": "npm:^0.3.17"
+  checksum: 10/80e859a29b814bd59db76fa095921ac8c81b388df040f436a23ff2ed9cb0600ca31a49a2b4aeb8964d652dd5f919bdba6d18eda895d99888c29c05e74200c5a3
   languageName: node
   linkType: hard
 
-"@gjsify/node-polyfills@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/node-polyfills@npm:0.3.16"
+"@gjsify/node-polyfills@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/node-polyfills@npm:0.3.17"
   dependencies:
-    "@gjsify/assert": "npm:^0.3.16"
-    "@gjsify/async_hooks": "npm:^0.3.16"
-    "@gjsify/buffer": "npm:^0.3.16"
-    "@gjsify/child_process": "npm:^0.3.16"
-    "@gjsify/cluster": "npm:^0.3.16"
-    "@gjsify/console": "npm:^0.3.16"
-    "@gjsify/constants": "npm:^0.3.16"
-    "@gjsify/crypto": "npm:^0.3.16"
-    "@gjsify/dgram": "npm:^0.3.16"
-    "@gjsify/diagnostics_channel": "npm:^0.3.16"
-    "@gjsify/dns": "npm:^0.3.16"
-    "@gjsify/domain": "npm:^0.3.16"
-    "@gjsify/events": "npm:^0.3.16"
-    "@gjsify/fs": "npm:^0.3.16"
-    "@gjsify/http": "npm:^0.3.16"
-    "@gjsify/http2": "npm:^0.3.16"
-    "@gjsify/https": "npm:^0.3.16"
-    "@gjsify/inspector": "npm:^0.3.16"
-    "@gjsify/module": "npm:^0.3.16"
-    "@gjsify/net": "npm:^0.3.16"
-    "@gjsify/node-globals": "npm:^0.3.16"
-    "@gjsify/os": "npm:^0.3.16"
-    "@gjsify/path": "npm:^0.3.16"
-    "@gjsify/perf_hooks": "npm:^0.3.16"
-    "@gjsify/process": "npm:^0.3.16"
-    "@gjsify/querystring": "npm:^0.3.16"
-    "@gjsify/readline": "npm:^0.3.16"
-    "@gjsify/sqlite": "npm:^0.3.16"
-    "@gjsify/stream": "npm:^0.3.16"
-    "@gjsify/string_decoder": "npm:^0.3.16"
-    "@gjsify/sys": "npm:^0.3.16"
-    "@gjsify/timers": "npm:^0.3.16"
-    "@gjsify/tls": "npm:^0.3.16"
-    "@gjsify/tty": "npm:^0.3.16"
-    "@gjsify/url": "npm:^0.3.16"
-    "@gjsify/util": "npm:^0.3.16"
-    "@gjsify/v8": "npm:^0.3.16"
-    "@gjsify/vm": "npm:^0.3.16"
-    "@gjsify/worker_threads": "npm:^0.3.16"
-    "@gjsify/zlib": "npm:^0.3.16"
-  checksum: 10/3f342c5475de97d792b32bcc5e1f0e3d8ac6a1fc798cc6e9896a36dc88349cebc0558a553aed0cdf7cb6b8166ce36525a18c95ec1696c796a82cf74c13b4cfaf
+    "@gjsify/assert": "npm:^0.3.17"
+    "@gjsify/async_hooks": "npm:^0.3.17"
+    "@gjsify/buffer": "npm:^0.3.17"
+    "@gjsify/child_process": "npm:^0.3.17"
+    "@gjsify/cluster": "npm:^0.3.17"
+    "@gjsify/console": "npm:^0.3.17"
+    "@gjsify/constants": "npm:^0.3.17"
+    "@gjsify/crypto": "npm:^0.3.17"
+    "@gjsify/dgram": "npm:^0.3.17"
+    "@gjsify/diagnostics_channel": "npm:^0.3.17"
+    "@gjsify/dns": "npm:^0.3.17"
+    "@gjsify/domain": "npm:^0.3.17"
+    "@gjsify/events": "npm:^0.3.17"
+    "@gjsify/fs": "npm:^0.3.17"
+    "@gjsify/http": "npm:^0.3.17"
+    "@gjsify/http2": "npm:^0.3.17"
+    "@gjsify/https": "npm:^0.3.17"
+    "@gjsify/inspector": "npm:^0.3.17"
+    "@gjsify/module": "npm:^0.3.17"
+    "@gjsify/net": "npm:^0.3.17"
+    "@gjsify/node-globals": "npm:^0.3.17"
+    "@gjsify/os": "npm:^0.3.17"
+    "@gjsify/path": "npm:^0.3.17"
+    "@gjsify/perf_hooks": "npm:^0.3.17"
+    "@gjsify/process": "npm:^0.3.17"
+    "@gjsify/querystring": "npm:^0.3.17"
+    "@gjsify/readline": "npm:^0.3.17"
+    "@gjsify/sqlite": "npm:^0.3.17"
+    "@gjsify/stream": "npm:^0.3.17"
+    "@gjsify/string_decoder": "npm:^0.3.17"
+    "@gjsify/sys": "npm:^0.3.17"
+    "@gjsify/timers": "npm:^0.3.17"
+    "@gjsify/tls": "npm:^0.3.17"
+    "@gjsify/tty": "npm:^0.3.17"
+    "@gjsify/url": "npm:^0.3.17"
+    "@gjsify/util": "npm:^0.3.17"
+    "@gjsify/v8": "npm:^0.3.17"
+    "@gjsify/vm": "npm:^0.3.17"
+    "@gjsify/worker_threads": "npm:^0.3.17"
+    "@gjsify/zlib": "npm:^0.3.17"
+  checksum: 10/c4f8f10c38ad05d623ce8f8f54b2d364f24d919b41cadec0b107b15c1f48f10ea0d07aae4c39f4dc2308bd83c1589c7127470344f0eba166eebf8bee454e2cec
   languageName: node
   linkType: hard
 
-"@gjsify/npm-registry@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/npm-registry@npm:0.3.16"
-  checksum: 10/eea93a1380292837d821578314905cdfac49a17dbe48db0cf6df4d9a65689efcb0720b2e20ade425456276da22e337f50e1125a538a17d1b344d390000aef919
+"@gjsify/npm-registry@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/npm-registry@npm:0.3.17"
+  checksum: 10/2af295fe6a988f7d9219e0a86107aa9cfc77f852533a176a32df6d15cbf8fff69a53f8855b9f263e606dccf6db28c3e7098d2220b9ca8c8b0faface48f24ac1c
   languageName: node
   linkType: hard
 
-"@gjsify/os@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/os@npm:0.3.16"
+"@gjsify/os@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/os@npm:0.3.17"
   dependencies:
-    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@gjsify/utils": "npm:^0.3.16"
-  checksum: 10/2462a5c047243b52a7d9a072340ae0f33caa53fdd269a73ac3454e87cdd6667d3dbe7a7a02e040d22e3a8a1ea6944cb3fd6e174d4d6416e4ef1b73ae159277b6
+    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@gjsify/utils": "npm:^0.3.17"
+  checksum: 10/c1186706bea652133a196badc279f25c3f6de181219c6738a17455aefc2970de279d0688e329ef3f71ccf441250195806b0032b3c350915c9268ad8e92d261df
   languageName: node
   linkType: hard
 
-"@gjsify/path@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/path@npm:0.3.16"
-  checksum: 10/4dfa73352b1ad25dbd14338a5299b32d90f25059619a793bef04a40010ff8bc2e5fc2a8228822f169eafa0d1196464ac042ba3cca042a66865ddadefab5fa96e
+"@gjsify/path@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/path@npm:0.3.17"
+  checksum: 10/bf50b5b826b13ed9401fdd2f702d284ca2f7d73222cfa8b1b895f12ab0dad4ccd6700a64c3239392291144996fc664f5f1ac79a5512205a3bb20bebf472fd395
   languageName: node
   linkType: hard
 
-"@gjsify/perf_hooks@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/perf_hooks@npm:0.3.16"
-  checksum: 10/484aa858518340a7231f9c86b077697010ed58ea7450f78695ce308605a4ce757b0b84c0d98f9a68854d89b77d3d1ad387ad25fa19e43e3a756bfff5b184d8b6
+"@gjsify/perf_hooks@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/perf_hooks@npm:0.3.17"
+  checksum: 10/75217812258fbdd6e65121de734a20d962fd4b34ce3f8ec60d4dea4ac74a6e41da5a5386e00dab814474395fd826d932f51cabb77891c9c129033a5780b622a1
   languageName: node
   linkType: hard
 
-"@gjsify/process@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/process@npm:0.3.16"
+"@gjsify/process@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/process@npm:0.3.17"
   dependencies:
-    "@gjsify/events": "npm:^0.3.16"
-    "@gjsify/terminal-native": "npm:^0.3.16"
-    "@gjsify/utils": "npm:^0.3.16"
-  checksum: 10/272d49d38b44656e1d4b54fc57f03190cb7c4f1a8d6e7b0a7587c51dd69055fe8db60a1e608e123c5849d71994423d95c9e617ef57cf8a6107312501d68eb193
+    "@gjsify/events": "npm:^0.3.17"
+    "@gjsify/terminal-native": "npm:^0.3.17"
+    "@gjsify/utils": "npm:^0.3.17"
+  checksum: 10/b8081082e21935843d86f053e6778299778e913b55277c7b736f3f69bb1132b3a3dcfee7cc15a5ce842eac6c22e253b6354f67ced18e39b747f8dc8f0cff0b44
   languageName: node
   linkType: hard
 
-"@gjsify/querystring@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/querystring@npm:0.3.16"
-  checksum: 10/ba67cfd4756b8b4f165ee7b81a71a773c5035d0d64172fb57ddec408416f11a304313ba04d02cb7e0955d736f3ab48f19c9a1fc66734241d099d1d80effa6399
+"@gjsify/querystring@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/querystring@npm:0.3.17"
+  checksum: 10/100a221510b52800a8c3c1e74a716bc2aff91dd4fe7aac9c42d5cb1d6c0a333328fe7817b2b7ad946be29429fe4f1f36cbe7d5110d0336be5720223c3b165fc8
   languageName: node
   linkType: hard
 
-"@gjsify/readline@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/readline@npm:0.3.16"
+"@gjsify/readline@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/readline@npm:0.3.17"
   dependencies:
-    "@gjsify/events": "npm:^0.3.16"
-  checksum: 10/c01de652a9f50d259abd35e576f6be90e63323bf36ac49322cced901230721d5a3413bda42c5e46819758af35ebfd4e0dabfad93bfd32db28e314939c3c4d5f2
+    "@gjsify/events": "npm:^0.3.17"
+  checksum: 10/e73cbd91d1207e65e085b5d121ee3d8d1ac7a907087077520985db1fec88aaf9b1e36359f1b158ecdbb2b40b60f72a95ad87314ce5778f2a33cb89bddd70db41
   languageName: node
   linkType: hard
 
-"@gjsify/resolve-npm@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/resolve-npm@npm:0.3.16"
-  checksum: 10/a2808bfaa9fa0549462a7e2a8cee1814760f7d1656ce93a49ad71f0848a5a8de279a079acd5e9113f5e0ef78961b3f8f3b3a95e689fdb5d61dfe22e8e6fa0183
+"@gjsify/resolve-npm@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/resolve-npm@npm:0.3.17"
+  checksum: 10/6d1c0fd0613d4ad4508db537a4a0e0c27d76eed279b8f88d1a67a1d943446e3b20ac36ec7c32895acda716b2fd19bc53176c713b5538ce6f3054e129002b5de0
   languageName: node
   linkType: hard
 
-"@gjsify/rolldown-plugin-deepkit@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/rolldown-plugin-deepkit@npm:0.3.16"
+"@gjsify/rolldown-plugin-deepkit@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/rolldown-plugin-deepkit@npm:0.3.17"
   dependencies:
     "@deepkit/type-compiler": "npm:^1.0.19"
     typescript: "npm:^6.0.3"
@@ -14063,21 +14063,21 @@ __metadata:
   peerDependenciesMeta:
     rolldown:
       optional: true
-  checksum: 10/e6f6052be724bb384dabf5ef4235118cbdcaebc41868744607e993c2df700508fd0cae3a10b37edc10560ce313f88900bc77670f4ba9601f04e6bd3052e6c783
+  checksum: 10/ba7acaa8c3d904ca977fd5f50bbd60739dc509c521313a9a9d14fc7d1531426fd5faee536f9203b95c92601058382e668c22e3ca872ba8a434a02086b938f41d
   languageName: node
   linkType: hard
 
-"@gjsify/rolldown-plugin-gjsify@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/rolldown-plugin-gjsify@npm:0.3.16"
+"@gjsify/rolldown-plugin-gjsify@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/rolldown-plugin-gjsify@npm:0.3.17"
   dependencies:
-    "@gjsify/resolve-npm": "npm:^0.3.16"
-    "@gjsify/rolldown-plugin-deepkit": "npm:^0.3.16"
-    "@gjsify/rolldown-plugin-pnp": "npm:^0.3.16"
-    "@gjsify/vite-plugin-blueprint": "npm:^0.3.16"
-    "@rollup/pluginutils": "npm:^5.1.4"
-    acorn: "npm:^8.14.0"
-    acorn-walk: "npm:^8.3.4"
+    "@gjsify/resolve-npm": "npm:^0.3.17"
+    "@gjsify/rolldown-plugin-deepkit": "npm:^0.3.17"
+    "@gjsify/rolldown-plugin-pnp": "npm:^0.3.17"
+    "@gjsify/vite-plugin-blueprint": "npm:^0.3.17"
+    "@rollup/pluginutils": "npm:^5.3.0"
+    acorn: "npm:^8.16.0"
+    acorn-walk: "npm:^8.3.5"
     fast-glob: "npm:^3.3.3"
     lightningcss: "npm:^1.32.0"
   peerDependencies:
@@ -14085,156 +14085,156 @@ __metadata:
   peerDependenciesMeta:
     rolldown:
       optional: true
-  checksum: 10/b8ae0ec660556d009b93454af097ca993562bc14cba20fd417f20dd1a6b64dadd7bd75e23eb8bc8ac25a9cec14c617415df6b8124a953a67264d8648ee9454d9
+  checksum: 10/47e0fe1e61827f2ca25cdd9af8c4d4a6ef53dc2fbf0379b9a13f12a4b6927bc6d0c3eb6ca856524f9e762918590e8b567c0a93b2dc55b81f74185a7b9ba1cbf4
   languageName: node
   linkType: hard
 
-"@gjsify/rolldown-plugin-pnp@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/rolldown-plugin-pnp@npm:0.3.16"
+"@gjsify/rolldown-plugin-pnp@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/rolldown-plugin-pnp@npm:0.3.17"
   peerDependencies:
     rolldown: ^1.0.0-rc.18
   peerDependenciesMeta:
     rolldown:
       optional: true
-  checksum: 10/b32ce63e495034f46586adbbb1d0bf6fc35ddeabc1f17671474e92ec8d2a23a0a3686c45d181414827328e5267bfc7a3f9406f450812633b4f8210d437f60374
+  checksum: 10/50212e06170181110dbd54b2c008a5ca3993efe8df004a5859bd178e7caf1dfd4585955227d8fe923c5f2c377c2d6509a667b5c786e6dd62f2a7e62c4aeca3b5
   languageName: node
   linkType: hard
 
-"@gjsify/semver@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/semver@npm:0.3.16"
-  checksum: 10/ee87421353f0c254b69573950cfcf948bd6f2a9d0a79f4308d4e09aeab480ef04b19b4850e3097e38255d2ee83f689e8c748656ee13eabf81532105869a98c90
+"@gjsify/semver@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/semver@npm:0.3.17"
+  checksum: 10/fa09248bf9838338483f53b04df29dde0420b439d02b6b6cee364e141ca96a114c809ea2bbc219689336392432c71295898c7a4f34b131e7b307dab7a60b467e
   languageName: node
   linkType: hard
 
-"@gjsify/sqlite@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/sqlite@npm:0.3.16"
+"@gjsify/sqlite@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/sqlite@npm:0.3.17"
   dependencies:
-    "@girs/gda-6.0": "npm:6.0.0-4.0.0-rc.9"
-    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/gobject-2.0": "npm:2.88.0-4.0.0-rc.9"
-  checksum: 10/98cb6c5c24d8be18f283d48c1c804521701b3fa27ee9037bb9719c80180a573b6bf4837b9b6aa46e5baa775574fafc7836db4363306875c3d72421841037572e
+    "@girs/gda-6.0": "npm:6.0.0-4.0.0-rc.14"
+    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/gobject-2.0": "npm:2.88.0-4.0.0-rc.14"
+  checksum: 10/47bcc4cf288d95c07f8aec19ff3192c8ceeb3317a1122e634e4f837ed15c6c578c3ad4ace81890f324e294fb91a21e3fa06790a5c55761e86606482573e9ea19
   languageName: node
   linkType: hard
 
-"@gjsify/stream@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/stream@npm:0.3.16"
+"@gjsify/stream@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/stream@npm:0.3.17"
   dependencies:
-    "@gjsify/events": "npm:^0.3.16"
-    "@gjsify/utils": "npm:^0.3.16"
-    "@gjsify/web-streams": "npm:^0.3.16"
-  checksum: 10/aca0cc062e6f9c33addb340780c5ee7aec3b04ee182f36fe408e323cb020edcba455d74a991ae77998d7b34287adcac33c8c0775c745f44d95a702325e3aacee
+    "@gjsify/events": "npm:^0.3.17"
+    "@gjsify/utils": "npm:^0.3.17"
+    "@gjsify/web-streams": "npm:^0.3.17"
+  checksum: 10/c2d78ab82e73043c971db426b388b6f481ad4a3d4db813b2a494206a585facf88aa1a7c203e865a0645b8589ac2ea3ee197c4cfc86aabf38cbed02d6edaf11df
   languageName: node
   linkType: hard
 
-"@gjsify/string_decoder@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/string_decoder@npm:0.3.16"
+"@gjsify/string_decoder@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/string_decoder@npm:0.3.17"
   dependencies:
-    "@gjsify/utils": "npm:^0.3.16"
-  checksum: 10/c0d7ff974d82065e401c0aee88e2ccf8be9374cad3f7a6975ba7e9e8238c773d15afe7e8b2ddd4d048e460071a831914d7705e75efb1361c274630592c6242ad
+    "@gjsify/utils": "npm:^0.3.17"
+  checksum: 10/1e97aa0a441467e9bf74524096a72ca0caa405cba5a1be0d44889f1d49daa798466bbe9f2f616266dd7201e65ff0bd19e40a6298be54492b8fc07a5e141e2f0f
   languageName: node
   linkType: hard
 
-"@gjsify/sys@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/sys@npm:0.3.16"
+"@gjsify/sys@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/sys@npm:0.3.17"
   dependencies:
-    "@gjsify/util": "npm:^0.3.16"
-  checksum: 10/2f4cd19adc06b15c13cb4c5bc85f4428752abab505581fa184e507431b02059c25d8a2a26a577a01e8895eedbecd8e1bef7ad661b1f893e3e4f1e952002dd79c
+    "@gjsify/util": "npm:^0.3.17"
+  checksum: 10/18baec9f8dd6cdf5ec0b16e0cf13f4577641ce6c933058c3eb1e20d9e95e574e62bef41ae4431c4d2b2207383b60edddaa710a6d1562560095fd93be103b4ce0
   languageName: node
   linkType: hard
 
-"@gjsify/tar@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/tar@npm:0.3.16"
-  checksum: 10/4d91e1f78d6c66c6a70fb8e1eb50fc732ac103bd7a1682df5fbaad760bb126ef16a76b88244ff181ecbf351beeed9354e872bd3a86698166010b856fb4ec55a5
+"@gjsify/tar@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/tar@npm:0.3.17"
+  checksum: 10/8f5f6adb734de5a222e7fe7612756e9a2d2ae2eb0554bfbc861e6acf5bf4ba5b931b2301351810c88f41ad5a457e8923e8b67763ac017edf17ff5c2ef13542ab
   languageName: node
   linkType: hard
 
-"@gjsify/terminal-native@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/terminal-native@npm:0.3.16"
+"@gjsify/terminal-native@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/terminal-native@npm:0.3.17"
   dependencies:
-    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/gobject-2.0": "npm:2.88.0-4.0.0-rc.9"
-  checksum: 10/3e71b67ef4d34b48f060aa4a61203b16c795a49b0071b2980b5f5cfef53c7680168336b519338b04fa3946cc0fadaf2fd5245da7b6ae63cbb8aa39cd6cc62548
+    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/gobject-2.0": "npm:2.88.0-4.0.0-rc.14"
+  checksum: 10/86df3fe21c80f6fdf6c0a600d4978aed417cc40deea971d8f7a710ee494a036f8230f04399d95a0b33faed8bee8ba44827812b4f77ac076813384c0be25ece1d
   languageName: node
   linkType: hard
 
-"@gjsify/timers@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/timers@npm:0.3.16"
-  checksum: 10/85c60c05533bb5b2a65336d5eca5e3fe464ee65c2601808cb27e80bf349ec5f408a879f8e83fb6b8627ed7847a40498f75a90210b1d7c575e5a2372d51df6694
+"@gjsify/timers@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/timers@npm:0.3.17"
+  checksum: 10/201b9fd1ff37fd73e4b84515c07b2118997545e3f22b2bc37e4ce69e7d3956eb85255a8ef1a838d0ac5a5e5b238480729393ea4c7083412913c224a485d40e4d
   languageName: node
   linkType: hard
 
-"@gjsify/tls@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/tls@npm:0.3.16"
+"@gjsify/tls@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/tls@npm:0.3.17"
   dependencies:
-    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@gjsify/net": "npm:^0.3.16"
-    "@gjsify/utils": "npm:^0.3.16"
-  checksum: 10/5b4f0bc53eea34cb6f68871991f4b2548098dbbb167ebd91992a3778563640dd5b975fc515e7b499a26ae1e6bc350216c37bc3ab223e736fab9bc9e502151e75
+    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@gjsify/net": "npm:^0.3.17"
+    "@gjsify/utils": "npm:^0.3.17"
+  checksum: 10/e6da36d2b0677b8c434e4f6fcd8f413b5e833947bea760ea9551dba8599508e1b3aadc7d93044b6aca2a2598dd12a185ce6e6e707fb5f8baf2df716cf609fd4d
   languageName: node
   linkType: hard
 
-"@gjsify/tty@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/tty@npm:0.3.16"
+"@gjsify/tty@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/tty@npm:0.3.17"
   dependencies:
-    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@gjsify/stream": "npm:^0.3.16"
-    "@gjsify/terminal-native": "npm:^0.3.16"
-  checksum: 10/cfda8556b38bd24613d2ff66bb03adac5f40754175ba5693a844f57cbe737b1f675b48fef6623db3ceb583e48c20c1bf8e32d5085d2764b03e9c4e4381ab76c0
+    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@gjsify/stream": "npm:^0.3.17"
+    "@gjsify/terminal-native": "npm:^0.3.17"
+  checksum: 10/90544fbc86476fb8957dce0f0b80e563e0114f7ad1001ce3b6e17d9d648d3e47a01fbae4c6afc78ec274d5457cd6e45f8c3322f7b6ac1b51735e735243d2f9fa
   languageName: node
   linkType: hard
 
-"@gjsify/url@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/url@npm:0.3.16"
+"@gjsify/url@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/url@npm:0.3.17"
   dependencies:
-    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.9"
-  checksum: 10/80f4f91c9024bf30aa135e4922ab1517fc1b180754330bf9e8c22e643e7544c77adfef85ceb02e8fca521bfbad1cd6b8b1a1623ed873b58323c6e96992cc8715
+    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.14"
+  checksum: 10/45bf33bca07cea4380a9d555b3283ef97f7d56781dfdaa980b8d1f230b124be5006c45344b49d2319b419a082e4e8cf302d4d2bd4c0b593af844f68bf451cc47
   languageName: node
   linkType: hard
 
-"@gjsify/util@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/util@npm:0.3.16"
-  checksum: 10/fe8758c0e498c58ea8e342db794074169d85bf06db6114a8a193f36395ebd43f3abf277ba4218bca6036ca76cc22c94b20f3e08031d9bdb3b0514e9e9a54246a
+"@gjsify/util@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/util@npm:0.3.17"
+  checksum: 10/c1caef80105497f6d6605f7beecc30903c7916ebd87a8286cdf63560dade5cec2a8e8d70faf267498c272d6c07122a0b8b17c3d6eddee8c889765e7173e38e71
   languageName: node
   linkType: hard
 
-"@gjsify/utils@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/utils@npm:0.3.16"
+"@gjsify/utils@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/utils@npm:0.3.17"
   dependencies:
-    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/giounix-2.0": "npm:2.0.0-4.0.0-rc.9"
-    "@girs/gjs": "npm:4.0.0-rc.9"
-    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.9"
-  checksum: 10/8a47dd23a972e4275ce95913574d4a54c57c26a33a3cf3c7b98c85ac83a35dbd9abdf7d096a48e1683e4b8d6e0c96a77c4e9f4529f14112484d45b35a2751f6b
+    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/giounix-2.0": "npm:2.0.0-4.0.0-rc.14"
+    "@girs/gjs": "npm:4.0.0-rc.14"
+    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.14"
+  checksum: 10/3a421a8550d7eaa36c18a6313fac9f6064a2d8fa4a749b412e0328f9cd0dc259f1c0d91ace5e828925c5e027594d20945a7181f8729eabee0ecd3cb0e869d451
   languageName: node
   linkType: hard
 
-"@gjsify/v8@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/v8@npm:0.3.16"
-  checksum: 10/60363e0bcc861884bf5f38f300307a02ea92adecbc006f6a9b0def5849a3cce21ca09160588e61801de8d148dae6717c131d06aa235a5e0d48b285225cda8276
+"@gjsify/v8@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/v8@npm:0.3.17"
+  checksum: 10/58f259620fc5dcbe04f11a09a7097ba8f9366a85e36c31fa92979a48afcf1fc939c9197d6da811aced52a5df55039dcc49b0cdab53a368b56613e9048b6aab34
   languageName: node
   linkType: hard
 
-"@gjsify/vite-plugin-blueprint@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/vite-plugin-blueprint@npm:0.3.16"
+"@gjsify/vite-plugin-blueprint@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/vite-plugin-blueprint@npm:0.3.17"
   dependencies:
-    execa: "npm:^9.6.0"
+    execa: "npm:^9.6.1"
     minify-xml: "npm:^4.5.2"
   peerDependencies:
     rolldown: ^1.0.0-rc.18
@@ -14244,147 +14244,147 @@ __metadata:
       optional: true
     vite:
       optional: true
-  checksum: 10/5107b71091fe0df394d632a41a2cd15fee73a0a41d8238f5f2db6cbb446a50c7191b72a05a942f1093ea49687263b1ae62f229f1f967e009d704945f09abe12e
+  checksum: 10/3ab87fc8b3956f9e349227dc9337ff49dea0cfbe971bb7bd067c92dae55c8086b5b762c052d8657628ea34549f14be2761fb1aa062fd8ac3257a68055abe6f8b
   languageName: node
   linkType: hard
 
-"@gjsify/vm@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/vm@npm:0.3.16"
-  checksum: 10/30434fbd8181a5c1d0a1d676116d5c4bfca326c0390427fd4ffd76665ff0fca7ef2438efbd52ab25cf8d48c2ca62ba101d0f49c930b4efe5f100e615fd6541c0
+"@gjsify/vm@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/vm@npm:0.3.17"
+  checksum: 10/1a92b019cae39d4c04e73c1ce5b5a4ba097884eb17a1332943d3f122f8d1c7884ab2c486b97ebd198b270b67d3f0072182f6a2404e2aed5ea46a7e72a7e14d78
   languageName: node
   linkType: hard
 
-"@gjsify/web-globals@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/web-globals@npm:0.3.16"
+"@gjsify/web-globals@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/web-globals@npm:0.3.17"
   dependencies:
-    "@gjsify/abort-controller": "npm:^0.3.16"
-    "@gjsify/buffer": "npm:^0.3.16"
-    "@gjsify/compression-streams": "npm:^0.3.16"
-    "@gjsify/dom-events": "npm:^0.3.16"
-    "@gjsify/dom-exception": "npm:^0.3.16"
-    "@gjsify/eventsource": "npm:^0.3.16"
-    "@gjsify/formdata": "npm:^0.3.16"
-    "@gjsify/gamepad": "npm:^0.3.16"
-    "@gjsify/perf_hooks": "npm:^0.3.16"
-    "@gjsify/url": "npm:^0.3.16"
-    "@gjsify/web-streams": "npm:^0.3.16"
-    "@gjsify/webaudio": "npm:^0.3.16"
-    "@gjsify/webcrypto": "npm:^0.3.16"
-  checksum: 10/87d473a3aa5a542934b09fe3880a2ba2a24e52866dc1cc1eeabca7741a813268bb186c717398eff853baf45624b6394000a8d52e60139163f4a7d02765d8febe
+    "@gjsify/abort-controller": "npm:^0.3.17"
+    "@gjsify/buffer": "npm:^0.3.17"
+    "@gjsify/compression-streams": "npm:^0.3.17"
+    "@gjsify/dom-events": "npm:^0.3.17"
+    "@gjsify/dom-exception": "npm:^0.3.17"
+    "@gjsify/eventsource": "npm:^0.3.17"
+    "@gjsify/formdata": "npm:^0.3.17"
+    "@gjsify/gamepad": "npm:^0.3.17"
+    "@gjsify/perf_hooks": "npm:^0.3.17"
+    "@gjsify/url": "npm:^0.3.17"
+    "@gjsify/web-streams": "npm:^0.3.17"
+    "@gjsify/webaudio": "npm:^0.3.17"
+    "@gjsify/webcrypto": "npm:^0.3.17"
+  checksum: 10/745289be77429a8ec156ace6913be5dbeba1e2c4460b823090384104472da31d247499ffcdaa9fe6256841193aa2efa0fc7e5d7b9ce205e41351752f8eea2ec9
   languageName: node
   linkType: hard
 
-"@gjsify/web-polyfills@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/web-polyfills@npm:0.3.16"
+"@gjsify/web-polyfills@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/web-polyfills@npm:0.3.17"
   dependencies:
-    "@gjsify/abort-controller": "npm:^0.3.16"
-    "@gjsify/compression-streams": "npm:^0.3.16"
-    "@gjsify/dom-events": "npm:^0.3.16"
-    "@gjsify/dom-exception": "npm:^0.3.16"
-    "@gjsify/domparser": "npm:^0.3.16"
-    "@gjsify/eventsource": "npm:^0.3.16"
-    "@gjsify/fetch": "npm:^0.3.16"
-    "@gjsify/formdata": "npm:^0.3.16"
-    "@gjsify/gamepad": "npm:^0.3.16"
-    "@gjsify/web-globals": "npm:^0.3.16"
-    "@gjsify/web-streams": "npm:^0.3.16"
-    "@gjsify/webassembly": "npm:^0.3.16"
-    "@gjsify/webaudio": "npm:^0.3.16"
-    "@gjsify/webcrypto": "npm:^0.3.16"
-    "@gjsify/websocket": "npm:^0.3.16"
-    "@gjsify/webstorage": "npm:^0.3.16"
-    "@gjsify/xmlhttprequest": "npm:^0.3.16"
-  checksum: 10/6808444d24eef8ddbfe842daedab1f11a62f332bf04edfe8608b885b559be28b21d12c9d18a42f0f25ba83ef9392c152a8f8cb21d63c782ca7f9ef1b030121b1
+    "@gjsify/abort-controller": "npm:^0.3.17"
+    "@gjsify/compression-streams": "npm:^0.3.17"
+    "@gjsify/dom-events": "npm:^0.3.17"
+    "@gjsify/dom-exception": "npm:^0.3.17"
+    "@gjsify/domparser": "npm:^0.3.17"
+    "@gjsify/eventsource": "npm:^0.3.17"
+    "@gjsify/fetch": "npm:^0.3.17"
+    "@gjsify/formdata": "npm:^0.3.17"
+    "@gjsify/gamepad": "npm:^0.3.17"
+    "@gjsify/web-globals": "npm:^0.3.17"
+    "@gjsify/web-streams": "npm:^0.3.17"
+    "@gjsify/webassembly": "npm:^0.3.17"
+    "@gjsify/webaudio": "npm:^0.3.17"
+    "@gjsify/webcrypto": "npm:^0.3.17"
+    "@gjsify/websocket": "npm:^0.3.17"
+    "@gjsify/webstorage": "npm:^0.3.17"
+    "@gjsify/xmlhttprequest": "npm:^0.3.17"
+  checksum: 10/d57162e8d730a73c1f58f075cc7bceba0c387bcd943e0f05fbf2af0a4589d0a60c82e35b06c016bf65a784baca430142f7a830a68a0d5a26b3c0da8b5560daef
   languageName: node
   linkType: hard
 
-"@gjsify/web-streams@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/web-streams@npm:0.3.16"
+"@gjsify/web-streams@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/web-streams@npm:0.3.17"
   dependencies:
-    "@gjsify/utils": "npm:^0.3.16"
-  checksum: 10/6f5db0b209321ef3d01695d797952954ae0f425f7a281d2dcbb1a27a597163c73369e36b2c8d7389f532de6a2b1d6122ad0a87ea3a00da3726522f0b4ee10c0a
+    "@gjsify/utils": "npm:^0.3.17"
+  checksum: 10/d30e33d73e19870d5db46d03bbfe06236ea5ecba0941a0ccaeed085ea155ba2fddf9c7069a9355baf39e9f08a49fb96cb46aca1718b9775410ec1f6659bec4bf
   languageName: node
   linkType: hard
 
-"@gjsify/webassembly@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/webassembly@npm:0.3.16"
-  checksum: 10/8d0f009d17f620d125d7bb1d8e1b70013d405bfc410d504037c0a366ccfa96c793ff25e65e64195ac0b6fcc980d937b4b1dffb10f67a566c6b4edb956cfec150
+"@gjsify/webassembly@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/webassembly@npm:0.3.17"
+  checksum: 10/0b3e97d6b41ded5fb4157219dd7025a1af934e19d55246d13db2f04d1a2901e916507222e797bfea6b81342212cb769180c816b2e14b1c92525bb6c51122bbbb
   languageName: node
   linkType: hard
 
-"@gjsify/webaudio@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/webaudio@npm:0.3.16"
+"@gjsify/webaudio@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/webaudio@npm:0.3.17"
   dependencies:
-    "@gjsify/dom-events": "npm:^0.3.16"
-  checksum: 10/2b5436cbcdcd2a55c0f6bc70e3bb7a1fcfb52c318422147ca56fae7a164d1ba79998c09170a86b0f3aa2b94e693d5daa948dbe9742c4dc08d88e21d4c287da9b
+    "@gjsify/dom-events": "npm:^0.3.17"
+  checksum: 10/44100f98c0d3420f381055c2ee73a41208c8b179c5c07c86803206b1ab47c298ce263681f2fb7b4c9931bcdc416a180b6a2e3d9f29405d742b7615288bf27533
   languageName: node
   linkType: hard
 
-"@gjsify/webcrypto@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/webcrypto@npm:0.3.16"
+"@gjsify/webcrypto@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/webcrypto@npm:0.3.17"
   dependencies:
-    "@gjsify/dom-exception": "npm:^0.3.16"
-  checksum: 10/768ac402be492ff99b868423a020d221e9e6e73580324ce143529c51257ec6bdc6f5f3e22fcfb87b01dd62f094f1ec3d06f03fac4e536d01aeaf297ded89d3c2
+    "@gjsify/dom-exception": "npm:^0.3.17"
+  checksum: 10/a37f3b38718dfd5faaebad7e2697d0ddae7625aef7f4f36de03040557864cce4e6e0712338f688e286b1fe1fb52af145a1cb50df229b1fe403cf0ef2dfe90cdf
   languageName: node
   linkType: hard
 
-"@gjsify/websocket@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/websocket@npm:0.3.16"
+"@gjsify/websocket@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/websocket@npm:0.3.17"
   dependencies:
-    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/gjs": "npm:4.0.0-rc.9"
-    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/soup-3.0": "npm:3.6.6-4.0.0-rc.9"
-    "@gjsify/dom-events": "npm:^0.3.16"
-  checksum: 10/c142fa5f1af2302c7465125879fb214b06664cdf287262a50375f95fd68e12604f887059853743b4db851e91b93f1bfbe169a84b211512f8303803a9716e962d
+    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/gjs": "npm:4.0.0-rc.14"
+    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/soup-3.0": "npm:3.6.6-4.0.0-rc.14"
+    "@gjsify/dom-events": "npm:^0.3.17"
+  checksum: 10/51875e28aa69cd76fb8f93d32cb6c3559c2e1ed4e93cf1c6e94d38956925c9539578503a97ea576d2e91bb99625b60db1e75d2be918232099f7bf5dff5e26d14
   languageName: node
   linkType: hard
 
-"@gjsify/webstorage@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/webstorage@npm:0.3.16"
-  checksum: 10/90e8c68d24a8893f57d127a93be68872676a80f9270a988a95dea81aa2c29ca44e6e0a2e652bf292dd8f797d513b2c626ba0988caedc886cbb13d325fdf200fe
+"@gjsify/webstorage@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/webstorage@npm:0.3.17"
+  checksum: 10/92fc7766c5bf21ce9b9b6a4cbc1b6d68e5657ab52c1e88597b0a573f503752efb66f080fa4ad7766f53cad0a99f01fd4fbbfa9c0178360d1f4f8ce0be88603ef
   languageName: node
   linkType: hard
 
-"@gjsify/worker_threads@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/worker_threads@npm:0.3.16"
+"@gjsify/worker_threads@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/worker_threads@npm:0.3.17"
   dependencies:
-    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@gjsify/events": "npm:^0.3.16"
-  checksum: 10/f380f2ce982b7772c3a03b43498d1df09e1a92193d7711321cf8045b7a0af4824a70f06203649b4d3bbb74e9215e31f93cf821d0aea7654365c665016242fe00
+    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@gjsify/events": "npm:^0.3.17"
+  checksum: 10/f8683dd31747871d2083d331f3eca1ffe01dcf777234cb5b78e46b1d7b048c90636ddfc28845cb98d9a6e53beca24e653ba27befeab432a2975cdf22c84cb148
   languageName: node
   linkType: hard
 
-"@gjsify/xmlhttprequest@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/xmlhttprequest@npm:0.3.16"
+"@gjsify/xmlhttprequest@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/xmlhttprequest@npm:0.3.17"
   dependencies:
-    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/gjs": "npm:4.0.0-rc.9"
-    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@gjsify/fetch": "npm:^0.3.16"
-  checksum: 10/86eb7f6533c35f89b6a0ba9cee4d39836eb3ae617266bba0230183e654dea702b847387b1c68c3da73e81ce2393648e2f4de4a5481712677561589826bd7968d
+    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/gjs": "npm:4.0.0-rc.14"
+    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@gjsify/fetch": "npm:^0.3.17"
+  checksum: 10/012ed77accfd200aaab815a42eea477b278d904126e4ed101a94e0ca23aa464ec55d5aac957bafc43faaa529b98b8438679c8afd4a8ba89578d02855e0b7aad9
   languageName: node
   linkType: hard
 
-"@gjsify/zlib@npm:^0.3.16":
-  version: 0.3.16
-  resolution: "@gjsify/zlib@npm:0.3.16"
+"@gjsify/zlib@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "@gjsify/zlib@npm:0.3.17"
   dependencies:
-    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.9"
-    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.9"
-  checksum: 10/bd2a915ba0f6bee23204b9f5ecb26d8f1cb21a2bc4761a797c1d134a256387d430bda9f1aee52363812a2b16e643b1e5603f159442ee384e51870432bea7cf99
+    "@girs/gio-2.0": "npm:2.88.0-4.0.0-rc.14"
+    "@girs/glib-2.0": "npm:2.88.0-4.0.0-rc.14"
+  checksum: 10/7c53d26b8e1df61be577119bd5b9c5881258559396050f192540331c35929f8e5d3aec0fee95386e2cfaf891c28685fe16fde65157e0cc97951afa32e6e28ebf
   languageName: node
   linkType: hard
 
@@ -16241,7 +16241,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/pluginutils@npm:^5.0.1, @rollup/pluginutils@npm:^5.1.0, @rollup/pluginutils@npm:^5.1.4":
+"@rollup/pluginutils@npm:^5.0.1, @rollup/pluginutils@npm:^5.1.0, @rollup/pluginutils@npm:^5.3.0":
   version: 5.3.0
   resolution: "@rollup/pluginutils@npm:5.3.0"
   dependencies:
@@ -17143,7 +17143,7 @@ __metadata:
     "@girs/gjs": "workspace:^"
     "@girs/glib-2.0": "workspace:^"
     "@girs/gtk-4.0": "workspace:^"
-    "@gjsify/vite-plugin-blueprint": "npm:^0.3.16"
+    "@gjsify/vite-plugin-blueprint": "npm:^0.3.17"
     typescript: "npm:^6.0.3"
     vite: "npm:^8.0.11"
   languageName: unknown
@@ -17325,7 +17325,7 @@ __metadata:
   resolution: "@ts-for-gir/cli@workspace:packages/cli"
   dependencies:
     "@gi.ts/parser": "workspace:^"
-    "@gjsify/cli": "npm:^0.3.16"
+    "@gjsify/cli": "npm:^0.3.17"
     "@inquirer/prompts": "npm:^8.4.2"
     "@ts-for-gir/generator-base": "workspace:^"
     "@ts-for-gir/generator-html-doc": "workspace:^"
@@ -17958,7 +17958,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"acorn-walk@npm:^8.3.4":
+"acorn-walk@npm:^8.3.5":
   version: 8.3.5
   resolution: "acorn-walk@npm:8.3.5"
   dependencies:
@@ -17967,7 +17967,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"acorn@npm:^8.11.0, acorn@npm:^8.14.0, acorn@npm:^8.15.0, acorn@npm:^8.16.0":
+"acorn@npm:^8.11.0, acorn@npm:^8.15.0, acorn@npm:^8.16.0":
   version: 8.16.0
   resolution: "acorn@npm:8.16.0"
   bin:
@@ -19203,7 +19203,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"execa@npm:^9.6.0":
+"execa@npm:^9.6.1":
   version: 9.6.1
   resolution: "execa@npm:9.6.1"
   dependencies:
@@ -21455,7 +21455,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rolldown@npm:^1.0.0-rc.18":
+"rolldown@npm:^1.0.0":
   version: 1.0.0
   resolution: "rolldown@npm:1.0.0"
   dependencies:

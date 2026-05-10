@@ -418,7 +418,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 
 		clazz.superType = GLibError.getType();
 
-		// GJS GError constructor expects one object: { message: string, code: number }
+		// GJS GError constructor expects one object: { message: string; code: number }
 		// The domain is automatically derived from the error enum type.
 		// See: gjs/gi/gerror.cpp ErrorInstance::constructor_impl
 		clazz.mainConstructor = new IntrospectedConstructor({
@@ -427,7 +427,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			parameters: [
 				new IntrospectedFunctionParameter({
 					name: "options",
-					type: NativeType.of("{ message: string, code: number }"),
+					type: NativeType.of("{ message: string; code: number }"),
 					direction: GirDirection.In,
 				}),
 			],

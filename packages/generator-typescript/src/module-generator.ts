@@ -281,6 +281,11 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 	}
 	generateDirectAllocationConstructor(node: IntrospectedDirectAllocationConstructor, indentCount = 1): string[] {
 		const indent = generateIndent(indentCount);
+
+		if (node.parameters.length === 0) {
+			return [`${indent}constructor(properties?: Partial<{}>);`];
+		}
+
 		const fieldIndent = generateIndent(indentCount + 1);
 		// `param.asField().asString(this)` already includes a trailing newline
 		// for some flavours of fields; strip leading whitespace per line and
@@ -1214,6 +1219,11 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			.flatMap((v) => v.asString(this, true))
 			.map((m) => `${memberIndent}${m}`)
 			.join("\n");
+
+		if (constructorPropMembers.length === 0) {
+			def.push(`${indent}${exp}interface ${constructPropInterfaceName}${genericTypes} ${ext} {}`);
+			return def;
+		}
 
 		def.push(`${indent}${exp}interface ${constructPropInterfaceName}${genericTypes} ${ext} {`);
 		def.push(constructorPropMembers);

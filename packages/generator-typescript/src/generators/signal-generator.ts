@@ -84,14 +84,14 @@ export class SignalGenerator {
 
 		parentSignatures.push(...interfaceSignatures);
 
-		let signatureHead: string;
+		let signatureDecl: string;
 		if (parentSignatures.length > 0) {
-			signatureHead = `${indent}interface SignalSignatures extends ${parentSignatures.join(", ")} {`;
+			signatureDecl = `interface SignalSignatures extends ${parentSignatures.join(", ")}`;
 		} else {
 			const isGObjectObject = girClass.name === "Object" && girClass.namespace.namespace === "GObject";
 
 			if (isGObjectObject) {
-				signatureHead = `${indent}interface SignalSignatures {`;
+				signatureDecl = `interface SignalSignatures`;
 			} else {
 				const gobjectNamespace = this.namespace.assertInstalledImport("GObject");
 				const gobjectObjectClass = gobjectNamespace.assertClass("Object");
@@ -101,13 +101,18 @@ export class SignalGenerator {
 					?.print(this.namespace, this.config);
 
 				const fallbackRef = gobjectRef ? `${gobjectRef}.SignalSignatures` : "GObject.Object.SignalSignatures";
-				signatureHead = `${indent}interface SignalSignatures extends ${fallbackRef} {`;
+				signatureDecl = `interface SignalSignatures extends ${fallbackRef}`;
 			}
 		}
-		def.push(signatureHead);
 
 		const allSignals = girClass.getAllSignals();
 
+		if (allSignals.length === 0) {
+			def.push(`${indent}${signatureDecl} {}`);
+			return def;
+		}
+
+		def.push(`${indent}${signatureDecl} {`);
 		allSignals.forEach((signalInfo) => {
 			let cbType: string;
 

@@ -348,9 +348,9 @@ export class NativeType extends TypeExpression {
 export class OrType extends TypeExpression {
 	readonly types: ReadonlyArray<TypeExpression>;
 
-	constructor(type: TypeExpression, ...types: TypeExpression[]) {
+	constructor(...types: TypeExpression[]) {
 		super();
-		this.types = [type, ...types];
+		this.types = [...types];
 	}
 
 	rewrap(type: TypeExpression): TypeExpression {
@@ -362,17 +362,15 @@ export class OrType extends TypeExpression {
 	}
 
 	resolve(namespace: IntrospectedNamespace, options: OptionsGeneration): TypeExpression {
-		const [type, ...types] = this.types;
-
-		return new OrType(type.resolve(namespace, options), ...types.map((t) => t.resolve(namespace, options)));
+		return makeUnion(...this.types.map((t) => t.resolve(namespace, options)));
 	}
 
 	print(namespace: IntrospectedNamespace, options: OptionsGeneration): string {
-		return `(${this.types.map((t) => t.print(namespace, options)).join(" | ")})`;
+		return `${this.types.map((t) => t.print(namespace, options)).join(" | ")}`;
 	}
 
 	rootPrint(namespace: IntrospectedNamespace, options: OptionsGeneration): string {
-		return `${this.types.map((t) => t.print(namespace, options)).join(" | ")}`;
+		return this.print(namespace, options);
 	}
 
 	equals(type: TypeExpression) {
@@ -382,6 +380,36 @@ export class OrType extends TypeExpression {
 			return false;
 		}
 	}
+}
+
+export function makeUnion(...inputTypes: TypeExpression[]) {
+	const types: Set<TypeExpression> = new Set();
+	for (const type of inputTypes) {
+		if (type instanceof BinaryType) {
+			types.add(type.a);
+			types.add(type.b);
+		} else if (type instanceof OrType && !(type instanceof TupleType)) {
+			for (const t of type.types) {
+				types.add(t);
+			}
+		} else {
+			types.add(type);
+		}
+	}
+	if (types.size === 1) {
+		return [...types][0];
+	}
+	if (types.size === 2) {
+		const typesArray = [...types];
+		if (typesArray[0] === NullType) {
+			return new NullableType(typesArray[1]);
+		}
+		if (typesArray[1] === NullType) {
+			return new NullableType(typesArray[0]);
+		}
+		return new BinaryType(...typesArray);
+	}
+	return new OrType(...types);
 }
 
 export class TupleType extends OrType {
@@ -633,9 +661,10 @@ export class NullableType extends BinaryType {
 }
 
 export function makeNullable(type: TypeExpression) {
+	if (type instanceof NullableType) return type;
 	if (type === RawPointerType) return NullType;
 	if (type === AnyType) return AnyType;
-	return new NullableType(type);
+	return makeUnion(type, NullType);
 }
 
 export class PromiseType extends TypeExpression {
@@ -834,6 +863,8 @@ export class ArrayType extends TypeExpression {
 			typeSuffix = "".padStart(2 * depth, "[]");
 		}
 
+		if (this.type instanceof OrType && !(this.type instanceof TupleType))
+			return `(${this.type.print(namespace, options)})${typeSuffix}`;
 		return `${this.type.print(namespace, options)}${typeSuffix}`;
 	}
 

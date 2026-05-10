@@ -1,4 +1,4 @@
-import { BinaryType, BooleanType, ClosureType, PromiseType, TupleType, TypeIdentifier, VoidType } from "../gir.ts";
+import { BooleanType, ClosureType, makeUnion, PromiseType, TupleType, TypeIdentifier, VoidType } from "../gir.ts";
 import { IntrospectedConstructor } from "./constructor.ts";
 import type { IntrospectedClassFunction } from "./introspected-classes.ts";
 import {
@@ -42,7 +42,7 @@ function generatePromisifyOverloadedSignatures(
 	// Union overload (with optional callback)
 	const unionOverload = node.copy({
 		parameters: [...async_parameters, sync_parameters[sync_parameters.length - 1].copy({ isOptional: true })],
-		returnType: new BinaryType(async_return, VoidType),
+		returnType: makeUnion(async_return, VoidType),
 	});
 
 	return [promiseOverload, callbackOverload, unionOverload];

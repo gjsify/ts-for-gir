@@ -1,6 +1,6 @@
 import type { IntrospectedNamespace } from "../gir/namespace.ts";
 import type { NSRegistry } from "../gir/registry.ts";
-import { NullableType, OrType, TypeIdentifier } from "../gir.ts";
+import { makeUnion, NullType, TypeIdentifier } from "../gir.ts";
 
 const shellTemplate = (version: string) => ({
 	namespace: "Shell",
@@ -24,8 +24,10 @@ const shellTemplate = (version: string) => ({
 		if (addGlslSnippet) {
 			// Create a new parameter with updated type using copy()
 			const updatedParameter = addGlslSnippet.parameters[0].copy({
-				type: new NullableType(
-					new OrType(new TypeIdentifier("SnippetHook", "Shell"), new TypeIdentifier("SnippetHook", "Cogl")),
+				type: makeUnion(
+					new TypeIdentifier("SnippetHook", "Shell"),
+					new TypeIdentifier("SnippetHook", "Cogl"),
+					NullType,
 				),
 			});
 

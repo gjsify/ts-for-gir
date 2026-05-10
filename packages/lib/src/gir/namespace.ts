@@ -1,4 +1,4 @@
-import { BinaryType, BooleanType, ClosureType, PromiseType, TupleType, TypeIdentifier, VoidType } from "../gir.ts";
+import { BooleanType, ClosureType, makeUnion, PromiseType, TupleType, TypeIdentifier, VoidType } from "../gir.ts";
 
 import type { GirModule } from "../gir-module.ts";
 import type { IntrospectedAlias } from "./alias.ts";
@@ -65,7 +65,7 @@ export function promisifyNamespaceFunctions(namespace: GirModule) {
 						parameters: sync_parameters,
 					}),
 					node.copy({
-						return_type: new BinaryType(async_return, node.return()),
+						return_type: makeUnion(async_return, node.return()),
 					}),
 				]);
 			}

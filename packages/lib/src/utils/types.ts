@@ -7,18 +7,17 @@ import {
 	BigintOrNumberType,
 	BinaryType,
 	BooleanType,
+	makeUnion,
 	NativeType,
 	NeverType,
 	NullableType,
 	NullType,
 	NumberType,
 	ObjectType,
-	OrType,
 	PromiseType,
 	RawPointerType,
 	StringType,
 	ThisType,
-	TupleType,
 	type TypeExpression,
 	TypeIdentifier,
 	Uint8ArrayType,
@@ -231,17 +230,17 @@ export function resolveDirectedType(type: TypeExpression, direction: GirDirectio
 			type.type.equals(Uint8ArrayType) &&
 			type.arrayDepth === 0
 		) {
-			return new BinaryType(type, StringType);
+			return makeUnion(type, StringType);
 		} else {
 			// Rewrap arrays if they have directional types
 			return type.rewrap(resolveDirectedType(type.type, direction) ?? type.type);
 		}
 	} else if (type instanceof TypeIdentifier) {
 		if ((direction === GirDirection.In || direction === GirDirection.Inout) && type.is("GLib", "Bytes")) {
-			return new BinaryType(type, Uint8ArrayType);
+			return makeUnion(type, Uint8ArrayType);
 		} else if (type.is("GObject", "Value")) {
 			if (direction === GirDirection.In || direction === GirDirection.Inout) {
-				return new BinaryType(type, AnyType);
+				return makeUnion(type, AnyType);
 			} else {
 				// GJS converts GObject.Value out parameters to their unboxed type, which we don't know,
 				// so type as `unknown`
@@ -273,12 +272,7 @@ export function resolveDirectedType(type: TypeExpression, direction: GirDirectio
 		// NullableType is skipped to preserve its subclass behaviour.
 		const a = resolveDirectedType(type.a, direction) ?? type.a;
 		const b = resolveDirectedType(type.b, direction) ?? type.b;
-		if (a !== type.a || b !== type.b) return new BinaryType(a, b);
-	} else if (type instanceof OrType && !(type instanceof BinaryType || type instanceof TupleType)) {
-		// flatten "bigint | number" out of another OR-type
-		const types = type.types.map((t) => resolveDirectedType(t, direction) ?? t);
-		if (types.length === 1) return types[0];
-		return new OrType(types[0], ...types.slice(1));
+		if (a !== type.a || b !== type.b) return makeUnion(a, b);
 	}
 
 	return null;

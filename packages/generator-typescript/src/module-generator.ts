@@ -42,6 +42,7 @@ import {
 	IntrospectedStaticClassFunction,
 	IntrospectedVirtualClassFunction,
 	isInvalid,
+	makeUnion,
 	NativeType,
 	type NSRegistry,
 	type OptionsGeneration,
@@ -512,32 +513,32 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 				case ConflictType.FIELD_NAME_CONFLICT:
 					getterSetterAnnotation = setterAnnotation =
 						"// This accessor conflicts with a field or function name in a parent class or interface.\n";
-					type = new BinaryType(type.unwrap(), AnyType);
+					type = makeUnion(type.unwrap(), AnyType);
 					// A child class cannot have an accessor declared if the parent has a function
 					printAsProperty = true;
 					break;
 				case ConflictType.ACCESSOR_PROPERTY_CONFLICT:
 					getterSetterAnnotation = getterAnnotation =
 						"// This accessor conflicts with a property or field in a parent class or interface.\n";
-					type = new BinaryType(type.unwrap(), AnyType);
+					type = makeUnion(type.unwrap(), AnyType);
 					// A child class cannot have an accessor declared if the parent has a property
 					printAsProperty = true;
 					break;
 				case ConflictType.PROPERTY_ACCESSOR_CONFLICT:
-					type = new BinaryType(type.unwrap(), AnyType);
+					type = makeUnion(type.unwrap(), AnyType);
 					break;
 				case ConflictType.PROPERTY_NAME_CONFLICT:
 					getterSetterAnnotation =
 						setterAnnotation =
 						getterAnnotation =
 							"// This accessor conflicts with another accessor's type in a parent class or interface.\n";
-					type = new BinaryType(type.unwrap(), AnyType);
+					type = makeUnion(type.unwrap(), AnyType);
 					break;
 			}
 
 			if (construct && !(type instanceof BinaryType)) {
 				// For constructor properties we just convert to any.
-				type = new BinaryType(type instanceof TypeConflict ? type.unwrap() : type, AnyType);
+				type = makeUnion(type instanceof TypeConflict ? type.unwrap() : type, AnyType);
 			}
 		}
 
@@ -603,7 +604,7 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
 			} else if (type.conflictType === ConflictType.FUNCTION_NAME_CONFLICT) {
 				commentOut = "\n// This field conflicts with a function in a parent class or interface.\n";
 
-				type = new BinaryType(type.unwrap(), AnyType);
+				type = makeUnion(type.unwrap(), AnyType);
 			} else {
 				type = type.unwrap();
 			}

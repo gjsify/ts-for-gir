@@ -33,7 +33,7 @@ jobs:
         always-auth: true
 
     - name: Install @gjsify/cli globally (bootstrap)
-      run: npm install -g @gjsify/cli@^0.4.4
+      run: npm install -g @gjsify/cli@^0.4.5
 
     - name: Install dependencies (full workspace)
       run: gjsify install --immutable

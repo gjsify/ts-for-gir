@@ -9,7 +9,8 @@
 		"strictNullChecks": true,
 		"noImplicitThis": true,
 		"alwaysStrict": true,
-		"allowSyntheticDefaultImports": true
+		"allowSyntheticDefaultImports": true,
+		"types": []
 	},
 	"files": ["main.ts"]
 }

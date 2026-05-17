@@ -16,7 +16,7 @@
 	"private": true,
 	"scripts": {
 		"build": "parcel build main.ts",
-		"watch": "yarn build --watch",
+		"watch": "gjsify run build --watch",
 		"start": "gjs -m dist/main.js",
 		"check": "tsc --noEmit",
 		"clear": "rm -rf dist .parcel-cache @types"

@@ -48,7 +48,7 @@
 		"build:templates": "node scripts/process-templates.mjs",
 		"prepack": "node scripts/process-templates.mjs",
 		"check:types": "tsc --noEmit",
-		"check": "yarn check:types"
+		"check": "gjsify run check:types"
 	},
 	"repository": {
 		"type": "git",
@@ -84,7 +84,7 @@
 	},
 	"devDependencies": {
 		"@gi.ts/parser": "workspace:^",
-		"@gjsify/cli": "^0.3.17",
+		"@gjsify/cli": "^0.4.4",
 		"@ts-for-gir/generator-base": "workspace:^",
 		"@ts-for-gir/generator-html-doc": "workspace:^",
 		"@ts-for-gir/generator-json": "workspace:^",

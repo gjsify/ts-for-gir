@@ -3,7 +3,7 @@
     "type": "module",
     "private": true,
     "scripts": {
-        "test": "yarn clear && yarn generate && yarn assert",
+        "test": "gjsify run clear && gjsify run generate && gjsify run assert",
         "generate": "ts-for-gir-dev generate --configName .ts-for-gir.rc.js",
         "assert": "node --no-warnings assert.mjs",
         "clear": "rm -rf generated"

@@ -1,5 +1,5 @@
 *.lock
-!yarn.lock
+!gjsify-lock.json
 packages-lock.json
 node_modules/
 tmp/
@@ -30,13 +30,8 @@ debug.txt
 
 ts-for-gir-report.json
 
-# Yarn https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
+# Yarn artifacts (Phase D.8 removed yarn from this repo)
 .pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
+.yarn/
 
 .parcel-cache/

@@ -8,7 +8,7 @@
 		"build": "node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings esbuild.ts",
 		"start:server": "gjs -m dist/server.js",
 		"start:client": "gjs -m dist/client.js",
-		"start": "concurrently 'yarn:start:*'",
+		"start": "concurrently 'npm:start:*'",
 		"check": "tsc --noEmit",
 		"clear": "rm -rf dist @types"
 	},

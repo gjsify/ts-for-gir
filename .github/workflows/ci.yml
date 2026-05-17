@@ -1,5 +1,6 @@
-# This workflow will do a clean install of node dependencies, build the source code, run tests on every push and pull request to the main branch.
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+# This workflow installs Node deps via gjsify install (Node-free GJS bundle),
+# then builds + tests. ts-for-gir's own generated TypeScript types are checked
+# in build-validate against the committed types-dev submodule.
 
 name: CI
 
@@ -13,7 +14,7 @@ on:
       - 'girs/**'
       - 'examples/**'
       - 'package.json'
-      - 'yarn.lock'
+      - 'gjsify-lock.json'
       - '.ts-for-gir.*.rc.js'
       - 'tsconfig*.json'
       - '.github/workflows/ci.yml'
@@ -26,11 +27,10 @@ on:
       - 'girs/**'
       - 'examples/**'
       - 'package.json'
-      - 'yarn.lock'
+      - 'gjsify-lock.json'
       - '.ts-for-gir.*.rc.js'
       - 'tsconfig*.json'
       - '.github/workflows/ci.yml'
-  # Also run on workflow dispatch for manual testing
   workflow_dispatch:
 
 jobs:
@@ -49,14 +49,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24.x
-      - name: Cache Yarn packages
-        uses: actions/cache@v4
-        with:
-          path: .yarn/cache
-          key: yarn-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
-          restore-keys: yarn-${{ runner.os }}-
-      - run: yarn install --immutable
-      - run: yarn check
+      - name: Install @gjsify/cli globally (bootstrap)
+        run: npm install -g @gjsify/cli@^0.4.4
+      - run: gjsify install --immutable
+      - run: PATH="$PWD/node_modules/.bin:$PATH" gjsify run check
 
   test-units:
     runs-on: ubuntu-latest
@@ -73,14 +69,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24.x
-      - name: Cache Yarn packages
-        uses: actions/cache@v4
-        with:
-          path: .yarn/cache
-          key: yarn-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
-          restore-keys: yarn-${{ runner.os }}-
-      - run: yarn install --immutable
-      - run: yarn test:tests
+      - name: Install @gjsify/cli globally (bootstrap)
+        run: npm install -g @gjsify/cli@^0.4.4
+      - run: gjsify install --immutable
+      - run: PATH="$PWD/node_modules/.bin:$PATH" gjsify run test:tests
 
   build-validate:
     runs-on: ubuntu-latest
@@ -99,7 +91,7 @@ jobs:
               - 'packages/**'
               - 'girs/**'
               - '.ts-for-gir.*.rc.js'
-              - 'yarn.lock'
+              - 'gjsify-lock.json'
             examples:
               - 'examples/**'
               - 'packages/**'
@@ -123,31 +115,22 @@ jobs:
             libwebkit2gtk-4.1-dev libadwaita-1-dev gnome-shell-common \
             libmutter-14-dev libgcr-3-dev libgnome-desktop-4-dev build-essential \
             gobject-introspection libgirepository1.0-dev libcairo2-dev libdex-dev
-      - run: yarn --version
+      - name: Install @gjsify/cli globally (bootstrap)
+        run: npm install -g @gjsify/cli@^0.4.4
       - run: node --version
       - run: gjs --version
-      - name: Cache Yarn packages
-        uses: actions/cache@v4
-        with:
-          path: .yarn/cache
-          key: yarn-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
-          restore-keys: yarn-${{ runner.os }}-
-      - run: yarn install
-        env:
-          YARN_ENABLE_IMMUTABLE_INSTALLS: "false"
-      - run: yarn build:types
+      - run: gjsify --version
+      - run: gjsify install
+      - run: PATH="$PWD/node_modules/.bin:$PATH" gjsify run build:types
         if: steps.filter.outputs.generator == 'true' || github.event_name == 'workflow_dispatch'
-        env:
-          YARN_ENABLE_IMMUTABLE_INSTALLS: "false"
-          YARN_ENABLE_HARDENED_MODE: "0"
       - name: Show diff
         if: steps.filter.outputs.generator == 'true' || github.event_name == 'workflow_dispatch'
         run: (cd ./types-dev && git diff | cat)
-      - run: yarn build:examples
+      - run: PATH="$PWD/node_modules/.bin:$PATH" gjsify run build:examples
         if: steps.filter.outputs.examples == 'true' || github.event_name == 'workflow_dispatch'
-      - run: yarn check:examples
+      - run: PATH="$PWD/node_modules/.bin:$PATH" gjsify run check:examples
         if: steps.filter.outputs.examples == 'true' || github.event_name == 'workflow_dispatch'
-      - run: yarn test:examples:cli
+      - run: PATH="$PWD/node_modules/.bin:$PATH" gjsify run test:examples:cli
         if: steps.filter.outputs.examples == 'true' || github.event_name == 'workflow_dispatch'
-      - run: yarn check:types
+      - run: PATH="$PWD/node_modules/.bin:$PATH" gjsify run check:types
         if: steps.filter.outputs.generator == 'true' || github.event_name == 'workflow_dispatch'

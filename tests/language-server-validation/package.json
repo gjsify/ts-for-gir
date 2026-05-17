@@ -5,8 +5,8 @@
 	"private": true,
 	"main": "src/index.ts",
 	"scripts": {
-		"test": "yarn generate && vitest run --no-isolate",
-		"test:watch": "yarn generate && vitest --no-isolate",
+		"test": "gjsify run generate && vitest run --no-isolate",
+		"test:watch": "gjsify run generate && vitest --no-isolate",
 		"test:dev": "vitest --no-isolate",
 		"generate": "ts-for-gir-dev generate Adw-1 --girDirectories ../../girs"
 	},

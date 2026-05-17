@@ -30,8 +30,8 @@
 		"update:submodules": "git submodule foreach git pull",
 		"update:packages": "npx -y npm-check-updates -u",
 		"update": "gjsify run update:submodules && gjsify run update:packages",
-		"publish:app": "gjsify run build:app && gjsify foreach -v -p --no-private --include '@ts-for-gir/*' --include '@gi.ts/*' --exec -- npm publish --tolerate-republish --tag latest --access public --provenance",
-		"publish:types": "gjsify foreach -v -p --no-private --include '@girs/*' --exec -- npm publish --tolerate-republish --tag latest --access public",
+		"publish:app": "gjsify run build:app && gjsify foreach -v -p --no-private --include '@ts-for-gir/*' --include '@gi.ts/*' --exec -- gjsify publish --tolerate-republish --tag latest --access public --provenance",
+		"publish:types": "gjsify foreach -v -p --no-private --include '@girs/*' --exec -- gjsify publish --tolerate-republish --tag latest --access public",
 		"publish": "gjsify run publish:app && gjsify run publish:types",
 		"test:types": "gjsify run build:types && gjsify run check:types",
 		"test:examples": "gjsify run build:examples && gjsify run check:examples && gjsify run test:examples:cli",
@@ -78,7 +78,7 @@
 		"release-it": "^20.0.1",
 		"rimraf": "^6.1.3",
 		"typescript": "^6.0.3",
-		"@gjsify/cli": "^0.4.5"
+		"@gjsify/cli": "^0.4.9"
 	},
 	"workspaces": [
 		"examples/*",

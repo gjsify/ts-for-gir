@@ -50,7 +50,7 @@ jobs:
         with:
           node-version: 24.x
       - name: Install @gjsify/cli globally (bootstrap)
-        run: npm install -g @gjsify/cli@^0.4.9
+        run: npm install -g @gjsify/cli@^0.4.10
       - run: gjsify install --immutable
       - run: PATH="$PWD/node_modules/.bin:$PATH" gjsify run check
 
@@ -70,7 +70,7 @@ jobs:
         with:
           node-version: 24.x
       - name: Install @gjsify/cli globally (bootstrap)
-        run: npm install -g @gjsify/cli@^0.4.9
+        run: npm install -g @gjsify/cli@^0.4.10
       - run: gjsify install --immutable
       - run: PATH="$PWD/node_modules/.bin:$PATH" gjsify run test:tests
 
@@ -116,7 +116,7 @@ jobs:
             libmutter-14-dev libgcr-3-dev libgnome-desktop-4-dev build-essential \
             gobject-introspection libgirepository1.0-dev libcairo2-dev libdex-dev
       - name: Install @gjsify/cli globally (bootstrap)
-        run: npm install -g @gjsify/cli@^0.4.9
+        run: npm install -g @gjsify/cli@^0.4.10
       - run: node --version
       - run: gjs --version
       - run: gjsify --version

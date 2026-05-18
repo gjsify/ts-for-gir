@@ -33,7 +33,7 @@ jobs:
         registry-url: 'https://registry.npmjs.org'
 
     - name: Install @gjsify/cli globally (bootstrap)
-      run: npm install -g @gjsify/cli@^0.4.9
+      run: npm install -g @gjsify/cli@^0.4.10
 
     - name: Install dependencies
       run: gjsify install

@@ -25,7 +25,7 @@ jobs:
 
     steps:
     - name: Install container prerequisites
-      run: dnf install -y git tar xz findutils curl gjs
+      run: dnf install -y git tar xz findutils curl gjs libsoup3
 
     - name: Checkout repository with submodules
       uses: actions/checkout@v6

@@ -3,10 +3,10 @@
     "type": "module",
     "private": true,
     "scripts": {
-        "test": "yarn clear && yarn generate && yarn check:types && yarn build",
+        "test": "gjsify run clear && gjsify run generate && gjsify run check:types && gjsify run build",
         "generate": "ts-for-gir-dev generate --configName .ts-for-gir.gtk-2-3-4.rc.js",
         "check:types": "tsc --noEmit",
-        "build": "yarn node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings esbuild.ts",
+        "build": "node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings esbuild.ts",
         "clear": "rm -rf @types"
     },
     "devDependencies": {

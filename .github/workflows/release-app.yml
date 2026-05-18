@@ -32,39 +32,36 @@ jobs:
         registry-url: 'https://registry.npmjs.org'
         always-auth: true
 
-    - name: Configure Yarn for npm publishing
-      run: |
-        yarn config set npmRegistryServer "https://registry.npmjs.org"
-        yarn config set npmAlwaysAuth true
-        yarn config set npmAuthToken "${NODE_AUTH_TOKEN}"
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+    - name: Install @gjsify/cli globally (bootstrap)
+      run: npm install -g @gjsify/cli@^0.4.10
 
-    - name: Install yarn dependencies (CLI workspace only)
-      run: yarn workspaces focus @ts-for-gir/cli
+    - name: Install dependencies (full workspace)
+      run: gjsify install --immutable
 
     - name: Build Node.js app bundle
-      run: yarn build:app
+      env:
+        WS_PATH: ${{ github.workspace }}
+      run: PATH="$WS_PATH/node_modules/.bin:$PATH" gjsify run build:app
 
     - name: Build GJS bundle
-      run: yarn build:app:gjs
+      env:
+        WS_PATH: ${{ github.workspace }}
+      run: PATH="$WS_PATH/node_modules/.bin:$PATH" gjsify run build:app:gjs
 
     # The GJS bundle ships inside the npm tarball under bin/ts-for-gir-gjs
     # (declared via `gjsify.bin` in @ts-for-gir/cli's package.json). Both
     # `npm i -g`, `gjsify install -g`, and the GJS-native install.js
-    # bootstrapper resolve it from there. The previous "upload the single
-    # binary as a GitHub release asset" step is gone — the asset couldn't
-    # carry `dist-templates/` alongside the bin, so `ts-for-gir create`
-    # failed when launched through the old install.js. This comment is
-    # here so we don't reintroduce the asset-upload by reflex.
+    # bootstrapper resolve it from there.
 
     - name: Publish app packages to npm
-      run: yarn publish:app
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+        WS_PATH: ${{ github.workspace }}
+      run: PATH="$WS_PATH/node_modules/.bin:$PATH" gjsify run publish:app
 
     - name: Summary
+      env:
+        RELEASE_TAG: ${{ github.event.release.tag_name || github.event.inputs.release_tag || 'unknown' }}
       run: |
-        TAG="${{ github.event.release.tag_name || github.event.inputs.release_tag || 'unknown' }}"
-        echo "✅ App packages successfully published to npm for release $TAG"
+        echo "App packages successfully published to npm for release ${RELEASE_TAG}"
         echo "Published packages: @ts-for-gir/* and @gi.ts/*"

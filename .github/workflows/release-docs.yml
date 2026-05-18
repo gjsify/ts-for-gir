@@ -32,8 +32,11 @@ jobs:
         node-version: '24.x'
         registry-url: 'https://registry.npmjs.org'
 
-    - name: Install yarn dependencies
-      run: yarn install
+    - name: Install @gjsify/cli globally (bootstrap)
+      run: npm install -g @gjsify/cli@^0.4.10
+
+    - name: Install dependencies
+      run: gjsify install
 
     - name: Prepare docs submodule
       run: |
@@ -50,10 +53,14 @@ jobs:
         PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
 
     - name: Generate JSON files
-      run: yarn build:json
+      env:
+        WS_PATH: ${{ github.workspace }}
+      run: PATH="$WS_PATH/node_modules/.bin:$PATH" gjsify run build:json
 
     - name: Generate HTML documentation
-      run: yarn build:doc
+      env:
+        WS_PATH: ${{ github.workspace }}
+      run: PATH="$WS_PATH/node_modules/.bin:$PATH" gjsify run build:doc
 
     - name: Check for changes in docs submodule
       id: check-changes

@@ -4,7 +4,6 @@ name: Release Types
 on:
   release:
     types: [published]
-  # Allow manual triggering for testing
   workflow_dispatch:
     inputs:
       release_tag:
@@ -16,40 +15,44 @@ jobs:
   update-types:
     runs-on: ubuntu-latest
     permissions:
-      actions: read    # Allow reading workflow info
-    
+      actions: read
+
     steps:
     - name: Checkout repository with submodules
       uses: actions/checkout@v4
       with:
         submodules: true
-        # Use a personal access token to allow pushing to submodule
         token: ${{ secrets.PAT_TOKEN }}
-        
+
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '24.x'
         registry-url: 'https://registry.npmjs.org'
-          
-    - name: Install yarn dependencies
-      run: yarn install
-      
+
+    - name: Install @gjsify/cli globally (bootstrap)
+      run: npm install -g @gjsify/cli@^0.4.10
+
+    - name: Install dependencies
+      run: gjsify install
+
     - name: Prepare types-release submodule
+      env:
+        PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
       run: |
         cd types-release
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
-        # Configure remote URL with token for authentication
-        git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/gjsify/types.git
-        # Checkout main branch to ensure we're up to date
+        git remote set-url origin "https://x-access-token:${PAT_TOKEN}@github.com/gjsify/types.git"
         git fetch origin
         git checkout main
         git pull origin main
-        
+
     - name: Generate release types
-      run: yarn build:types:release
-        
+      env:
+        WS_PATH: ${{ github.workspace }}
+      run: PATH="$WS_PATH/node_modules/.bin:$PATH" gjsify run build:types:release
+
     - name: Check for changes in types-release submodule
       id: check-changes
       run: |
@@ -61,31 +64,30 @@ jobs:
           echo "changes=false" >> $GITHUB_OUTPUT
           echo "No changes detected in types-release submodule"
         fi
-        
+
     - name: Commit and push types changes
       if: steps.check-changes.outputs.changes == 'true'
+      env:
+        RELEASE_TAG: ${{ github.event.release.tag_name || github.event.inputs.release_tag || 'unknown' }}
+        REPO: ${{ github.repository }}
       run: |
         cd types-release
         git add .
-        
-        # Get release tag from event or workflow dispatch input
-        RELEASE_TAG="${{ github.event.release.tag_name || github.event.inputs.release_tag || 'unknown' }}"
-        
         git commit -m "chore: update types for release ${RELEASE_TAG}
 
         Automated commit from ts-for-gir release workflow.
         Generated types for release: ${RELEASE_TAG}
-        
-        Source: ${{ github.repository }}@${RELEASE_TAG}"
-        
-        # Push to the types repository
+
+        Source: ${REPO}@${RELEASE_TAG}"
         git push origin main
-        
 
     - name: Summary
+      env:
+        RELEASE_TAG: ${{ github.event.release.tag_name || github.event.inputs.release_tag || 'unknown' }}
+        CHANGES: ${{ steps.check-changes.outputs.changes }}
       run: |
-        if [ "${{ steps.check-changes.outputs.changes }}" == "true" ]; then
-          echo "✅ Types successfully updated and committed for release ${{ github.event.release.tag_name || github.event.inputs.release_tag || 'unknown' }}"
+        if [ "$CHANGES" = "true" ]; then
+          echo "Types successfully updated and committed for release ${RELEASE_TAG}"
         else
-          echo "ℹ️ No changes detected in generated types"
+          echo "No changes detected in generated types"
         fi

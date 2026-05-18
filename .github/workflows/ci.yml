@@ -52,6 +52,7 @@ jobs:
           submodules: false
       - name: Checkout types-dev submodule
         run: |
+          git config --global --add safe.directory "*"
           git config --global url."https://github.com/".insteadOf "git@github.com:"
           git submodule update --init types-dev
       - name: Bootstrap @gjsify/cli via install.mjs (Node-free)
@@ -77,6 +78,7 @@ jobs:
           submodules: false
       - name: Checkout types-dev submodule
         run: |
+          git config --global --add safe.directory "*"
           git config --global url."https://github.com/".insteadOf "git@github.com:"
           git submodule update --init types-dev
       - name: Bootstrap @gjsify/cli via install.mjs (Node-free)

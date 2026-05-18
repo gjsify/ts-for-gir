@@ -1,10 +1,13 @@
-# Workflow to automatically update docs submodule on new releases
+# Workflow to automatically update docs submodule on new releases.
+#
+# Phase F: bootstraps @gjsify/cli via the Node-free install.mjs flow under
+# stock GJS (Fedora 43 container). No npm auth needed — this workflow
+# commits to a Git submodule, not the npm registry.
 name: Release Docs
 
 on:
   release:
     types: [published]
-  # Allow manual triggering for testing
   workflow_dispatch:
     inputs:
       release_tag:
@@ -15,42 +18,44 @@ on:
 jobs:
   update-docs:
     runs-on: ubuntu-latest
+    container:
+      image: fedora:43
     permissions:
-      actions: read    # Allow reading workflow info
+      actions: read
 
     steps:
+    - name: Install container prerequisites
+      run: dnf install -y git tar xz findutils curl gjs libsoup3 nodejs
+
     - name: Checkout repository with submodules
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
       with:
         submodules: true
-        # Use a personal access token to allow pushing to submodule
         token: ${{ secrets.PAT_TOKEN }}
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '24.x'
-        registry-url: 'https://registry.npmjs.org'
+    - name: Bootstrap @gjsify/cli via install.mjs (Node-free)
+      run: |
+        curl -fsSL https://github.com/gjsify/gjsify/releases/latest/download/install.mjs -o /tmp/g.mjs
+        gjs -m /tmp/g.mjs
+        rm /tmp/g.mjs
+        echo "$HOME/.local/bin" >> "$GITHUB_PATH"
 
-    - name: Install @gjsify/cli globally (bootstrap)
-      run: npm install -g @gjsify/cli@^0.4.10
+    - run: gjsify --version
 
     - name: Install dependencies
       run: gjsify install
 
     - name: Prepare docs submodule
+      env:
+        PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
       run: |
         cd docs
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
-        # Configure remote URL with token for authentication
         git remote set-url origin "https://x-access-token:${PAT_TOKEN}@github.com/gjsify/docs.git"
-        # Checkout main branch to ensure we're up to date
         git fetch origin
         git checkout main
         git pull origin main
-      env:
-        PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
 
     - name: Generate JSON files
       env:
@@ -76,28 +81,27 @@ jobs:
 
     - name: Commit and push docs changes
       if: steps.check-changes.outputs.changes == 'true'
+      env:
+        RELEASE_TAG: ${{ github.event.release.tag_name || github.event.inputs.release_tag || 'unknown' }}
+        GITHUB_REPOSITORY: ${{ github.repository }}
       run: |
         cd docs
         git add .
-
         git commit -m "chore: update docs for release ${RELEASE_TAG}
 
         Automated commit from ts-for-gir release workflow.
         Generated HTML documentation for release: ${RELEASE_TAG}
 
         Source: ${GITHUB_REPOSITORY}@${RELEASE_TAG}"
-
-        # Push to the docs repository
         git push origin main
-      env:
-        RELEASE_TAG: ${{ github.event.release.tag_name || github.event.inputs.release_tag || 'unknown' }}
 
     - name: Summary
+      env:
+        RELEASE_TAG: ${{ github.event.release.tag_name || github.event.inputs.release_tag || 'unknown' }}
+        CHANGES: ${{ steps.check-changes.outputs.changes }}
       run: |
-        if [ "${{ steps.check-changes.outputs.changes }}" == "true" ]; then
+        if [ "$CHANGES" = "true" ]; then
           echo "Docs successfully updated and committed for release ${RELEASE_TAG}"
         else
           echo "No changes detected in generated docs"
         fi
-      env:
-        RELEASE_TAG: ${{ github.event.release.tag_name || github.event.inputs.release_tag || 'unknown' }}

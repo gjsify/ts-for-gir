@@ -1,4 +1,8 @@
-# Workflow to automatically update types submodule on new releases
+# Workflow to automatically update types submodule on new releases.
+#
+# Phase F: bootstraps @gjsify/cli via the Node-free install.mjs flow under
+# stock GJS (Fedora 43 container). No npm auth needed — this workflow
+# commits to a Git submodule, not the npm registry.
 name: Release Types
 
 on:
@@ -14,24 +18,29 @@ on:
 jobs:
   update-types:
     runs-on: ubuntu-latest
+    container:
+      image: fedora:43
     permissions:
       actions: read
 
     steps:
+    - name: Install container prerequisites
+      run: dnf install -y git tar xz findutils curl gjs libsoup3 nodejs
+
     - name: Checkout repository with submodules
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
       with:
         submodules: true
         token: ${{ secrets.PAT_TOKEN }}
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '24.x'
-        registry-url: 'https://registry.npmjs.org'
+    - name: Bootstrap @gjsify/cli via install.mjs (Node-free)
+      run: |
+        curl -fsSL https://github.com/gjsify/gjsify/releases/latest/download/install.mjs -o /tmp/g.mjs
+        gjs -m /tmp/g.mjs
+        rm /tmp/g.mjs
+        echo "$HOME/.local/bin" >> "$GITHUB_PATH"
 
-    - name: Install @gjsify/cli globally (bootstrap)
-      run: npm install -g @gjsify/cli@^0.4.10
+    - run: gjsify --version
 
     - name: Install dependencies
       run: gjsify install

@@ -1,10 +1,14 @@
-# Workflow to automatically publish app packages to npm on new releases
+# Workflow to automatically publish app packages to npm on new releases.
+#
+# Phase F: bootstraps @gjsify/cli via the Node-free install.mjs flow under
+# stock GJS (Fedora 43 container), then uses `gjsify publish` (Phase E)
+# for the actual npm push. Auth is handled by writing a minimal ~/.npmrc
+# directly rather than going through actions/setup-node.
 name: Release App
 
 on:
   release:
     types: [published]
-  # Allow manual triggering for testing
   workflow_dispatch:
     inputs:
       release_tag:
@@ -16,24 +20,37 @@ jobs:
   publish-app:
     name: Publish App to NPM
     runs-on: ubuntu-latest
+    container:
+      image: fedora:43
     permissions:
       contents: write
       id-token: write
 
     steps:
+    - name: Install container prerequisites
+      run: dnf install -y git tar xz findutils curl gjs
+
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
 
-    # This also setups a .npmrc file to publish to npm
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '24.x'
-        registry-url: 'https://registry.npmjs.org'
-        always-auth: true
+    - name: Setup npm auth
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+      run: |
+        cat > $HOME/.npmrc <<NPMRC
+        //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
+        registry=https://registry.npmjs.org/
+        NPMRC
+        chmod 600 $HOME/.npmrc
 
-    - name: Install @gjsify/cli globally (bootstrap)
-      run: npm install -g @gjsify/cli@^0.4.10
+    - name: Bootstrap @gjsify/cli via install.mjs (Node-free)
+      run: |
+        curl -fsSL https://github.com/gjsify/gjsify/releases/latest/download/install.mjs -o /tmp/g.mjs
+        gjs -m /tmp/g.mjs
+        rm /tmp/g.mjs
+        echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+    - run: gjsify --version
 
     - name: Install dependencies (full workspace)
       run: gjsify install --immutable
@@ -50,12 +67,11 @@ jobs:
 
     # The GJS bundle ships inside the npm tarball under bin/ts-for-gir-gjs
     # (declared via `gjsify.bin` in @ts-for-gir/cli's package.json). Both
-    # `npm i -g`, `gjsify install -g`, and the GJS-native install.js
-    # bootstrapper resolve it from there.
+    # `npm i -g`, `gjsify install -g`, and the install.mjs bootstrapper
+    # resolve it from there.
 
     - name: Publish app packages to npm
       env:
-        NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
         WS_PATH: ${{ github.workspace }}
       run: PATH="$WS_PATH/node_modules/.bin:$PATH" gjsify run publish:app
 

@@ -25,7 +25,11 @@ jobs:
 
     steps:
     - name: Install container prerequisites
-      run: dnf install -y git tar xz findutils curl gjs libsoup3 nodejs
+      run: |
+
+        dnf install -y git tar xz findutils curl gjs libsoup3 nodejs
+
+        git config --global --add safe.directory "*"
 
     - name: Checkout repository with submodules
       uses: actions/checkout@v6

@@ -45,7 +45,11 @@ jobs:
       image: fedora:43
     steps:
       - name: Install container prerequisites
-        run: dnf install -y git tar xz findutils curl gjs libsoup3 nodejs
+        run: |
+
+          dnf install -y git tar xz findutils curl gjs libsoup3 nodejs
+
+          git config --global --add safe.directory "*"
       - name: Checkout repository
         uses: actions/checkout@v6
         with:
@@ -71,7 +75,11 @@ jobs:
       image: fedora:43
     steps:
       - name: Install container prerequisites
-        run: dnf install -y git tar xz findutils curl gjs libsoup3 nodejs
+        run: |
+
+          dnf install -y git tar xz findutils curl gjs libsoup3 nodejs
+
+          git config --global --add safe.directory "*"
       - name: Checkout repository
         uses: actions/checkout@v6
         with:
@@ -98,7 +106,11 @@ jobs:
     needs: [check, test-units]
     steps:
       - name: Install container prerequisites
-        run: dnf install -y git tar xz findutils curl gjs libsoup3 nodejs
+        run: |
+
+          dnf install -y git tar xz findutils curl gjs libsoup3 nodejs
+
+          git config --global --add safe.directory "*"
       - name: Checkout repository
         uses: actions/checkout@v6
         with:

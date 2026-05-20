@@ -11,7 +11,7 @@
 		"clear": "gjsify foreach clear -v -p",
 		"start": "ts-for-gir-dev",
 		"start:prod": "ts-for-gir",
-		"format": "biome check . --write --unsafe",
+		"format": "gjsify fix",
 		"build:app": "gjsify workspace @ts-for-gir/cli build",
 		"build:app:gjs": "gjsify workspace @ts-for-gir/cli build:gjs",
 		"build:examples": "gjsify foreach build -v -p --include '@ts-for-gir-example/*'",
@@ -22,13 +22,13 @@
 		"build": "gjsify run build:app && gjsify run build:types && gjsify run build:examples && gjsify run build:json && gjsify run build:doc",
 		"list:girs": "ts-for-gir-dev list --configName='.ts-for-gir.packages-all.rc.js' --girDirectories='./girs'",
 		"copy:girs": "ts-for-gir-dev copy --configName='.ts-for-gir.copy-all.rc.js' --verbose",
-		"check:lint": "biome check .",
+		"check:lint": "gjsify lint",
 		"check:examples": "gjsify foreach check -v -p --include '@ts-for-gir-example/*'",
 		"check:types": "gjsify foreach test -v -p --include '@girs/*'",
 		"check:app": "gjsify foreach check -v -pt --include '@ts-for-gir/*' --include '@gi.ts/*'",
 		"check": "gjsify run check:lint && gjsify run check:app",
 		"update:submodules": "git submodule foreach git pull",
-		"update:packages": "npx -y npm-check-updates -u",
+		"update:packages": "gjsify upgrade --latest",
 		"update": "gjsify run update:submodules && gjsify run update:packages",
 		"publish:app": "gjsify run build:app && gjsify foreach -v -p --no-private --include '@ts-for-gir/*' --include '@gi.ts/*' --exec -- gjsify publish --tolerate-republish --tag latest --access public --provenance",
 		"publish:types": "gjsify foreach -v -p --no-private --include '@girs/*' --exec -- gjsify publish --tolerate-republish --tag latest --access public",
@@ -78,7 +78,7 @@
 		"release-it": "^20.0.1",
 		"rimraf": "^6.1.3",
 		"typescript": "^6.0.3",
-		"@gjsify/cli": "^0.4.10"
+		"@gjsify/cli": "^0.4.14"
 	},
 	"workspaces": [
 		"examples/*",

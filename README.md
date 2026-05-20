@@ -93,23 +93,59 @@ All packages are listed at [gjsify/types](https://github.com/gjsify/types). Miss
 
 ## Showcase
 
-**GNOME Applications** — [Audio Player](https://flathub.org/apps/org.gnome.Decibels), [Counters](https://flathub.org/apps/io.gitlab.guillermop.Counters), [Ignition](https://flathub.org/apps/io.github.flattool.Ignition), [Learn 6502](https://flathub.org/apps/eu.jumplink.Learn6502), [Sound Recorder](https://flathub.org/apps/org.gnome.SoundRecorder), [Sticky Notes](https://flathub.org/apps/com.vixalien.sticky), [Weather](https://flathub.org/apps/org.gnome.Weather), [K'uychi](https://flathub.org/en/apps/one.naiara.Kuychi).
+**GNOME Applications**
 
-**GNOME Shell Extensions** — [gTile](https://github.com/gTile/gTile), [Copyous](https://github.com/boerdereinar/copyous), [Rounded Window Corners](https://github.com/flexagoon/rounded-window-corners).
+- [Audio Player](https://flathub.org/apps/org.gnome.Decibels) — Play audio files
+- [Counters](https://flathub.org/apps/io.gitlab.guillermop.Counters) — Keep track of anything
+- [Ignition](https://flathub.org/apps/io.github.flattool.Ignition) — Manage startup apps and scripts
+- [Learn 6502](https://flathub.org/apps/eu.jumplink.Learn6502) — Learn programming on vintage game consoles
+- [Sound Recorder](https://flathub.org/apps/org.gnome.SoundRecorder) — A simple, modern sound recorder
+- [Sticky Notes](https://flathub.org/apps/com.vixalien.sticky) — Pin notes to your desktop
+- [Weather](https://flathub.org/apps/org.gnome.Weather) — Show weather conditions and forecast
+- [K'uychi](https://flathub.org/en/apps/one.naiara.Kuychi) — Generate color palettes
 
-More starting points in the [examples directory](/examples/README.md) and the community [GNOME TypeScript Template](https://codeberg.org/nyx_lyb3ra/gnome-ts-template) (GTK + libadwaita + Flatpak + Meson).
+**GNOME Shell Extensions**
+
+- [gTile](https://github.com/gTile/gTile) — Tiling window management for GNOME Shell
+- [Copyous](https://github.com/boerdereinar/copyous) — Clipboard manager for GNOME Shell
+- [Rounded Window Corners](https://github.com/flexagoon/rounded-window-corners) — Add rounded corners to windows
+
+## Example Projects
+
+Looking for a starting point? These example projects demonstrate how to use the TypeScript definitions with various bundlers:
+
+- [GTK 4 Template with Vite](/examples/gtk-4-template-vite) — Modern UI with Vite bundling
+- [GNOME TypeScript Template](https://codeberg.org/nyx_lyb3ra/gnome-ts-template) — A template using GTK, libadwaita, TypeScript, Flatpak, and Meson
+
+More examples with screenshots and descriptions can be found in the [Examples directory](/examples/README.md). For information on using the examples with different CLI options, refer to the [CLI documentation](/packages/cli/README.md#using-the-generated-types).
 
 ## Project Structure
 
-ts-for-gir is a monorepo of focused packages:
+ts-for-gir consists of several packages:
 
-- [`@ts-for-gir/cli`](/packages/cli) — CLI for generating types, docs, and analyzing reports
-- [`@ts-for-gir/lib`](/packages/lib), [`@gi.ts/parser`](/packages/parser), [`@ts-for-gir/reporter`](/packages/reporter) — core processing
-- [`@ts-for-gir/generator-typescript`](/packages/generator-typescript), [`@ts-for-gir/generator-json`](/packages/generator-json), [`@ts-for-gir/generator-html-doc`](/packages/generator-html-doc) — output backends
-- [`@ts-for-gir/templates`](/packages/templates), [`@ts-for-gir/tsconfig`](/packages/tsconfig), [`@ts-for-gir/typedoc-theme`](/packages/typedoc-theme) — shared scaffolding
-- [`@ts-for-gir/language-server`](/packages/language-server) — LSP for GIR files (experimental)
+- [`@ts-for-gir/cli`](/packages/cli) — Command-line interface for generating TypeScript definitions, documentation, and analyzing reports
+- [`@gi.ts/parser`](/packages/parser) — Parser for GObject Introspection XML files
+- [`@ts-for-gir/lib`](/packages/lib) — Core library for processing GIR data
+- [`@ts-for-gir/reporter`](/packages/reporter) — Reporting system for problems and statistics with dependency injection
+- [`@ts-for-gir/generator-typescript`](/packages/generator-typescript) — TypeScript definition generator
+- [`@ts-for-gir/generator-json`](/packages/generator-json) — TypeDoc JSON generator with GIR metadata enrichment
+- [`@ts-for-gir/generator-html-doc`](/packages/generator-html-doc) — HTML documentation generator using TypeDoc
+- [`@ts-for-gir/generator-base`](/packages/generator-base) — Shared base class for generators
+- [`@ts-for-gir/typedoc-theme`](/packages/typedoc-theme) — Custom TypeDoc theme inspired by gi-docgen
+- [`@ts-for-gir/gir-module-metadata`](/packages/gir-module-metadata) — Curated metadata (descriptions, logos, licenses) for GIR namespaces
+- [`@ts-for-gir/templates`](/packages/templates) — Template files for generated packages (tsconfig, typedoc config, ambient declarations)
+- [`@ts-for-gir/tsconfig`](/packages/tsconfig) — Shared TypeScript configuration
+- [`@ts-for-gir/language-server`](/packages/language-server) — Language server for GIR files (experimental)
 
-Git submodules: `types-dev` (development scratch), `types-release` (published `@girs/*`), `docs` (deployed to [gjsify.github.io/docs](https://gjsify.github.io/docs)).
+### Submodules
+
+This repo contains Git submodules for pre-generated types and documentation:
+
+- `types-dev` (branch `dev`) — used during local development. Scripts write generated packages here.
+- `types-release` (branch `main`) — updated by the release workflow on tags.
+- `docs` (branch `main`) — generated HTML documentation, deployed to [gjsify.github.io/docs](https://gjsify.github.io/docs).
+
+Useful scripts:
 
 ```bash
 gjsify run build:types          # regenerate into ./types-dev

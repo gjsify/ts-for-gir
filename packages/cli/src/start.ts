@@ -5,11 +5,21 @@ import { hideBin } from "yargs/helpers";
 import { analyze, copy, create, doc, generate, json, list, selfUpdate } from "./commands/index.ts";
 
 try {
-	await yargs(hideBin(process.argv))
+	const cli = yargs(hideBin(process.argv));
+	await cli
 		.scriptName(APP_NAME)
 		.strict()
 		.usage(APP_USAGE)
 		.version(APP_VERSION)
+		// Use the full terminal width for help. yargs's default caps at 80
+		// (`Math.min(80, process.stdout.columns)`); we explicitly opt into
+		// the real terminal width so long option/description lines wrap at
+		// the actual terminal edge instead of an arbitrary 80-col limit.
+		// Under GJS, `process.stdout.columns` is backed by
+		// `@gjsify/terminal-native` (ioctl TIOCGWINSZ) when the typelib is
+		// on `GI_TYPELIB_PATH` — the install.js launcher imports those env
+		// vars from the gjsify global install when present.
+		.wrap(cli.terminalWidth())
 		// Disable yargs's internal `process.exit` and route both success
 		// and failure through `parseAsync` + an explicit `process.exit` so
 		// async command handlers complete and stdout drains before the

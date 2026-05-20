@@ -217,8 +217,66 @@ function pickLauncherTarget(pkg) {
 	throw new Error(`No '${DEFAULT_BIN_NAME}' bin declared in package.json (looked at gjsify.bin and bin)`);
 }
 
+/**
+ * Discover @gjsify/* native prebuild directories (Vala/GObject typelibs +
+ * shared libs) reachable from the user's gjsify global install — typically
+ * `~/.local/share/gjsify/global/node_modules/@gjsify/<pkg>/prebuilds/linux-<arch>/`.
+ * ts-for-gir's GJS bundle uses these via `imports.gi.GjsifyTerminal` for
+ * correct TTY width / isTTY / raw-mode detection; without GI_TYPELIB_PATH /
+ * LD_LIBRARY_PATH pointing at them, the bundle falls back to env-only
+ * defaults (no colors, 80-col wrap).
+ *
+ * Returns the empty array when no gjsify global install is present, in which
+ * case the launcher is written without an env preamble.
+ */
+function detectGjsifyNativePrebuildDirs() {
+	const xdgData =
+		GLib.getenv("XDG_DATA_HOME") || GLib.build_filenamev([GLib.get_home_dir(), ".local", "share"]);
+	const gjsifyPrefix =
+		GLib.getenv("GJSIFY_GLOBAL_PREFIX") || GLib.build_filenamev([xdgData, "gjsify", "global"]);
+	const nodeModulesGjsify = GLib.build_filenamev([gjsifyPrefix, "node_modules", "@gjsify"]);
+	const dir = Gio.File.new_for_path(nodeModulesGjsify);
+	if (!dir.query_exists(null)) return [];
+	// gjs runs on `process.arch`-equivalent x64 / arm64; mirror gjsify's
+	// detect-native-packages.ts arch map so the prebuild directory name
+	// matches the .so/.typelib layout shipped by gjsify.
+	const machine = (() => {
+		try {
+			const [, out] = GLib.spawn_command_line_sync("uname -m");
+			return new TextDecoder().decode(out).trim();
+		} catch {
+			return "x86_64";
+		}
+	})();
+	const archDir = `linux-${machine === "aarch64" ? "aarch64" : machine === "x86_64" ? "x86_64" : machine}`;
+	const out = [];
+	const enumerator = dir.enumerate_children("standard::name,standard::type", Gio.FileQueryInfoFlags.NONE, null);
+	let info;
+	while ((info = enumerator.next_file(null))) {
+		const name = info.get_name();
+		const pkgDir = GLib.build_filenamev([nodeModulesGjsify, name]);
+		const prebuildsDir = GLib.build_filenamev([pkgDir, "prebuilds", archDir]);
+		if (Gio.File.new_for_path(prebuildsDir).query_exists(null)) {
+			out.push(prebuildsDir);
+		}
+	}
+	enumerator.close(null);
+	return out;
+}
+
+function buildLauncherEnvPreamble(prebuildsDirs) {
+	if (prebuildsDirs.length === 0) return "";
+	const joined = shQuote(prebuildsDirs.join(":"));
+	return (
+		`GI_TYPELIB_PATH=${joined}\${GI_TYPELIB_PATH:+":$GI_TYPELIB_PATH"}\n` +
+		`LD_LIBRARY_PATH=${joined}\${LD_LIBRARY_PATH:+":$LD_LIBRARY_PATH"}\n` +
+		`export GI_TYPELIB_PATH LD_LIBRARY_PATH\n`
+	);
+}
+
 function writeLauncher(target) {
-	const launcher = `#!/bin/sh\nexec ${shQuote(target)} "$@"\n`;
+	const envPreamble = buildLauncherEnvPreamble(detectGjsifyNativePrebuildDirs());
+	const launcher = `#!/bin/sh\n${envPreamble}exec ${shQuote(target)} "$@"\n`;
 	const file = Gio.File.new_for_path(LAUNCHER_PATH);
 	file.replace_contents(
 		new TextEncoder().encode(launcher),

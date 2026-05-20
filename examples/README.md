@@ -12,9 +12,9 @@ Each example:
 
 To use an example:
 1. Go to the example directory
-2. Run `yarn install` to install dependencies
-3. Run `yarn build` to build the example
-4. Run `yarn start` to run the example
+2. Run `gjsify install` to install dependencies
+3. Run `gjsify run build` to build the example
+4. Run `gjsify run start` to run the example
 
 **Note:** Examples must be built because GJS cannot execute TypeScript directly. However, the core ts-for-gir packages no longer require building and run directly as TypeScript files.
 
@@ -139,8 +139,8 @@ For most examples, you can use:
 
 ```bash
 cd examples/<example-directory>
-yarn install
-yarn start  # This will build and run the example
+gjsify install
+gjsify run start  # This will build and run the example
 ```
 
 Some examples like the DBus and HTTP examples have separate client and server parts:
@@ -148,15 +148,15 @@ Some examples like the DBus and HTTP examples have separate client and server pa
 ```bash
 # For DBus example
 cd examples/gio-2-dbus
-yarn install
-yarn start:server  # In one terminal
-yarn start:client  # In another terminal
+gjsify install
+gjsify run start:server  # In one terminal
+gjsify run start:client  # In another terminal
 
 # For HTTP example
 cd examples/soup-3-http
-yarn install
-yarn start:server  # In one terminal
-yarn start:client  # In another terminal
+gjsify install
+gjsify run start:server  # In one terminal
+gjsify run start:client  # In another terminal
 ```
 
 ## TypeScript Configuration

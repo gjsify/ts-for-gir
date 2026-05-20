@@ -53,10 +53,10 @@ For each interface method you need to implement:
 
 ```bash
 # Build the example
-yarn build
+gjsify run build
 
 # Run the example
-yarn start
+gjsify run start
 ```
 
 ## Expected Output

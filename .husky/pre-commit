@@ -1,1 +1,1 @@
-yarn format
+gjsify run format

@@ -21,8 +21,8 @@ This example demonstrates how to combine GObject properties/signals with automat
 
 ```bash
 cd examples/di-needle
-yarn install
-yarn start alice alice@example.com
+gjsify install
+gjsify run start alice alice@example.com
 ```
 
 ## TypeScript Configuration

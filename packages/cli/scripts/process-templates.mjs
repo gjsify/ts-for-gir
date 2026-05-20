@@ -8,7 +8,6 @@
  * `workspace:^` references are user-workspace references, not ts-for-gir ones.
  */
 
-import { execFileSync } from "node:child_process";
 import { cpSync, existsSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -28,21 +27,39 @@ function readJson(path) {
 
 /**
  * Build a { packageName: version } map from every workspace in the monorepo.
- * Yarn's `workspaces list --json` already includes types-dev/* (the @girs/*
- * packages), so a single call covers both the CLI packages and the GIR types.
+ * Node-native walk of `package.json#workspaces` globs — no yarn dependency,
+ * works on the Node-free `gjsify install` install path.
+ *
+ * Supports the common globbing patterns we use here (`packages/*`,
+ * `examples/*`, `tests/*`, `types-dev/*`); plain string entries are treated
+ * as exact relative paths.
  */
 function buildVersionMap() {
-	const stdout = execFileSync("yarn", ["workspaces", "list", "--json"], {
-		cwd: MONOREPO_ROOT,
-		encoding: "utf8",
-		maxBuffer: 50 * 1024 * 1024,
-	});
+	const rootPkg = readJson(join(MONOREPO_ROOT, "package.json"));
+	const patterns = Array.isArray(rootPkg.workspaces)
+		? rootPkg.workspaces
+		: Array.isArray(rootPkg.workspaces?.packages)
+			? rootPkg.workspaces.packages
+			: [];
+
+	const dirs = new Set();
+	for (const pattern of patterns) {
+		if (pattern.endsWith("/*")) {
+			const base = pattern.slice(0, -2);
+			const baseAbs = join(MONOREPO_ROOT, base);
+			if (!existsSync(baseAbs)) continue;
+			for (const entry of readdirSync(baseAbs, { withFileTypes: true })) {
+				if (!entry.isDirectory()) continue;
+				dirs.add(join(baseAbs, entry.name));
+			}
+		} else {
+			dirs.add(join(MONOREPO_ROOT, pattern));
+		}
+	}
+
 	const map = {};
-	for (const line of stdout.trim().split("\n")) {
-		if (!line) continue;
-		const entry = JSON.parse(line);
-		if (entry.location === ".") continue;
-		const pkgPath = join(MONOREPO_ROOT, entry.location, "package.json");
+	for (const dir of dirs) {
+		const pkgPath = join(dir, "package.json");
 		if (!existsSync(pkgPath)) continue;
 		const pkg = readJson(pkgPath);
 		if (pkg.name && pkg.version) map[pkg.name] = pkg.version;

@@ -22,8 +22,8 @@ This example demonstrates traditional dependency injection using [TSyringe](http
 
 ```bash
 cd examples/di-tsyringe
-yarn install
-yarn start alice alice@example.com
+gjsify install
+gjsify run start alice alice@example.com
 ```
 
 ## TypeScript Configuration

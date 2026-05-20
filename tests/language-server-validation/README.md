@@ -15,13 +15,13 @@ Tests the correct TypeScript type generation for GIR (GObject Introspection) bin
 
 ```bash
 # Generate types and run tests
-yarn test
+gjsify run test
 
 # Watch mode for development
-yarn test:watch
+gjsify run test:watch
 
 # Quick test run without regenerating types
-yarn test:dev
+gjsify run test:dev
 ```
 
 ## Test Structure

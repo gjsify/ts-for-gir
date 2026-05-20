@@ -19,7 +19,8 @@ const command = "create [name]";
 const description = "Scaffold a new GJS TypeScript project from a template";
 
 const examples: ReadonlyArray<[string, string?]> = [
-	[`${APP_NAME} create my-app --template types-npm`, "Scaffold using the @girs/* NPM types"],
+	[`${APP_NAME} create my-app --template types-gjsify`, "Scaffold a Node-free GJS app via gjsify (recommended)"],
+	[`${APP_NAME} create my-app --template types-npm`, "Scaffold using the @girs/* NPM types + node/esbuild"],
 	[`${APP_NAME} create my-app --template types-locally`, "Scaffold and generate types into ./@types/ locally"],
 	[
 		`${APP_NAME} create my-app --template types-workspace`,
@@ -30,14 +31,19 @@ const examples: ReadonlyArray<[string, string?]> = [
 
 const TEMPLATE_CHOICES: ReadonlyArray<{ value: CreateTemplateId; name: string; description: string }> = [
 	{
-		value: "types-locally",
-		name: "types-locally",
-		description: "Generate GIR types directly into ./@types/ (no package format, no @girs/* deps)",
+		value: "types-gjsify",
+		name: "types-gjsify",
+		description: "Node-free: @girs/* from NPM, all dev scripts (install/build/run/format) routed through gjsify",
 	},
 	{
 		value: "types-npm",
 		name: "types-npm",
 		description: "Use pre-generated types from the @girs/* NPM packages",
+	},
+	{
+		value: "types-locally",
+		name: "types-locally",
+		description: "Generate GIR types directly into ./@types/ (no package format, no @girs/* deps)",
 	},
 	{
 		value: "types-workspace",
@@ -226,19 +232,30 @@ const handler = async (args: ConfigFlags) => {
 	log.success(`Scaffolded ${template} into ${targetDir}`);
 
 	if (opts.install) {
-		log.info("Running npm install...");
-		const result = spawnSync("npm", ["install", "--no-audit", "--no-fund"], {
+		// types-gjsify is Node-free at runtime — bootstrap deps via `gjsify install`
+		// so the user's first impression matches the rest of the template's scripts.
+		// Other templates remain on npm (matches the prior behavior + their README).
+		const installer = template === "types-gjsify" ? "gjsify" : "npm";
+		const installerArgs = template === "types-gjsify" ? ["install"] : ["install", "--no-audit", "--no-fund"];
+		log.info(`Running ${installer} install...`);
+		const result = spawnSync(installer, installerArgs, {
 			cwd: targetDir,
 			stdio: "inherit",
 		});
 		if (result.status !== 0) {
-			log.warn("npm install failed; you can re-run it manually in the project directory.");
+			log.warn(`${installer} install failed; you can re-run it manually in the project directory.`);
 		}
 	}
 
 	log.info("\nNext steps:");
 	log.white(`  cd ${projectName}`);
-	if (!opts.install) log.white("  npm install");
+	if (!opts.install) {
+		if (template === "types-gjsify") {
+			log.white("  gjsify install");
+		} else {
+			log.white("  npm install");
+		}
+	}
 	switch (template) {
 		case "types-locally":
 			log.white("  npm run generate");
@@ -252,6 +269,10 @@ const handler = async (args: ConfigFlags) => {
 		case "types-workspace":
 			log.white("  npm run build:types && npm install");
 			log.white("  npm run build:app && npm start");
+			break;
+		case "types-gjsify":
+			log.white("  gjsify run check");
+			log.white("  gjsify run build && gjsify run start");
 			break;
 	}
 };

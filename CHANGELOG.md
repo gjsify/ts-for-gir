@@ -1,5 +1,11 @@
 # Changelog
 
+## [4.0.0-rc.16](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-rc.15...v4.0.0-rc.16) (2026-05-20)
+
+### Bug Fixes
+
+* **installer, cli:** bake gjsify native prebuild paths into launcher + full terminal width ([#399](https://github.com/gjsify/ts-for-gir/issues/399)) ([e1cee48](https://github.com/gjsify/ts-for-gir/commit/e1cee48becdc3bc898b1f893035378c7853b8f6b))
+
 ## [4.0.0-rc.15](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-rc.14...v4.0.0-rc.15) (2026-05-08)
 
 ## [4.0.0-rc.14](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-rc.13...v4.0.0-rc.14) (2026-05-08)

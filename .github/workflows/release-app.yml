@@ -34,8 +34,15 @@ jobs:
 
         git config --global --add safe.directory "*"
 
+    # `types-dev` provides the `@girs/*` workspaces that examples (and
+    # therefore `gjsify install --immutable`) reference via `workspace:^`.
+    # Without `submodules: true` the install step fails with "no workspace
+    # with that name exists" for every `@girs/<lib>` workspace dep. Matches
+    # the equivalent step in release-types.yml + release-docs.yml.
     - name: Checkout repository
       uses: actions/checkout@v6
+      with:
+        submodules: true
 
     - name: Setup npm auth
       env:

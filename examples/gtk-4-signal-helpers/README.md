@@ -115,10 +115,10 @@ Shows how to create functions that accept only valid signal names and enforce co
 
 ```bash
 # Build the TypeScript code
-yarn build
+gjsify run build
 
 # Run the example
-yarn start
+gjsify run start
 ```
 
 ## Key Concepts

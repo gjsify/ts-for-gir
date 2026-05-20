@@ -50,9 +50,9 @@ const binding = sourceObj.bind_property_full(
 ## Running the Example
 
 ```bash
-yarn install
-yarn build
-yarn start
+gjsify install
+gjsify run build
+gjsify run start
 ```
 
 ## Key Learning Points

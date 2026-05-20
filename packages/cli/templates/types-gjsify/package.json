@@ -1,0 +1,26 @@
+{
+	"name": "__PROJECT_NAME__",
+	"version": "0.1.0",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"check": "tsc --noEmit",
+		"build": "gjsify build main.ts --app gjs --outfile dist/main.js",
+		"start": "gjsify run dist/main.js",
+		"format": "gjsify format",
+		"fix": "gjsify fix",
+		"clear": "rm -rf dist"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.4.13",
+		"@gjsify/cli": "^0.4.14",
+		"typescript": "^6.0.2"
+	},
+	"dependencies": {
+		"@girs/adw-1": "workspace:^",
+		"@girs/gio-2.0": "workspace:^",
+		"@girs/gjs": "workspace:^",
+		"@girs/glib-2.0": "workspace:^",
+		"@girs/gtk-4.0": "workspace:^"
+	}
+}

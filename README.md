@@ -16,153 +16,111 @@
   <img src=".github/feeling.gif" />
 </p>
 
-`ts-for-gir` is a robust [TypeScript](https://www.typescriptlang.org/) type definitions generator that improves the development experience of [GJS](https://gitlab.gnome.org/GNOME/gjs/) projects. It has been completely rewritten over time to provide a more complete and accurate TypeScript representation of the [GObject introspection](https://gi.readthedocs.io/en/latest/) interfaces. With `ts-for-gir`, developers can now benefit from TypeScript's strong typing and improved code navigation, making it easier to build robust and powerful applications with GJS.
+`ts-for-gir` generates accurate TypeScript definitions from [GObject Introspection](https://gi.readthedocs.io/en/latest/) for [GJS](https://gitlab.gnome.org/GNOME/gjs/) projects — strong typing, IDE jump-to-definition, autocompletion across the whole GNOME stack.
 
-Browse the full **[TypeScript API Documentation](https://gjsify.github.io/docs)** for GLib, GTK, GStreamer, and many other GNOME libraries.
+Browse the full **[TypeScript API Documentation](https://gjsify.github.io/docs)** for GLib, GTK, GStreamer, and more.
 
-## Getting Started
-
-### Install (GJS — no Node.js required) <sub>experimental</sub>
-
-> The GJS build is **experimental** and made possible by [GJSify](https://gjsify.github.io/gjsify/), which provides Node.js + Web APIs on top of GJS.
-
-With GJS installed, run the installer:
+## Quick Start
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/gjsify/ts-for-gir/main/install.js -o /tmp/ts-for-gir-install.js
-gjs -m /tmp/ts-for-gir-install.js && rm /tmp/ts-for-gir-install.js
+gjsify dlx @ts-for-gir/cli create my-app   # no install, no Node.js
+# or
+npx @ts-for-gir/cli create my-app          # via npm
 ```
 
-This installs `ts-for-gir` to `~/.local/bin/`. Update anytime with `ts-for-gir self-update`.
+Pick a template interactively, or pass `--template <id>`:
 
-### Install (Node.js / npx)
-
-Install the latest LTS version of Node.js — we recommend using [NVM](https://github.com/nvm-sh/nvm). The fastest path to a working GJS + TypeScript project:
+| Template | Best for |
+|---|---|
+| **`types-gjsify`** | Node-free GJS app — all dev scripts (install, build, run, format) routed through [gjsify](https://gjsify.github.io/gjsify/) |
+| **`types-npm`** | Single-package, types from [`@girs/*`](https://github.com/gjsify/types) NPM, esbuild + node |
+| **`types-locally`** | Generate types into `./@types/` (no `@girs/*` dep) |
+| **`types-workspace`** | npm workspace with `@girs/*` as locally-generated workspace packages |
 
 ```bash
-npx @ts-for-gir/cli create my-app
+cd my-app && npm start    # or `gjsify run start` for types-gjsify
 ```
 
-That scaffolds a ready-to-run starter with `esbuild`, `tsconfig.json`, and a minimal Gtk/Adwaita `main.ts`. Pick a template interactively — or pass `--template <id>`:
+## Installation
 
-- **`types-npm`** — uses the pre-generated [`@girs/*`](https://github.com/gjsify/types) NPM packages (fastest start)
-- **`types-locally`** — generates types directly into `./@types/`, no `@girs/*` dependencies
-- **`types-workspace`** — npm workspace layout with locally-generated `@girs/*` as workspace packages
+### GJS — no Node.js required <sub>experimental</sub>
 
 ```bash
-cd my-app
-npm start
+curl -fsSL https://raw.githubusercontent.com/gjsify/ts-for-gir/main/install.js -o /tmp/install.js
+gjs -m /tmp/install.js && rm /tmp/install.js
 ```
 
-### Using the CLI directly
+Installs to `~/.local/bin/`. Update later with `ts-for-gir self-update`. Powered by [GJSify](https://gjsify.github.io/gjsify/).
 
-If you already have a project and just need type definitions, invoke `ts-for-gir` without scaffolding:
+### Node.js
 
 ```bash
-# GJS (no Node.js required):
-ts-for-gir generate Gtk-4.0
-
-# Node.js / npx:
-npx @ts-for-gir/cli generate Gtk-4.0
+npx @ts-for-gir/cli --help
+# or globally:
+npm install -g @ts-for-gir/cli
 ```
 
-Run `ts-for-gir --help` or `npx @ts-for-gir/cli --help` for all commands. See the [CLI documentation](/packages/cli/README.md) for detailed options and advanced usage.
+## CLI Usage
 
-**Debug Generation Issues:**
-If you encounter type generation problems, enable the reporter and use the analyze command:
 ```bash
-ts-for-gir generate Gtk-4.0 --reporter
-ts-for-gir analyze -f ./ts-for-gir-report.json
+ts-for-gir generate Gtk-4.0                          # generate types for a single module
+ts-for-gir generate Gtk-4.0 --reporter               # with diagnostics
+ts-for-gir analyze -f ./ts-for-gir-report.json       # inspect the report
+ts-for-gir --help                                    # all commands
 ```
 
-## Showcase
+See the [CLI documentation](/packages/cli/README.md) for advanced options.
 
-**GNOME Applications**
+## Pre-generated NPM Packages
 
-* [Audio Player](https://flathub.org/apps/org.gnome.Decibels) - Play audio files
-* [Counters](https://flathub.org/apps/io.gitlab.guillermop.Counters) - Keep track of anything
-* [Ignition](https://flathub.org/apps/io.github.flattool.Ignition) - Manage startup apps and scripts
-* [Learn 6502](https://flathub.org/apps/eu.jumplink.Learn6502) - Learn program vintage Game Consoles
-* [Sound Recorder](https://flathub.org/apps/org.gnome.SoundRecorder) - A simple, modern sound recorder
-* [Sticky Notes](https://flathub.org/apps/com.vixalien.sticky) - Pin notes to your desktop
-* [Weather](https://flathub.org/apps/org.gnome.Weather) - Show weather conditions and forecast
-* [K’uychi](https://flathub.org/en/apps/one.naiara.Kuychi) - Generate color palettes
-
-**GNOME Shell Extensions**
-
-* [gTile](https://github.com/gTile/gTile) - Tiling window management for GNOME Shell
-* [Copyous](https://github.com/boerdereinar/copyous) - Clipboard manager for GNOME Shell
-* [Rounded Window Corners](https://github.com/flexagoon/rounded-window-corners) - Add rounded corners to windows
-
-## Example Projects
-
-Looking for a starting point? These example projects demonstrate how to use the TypeScript definitions with various bundlers:
-
-- [GTK 4 Template with Vite](/examples/gtk-4-template-vite) - Modern UI with Vite bundling
-- [GNOME TypeScript Template](https://codeberg.org/nyx_lyb3ra/gnome-ts-template) - A template using GTK, libadwaita, TypeScript, Flatpak, and Meson
-
-More examples with screenshots and descriptions can be found in the [Examples directory](/examples/README.md). For information on using the examples with different CLI options, refer to the [CLI documentation](/packages/cli/README.md#using-the-generated-types).
-
-## NPM Packages
-
-If you are only interested in the types and do not want to generate them yourself, you can use our pre-generated NPM packages. For example, if you want to develop a Gtk4 application with GJS, it is enough to install the corresponding NPM packages:
+If you just want the types without generating them yourself:
 
 ```bash
-npm install @girs/gjs @girs/gtk-4.0 --save
+npm install @girs/gjs @girs/gtk-4.0
 ```
 
 ```ts
-import '@girs/gjs'
-import '@girs/gjs/dom'
-import '@girs/gtk-4.0'
+import "@girs/gjs";
+import "@girs/gjs/dom";
+import "@girs/gtk-4.0";
 
-import Gtk from 'gi://Gtk?version=4.0';
+import Gtk from "gi://Gtk?version=4.0";
 
 const button = new Gtk.Button();
 ```
 
-All pre-generated NPM packages can be found on [gjsify/types](https://github.com/gjsify/types).
+All packages are listed at [gjsify/types](https://github.com/gjsify/types). Missing a module? [Open an issue](https://github.com/gjsify/ts-for-gir/issues).
 
-> You want your or any other missing GObject introspection based library types to be published on NPM for every release? Then feel free to create an issue for it, we will be happy to include it.
+## Showcase
+
+**GNOME Applications** — [Audio Player](https://flathub.org/apps/org.gnome.Decibels), [Counters](https://flathub.org/apps/io.gitlab.guillermop.Counters), [Ignition](https://flathub.org/apps/io.github.flattool.Ignition), [Learn 6502](https://flathub.org/apps/eu.jumplink.Learn6502), [Sound Recorder](https://flathub.org/apps/org.gnome.SoundRecorder), [Sticky Notes](https://flathub.org/apps/com.vixalien.sticky), [Weather](https://flathub.org/apps/org.gnome.Weather), [K'uychi](https://flathub.org/en/apps/one.naiara.Kuychi).
+
+**GNOME Shell Extensions** — [gTile](https://github.com/gTile/gTile), [Copyous](https://github.com/boerdereinar/copyous), [Rounded Window Corners](https://github.com/flexagoon/rounded-window-corners).
+
+More starting points in the [examples directory](/examples/README.md) and the community [GNOME TypeScript Template](https://codeberg.org/nyx_lyb3ra/gnome-ts-template) (GTK + libadwaita + Flatpak + Meson).
 
 ## Project Structure
 
-ts-for-gir consists of several packages:
+ts-for-gir is a monorepo of focused packages:
 
-- [`@ts-for-gir/cli`](/packages/cli) - Command-line interface for generating TypeScript definitions, documentation, and analyzing reports
-- [`@gi.ts/parser`](/packages/parser) - Parser for GObject Introspection XML files
-- [`@ts-for-gir/lib`](/packages/lib) - Core library for processing GIR data
-- [`@ts-for-gir/reporter`](/packages/reporter) - Reporting system for problems and statistics with dependency injection
-- [`@ts-for-gir/generator-typescript`](/packages/generator-typescript) - TypeScript definition generator
-- [`@ts-for-gir/generator-json`](/packages/generator-json) - TypeDoc JSON generator with GIR metadata enrichment
-- [`@ts-for-gir/generator-html-doc`](/packages/generator-html-doc) - HTML documentation generator using TypeDoc
-- [`@ts-for-gir/generator-base`](/packages/generator-base) - Shared base class for generators
-- [`@ts-for-gir/typedoc-theme`](/packages/typedoc-theme) - Custom TypeDoc theme inspired by gi-docgen
-- [`@ts-for-gir/gir-module-metadata`](/packages/gir-module-metadata) - Curated metadata (descriptions, logos, licenses) for GIR namespaces
-- [`@ts-for-gir/templates`](/packages/templates) - Template files for generated packages (tsconfig, typedoc config, ambient declarations)
-- [`@ts-for-gir/tsconfig`](/packages/tsconfig) - Shared TypeScript configuration
-- [`@ts-for-gir/language-server`](/packages/language-server) - Language server for GIR files (experimental)
+- [`@ts-for-gir/cli`](/packages/cli) — CLI for generating types, docs, and analyzing reports
+- [`@ts-for-gir/lib`](/packages/lib), [`@gi.ts/parser`](/packages/parser), [`@ts-for-gir/reporter`](/packages/reporter) — core processing
+- [`@ts-for-gir/generator-typescript`](/packages/generator-typescript), [`@ts-for-gir/generator-json`](/packages/generator-json), [`@ts-for-gir/generator-html-doc`](/packages/generator-html-doc) — output backends
+- [`@ts-for-gir/templates`](/packages/templates), [`@ts-for-gir/tsconfig`](/packages/tsconfig), [`@ts-for-gir/typedoc-theme`](/packages/typedoc-theme) — shared scaffolding
+- [`@ts-for-gir/language-server`](/packages/language-server) — LSP for GIR files (experimental)
 
-### Submodules
-
-This repo contains Git submodules for pre-generated types and documentation:
-
-- `types-dev` (branch `dev`): used during local development. Scripts write generated packages here.
-- `types-release` (branch `main`): updated by the release workflow on tags.
-- `docs` (branch `main`): generated HTML documentation, deployed to [gjsify.github.io/docs](https://gjsify.github.io/docs).
-
-Useful scripts:
+Git submodules: `types-dev` (development scratch), `types-release` (published `@girs/*`), `docs` (deployed to [gjsify.github.io/docs](https://gjsify.github.io/docs)).
 
 ```bash
-yarn build:types          # generates into ./types-dev
-yarn build:types:release  # generates into ./types-release
-yarn build:doc            # generates HTML docs into ./docs
+gjsify run build:types          # regenerate into ./types-dev
+gjsify run build:types:release  # regenerate into ./types-release
+gjsify run build:doc            # build HTML docs into ./docs
 ```
 
-## Further Information
+## Further Reading
 
-- [TypeScript API Documentation](https://gjsify.github.io/docs) - Browsable API reference for all GJS type definitions
-- [Examples](/examples/README.md) - Detailed examples showing TypeScript with different bundlers
-- [CLI Documentation](/packages/cli/README.md) - Comprehensive guide to CLI options and features
-- [gjsify/types](https://github.com/gjsify/types) - Pre-generated NPM packages you can use directly
-- [GNOME Shell Extension Types](https://github.com/gjsify/gnome-shell) - Hand-written type definitions for GNOME Shell Extensions
+- [TypeScript API Documentation](https://gjsify.github.io/docs)
+- [Examples](/examples/README.md)
+- [CLI Documentation](/packages/cli/README.md)
+- [gjsify/types](https://github.com/gjsify/types) — pre-generated NPM packages
+- [gjsify/gnome-shell](https://github.com/gjsify/gnome-shell) — hand-written Shell Extension types

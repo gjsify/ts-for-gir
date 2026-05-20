@@ -21,8 +21,8 @@ This example demonstrates modern, type-safe dependency injection using [Wise DI]
 
 ```bash
 cd examples/di-wise
-yarn install
-yarn start
+gjsify install
+gjsify run start
 ```
 
 ## TypeScript Configuration

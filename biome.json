@@ -33,6 +33,8 @@
 			"!**/test",
 			"!**/tests",
 			"!**/templates",
+			"!**/dist-templates",
+			"!packages/cli/templates",
 			"!**/@types",
 			"!**/docs",
 			"!refs",

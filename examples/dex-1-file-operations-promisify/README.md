@@ -71,9 +71,9 @@ await promisify(Dex.file_copy(source, dest, flags, priority), 'boolean');
 ## Installation & Start
 
 ```bash
-yarn install
-yarn build    # Build the TypeScript files
-yarn start    # Run the example
+gjsify install
+gjsify run build    # Build the TypeScript files
+gjsify run start    # Run the example
 ```
 
 ## Code Structure

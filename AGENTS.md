@@ -24,17 +24,17 @@ Core packages: `cli` | `parser(@gi.ts)` | `lib` | `reporter` | `generator-base` 
 ## Commands
 
 ```
-yarn start                 # Run CLI (no build)
-yarn build:{types,examples}
-yarn copy:girs             # Copy system GIR files
-yarn test                  # Full suite
-yarn test:tests            # Quick local
-yarn check                 # Full type check (SLOW!)
-yarn check:{app,lint}      # Fast check / lint only
-yarn format
-yarn ts-for-gir-dev generate Gtk-4.0 [--reporter --verbose]
-yarn ts-for-gir-dev analyze -f ./report.json [--severity critical --category type_resolution --namespace Gtk --format table]
-yarn ts-for-gir-dev list
+gjsify run start                 # Run CLI (no build)
+gjsify run build:{types,examples}
+gjsify run copy:girs             # Copy system GIR files
+gjsify run test                  # Full suite
+gjsify run test:tests            # Quick local
+gjsify run check                 # Full type check (SLOW!)
+gjsify run check:{app,lint}      # Fast check / lint only
+gjsify format                    # Biome via @gjsify/cli wrapper
+gjsify run ts-for-gir-dev generate Gtk-4.0 [--reporter --verbose]
+gjsify run ts-for-gir-dev analyze -f ./report.json [--severity critical --category type_resolution --namespace Gtk --format table]
+gjsify run ts-for-gir-dev list
 ```
 
 ## Generation Flow
@@ -69,14 +69,14 @@ Custom `--outdir=./test-types-*`: fresh generation for dev/testing
 
 When modifying generators, templates, injections, or lib code that affects generated output:
 
-1. `yarn build:types` — regenerates all types into `/types-dev/`
+1. `gjsify run build:types` — regenerates all types into `/types-dev/`
 2. `cd types-dev && git diff` — inspect generated changes, verify correctness
-3. `yarn build:examples` — rebuild examples (they depend on `/types-dev/`)
-4. `yarn check` — full type check including examples and generated types
+3. `gjsify run build:examples` — rebuild examples (they depend on `/types-dev/`)
+4. `gjsify run check` — full type check including examples and generated types
 
-`yarn build` chains all steps: `build:app → build:types → build:examples → build:json → build:doc`
+`gjsify run build` chains all steps: `build:app → build:types → build:examples → build:json → build:doc`
 
-**Important:** Examples import from `@girs/*` packages which resolve to `/types-dev/`. Generator changes will NOT be reflected in examples or `yarn check` until `yarn build:types` has been run.
+**Important:** Examples import from `@girs/*` packages which resolve to `/types-dev/`. Generator changes will NOT be reflected in examples or `gjsify run check` until `gjsify run build:types` has been run.
 
 ### GIR → TS Mapping
 
@@ -87,7 +87,7 @@ Parameter `direction` affects signatures. `nullable` → optional (`?`). Array s
 ## GIR Sources
 
 `/girs/` — local copies | `/vala-girs/` — submodule | System: `/usr/share/gir-1.0/`
-Add new: install pkg → `yarn copy:girs` → `yarn ts-for-gir-dev generate ModuleName-Version`
+Add new: install pkg → `gjsify run copy:girs` → `gjsify run ts-for-gir-dev generate ModuleName-Version`
 
 ## GIR XML Reference (`**/*.gir`)
 
@@ -113,7 +113,7 @@ Quality: generic parser (no hardcoded tuples) | concrete overloads first+last, g
 
 Files: template=`packages/templates/templates/glib-2.0.d.ts` | upstream=`gjs/installed-tests/js/testGLib.js` | example=`examples/glib-2-variant/main.ts` | tests=`tests/language-server-validation/src/gvariant-validation.test.ts`
 
-Acceptance: `yarn workspace @ts-for-gir-test/language-server-validation run test` + `yarn workspace @ts-for-gir-example/glib-2-variant run check` pass deterministically
+Acceptance: `gjsify workspace @ts-for-gir-test/language-server-validation run test` + `gjsify workspace @ts-for-gir-example/glib-2-variant run check` pass deterministically
 
 ## TypeScript (`**/*.ts`)
 
@@ -155,13 +155,13 @@ When changing tests, add: `// Rationale: <reason referencing spec>`
 Format: `<type>[scope]: <description>` (feat|fix|docs|refactor|test|chore) | imperative mood | <50 char subject
 Atomic commits, working code only. Match existing patterns via `git log --oneline -10`.
 
-Pre-commit validation: `yarn check:app` + `yarn test:tests` + `yarn format` (regular) | `yarn check` (major changes, slow)
+Pre-commit validation: `gjsify run check:app` + `gjsify run test:tests` + `gjsify format` (regular) | `gjsify run check` (major changes, slow)
 
 ## Fixing Generated Type Errors
 
 Req: error message, affected package(s), context, usage pattern
-Workflow: generate with `--reporter` → `yarn ts-for-gir-dev analyze` → examine `cd types && git diff` → review commits in `packages/{generator-typescript,parser,lib,templates}/`
-Validate: baseline report → fix → `yarn test:types` → `yarn workspace @girs/[pkg] run test` → `yarn check:types`
+Workflow: generate with `--reporter` → `gjsify run ts-for-gir-dev analyze` → examine `cd types && git diff` → review commits in `packages/{generator-typescript,parser,lib,templates}/`
+Validate: baseline report → fix → `gjsify run test:types` → `gjsify workspace @girs/[pkg] run test` → `gjsify run check:types`
 
 ## GJS Examples (`examples/**/*`)
 
@@ -175,7 +175,7 @@ All examples built+validated in CI; create/adapt examples when type issues are f
 
 Structure: `packages/[name]/{src/index.ts, package.json, tsconfig.json(opt)}`
 Naming: `@ts-for-gir/[name]` | `@gi.ts/[name]` | `@ts-for-gir-example/[name]` | `@ts-for-gir-test/[name]`
-Rules: no build (export TS directly) | main/module/exports → `src/index.ts` | `workspace:^` for internal deps | `"type": "module"` req | formatting at root via `yarn format`
+Rules: no build (export TS directly) | main/module/exports → `src/index.ts` | `workspace:^` for internal deps | `"type": "module"` req | formatting at root via `gjsify format`
 
 ## GJS Runtime Analysis
 

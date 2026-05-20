@@ -37,14 +37,14 @@ Both approaches work simultaneously, providing seamless migration paths.
 
 ```bash
 # Build the TypeScript sources
-yarn build
+gjsify run build
 
 # Start the server (in one terminal)
-yarn start:server
+gjsify run start:server
 
 # Start the client (in another terminal)  
-yarn start:client
+gjsify run start:client
 
 # Or run both simultaneously
-yarn start
+gjsify run start
 ``` 

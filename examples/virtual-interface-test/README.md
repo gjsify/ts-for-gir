@@ -46,9 +46,9 @@ This approach gives you:
 ### Step 3: Build and Run the Example
 ```bash
 cd examples/virtual-interface-test
-yarn install
-yarn build
-yarn start
+gjsify install
+gjsify run build
+gjsify run start
 ```
 
 ## Benefits

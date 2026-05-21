@@ -44,15 +44,15 @@ jobs:
       with:
         submodules: true
 
-    - name: Setup npm auth
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
-      run: |
-        cat > $HOME/.npmrc <<NPMRC
-        //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
-        registry=https://registry.npmjs.org/
-        NPMRC
-        chmod 600 $HOME/.npmrc
+    # npm Trusted Publishing (OIDC). gjsify publish 0.4.16+ auto-detects
+    # OIDC mode when ACTIONS_ID_TOKEN_REQUEST_URL + _TOKEN are present
+    # (handled by GitHub Actions because the workflow declares
+    # `id-token: write` above) AND no NODE_AUTH_TOKEN env is exported.
+    # Both `@ts-for-gir/*` and `@gi.ts/*` packages have Trusted Publisher
+    # entries configured for this repo + this workflow filename on
+    # npmjs.com, so a per-package OIDC exchange yields a short-lived
+    # (~5min) publish token. No long-lived NPM_TOKEN secret needed; the
+    # previous Setup-npm-auth step is retired.
 
     - name: Bootstrap @gjsify/cli via install.mjs (Node-free)
       run: |

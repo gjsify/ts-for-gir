@@ -30,7 +30,7 @@
 		"update:submodules": "git submodule foreach git pull",
 		"update:packages": "gjsify upgrade --latest",
 		"update": "gjsify run update:submodules && gjsify run update:packages",
-		"publish:app": "gjsify run build:app && gjsify foreach -v -p --no-private --include '@ts-for-gir/*' --include '@gi.ts/*' --exec -- gjsify publish --tolerate-republish --tag latest --access public --provenance",
+		"publish:app": "gjsify run build:app && gjsify foreach -v -p --no-private --include '@ts-for-gir/*' --include '@gi.ts/*' --exec -- gjsify publish --trusted --tolerate-republish --tag latest --access public --provenance",
 		"publish:types": "gjsify foreach -v -p --no-private --include '@girs/*' --exec -- gjsify publish --tolerate-republish --tag latest --access public",
 		"publish": "gjsify run publish:app && gjsify run publish:types",
 		"test:types": "gjsify run build:types && gjsify run check:types",

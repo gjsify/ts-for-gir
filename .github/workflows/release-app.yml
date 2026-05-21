@@ -84,6 +84,10 @@ jobs:
     - name: Publish app packages to npm
       env:
         WS_PATH: ${{ github.workspace }}
+        # Surface OIDC mode + per-package PUT URLs in the job log so a
+        # failed exchange can be debugged without re-running with a
+        # local patch. Equivalent of gjsify/gjsify's release.yml.
+        GJSIFY_PUBLISH_DEBUG: "1"
       run: PATH="$WS_PATH/node_modules/.bin:$PATH" gjsify run publish:app
 
     - name: Summary

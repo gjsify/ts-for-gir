@@ -22,6 +22,11 @@ on:
         description: 'Existing release tag to (re)upload assets to (e.g. v4.0.0-rc.17). Leave empty for a no-op dispatch from main.'
         required: false
         default: ''
+      skip_publish:
+        description: 'Skip the npm publish step (default true — re-uploads are for fixing missing release assets; npm side already published).'
+        required: false
+        type: boolean
+        default: true
 
 jobs:
   publish-app:
@@ -92,7 +97,13 @@ jobs:
     # `npm i -g`, `gjsify install -g`, and the install.mjs bootstrapper
     # resolve it from there.
 
+    # Publish to npm on the `release` event (always) or on
+    # workflow_dispatch with skip_publish=false. Re-running an existing
+    # release should leave npm alone (each version is published exactly
+    # once); use skip_publish=true (the default) when the goal is just to
+    # (re-)upload missing release assets without touching npm.
     - name: Publish app packages to npm
+      if: ${{ github.event_name == 'release' || inputs.skip_publish == false }}
       env:
         WS_PATH: ${{ github.workspace }}
         # Surface OIDC mode + per-package PUT URLs in the job log so a

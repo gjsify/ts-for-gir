@@ -41,29 +41,17 @@ export interface MetaInfo<Props, Interfaces, Sigs> {
 export type Property<K extends ParamSpec> = K extends ParamSpec<infer T> ? T : any
 
 <%_ if (!noAdvancedVariants) { _%>
-// Advanced type inference for GObject class registration
-// String conversion utilities for property names
+// Advanced type inference for GObject class registration.
+// Convert kebab-case property names (e.g. "my-prop") to snake_case
+// ("my_prop"). GJS exposes registered properties on the JS side as
+// snake_case (and via `get_property('kebab-name')`), so we only alias to
+// that form; camelCase aliases would not match anything at runtime.
 type SnakeToUnderscoreCase<S extends string> = S extends `${infer T}-${infer U}`
     ? `${T}_${SnakeToUnderscoreCase<U>}`
     : S extends `${infer T}`
       ? `${T}`
       : never
 
-type SnakeToCamelCase<S extends string> = S extends `${infer T}-${infer U}`
-    ? `${Lowercase<T>}${SnakeToPascalCase<U>}`
-    : S extends `${infer T}`
-      ? `${Lowercase<T>}`
-      : SnakeToPascalCase<S>
-
-type SnakeToPascalCase<S extends string> = string extends S
-    ? string
-    : S extends `${infer T}-${infer U}`
-      ? `${Capitalize<Lowercase<T>>}${SnakeToPascalCase<U>}`
-      : S extends `${infer T}`
-        ? `${Capitalize<Lowercase<T>>}`
-        : never
-
-type SnakeToCamel<T> = { [P in keyof T as P extends string ? SnakeToCamelCase<P> : P]: T[P] }
 type SnakeToUnderscore<T> = { [P in keyof T as P extends string ? SnakeToUnderscoreCase<P> : P]: T[P] }
 
 // Advanced utility types for class registration
@@ -88,7 +76,7 @@ export type RegisteredPrototype<
     P extends {},
     Props extends { [key: string]: ParamSpec },
     Interfaces extends any[],
-> = Properties<P, SnakeToCamel<Props> & SnakeToUnderscore<Props>> & UnionToIntersection<Interfaces[number]> & P
+> = Properties<P, SnakeToUnderscore<Props>> & UnionToIntersection<Interfaces[number]> & P
 
 type Ctor = new (...a: any[]) => object
 type Init = { _init(...args: any[]): void }
@@ -319,9 +307,12 @@ export type SignalCallback<Emitter, Fn> = Fn extends (...args: infer P) => infer
 // TODO: What about the generated class Closure
 export type TClosure<R = any, P = any> = (...args: P[]) => R
 
+<%_ if (noAdvancedVariants) { _%>
+// Fallback registerClass overloads — used when advanced variants are
+// disabled. The class type is returned unchanged: callers are expected to
+// declare property/signal types manually on their class body.
 type ObjectConstructor = { new (...args: any[]): Object }
 
-// Standard registerClass overloads
 export function registerClass<T extends ObjectConstructor>(cls: T): T
 
 export function registerClass<
@@ -335,9 +326,18 @@ export function registerClass<
         }
     },
 >(options: MetaInfo<Props, Interfaces, Sigs>, cls: T): T
-
-<%_ if (!noAdvancedVariants) { _%>
-// Enhanced registerClass overloads with advanced type inference
+<%_ } else { _%>
+// Enhanced registerClass overloads with advanced type inference. Previously
+// shadowed by the standard overloads above, which matched any class
+// extending GObject.Object via `T extends ObjectConstructor` and returned
+// the class type unchanged — making the enhanced inference unreachable.
+// The two overload sets are now mutually exclusive on the `noAdvancedVariants`
+// flag.
+//
+// When the return value is captured (`const Foo = GObject.registerClass(...)`),
+// the resulting class carries inferred property types via RegisteredPrototype.
+// The idiomatic `static { GObject.registerClass(...) }` pattern discards the
+// return and is unaffected.
 
 export function registerClass<P extends {}, T extends new (...args: any[]) => P>(
     klass: T,
@@ -354,17 +354,7 @@ export function registerClass<
         }
     },
 >(
-    options: {
-        GTypeName?: string
-        GTypeFlags?: TypeFlags
-        Properties?: Props
-        Signals?: Sigs
-        Implements?: Interfaces
-        CssName?: string
-        Template?: string
-        Children?: string[]
-        InternalChildren?: string[]
-    },
+    options: MetaInfo<Props, Interfaces, Sigs>,
     klass: T,
 ): RegisteredClass<T, Props, Interfaces>
 <%_ } _%>

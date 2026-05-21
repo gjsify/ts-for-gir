@@ -1,0 +1,20 @@
+{
+	"name": "@ts-for-gir-example/gobject-register-class-inference",
+	"description": "Demonstrates GObject.registerClass property inference when the return value is captured",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"build": "tsc",
+		"start": "gjs -m dist/main.js",
+		"check": "tsc --noEmit",
+		"clear": "rm -rf dist"
+	},
+	"devDependencies": {
+		"typescript": "^6.0.3"
+	},
+	"dependencies": {
+		"@girs/gjs": "workspace:^",
+		"@girs/glib-2.0": "workspace:^",
+		"@girs/gobject-2.0": "workspace:^"
+	}
+}

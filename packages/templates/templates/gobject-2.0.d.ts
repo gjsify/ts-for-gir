@@ -319,9 +319,12 @@ export type SignalCallback<Emitter, Fn> = Fn extends (...args: infer P) => infer
 // TODO: What about the generated class Closure
 export type TClosure<R = any, P = any> = (...args: P[]) => R
 
+<%_ if (noAdvancedVariants) { _%>
+// Fallback registerClass overloads — used when advanced variants are
+// disabled. The class type is returned unchanged: callers are expected to
+// declare property/signal types manually on their class body.
 type ObjectConstructor = { new (...args: any[]): Object }
 
-// Standard registerClass overloads
 export function registerClass<T extends ObjectConstructor>(cls: T): T
 
 export function registerClass<
@@ -335,9 +338,18 @@ export function registerClass<
         }
     },
 >(options: MetaInfo<Props, Interfaces, Sigs>, cls: T): T
-
-<%_ if (!noAdvancedVariants) { _%>
-// Enhanced registerClass overloads with advanced type inference
+<%_ } else { _%>
+// Enhanced registerClass overloads with advanced type inference. Previously
+// shadowed by the standard overloads above, which matched any class
+// extending GObject.Object via `T extends ObjectConstructor` and returned
+// the class type unchanged — making the enhanced inference unreachable.
+// The two overload sets are now mutually exclusive on the `noAdvancedVariants`
+// flag.
+//
+// When the return value is captured (`const Foo = GObject.registerClass(...)`),
+// the resulting class carries inferred property types via RegisteredPrototype.
+// The idiomatic `static { GObject.registerClass(...) }` pattern discards the
+// return and is unaffected.
 
 export function registerClass<P extends {}, T extends new (...args: any[]) => P>(
     klass: T,
@@ -354,17 +366,7 @@ export function registerClass<
         }
     },
 >(
-    options: {
-        GTypeName?: string
-        GTypeFlags?: TypeFlags
-        Properties?: Props
-        Signals?: Sigs
-        Implements?: Interfaces
-        CssName?: string
-        Template?: string
-        Children?: string[]
-        InternalChildren?: string[]
-    },
+    options: MetaInfo<Props, Interfaces, Sigs>,
     klass: T,
 ): RegisteredClass<T, Props, Interfaces>
 <%_ } _%>

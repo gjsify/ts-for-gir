@@ -9,12 +9,19 @@ name: Release App
 on:
   release:
     types: [published]
+  # Manual reruns. Two scenarios:
+  #   1. Re-publish + (re-)upload assets for a real existing release whose
+  #      original `release`-event run didn't finish (asset upload skipped,
+  #      partial publish, etc). Pass the tag in `release_tag`; the workflow
+  #      rebuilds + republishes + uploads the assets to the named release.
+  #   2. Ad-hoc smoke test from main with no release attached. Leave
+  #      `release_tag` empty.
   workflow_dispatch:
     inputs:
       release_tag:
-        description: 'Release tag to use for commit message'
+        description: 'Existing release tag to (re)upload assets to (e.g. v4.0.0-rc.17). Leave empty for a no-op dispatch from main.'
         required: false
-        default: 'manual'
+        default: ''
 
 jobs:
   publish-app:
@@ -39,10 +46,14 @@ jobs:
     # Without `submodules: true` the install step fails with "no workspace
     # with that name exists" for every `@girs/<lib>` workspace dep. Matches
     # the equivalent step in release-types.yml + release-docs.yml.
+    # `release` event auto-checks-out the tag. `workflow_dispatch` with a
+    # `release_tag` input must explicitly target that tag so the rebuilt
+    # bundle + install.js match what shipped (not main HEAD).
     - name: Checkout repository
       uses: actions/checkout@v6
       with:
         submodules: true
+        ref: ${{ github.event.release.tag_name || inputs.release_tag || github.ref }}
 
     # npm Trusted Publishing (OIDC). gjsify publish 0.4.16+ auto-detects
     # OIDC mode when ACTIONS_ID_TOKEN_REQUEST_URL + _TOKEN are present
@@ -90,9 +101,43 @@ jobs:
         GJSIFY_PUBLISH_DEBUG: "1"
       run: PATH="$WS_PATH/node_modules/.bin:$PATH" gjsify run publish:app
 
+    # Ship the Node-free install path:
+    #   - install.js          bootstrap script users curl to install ts-for-gir
+    #                         without Node (`curl -fsSL <rel>/download/install.js | gjs -m -`)
+    #   - ts-for-gir-gjs      GJS bundle that `ts-for-gir self-update` looks for
+    #                         under GJS_ASSET_NAME (see packages/cli/src/commands/
+    #                         self-update.ts). Without this asset on the release,
+    #                         self-update falls back to "use npm update".
+    #   - ts-for-gir-gjs.sha256  checksum companion for install verification.
+    #
+    # Uploads only on the `release` event (normal flow) or on a
+    # `workflow_dispatch` run that explicitly names a `release_tag` —
+    # mirrors gjsify/gjsify's release.yml asset-upload gating.
+    - name: Generate ts-for-gir-gjs.sha256
+      if: github.event_name == 'release' || inputs.release_tag != ''
+      run: |
+        cd packages/cli/bin
+        sha256sum ts-for-gir-gjs | awk '{print $1}' > ts-for-gir-gjs.sha256
+        cat ts-for-gir-gjs.sha256
+
+    - name: Upload installer + GJS bundle to GitHub release
+      if: github.event_name == 'release' || inputs.release_tag != ''
+      uses: softprops/action-gh-release@v3
+      with:
+        # On `release` softprops infers tag_name from the event payload.
+        # On `workflow_dispatch` we must pass it explicitly so the action
+        # targets the operator-specified tag instead of creating a new
+        # release from HEAD.
+        tag_name: ${{ github.event.release.tag_name || inputs.release_tag }}
+        files: |
+          install.js
+          packages/cli/bin/ts-for-gir-gjs
+          packages/cli/bin/ts-for-gir-gjs.sha256
+
     - name: Summary
       env:
         RELEASE_TAG: ${{ github.event.release.tag_name || github.event.inputs.release_tag || 'unknown' }}
       run: |
         echo "App packages successfully published to npm for release ${RELEASE_TAG}"
         echo "Published packages: @ts-for-gir/* and @gi.ts/*"
+        echo "Release assets uploaded: install.js, ts-for-gir-gjs, ts-for-gir-gjs.sha256"

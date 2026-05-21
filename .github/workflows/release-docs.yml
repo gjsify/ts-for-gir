@@ -58,8 +58,13 @@ jobs:
         git config user.email "github-actions[bot]@users.noreply.github.com"
         git remote set-url origin "https://x-access-token:${PAT_TOKEN}@github.com/gjsify/docs.git"
         git fetch origin
-        git checkout main
-        git pull origin main
+        # `git pull` refuses to merge when local and origin/main have
+        # diverged (each with their own commit) — happens when two CI
+        # runs publish docs back-to-back and the first push lands while
+        # the second is still local. Force-sync to origin/main; the
+        # submodule's local commit is always disposable (re-built from
+        # the parent ts-for-gir version on each release run).
+        git checkout -B main origin/main
 
     - name: Generate JSON files
       env:

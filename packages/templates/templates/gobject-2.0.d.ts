@@ -41,29 +41,17 @@ export interface MetaInfo<Props, Interfaces, Sigs> {
 export type Property<K extends ParamSpec> = K extends ParamSpec<infer T> ? T : any
 
 <%_ if (!noAdvancedVariants) { _%>
-// Advanced type inference for GObject class registration
-// String conversion utilities for property names
+// Advanced type inference for GObject class registration.
+// Convert kebab-case property names (e.g. "my-prop") to snake_case
+// ("my_prop"). GJS exposes registered properties on the JS side as
+// snake_case (and via `get_property('kebab-name')`), so we only alias to
+// that form; camelCase aliases would not match anything at runtime.
 type SnakeToUnderscoreCase<S extends string> = S extends `${infer T}-${infer U}`
     ? `${T}_${SnakeToUnderscoreCase<U>}`
     : S extends `${infer T}`
       ? `${T}`
       : never
 
-type SnakeToCamelCase<S extends string> = S extends `${infer T}-${infer U}`
-    ? `${Lowercase<T>}${SnakeToPascalCase<U>}`
-    : S extends `${infer T}`
-      ? `${Lowercase<T>}`
-      : SnakeToPascalCase<S>
-
-type SnakeToPascalCase<S extends string> = string extends S
-    ? string
-    : S extends `${infer T}-${infer U}`
-      ? `${Capitalize<Lowercase<T>>}${SnakeToPascalCase<U>}`
-      : S extends `${infer T}`
-        ? `${Capitalize<Lowercase<T>>}`
-        : never
-
-type SnakeToCamel<T> = { [P in keyof T as P extends string ? SnakeToCamelCase<P> : P]: T[P] }
 type SnakeToUnderscore<T> = { [P in keyof T as P extends string ? SnakeToUnderscoreCase<P> : P]: T[P] }
 
 // Advanced utility types for class registration
@@ -88,7 +76,7 @@ export type RegisteredPrototype<
     P extends {},
     Props extends { [key: string]: ParamSpec },
     Interfaces extends any[],
-> = Properties<P, SnakeToCamel<Props> & SnakeToUnderscore<Props>> & UnionToIntersection<Interfaces[number]> & P
+> = Properties<P, SnakeToUnderscore<Props>> & UnionToIntersection<Interfaces[number]> & P
 
 type Ctor = new (...a: any[]) => object
 type Init = { _init(...args: any[]): void }

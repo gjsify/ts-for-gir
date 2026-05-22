@@ -125,6 +125,10 @@ jobs:
       # dependency entirely and use `gjsify pack` directly.
       - name: Install yarn (Berry) via corepack
         run: |
+          # Fedora's `nodejs` package doesn't ship corepack — pull it
+          # from npm. The `--force` overrides the warning about npm
+          # not being a corepack-managed package manager itself.
+          npm install -g corepack
           corepack enable
           corepack prepare yarn@stable --activate
           yarn --version

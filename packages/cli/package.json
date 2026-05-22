@@ -124,7 +124,7 @@
 	"scripts": {
 		"start": "node bin/ts-for-gir-dev",
 		"start:prod": "node bin/ts-for-gir",
-		"build": "node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings esbuild.ts && chmod +x bin/ts-for-gir-dev && chmod +x bin/ts-for-gir",
+		"build": "node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings esbuild.ts && chmod +x bin/ts-for-gir-dev && chmod +x bin/ts-for-gir && node scripts/process-templates.mjs",
 		"build:gjs": "gjsify build",
 		"build:templates": "node scripts/process-templates.mjs",
 		"prepack": "node scripts/process-templates.mjs",

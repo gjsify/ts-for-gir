@@ -112,14 +112,22 @@ jobs:
           dnf install -y git tar xz findutils curl gjs libsoup3 nodejs npm
           git config --global --add safe.directory "*"
       # The legacy e2e suites (`cli/`, `create/`, `install/`) drive
-      # workspace tarball packing via `pack.mjs`, which spawns `yarn
-      # workspaces foreach pack`. Yarn isn't shipped in the Fedora
-      # container by default — fetch it via npm before the suite
-      # runs. Long-term fix tracked in gjsify/gjsify#272: once
-      # `gjsify pack` honors lifecycle scripts, `pack.mjs` can drop
-      # the yarn dependency entirely.
-      - name: Install yarn (legacy e2e packer dependency)
-        run: npm install -g yarn
+      # workspace tarball packing via `pack.mjs`, which uses Yarn-
+      # Berry-shaped commands (`yarn workspaces list --json`,
+      # `yarn workspaces foreach -A pack`). Plain `npm install -g
+      # yarn` installs Yarn 1.x (whose `workspaces info --json` has
+      # a different shape), so the test fails on the very first
+      # workspace-enumeration call. Bootstrap a stable Berry via
+      # corepack instead — matches what every recent yarn project
+      # ships on disk via `packageManager`. Long-term fix tracked
+      # in gjsify/gjsify#272 (merged): once gjsify ships 0.4.22 with
+      # pack-lifecycle-script support, `pack.mjs` can drop the yarn
+      # dependency entirely and use `gjsify pack` directly.
+      - name: Install yarn (Berry) via corepack
+        run: |
+          corepack enable
+          corepack prepare yarn@stable --activate
+          yarn --version
       - name: Checkout repository
         uses: actions/checkout@v6
         with:

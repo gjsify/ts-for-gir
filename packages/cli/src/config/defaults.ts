@@ -53,6 +53,20 @@ function getDefaultGirDirectories(): string[] {
 		"/usr/lib/x86_64-linux-gnu/mutter-*",
 	];
 
+	// Flatpak: `--filesystem=host` exposes the host's filesystem under
+	// /run/host. The GNOME runtime ships GIR typelibs but not the XML, so
+	// inside the sandbox we must read from /run/host/usr/share/gir-1.0.
+	// Detected via FLATPAK_ID (set for every Flatpak-launched process) or
+	// the .flatpak-info marker file (always present in the sandbox).
+	if (process.env.FLATPAK_ID || existsSync("/.flatpak-info")) {
+		girDirectories.unshift(
+			"/run/host/usr/local/share/gir-1.0",
+			"/run/host/usr/share/gir-1.0",
+			"/run/host/usr/share/*/gir-1.0",
+			"/run/host/usr/lib/x86_64-linux-gnu/mutter-*",
+		);
+	}
+
 	// NixOS and other distributions does not have a /usr/local/share directory.
 	// Instead, the nix store paths with Gir files are set as XDG_DATA_DIRS.
 	// See https://github.com/NixOS/nixpkgs/blob/96e18717904dfedcd884541e5a92bf9ff632cf39/pkgs/development/libraries/gobject-introspection/setup-hook.sh#L7-L10

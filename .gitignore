@@ -35,3 +35,8 @@ ts-for-gir-report.json
 .yarn/
 
 .parcel-cache/
+# Flatpak build artifacts (manifests + metainfo + flathub.json kept; build outputs ignored)
+.flatpak-builder/
+build-dir/
+repo/
+*.flatpak

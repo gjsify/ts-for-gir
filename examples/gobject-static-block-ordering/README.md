@@ -34,6 +34,6 @@ The script exits with status 1 if `BrokenFoo` doesn't throw — that's the regre
 
 ## See also
 
-- [Patterns → GObject classes](https://gjsify.github.io/gjsify/patterns/gobject-classes/) — full pattern reference + the `static override $gtype` workaround for TypeScript's static-inheritance invariance.
+- [Patterns → GObject classes](https://gjsify.github.io/gjsify/patterns/gobject-classes/) — full pattern reference covering the three `registerClass()` shapes, the recommended `registerClass({...}, this)` idiom, and when (rarely) `static override $gtype: GType<This>` is worth adding.
 - [`examples/gobject-param-spec`](../gobject-param-spec) — the recommended Form A in production-shaped use with the full ParamSpec surface.
 - [`examples/gobject-register-class-inference`](../gobject-register-class-inference) — Form C (functional / no static block) with type-inference assertions.

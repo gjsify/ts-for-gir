@@ -26,16 +26,10 @@ if (System.version < 18200) {
 // `gobject-static-block-ordering` example for the side-by-side
 // broken/fixed demo of that bug.
 //
-// `static override $gtype: GObject.GType<ExampleObject>` narrows the
-// statically-inherited `static $gtype: GType<GObject.Object>` from
-// the base class to the concrete subclass type. Required if
-// anything in the codebase does `GObject.type_is_a(x, ExampleObject)`
-// or passes `ExampleObject` to APIs expecting
-// `GType<ExampleObject>`. The `override` keyword satisfies
-// TypeScript without changing runtime behaviour — GJS sets the
-// property on the constructor as part of `registerClass`.
+// Inside the static block, `this` refers to the class itself —
+// preferred over the class name because the body doesn't repeat
+// the identifier and the snippet stays correct after a rename.
 class ExampleObject extends GObject.Object {
-	static override $gtype: GObject.GType<ExampleObject>;
 	static {
 		GObject.registerClass(
 			{
@@ -174,7 +168,7 @@ class ExampleObject extends GObject.Object {
 					),
 				},
 			},
-			ExampleObject,
+			this,
 		);
 	}
 

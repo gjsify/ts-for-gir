@@ -1,0 +1,34 @@
+{
+  "id": "io.github.gjsify.ts_for_gir",
+  "runtime": "org.gnome.Platform",
+  "runtime-version": "50",
+  "sdk": "org.gnome.Sdk",
+  "command": "ts-for-gir",
+  "finish-args": [
+    "--share=network",
+    "--filesystem=host"
+  ],
+  "modules": [
+    {
+      "name": "ts-for-gir-cli",
+      "buildsystem": "simple",
+      "build-commands": [
+        "install -Dm755 package/bin/ts-for-gir-gjs /app/share/ts-for-gir/ts-for-gir.gjs.mjs",
+        "install -Dm755 launcher.sh /app/bin/ts-for-gir"
+      ],
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://registry.npmjs.org/@ts-for-gir/cli/-/cli-4.0.0-rc.17.tgz",
+          "sha256": "6ca2c7c73bbc37259ebec621f1b24f8e9ca896426783114e80faa59cb4983afe",
+          "strip-components": 0,
+          "dest-filename": "tarball.tgz"
+        },
+        {
+          "type": "file",
+          "path": "launcher.sh"
+        }
+      ]
+    }
+  ]
+}

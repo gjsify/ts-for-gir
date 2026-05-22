@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2026 gjsify contributors -->
+<component type="console-application">
+  <id>io.github.gjsify.ts_for_gir</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>Apache-2.0</project_license>
+  <name>ts-for-gir</name>
+  <summary>TypeScript type definitions for GObject Introspection (GJS)</summary>
+  <description>
+    <p>ts-for-gir reads GObject Introspection (GIR) XML files and emits strongly-typed TypeScript definitions for use in GJS (GNOME JavaScript) projects. Type-check your GTK / Adwaita / GLib / Gio / GStreamer / WebKit / etc. code, get full IDE completion, and catch missing properties / wrong-arity signal handlers at build time instead of runtime.</p>
+    <p>This Flatpak ships ts-for-gir as a self-contained CLI runnable on any modern Linux distro — no Node.js installation required. It reads from the system's installed GIR catalog (read-only mounts of /usr/share/gir-1.0 and /usr/share/gobject-introspection-1.0) and writes generated types under your project directory.</p>
+    <ul>
+      <li>`ts-for-gir generate Gtk-4.0` — generate types for one or more GI namespaces</li>
+      <li>`ts-for-gir generate --reporter` — write a JSON report alongside types for downstream analysis</li>
+      <li>`ts-for-gir analyze report.json` — inspect type-resolution issues by severity / category / namespace</li>
+      <li>`ts-for-gir create my-app` — scaffold a new GJS app from a template</li>
+      <li>`ts-for-gir list` — list all GIR namespaces available on this system</li>
+      <li>`ts-for-gir self-update` — refresh the global install in place</li>
+    </ul>
+  </description>
+  <developer id="io.github.gjsify">
+    <name translate="no">gjsify contributors</name>
+    <email>pascal@artandcode.studio</email>
+  </developer>
+  <url type="homepage">https://gjsify.github.io/gjsify/projects/ts-for-gir/</url>
+  <url type="vcs-browser">https://github.com/gjsify/ts-for-gir</url>
+  <content_rating type="oars-1.1" />
+  <categories>
+    <category>Development</category>
+  </categories>
+  <provides>
+    <binary>ts-for-gir</binary>
+  </provides>
+</component>

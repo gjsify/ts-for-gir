@@ -111,6 +111,15 @@ jobs:
         run: |
           dnf install -y git tar xz findutils curl gjs libsoup3 nodejs npm
           git config --global --add safe.directory "*"
+      # The legacy e2e suites (`cli/`, `create/`, `install/`) drive
+      # workspace tarball packing via `pack.mjs`, which spawns `yarn
+      # workspaces foreach pack`. Yarn isn't shipped in the Fedora
+      # container by default — fetch it via npm before the suite
+      # runs. Long-term fix tracked in gjsify/gjsify#272: once
+      # `gjsify pack` honors lifecycle scripts, `pack.mjs` can drop
+      # the yarn dependency entirely.
+      - name: Install yarn (legacy e2e packer dependency)
+        run: npm install -g yarn
       - name: Checkout repository
         uses: actions/checkout@v6
         with:

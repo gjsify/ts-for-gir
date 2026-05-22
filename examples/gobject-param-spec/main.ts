@@ -12,8 +12,30 @@ if (System.version < 18200) {
 	System.exit(0);
 }
 
-// Example class demonstrating different ParamSpec usages
+// Example class demonstrating different ParamSpec usages.
+//
+// This follows pattern *Form A* from
+// https://gjsify.github.io/gjsify/patterns/gobject-classes/ — all
+// `GObject.registerClass()` metadata (`GTypeName`, `Properties`,
+// `Signals`, `Implements`) is passed inline in the static block's
+// call, instead of as separate `static [GObject.properties] = …`
+// fields. That sidesteps the static-block ordering trap behind
+// https://gitlab.gnome.org/GNOME/gjs/-/work_items/704: with no
+// `static [GObject.*] = …` initializers in scope, there's nothing
+// for the static block to evaluate too early. See the
+// `gobject-static-block-ordering` example for the side-by-side
+// broken/fixed demo of that bug.
+//
+// `static override $gtype: GObject.GType<ExampleObject>` narrows the
+// statically-inherited `static $gtype: GType<GObject.Object>` from
+// the base class to the concrete subclass type. Required if
+// anything in the codebase does `GObject.type_is_a(x, ExampleObject)`
+// or passes `ExampleObject` to APIs expecting
+// `GType<ExampleObject>`. The `override` keyword satisfies
+// TypeScript without changing runtime behaviour — GJS sets the
+// property on the constructor as part of `registerClass`.
 class ExampleObject extends GObject.Object {
+	static override $gtype: GObject.GType<ExampleObject>;
 	static {
 		GObject.registerClass(
 			{

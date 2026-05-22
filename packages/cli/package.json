@@ -1,6 +1,6 @@
 {
 	"name": "@ts-for-gir/cli",
-	"version": "4.0.0-rc.17",
+	"version": "4.0.0",
 	"description": "TypeScript type definition generator for GObject introspection GIR files",
 	"main": "src/index.ts",
 	"module": "src/index.ts",
@@ -62,12 +62,24 @@
 				},
 				{
 					"ul": [
-						{ "item": "`ts-for-gir generate Gtk-4.0` — generate types for one or more GI namespaces" },
-						{ "item": "`ts-for-gir generate --reporter` — write a JSON report alongside types for downstream analysis" },
-						{ "item": "`ts-for-gir analyze report.json` — inspect type-resolution issues by severity / category / namespace" },
-						{ "item": "`ts-for-gir create my-app` — scaffold a new GJS app from a template" },
-						{ "item": "`ts-for-gir list` — list all GIR namespaces available on this system" },
-						{ "item": "`ts-for-gir self-update` — refresh the global install in place" }
+						{
+							"item": "`ts-for-gir generate Gtk-4.0` — generate types for one or more GI namespaces"
+						},
+						{
+							"item": "`ts-for-gir generate --reporter` — write a JSON report alongside types for downstream analysis"
+						},
+						{
+							"item": "`ts-for-gir analyze report.json` — inspect type-resolution issues by severity / category / namespace"
+						},
+						{
+							"item": "`ts-for-gir create my-app` — scaffold a new GJS app from a template"
+						},
+						{
+							"item": "`ts-for-gir list` — list all GIR namespaces available on this system"
+						},
+						{
+							"item": "`ts-for-gir self-update` — refresh the global install in place"
+						}
 					]
 				}
 			],

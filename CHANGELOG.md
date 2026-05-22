@@ -1,5 +1,19 @@
 # Changelog
 
+## [4.0.0](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-rc.17...v4.0.0) (2026-05-22)
+
+### Features
+
+* **cli:** Flathub-ready Flatpak scaffold for @ts-for-gir/cli ([#415](https://github.com/gjsify/ts-for-gir/issues/415)) ([36d839a](https://github.com/gjsify/ts-for-gir/commit/36d839a07e71d64fa380d69a98b074ff586fec79))
+* **release-app:** upload install.js + GJS bundle as release assets ([#408](https://github.com/gjsify/ts-for-gir/issues/408)) ([f38d8a4](https://github.com/gjsify/ts-for-gir/commit/f38d8a4fa7314b48a5d2e53842245e3c707174bb))
+
+### Bug Fixes
+
+* **gobject:** reach enhanced registerClass overloads + cleanup ([#406](https://github.com/gjsify/ts-for-gir/issues/406)) ([6a1f7d5](https://github.com/gjsify/ts-for-gir/commit/6a1f7d5a6506145526de55c96d4db95e2727f5dd))
+* **lib:** GLib.HashTable types reflect actual JS object marshalling ([#392](https://github.com/gjsify/ts-for-gir/issues/392)) ([#413](https://github.com/gjsify/ts-for-gir/issues/413)) ([ec30a59](https://github.com/gjsify/ts-for-gir/commit/ec30a59780bbc00f29eddecf7ff68a85bac83aa6))
+* **release-app:** add skip_publish input (default true on dispatch) ([#409](https://github.com/gjsify/ts-for-gir/issues/409)) ([e10532c](https://github.com/gjsify/ts-for-gir/commit/e10532c85b11c29fade41103ad65f31f99c5c8af)), closes [#408](https://github.com/gjsify/ts-for-gir/issues/408)
+* **release-app:** explicit --trusted + GJSIFY_PUBLISH_DEBUG ([#404](https://github.com/gjsify/ts-for-gir/issues/404)) ([6b90541](https://github.com/gjsify/ts-for-gir/commit/6b9054125d98c1edc345c8526f1bb9ccbf35d6f7))
+
 ## [4.0.0-rc.17](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-rc.16...v4.0.0-rc.17) (2026-05-20)
 
 ## [4.0.0-rc.16](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-rc.15...v4.0.0-rc.16) (2026-05-20)

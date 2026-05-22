@@ -1,5 +1,11 @@
 # Changelog
 
+## [4.0.1](https://github.com/gjsify/ts-for-gir/compare/v4.0.0...v4.0.1) (2026-05-22)
+
+### Bug Fixes
+
+* **cli:** chain process-templates into build (was prepack-only) ([#416](https://github.com/gjsify/ts-for-gir/issues/416)) ([b28c951](https://github.com/gjsify/ts-for-gir/commit/b28c951b51bfdacd822e0e08d1ec6309519e16d3))
+
 ## [4.0.0](https://github.com/gjsify/ts-for-gir/compare/v4.0.0-rc.17...v4.0.0) (2026-05-22)
 
 ### Features

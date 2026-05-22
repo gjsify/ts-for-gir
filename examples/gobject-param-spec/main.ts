@@ -168,7 +168,7 @@ class ExampleObject extends GObject.Object {
 					),
 				},
 			},
-			this,
+			ExampleObject,
 		);
 	}
 

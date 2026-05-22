@@ -11,7 +11,6 @@ import {
 	makeNullable,
 	makeUnion,
 	NativeType,
-	TupleType,
 	NeverType,
 	NullableType,
 	NullType,
@@ -21,6 +20,7 @@ import {
 	RawPointerType,
 	StringType,
 	ThisType,
+	TupleType,
 	TypeExpression,
 	TypeIdentifier,
 	Uint8ArrayType,
@@ -407,9 +407,7 @@ class HashTableDictType extends TypeExpression {
 
 	equals(type: TypeExpression): boolean {
 		return (
-			type instanceof HashTableDictType &&
-			this.keyShape === type.keyShape &&
-			this.valueType.equals(type.valueType)
+			type instanceof HashTableDictType && this.keyShape === type.keyShape && this.valueType.equals(type.valueType)
 		);
 	}
 

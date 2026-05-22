@@ -48,7 +48,7 @@ let brokenError: string | null = null;
 try {
 	class BrokenFoo extends GObject.Object {
 		static {
-			GObject.registerClass(this);
+			GObject.registerClass(BrokenFoo);
 		}
 		static [GObject.interfaces] = [Gio.Initable];
 		vfunc_init(_cancellable: Gio.Cancellable | null): boolean {
@@ -84,7 +84,7 @@ class WorkingFoo extends GObject.Object {
 		return true;
 	}
 	static {
-		GObject.registerClass(this);
+		GObject.registerClass(WorkingFoo);
 	}
 }
 
@@ -113,7 +113,7 @@ class InlineFoo extends GObject.Object {
 				GTypeName: "InlineFoo",
 				Implements: [Gio.Initable],
 			},
-			this,
+			InlineFoo,
 		);
 	}
 }

@@ -45,12 +45,34 @@ cd my-app && npm start    # or `gjsify run start` for types-gjsify
 
 ### GJS — no Node.js required <sub>experimental</sub>
 
+Three equivalent paths, depending on whether you want a one-shot run, a managed install, or a self-updating standalone install. All three require only [GJS](https://gjs.guide/) at runtime — no Node.js. Powered by [GJSify](https://gjsify.github.io/gjsify/).
+
+**One-shot — `gjsify dlx` (npx-style, no install):**
+
+```bash
+gjsify dlx @ts-for-gir/cli list
+gjsify dlx @ts-for-gir/cli generate Gtk-4.0
+```
+
+`gjsify dlx` fetches the package into a content-addressed cache (`~/.cache/gjsify/dlx`), runs its GJS bundle, and reuses the cache on subsequent invocations of the same spec. Pair with `--reinstall` to force a refresh.
+
+**Global install via the gjsify CLI:**
+
+```bash
+gjsify install -g @ts-for-gir/cli
+ts-for-gir --help
+```
+
+Installs into the user-global XDG location (`~/.local/share/gjsify/global`) and symlinks the binary to `~/.local/bin/ts-for-gir`. Re-run the same command to update.
+
+**Bootstrap installer — `curl | gjs` one-liner** (handy when the `gjsify` CLI is not yet installed):
+
 ```bash
 curl -fsSL https://raw.githubusercontent.com/gjsify/ts-for-gir/main/install.js -o /tmp/install.js
 gjs -m /tmp/install.js && rm /tmp/install.js
 ```
 
-Installs to `~/.local/bin/`. Update later with `ts-for-gir self-update`. Powered by [GJSify](https://gjsify.github.io/gjsify/).
+Installs to `~/.local/bin/`. Update later with `ts-for-gir self-update`.
 
 ### Node.js
 

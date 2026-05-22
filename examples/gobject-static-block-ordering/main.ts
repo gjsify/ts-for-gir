@@ -47,9 +47,8 @@ import System from "system";
 let brokenError: string | null = null;
 try {
 	class BrokenFoo extends GObject.Object {
-		static override $gtype: GObject.GType<BrokenFoo>;
 		static {
-			GObject.registerClass(BrokenFoo);
+			GObject.registerClass(this);
 		}
 		static [GObject.interfaces] = [Gio.Initable];
 		vfunc_init(_cancellable: Gio.Cancellable | null): boolean {
@@ -79,14 +78,13 @@ print(`✓ BrokenFoo failed as expected: ${brokenError}`);
 // Initable's vtable is wired up and `vfunc_init` lands as the init impl.
 
 class WorkingFoo extends GObject.Object {
-	static override $gtype: GObject.GType<WorkingFoo>;
 	static [GObject.interfaces] = [Gio.Initable];
 	vfunc_init(_cancellable: Gio.Cancellable | null): boolean {
 		print("[WorkingFoo] vfunc_init body — should print");
 		return true;
 	}
 	static {
-		GObject.registerClass(WorkingFoo);
+		GObject.registerClass(this);
 	}
 }
 
@@ -99,9 +97,12 @@ print("✓ WorkingFoo.init() ran the vfunc body");
 // Sidesteps the ordering question entirely. No `static [GObject.*] = …`
 // initializers exist — everything `registerClass` needs is in its own
 // arguments. This is the form `patterns/gobject-classes` recommends.
+//
+// Inside the static block `this` refers to the class itself — preferred
+// over the class name because the snippet stays correct after a rename
+// and reads as "register me" without the identifier repetition.
 
 class InlineFoo extends GObject.Object {
-	static override $gtype: GObject.GType<InlineFoo>;
 	vfunc_init(_cancellable: Gio.Cancellable | null): boolean {
 		print("[InlineFoo] vfunc_init body — should print");
 		return true;
@@ -112,7 +113,7 @@ class InlineFoo extends GObject.Object {
 				GTypeName: "InlineFoo",
 				Implements: [Gio.Initable],
 			},
-			InlineFoo,
+			this,
 		);
 	}
 }

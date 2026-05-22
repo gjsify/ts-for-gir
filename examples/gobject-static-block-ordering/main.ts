@@ -48,7 +48,9 @@ let brokenError: string | null = null;
 try {
 	class BrokenFoo extends GObject.Object {
 		static override $gtype: GObject.GType<BrokenFoo>;
-		static { GObject.registerClass(BrokenFoo); }
+		static {
+			GObject.registerClass(BrokenFoo);
+		}
 		static [GObject.interfaces] = [Gio.Initable];
 		vfunc_init(_cancellable: Gio.Cancellable | null): boolean {
 			print("[BrokenFoo] vfunc_init body — should NOT print");
@@ -62,7 +64,9 @@ try {
 }
 
 if (brokenError === null) {
-	printerr("FAIL: BrokenFoo was expected to throw (either at registerClass time or at init() time), but completed cleanly");
+	printerr(
+		"FAIL: BrokenFoo was expected to throw (either at registerClass time or at init() time), but completed cleanly",
+	);
 	System.exit(1);
 }
 print(`✓ BrokenFoo failed as expected: ${brokenError}`);
@@ -81,7 +85,9 @@ class WorkingFoo extends GObject.Object {
 		print("[WorkingFoo] vfunc_init body — should print");
 		return true;
 	}
-	static { GObject.registerClass(WorkingFoo); }
+	static {
+		GObject.registerClass(WorkingFoo);
+	}
 }
 
 const working = new WorkingFoo() as unknown as Gio.Initable;

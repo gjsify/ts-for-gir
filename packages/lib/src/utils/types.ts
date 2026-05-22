@@ -7,8 +7,11 @@ import {
 	BigintOrNumberType,
 	BinaryType,
 	BooleanType,
+	GenerifiedTypeIdentifier,
+	makeNullable,
 	makeUnion,
 	NativeType,
+	TupleType,
 	NeverType,
 	NullableType,
 	NullType,
@@ -18,7 +21,7 @@ import {
 	RawPointerType,
 	StringType,
 	ThisType,
-	type TypeExpression,
+	TypeExpression,
 	TypeIdentifier,
 	Uint8ArrayType,
 	UnknownType,
@@ -247,12 +250,25 @@ export function resolveDirectedType(type: TypeExpression, direction: GirDirectio
 				return UnknownType;
 			}
 		} else if (type.is("GLib", "HashTable")) {
-			if (direction === GirDirection.In) {
-				// Intentional `any` — GLib.HashTable maps to a JS dict with dynamic values in generated output
-				return new BinaryType(new NativeType("{ [key: string]: any }"), type);
-			} else {
-				return type;
-			}
+			// GJS marshalls `GHashTable<K, V>` to and from a plain JS object
+			// in both directions — only string-typed keys (`utf8`, `filename`)
+			// and integer-typed keys (`bool`, signed/unsigned 8/16/32-bit
+			// ints) are supported. `gunichar` accepts either string or
+			// integer. Anything else throws during marshalling — see
+			// https://gitlab.gnome.org/GNOME/gjs/-/blob/main/gi/arg.cpp#L316-420
+			// and the discussion at
+			// https://github.com/gjsify/ts-for-gir/issues/392.
+			//
+			// The TS type `GLib.HashTable<K, V>` does not represent any value
+			// that user code can actually hold — there's no GHashTable
+			// constructor exposed to JS. So in EVERY direction we emit the
+			// concrete JS shape (`{ [key: string]: V }` for string-keyed,
+			// `{ [key: number]: V }` for integer-keyed) and fall back to
+			// `never` when the declared key type can't be marshalled —
+			// statically encoding that the function can't be called rather
+			// than silently lying with a HashTable type that has no runtime
+			// instances.
+			return hashTableToJsDict(type);
 		}
 	} else if (type === BigintOrNumberType && direction === GirDirection.Out) {
 		// 64-bit integers accept number or bigint, but only return number to JS
@@ -266,14 +282,146 @@ export function resolveDirectedType(type: TypeExpression, direction: GirDirectio
 		// than `Promise<bigint | number>`.
 		const resolvedInner = resolveDirectedType(type.type, direction);
 		if (resolvedInner) return new PromiseType(resolvedInner);
-	} else if (type instanceof BinaryType && !(type instanceof NullableType)) {
+	} else if (type instanceof NullableType) {
+		// Walk into the wrapped type and rebuild as NullableType so e.g.
+		// `GLib.HashTable<string, string> | null` becomes
+		// `{ [key: string]: string } | null` (without the rebuild, the
+		// outer NullableType-aware BinaryType branch below would skip
+		// this case to preserve NullableType identity, leaving the inner
+		// type unrewritten).
+		const inner = resolveDirectedType(type.a, direction);
+		if (inner !== null) return makeNullable(inner);
+	} else if (type instanceof TupleType) {
+		// Walk into each tuple element so a `[HashTable<string, V>, …]`
+		// (typical async [result, out-params, …] shape) gets each element
+		// rewritten. BinaryType's branch below would also match TupleType
+		// since it extends OrType → BinaryType is one of its supertypes,
+		// but the rebuild via `makeUnion` would collapse tuple semantics
+		// into a union — preserve the tuple by rebuilding the same class.
+		let changed = false;
+		const inner = type.types.map((t) => {
+			const resolved = resolveDirectedType(t, direction);
+			if (resolved !== null) {
+				changed = true;
+				return resolved;
+			}
+			return t;
+		});
+		if (changed) {
+			const [first, ...rest] = inner;
+			return new TupleType(first, ...rest);
+		}
+	} else if (type instanceof BinaryType) {
 		// Walk through binary unions like `Promise<T> | void` (the dual-call
 		// async overload) so the inner types still get direction propagation.
-		// NullableType is skipped to preserve its subclass behaviour.
 		const a = resolveDirectedType(type.a, direction) ?? type.a;
 		const b = resolveDirectedType(type.b, direction) ?? type.b;
 		if (a !== type.a || b !== type.b) return makeUnion(a, b);
 	}
 
 	return null;
+}
+
+/**
+ * Map a `GLib.HashTable<K, V>` reference to the concrete JS object shape
+ * GJS marshals it to/from. Direction-independent — the marshalling is
+ * symmetric (a method that accepts a HashTable and a method that returns
+ * one both see a plain object on the JS side).
+ *
+ * Key-type rules (per gi/arg.cpp's `gjs_value_from_g_hash` /
+ * `gjs_value_to_g_hash`):
+ *
+ *   string-shaped (`utf8`, `filename`)                 → `{ [key: string]: V }`
+ *   integer-shaped (`gboolean`, `gint8`…`guint32`)      → `{ [key: number]: V }`
+ *   `gunichar`                                         → `{ [key: string]: V }`
+ *                                                        (also accepts numbers,
+ *                                                        but the broader string
+ *                                                        case is more useful)
+ *   anything else (raw pointers, classes, records, …)  → `never`
+ *                                                        (uncallable on the JS side)
+ *
+ * The fallback for "type information missing" (e.g. an introspection
+ * record with bare `HashTable` and no generics) is `{ [key: string]: any }`
+ * — the most common shape, matching the historical generator output.
+ */
+function hashTableToJsDict(type: TypeIdentifier): TypeExpression {
+	if (!(type instanceof GenerifiedTypeIdentifier) || type.generics.length === 0) {
+		// Bare `HashTable` with no generics — emit the catch-all dict shape.
+		return new NativeType("{ [key: string]: any }");
+	}
+
+	const [keyType, valueType] = type.generics;
+	const keyShape = jsKeyShapeFor(keyType);
+	if (keyShape === null) {
+		// Unsupported key type — function is uncallable from JS.
+		return NeverType;
+	}
+
+	// Return a TypeExpression subclass that defers printing of V until a
+	// real namespace is available (which is the case both at type-resolve
+	// time and at template-emit time). A plain `NativeType((options) =>
+	// …)` would not work — its callback receives only `options`, not the
+	// namespace V's own print needs.
+	return new HashTableDictType(keyShape, valueType ?? AnyType);
+}
+
+/**
+ * Decide which TypeScript index-signature key type a GHashTable key maps to.
+ * Returns `null` for unsupported key types — the caller emits `never` so the
+ * containing method/property surfaces as uncallable rather than lying with a
+ * synthetic key type that doesn't match runtime marshalling.
+ */
+function jsKeyShapeFor(keyType: TypeExpression): "string" | "number" | null {
+	if (keyType === StringType) return "string";
+	if (keyType instanceof TypeIdentifier && keyType.is("GLib", "filename")) return "string";
+	// Integer-shaped keys: signed/unsigned 8/16/32-bit ints + gboolean
+	// (0/1 number) all collapse to TS `number`. 64-bit ints accept either
+	// number or bigint at the JS boundary; pick `number` for index keys
+	// since object keys are always strings/numbers in JS (no bigint keys).
+	if (keyType === NumberType) return "number";
+	if (keyType === BooleanType) return "number";
+	if (keyType === BigintOrNumberType) return "number";
+	return null;
+}
+
+/**
+ * `{ [key: K]: V }` shape for `GLib.HashTable<K, V>` — a TypeExpression
+ * subclass so `V.rootPrint(namespace, options)` happens at emit time with
+ * the right namespace, instead of being baked in at type-resolve time.
+ */
+class HashTableDictType extends TypeExpression {
+	constructor(
+		readonly keyShape: "string" | "number",
+		readonly valueType: TypeExpression,
+	) {
+		super();
+	}
+
+	print(namespace: IntrospectedNamespace, options: import("../types/index.ts").OptionsGeneration): string {
+		return `{ [key: ${this.keyShape}]: ${this.valueType.rootPrint(namespace, options)} }`;
+	}
+
+	resolve(_namespace: IntrospectedNamespace, _options: import("../types/index.ts").OptionsGeneration): TypeExpression {
+		return this;
+	}
+
+	equals(type: TypeExpression): boolean {
+		return (
+			type instanceof HashTableDictType &&
+			this.keyShape === type.keyShape &&
+			this.valueType.equals(type.valueType)
+		);
+	}
+
+	rewrap(_type: TypeExpression): TypeExpression {
+		return this;
+	}
+
+	unwrap(): TypeExpression {
+		return this;
+	}
+
+	deepUnwrap(): TypeExpression {
+		return this.valueType.deepUnwrap();
+	}
 }

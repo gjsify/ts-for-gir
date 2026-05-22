@@ -76,9 +76,7 @@ jobs:
     steps:
       - name: Install container prerequisites
         run: |
-
           dnf install -y git tar xz findutils curl gjs libsoup3 nodejs
-
           git config --global --add safe.directory "*"
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -98,6 +96,41 @@ jobs:
       - run: gjsify --version
       - run: gjsify install --immutable
       - run: PATH="$PWD/node_modules/.bin:$PATH" gjsify run test:tests
+
+  # End-to-end suites for the CLI: tarball shape under the production
+  # packer (`gjsify pack`), `ts-for-gir create` for every scaffold
+  # template, Node-vs-GJS CLI invocations, install.js / self-update.
+  # Kept separate from `test-units` so failures are easy to spot
+  # in the PR-check matrix.
+  test-e2e:
+    runs-on: ubuntu-latest
+    container:
+      image: fedora:43
+    steps:
+      - name: Install container prerequisites
+        run: |
+          dnf install -y git tar xz findutils curl gjs libsoup3 nodejs npm
+          git config --global --add safe.directory "*"
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          submodules: false
+      - name: Checkout types-dev submodule
+        run: |
+          git config --global --add safe.directory "*"
+          git config --global url."https://github.com/".insteadOf "git@github.com:"
+          git submodule update --init types-dev
+      - name: Bootstrap @gjsify/cli via install.mjs (Node-free)
+        run: |
+          curl -fsSL https://github.com/gjsify/gjsify/releases/latest/download/install.mjs -o /tmp/g.mjs
+          gjs -m /tmp/g.mjs
+          rm /tmp/g.mjs
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - run: gjsify --version
+      - run: gjsify install --immutable
+      - run: PATH="$PWD/node_modules/.bin:$PATH" gjsify run build:app
+      - run: PATH="$PWD/node_modules/.bin:$PATH" gjsify run build:app:gjs
+      - run: PATH="$PWD/node_modules/.bin:$PATH" gjsify workspace @ts-for-gir-test/e2e test
 
   build-validate:
     runs-on: ubuntu-latest

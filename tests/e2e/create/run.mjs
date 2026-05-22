@@ -36,7 +36,13 @@ const GIRS_TO_PACK = [
   '@girs/pangocairo-1.0',
 ];
 
-const TEMPLATES = ['types-locally', 'types-npm', 'types-workspace'];
+// All scaffold templates ship in @ts-for-gir/cli's dist-templates/ — every
+// new template MUST appear here so that the post-install sanity check
+// (`existsSync(dist-templates/<template>)`) catches missing scaffolds. The
+// `types-gjsify` template was added in 4.0 for the Node-free gjsify-CLI
+// install path; its absence from this list is what let the 4.0.0
+// "no templates found" regression slip through to the npm tarball.
+const TEMPLATES = ['types-gjsify', 'types-locally', 'types-npm', 'types-workspace'];
 
 function rewriteWorkspaceProtocolToTarballs(pkgPath, tarballMap, tarballsDir) {
   const pkg = JSON.parse(readFileSync(pkgPath, 'utf8'));

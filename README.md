@@ -18,6 +18,8 @@
 
 `ts-for-gir` generates accurate TypeScript definitions from [GObject Introspection](https://gi.readthedocs.io/en/latest/) for [GJS](https://gitlab.gnome.org/GNOME/gjs/) projects — strong typing, IDE jump-to-definition, autocompletion across the whole GNOME stack.
 
+📖 **Project page on the gjsify website**: [gjsify.github.io/gjsify/projects/ts-for-gir](https://gjsify.github.io/gjsify/projects/ts-for-gir/) — install paths, quickstart, generator usage, links to the related [Patterns](https://gjsify.github.io/gjsify/patterns/) docs.
+
 Browse the full **[TypeScript API Documentation](https://gjsify.github.io/docs)** for GLib, GTK, GStreamer, and more.
 
 ## Quick Start

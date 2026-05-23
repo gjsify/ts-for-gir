@@ -17,9 +17,35 @@ const GJS_ASSET_NAME = "ts-for-gir-gjs";
 function getCurrentBinaryPath(): string | null {
 	const p = process.argv[1] ?? null;
 	if (!p) return null;
-	// Refuse to update in dev mode (source file or node_modules path)
-	if (p.endsWith(".ts") || p.includes("node_modules")) return null;
+	// Refuse to update in dev mode — running from a source `.ts` file or
+	// from a project-local `node_modules/` (in which case the user should
+	// update via their package manager, not by replacing the binary in
+	// place).
+	if (p.endsWith(".ts")) return null;
+	if (p.includes("/node_modules/") && !isGjsifyGlobalLocation(p)) return null;
 	return p;
+}
+
+/**
+ * Recognise the gjsify-install global location (`~/.local/share/gjsify/global/
+ * node_modules/<pkg>/...`, set up by `gjsify install -g` and `install.js`).
+ *
+ * The previous broad `path.includes("node_modules")` check rejected this
+ * location alongside genuine project-local installs, even though the
+ * gjsify-global location IS the canonical install spot for `ts-for-gir
+ * self-update`. The fix: only refuse updates for paths that contain
+ * `node_modules` AND aren't under the gjsify-global root.
+ *
+ * Matches both XDG_DATA_HOME-rooted and the documented fallback
+ * (`$HOME/.local/share/gjsify/global/`).
+ */
+function isGjsifyGlobalLocation(p: string): boolean {
+	const xdgData = process.env.XDG_DATA_HOME;
+	const home = process.env.HOME;
+	const candidates: string[] = [];
+	if (xdgData) candidates.push(`${xdgData}/gjsify/global/`);
+	if (home) candidates.push(`${home}/.local/share/gjsify/global/`);
+	return candidates.some((root) => p.startsWith(root));
 }
 
 async function fetchJson(url: string): Promise<unknown> {

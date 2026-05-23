@@ -111,27 +111,10 @@ jobs:
         run: |
           dnf install -y git tar xz findutils curl gjs libsoup3 nodejs npm
           git config --global --add safe.directory "*"
-      # The legacy e2e suites (`cli/`, `create/`, `install/`) drive
-      # workspace tarball packing via `pack.mjs`, which uses Yarn-
-      # Berry-shaped commands (`yarn workspaces list --json`,
-      # `yarn workspaces foreach -A pack`). Plain `npm install -g
-      # yarn` installs Yarn 1.x (whose `workspaces info --json` has
-      # a different shape), so the test fails on the very first
-      # workspace-enumeration call. Bootstrap a stable Berry via
-      # corepack instead — matches what every recent yarn project
-      # ships on disk via `packageManager`. Long-term fix tracked
-      # in gjsify/gjsify#272 (merged): once gjsify ships 0.4.22 with
-      # pack-lifecycle-script support, `pack.mjs` can drop the yarn
-      # dependency entirely and use `gjsify pack` directly.
-      - name: Install yarn (Berry) via corepack
-        run: |
-          # Fedora's `nodejs` package doesn't ship corepack — pull it
-          # from npm. The `--force` overrides the warning about npm
-          # not being a corepack-managed package manager itself.
-          npm install -g corepack
-          corepack enable
-          corepack prepare yarn@stable --activate
-          yarn --version
+      # The e2e suite's `pack.mjs` now uses `gjsify pack` directly
+      # (matches the production `gjsify run publish:app` chain) +
+      # walks `package.json#workspaces` globs with Node-native fs,
+      # so no Yarn / corepack / npm-i-g step is needed.
       - name: Checkout repository
         uses: actions/checkout@v6
         with:

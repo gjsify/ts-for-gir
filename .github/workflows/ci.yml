@@ -115,6 +115,23 @@ jobs:
       # (matches the production `gjsify run publish:app` chain) +
       # walks `package.json#workspaces` globs with Node-native fs,
       # so no Yarn / corepack / npm-i-g step is needed.
+      #
+      # The `create` e2e subtests for `types-locally` / `types-workspace`
+      # invoke `ts-for-gir generate Gtk-4.0` inside the scaffolded
+      # project; generation reads GIR XML from the system catalog
+      # under `/usr/share/gir-1.0/`. Without these dev packages the
+      # generate step exits 0 but produces no output (`@types/ not
+      # generated` assertion fires). Mirrors the GNOME dev libraries
+      # the `build-validate` job already pulls in.
+      - name: Install GNOME GIR catalog (for create-test generate subtests)
+        run: |
+          dnf install -y \
+            gobject-introspection-devel \
+            gtk4-devel \
+            libadwaita-devel \
+            cairo-devel \
+            libsoup3-devel \
+            pkgconf
       - name: Checkout repository
         uses: actions/checkout@v6
         with:

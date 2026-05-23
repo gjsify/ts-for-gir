@@ -35,7 +35,7 @@
 		"publish": "gjsify run publish:app && gjsify run publish:types",
 		"test:types": "gjsify run build:types && gjsify run check:types",
 		"test:examples": "gjsify run build:examples && gjsify run check:examples && gjsify run test:examples:cli",
-		"test:examples:cli": "gjsify workspace @ts-for-gir-example/glib-2-spawn-command-example start && gjsify workspace @ts-for-gir-example/gio-2-cat-example start && gjsify workspace @ts-for-gir-example/gobject-param-spec start && gjsify workspace @ts-for-gir-example/gio-2-async start && gjsify workspace @ts-for-gir-example/gio-2-action-entries start && gjsify workspace @ts-for-gir-example/gio-2-iterate start",
+		"test:examples:cli": "gjsify workspace @ts-for-gir-example/cairo-pattern-methods start && gjsify workspace @ts-for-gir-example/glib-2-spawn-command-example start && gjsify workspace @ts-for-gir-example/gio-2-cat-example start && gjsify workspace @ts-for-gir-example/gobject-param-spec start && gjsify workspace @ts-for-gir-example/gio-2-async start && gjsify workspace @ts-for-gir-example/gio-2-action-entries start && gjsify workspace @ts-for-gir-example/gio-2-iterate start",
 		"test:tests": "gjsify foreach test -v -p --include '@ts-for-gir-test/*' --exclude '@ts-for-gir-test/e2e'",
 		"test:e2e": "gjsify run build:app && gjsify run build:app:gjs && gjsify workspace @ts-for-gir-test/e2e test",
 		"test": "gjsify run build && gjsify run test:types && gjsify run test:examples && gjsify run test:tests",

@@ -120,7 +120,12 @@ for (const w of selected) {
 	const workspaceDir = join(MONOREPO_ROOT, w.location);
 	execFileSync(
 		"gjsify",
-		["pack", workspaceDir, "--pack-destination", tarballsDir, "--ignore-scripts"],
+		// Note: no `--ignore-scripts` flag — that's only in gjsify
+		// 0.4.22+ (via #272). The bootstrapped gjsify in CI is
+		// 0.4.21 which silently runs zero lifecycle scripts anyway
+		// (the lifecycle-script support is what #272 adds). Add the
+		// flag back once CI's bootstrap version reaches 0.4.22.
+		["pack", workspaceDir, "--pack-destination", tarballsDir],
 		{ cwd: MONOREPO_ROOT, stdio: ["pipe", "pipe", "inherit"], maxBuffer: 50 * 1024 * 1024 },
 	);
 	// `gjsify pack` mirrors npm's filename format: `@scope/name` →

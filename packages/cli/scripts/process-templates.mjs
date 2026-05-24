@@ -108,12 +108,45 @@ function resolveDeps(deps, versionMap, templateName) {
 	}
 }
 
-function processRootPackageJson(rootPkgPath, versionMap, templateName) {
+/**
+ * Sync `@gjsify/*` dep pins in the template to whatever the cli pkg itself
+ * uses. This guarantees scaffolded projects always start on the same gjsify
+ * version that produced the scaffold — no more silent drift from a stale
+ * template literal pin (e.g. the template carrying `^0.4.14` while the cli
+ * itself runs against `^0.4.23`, which broke ts-for-gir #417's e2e suite
+ * indirectly by being a confusing co-existing wrong pin).
+ *
+ * Only mirrors pins that already exist on the template's package.json — we
+ * don't add new deps. Workspace-resolved specs (handled above) take
+ * precedence and aren't re-touched.
+ */
+function syncGjsifyDepsFromCli(deps, cliPkg) {
+	if (!deps) return;
+	const cliDeps = { ...(cliPkg.dependencies || {}), ...(cliPkg.devDependencies || {}) };
+	for (const name of Object.keys(deps)) {
+		if (!name.startsWith("@gjsify/")) continue;
+		const spec = deps[name];
+		// Skip workspace:^ — that gets resolved by resolveDeps() above to the
+		// real workspace version, which is the right source of truth.
+		if (typeof spec === "string" && WORKSPACE_PREFIX_RE.test(spec)) continue;
+		const cliSpec = cliDeps[name];
+		if (cliSpec && cliSpec !== spec) {
+			console.log(`[process-templates] sync ${name}: ${spec} → ${cliSpec} (from @ts-for-gir/cli)`);
+			deps[name] = cliSpec;
+		}
+	}
+}
+
+function processRootPackageJson(rootPkgPath, versionMap, templateName, cliPkg) {
 	const pkg = readJson(rootPkgPath);
 	resolveDeps(pkg.dependencies, versionMap, templateName);
 	resolveDeps(pkg.devDependencies, versionMap, templateName);
 	resolveDeps(pkg.peerDependencies, versionMap, templateName);
 	resolveDeps(pkg.optionalDependencies, versionMap, templateName);
+	syncGjsifyDepsFromCli(pkg.dependencies, cliPkg);
+	syncGjsifyDepsFromCli(pkg.devDependencies, cliPkg);
+	syncGjsifyDepsFromCli(pkg.peerDependencies, cliPkg);
+	syncGjsifyDepsFromCli(pkg.optionalDependencies, cliPkg);
 	writeFileSync(rootPkgPath, `${JSON.stringify(pkg, null, "\t")}\n`);
 }
 
@@ -128,6 +161,12 @@ function main() {
 	const versionMap = buildVersionMap();
 	console.log(`[process-templates] Resolved ${Object.keys(versionMap).length} workspace package versions`);
 
+	// `@ts-for-gir/cli`'s own package.json is the canonical source for any
+	// external `@gjsify/*` pins the templates carry — guarantees that a
+	// scaffolded project starts on the same gjsify CLI that produced the
+	// scaffold.
+	const cliPkg = readJson(join(CLI_ROOT, "package.json"));
+
 	const templates = readdirSync(TEMPLATES_DIR).filter((name) =>
 		statSync(join(TEMPLATES_DIR, name)).isDirectory(),
 	);
@@ -136,7 +175,7 @@ function main() {
 		cpSync(join(TEMPLATES_DIR, templateName), join(DIST_DIR, templateName), { recursive: true });
 		const rootPkgPath = join(DIST_DIR, templateName, "package.json");
 		if (existsSync(rootPkgPath)) {
-			processRootPackageJson(rootPkgPath, versionMap, templateName);
+			processRootPackageJson(rootPkgPath, versionMap, templateName, cliPkg);
 		}
 		console.log(`[process-templates] processed ${templateName}`);
 	}

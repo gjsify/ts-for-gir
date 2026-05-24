@@ -76,9 +76,7 @@ jobs:
     steps:
       - name: Install container prerequisites
         run: |
-
           dnf install -y git tar xz findutils curl gjs libsoup3 nodejs
-
           git config --global --add safe.directory "*"
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -99,6 +97,62 @@ jobs:
       - run: gjsify install --immutable
       - run: PATH="$PWD/node_modules/.bin:$PATH" gjsify run test:tests
 
+  # End-to-end suites for the CLI: tarball shape under the production
+  # packer (`gjsify pack`), `ts-for-gir create` for every scaffold
+  # template, Node-vs-GJS CLI invocations, install.js / self-update.
+  # Kept separate from `test-units` so failures are easy to spot
+  # in the PR-check matrix.
+  test-e2e:
+    runs-on: ubuntu-latest
+    container:
+      image: fedora:43
+    steps:
+      - name: Install container prerequisites
+        run: |
+          dnf install -y git tar xz findutils curl gjs libsoup3 nodejs npm
+          git config --global --add safe.directory "*"
+      # The e2e suite's `pack.mjs` now uses `gjsify pack` directly
+      # (matches the production `gjsify run publish:app` chain) +
+      # walks `package.json#workspaces` globs with Node-native fs,
+      # so no Yarn / corepack / npm-i-g step is needed.
+      #
+      # The `create` e2e subtests for `types-locally` / `types-workspace`
+      # invoke `ts-for-gir generate Gtk-4.0` inside the scaffolded
+      # project; generation reads GIR XML from the system catalog
+      # under `/usr/share/gir-1.0/`. Without these dev packages the
+      # generate step exits 0 but produces no output (`@types/ not
+      # generated` assertion fires). Mirrors the GNOME dev libraries
+      # the `build-validate` job already pulls in.
+      - name: Install GNOME GIR catalog (for create-test generate subtests)
+        run: |
+          dnf install -y \
+            gobject-introspection-devel \
+            gtk4-devel \
+            libadwaita-devel \
+            cairo-devel \
+            libsoup3-devel \
+            pkgconf
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          submodules: false
+      - name: Checkout types-dev submodule
+        run: |
+          git config --global --add safe.directory "*"
+          git config --global url."https://github.com/".insteadOf "git@github.com:"
+          git submodule update --init types-dev
+      - name: Bootstrap @gjsify/cli via install.mjs (Node-free)
+        run: |
+          curl -fsSL https://github.com/gjsify/gjsify/releases/latest/download/install.mjs -o /tmp/g.mjs
+          gjs -m /tmp/g.mjs
+          rm /tmp/g.mjs
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - run: gjsify --version
+      - run: gjsify install --immutable
+      - run: PATH="$PWD/node_modules/.bin:$PATH" gjsify run build:app
+      - run: PATH="$PWD/node_modules/.bin:$PATH" gjsify run build:app:gjs
+      - run: PATH="$PWD/node_modules/.bin:$PATH" gjsify workspace @ts-for-gir-test/e2e test
+
   build-validate:
     runs-on: ubuntu-latest
     container:
@@ -114,7 +168,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
         with:
-          submodules: true
+          # Skip recursive submodule checkout: the reference-only
+          # `refs/*` submodules under gitlab.gnome.org regularly 503
+          # and crash CI even though `build-validate` doesn't read
+          # them (it only consumes `types-dev` for the generator
+          # diff). Match the selective pattern the other jobs use.
+          submodules: false
+      - name: Checkout types-dev submodule
+        run: |
+          git config --global --add safe.directory "*"
+          git config --global url."https://github.com/".insteadOf "git@github.com:"
+          git submodule update --init types-dev
       - name: Detect changed paths
         uses: dorny/paths-filter@v3
         id: filter

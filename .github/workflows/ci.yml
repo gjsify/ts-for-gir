@@ -168,7 +168,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
         with:
-          submodules: true
+          # Skip recursive submodule checkout: the reference-only
+          # `refs/*` submodules under gitlab.gnome.org regularly 503
+          # and crash CI even though `build-validate` doesn't read
+          # them (it only consumes `types-dev` for the generator
+          # diff). Match the selective pattern the other jobs use.
+          submodules: false
+      - name: Checkout types-dev submodule
+        run: |
+          git config --global --add safe.directory "*"
+          git config --global url."https://github.com/".insteadOf "git@github.com:"
+          git submodule update --init types-dev
       - name: Detect changed paths
         uses: dorny/paths-filter@v3
         id: filter

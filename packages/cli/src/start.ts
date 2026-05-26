@@ -4,6 +4,29 @@ import { hideBin } from "yargs/helpers";
 
 import { analyze, copy, create, doc, generate, json, list, selfUpdate } from "./commands/index.ts";
 
+/**
+ * Returns a human-readable label for the current JS runtime and version.
+ *
+ * GJS must be checked first: the gjsify Node-compat layer exposes
+ * `process.versions.node` even inside a GJS process, so checking
+ * `imports.system` is the only reliable discriminator.
+ */
+function runtimeLabel(): string {
+	try {
+		const sys = (globalThis as { imports?: { system?: { version?: number } } }).imports?.system;
+		if (sys?.version !== undefined) {
+			const v = Number(sys.version);
+			return `GJS ${Math.floor(v / 10000)}.${Math.floor((v % 10000) / 100)}.${v % 100} (SpiderMonkey)`;
+		}
+	} catch {
+		/* not GJS */
+	}
+	if (typeof process !== "undefined" && typeof process.versions?.node === "string") {
+		return `Node.js ${process.version}`;
+	}
+	return "unknown runtime";
+}
+
 try {
 	const cli = yargs(hideBin(process.argv));
 	await cli
@@ -39,6 +62,7 @@ try {
 		.command(selfUpdate as unknown as CommandModule)
 		.demandCommand(1)
 		.help()
+		.epilogue(`Running on ${runtimeLabel()}`)
 		.parseAsync();
 	process.exit(0);
 } catch (err) {

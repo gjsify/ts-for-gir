@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.0.2](https://github.com/gjsify/ts-for-gir/compare/v4.0.1...v4.0.2) (2026-05-26)
+
+### Bug Fixes
+
+* **cairo:** expose Pattern.getType + SurfacePattern method types ([#419](https://github.com/gjsify/ts-for-gir/issues/419)) ([#420](https://github.com/gjsify/ts-for-gir/issues/420)) ([72e0f41](https://github.com/gjsify/ts-for-gir/commit/72e0f41b4aabbf22ac6cfdff3d24734336721c39))
+* **cli:** self-update accepts gjsify-global node_modules location ([#418](https://github.com/gjsify/ts-for-gir/issues/418)) ([47eaa97](https://github.com/gjsify/ts-for-gir/commit/47eaa970213ed9e7eb116a74c695a80969f35a6f))
+
 ## [4.0.1](https://github.com/gjsify/ts-for-gir/compare/v4.0.0...v4.0.1) (2026-05-22)
 
 ### Bug Fixes

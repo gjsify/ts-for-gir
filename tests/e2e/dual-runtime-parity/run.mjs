@@ -218,13 +218,16 @@ describe('dual-runtime parity: Node bundle vs GJS bundle', { timeout: 10 * 60 * 
       assert.ok(gjsHelp.includes(cmd),  `GJS --help missing "${cmd}"`);
     }
 
-    // Compare word-by-word: yargs wraps usage to terminal width, which Node
-    // (no-TTY → no wrap) and GJS (80-col) resolve differently. Content parity
-    // is what matters, not the cosmetic wrap.
+    // Compare word-by-word, EXCLUDING the per-runtime epilogue line: the CLI's
+    // `--help` ends with `Running on <runtime>` (`Node.js vX` vs `GJS X.Y.Z`),
+    // which is INTENTIONALLY different per runtime — that's the point of that
+    // line. yargs also wraps usage to terminal width differently per runtime,
+    // so word-level comparison ignores the cosmetic wrap too.
+    const stripRuntime = (s) => s.replace(/Running on [^\n]*/g, '');
     assert.equal(
-      normaliseWords(node.stdout),
-      normaliseWords(gjs.stdout),
-      '--help command/option content differs between Node and GJS runtimes',
+      normaliseWords(stripRuntime(node.stdout)),
+      normaliseWords(stripRuntime(gjs.stdout)),
+      '--help command/option content differs between Node and GJS runtimes (excluding the runtime epilogue)',
     );
   });
 

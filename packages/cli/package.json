@@ -17,15 +17,7 @@
 		},
 		"shebang": true,
 		"bundler": {
-			"input": "src/start.ts",
-			"output": {
-				"file": "bin/ts-for-gir-gjs"
-			},
-			"transform": {
-				"define": {
-					"__GJS_BUNDLE__": "true"
-				}
-			}
+			"input": "src/start.ts"
 		},
 		"defineFromPackageJson": {
 			"__TS_FOR_GIR_VERSION__": {
@@ -124,8 +116,8 @@
 	"scripts": {
 		"start": "node bin/ts-for-gir-dev",
 		"start:prod": "node bin/ts-for-gir",
-		"build": "node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings esbuild.ts && chmod +x bin/ts-for-gir-dev && chmod +x bin/ts-for-gir && node scripts/process-templates.mjs",
-		"build:gjs": "gjsify build",
+		"build": "gjsify build --app node --outfile bin/ts-for-gir --external @ts-for-gir/templates,@inquirer/prompts,ejs,cosmiconfig,glob,inquirer,colorette,typedoc,yargs && chmod +x bin/ts-for-gir-dev && node scripts/process-templates.mjs",
+		"build:gjs": "gjsify build --app gjs --outfile bin/ts-for-gir-gjs --define __GJS_BUNDLE__=true",
 		"build:templates": "node scripts/process-templates.mjs",
 		"prepack": "node scripts/process-templates.mjs",
 		"check:types": "tsc --noEmit",
@@ -165,7 +157,7 @@
 	},
 	"devDependencies": {
 		"@gi.ts/parser": "workspace:^",
-		"@gjsify/cli": "^0.4.26",
+		"@gjsify/cli": "^0.4.27",
 		"@ts-for-gir/generator-base": "workspace:^",
 		"@ts-for-gir/generator-html-doc": "workspace:^",
 		"@ts-for-gir/generator-json": "workspace:^",
@@ -177,7 +169,6 @@
 		"@types/inquirer": "^9.0.9",
 		"@types/node": "^25.6.2",
 		"@types/yargs": "^17.0.35",
-		"esbuild": "^0.28.0",
 		"source-map-support": "^0.5.21",
 		"typescript": "^6.0.3"
 	},

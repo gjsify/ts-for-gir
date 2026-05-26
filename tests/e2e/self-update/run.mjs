@@ -50,7 +50,8 @@
 
 import { describe, it, before, after } from 'node:test';
 import assert from 'node:assert/strict';
-import { execFileSync } from 'node:child_process';
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
 import { createServer } from 'node:http';
 import {
   existsSync,
@@ -62,6 +63,12 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { tmpdir } from 'node:os';
 import { createRequire } from 'node:module';
+
+// Async execFile: the test runs an in-process mock GitHub API server, and the
+// spawned CLI fetches it. A SYNCHRONOUS spawn (execFileSync) would block this
+// process's event loop, so the mock couldn't serve the child's request → the
+// child would hang to its timeout. Async execFile keeps the loop free to serve.
+const execFileAsync = promisify(execFile);
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const MONOREPO_ROOT = join(__dirname, '..', '..', '..');
@@ -95,16 +102,15 @@ const FAKE_LATEST_VERSION = '99.99.99-test';
  * @param {string[]} [extraArgs] Additional CLI args
  * @param {object}   [extraEnv]  Additional env vars merged on top of process.env
  */
-function runSelfUpdate(fakeArgv1, apiBase, extraArgs = [], extraEnv = {}) {
+async function runSelfUpdate(fakeArgv1, apiBase, extraArgs = [], extraEnv = {}) {
   const result = { stdout: '', stderr: '', exitCode: null };
   try {
-    result.stdout = execFileSync(
+    const { stdout, stderr } = await execFileAsync(
       'node',
       [`--import=${ARGV1_PRELOAD}`, NODE_BIN, 'self-update', ...extraArgs],
       {
         encoding: 'utf8',
         timeout: 30_000,
-        stdio: ['pipe', 'pipe', 'pipe'],
         env: {
           ...process.env,
           TS_FOR_GIR_GITHUB_API: apiBase,
@@ -114,11 +120,13 @@ function runSelfUpdate(fakeArgv1, apiBase, extraArgs = [], extraEnv = {}) {
         },
       },
     );
+    result.stdout = stdout;
+    result.stderr = stderr;
     result.exitCode = 0;
   } catch (err) {
     result.stdout = err.stdout || '';
     result.stderr = err.stderr || '';
-    result.exitCode = err.status ?? 1;
+    result.exitCode = err.code ?? 1;
     result.error = err;
   }
   return result;
@@ -223,7 +231,7 @@ describe('self-update binary-path detection (#418 regression guard)', { timeout:
   // process exits cleanly with "Successfully updated".
   // The key assertion is the ABSENCE of "Cannot determine current binary path".
 
-  it('gjsify-global path under $HOME/.local/share/gjsify/global/ is ACCEPTED (rc.17 regression guard)', () => {
+  it('gjsify-global path under $HOME/.local/share/gjsify/global/ is ACCEPTED (rc.17 regression guard)', async () => {
     const fakeHome = join(tmpRoot, 'home-xdg-home');
     const globalBinDir = join(
       fakeHome, '.local', 'share', 'gjsify', 'global',
@@ -234,7 +242,7 @@ describe('self-update binary-path detection (#418 regression guard)', { timeout:
     // Create a placeholder file so existsSync(currentPath) passes in the handler.
     writeFileSync(fakeArgv1, '#!/bin/sh\n', { mode: 0o755 });
 
-    const result = runSelfUpdate(fakeArgv1, apiBase, [], {
+    const result = await runSelfUpdate(fakeArgv1, apiBase, [], {
       HOME: fakeHome,
       XDG_DATA_HOME: '',     // ensure only HOME is consulted
     });
@@ -262,7 +270,7 @@ describe('self-update binary-path detection (#418 regression guard)', { timeout:
     );
   });
 
-  it('gjsify-global path under $XDG_DATA_HOME/gjsify/global/ is ACCEPTED', () => {
+  it('gjsify-global path under $XDG_DATA_HOME/gjsify/global/ is ACCEPTED', async () => {
     const fakeXdgData = join(tmpRoot, 'xdg-data');
     const globalBinDir = join(
       fakeXdgData, 'gjsify', 'global',
@@ -272,7 +280,7 @@ describe('self-update binary-path detection (#418 regression guard)', { timeout:
     const fakeArgv1 = join(globalBinDir, 'ts-for-gir-gjs');
     writeFileSync(fakeArgv1, '#!/bin/sh\n', { mode: 0o755 });
 
-    const result = runSelfUpdate(fakeArgv1, apiBase, [], {
+    const result = await runSelfUpdate(fakeArgv1, apiBase, [], {
       XDG_DATA_HOME: fakeXdgData,
     });
 
@@ -302,14 +310,14 @@ describe('self-update binary-path detection (#418 regression guard)', { timeout:
   // self-update should refuse and tell the user to update via their package
   // manager.
 
-  it('project-local node_modules path (not gjsify-global) is REJECTED', () => {
+  it('project-local node_modules path (not gjsify-global) is REJECTED', async () => {
     const fakeHome = join(tmpRoot, 'home-local-nm');
     mkdirSync(fakeHome, { recursive: true });
     // Path is under a project directory, NOT under fakeHome's gjsify-global.
     const localNodeModulesArgv1 =
       '/home/user/myproject/node_modules/@ts-for-gir/cli/bin/ts-for-gir-gjs';
 
-    const result = runSelfUpdate(localNodeModulesArgv1, apiBase, [], {
+    const result = await runSelfUpdate(localNodeModulesArgv1, apiBase, [], {
       HOME: fakeHome,
       XDG_DATA_HOME: join(fakeHome, '.local', 'share'),
     });
@@ -335,10 +343,10 @@ describe('self-update binary-path detection (#418 regression guard)', { timeout:
   // self-update — there is no installed binary to atomically replace.
   // getCurrentBinaryPath() returns null immediately for any path ending in .ts.
 
-  it('.ts dev path (source execution) is REJECTED', () => {
+  it('.ts dev path (source execution) is REJECTED', async () => {
     const devTsArgv1 = join(MONOREPO_ROOT, 'packages', 'cli', 'src', 'start.ts');
 
-    const result = runSelfUpdate(devTsArgv1, apiBase);
+    const result = await runSelfUpdate(devTsArgv1, apiBase);
 
     const combined = result.stdout + result.stderr;
     assert.ok(
@@ -396,7 +404,7 @@ describe('self-update binary-path detection (#418 regression guard)', { timeout:
         'node_modules', '@ts-for-gir', 'cli', 'bin', 'ts-for-gir-gjs',
       );
 
-      const result = runSelfUpdate(gjsifyGlobalArgv1, sameVersionApiBase, [], {
+      const result = await runSelfUpdate(gjsifyGlobalArgv1, sameVersionApiBase, [], {
         HOME: fakeHome,
         XDG_DATA_HOME: '',
       });

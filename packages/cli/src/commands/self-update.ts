@@ -160,6 +160,12 @@ const handler = async (args: SelfUpdateCommandArgs): Promise<void> => {
 		process.stderr.write(`Update failed: ${msg}\n`);
 		process.exitCode = 1;
 	}
+	// Force-exit after a successful or failed download so that any open
+	// keep-alive HTTP connections in undici's connection pool do not prevent
+	// the Node event loop from draining. Without this, the process can hang
+	// indefinitely when the download URL was served by a local HTTP mock (or
+	// any server that does not close the connection after the response).
+	process.exit(process.exitCode ?? 0);
 };
 
 export const selfUpdate = {

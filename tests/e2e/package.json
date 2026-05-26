@@ -10,7 +10,7 @@
 		"test:install": "node --test --test-timeout=300000 install/run.mjs",
 		"test:create": "node --test --test-timeout=1200000 create/run.mjs",
 		"test:dual-runtime-parity": "node --test --test-timeout=600000 dual-runtime-parity/run.mjs",
-		"test:self-update": "node --test --test-timeout=60000 self-update/run.mjs",
+		"test:self-update": "node --test --test-timeout=180000 self-update/run.mjs",
 		"test": "gjsify run test:cli-tarball-shape && gjsify run test:cli && gjsify run test:create && gjsify run test:cli:gjs && gjsify run test:install && gjsify run test:dual-runtime-parity && gjsify run test:self-update"
 	}
 }

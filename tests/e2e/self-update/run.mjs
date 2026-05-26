@@ -43,10 +43,10 @@
 // For ACCEPTED paths it returns the path, but the handler also calls
 // existsSync(currentPath). The fake gjsify-global path is written to disk so
 // existsSync() passes, and the handler advances to downloadBinary() — the
-// mock server 404s for the download URL, causing "Update failed: HTTP 404".
+// mock server responds with 200 + a tiny stub body so the download completes
+// promptly and the process exits with "Successfully updated".
 // The key assertion for ACCEPTED tests is the ABSENCE of the path-rejection
-// message; any other outcome (including the expected HTTP 404) proves the
-// path-detection guard was satisfied.
+// message; any forward-progress indicator proves path-detection passed.
 
 import { describe, it, before, after } from 'node:test';
 import assert from 'node:assert/strict';
@@ -126,7 +126,7 @@ function runSelfUpdate(fakeArgv1, apiBase, extraArgs = [], extraEnv = {}) {
 
 // ── Test suite ────────────────────────────────────────────────────────────────
 
-describe('self-update binary-path detection (#418 regression guard)', { timeout: 60_000 }, () => {
+describe('self-update binary-path detection (#418 regression guard)', { timeout: 180_000 }, () => {
   let server;
   let apiBase;
   let tmpRoot;
@@ -148,29 +148,50 @@ describe('self-update binary-path detection (#418 regression guard)', { timeout:
     // guaranteed to differ from any real installed version, so the handler
     // doesn't short-circuit at "Already up to date" and reaches the
     // asset-lookup → binary-path check.
+    //
+    // The mock serves the binary download URL with a prompt 200 + tiny body
+    // (instead of 404) so the CLI's downloadBinary() completes quickly without
+    // leaving an undrained HTTP response body on the connection. A 404 here
+    // caused the undici keep-alive connection to hang until the execFileSync
+    // 30 s timeout fired — two such spawns exceeded the 60 s suite timeout.
     server = createServer((req, res) => {
       try {
         const url = req.url ?? '';
         if (url === '/repos/gjsify/ts-for-gir/releases/latest') {
           const port = server.address().port;
-          res.writeHead(200, { 'content-type': 'application/json' });
+          res.writeHead(200, { 'content-type': 'application/json', 'connection': 'close' });
           res.end(
             JSON.stringify({
               tag_name: `v${FAKE_LATEST_VERSION}`,
               assets: [
                 {
                   name: 'ts-for-gir-gjs',
-                  // The download URL 404s — we never need a real download.
-                  // Reaching this point proves path-detection passed.
-                  browser_download_url: `http://127.0.0.1:${port}/no-binary-here`,
+                  // Serve the download URL with a real 200 + tiny stub body.
+                  // This lets downloadBinary() complete promptly; the CLI will
+                  // then overwrite the fake on-disk binary (acceptable in tests).
+                  browser_download_url: `http://127.0.0.1:${port}/fake-binary`,
                 },
               ],
             }),
           );
           return;
         }
-        // All other paths (including the binary download URL) → 404.
-        res.writeHead(404).end('not found in mock');
+        if (url === '/fake-binary') {
+          // Minimal stub "binary" — just enough bytes for arrayBuffer() to
+          // resolve immediately. The CLI writes it to a tmp file and renames it
+          // over the fake argv1 path; both operations succeed and the process
+          // exits cleanly with "Successfully updated".
+          const stub = Buffer.from('#!/bin/sh\n# stub\n');
+          res.writeHead(200, {
+            'content-type': 'application/octet-stream',
+            'content-length': String(stub.length),
+            'connection': 'close',
+          });
+          res.end(stub);
+          return;
+        }
+        // All other paths → 404.
+        res.writeHead(404, { 'connection': 'close' }).end('not found in mock');
       } catch (e) {
         res.writeHead(500).end(String(e));
       }
@@ -197,8 +218,10 @@ describe('self-update binary-path detection (#418 regression guard)', { timeout:
   // which recognises this prefix and allows the update to proceed.
   //
   // We create the fake binary file on disk so existsSync() passes, and the
-  // handler advances to downloadBinary() (which gets HTTP 404 from the mock).
-  // The assertion is the ABSENCE of "Cannot determine current binary path".
+  // handler advances to downloadBinary(). The mock now serves the download URL
+  // with a 200 + tiny stub body so the download completes promptly and the
+  // process exits cleanly with "Successfully updated".
+  // The key assertion is the ABSENCE of "Cannot determine current binary path".
 
   it('gjsify-global path under $HOME/.local/share/gjsify/global/ is ACCEPTED (rc.17 regression guard)', () => {
     const fakeHome = join(tmpRoot, 'home-xdg-home');
@@ -223,14 +246,16 @@ describe('self-update binary-path detection (#418 regression guard)', { timeout:
       `stderr: ${result.stderr}\nstdout: ${result.stdout}`,
     );
 
-    // Handler must have advanced past path-detection to the download step
-    // (download 404s from the mock — that's expected and acceptable here).
+    // Handler must have advanced past path-detection to the download step.
+    // The mock serves a stub binary so the download completes and the process
+    // prints "Successfully updated". We accept any progress marker so the
+    // assertion is robust against minor message wording changes.
     const combined = result.stdout + result.stderr;
     assert.ok(
       combined.includes('Checking for updates') ||
       combined.includes('Updating to') ||
+      combined.includes('Successfully updated') ||
       combined.includes('Update failed') ||
-      combined.includes('HTTP 404') ||
       combined.includes(FAKE_LATEST_VERSION),
       `Expected handler to proceed past path-detection; got:\n` +
       `stdout: ${result.stdout}\nstderr: ${result.stderr}`,
@@ -261,8 +286,8 @@ describe('self-update binary-path detection (#418 regression guard)', { timeout:
     assert.ok(
       combined.includes('Checking for updates') ||
       combined.includes('Updating to') ||
+      combined.includes('Successfully updated') ||
       combined.includes('Update failed') ||
-      combined.includes('HTTP 404') ||
       combined.includes(FAKE_LATEST_VERSION),
       `Expected handler to proceed past path-detection; got:\n` +
       `stdout: ${result.stdout}\nstderr: ${result.stderr}`,

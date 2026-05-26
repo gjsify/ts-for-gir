@@ -78,7 +78,7 @@
 		"release-it": "^20.0.1",
 		"rimraf": "^6.1.3",
 		"typescript": "^6.0.3",
-		"@gjsify/cli": "^0.4.26"
+		"@gjsify/cli": "^0.4.27"
 	},
 	"workspaces": [
 		"examples/*",

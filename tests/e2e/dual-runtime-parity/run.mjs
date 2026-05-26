@@ -123,6 +123,30 @@ function normalise(text, tempDirs = []) {
     .join('\n');
 }
 
+/**
+ * Collapse ALL whitespace (newlines included) to single spaces after
+ * `normalise`. Used for `--help`: yargs wraps usage text to the detected
+ * terminal width, and Node (no-TTY → no wrap) vs GJS (wraps at 80 cols)
+ * resolve that width differently. The commands / options / descriptions are
+ * identical — only the wrapping differs — so comparing word-by-word still
+ * catches a missing command or changed text while ignoring the cosmetic wrap.
+ * @param {string} text
+ */
+function normaliseWords(text) {
+  return normalise(text).replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * `normalise` + sort lines. Used for `list`: it enumerates the same set of
+ * GIR namespaces in both runtimes, but in filesystem-enumeration order, which
+ * differs between Node (readdir) and GJS (Gio). Parity here is a SET question
+ * (same namespaces found), not an order one — so compare sorted.
+ * @param {string} text
+ */
+function normaliseSorted(text) {
+  return normalise(text).split('\n').sort().join('\n');
+}
+
 // ── Availability guards ──────────────────────────────────────────────────────
 
 function gjsAvailable() {
@@ -194,7 +218,14 @@ describe('dual-runtime parity: Node bundle vs GJS bundle', { timeout: 10 * 60 * 
       assert.ok(gjsHelp.includes(cmd),  `GJS --help missing "${cmd}"`);
     }
 
-    assert.equal(nodeHelp, gjsHelp, '--help output differs between Node and GJS runtimes');
+    // Compare word-by-word: yargs wraps usage to terminal width, which Node
+    // (no-TTY → no wrap) and GJS (80-col) resolve differently. Content parity
+    // is what matters, not the cosmetic wrap.
+    assert.equal(
+      normaliseWords(node.stdout),
+      normaliseWords(gjs.stdout),
+      '--help command/option content differs between Node and GJS runtimes',
+    );
   });
 
   // ── 3. list ─────────────────────────────────────────────────────────────────
@@ -213,7 +244,13 @@ describe('dual-runtime parity: Node bundle vs GJS bundle', { timeout: 10 * 60 * 
     assert.ok(nodeList.includes('GLib'), `Node list output missing GLib: ${nodeList}`);
     assert.ok(gjsList.includes('GLib'),  `GJS list output missing GLib: ${gjsList}`);
 
-    assert.equal(nodeList, gjsList, 'list output differs between Node and GJS runtimes');
+    // Compare as a SET (sorted): both runtimes find the same namespaces but
+    // enumerate the directory in different order (Node readdir vs GJS Gio).
+    assert.equal(
+      normaliseSorted(node.stdout),
+      normaliseSorted(gjs.stdout),
+      'list namespace SET differs between Node and GJS runtimes',
+    );
   });
 
   // ── 4. generate GLib-2.0 ────────────────────────────────────────────────────

@@ -11,7 +11,10 @@ import { APP_NAME, APP_VERSION } from "@ts-for-gir/lib";
 import type { SelfUpdateCommandArgs } from "../types/index.ts";
 
 const REPO = "gjsify/ts-for-gir";
-const GITHUB_API = "https://api.github.com";
+// Allow tests to point the GitHub API at a local mock server without needing
+// network access. The env var is intentionally NOT documented in user-facing
+// help — it is a test seam only.
+const GITHUB_API = process.env.TS_FOR_GIR_GITHUB_API ?? "https://api.github.com";
 const GJS_ASSET_NAME = "ts-for-gir-gjs";
 
 function getCurrentBinaryPath(): string | null {
@@ -157,6 +160,12 @@ const handler = async (args: SelfUpdateCommandArgs): Promise<void> => {
 		process.stderr.write(`Update failed: ${msg}\n`);
 		process.exitCode = 1;
 	}
+	// Force-exit after a successful or failed download so that any open
+	// keep-alive HTTP connections in undici's connection pool do not prevent
+	// the Node event loop from draining. Without this, the process can hang
+	// indefinitely when the download URL was served by a local HTTP mock (or
+	// any server that does not close the connection after the response).
+	process.exit(process.exitCode ?? 0);
 };
 
 export const selfUpdate = {

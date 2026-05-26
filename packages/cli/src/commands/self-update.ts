@@ -11,7 +11,10 @@ import { APP_NAME, APP_VERSION } from "@ts-for-gir/lib";
 import type { SelfUpdateCommandArgs } from "../types/index.ts";
 
 const REPO = "gjsify/ts-for-gir";
-const GITHUB_API = "https://api.github.com";
+// Allow tests to point the GitHub API at a local mock server without needing
+// network access. The env var is intentionally NOT documented in user-facing
+// help — it is a test seam only.
+const GITHUB_API = process.env.TS_FOR_GIR_GITHUB_API ?? "https://api.github.com";
 const GJS_ASSET_NAME = "ts-for-gir-gjs";
 
 function getCurrentBinaryPath(): string | null {

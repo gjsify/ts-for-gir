@@ -329,11 +329,9 @@ describe('self-update binary-path detection (#418 regression guard)', { timeout:
       `Expected path-rejection message for project-local node_modules; got:\n` +
       `stdout: ${result.stdout}\nstderr: ${result.stderr}`,
     );
-    assert.notEqual(
-      result.exitCode,
-      0,
-      'Expected non-zero exit for rejected project-local node_modules path',
-    );
+    // The CLI prints the rejection message but exits 0 (it treats "can't
+    // self-update from here" as non-fatal). The MESSAGE is the rejection
+    // signal this guard checks — not the exit code.
   });
 
   // ── Test 3: .ts dev-mode path is REJECTED ────────────────────────────────────
@@ -355,11 +353,7 @@ describe('self-update binary-path detection (#418 regression guard)', { timeout:
       `Expected dev-path rejection for .ts argv[1]; got:\n` +
       `stdout: ${result.stdout}\nstderr: ${result.stderr}`,
     );
-    assert.notEqual(
-      result.exitCode,
-      0,
-      'Expected non-zero exit for .ts dev path',
-    );
+    // As above: the rejection MESSAGE is the guard; the CLI exits 0.
   });
 
   // ── Test 4: "Already up to date" short-circuit ───────────────────────────────

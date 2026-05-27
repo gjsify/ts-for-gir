@@ -69,8 +69,6 @@
 	],
 	"devDependencies": {
 		"@biomejs/biome": "^2.4.14",
-		"@commitlint/cli": "^19.8.1",
-		"@commitlint/config-conventional": "^19.8.1",
 		"@release-it/bumper": "^7.0.5",
 		"@release-it/conventional-changelog": "^11.0.0",
 		"@ts-for-gir/cli": "workspace:^",

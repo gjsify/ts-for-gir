@@ -54,13 +54,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-      - name: Install commitlint
-        run: npm install --no-save @commitlint/cli@^19 @commitlint/config-conventional@^19
-      - name: Lint commits since base branch
-        env:
-          BASE_SHA: ${{ github.event.pull_request.base.sha }}
-          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
-        run: npx commitlint --from "$BASE_SHA" --to "$HEAD_SHA" --verbose
+      # Self-contained commitlint action: brings its own @commitlint deps and
+      # auto-detects .commitlintrc.cjs. Avoids `npm install` in this Yarn
+      # workspace:-protocol repo (npm rejects workspace: with EUNSUPPORTEDPROTOCOL).
+      - uses: wagoid/commitlint-github-action@v6

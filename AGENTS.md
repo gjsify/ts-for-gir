@@ -152,10 +152,31 @@ When changing tests, add: `// Rationale: <reason referencing spec>`
 
 ## Git Commits
 
-Format: `<type>[scope]: <description>` (feat|fix|docs|refactor|test|chore) | imperative mood | <50 char subject
+Format: `<type>[scope]: <description>` | imperative mood | ≤50 char subject | subject must start with a letter or backtick
 Atomic commits, working code only. Match existing patterns via `git log --oneline -10`.
 
 Pre-commit validation: `gjsify run check:app` + `gjsify run test:tests` + `gjsify format` (regular) | `gjsify run check` (major changes, slow)
+
+### Commit type → changelog section mapping
+
+All types below are accepted by commitlint (`.commitlintrc.cjs`), the PR-title
+check (`.github/workflows/pr-lint.yml`), and rendered in the release changelog
+(`.release-it.json` preset.types). No release will have an empty body.
+
+| Type | Changelog section |
+|---|---|
+| `feat` | Features |
+| `fix` | Bug Fixes |
+| `perf` | Performance Improvements |
+| `revert` | Reverts |
+| `docs` | Documentation |
+| `refactor` | Code Refactoring |
+| `build` | Build System |
+| `ci` | Continuous Integration |
+| `chore` | Maintenance |
+| `test` | Tests |
+
+Keep this table in sync with `.release-it.json` `preset.types` and `.commitlintrc.cjs` `type-enum` when adding new types.
 
 ## Fixing Generated Type Errors
 

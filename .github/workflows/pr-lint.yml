@@ -11,6 +11,13 @@ on:
 permissions:
   pull-requests: read
 
+# Allowed conventional-commit types (keep in sync with .release-it.json
+# preset.types and .commitlintrc.cjs type-enum):
+#   feat → Features | fix → Bug Fixes | perf → Performance Improvements
+#   revert → Reverts | docs → Documentation | refactor → Code Refactoring
+#   build → Build System | ci → Continuous Integration
+#   chore → Maintenance | test → Tests
+
 jobs:
   validate-title:
     name: Validate PR title (Conventional Commits)
@@ -39,3 +46,15 @@ jobs:
             letter or backtick. Examples:
               feat(cli): add --external-deps mode
               fix(lib): handle raw pointers (void*) like GJS
+
+  lint-commits:
+    name: Lint commit messages (commitlint)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      # Self-contained commitlint action: brings its own @commitlint deps and
+      # auto-detects .commitlintrc.cjs. Avoids `npm install` in this Yarn
+      # workspace:-protocol repo (npm rejects workspace: with EUNSUPPORTEDPROTOCOL).
+      - uses: wagoid/commitlint-github-action@v6

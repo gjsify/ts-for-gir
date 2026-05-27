@@ -11,6 +11,13 @@ on:
 permissions:
   pull-requests: read
 
+# Allowed conventional-commit types (keep in sync with .release-it.json
+# preset.types and .commitlintrc.cjs type-enum):
+#   feat → Features | fix → Bug Fixes | perf → Performance Improvements
+#   revert → Reverts | docs → Documentation | refactor → Code Refactoring
+#   build → Build System | ci → Continuous Integration
+#   chore → Maintenance | test → Tests
+
 jobs:
   validate-title:
     name: Validate PR title (Conventional Commits)
@@ -39,3 +46,21 @@ jobs:
             letter or backtick. Examples:
               feat(cli): add --external-deps mode
               fix(lib): handle raw pointers (void*) like GJS
+
+  lint-commits:
+    name: Lint commit messages (commitlint)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install commitlint
+        run: npm install --no-save @commitlint/cli@^19 @commitlint/config-conventional@^19
+      - name: Lint commits since base branch
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: npx commitlint --from "$BASE_SHA" --to "$HEAD_SHA" --verbose

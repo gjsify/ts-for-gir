@@ -106,7 +106,7 @@ export const options: { [name: string]: Options } = {
 	depVersionFormat: {
 		type: "string",
 		description:
-			"Dependency version spec format in generated package.json files. Defaults to 'workspace' when --workspace, else 'exact'",
+			"Dependency version spec format in generated package.json files. Defaults to 'workspace' when --workspace, else 'caret'",
 		choices: ["workspace", "caret", "any", "exact"] as const,
 	},
 	onlyVersionPrefix: {

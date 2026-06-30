@@ -7,10 +7,9 @@ if (packageName === 'Gjs') {
 _%>
 {
     "name": "<%- npmScope %>/<%- importName %>",
-    <%_ if(typeof girModule !== "undefined"){ _%>
-    "version": "<%- girModule.libraryVersion %>-<%- APP_VERSION %>",
-    <%_ } else { _%>
     "version": "<%- APP_VERSION %>",
+    <%_ if(typeof girModule !== "undefined"){ _%>
+    "libraryVersion": "<%- girModule.libraryVersion %>",
     <%_ } _%>
     "description": "<%- PACKAGE_DESC %>",
     "type": "module",

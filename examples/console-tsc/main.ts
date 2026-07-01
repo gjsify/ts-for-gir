@@ -1,7 +1,7 @@
 // Example from issue, see https://github.com/gjsify/ts-for-gir/issues/164
 
 // biome-ignore lint/style/useNodejsImportProtocol: This is GJS not Node.js
-import { DEFAULT_LOG_DOMAIN, getConsoleLogDomain, setConsoleLogDomain } from "console";
+import { DEFAULT_LOG_DOMAIN, getConsoleLogDomain, setConsoleLogDomain } from "node:console";
 
 // Setting the log domain
 setConsoleLogDomain("my.app.id");

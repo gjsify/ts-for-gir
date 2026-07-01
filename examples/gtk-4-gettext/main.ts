@@ -14,10 +14,10 @@ import Gtk from "gi://Gtk?version=4.0";
 const { gettext } = imports;
 
 imports.package.init({
-	name: "ts-for-gir-example",
-	version: "0.0.1",
-	prefix: "@ts-for-gir-example",
-	libdir: "/usr/lib",
+  name: "ts-for-gir-example",
+  version: "0.0.1",
+  prefix: "@ts-for-gir-example",
+  libdir: "/usr/lib",
 });
 
 pkg.initGettext();

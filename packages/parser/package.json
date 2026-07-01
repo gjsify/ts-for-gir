@@ -1,39 +1,39 @@
 {
-	"name": "@gi.ts/parser",
-	"version": "4.0.4",
-	"description": "Parser for GObject Introspection XML files",
-	"main": "src/index.ts",
-	"module": "src/index.ts",
-	"type": "module",
-	"exports": {
-		".": "./src/index.ts"
-	},
-	"engines": {
-		"node": ">=18"
-	},
-	"files": [
-		"src"
-	],
-	"publishConfig": {
-		"access": "public"
-	},
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/gjsify/ts-for-gir.git"
-	},
-	"bugs": {
-		"url": "https://github.com/gjsify/ts-for-gir/issues"
-	},
-	"scripts": {
-		"check": "tsc --noEmit"
-	},
-	"dependencies": {
-		"fast-xml-parser": "^5.7.3"
-	},
-	"devDependencies": {
-		"@ts-for-gir/tsconfig": "workspace:^",
-		"@types/node": "^25.6.2",
-		"typescript": "^6.0.3"
-	}
+  "name": "@gi.ts/parser",
+  "version": "4.0.4",
+  "description": "Parser for GObject Introspection XML files",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gjsify/ts-for-gir.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gjsify/ts-for-gir/issues"
+  },
+  "scripts": {
+    "check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^5.9.3"
+  },
+  "devDependencies": {
+    "@ts-for-gir/tsconfig": "workspace:^",
+    "@types/node": "^26.0.1",
+    "typescript": "^6.0.3"
+  }
 }

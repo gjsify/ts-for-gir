@@ -1,75 +1,82 @@
 import type { GeneratorType } from "@ts-for-gir/generator-base";
 import {
-	type ConfigFlags,
-	ERROR_NO_MODULES_FOUND,
-	type GirModule,
-	Logger,
-	NSRegistry,
-	ReporterService,
-	ResolveType,
+  type ConfigFlags,
+  ERROR_NO_MODULES_FOUND,
+  type GirModule,
+  Logger,
+  NSRegistry,
+  ReporterService,
+  ResolveType,
 } from "@ts-for-gir/lib";
 import { getOptionsGeneration, load } from "../config.ts";
 import { GenerationHandler } from "../generation-handler.ts";
 import { ModuleLoader } from "../module-loader.ts";
 
 interface GenerationCommandOptions {
-	generatorType: GeneratorType;
-	loggerName: string;
-	configureRegistry?: (registry: NSRegistry) => void;
+  generatorType: GeneratorType;
+  loggerName: string;
+  configureRegistry?: (registry: NSRegistry) => void;
 }
 
-export async function runGenerationCommand(args: ConfigFlags, options: GenerationCommandOptions): Promise<void> {
-	const config = await load(args);
-	const generateConfig = getOptionsGeneration(config);
-	const logger = new Logger(true, options.loggerName);
-	const registry = new NSRegistry();
+export async function runGenerationCommand(
+  args: ConfigFlags,
+  options: GenerationCommandOptions,
+): Promise<void> {
+  const config = await load(args);
+  const generateConfig = getOptionsGeneration(config);
+  const logger = new Logger(true, options.loggerName);
+  const registry = new NSRegistry();
 
-	options.configureRegistry?.(registry);
+  options.configureRegistry?.(registry);
 
-	const moduleLoader = new ModuleLoader(generateConfig, registry);
+  const moduleLoader = new ModuleLoader(generateConfig, registry);
 
-	let tsForGir: GenerationHandler | null = null;
+  let tsForGir: GenerationHandler | null = null;
 
-	try {
-		const { keep } = await moduleLoader.getModulesResolved(
-			config.modules,
-			config.ignore || [],
-			config.ignoreVersionConflicts,
-		);
+  try {
+    const { keep } = await moduleLoader.getModulesResolved(
+      config.modules,
+      config.ignore || [],
+      config.ignoreVersionConflicts,
+    );
 
-		if (keep.length === 0) {
-			logger.error(ERROR_NO_MODULES_FOUND(config.girDirectories));
-			return;
-		}
+    if (keep.length === 0) {
+      logger.error(ERROR_NO_MODULES_FOUND(config.girDirectories));
+      return;
+    }
 
-		tsForGir = new GenerationHandler(generateConfig, options.generatorType, registry);
+    tsForGir = new GenerationHandler(generateConfig, options.generatorType, registry);
 
-		moduleLoader.parse(keep);
+    moduleLoader.parse(keep);
 
-		// In external-deps mode, only generate the user-requested module(s). Transitively-loaded
-		// deps stay in the registry for type resolution but must not produce their own output.
-		const toGenerate = generateConfig.externalDeps ? keep.filter((m) => m.resolvedBy === ResolveType.BY_HAND) : keep;
+    // In external-deps mode, only generate the user-requested module(s). Transitively-loaded
+    // deps stay in the registry for type resolution but must not produce their own output.
+    const toGenerate = generateConfig.externalDeps
+      ? keep.filter((m) => m.resolvedBy === ResolveType.BY_HAND)
+      : keep;
 
-		const girModules = Array.from(toGenerate).map((girModuleResolvedBy) => girModuleResolvedBy.module as GirModule);
+    const girModules = Array.from(toGenerate).map(
+      (girModuleResolvedBy) => girModuleResolvedBy.module as GirModule,
+    );
 
-		await tsForGir.start(girModules);
-	} catch (error) {
-		if (generateConfig.reporter && tsForGir) {
-			const service = ReporterService.getInstance();
+    await tsForGir.start(girModules);
+  } catch (error) {
+    if (generateConfig.reporter && tsForGir) {
+      const service = ReporterService.getInstance();
 
-			if (tsForGir.log) {
-				tsForGir.log.reportGenerationFailure(
-					"Main",
-					error instanceof Error ? error : new Error(String(error)),
-					"Generation failed",
-				);
-			}
+      if (tsForGir.log) {
+        tsForGir.log.reportGenerationFailure(
+          "Main",
+          error instanceof Error ? error : new Error(String(error)),
+          "Generation failed",
+        );
+      }
 
-			const report = service.generateComprehensiveReport();
-			service.printComprehensiveSummary(report);
-			await service.saveComprehensiveReport(undefined, report);
-		}
+      const report = service.generateComprehensiveReport();
+      service.printComprehensiveSummary(report);
+      await service.saveComprehensiveReport(undefined, report);
+    }
 
-		throw error;
-	}
+    throw error;
+  }
 }

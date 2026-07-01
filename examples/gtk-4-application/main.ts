@@ -20,113 +20,113 @@ import System from "system";
 
 // Define a custom signal interface
 interface ExampleApplicationSignals extends Gtk.Application.SignalSignatures {
-	hello: (arg: string) => void;
+  hello: (arg: string) => void;
 }
 
 // An example GtkApplication with a few bells and whistles, see also:
 //     https://wiki.gnome.org/HowDoI/GtkApplication
 class ExampleApplication extends Gtk.Application {
-	static {
-		GObject.registerClass(
-			{
-				Properties: {
-					exampleprop: GObject.ParamSpec.string(
-						"exampleprop", // property name
-						"ExampleProperty", // nickname
-						"An example read write property", // description
-						GObject.ParamFlags.READWRITE, // read/write/construct...
-						"a default value",
-					),
-				},
-				Signals: { examplesig: { param_types: [GObject.TYPE_INT] } },
-			},
-			ExampleApplication,
-		);
-	}
+  static {
+    GObject.registerClass(
+      {
+        Properties: {
+          exampleprop: GObject.ParamSpec.string(
+            "exampleprop", // property name
+            "ExampleProperty", // nickname
+            "An example read write property", // description
+            GObject.ParamFlags.READWRITE, // read/write/construct...
+            "a default value",
+          ),
+        },
+        Signals: { examplesig: { param_types: [GObject.TYPE_INT] } },
+      },
+      ExampleApplication,
+    );
+  }
 
-	// Define a custom signal interface as instance property
-	declare $signals: ExampleApplicationSignals;
+  // Define a custom signal interface as instance property
+  declare $signals: ExampleApplicationSignals;
 
-	override connect<K extends keyof ExampleApplicationSignals>(
-		signal: K,
-		callback: GObject.SignalCallback<this, ExampleApplicationSignals[K]>,
-	): number {
-		return super.connect(signal, callback);
-	}
+  override connect<K extends keyof ExampleApplicationSignals>(
+    signal: K,
+    callback: GObject.SignalCallback<this, ExampleApplicationSignals[K]>,
+  ): number {
+    return super.connect(signal, callback);
+  }
 
-	constructor() {
-		super({
-			applicationId: "org.gnome.gjs.ExampleApplication",
-			flags: Gio.ApplicationFlags.FLAGS_NONE,
-		});
-	}
+  constructor() {
+    super({
+      applicationId: "org.gnome.gjs.ExampleApplication",
+      flags: Gio.ApplicationFlags.FLAGS_NONE,
+    });
+  }
 
-	exampleprop: string = "a default value";
+  exampleprop: string = "a default value";
 
-	// Example signal emission
-	emitExamplesig(number: number): void {
-		this.emit("examplesig", number);
-	}
+  // Example signal emission
+  emitExamplesig(number: number): void {
+    this.emit("examplesig", number);
+  }
 
-	vfunc_startup() {
-		super.vfunc_startup();
+  vfunc_startup() {
+    super.vfunc_startup();
 
-		// An example GAction, see: https://wiki.gnome.org/HowDoI/GAction
-		const exampleAction = new Gio.SimpleAction({
-			name: "exampleAction",
-			parameterType: new GLib.VariantType("s"),
-		});
+    // An example GAction, see: https://wiki.gnome.org/HowDoI/GAction
+    const exampleAction = new Gio.SimpleAction({
+      name: "exampleAction",
+      parameterType: new GLib.VariantType("s"),
+    });
 
-		exampleAction.connect("activate", (_action, param) => {
-			const paramStr = param?.deepUnpack()?.toString() ?? "";
+    exampleAction.connect("activate", (_action, param) => {
+      const paramStr = param?.deepUnpack()?.toString() ?? "";
 
-			if (paramStr === "exampleParameter") log("Yes!");
-		});
+      if (paramStr === "exampleParameter") log("Yes!");
+    });
 
-		this.add_action(exampleAction);
-	}
+    this.add_action(exampleAction);
+  }
 
-	vfunc_activate() {
-		super.vfunc_activate();
+  vfunc_activate() {
+    super.vfunc_activate();
 
-		this.hold();
+    this.hold();
 
-		// Example ApplicationWindow
-		const window = new Gtk.ApplicationWindow({
-			application: this,
-			title: "Example Application Window",
-			defaultWidth: 300,
-			defaultHeight: 200,
-		});
+    // Example ApplicationWindow
+    const window = new Gtk.ApplicationWindow({
+      application: this,
+      title: "Example Application Window",
+      defaultWidth: 300,
+      defaultHeight: 200,
+    });
 
-		const label = new Gtk.Label({ label: this.exampleprop });
-		window.set_child(label);
+    const label = new Gtk.Label({ label: this.exampleprop });
+    window.set_child(label);
 
-		window.connect("close-request", () => {
-			this.quit();
-		});
+    window.connect("close-request", () => {
+      this.quit();
+    });
 
-		window.present();
+    window.present();
 
-		// Example GNotification, see: https://developer.gnome.org/GNotification/
-		const notif = new Gio.Notification();
-		notif.set_title("Example Notification");
-		notif.set_body("Example Body");
-		notif.set_icon(new Gio.ThemedIcon({ name: "dialog-information-symbolic" }));
+    // Example GNotification, see: https://developer.gnome.org/GNotification/
+    const notif = new Gio.Notification();
+    notif.set_title("Example Notification");
+    notif.set_body("Example Body");
+    notif.set_icon(new Gio.ThemedIcon({ name: "dialog-information-symbolic" }));
 
-		// A default action for when the body of the notification is clicked
-		notif.set_default_action("app.exampleAction('exampleParameter')");
+    // A default action for when the body of the notification is clicked
+    notif.set_default_action("app.exampleAction('exampleParameter')");
 
-		// A button for the notification
-		notif.add_button("Button Text", "app.exampleAction('exampleParameter')");
+    // A button for the notification
+    notif.add_button("Button Text", "app.exampleAction('exampleParameter')");
 
-		// This won't actually be shown, since an application needs a .desktop
-		// file with a base name matching the application id
-		this.send_notification("example-notification", notif);
+    // This won't actually be shown, since an application needs a .desktop
+    // file with a base name matching the application id
+    this.send_notification("example-notification", notif);
 
-		// Withdraw
-		this.withdraw_notification("example-notification");
-	}
+    // Withdraw
+    this.withdraw_notification("example-notification");
+  }
 }
 
 // The proper way to run a Gtk.Application or Gio.Application is take ARGV and

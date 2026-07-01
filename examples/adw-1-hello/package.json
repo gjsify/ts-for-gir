@@ -1,27 +1,27 @@
 {
-	"name": "@ts-for-gir-example/adw-1-hello-example",
-	"description": "Simple GJS Typescript hello-world example using Libadwaita",
-	"type": "module",
-	"private": true,
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "vite build",
-		"start:debug": "GTK_DEBUG=interactive gjs -m dist/main.js",
-		"start": "gjs -m dist/main.js",
-		"check": "tsc --noEmit",
-		"clear": "rm -rf dist"
-	},
-	"author": "Pascal Garber <pascal@mailfreun.de>",
-	"license": "MIT",
-	"devDependencies": {
-		"typescript": "^6.0.3",
-		"vite": "^8.0.11"
-	},
-	"dependencies": {
-		"@girs/adw-1": "workspace:^",
-		"@girs/gio-2.0": "workspace:^",
-		"@girs/gjs": "workspace:^",
-		"@girs/glib-2.0": "workspace:^",
-		"@girs/gtk-4.0": "workspace:^"
-	}
+  "name": "@ts-for-gir-example/adw-1-hello-example",
+  "description": "Simple GJS Typescript hello-world example using Libadwaita",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "vite build",
+    "start:debug": "GTK_DEBUG=interactive gjs -m dist/main.js",
+    "start": "gjs -m dist/main.js",
+    "check": "tsc --noEmit",
+    "clear": "rm -rf dist"
+  },
+  "author": "Pascal Garber <pascal@mailfreun.de>",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^6.0.3",
+    "vite": "^8.1.0"
+  },
+  "dependencies": {
+    "@girs/adw-1": "workspace:^",
+    "@girs/gio-2.0": "workspace:^",
+    "@girs/gjs": "workspace:^",
+    "@girs/glib-2.0": "workspace:^",
+    "@girs/gtk-4.0": "workspace:^"
+  }
 }

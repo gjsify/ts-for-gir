@@ -3,8 +3,8 @@
  * @see https://vitejs.dev/guide/assets.html#impgitorting-asset-as-string
  */
 declare module "*?raw" {
-	const textContent: string;
-	export default textContent;
+  const textContent: string;
+  export default textContent;
 }
 
 /**
@@ -12,8 +12,8 @@ declare module "*?raw" {
  * @see https://vitejs.dev/guide/assets.html#explicit-url-imports
  */
 declare module "*?url" {
-	const url: string;
-	export default url;
+  const url: string;
+  export default url;
 }
 
 /**
@@ -21,6 +21,6 @@ declare module "*?url" {
  * @see https://vitejs.dev/guide/assets.html#inline-assets
  */
 declare module "*.css?inline" {
-	const style: string;
-	export default style;
+  const style: string;
+  export default style;
 }

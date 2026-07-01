@@ -1,75 +1,75 @@
 import type { GirModuleMetadata } from "../types.ts";
 
 const GLIB_COMMON = {
-	authors: "GTK Development Team",
-	websiteUrl: "https://www.gtk.org",
-	browseUrl: "https://gitlab.gnome.org/GNOME/glib/",
-	repositoryUrl: "https://gitlab.gnome.org/GNOME/glib.git",
-	license: "LGPL-2.1-or-later",
-	category: "GLib",
+  authors: "GTK Development Team",
+  websiteUrl: "https://www.gtk.org",
+  browseUrl: "https://gitlab.gnome.org/GNOME/glib/",
+  repositoryUrl: "https://gitlab.gnome.org/GNOME/glib.git",
+  license: "LGPL-2.1-or-later",
+  category: "GLib",
 };
 
 export const glib: GirModuleMetadata = {
-	...GLIB_COMMON,
-	girId: "GLib-2.0",
-	displayName: "GLib",
-	description:
-		"GLib provides the core application building blocks for libraries and applications written in C. It provides the core object system used in GNOME, the main loop implementation, and a large set of utility functions for strings and common data structures.",
-	cDocsUrl: "https://docs.gtk.org/glib/",
+  ...GLIB_COMMON,
+  girId: "GLib-2.0",
+  displayName: "GLib",
+  description:
+    "GLib provides the core application building blocks for libraries and applications written in C. It provides the core object system used in GNOME, the main loop implementation, and a large set of utility functions for strings and common data structures.",
+  cDocsUrl: "https://docs.gtk.org/glib/",
 };
 
 export const gobject: GirModuleMetadata = {
-	...GLIB_COMMON,
-	girId: "GObject-2.0",
-	displayName: "GObject",
-	description:
-		"The base type system and object class library, providing signal/callback handling, properties, and reference counting.",
-	cDocsUrl: "https://docs.gtk.org/gobject/",
+  ...GLIB_COMMON,
+  girId: "GObject-2.0",
+  displayName: "GObject",
+  description:
+    "The base type system and object class library, providing signal/callback handling, properties, and reference counting.",
+  cDocsUrl: "https://docs.gtk.org/gobject/",
 };
 
 export const gio: GirModuleMetadata = {
-	...GLIB_COMMON,
-	girId: "Gio-2.0",
-	displayName: "GIO",
-	description:
-		"GIO provides a modern and easy-to-use VFS API, including file system abstraction, networking, D-Bus support, and application infrastructure.",
-	cDocsUrl: "https://docs.gtk.org/gio/",
+  ...GLIB_COMMON,
+  girId: "Gio-2.0",
+  displayName: "GIO",
+  description:
+    "GIO provides a modern and easy-to-use VFS API, including file system abstraction, networking, D-Bus support, and application infrastructure.",
+  cDocsUrl: "https://docs.gtk.org/gio/",
 };
 
 export const gmodule: GirModuleMetadata = {
-	...GLIB_COMMON,
-	girId: "GModule-2.0",
-	displayName: "GModule",
-	description: "Portable method for dynamically loading plug-ins.",
-	cDocsUrl: "https://docs.gtk.org/gmodule/",
+  ...GLIB_COMMON,
+  girId: "GModule-2.0",
+  displayName: "GModule",
+  description: "Portable method for dynamically loading plug-ins.",
+  cDocsUrl: "https://docs.gtk.org/gmodule/",
 };
 
 export const glibUnix: GirModuleMetadata = {
-	...GLIB_COMMON,
-	girId: "GLibUnix-2.0",
-	displayName: "GLib Unix",
-	description: "Unix-specific GLib API extensions.",
-	cDocsUrl: "https://docs.gtk.org/glib-unix/",
+  ...GLIB_COMMON,
+  girId: "GLibUnix-2.0",
+  displayName: "GLib Unix",
+  description: "Unix-specific GLib API extensions.",
+  cDocsUrl: "https://docs.gtk.org/glib-unix/",
 };
 
 export const glibWin32: GirModuleMetadata = {
-	...GLIB_COMMON,
-	girId: "GLibWin32-2.0",
-	displayName: "GLib Win32",
-	description: "Windows-specific GLib API extensions.",
+  ...GLIB_COMMON,
+  girId: "GLibWin32-2.0",
+  displayName: "GLib Win32",
+  description: "Windows-specific GLib API extensions.",
 };
 
 export const gioUnix: GirModuleMetadata = {
-	...GLIB_COMMON,
-	girId: "GioUnix-2.0",
-	displayName: "GIO Unix",
-	description: "Unix-specific GIO interfaces and utilities.",
-	cDocsUrl: "https://docs.gtk.org/gio-unix/",
+  ...GLIB_COMMON,
+  girId: "GioUnix-2.0",
+  displayName: "GIO Unix",
+  description: "Unix-specific GIO interfaces and utilities.",
+  cDocsUrl: "https://docs.gtk.org/gio-unix/",
 };
 
 export const gioWin32: GirModuleMetadata = {
-	...GLIB_COMMON,
-	girId: "GioWin32-2.0",
-	displayName: "GIO Win32",
-	description: "Windows-specific GIO interfaces and utilities.",
+  ...GLIB_COMMON,
+  girId: "GioWin32-2.0",
+  displayName: "GIO Win32",
+  description: "Windows-specific GIO interfaces and utilities.",
 };

@@ -1,7 +1,12 @@
 /**
  * Type definitions for command structure and exports
  */
-import type { CopyCommandArgs, DocCommandArgs, GenerateCommandArgs, ListCommandArgs } from "./command-args.ts";
+import type {
+  CopyCommandArgs,
+  DocCommandArgs,
+  GenerateCommandArgs,
+  ListCommandArgs,
+} from "./command-args.ts";
 import type { CommandDefinition } from "./command-definition.ts";
 
 /**

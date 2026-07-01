@@ -23,37 +23,37 @@ const file = Gio.File.new_for_path("gtk3-template.ui");
 const [, Template] = file.load_contents(null);
 
 class ExampleWindow extends Gtk.Window {
-	public declare box: Gtk.Box | null;
-	protected declare _button: Gtk.Button | null;
+  declare public box: Gtk.Box | null;
+  declare protected _button: Gtk.Button | null;
 
-	static {
-		GObject.registerClass(
-			{
-				GTypeName: "ExampleWindow",
-				Template,
-				Children: ["box"],
-				InternalChildren: ["button"],
-			},
-			ExampleWindow,
-		);
-	}
+  static {
+    GObject.registerClass(
+      {
+        GTypeName: "ExampleWindow",
+        Template,
+        Children: ["box"],
+        InternalChildren: ["button"],
+      },
+      ExampleWindow,
+    );
+  }
 
-	constructor(params: Partial<Gtk.Window.ConstructorProps> = {}) {
-		super(params);
+  constructor(params: Partial<Gtk.Window.ConstructorProps> = {}) {
+    super(params);
 
-		// The template has been initialized and you can access the children
-		if (this.box) this.box.visible = true;
+    // The template has been initialized and you can access the children
+    if (this.box) this.box.visible = true;
 
-		// Internal children are set on the instance prefixed with a `_`
-		if (this._button) this._button.visible = true;
-	}
+    // Internal children are set on the instance prefixed with a `_`
+    if (this._button) this._button.visible = true;
+  }
 
-	// The signal handler bound in the UI file
-	_onButtonClicked(button: Gtk.Button) {
-		if (this instanceof Gtk.Window) log("Callback scope is bound to `ExampleWindow`");
+  // The signal handler bound in the UI file
+  _onButtonClicked(button: Gtk.Button) {
+    if (this instanceof Gtk.Window) log("Callback scope is bound to `ExampleWindow`");
 
-		button.label = "Button was clicked!";
-	}
+    button.label = "Button was clicked!";
+  }
 }
 
 // Create a window that stops the program when it is closed

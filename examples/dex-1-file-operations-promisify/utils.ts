@@ -21,8 +21,8 @@ Gio._promisify(Gio.File.prototype, "replace_contents_async", "replace_contents_f
  * @returns Promise that resolves when the operation completes
  */
 export async function replaceFileContents(file: Gio.File, content: string): Promise<void> {
-	const encoder = new TextEncoder();
-	const bytes = encoder.encode(content);
+  const encoder = new TextEncoder();
+  const bytes = encoder.encode(content);
 
-	await file.replace_contents_async(bytes, null, false, Gio.FileCreateFlags.NONE, null);
+  await file.replace_contents_async(bytes, null, false, Gio.FileCreateFlags.NONE, null);
 }

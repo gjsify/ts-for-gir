@@ -46,27 +46,27 @@ import System from "system";
 
 let brokenError: string | null = null;
 try {
-	class BrokenFoo extends GObject.Object {
-		static {
-			GObject.registerClass(BrokenFoo);
-		}
-		static [GObject.interfaces] = [Gio.Initable];
-		vfunc_init(_cancellable: Gio.Cancellable | null): boolean {
-			print("[BrokenFoo] vfunc_init body — should NOT print");
-			return true;
-		}
-	}
-	const broken = new BrokenFoo() as unknown as Gio.Initable;
-	broken.init(null);
+  class BrokenFoo extends GObject.Object {
+    static {
+      GObject.registerClass(BrokenFoo);
+    }
+    static [GObject.interfaces] = [Gio.Initable];
+    vfunc_init(_cancellable: Gio.Cancellable | null): boolean {
+      print("[BrokenFoo] vfunc_init body — should NOT print");
+      return true;
+    }
+  }
+  const broken = new BrokenFoo() as unknown as Gio.Initable;
+  broken.init(null);
 } catch (err) {
-	brokenError = err instanceof Error ? err.message : String(err);
+  brokenError = err instanceof Error ? err.message : String(err);
 }
 
 if (brokenError === null) {
-	printerr(
-		"FAIL: BrokenFoo was expected to throw (either at registerClass time or at init() time), but completed cleanly",
-	);
-	System.exit(1);
+  printerr(
+    "FAIL: BrokenFoo was expected to throw (either at registerClass time or at init() time), but completed cleanly",
+  );
+  System.exit(1);
 }
 print(`✓ BrokenFoo failed as expected: ${brokenError}`);
 
@@ -78,14 +78,14 @@ print(`✓ BrokenFoo failed as expected: ${brokenError}`);
 // Initable's vtable is wired up and `vfunc_init` lands as the init impl.
 
 class WorkingFoo extends GObject.Object {
-	static [GObject.interfaces] = [Gio.Initable];
-	vfunc_init(_cancellable: Gio.Cancellable | null): boolean {
-		print("[WorkingFoo] vfunc_init body — should print");
-		return true;
-	}
-	static {
-		GObject.registerClass(WorkingFoo);
-	}
+  static [GObject.interfaces] = [Gio.Initable];
+  vfunc_init(_cancellable: Gio.Cancellable | null): boolean {
+    print("[WorkingFoo] vfunc_init body — should print");
+    return true;
+  }
+  static {
+    GObject.registerClass(WorkingFoo);
+  }
 }
 
 const working = new WorkingFoo() as unknown as Gio.Initable;
@@ -103,19 +103,19 @@ print("✓ WorkingFoo.init() ran the vfunc body");
 // and reads as "register me" without the identifier repetition.
 
 class InlineFoo extends GObject.Object {
-	vfunc_init(_cancellable: Gio.Cancellable | null): boolean {
-		print("[InlineFoo] vfunc_init body — should print");
-		return true;
-	}
-	static {
-		GObject.registerClass(
-			{
-				GTypeName: "InlineFoo",
-				Implements: [Gio.Initable],
-			},
-			InlineFoo,
-		);
-	}
+  vfunc_init(_cancellable: Gio.Cancellable | null): boolean {
+    print("[InlineFoo] vfunc_init body — should print");
+    return true;
+  }
+  static {
+    GObject.registerClass(
+      {
+        GTypeName: "InlineFoo",
+        Implements: [Gio.Initable],
+      },
+      InlineFoo,
+    );
+  }
 }
 
 const inline = new InlineFoo() as unknown as Gio.Initable;
@@ -123,4 +123,6 @@ inline.init(null);
 print("✓ InlineFoo.init() ran the vfunc body");
 
 print("");
-print("Done — see https://gjsify.github.io/gjsify/patterns/gobject-classes/ for the pattern reference.");
+print(
+  "Done — see https://gjsify.github.io/gjsify/patterns/gobject-classes/ for the pattern reference.",
+);

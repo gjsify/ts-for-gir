@@ -1,5 +1,5 @@
 export enum GeneratorType {
-	TYPES,
-	HTML_DOC,
-	JSON,
+  TYPES,
+  HTML_DOC,
+  JSON,
 }

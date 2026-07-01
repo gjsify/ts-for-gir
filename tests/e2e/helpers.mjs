@@ -1,14 +1,14 @@
 // Shared E2E test helpers for ts-for-gir CLI workflows.
 
-import { execFileSync } from 'node:child_process';
-import { writeFileSync, mkdtempSync, rmSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { tmpdir } from 'node:os';
+import { execFileSync } from "node:child_process";
+import { writeFileSync, mkdtempSync, rmSync } from "node:fs";
+import { join, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+import { tmpdir } from "node:os";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-export const MONOREPO_ROOT = join(__dirname, '..', '..');
-export const GIRS_DIR = join(MONOREPO_ROOT, 'girs');
+export const MONOREPO_ROOT = join(__dirname, "..", "..");
+export const GIRS_DIR = join(MONOREPO_ROOT, "girs");
 
 /**
  * Pack workspace tarballs via pack.mjs into tarballsDir.
@@ -19,13 +19,13 @@ export const GIRS_DIR = join(MONOREPO_ROOT, 'girs');
  * @param {string[]} [options.includeGirs] Names of @girs/* packages from types-dev to also pack
  */
 export function packWorkspaces(tarballsDir, options = {}) {
-  const args = [join(__dirname, 'pack.mjs'), tarballsDir];
+  const args = [join(__dirname, "pack.mjs"), tarballsDir];
   if (options.includeGirs && options.includeGirs.length > 0) {
-    args.push('--include-girs', options.includeGirs.join(','));
+    args.push("--include-girs", options.includeGirs.join(","));
   }
-  const stdout = execFileSync('node', args, {
+  const stdout = execFileSync("node", args, {
     cwd: MONOREPO_ROOT,
-    encoding: 'utf8',
+    encoding: "utf8",
     maxBuffer: 50 * 1024 * 1024,
     timeout: 10 * 60 * 1000,
   });
@@ -40,12 +40,12 @@ export function packWorkspaces(tarballsDir, options = {}) {
  * @param {object} [options]
  * @param {string[]} [options.includeGirs] Names of @girs/* packages from types-dev to also pack
  */
-export function createTestEnvironment(prefix = 'ts-for-gir-e2e-', options = {}) {
+export function createTestEnvironment(prefix = "ts-for-gir-e2e-", options = {}) {
   const tmpDir = mkdtempSync(join(tmpdir(), prefix));
-  const tarballsDir = join(tmpDir, 'tarballs');
+  const tarballsDir = join(tmpDir, "tarballs");
 
   console.log(`  tmp dir: ${tmpDir}`);
-  console.log('  packing workspace packages...');
+  console.log("  packing workspace packages...");
   const tarballMap = packWorkspaces(tarballsDir, options);
   console.log(`  packed ${Object.keys(tarballMap).length} packages`);
 
@@ -88,7 +88,7 @@ export function toFileRef(name, tarballsDir, tarballMap) {
  */
 export function setupProject(projectDir, pkg, tarballsDir, tarballMap) {
   // Patch all @ts-for-gir/* and @gi.ts/* deps to local tarballs
-  for (const field of ['dependencies', 'devDependencies']) {
+  for (const field of ["dependencies", "devDependencies"]) {
     if (!pkg[field]) continue;
     for (const name of Object.keys(pkg[field])) {
       const ref = toFileRef(name, tarballsDir, tarballMap);
@@ -99,15 +99,15 @@ export function setupProject(projectDir, pkg, tarballsDir, tarballMap) {
   // Add overrides for transitive deps
   pkg.overrides = buildOverrides(tarballsDir, tarballMap);
 
-  writeFileSync(join(projectDir, 'package.json'), JSON.stringify(pkg, null, 2) + '\n');
+  writeFileSync(join(projectDir, "package.json"), JSON.stringify(pkg, null, 2) + "\n");
 
-  console.log('  running npm install...');
-  execFileSync('npm', ['install', '--no-audit', '--no-fund'], {
+  console.log("  running npm install...");
+  execFileSync("npm", ["install", "--no-audit", "--no-fund"], {
     cwd: projectDir,
-    stdio: 'pipe',
+    stdio: "pipe",
     timeout: 3 * 60 * 1000,
   });
-  console.log('  npm install done');
+  console.log("  npm install done");
 }
 
 /**
@@ -119,18 +119,18 @@ export function setupProject(projectDir, pkg, tarballsDir, tarballMap) {
  * @returns {{ stdout: string, stderr: string, exitCode?: number, error?: Error }}
  */
 export function runCli(cliBin, cwd, args, options = {}) {
-  const result = { stdout: '', stderr: '' };
+  const result = { stdout: "", stderr: "" };
   try {
-    result.stdout = execFileSync('node', [cliBin, ...args], {
+    result.stdout = execFileSync("node", [cliBin, ...args], {
       cwd,
-      encoding: 'utf8',
+      encoding: "utf8",
       timeout: 2 * 60 * 1000,
-      stdio: ['pipe', 'pipe', 'pipe'],
+      stdio: ["pipe", "pipe", "pipe"],
       ...options,
     });
   } catch (err) {
-    result.stdout = err.stdout || '';
-    result.stderr = err.stderr || '';
+    result.stdout = err.stdout || "";
+    result.stderr = err.stderr || "";
     result.exitCode = err.status;
     result.error = err;
   }

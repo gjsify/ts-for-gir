@@ -1,0 +1,50 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "categories": {
+    "correctness": "error"
+  },
+  "rules": {
+    "typescript/consistent-type-imports": "warn",
+    "typescript/no-explicit-any": "warn",
+    "typescript/no-non-null-assertion": "off",
+    "typescript/no-this-alias": "off",
+    "unicorn/prefer-node-protocol": "warn",
+    "unicorn/prefer-string-starts-ends-with": "warn",
+    "eslint/no-useless-escape": "warn",
+    "typescript/triple-slash-reference": "off",
+    "eslint/no-eval": "off",
+    "eslint/no-control-regex": "off",
+    "eslint/no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_",
+        "destructuredArrayIgnorePattern": "^_"
+      }
+    ]
+  },
+  "ignorePatterns": [
+    "**/*.js",
+    "**/*.cjs",
+    "**/node_modules",
+    "**/dist",
+    "**/lib",
+    "**/build",
+    "**/coverage",
+    "refs",
+    "**/refs",
+    "docs",
+    "**/docs",
+    "types-dev",
+    "types-release",
+    "girs",
+    "json",
+    "**/@types",
+    "**/templates",
+    "**/dist-templates",
+    "**/src/generated",
+    "tests/e2e/*/out",
+    "**/*.gjs.mjs"
+  ]
+}

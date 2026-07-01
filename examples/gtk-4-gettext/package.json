@@ -1,23 +1,23 @@
 {
-	"name": "@ts-for-gir-example/gtk-4-gettext-example",
-	"description": "Simple GJS Gtk 3 example app that shows how you can translate strings with gettext",
-	"type": "module",
-	"private": true,
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings esbuild.ts",
-		"start": "gjs -m dist/main.js",
-		"check": "tsc --noEmit",
-		"clear": "rm -rf dist @types"
-	},
-	"author": "Pascal Garber <pascal@mailfreun.de>",
-	"license": "MIT",
-	"devDependencies": {
-		"esbuild": "^0.28.0",
-		"typescript": "^6.0.3"
-	},
-	"dependencies": {
-		"@girs/gjs": "workspace:^",
-		"@girs/gtk-4.0": "workspace:^"
-	}
+  "name": "@ts-for-gir-example/gtk-4-gettext-example",
+  "description": "Simple GJS Gtk 3 example app that shows how you can translate strings with gettext",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings esbuild.ts",
+    "start": "gjs -m dist/main.js",
+    "check": "tsc --noEmit",
+    "clear": "rm -rf dist @types"
+  },
+  "author": "Pascal Garber <pascal@mailfreun.de>",
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.28.1",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "@girs/gjs": "workspace:^",
+    "@girs/gtk-4.0": "workspace:^"
+  }
 }

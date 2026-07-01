@@ -1,11 +1,11 @@
 import type { Generator } from "@ts-for-gir/generator-base";
 import {
-	DependencyManager,
-	type GirModule,
-	type NSRegistry,
-	type OptionsGeneration,
-	Reporter,
-	ReporterService,
+  DependencyManager,
+  type GirModule,
+  type NSRegistry,
+  type OptionsGeneration,
+  Reporter,
+  ReporterService,
 } from "@ts-for-gir/lib";
 import { ModuleGenerator } from "./module-generator.ts";
 //import { PackageDataParser } from './package-data-parser.ts'
@@ -13,165 +13,198 @@ import { NpmPackage } from "./npm-package.ts";
 import { TemplateProcessor } from "./template-processor.ts";
 
 export class TypeDefinitionGenerator implements Generator {
-	readonly log: Reporter;
-	//readonly moduleGenerator!: ModuleGenerator
-	readonly config: OptionsGeneration;
-	readonly registry: NSRegistry;
-	readonly dependencyManager: DependencyManager;
-	//readonly packageData: PackageDataParser
+  readonly log: Reporter;
+  //readonly moduleGenerator!: ModuleGenerator
+  readonly config: OptionsGeneration;
+  readonly registry: NSRegistry;
+  readonly dependencyManager: DependencyManager;
+  //readonly packageData: PackageDataParser
 
-	constructor(config: OptionsGeneration, registry: NSRegistry) {
-		this.config = config;
-		this.registry = registry;
-		this.log = new Reporter(
-			this.config.verbose,
-			TypeDefinitionGenerator.name,
-			this.config.reporter,
-			this.config.reporterOutput,
-		);
+  constructor(config: OptionsGeneration, registry: NSRegistry) {
+    this.config = config;
+    this.registry = registry;
+    this.log = new Reporter(
+      this.config.verbose,
+      TypeDefinitionGenerator.name,
+      this.config.reporter,
+      this.config.reporterOutput,
+    );
 
-		// Register with reporter service if reporting is enabled
-		if (this.config.reporter) {
-			const reporterService = ReporterService.getInstance();
-			reporterService.registerReporter(TypeDefinitionGenerator.name, this.log);
-		}
+    // Register with reporter service if reporting is enabled
+    if (this.config.reporter) {
+      const reporterService = ReporterService.getInstance();
+      reporterService.registerReporter(TypeDefinitionGenerator.name, this.log);
+    }
 
-		this.dependencyManager = DependencyManager.getInstance(this.config);
-		// this.packageData = new PackageDataParser(this.config)
-	}
+    this.dependencyManager = DependencyManager.getInstance(this.config);
+    // this.packageData = new PackageDataParser(this.config)
+  }
 
-	async exportGjs() {
-		const { config, dependencyManager } = this;
+  async exportGjs() {
+    const { config, dependencyManager } = this;
 
-		// External-deps mode emits a single ambient `.d.ts` for one module; the GJS supporting
-		// files (gjs.d.ts, dom.d.ts, gettext.d.ts, …) are provided by the consumer's installed
-		// `@girs/gjs` package and must not be re-emitted alongside.
-		if (config.externalDeps) return;
+    // External-deps mode emits a single ambient `.d.ts` for one module; the GJS supporting
+    // files (gjs.d.ts, dom.d.ts, gettext.d.ts, …) are provided by the consumer's installed
+    // `@girs/gjs` package and must not be re-emitted alongside.
+    if (config.externalDeps) return;
 
-		// TODO: Print to stdout
-		if (!config.outdir) return;
+    // TODO: Print to stdout
+    if (!config.outdir) return;
 
-		const gjs = dependencyManager.getGjs();
+    const gjs = dependencyManager.getGjs();
 
-		const templateProcessor = new TemplateProcessor(
-			{},
-			gjs.packageName,
-			this.registry,
-			await dependencyManager.core(),
-			config,
-		);
+    const templateProcessor = new TemplateProcessor(
+      {},
+      gjs.packageName,
+      this.registry,
+      await dependencyManager.core(),
+      config,
+    );
 
-		// Package
-		if (this.config.package) {
-			await templateProcessor.create("index.d.ts", config.outdir, "index.d.ts", undefined, undefined, {
-				name: gjs.importName,
-			});
-			await templateProcessor.create("index.js", config.outdir, "index.js", undefined, undefined, {
-				name: gjs.importName,
-			});
+    // Package
+    if (this.config.package) {
+      await templateProcessor.create(
+        "index.d.ts",
+        config.outdir,
+        "index.d.ts",
+        undefined,
+        undefined,
+        {
+          name: gjs.importName,
+        },
+      );
+      await templateProcessor.create("index.js", config.outdir, "index.js", undefined, undefined, {
+        name: gjs.importName,
+      });
 
-			await templateProcessor.create("gjs/gjs.d.ts", config.outdir, "gjs.d.ts");
-			await templateProcessor.create("gjs/gjs.js", config.outdir, "gjs.js");
+      await templateProcessor.create("gjs/gjs.d.ts", config.outdir, "gjs.d.ts");
+      await templateProcessor.create("gjs/gjs.js", config.outdir, "gjs.js");
 
-			// Additional DOM types supported by GJS
-			await templateProcessor.create("gjs/dom.d.ts", config.outdir, "dom.d.ts");
-			await templateProcessor.create("gjs/dom.js", config.outdir, "dom.js");
+      // Additional DOM types supported by GJS
+      await templateProcessor.create("gjs/dom.d.ts", config.outdir, "dom.d.ts");
+      await templateProcessor.create("gjs/dom.js", config.outdir, "dom.js");
 
-			await templateProcessor.create("gjs/gettext.d.ts", config.outdir, "gettext.d.ts");
-			await templateProcessor.create("gjs/gettext.js", config.outdir, "gettext.js");
+      await templateProcessor.create("gjs/gettext.d.ts", config.outdir, "gettext.d.ts");
+      await templateProcessor.create("gjs/gettext.js", config.outdir, "gettext.js");
 
-			await templateProcessor.create("gjs/system.d.ts", config.outdir, "system.d.ts");
-			await templateProcessor.create("gjs/system.js", config.outdir, "system.js");
+      await templateProcessor.create("gjs/system.d.ts", config.outdir, "system.d.ts");
+      await templateProcessor.create("gjs/system.js", config.outdir, "system.js");
 
-			await templateProcessor.create("gjs/cairo.d.ts", config.outdir, "cairo.d.ts");
-			await templateProcessor.create("gjs/cairo.js", config.outdir, "cairo.js");
+      await templateProcessor.create("gjs/cairo.d.ts", config.outdir, "cairo.d.ts");
+      await templateProcessor.create("gjs/cairo.js", config.outdir, "cairo.js");
 
-			await templateProcessor.create("gjs/console.d.ts", config.outdir, "console.d.ts");
-			await templateProcessor.create("gjs/console.js", config.outdir, "console.js");
+      await templateProcessor.create("gjs/console.d.ts", config.outdir, "console.d.ts");
+      await templateProcessor.create("gjs/console.js", config.outdir, "console.js");
 
-			await templateProcessor.create("gjs/gi.d.ts", config.outdir, "gi.d.ts");
-			await templateProcessor.create("gjs/gi.js", config.outdir, "gi.js");
+      await templateProcessor.create("gjs/gi.d.ts", config.outdir, "gi.d.ts");
+      await templateProcessor.create("gjs/gi.js", config.outdir, "gi.js");
 
-			// Import ambient types
-			await templateProcessor.create("gjs/gjs-ambient.d.ts", config.outdir, "gjs-ambient.d.ts");
-			await templateProcessor.create("gjs/gjs-ambient.js", config.outdir, "gjs-ambient.js");
+      // Import ambient types
+      await templateProcessor.create("gjs/gjs-ambient.d.ts", config.outdir, "gjs-ambient.d.ts");
+      await templateProcessor.create("gjs/gjs-ambient.js", config.outdir, "gjs-ambient.js");
 
-			const pkg = new NpmPackage(config, dependencyManager, this.registry, gjs, await dependencyManager.core());
-			await pkg.exportNPMPackage();
-		} else {
-			const gjsContent = await templateProcessor.load("gjs/gjs.d.ts");
-			await templateProcessor.write(`${gjsContent.prepend}\n${gjsContent.append}`, config.outdir, "gjs.d.ts");
+      const pkg = new NpmPackage(
+        config,
+        dependencyManager,
+        this.registry,
+        gjs,
+        await dependencyManager.core(),
+      );
+      await pkg.exportNPMPackage();
+    } else {
+      const gjsContent = await templateProcessor.load("gjs/gjs.d.ts");
+      await templateProcessor.write(
+        `${gjsContent.prepend}\n${gjsContent.append}`,
+        config.outdir,
+        "gjs.d.ts",
+      );
 
-			const gettextContent = await templateProcessor.load("gjs/gettext.d.ts");
-			await templateProcessor.write(
-				`${gettextContent.prepend}\n${gettextContent.append}`,
-				config.outdir,
-				"gettext.d.ts",
-			);
+      const gettextContent = await templateProcessor.load("gjs/gettext.d.ts");
+      await templateProcessor.write(
+        `${gettextContent.prepend}\n${gettextContent.append}`,
+        config.outdir,
+        "gettext.d.ts",
+      );
 
-			const systemContent = await templateProcessor.load("gjs/system.d.ts");
-			await templateProcessor.write(`${systemContent.prepend}\n${systemContent.append}`, config.outdir, "system.d.ts");
+      const systemContent = await templateProcessor.load("gjs/system.d.ts");
+      await templateProcessor.write(
+        `${systemContent.prepend}\n${systemContent.append}`,
+        config.outdir,
+        "system.d.ts",
+      );
 
-			const cairoContent = await templateProcessor.load("gjs/cairo.d.ts");
-			await templateProcessor.write(`${cairoContent.prepend}\n${cairoContent.append}`, config.outdir, "cairo.d.ts");
+      const cairoContent = await templateProcessor.load("gjs/cairo.d.ts");
+      await templateProcessor.write(
+        `${cairoContent.prepend}\n${cairoContent.append}`,
+        config.outdir,
+        "cairo.d.ts",
+      );
 
-			const consoleContent = await templateProcessor.load("gjs/console.d.ts");
-			await templateProcessor.write(
-				`${consoleContent.prepend}\n${consoleContent.append}`,
-				config.outdir,
-				"console.d.ts",
-			);
+      const consoleContent = await templateProcessor.load("gjs/console.d.ts");
+      await templateProcessor.write(
+        `${consoleContent.prepend}\n${consoleContent.append}`,
+        config.outdir,
+        "console.d.ts",
+      );
 
-			const giContent = await templateProcessor.load("gjs/gi.d.ts");
-			await templateProcessor.write(`${giContent.prepend}\n${giContent.append}`, config.outdir, "gi.d.ts");
+      const giContent = await templateProcessor.load("gjs/gi.d.ts");
+      await templateProcessor.write(
+        `${giContent.prepend}\n${giContent.append}`,
+        config.outdir,
+        "gi.d.ts",
+      );
 
-			// Additional DOM types supported by GJS
-			const domContent = await templateProcessor.load("gjs/dom.d.ts");
-			await templateProcessor.write(`${domContent.prepend}\n${domContent.append}`, config.outdir, "dom.d.ts");
-		}
-	}
+      // Additional DOM types supported by GJS
+      const domContent = await templateProcessor.load("gjs/dom.d.ts");
+      await templateProcessor.write(
+        `${domContent.prepend}\n${domContent.append}`,
+        config.outdir,
+        "dom.d.ts",
+      );
+    }
+  }
 
-	async exportAllModules(girModules: GirModule[]) {
-		const { config, dependencyManager } = this;
+  async exportAllModules(girModules: GirModule[]) {
+    const { config, dependencyManager } = this;
 
-		if (config.package) {
-			throw new Error("Export all modules is not implemented for package.json mode");
-		}
+    if (config.package) {
+      throw new Error("Export all modules is not implemented for package.json mode");
+    }
 
-		// TODO: Print to stdout
-		if (!config.outdir) return;
+    // TODO: Print to stdout
+    if (!config.outdir) return;
 
-		const templateProcessor = new TemplateProcessor(
-			{ girModules },
-			"index",
-			this.registry,
-			dependencyManager.all(),
-			config,
-		);
+    const templateProcessor = new TemplateProcessor(
+      { girModules },
+      "index",
+      this.registry,
+      dependencyManager.all(),
+      config,
+    );
 
-		await templateProcessor.create("gi.d.ts", config.outdir, "gi.d.ts");
-		await templateProcessor.create("index-locally.d.ts", config.outdir, "index.d.ts");
-	}
+    await templateProcessor.create("gi.d.ts", config.outdir, "gi.d.ts");
+    await templateProcessor.create("index-locally.d.ts", config.outdir, "index.d.ts");
+  }
 
-	public async generate(module: GirModule) {
-		const moduleGenerator = new ModuleGenerator(module, this.config, this.registry);
-		await moduleGenerator.moduleExporter.exportModule(this.registry, module);
-	}
+  public async generate(module: GirModule) {
+    const moduleGenerator = new ModuleGenerator(module, this.config, this.registry);
+    await moduleGenerator.moduleExporter.exportModule(this.registry, module);
+  }
 
-	public async start() {
-		// if (this.packageData) {
-		//     await this.packageData.start()
-		// }
-	}
+  public async start() {
+    // if (this.packageData) {
+    //     await this.packageData.start()
+    // }
+  }
 
-	public async finish(girModules: GirModule[]) {
-		// GJS internal stuff
-		await this.exportGjs();
+  public async finish(girModules: GirModule[]) {
+    // GJS internal stuff
+    await this.exportGjs();
 
-		// index file for all modules — skipped in external-deps mode where the output is a
-		// single ambient `.d.ts` for one module and the aggregator would have nothing to do.
-		if (!this.config.package && !this.config.externalDeps) {
-			await this.exportAllModules(girModules);
-		}
-	}
+    // index file for all modules — skipped in external-deps mode where the output is a
+    // single ambient `.d.ts` for one module and the aggregator would have nothing to do.
+    if (!this.config.package && !this.config.externalDeps) {
+      await this.exportAllModules(girModules);
+    }
+  }
 }

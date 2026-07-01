@@ -1,28 +1,28 @@
 {
-	"name": "@ts-for-gir-example/gjs-gtk-4-custom-widget-example",
-	"description": "This example shows the usage of custom widgets and virtual functions in GJS",
-	"type": "module",
-	"private": true,
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings esbuild.ts",
-		"start": "gjs -m dist/index.js",
-		"check": "tsc --noEmit",
-		"clear": "rm -rf dist @types"
-	},
-	"author": "Pascal Garber <pascal@mailfreun.de>",
-	"license": "MIT",
-	"devDependencies": {
-		"@ts-for-gir/cli": "workspace:^",
-		"esbuild": "^0.28.0",
-		"typescript": "^6.0.3"
-	},
-	"dependencies": {
-		"@girs/gio-2.0": "workspace:^",
-		"@girs/gjs": "workspace:^",
-		"@girs/glib-2.0": "workspace:^",
-		"@girs/gobject-2.0": "workspace:^",
-		"@girs/graphene-1.0": "workspace:^",
-		"@girs/gtk-4.0": "workspace:^"
-	}
+  "name": "@ts-for-gir-example/gjs-gtk-4-custom-widget-example",
+  "description": "This example shows the usage of custom widgets and virtual functions in GJS",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings esbuild.ts",
+    "start": "gjs -m dist/index.js",
+    "check": "tsc --noEmit",
+    "clear": "rm -rf dist @types"
+  },
+  "author": "Pascal Garber <pascal@mailfreun.de>",
+  "license": "MIT",
+  "devDependencies": {
+    "@ts-for-gir/cli": "workspace:^",
+    "esbuild": "^0.28.1",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "@girs/gio-2.0": "workspace:^",
+    "@girs/gjs": "workspace:^",
+    "@girs/glib-2.0": "workspace:^",
+    "@girs/gobject-2.0": "workspace:^",
+    "@girs/graphene-1.0": "workspace:^",
+    "@girs/gtk-4.0": "workspace:^"
+  }
 }

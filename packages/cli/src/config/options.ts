@@ -9,357 +9,359 @@ import { defaults } from "./defaults.ts";
  * CLI options used in commands/generate.ts and commands/list.ts
  */
 export const options: { [name: string]: Options } = {
-	modules: {
-		description: "GIR modules to load, e.g. 'Gio-2.0'. Accepts multiple modules",
-		array: true,
-		default: defaults.modules,
-		normalize: true,
-	},
-	girDirectories: {
-		type: "string",
-		alias: "g",
-		description: "GIR directories",
-		array: true,
-		default: defaults.girDirectories,
-		normalize: true,
-	},
-	root: {
-		type: "string",
-		description: "Root directory of your project",
-		default: defaults.root,
-		normalize: true,
-	},
-	outdir: {
-		type: "string",
-		alias: "o",
-		description: "Directory to output to",
-		default: defaults.outdir,
-		normalize: true,
-	},
-	ignore: {
-		type: "string",
-		alias: "i",
-		description: "Modules that should be ignored",
-		array: true,
-		default: defaults.ignore,
-		normalize: true,
-	},
-	verbose: {
-		type: "boolean",
-		alias: "v",
-		description: "Switch on/off the verbose mode",
-		default: defaults.verbose,
-		normalize: true,
-	},
-	ignoreVersionConflicts: {
-		type: "boolean",
-		description: "Skip prompts for library version selection when multiple versions are detected",
-		default: defaults.ignoreVersionConflicts,
-		normalize: true,
-	},
-	print: {
-		type: "boolean",
-		alias: "p",
-		description: "Print the output to console and create no files",
-		default: defaults.print,
-		normalize: true,
-	},
-	configName: {
-		type: "string",
-		description: "Specify a custom name for the configuration file",
-		default: defaults.configName,
-		normalize: true,
-	},
-	noNamespace: {
-		type: "boolean",
-		alias: "d",
-		description: "Do not export all symbols for each module as a namespace",
-		default: defaults.noNamespace,
-		normalize: true,
-	},
-	noComments: {
-		type: "boolean",
-		alias: "n",
-		description: "Do not generate documentation comments",
-		default: defaults.noComments,
-		normalize: true,
-	},
-	promisify: {
-		type: "boolean",
-		description: "Generate promisified functions for async/finish calls",
-		default: defaults.promisify,
-		normalize: true,
-	},
-	npmScope: {
-		type: "string",
-		description: "Scope of the generated NPM packages",
-		default: defaults.npmScope,
-		normalize: true,
-	},
-	workspace: {
-		type: "boolean",
-		description:
-			"Uses the workspace protocol for the generated packages which can be used with package managers like Yarn and PNPM",
-		default: defaults.workspace,
-		normalize: true,
-	},
-	depVersionFormat: {
-		type: "string",
-		description:
-			"Dependency version spec format in generated package.json files. Defaults to 'workspace' when --workspace, else 'exact'",
-		choices: ["workspace", "caret", "any", "exact"] as const,
-	},
-	onlyVersionPrefix: {
-		type: "boolean",
-		description:
-			"Only use the version prefix for the ambient module exports. This is useful if, for whatever reason, you want to use different library versions of the same library in your project.",
-		default: defaults.onlyVersionPrefix,
-		normalize: true,
-	},
-	noPrettyPrint: {
-		type: "boolean",
-		description: "Do not prettify the generated types",
-		default: defaults.noPrettyPrint,
-		normalize: true,
-	},
-	noAdvancedVariants: {
-		type: "boolean",
-		description: "Disable GLib.Variant class with string parsing",
-		default: defaults.noAdvancedVariants,
-		normalize: true,
-	},
-	package: {
-		type: "boolean",
-		description: "Generate the typescript types with package.json support",
-		default: defaults.package,
-		normalize: true,
-	},
-	reporter: {
-		type: "boolean",
-		description: "Enable generation problem reporter and create a detailed report file",
-		default: defaults.reporter,
-		normalize: true,
-	},
-	reporterOutput: {
-		type: "string",
-		description: "Output file path for the reporter (default: ts-for-gir-report.json)",
-		default: defaults.reporterOutput,
-		normalize: true,
-	},
-	externalDeps: {
-		type: "boolean",
-		description:
-			"Emit imports from installed @girs/* npm packages instead of regenerating dep types. Implies single-file ambient .d.ts output. Designed for project-local Vala/C bridges. Strict by default — missing transitive dep GIRs abort the run; pass --allow-missing-deps to override.",
-		default: defaults.externalDeps,
-		normalize: true,
-	},
-	allowMissingDeps: {
-		type: "boolean",
-		description:
-			"In --external-deps mode, allow generation to proceed when app-specific transitive dep GIRs are missing (e.g. CI without libsoup3-devel). Note: GLib/Gio/GObject GIRs are still architecturally required for class-hierarchy resolution. Default strict behavior prevents silent type-quality drift between environments.",
-		default: defaults.allowMissingDeps,
-		normalize: true,
-	},
-	externalPackage: {
-		type: "string",
-		description:
-			"Override the default namespace→npm package mapping for --external-deps mode. Repeatable. Format: 'Namespace=@scope/pkg'. Example: --external-package Soup=@girs/soup-3.0",
-		array: true,
-	},
+  modules: {
+    description: "GIR modules to load, e.g. 'Gio-2.0'. Accepts multiple modules",
+    array: true,
+    default: defaults.modules,
+    normalize: true,
+  },
+  girDirectories: {
+    type: "string",
+    alias: "g",
+    description: "GIR directories",
+    array: true,
+    default: defaults.girDirectories,
+    normalize: true,
+  },
+  root: {
+    type: "string",
+    description: "Root directory of your project",
+    default: defaults.root,
+    normalize: true,
+  },
+  outdir: {
+    type: "string",
+    alias: "o",
+    description: "Directory to output to",
+    default: defaults.outdir,
+    normalize: true,
+  },
+  ignore: {
+    type: "string",
+    alias: "i",
+    description: "Modules that should be ignored",
+    array: true,
+    default: defaults.ignore,
+    normalize: true,
+  },
+  verbose: {
+    type: "boolean",
+    alias: "v",
+    description: "Switch on/off the verbose mode",
+    default: defaults.verbose,
+    normalize: true,
+  },
+  ignoreVersionConflicts: {
+    type: "boolean",
+    description: "Skip prompts for library version selection when multiple versions are detected",
+    default: defaults.ignoreVersionConflicts,
+    normalize: true,
+  },
+  print: {
+    type: "boolean",
+    alias: "p",
+    description: "Print the output to console and create no files",
+    default: defaults.print,
+    normalize: true,
+  },
+  configName: {
+    type: "string",
+    description: "Specify a custom name for the configuration file",
+    default: defaults.configName,
+    normalize: true,
+  },
+  noNamespace: {
+    type: "boolean",
+    alias: "d",
+    description: "Do not export all symbols for each module as a namespace",
+    default: defaults.noNamespace,
+    normalize: true,
+  },
+  noComments: {
+    type: "boolean",
+    alias: "n",
+    description: "Do not generate documentation comments",
+    default: defaults.noComments,
+    normalize: true,
+  },
+  promisify: {
+    type: "boolean",
+    description: "Generate promisified functions for async/finish calls",
+    default: defaults.promisify,
+    normalize: true,
+  },
+  npmScope: {
+    type: "string",
+    description: "Scope of the generated NPM packages",
+    default: defaults.npmScope,
+    normalize: true,
+  },
+  workspace: {
+    type: "boolean",
+    description:
+      "Uses the workspace protocol for the generated packages which can be used with package managers like Yarn and PNPM",
+    default: defaults.workspace,
+    normalize: true,
+  },
+  depVersionFormat: {
+    type: "string",
+    description:
+      "Dependency version spec format in generated package.json files. Defaults to 'workspace' when --workspace, else 'exact'",
+    choices: ["workspace", "caret", "any", "exact"] as const,
+  },
+  onlyVersionPrefix: {
+    type: "boolean",
+    description:
+      "Only use the version prefix for the ambient module exports. This is useful if, for whatever reason, you want to use different library versions of the same library in your project.",
+    default: defaults.onlyVersionPrefix,
+    normalize: true,
+  },
+  noPrettyPrint: {
+    type: "boolean",
+    description: "Do not prettify the generated types",
+    default: defaults.noPrettyPrint,
+    normalize: true,
+  },
+  noAdvancedVariants: {
+    type: "boolean",
+    description: "Disable GLib.Variant class with string parsing",
+    default: defaults.noAdvancedVariants,
+    normalize: true,
+  },
+  package: {
+    type: "boolean",
+    description: "Generate the typescript types with package.json support",
+    default: defaults.package,
+    normalize: true,
+  },
+  reporter: {
+    type: "boolean",
+    description: "Enable generation problem reporter and create a detailed report file",
+    default: defaults.reporter,
+    normalize: true,
+  },
+  reporterOutput: {
+    type: "string",
+    description: "Output file path for the reporter (default: ts-for-gir-report.json)",
+    default: defaults.reporterOutput,
+    normalize: true,
+  },
+  externalDeps: {
+    type: "boolean",
+    description:
+      "Emit imports from installed @girs/* npm packages instead of regenerating dep types. Implies single-file ambient .d.ts output. Designed for project-local Vala/C bridges. Strict by default — missing transitive dep GIRs abort the run; pass --allow-missing-deps to override.",
+    default: defaults.externalDeps,
+    normalize: true,
+  },
+  allowMissingDeps: {
+    type: "boolean",
+    description:
+      "In --external-deps mode, allow generation to proceed when app-specific transitive dep GIRs are missing (e.g. CI without libsoup3-devel). Note: GLib/Gio/GObject GIRs are still architecturally required for class-hierarchy resolution. Default strict behavior prevents silent type-quality drift between environments.",
+    default: defaults.allowMissingDeps,
+    normalize: true,
+  },
+  externalPackage: {
+    type: "string",
+    description:
+      "Override the default namespace→npm package mapping for --external-deps mode. Repeatable. Format: 'Namespace=@scope/pkg'. Example: --external-package Soup=@girs/soup-3.0",
+    array: true,
+  },
 };
 
 /**
  * CLI flags used in commands/generate.ts
  */
 export const generateOptions = {
-	modules: options.modules,
-	girDirectories: options.girDirectories,
-	root: options.root,
-	outdir: options.outdir,
-	ignore: options.ignore,
-	verbose: options.verbose,
-	ignoreVersionConflicts: options.ignoreVersionConflicts,
-	print: options.print,
-	configName: options.configName,
-	noNamespace: options.noNamespace,
-	noComments: options.noComments,
-	promisify: options.promisify,
-	npmScope: options.npmScope,
-	workspace: options.workspace,
-	depVersionFormat: options.depVersionFormat,
-	onlyVersionPrefix: options.onlyVersionPrefix,
-	noPrettyPrint: options.noPrettyPrint,
-	noAdvancedVariants: options.noAdvancedVariants,
-	package: options.package,
-	reporter: options.reporter,
-	reporterOutput: options.reporterOutput,
-	externalDeps: options.externalDeps,
-	allowMissingDeps: options.allowMissingDeps,
-	externalPackage: options.externalPackage,
+  modules: options.modules,
+  girDirectories: options.girDirectories,
+  root: options.root,
+  outdir: options.outdir,
+  ignore: options.ignore,
+  verbose: options.verbose,
+  ignoreVersionConflicts: options.ignoreVersionConflicts,
+  print: options.print,
+  configName: options.configName,
+  noNamespace: options.noNamespace,
+  noComments: options.noComments,
+  promisify: options.promisify,
+  npmScope: options.npmScope,
+  workspace: options.workspace,
+  depVersionFormat: options.depVersionFormat,
+  onlyVersionPrefix: options.onlyVersionPrefix,
+  noPrettyPrint: options.noPrettyPrint,
+  noAdvancedVariants: options.noAdvancedVariants,
+  package: options.package,
+  reporter: options.reporter,
+  reporterOutput: options.reporterOutput,
+  externalDeps: options.externalDeps,
+  allowMissingDeps: options.allowMissingDeps,
+  externalPackage: options.externalPackage,
 };
 
 export const listOptions = {
-	modules: options.modules,
-	girDirectories: options.girDirectories,
-	root: options.root,
-	ignore: options.ignore,
-	configName: options.configName,
-	verbose: options.verbose,
+  modules: options.modules,
+  girDirectories: options.girDirectories,
+  root: options.root,
+  ignore: options.ignore,
+  configName: options.configName,
+  verbose: options.verbose,
 };
 
 export const copyOptions = {
-	modules: options.modules,
-	girDirectories: options.girDirectories,
-	root: options.root,
-	outdir: options.outdir,
-	ignore: options.ignore,
-	configName: options.configName,
-	verbose: options.verbose,
+  modules: options.modules,
+  girDirectories: options.girDirectories,
+  root: options.root,
+  outdir: options.outdir,
+  ignore: options.ignore,
+  configName: options.configName,
+  verbose: options.verbose,
 };
 
 export const docOptions = {
-	...generateOptions,
-	outdir: { ...options.outdir, default: defaults.docOutdir },
-	combined: {
-		type: "boolean" as const,
-		description:
-			"Generate a single unified documentation for all modules (use --no-combined for separate per-module docs)",
-		default: defaults.combined,
-	},
-	sourceLinkTemplate: {
-		type: "string" as const,
-		description:
-			"URL template for source links in generated documentation. Supports {path}, {line}, {gitRevision} placeholders. Example: https://github.com/user/repo/blob/main/{path}#L{line}",
-	},
-	theme: {
-		type: "string" as const,
-		description:
-			'Theme for HTML documentation generation (default: "gi-docgen"). Use "default" for TypeDoc\'s built-in theme.',
-		default: defaults.theme,
-	},
-	readme: {
-		type: "string" as const,
-		description:
-			'Path to a README file for the documentation index page. Use "none" to disable. If not set, TypeDoc auto-discovers README.md from packages.',
-	},
-	merge: {
-		type: "boolean" as const,
-		description: "Use TypeDoc merge mode to generate HTML from pre-generated JSON files (requires --jsonDir)",
-		default: false,
-	},
-	jsonDir: {
-		type: "string" as const,
-		description: "Directory containing pre-generated TypeDoc JSON files for merge mode (from 'ts-for-gir json')",
-	},
+  ...generateOptions,
+  outdir: { ...options.outdir, default: defaults.docOutdir },
+  combined: {
+    type: "boolean" as const,
+    description:
+      "Generate a single unified documentation for all modules (use --no-combined for separate per-module docs)",
+    default: defaults.combined,
+  },
+  sourceLinkTemplate: {
+    type: "string" as const,
+    description:
+      "URL template for source links in generated documentation. Supports {path}, {line}, {gitRevision} placeholders. Example: https://github.com/user/repo/blob/main/{path}#L{line}",
+  },
+  theme: {
+    type: "string" as const,
+    description:
+      'Theme for HTML documentation generation (default: "gi-docgen"). Use "default" for TypeDoc\'s built-in theme.',
+    default: defaults.theme,
+  },
+  readme: {
+    type: "string" as const,
+    description:
+      'Path to a README file for the documentation index page. Use "none" to disable. If not set, TypeDoc auto-discovers README.md from packages.',
+  },
+  merge: {
+    type: "boolean" as const,
+    description:
+      "Use TypeDoc merge mode to generate HTML from pre-generated JSON files (requires --jsonDir)",
+    default: false,
+  },
+  jsonDir: {
+    type: "string" as const,
+    description:
+      "Directory containing pre-generated TypeDoc JSON files for merge mode (from 'ts-for-gir json')",
+  },
 };
 
 export const createOptions = {
-	template: {
-		type: "string" as const,
-		alias: "t",
-		description: "Template to scaffold (types-locally, types-npm, types-workspace, types-gjsify)",
-		choices: ["types-locally", "types-npm", "types-workspace", "types-gjsify"] as const,
-	},
-	install: {
-		type: "boolean" as const,
-		description: "Run npm install after scaffolding (use --no-install to skip)",
-		default: true,
-	},
-	force: {
-		type: "boolean" as const,
-		description: "Allow scaffolding into a non-empty target directory",
-		default: false,
-	},
-	verbose: options.verbose,
+  template: {
+    type: "string" as const,
+    alias: "t",
+    description: "Template to scaffold (types-locally, types-npm, types-workspace, types-gjsify)",
+    choices: ["types-locally", "types-npm", "types-workspace", "types-gjsify"] as const,
+  },
+  install: {
+    type: "boolean" as const,
+    description: "Run npm install after scaffolding (use --no-install to skip)",
+    default: true,
+  },
+  force: {
+    type: "boolean" as const,
+    description: "Allow scaffolding into a non-empty target directory",
+    default: false,
+  },
+  verbose: options.verbose,
 };
 
 export const analyzeOptions = {
-	reportFile: {
-		type: "string" as const,
-		alias: "f",
-		description: "Path to the report file to analyze",
-		demandOption: true,
-		normalize: true,
-	},
-	severity: {
-		type: "string" as const,
-		alias: "s",
-		description: "Filter by problem severity (debug, info, warning, error, critical)",
-		array: true,
-		choices: ["debug", "info", "warning", "error", "critical"],
-	},
-	category: {
-		type: "string" as const,
-		alias: "c",
-		description: "Filter by problem category",
-		array: true,
-		choices: [
-			"type_resolution",
-			"parsing_failure",
-			"generation_failure",
-			"type_conflict",
-			"dependency_issue",
-			"configuration",
-			"io_error",
-			"general",
-		],
-	},
-	namespace: {
-		type: "string" as const,
-		alias: "n",
-		description: "Filter by namespace/module",
-		array: true,
-	},
-	type: {
-		type: "string" as const,
-		alias: "t",
-		description: "Filter by specific type name",
-		array: true,
-	},
-	top: {
-		type: "number" as const,
-		description: "Show top N most problematic items",
-		default: 10,
-	},
-	export: {
-		type: "string" as const,
-		alias: "e",
-		description: "Export filtered results to file",
-		normalize: true,
-	},
-	format: {
-		type: "string" as const,
-		description: "Output format (json, csv, table)",
-		choices: ["json", "csv", "table"],
-		default: "table",
-	},
-	detailed: {
-		type: "boolean" as const,
-		alias: "d",
-		description: "Show detailed problem information",
-		default: false,
-	},
-	summary: {
-		type: "boolean" as const,
-		description: "Show summary statistics only",
-		default: false,
-	},
-	search: {
-		type: "string" as const,
-		description: "Search for problems containing specific text",
-	},
-	since: {
-		type: "string" as const,
-		description: "Show problems from a specific time range (ISO date)",
-	},
-	until: {
-		type: "string" as const,
-		description: "Show problems until a specific time (ISO date)",
-	},
-	verbose: {
-		type: "boolean" as const,
-		alias: "v",
-		description: "Switch on/off the verbose mode",
-		default: false,
-	},
+  reportFile: {
+    type: "string" as const,
+    alias: "f",
+    description: "Path to the report file to analyze",
+    demandOption: true,
+    normalize: true,
+  },
+  severity: {
+    type: "string" as const,
+    alias: "s",
+    description: "Filter by problem severity (debug, info, warning, error, critical)",
+    array: true,
+    choices: ["debug", "info", "warning", "error", "critical"],
+  },
+  category: {
+    type: "string" as const,
+    alias: "c",
+    description: "Filter by problem category",
+    array: true,
+    choices: [
+      "type_resolution",
+      "parsing_failure",
+      "generation_failure",
+      "type_conflict",
+      "dependency_issue",
+      "configuration",
+      "io_error",
+      "general",
+    ],
+  },
+  namespace: {
+    type: "string" as const,
+    alias: "n",
+    description: "Filter by namespace/module",
+    array: true,
+  },
+  type: {
+    type: "string" as const,
+    alias: "t",
+    description: "Filter by specific type name",
+    array: true,
+  },
+  top: {
+    type: "number" as const,
+    description: "Show top N most problematic items",
+    default: 10,
+  },
+  export: {
+    type: "string" as const,
+    alias: "e",
+    description: "Export filtered results to file",
+    normalize: true,
+  },
+  format: {
+    type: "string" as const,
+    description: "Output format (json, csv, table)",
+    choices: ["json", "csv", "table"],
+    default: "table",
+  },
+  detailed: {
+    type: "boolean" as const,
+    alias: "d",
+    description: "Show detailed problem information",
+    default: false,
+  },
+  summary: {
+    type: "boolean" as const,
+    description: "Show summary statistics only",
+    default: false,
+  },
+  search: {
+    type: "string" as const,
+    description: "Search for problems containing specific text",
+  },
+  since: {
+    type: "string" as const,
+    description: "Show problems from a specific time range (ISO date)",
+  },
+  until: {
+    type: "string" as const,
+    description: "Show problems until a specific time (ISO date)",
+  },
+  verbose: {
+    type: "boolean" as const,
+    alias: "v",
+    description: "Switch on/off the verbose mode",
+    default: false,
+  },
 };

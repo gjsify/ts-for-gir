@@ -5,7 +5,7 @@ Gtk.init(null);
 
 const settings = Gtk.Settings.get_default();
 if (!settings) {
-	throw new Error("Can\t load default settings!");
+  throw new Error("Can\t load default settings!");
 }
 
 settings.gtkApplicationPreferDarkTheme = true;
@@ -19,11 +19,11 @@ win.set_position(Gtk.WindowPosition.CENTER);
 win.set_default_size(200, 80);
 
 win.connect("show", () => {
-	Gtk.main();
+  Gtk.main();
 });
 win.connect("destroy", () => {
-	Gtk.main_quit();
-	return true;
+  Gtk.main_quit();
+  return true;
 });
 
 win.add(new Gtk.Label({ label: "Hello Gtk 3.0" }));

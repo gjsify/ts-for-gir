@@ -9,9 +9,9 @@ import GObject from "@girs/gobject-2.0";
 
 // Custom GObject class registered with GObject.registerClass
 class MyItem extends GObject.Object {
-	static {
-		GObject.registerClass({ GTypeName: "MyItem" }, MyItem);
-	}
+  static {
+    GObject.registerClass({ GTypeName: "MyItem" }, MyItem);
+  }
 }
 
 // Issue #192: Passing a class constructor to a GType parameter.
@@ -30,7 +30,7 @@ const item = new MyItem();
 store.append(item);
 
 if (store.get_n_items() !== 1) {
-	throw new Error(`Expected 1 item, got ${store.get_n_items()}`);
+  throw new Error(`Expected 1 item, got ${store.get_n_items()}`);
 }
 
 print(`ListStore created with ${store.get_n_items()} item(s) - GTypeInput validation passed`);

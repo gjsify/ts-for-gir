@@ -12,14 +12,14 @@ Gtk.init(null);
 
 // Construct a top-level window
 const win = new Gtk.Window({
-	type: Gtk.WindowType.TOPLEVEL,
-	title: "A default title",
-	defaultWidth: 300,
-	defaultHeight: 250,
-	// A decent example of how constants are mapped:
-	//     'Gtk' and 'WindowPosition' from the enum name GtkWindowPosition,
-	//     'CENTER' from the enum's constant GTK_WIN_POS_CENTER
-	windowPosition: Gtk.WindowPosition.CENTER,
+  type: Gtk.WindowType.TOPLEVEL,
+  title: "A default title",
+  defaultWidth: 300,
+  defaultHeight: 250,
+  // A decent example of how constants are mapped:
+  //     'Gtk' and 'WindowPosition' from the enum name GtkWindowPosition,
+  //     'CENTER' from the enum's constant GTK_WIN_POS_CENTER
+  windowPosition: Gtk.WindowPosition.CENTER,
 });
 
 // Object properties can also be set or changed after construction, unless they
@@ -28,13 +28,13 @@ win.title = "Hello World!";
 
 // This is a callback function
 function onDeleteEvent() {
-	log("delete-event emitted");
-	// If you return false in the "delete_event" signal handler, Gtk will emit
-	// the "destroy" signal.
-	//
-	// Returning true gives you a chance to pop up 'are you sure you want to
-	// quit?' type dialogs.
-	return false;
+  log("delete-event emitted");
+  // If you return false in the "delete_event" signal handler, Gtk will emit
+  // the "destroy" signal.
+  //
+  // Returning true gives you a chance to pop up 'are you sure you want to
+  // quit?' type dialogs.
+  return false;
 }
 
 // When the window is given the "delete_event" signal (this is given by the
@@ -48,19 +48,19 @@ win.connect("delete-event", onDeleteEvent);
 //
 // ...so use arrow functions for inline callbacks with arguments to adjust
 win.connect("destroy", () => {
-	Gtk.main_quit();
+  Gtk.main_quit();
 });
 
 // Create a button to close the window
 const button = new Gtk.Button({
-	label: "Close the Window",
-	// Set visible to 'true' if you don't want to call button.show() later
-	visible: true,
-	// Another example of constant mapping:
-	//     'Gtk' and 'Align' are taken from the GtkAlign enum,
-	//     'CENTER' from the constant GTK_ALIGN_CENTER
-	valign: Gtk.Align.CENTER,
-	halign: Gtk.Align.CENTER,
+  label: "Close the Window",
+  // Set visible to 'true' if you don't want to call button.show() later
+  visible: true,
+  // Another example of constant mapping:
+  //     'Gtk' and 'Align' are taken from the GtkAlign enum,
+  //     'CENTER' from the constant GTK_ALIGN_CENTER
+  valign: Gtk.Align.CENTER,
+  halign: Gtk.Align.CENTER,
 });
 
 // Connect to the 'clicked' signal, using another way to call an arrow function

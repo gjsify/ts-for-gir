@@ -11,7 +11,7 @@
 import { Formatter } from "@ts-for-gir/lib";
 
 export class TypeScriptFormatter extends Formatter {
-	format(input: string): Promise<string> {
-		return Promise.resolve(input);
-	}
+  format(input: string): Promise<string> {
+    return Promise.resolve(input);
+  }
 }

@@ -15,7 +15,7 @@ view.load_uri("https://duckduckgo.com/");
 win.add(view);
 
 win.connect("destroy", () => {
-	Gtk.main_quit();
+  Gtk.main_quit();
 });
 
 win.set_size_request(640, 480);

@@ -5,7 +5,7 @@
 import { describe, it, before, after } from "node:test";
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
-import { mkdirSync, existsSync, readdirSync, writeFileSync } from "node:fs";
+import { mkdirSync, existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 import {
@@ -141,6 +141,87 @@ describe("ts-for-gir CLI E2E", { timeout: 10 * 60 * 1000 }, () => {
     const allFiles = readdirSync(outdir, { recursive: true });
     const pkgJsonFiles = allFiles.filter((f) => f.endsWith("package.json"));
     assert.ok(pkgJsonFiles.length > 0, "No package.json files were generated");
+
+    // Regression for #431 ("Incompatible GObject type"). The npm version is the
+    // ts-for-gir release alone (e.g. "4.0.4"); the targeted library version lives in a
+    // `libraryVersion` field, NOT coupled into the version as "<lib>-<app>". Keeping the
+    // version a plain release (not a semver prerelease) lets non-workspace --package emit
+    // caret ranges that pin the package's OWN version: npm/yarn dedupe inter-@girs deps to
+    // a single copy AND caret excludes rc/beta. A coupled "<lib>-<app>" version, or exact
+    // pins, would re-nest a second @girs/gobject-2.0 — the structural mismatch in #431.
+    let girsDepsChecked = 0;
+    let libVerFieldsChecked = 0;
+    for (const rel of pkgJsonFiles) {
+      const pkg = JSON.parse(readFileSync(join(outdir, rel), "utf8"));
+      // The version must be a plain release, never "<libraryVersion>-<appVersion>".
+      if (pkg.libraryVersion) {
+        libVerFieldsChecked++;
+        assert.ok(
+          !pkg.version.startsWith(`${pkg.libraryVersion}-`),
+          `${rel}: version "${pkg.version}" still couples library version "${pkg.libraryVersion}" (#431)`,
+        );
+      }
+      const specs = { ...pkg.dependencies, ...pkg.peerDependencies };
+      for (const [name, spec] of Object.entries(specs)) {
+        if (!name.startsWith("@girs/")) continue;
+        girsDepsChecked++;
+        assert.ok(
+          !spec.startsWith("workspace:"),
+          `${rel}: "${name}" leaked the workspace: protocol in non-workspace mode`,
+        );
+        // Caret on the package's own release version: all @girs of one release share it,
+        // so the range dedupes across ts-for-gir releases and (the version being a plain
+        // release) excludes prereleases.
+        assert.equal(
+          spec,
+          `^${pkg.version}`,
+          `${rel}: "${name}" is "${spec}" — expected "^${pkg.version}" (caret on the release version, #431)`,
+        );
+      }
+    }
+    assert.ok(girsDepsChecked > 0, "Expected at least one inter-@girs dependency to assert on");
+    assert.ok(
+      libVerFieldsChecked > 0,
+      "Expected a libraryVersion field on at least one generated package",
+    );
+  });
+
+  it("generate Gtk-4.0 --package --depVersionFormat exact keeps bare pins", () => {
+    const outdir = join(projectWithPkg, "types-pkg-exact");
+    const result = runCli(cliBin, projectWithPkg, [
+      "generate",
+      "Gtk-4.0",
+      "--girDirectories",
+      GIRS_DIR,
+      "--outdir",
+      outdir,
+      "--package",
+      "--depVersionFormat",
+      "exact",
+    ]);
+    assert.ok(
+      !result.error,
+      `generate --package --depVersionFormat exact failed: ${result.stderr}`,
+    );
+    const pkgJsonFiles = readdirSync(outdir, { recursive: true }).filter((f) =>
+      f.endsWith("package.json"),
+    );
+    let girsDepsChecked = 0;
+    for (const rel of pkgJsonFiles) {
+      const pkg = JSON.parse(readFileSync(join(outdir, rel), "utf8"));
+      const specs = { ...pkg.dependencies, ...pkg.peerDependencies };
+      for (const [name, spec] of Object.entries(specs)) {
+        if (!name.startsWith("@girs/")) continue;
+        girsDepsChecked++;
+        // Exact opt-in pins the package's own release version verbatim — no caret.
+        assert.equal(
+          spec,
+          pkg.version,
+          `${rel}: "${name}" is "${spec}" — expected the bare exact pin "${pkg.version}" under --depVersionFormat=exact`,
+        );
+      }
+    }
+    assert.ok(girsDepsChecked > 0, "Expected at least one inter-@girs dependency to assert on");
   });
 
   it("generate with config file works", () => {

@@ -110,20 +110,10 @@ export class DependencyManager {
 		];
 	}
 
-	createImportProperties(namespace: string, packageName: string, version: string, libraryVersion?: LibraryVersion) {
+	createImportProperties(namespace: string, packageName: string, version: string) {
 		const importPath = this.createImportPath(packageName, namespace, version);
 		const importDef = this.createImportDef(namespace, importPath);
-
-		// For GObject and Gio, use GLib's library version if available
-		let effectiveLibraryVersion = libraryVersion;
-		if ((namespace === "GObject" || namespace === "Gio") && this._cache["GLib-2.0"]) {
-			const glibDep = this._cache["GLib-2.0"];
-			if (glibDep.libraryVersion.toString() !== "0.0.0") {
-				effectiveLibraryVersion = glibDep.libraryVersion;
-			}
-		}
-
-		const packageJsonImport = this.createPackageJsonImport(importPath, effectiveLibraryVersion);
+		const packageJsonImport = this.createPackageJsonImport(importPath);
 		return {
 			importPath,
 			importDef,
@@ -155,9 +145,18 @@ export class DependencyManager {
 			: `import type ${namespace} from '${importPath}';`;
 	}
 
-	createPackageJsonImport(importPath: string, libraryVersion?: LibraryVersion): string {
-		const pinnedVersion = libraryVersion ? `${libraryVersion.toString()}-${APP_VERSION}` : APP_VERSION;
-		const format = this.config.depVersionFormat ?? (this.config.workspace ? "workspace" : "exact");
+	createPackageJsonImport(importPath: string): string {
+		// @girs/* package versions are the ts-for-gir release version alone (e.g. `4.0.5`); the
+		// targeted library version lives in each package's `libraryVersion` field, not in the
+		// version string. It used to couple both as `<lib>-<app>` (e.g. `2.88.0-4.0.4`), which made
+		// the ts-for-gir version a semver PRERELEASE tag — so exact pins could not dedupe (any drift
+		// nested a second `@girs/gobject-2.0`: the "Incompatible GObject type" error, #431) and
+		// caret ranges floated onto rc/beta. With a plain release version the non-workspace default
+		// is `caret`: `^4.0.5` dedupes stable patches across ts-for-gir releases AND excludes
+		// prereleases. `--depVersionFormat=exact` stays as the strict-pin opt-in; `--workspace`
+		// still emits `workspace:^`.
+		const pinnedVersion = APP_VERSION;
+		const format = this.config.depVersionFormat ?? (this.config.workspace ? "workspace" : "caret");
 		let depVersion: string;
 		switch (format) {
 			case "workspace":
@@ -294,7 +293,7 @@ export class DependencyManager {
 			version,
 			libraryVersion,
 			girXML,
-			...this.createImportProperties(namespace, packageName, version, libraryVersion),
+			...this.createImportProperties(namespace, packageName, version),
 		};
 
 		// Special case for Cairo

@@ -36,7 +36,16 @@ export class FileFinder {
 					return join(girDirectory, `${cleanIgnored}.gir`);
 				}),
 			);
-			const files = await glob(pattern, { ignore: ignoreGirs });
+			// Sort deterministically: `glob` (v9+) returns matches in the
+			// filesystem's readdir order, which differs between runtimes (Node's
+			// `fs.readdir` vs GJS's Gio-backed `@gjsify/fs.readdir`). When the gir
+			// directory holds case-variant filenames (e.g. `Colorhug-1.0.gir` +
+			// `ColorHug-1.0.gir`, `DMAP-3.0.gir` + `Dmap-4.0.gir`), the module
+			// grouper keeps whichever is seen first as the namespace representative,
+			// so an unsorted order makes `list`/`generate` non-deterministic across
+			// runtimes (the dual-runtime-parity regression). Sorting here makes
+			// discovery order — and thus the grouped output — identical everywhere.
+			const files = (await glob(pattern, { ignore: ignoreGirs })).sort();
 
 			for (const file of files) {
 				foundFiles.add(file);

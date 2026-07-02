@@ -1,5 +1,7 @@
 # Changelog
 
+## [4.1.0](https://github.com/gjsify/ts-for-gir/compare/v4.0.4...v4.1.0) (2026-07-02)
+
 ## [4.0.4](https://github.com/gjsify/ts-for-gir/compare/v4.0.3...v4.0.4) (2026-05-26)
 
 ## [4.0.3](https://github.com/gjsify/ts-for-gir/compare/v4.0.2...v4.0.3) (2026-05-26)

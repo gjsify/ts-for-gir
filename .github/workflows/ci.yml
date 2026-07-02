@@ -47,9 +47,13 @@ jobs:
       - name: Install container prerequisites
         run: |
 
-          dnf install -y git tar xz findutils curl gjs libsoup3 nodejs
+          dnf install -y git tar xz findutils curl gjs libsoup3
 
           git config --global --add safe.directory "*"
+      - name: Set up Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
       - name: Checkout repository
         uses: actions/checkout@v6
         with:
@@ -76,8 +80,12 @@ jobs:
     steps:
       - name: Install container prerequisites
         run: |
-          dnf install -y git tar xz findutils curl gjs libsoup3 nodejs
+          dnf install -y git tar xz findutils curl gjs libsoup3
           git config --global --add safe.directory "*"
+      - name: Set up Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
       - name: Checkout repository
         uses: actions/checkout@v6
         with:
@@ -109,8 +117,12 @@ jobs:
     steps:
       - name: Install container prerequisites
         run: |
-          dnf install -y git tar xz findutils curl gjs libsoup3 nodejs npm
+          dnf install -y git tar xz findutils curl gjs libsoup3
           git config --global --add safe.directory "*"
+      - name: Set up Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
       # The e2e suite's `pack.mjs` now uses `gjsify pack` directly
       # (matches the production `gjsify run publish:app` chain) +
       # walks `package.json#workspaces` globs with Node-native fs,
@@ -162,9 +174,13 @@ jobs:
       - name: Install container prerequisites
         run: |
 
-          dnf install -y git tar xz findutils curl gjs libsoup3 nodejs
+          dnf install -y git tar xz findutils curl gjs libsoup3
 
           git config --global --add safe.directory "*"
+      - name: Set up Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
       - name: Checkout repository
         uses: actions/checkout@v6
         with:

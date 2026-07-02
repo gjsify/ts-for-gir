@@ -172,7 +172,7 @@ describe("ts-for-gir create E2E", { timeout: 20 * 60 * 1000 }, () => {
         assert.equal(subPkg.name, `@${projectName}/app`);
         for (const [name, spec] of Object.entries(subPkg.dependencies || {})) {
           assert.ok(
-            !spec.startsWith('workspace:'),
+            !spec.startsWith("workspace:"),
             `sub-package dep "${name}": "${spec}" must not use workspace: protocol (npm incompatible)`,
           );
         }
@@ -246,7 +246,7 @@ describe("ts-for-gir create E2E", { timeout: 20 * 60 * 1000 }, () => {
     const adwDeps = adwPkg.dependencies || {};
     for (const [name, spec] of Object.entries(adwDeps)) {
       assert.ok(
-        !spec.startsWith('workspace:'),
+        !spec.startsWith("workspace:"),
         `generated @girs/adw-1 dep "${name}" is "${spec}" — expected caret or registry spec, not workspace:`,
       );
     }

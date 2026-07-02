@@ -30,7 +30,7 @@ export default {
   externalsType: "module",
   // Ignore GJS imports
   externals: ({ context, request }, callback) => {
-    if (request.startsWith('gi:')) {
+    if (request.startsWith("gi:")) {
       // Externalize to a commonjs module using the request path
       console.debug("externals", request);
       return callback(null, "module " + request);

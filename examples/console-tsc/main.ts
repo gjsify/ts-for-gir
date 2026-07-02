@@ -1,6 +1,9 @@
 // Example from issue, see https://github.com/gjsify/ts-for-gir/issues/164
 
-// biome-ignore lint/style/useNodejsImportProtocol: This is GJS not Node.js
+// This is GJS's `console` module, not Node's — keep the bare specifier so it
+// resolves to the @girs/gjs `declare module 'console'` augmentation, and stop
+// oxlint from rewriting it to `node:console` (which @girs/gjs does not declare).
+// oxlint-disable-next-line unicorn/prefer-node-protocol
 import { DEFAULT_LOG_DOMAIN, getConsoleLogDomain, setConsoleLogDomain } from "console";
 
 // Setting the log domain

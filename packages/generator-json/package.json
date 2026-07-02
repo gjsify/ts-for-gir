@@ -1,52 +1,52 @@
 {
-	"name": "@ts-for-gir/generator-json",
-	"version": "4.0.4",
-	"description": "JSON generator for ts-for-gir",
-	"main": "src/index.ts",
-	"module": "src/index.ts",
-	"type": "module",
-	"engines": {
-		"node": ">=18"
-	},
-	"exports": {
-		".": "./src/index.ts"
-	},
-	"scripts": {
-		"check": "tsc --noEmit"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/gjsify/ts-for-gir.git"
-	},
-	"author": "Pascal Garber <pascal@mailfreun.de>",
-	"files": [
-		"src"
-	],
-	"license": "Apache-2.0",
-	"bugs": {
-		"url": "https://github.com/gjsify/ts-for-gir/issues"
-	},
-	"homepage": "https://github.com/gjsify/ts-for-gir#readme",
-	"keywords": [
-		"gjs",
-		"typescript",
-		"generate",
-		"gir",
-		"gobject-introspection",
-		"json"
-	],
-	"devDependencies": {
-		"@ts-for-gir/tsconfig": "workspace:^",
-		"@types/node": "^25.6.2",
-		"typescript": "^6.0.3"
-	},
-	"dependencies": {
-		"@gi.ts/parser": "workspace:^",
-		"@ts-for-gir/generator-base": "workspace:^",
-		"@ts-for-gir/generator-typescript": "workspace:^",
-		"@ts-for-gir/gir-module-metadata": "workspace:^",
-		"@ts-for-gir/lib": "workspace:^",
-		"@ts-for-gir/reporter": "workspace:^",
-		"typedoc": "^0.28.19"
-	}
+  "name": "@ts-for-gir/generator-json",
+  "version": "4.0.4",
+  "description": "JSON generator for ts-for-gir",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "check": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gjsify/ts-for-gir.git"
+  },
+  "author": "Pascal Garber <pascal@mailfreun.de>",
+  "files": [
+    "src"
+  ],
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/gjsify/ts-for-gir/issues"
+  },
+  "homepage": "https://github.com/gjsify/ts-for-gir#readme",
+  "keywords": [
+    "gjs",
+    "typescript",
+    "generate",
+    "gir",
+    "gobject-introspection",
+    "json"
+  ],
+  "devDependencies": {
+    "@ts-for-gir/tsconfig": "workspace:^",
+    "@types/node": "^25.6.2",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "@gi.ts/parser": "workspace:^",
+    "@ts-for-gir/generator-base": "workspace:^",
+    "@ts-for-gir/generator-typescript": "workspace:^",
+    "@ts-for-gir/gir-module-metadata": "workspace:^",
+    "@ts-for-gir/lib": "workspace:^",
+    "@ts-for-gir/reporter": "workspace:^",
+    "typedoc": "^0.28.19"
+  }
 }

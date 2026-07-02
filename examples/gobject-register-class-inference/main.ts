@@ -13,14 +13,22 @@
 import GObject from "gi://GObject?version=2.0";
 
 const Counter = GObject.registerClass(
-	{
-		GTypeName: "ExampleCounter",
-		Properties: {
-			count: GObject.ParamSpec.int("count", null, null, GObject.ParamFlags.READWRITE, 0, Number.MAX_SAFE_INTEGER, 0),
-			label: GObject.ParamSpec.string("label", null, null, GObject.ParamFlags.READWRITE, "counter"),
-		},
-	},
-	class extends GObject.Object {},
+  {
+    GTypeName: "ExampleCounter",
+    Properties: {
+      count: GObject.ParamSpec.int(
+        "count",
+        null,
+        null,
+        GObject.ParamFlags.READWRITE,
+        0,
+        Number.MAX_SAFE_INTEGER,
+        0,
+      ),
+      label: GObject.ParamSpec.string("label", null, null, GObject.ParamFlags.READWRITE, "counter"),
+    },
+  },
+  class extends GObject.Object {},
 );
 
 const c = new Counter();

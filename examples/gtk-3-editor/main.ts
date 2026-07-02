@@ -27,8 +27,8 @@ wnd.add(box);
 wnd.show_all();
 
 wnd.connect("delete-event", () => {
-	Gtk.main_quit();
-	return true;
+  Gtk.main_quit();
+  return true;
 });
 
 print("hello world");

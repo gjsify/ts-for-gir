@@ -12,34 +12,34 @@ import GObject from "gi://GObject";
 import St from "gi://St";
 
 export class GridLayoutWidget extends St.Widget<Clutter.GridLayout> {
-	static {
-		GObject.registerClass(
-			{
-				GTypeName: "GridLayoutWidget",
-			},
-			GridLayoutWidget,
-		);
-	}
+  static {
+    GObject.registerClass(
+      {
+        GTypeName: "GridLayoutWidget",
+      },
+      GridLayoutWidget,
+    );
+  }
 
-	constructor() {
-		super({
-			layout_manager: new Clutter.GridLayout(),
-		});
+  constructor() {
+    super({
+      layout_manager: new Clutter.GridLayout(),
+    });
 
-		// Create and add labels in a grid pattern
-		const labels = ["Top Left", "Top Right", "Bottom Left", "Bottom Right"];
+    // Create and add labels in a grid pattern
+    const labels = ["Top Left", "Top Right", "Bottom Left", "Bottom Right"];
 
-		labels.forEach((text, index) => {
-			const label = new St.Label({ text });
-			this.layout_manager.attach(
-				label,
-				index % 2, // column
-				Math.floor(index / 2), // row
-				1,
-				1,
-			);
-		});
-	}
+    labels.forEach((text, index) => {
+      const label = new St.Label({ text });
+      this.layout_manager.attach(
+        label,
+        index % 2, // column
+        Math.floor(index / 2), // row
+        1,
+        1,
+      );
+    });
+  }
 }
 
 /**

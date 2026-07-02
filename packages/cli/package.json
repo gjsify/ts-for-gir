@@ -1,186 +1,186 @@
 {
-	"name": "@ts-for-gir/cli",
-	"version": "4.0.4",
-	"description": "TypeScript type definition generator for GObject introspection GIR files",
-	"main": "src/index.ts",
-	"module": "src/index.ts",
-	"type": "module",
-	"bin": {
-		"cli": "bin/ts-for-gir",
-		"ts-for-gir": "bin/ts-for-gir",
-		"ts-for-gir-dev": "bin/ts-for-gir-dev",
-		"ts-for-gir-gjs": "bin/ts-for-gir-gjs"
-	},
-	"gjsify": {
-		"bin": {
-			"ts-for-gir": "bin/ts-for-gir-gjs"
-		},
-		"shebang": true,
-		"bundler": {
-			"input": "src/start.ts"
-		},
-		"defineFromPackageJson": {
-			"__TS_FOR_GIR_VERSION__": {
-				"field": "version"
-			}
-		},
-		"excludeGlobals": [
-			"XMLHttpRequest",
-			"XMLHttpRequestUpload"
-		],
-		"flatpak": {
-			"appId": "io.github.gjsify.ts_for_gir",
-			"kind": "cli",
-			"name": "ts-for-gir",
-			"runtime": "gnome",
-			"runtimeVersion": "50",
-			"command": "ts-for-gir",
-			"finishArgs": [
-				"--share=network",
-				"--filesystem=host"
-			],
-			"developer": {
-				"id": "io.github.gjsify",
-				"name": "gjsify contributors",
-				"email": "pascal@artandcode.studio"
-			},
-			"summary": "TypeScript type definitions for GObject Introspection (GJS)",
-			"description": [
-				{
-					"p": "ts-for-gir reads GObject Introspection (GIR) XML files and emits strongly-typed TypeScript definitions for use in GJS (GNOME JavaScript) projects. Type-check your GTK / Adwaita / GLib / Gio / GStreamer / WebKit / etc. code, get full IDE completion, and catch missing properties / wrong-arity signal handlers at build time instead of runtime."
-				},
-				{
-					"p": "This Flatpak ships ts-for-gir as a self-contained CLI runnable on any modern Linux distro — no Node.js installation required. It reads from the system's installed GIR catalog (read-only mounts of /usr/share/gir-1.0 and /usr/share/gobject-introspection-1.0) and writes generated types under your project directory."
-				},
-				{
-					"ul": [
-						{
-							"item": "`ts-for-gir generate Gtk-4.0` — generate types for one or more GI namespaces"
-						},
-						{
-							"item": "`ts-for-gir generate --reporter` — write a JSON report alongside types for downstream analysis"
-						},
-						{
-							"item": "`ts-for-gir analyze report.json` — inspect type-resolution issues by severity / category / namespace"
-						},
-						{
-							"item": "`ts-for-gir create my-app` — scaffold a new GJS app from a template"
-						},
-						{
-							"item": "`ts-for-gir list` — list all GIR namespaces available on this system"
-						},
-						{
-							"item": "`ts-for-gir self-update` — refresh the global install in place"
-						}
-					]
-				}
-			],
-			"license": {
-				"metadata": "CC0-1.0",
-				"project": "Apache-2.0"
-			},
-			"categories": [
-				"Development"
-			],
-			"homepageUrl": "https://gjsify.github.io/gjsify/projects/ts-for-gir/",
-			"vcsBrowserUrl": "https://github.com/gjsify/ts-for-gir",
-			"issueTrackerUrl": "https://github.com/gjsify/ts-for-gir/issues",
-			"modules": [
-				{
-					"name": "ts-for-gir-cli",
-					"buildsystem": "simple",
-					"build-commands": [
-						"install -Dm755 package/bin/ts-for-gir-gjs /app/share/ts-for-gir/ts-for-gir.gjs.mjs",
-						"install -Dm755 launcher.sh /app/bin/ts-for-gir"
-					],
-					"sources": [
-						{
-							"type": "archive",
-							"url": "https://registry.npmjs.org/@ts-for-gir/cli/-/cli-4.0.0-rc.17.tgz",
-							"sha256": "6ca2c7c73bbc37259ebec621f1b24f8e9ca896426783114e80faa59cb4983afe",
-							"strip-components": 0,
-							"dest-filename": "tarball.tgz"
-						},
-						{
-							"type": "file",
-							"path": "launcher.sh"
-						}
-					]
-				}
-			]
-		}
-	},
-	"engines": {
-		"node": ">=18"
-	},
-	"scripts": {
-		"start": "node bin/ts-for-gir-dev",
-		"start:prod": "node bin/ts-for-gir",
-		"build": "gjsify build --app node --outfile bin/ts-for-gir --external @ts-for-gir/templates,@inquirer/prompts,ejs,cosmiconfig,glob,inquirer,colorette,typedoc,yargs && chmod +x bin/ts-for-gir-dev && node scripts/process-templates.mjs",
-		"build:gjs": "gjsify build --app gjs --outfile bin/ts-for-gir-gjs --define __GJS_BUNDLE__=true",
-		"build:templates": "node scripts/process-templates.mjs",
-		"prepack": "node scripts/process-templates.mjs",
-		"check:types": "tsc --noEmit",
-		"check": "gjsify run check:types"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/gjsify/ts-for-gir.git"
-	},
-	"author": "Pascal Garber <pascal@mailfreun.de>",
-	"files": [
-		"src",
-		"bin",
-		"dist-templates"
-	],
-	"license": "Apache-2.0",
-	"bugs": {
-		"url": "https://github.com/gjsify/ts-for-gir/issues"
-	},
-	"homepage": "https://github.com/gjsify/ts-for-gir#readme",
-	"keywords": [
-		"gjs",
-		"typescript",
-		"generate",
-		"gir",
-		"gobject-introspection",
-		"gnome",
-		"gtk",
-		"glib",
-		"gobject",
-		"dts",
-		"type definitions",
-		"cli"
-	],
-	"exports": {
-		".": "./src/index.ts"
-	},
-	"devDependencies": {
-		"@gi.ts/parser": "workspace:^",
-		"@gjsify/cli": "^0.4.27",
-		"@ts-for-gir/generator-base": "workspace:^",
-		"@ts-for-gir/generator-html-doc": "workspace:^",
-		"@ts-for-gir/generator-json": "workspace:^",
-		"@ts-for-gir/generator-typescript": "workspace:^",
-		"@ts-for-gir/lib": "workspace:^",
-		"@ts-for-gir/reporter": "workspace:^",
-		"@ts-for-gir/tsconfig": "workspace:^",
-		"@types/ejs": "^3.1.5",
-		"@types/inquirer": "^9.0.9",
-		"@types/node": "^25.6.2",
-		"@types/yargs": "^17.0.35",
-		"source-map-support": "^0.5.21",
-		"typescript": "^6.0.3"
-	},
-	"dependencies": {
-		"@inquirer/prompts": "^8.4.2",
-		"@ts-for-gir/templates": "workspace:^",
-		"colorette": "^2.0.20",
-		"cosmiconfig": "^9.0.1",
-		"ejs": "^5.0.2",
-		"glob": "^13.0.6",
-		"inquirer": "^13.4.2",
-		"typedoc": "^0.28.19",
-		"yargs": "^18.0.0"
-	}
+  "name": "@ts-for-gir/cli",
+  "version": "4.0.4",
+  "description": "TypeScript type definition generator for GObject introspection GIR files",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "type": "module",
+  "bin": {
+    "cli": "bin/ts-for-gir",
+    "ts-for-gir": "bin/ts-for-gir",
+    "ts-for-gir-dev": "bin/ts-for-gir-dev",
+    "ts-for-gir-gjs": "bin/ts-for-gir-gjs"
+  },
+  "gjsify": {
+    "bin": {
+      "ts-for-gir": "bin/ts-for-gir-gjs"
+    },
+    "shebang": true,
+    "bundler": {
+      "input": "src/start.ts"
+    },
+    "defineFromPackageJson": {
+      "__TS_FOR_GIR_VERSION__": {
+        "field": "version"
+      }
+    },
+    "excludeGlobals": [
+      "XMLHttpRequest",
+      "XMLHttpRequestUpload"
+    ],
+    "flatpak": {
+      "appId": "io.github.gjsify.ts_for_gir",
+      "kind": "cli",
+      "name": "ts-for-gir",
+      "runtime": "gnome",
+      "runtimeVersion": "50",
+      "command": "ts-for-gir",
+      "finishArgs": [
+        "--share=network",
+        "--filesystem=host"
+      ],
+      "developer": {
+        "id": "io.github.gjsify",
+        "name": "gjsify contributors",
+        "email": "pascal@artandcode.studio"
+      },
+      "summary": "TypeScript type definitions for GObject Introspection (GJS)",
+      "description": [
+        {
+          "p": "ts-for-gir reads GObject Introspection (GIR) XML files and emits strongly-typed TypeScript definitions for use in GJS (GNOME JavaScript) projects. Type-check your GTK / Adwaita / GLib / Gio / GStreamer / WebKit / etc. code, get full IDE completion, and catch missing properties / wrong-arity signal handlers at build time instead of runtime."
+        },
+        {
+          "p": "This Flatpak ships ts-for-gir as a self-contained CLI runnable on any modern Linux distro — no Node.js installation required. It reads from the system's installed GIR catalog (read-only mounts of /usr/share/gir-1.0 and /usr/share/gobject-introspection-1.0) and writes generated types under your project directory."
+        },
+        {
+          "ul": [
+            {
+              "item": "`ts-for-gir generate Gtk-4.0` — generate types for one or more GI namespaces"
+            },
+            {
+              "item": "`ts-for-gir generate --reporter` — write a JSON report alongside types for downstream analysis"
+            },
+            {
+              "item": "`ts-for-gir analyze report.json` — inspect type-resolution issues by severity / category / namespace"
+            },
+            {
+              "item": "`ts-for-gir create my-app` — scaffold a new GJS app from a template"
+            },
+            {
+              "item": "`ts-for-gir list` — list all GIR namespaces available on this system"
+            },
+            {
+              "item": "`ts-for-gir self-update` — refresh the global install in place"
+            }
+          ]
+        }
+      ],
+      "license": {
+        "metadata": "CC0-1.0",
+        "project": "Apache-2.0"
+      },
+      "categories": [
+        "Development"
+      ],
+      "homepageUrl": "https://gjsify.github.io/gjsify/projects/ts-for-gir/",
+      "vcsBrowserUrl": "https://github.com/gjsify/ts-for-gir",
+      "issueTrackerUrl": "https://github.com/gjsify/ts-for-gir/issues",
+      "modules": [
+        {
+          "name": "ts-for-gir-cli",
+          "buildsystem": "simple",
+          "build-commands": [
+            "install -Dm755 package/bin/ts-for-gir-gjs /app/share/ts-for-gir/ts-for-gir.gjs.mjs",
+            "install -Dm755 launcher.sh /app/bin/ts-for-gir"
+          ],
+          "sources": [
+            {
+              "type": "archive",
+              "url": "https://registry.npmjs.org/@ts-for-gir/cli/-/cli-4.0.0-rc.17.tgz",
+              "sha256": "6ca2c7c73bbc37259ebec621f1b24f8e9ca896426783114e80faa59cb4983afe",
+              "strip-components": 0,
+              "dest-filename": "tarball.tgz"
+            },
+            {
+              "type": "file",
+              "path": "launcher.sh"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node bin/ts-for-gir-dev",
+    "start:prod": "node bin/ts-for-gir",
+    "build": "gjsify build --app node --outfile bin/ts-for-gir --external @ts-for-gir/templates,@inquirer/prompts,ejs,cosmiconfig,glob,inquirer,colorette,typedoc,yargs && chmod +x bin/ts-for-gir-dev && node scripts/process-templates.mjs",
+    "build:gjs": "gjsify build --app gjs --outfile bin/ts-for-gir-gjs --define __GJS_BUNDLE__=true",
+    "build:templates": "node scripts/process-templates.mjs",
+    "prepack": "node scripts/process-templates.mjs",
+    "check:types": "tsc --noEmit",
+    "check": "gjsify run check:types"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gjsify/ts-for-gir.git"
+  },
+  "author": "Pascal Garber <pascal@mailfreun.de>",
+  "files": [
+    "src",
+    "bin",
+    "dist-templates"
+  ],
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/gjsify/ts-for-gir/issues"
+  },
+  "homepage": "https://github.com/gjsify/ts-for-gir#readme",
+  "keywords": [
+    "gjs",
+    "typescript",
+    "generate",
+    "gir",
+    "gobject-introspection",
+    "gnome",
+    "gtk",
+    "glib",
+    "gobject",
+    "dts",
+    "type definitions",
+    "cli"
+  ],
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "devDependencies": {
+    "@gi.ts/parser": "workspace:^",
+    "@gjsify/cli": "^0.14.0",
+    "@ts-for-gir/generator-base": "workspace:^",
+    "@ts-for-gir/generator-html-doc": "workspace:^",
+    "@ts-for-gir/generator-json": "workspace:^",
+    "@ts-for-gir/generator-typescript": "workspace:^",
+    "@ts-for-gir/lib": "workspace:^",
+    "@ts-for-gir/reporter": "workspace:^",
+    "@ts-for-gir/tsconfig": "workspace:^",
+    "@types/ejs": "^3.1.5",
+    "@types/inquirer": "^9.0.10",
+    "@types/node": "^25.6.2",
+    "@types/yargs": "^17.0.35",
+    "source-map-support": "^0.5.21",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^8.5.2",
+    "@ts-for-gir/templates": "workspace:^",
+    "colorette": "^2.0.20",
+    "cosmiconfig": "^9.0.2",
+    "ejs": "^6.0.1",
+    "glob": "^13.0.6",
+    "inquirer": "^14.0.2",
+    "typedoc": "^0.28.19",
+    "yargs": "^18.0.0"
+  }
 }

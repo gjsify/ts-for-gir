@@ -11,35 +11,35 @@ import Gtk from "gi://Gtk?version=4.0";
 const _loop = GLib.MainLoop.new(null, false);
 
 const app = new Adw.Application({
-	applicationId: "com.github.jumplink.gjs.adw-1-hello",
-	flags: Gio.ApplicationFlags.FLAGS_NONE,
+  applicationId: "com.github.jumplink.gjs.adw-1-hello",
+  flags: Gio.ApplicationFlags.FLAGS_NONE,
 });
 
 const onActivate = (app: Adw.Application) => {
-	// Should support both camelCase and default property names, see https://github.com/gjsify/ts-for-gir/issues/138
-	const label = new Gtk.Label({
-		label: "Hello World",
-		marginBottom: 11,
-		marginTop: 11,
-	});
+  // Should support both camelCase and default property names, see https://github.com/gjsify/ts-for-gir/issues/138
+  const label = new Gtk.Label({
+    label: "Hello World",
+    marginBottom: 11,
+    marginTop: 11,
+  });
 
-	label.marginTop = 12;
-	label.marginBottom = 12;
+  label.marginTop = 12;
+  label.marginBottom = 12;
 
-	log(`label.marginTop: ${label.marginTop}`);
-	log(`label.marginBottom: ${label.marginBottom}`);
+  log(`label.marginTop: ${label.marginTop}`);
+  log(`label.marginBottom: ${label.marginBottom}`);
 
-	const window = new Gtk.ApplicationWindow({ application: app });
-	window.set_title("Hello");
-	window.set_default_size(200, 200);
+  const window = new Gtk.ApplicationWindow({ application: app });
+  window.set_title("Hello");
+  window.set_default_size(200, 200);
 
-	window.connect("close-request", () => {
-		app.quit();
-		return false;
-	});
+  window.connect("close-request", () => {
+    app.quit();
+    return false;
+  });
 
-	window.set_child(label);
-	window.present();
+  window.set_child(label);
+  window.present();
 };
 
 app.connect("activate", onActivate);

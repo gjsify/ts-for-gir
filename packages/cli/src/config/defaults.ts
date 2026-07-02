@@ -9,74 +9,74 @@ import { join } from "node:path";
  * Default CLI flag and argument values
  */
 export const defaults = {
-	print: false,
-	configName: ".ts-for-girrc.js",
-	root: process.cwd(),
-	outdir: "./@types",
-	/** Default output directory for `ts-for-gir doc` (HTML documentation). */
-	docOutdir: "./docs",
-	girDirectories: getDefaultGirDirectories(),
-	modules: ["*"],
-	ignore: [],
-	verbose: false,
-	ignoreVersionConflicts: false,
-	noNamespace: false,
-	noComments: false,
-	promisify: true,
-	npmScope: "@girs",
-	workspace: false,
-	onlyVersionPrefix: false,
-	noPrettyPrint: false,
-	noAdvancedVariants: false,
-	package: false,
-	reporter: false,
-	reporterOutput: "ts-for-gir-report.json",
-	externalDeps: false,
-	allowMissingDeps: false,
-	combined: true,
-	/** Default theme for `ts-for-gir doc` (HTML documentation). */
-	theme: "gi-docgen",
+  print: false,
+  configName: ".ts-for-girrc.js",
+  root: process.cwd(),
+  outdir: "./@types",
+  /** Default output directory for `ts-for-gir doc` (HTML documentation). */
+  docOutdir: "./docs",
+  girDirectories: getDefaultGirDirectories(),
+  modules: ["*"],
+  ignore: [],
+  verbose: false,
+  ignoreVersionConflicts: false,
+  noNamespace: false,
+  noComments: false,
+  promisify: true,
+  npmScope: "@girs",
+  workspace: false,
+  onlyVersionPrefix: false,
+  noPrettyPrint: false,
+  noAdvancedVariants: false,
+  package: false,
+  reporter: false,
+  reporterOutput: "ts-for-gir-report.json",
+  externalDeps: false,
+  allowMissingDeps: false,
+  combined: true,
+  /** Default theme for `ts-for-gir doc` (HTML documentation). */
+  theme: "gi-docgen",
 };
 
 /**
  * Get default GIR directories based on the system configuration
  */
 function getDefaultGirDirectories(): string[] {
-	const girDirectories = [
-		"/usr/local/share/gir-1.0",
-		"/usr/share/gir-1.0",
-		"/usr/share/*/gir-1.0",
-		"/usr/share/gnome-shell",
-		"/usr/share/gnome-shell/gir-1.0",
-		"/usr/lib64/mutter-*",
-		"/usr/lib/mutter-*",
-		"/usr/lib/x86_64-linux-gnu/mutter-*",
-	];
+  const girDirectories = [
+    "/usr/local/share/gir-1.0",
+    "/usr/share/gir-1.0",
+    "/usr/share/*/gir-1.0",
+    "/usr/share/gnome-shell",
+    "/usr/share/gnome-shell/gir-1.0",
+    "/usr/lib64/mutter-*",
+    "/usr/lib/mutter-*",
+    "/usr/lib/x86_64-linux-gnu/mutter-*",
+  ];
 
-	// Flatpak: `--filesystem=host` exposes the host's filesystem under
-	// /run/host. The GNOME runtime ships GIR typelibs but not the XML, so
-	// inside the sandbox we must read from /run/host/usr/share/gir-1.0.
-	// Detected via FLATPAK_ID (set for every Flatpak-launched process) or
-	// the .flatpak-info marker file (always present in the sandbox).
-	if (process.env.FLATPAK_ID || existsSync("/.flatpak-info")) {
-		girDirectories.unshift(
-			"/run/host/usr/local/share/gir-1.0",
-			"/run/host/usr/share/gir-1.0",
-			"/run/host/usr/share/*/gir-1.0",
-			"/run/host/usr/lib/x86_64-linux-gnu/mutter-*",
-		);
-	}
+  // Flatpak: `--filesystem=host` exposes the host's filesystem under
+  // /run/host. The GNOME runtime ships GIR typelibs but not the XML, so
+  // inside the sandbox we must read from /run/host/usr/share/gir-1.0.
+  // Detected via FLATPAK_ID (set for every Flatpak-launched process) or
+  // the .flatpak-info marker file (always present in the sandbox).
+  if (process.env.FLATPAK_ID || existsSync("/.flatpak-info")) {
+    girDirectories.unshift(
+      "/run/host/usr/local/share/gir-1.0",
+      "/run/host/usr/share/gir-1.0",
+      "/run/host/usr/share/*/gir-1.0",
+      "/run/host/usr/lib/x86_64-linux-gnu/mutter-*",
+    );
+  }
 
-	// NixOS and other distributions does not have a /usr/local/share directory.
-	// Instead, the nix store paths with Gir files are set as XDG_DATA_DIRS.
-	// See https://github.com/NixOS/nixpkgs/blob/96e18717904dfedcd884541e5a92bf9ff632cf39/pkgs/development/libraries/gobject-introspection/setup-hook.sh#L7-L10
-	const dataDirs = process.env.XDG_DATA_DIRS?.split(":") || [];
-	for (let dataDir of dataDirs) {
-		dataDir = join(dataDir, "gir-1.0");
-		if (!girDirectories.includes(dataDir) && existsSync(dataDir)) {
-			girDirectories.push(dataDir);
-		}
-	}
+  // NixOS and other distributions does not have a /usr/local/share directory.
+  // Instead, the nix store paths with Gir files are set as XDG_DATA_DIRS.
+  // See https://github.com/NixOS/nixpkgs/blob/96e18717904dfedcd884541e5a92bf9ff632cf39/pkgs/development/libraries/gobject-introspection/setup-hook.sh#L7-L10
+  const dataDirs = process.env.XDG_DATA_DIRS?.split(":") || [];
+  for (let dataDir of dataDirs) {
+    dataDir = join(dataDir, "gir-1.0");
+    if (!girDirectories.includes(dataDir) && existsSync(dataDir)) {
+      girDirectories.push(dataDir);
+    }
+  }
 
-	return girDirectories;
+  return girDirectories;
 }

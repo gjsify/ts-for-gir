@@ -1,24 +1,24 @@
 {
-	"name": "@ts-for-gir-example/glib-2-spawn-command-example",
-	"description": "",
-	"type": "module",
-	"private": true,
-	"scripts": {
-		"build": "webpack --env production",
-		"start": "gjs -m dist/main.js",
-		"check": "tsc --noEmit",
-		"clear": "rm -rf dist"
-	},
-	"author": "",
-	"license": "Apache-2.0",
-	"devDependencies": {
-		"ts-loader": "^9.5.7",
-		"typescript": "^6.0.3",
-		"webpack": "^5.106.2",
-		"webpack-cli": "^7.0.2"
-	},
-	"dependencies": {
-		"@girs/gjs": "workspace:^",
-		"@girs/glib-2.0": "workspace:^"
-	}
+  "name": "@ts-for-gir-example/glib-2-spawn-command-example",
+  "description": "",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "webpack --env production",
+    "start": "gjs -m dist/main.js",
+    "check": "tsc --noEmit",
+    "clear": "rm -rf dist"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "ts-loader": "^9.6.2",
+    "typescript": "^6.0.3",
+    "webpack": "^5.108.3",
+    "webpack-cli": "^7.1.0"
+  },
+  "dependencies": {
+    "@girs/gjs": "workspace:^",
+    "@girs/glib-2.0": "workspace:^"
+  }
 }

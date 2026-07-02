@@ -29,8 +29,8 @@ const pattern = new Cairo.SurfacePattern(surface);
 // ── Pattern.getType ──────────────────────────────────────────────
 const patternType: Cairo.PatternType = pattern.getType();
 if (patternType !== Cairo.PatternType.SURFACE) {
-	console.error(`Expected PatternType.SURFACE (${Cairo.PatternType.SURFACE}), got ${patternType}`);
-	System.exit(1);
+  console.error(`Expected PatternType.SURFACE (${Cairo.PatternType.SURFACE}), got ${patternType}`);
+  System.exit(1);
 }
 console.log(`✓ getType() → PatternType.SURFACE (${patternType})`);
 
@@ -40,15 +40,15 @@ console.log(`  initial extend: ${initialExtend}`);
 pattern.setExtend(Cairo.Extend.REPEAT);
 const setExtendResult = pattern.getExtend();
 if (setExtendResult !== Cairo.Extend.REPEAT) {
-	console.error(`setExtend round-trip failed: expected REPEAT, got ${setExtendResult}`);
-	System.exit(1);
+  console.error(`setExtend round-trip failed: expected REPEAT, got ${setExtendResult}`);
+  System.exit(1);
 }
 console.log(`✓ setExtend(REPEAT) → getExtend() (${setExtendResult})`);
 
 pattern.setExtend(Cairo.Extend.REFLECT);
 if (pattern.getExtend() !== Cairo.Extend.REFLECT) {
-	console.error("setExtend(REFLECT) did not round-trip");
-	System.exit(1);
+  console.error("setExtend(REFLECT) did not round-trip");
+  System.exit(1);
 }
 console.log(`✓ setExtend(REFLECT) → getExtend() (${pattern.getExtend()})`);
 
@@ -58,15 +58,15 @@ console.log(`  initial filter: ${initialFilter}`);
 pattern.setFilter(Cairo.Filter.NEAREST);
 const setFilterResult = pattern.getFilter();
 if (setFilterResult !== Cairo.Filter.NEAREST) {
-	console.error(`setFilter round-trip failed: expected NEAREST, got ${setFilterResult}`);
-	System.exit(1);
+  console.error(`setFilter round-trip failed: expected NEAREST, got ${setFilterResult}`);
+  System.exit(1);
 }
 console.log(`✓ setFilter(NEAREST) → getFilter() (${setFilterResult})`);
 
 pattern.setFilter(Cairo.Filter.BILINEAR);
 if (pattern.getFilter() !== Cairo.Filter.BILINEAR) {
-	console.error("setFilter(BILINEAR) did not round-trip");
-	System.exit(1);
+  console.error("setFilter(BILINEAR) did not round-trip");
+  System.exit(1);
 }
 console.log(`✓ setFilter(BILINEAR) → getFilter() (${pattern.getFilter()})`);
 
@@ -75,8 +75,8 @@ console.log(`✓ setFilter(BILINEAR) → getFilter() (${pattern.getFilter()})`);
 // so `getType` is inherited.
 const inheritedType = (pattern as Cairo.Pattern).getType();
 if (inheritedType !== Cairo.PatternType.SURFACE) {
-	console.error(`Inherited getType() returned wrong type: ${inheritedType}`);
-	System.exit(1);
+  console.error(`Inherited getType() returned wrong type: ${inheritedType}`);
+  System.exit(1);
 }
 console.log(`✓ (Pattern.prototype).getType() on a SurfacePattern still returns SURFACE`);
 
@@ -85,15 +85,15 @@ console.log(`✓ (Pattern.prototype).getType() on a SurfacePattern still returns
 // template before this PR.
 const stride = surface.getStride();
 if (typeof stride !== "number" || stride <= 0) {
-	console.error(`Expected positive getStride(), got ${stride}`);
-	System.exit(1);
+  console.error(`Expected positive getStride(), got ${stride}`);
+  System.exit(1);
 }
 console.log(`✓ ImageSurface.getStride() → ${stride} bytes/row`);
 
 const surfaceType: Cairo.SurfaceType = surface.getType();
 if (surfaceType !== Cairo.SurfaceType.IMAGE) {
-	console.error(`Expected SurfaceType.IMAGE, got ${surfaceType}`);
-	System.exit(1);
+  console.error(`Expected SurfaceType.IMAGE, got ${surfaceType}`);
+  System.exit(1);
 }
 console.log(`✓ Surface.getType() → SurfaceType.IMAGE (${surfaceType})`);
 
@@ -102,13 +102,15 @@ const ctx = new Cairo.Context(surface);
 ctx.moveTo(0, 0);
 ctx.curveTo(0, 32, 16, 32, 16, 16);
 const flatPath = ctx.copyPathFlat();
-console.log(`✓ Context.copyPathFlat() returned a Path (${typeof flatPath === "object" ? "ok" : "wrong type"})`);
+console.log(
+  `✓ Context.copyPathFlat() returned a Path (${typeof flatPath === "object" ? "ok" : "wrong type"})`,
+);
 
 ctx.pushGroup();
 const groupTarget = ctx.getGroupTarget();
 if (!groupTarget) {
-	console.error("Context.getGroupTarget() returned falsy inside a group");
-	System.exit(1);
+  console.error("Context.getGroupTarget() returned falsy inside a group");
+  System.exit(1);
 }
 ctx.popGroup();
 console.log(`✓ Context.getGroupTarget() returned a Surface inside pushGroup/popGroup`);
@@ -119,17 +121,19 @@ const r2 = new Cairo.Region();
 r1.unionRectangle({ x: 0, y: 0, width: 10, height: 10 });
 r1.unionRectangle({ x: 20, y: 0, width: 10, height: 10 });
 if (r1.numRectangles() !== 2) {
-	console.error(`Expected 2 rectangles, got ${r1.numRectangles()}`);
-	System.exit(1);
+  console.error(`Expected 2 rectangles, got ${r1.numRectangles()}`);
+  System.exit(1);
 }
 console.log(`✓ Region.unionRectangle x2 → numRectangles() = 2`);
 
 const rect0 = r1.getRectangle(0);
 if (rect0.width !== 10 || rect0.height !== 10) {
-	console.error(`Wrong rect[0]: ${JSON.stringify(rect0)}`);
-	System.exit(1);
+  console.error(`Wrong rect[0]: ${JSON.stringify(rect0)}`);
+  System.exit(1);
 }
-console.log(`✓ Region.getRectangle(0) → {x: ${rect0.x}, y: ${rect0.y}, w: ${rect0.width}, h: ${rect0.height}}`);
+console.log(
+  `✓ Region.getRectangle(0) → {x: ${rect0.x}, y: ${rect0.y}, w: ${rect0.width}, h: ${rect0.height}}`,
+);
 
 r2.unionRectangle({ x: 5, y: 5, width: 30, height: 30 });
 const r3 = new Cairo.Region();
@@ -139,11 +143,13 @@ r3.intersect(r2);
 // After intersecting with r2 (5,5 → 35,35), only parts of both source
 // rects within that area survive. Just assert numRectangles() > 0.
 if (r3.numRectangles() <= 0) {
-	console.error("Region.intersect produced no rectangles");
-	System.exit(1);
+  console.error("Region.intersect produced no rectangles");
+  System.exit(1);
 }
 console.log(`✓ Region.intersect(other) → ${r3.numRectangles()} rectangle(s)`);
 
 console.log("");
-console.log("All Pattern + SurfacePattern + Region + Surface + ImageSurface + Context method assertions passed.");
+console.log(
+  "All Pattern + SurfacePattern + Region + Surface + ImageSurface + Context method assertions passed.",
+);
 console.log("Closes ts-for-gir#419.");

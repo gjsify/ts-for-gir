@@ -16,40 +16,43 @@ const command = "doc [modules..]";
 const description = "Generates HTML documentation from GIR files using TypeDoc";
 
 const examples: ReadonlyArray<[string, string?]> = [
-	[`${APP_NAME} doc Gtk-4.0 --outdir ./docs`, "Generate HTML documentation for Gtk-4.0"],
-	[`${APP_NAME} doc '*' --outdir ./docs`, "Generate documentation for all locally installed GIR modules"],
-	[
-		`${APP_NAME} doc --merge --jsonDir ./json-output --outdir ./docs`,
-		"Generate HTML from pre-generated JSON files (low memory)",
-	],
+  [`${APP_NAME} doc Gtk-4.0 --outdir ./docs`, "Generate HTML documentation for Gtk-4.0"],
+  [
+    `${APP_NAME} doc '*' --outdir ./docs`,
+    "Generate documentation for all locally installed GIR modules",
+  ],
+  [
+    `${APP_NAME} doc --merge --jsonDir ./json-output --outdir ./docs`,
+    "Generate HTML from pre-generated JSON files (low memory)",
+  ],
 ];
 
 const builder = createBuilder<DocCommandArgs>(docOptions, examples);
 
 const handler = async (args: ConfigFlags) => {
-	const config = getOptionsGeneration(await load(args));
-	if (config.merge) {
-		if (!config.jsonDir) {
-			throw new Error("--jsonDir is required when using --merge mode");
-		}
-		const generator = new HtmlDocGenerator(config, new NSRegistry());
-		await generator.generateFromJson(config.jsonDir);
-		return;
-	}
+  const config = getOptionsGeneration(await load(args));
+  if (config.merge) {
+    if (!config.jsonDir) {
+      throw new Error("--jsonDir is required when using --merge mode");
+    }
+    const generator = new HtmlDocGenerator(config, new NSRegistry());
+    await generator.generateFromJson(config.jsonDir);
+    return;
+  }
 
-	await runGenerationCommand(args, {
-		generatorType: GeneratorType.HTML_DOC,
-		loggerName: "DocCommand",
-		configureRegistry: (registry) => {
-			registry.registerFormatter("dts", new TypeScriptFormatter());
-		},
-	});
+  await runGenerationCommand(args, {
+    generatorType: GeneratorType.HTML_DOC,
+    loggerName: "DocCommand",
+    configureRegistry: (registry) => {
+      registry.registerFormatter("dts", new TypeScriptFormatter());
+    },
+  });
 };
 
 export const doc = {
-	command,
-	description,
-	builder,
-	handler,
-	examples,
+  command,
+  description,
+  builder,
+  handler,
+  examples,
 };

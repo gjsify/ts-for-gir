@@ -6,10 +6,10 @@ import System from "system";
 console.log("GJS Version:", System.version);
 
 if (System.version < 18200) {
-	console.log(
-		"GJS version 1.82.0 or higher is required for nullable nick and blurb in GObject.ParamSpec, skipping example",
-	);
-	System.exit(0);
+  console.log(
+    "GJS version 1.82.0 or higher is required for nullable nick and blurb in GObject.ParamSpec, skipping example",
+  );
+  System.exit(0);
 }
 
 // Example class demonstrating different ParamSpec usages.
@@ -30,233 +30,233 @@ if (System.version < 18200) {
 // preferred over the class name because the body doesn't repeat
 // the identifier and the snippet stays correct after a rename.
 class ExampleObject extends GObject.Object {
-	static {
-		GObject.registerClass(
-			{
-				GTypeName: "ExampleObject",
-				Properties: {
-					// Property with all parameters provided (traditional style)
-					"full-property": GObject.ParamSpec.string(
-						"full-property",
-						"Full Property",
-						"A property demonstrating all parameters provided",
-						GObject.ParamFlags.READWRITE,
-						"default value",
-					),
+  static {
+    GObject.registerClass(
+      {
+        GTypeName: "ExampleObject",
+        Properties: {
+          // Property with all parameters provided (traditional style)
+          "full-property": GObject.ParamSpec.string(
+            "full-property",
+            "Full Property",
+            "A property demonstrating all parameters provided",
+            GObject.ParamFlags.READWRITE,
+            "default value",
+          ),
 
-					// Property with null nick and blurb
-					"minimal-property": GObject.ParamSpec.string(
-						"minimal-property",
-						null, // nick can be null
-						null, // blurb can be null
-						GObject.ParamFlags.READWRITE,
-						"",
-					),
+          // Property with null nick and blurb
+          "minimal-property": GObject.ParamSpec.string(
+            "minimal-property",
+            null, // nick can be null
+            null, // blurb can be null
+            GObject.ParamFlags.READWRITE,
+            "",
+          ),
 
-					// Property demonstrating null as default value (testing our fix)
-					"nullable-default": GObject.ParamSpec.string(
-						"nullable-default",
-						"Nullable Default",
-						"A string property with null as default value",
-						GObject.ParamFlags.READWRITE,
-						null, // null as default value - this tests our fix!
-					),
+          // Property demonstrating null as default value (testing our fix)
+          "nullable-default": GObject.ParamSpec.string(
+            "nullable-default",
+            "Nullable Default",
+            "A string property with null as default value",
+            GObject.ParamFlags.READWRITE,
+            null, // null as default value - this tests our fix!
+          ),
 
-					// Property using global param_spec_string function with null default (testing consistency)
-					"global-string-null": GObject.param_spec_string(
-						"global-string-null",
-						"Global String Null",
-						"A string property using global function with null default",
-						null, // null as default value using global function
-						GObject.ParamFlags.READWRITE,
-					),
+          // Property using global param_spec_string function with null default (testing consistency)
+          "global-string-null": GObject.param_spec_string(
+            "global-string-null",
+            "Global String Null",
+            "A string property using global function with null default",
+            null, // null as default value using global function
+            GObject.ParamFlags.READWRITE,
+          ),
 
-					// Property using global param_spec_variant function with null default
-					"variant-property": GObject.param_spec_variant(
-						"variant-property",
-						"Variant Property",
-						"A variant property with null default value",
-						new GLib.VariantType("s"), // string variant type
-						null, // null as default value
-						GObject.ParamFlags.READWRITE,
-					),
+          // Property using global param_spec_variant function with null default
+          "variant-property": GObject.param_spec_variant(
+            "variant-property",
+            "Variant Property",
+            "A variant property with null default value",
+            new GLib.VariantType("s"), // string variant type
+            null, // null as default value
+            GObject.ParamFlags.READWRITE,
+          ),
 
-					// Property demonstrating optional nick/blurb parameters (using null for now)
-					// TODO: After type regeneration, test with undefined and omitted parameters
-					"optional-nick-blurb": GObject.ParamSpec.string(
-						"optional-nick-blurb",
-						null, // will become optional nick parameter after type regeneration
-						null, // will become optional blurb parameter after type regeneration
-						GObject.ParamFlags.READWRITE,
-						"optional demo",
-					),
+          // Property demonstrating optional nick/blurb parameters (using null for now)
+          // TODO: After type regeneration, test with undefined and omitted parameters
+          "optional-nick-blurb": GObject.ParamSpec.string(
+            "optional-nick-blurb",
+            null, // will become optional nick parameter after type regeneration
+            null, // will become optional blurb parameter after type regeneration
+            GObject.ParamFlags.READWRITE,
+            "optional demo",
+          ),
 
-					// Property testing minimal required parameters with correct GJS API syntax
-					"minimal-params": GObject.ParamSpec.string(
-						"minimal-params",
-						null, // nick (required, but can be null)
-						null, // blurb (required, but can be null)
-						GObject.ParamFlags.READWRITE,
-						null, // defaultValue (explicitly null since it's actually required in GJS)
-					),
+          // Property testing minimal required parameters with correct GJS API syntax
+          "minimal-params": GObject.ParamSpec.string(
+            "minimal-params",
+            null, // nick (required, but can be null)
+            null, // blurb (required, but can be null)
+            GObject.ParamFlags.READWRITE,
+            null, // defaultValue (explicitly null since it's actually required in GJS)
+          ),
 
-					// Number property demonstrating correct parameter order
-					count: GObject.ParamSpec.int(
-						"count",
-						null, // nick (required, but can be null)
-						null, // blurb (required, but can be null)
-						GObject.ParamFlags.READWRITE,
-						0, // minimum
-						100, // maximum
-						42, // default value
-					),
+          // Number property demonstrating correct parameter order
+          count: GObject.ParamSpec.int(
+            "count",
+            null, // nick (required, but can be null)
+            null, // blurb (required, but can be null)
+            GObject.ParamFlags.READWRITE,
+            0, // minimum
+            100, // maximum
+            42, // default value
+          ),
 
-					// Boolean property demonstrating correct parameter order
-					active: GObject.ParamSpec.boolean(
-						"active",
-						null, // nick (required, but can be null)
-						null, // blurb (required, but can be null)
-						GObject.ParamFlags.READWRITE,
-						false, // default value
-					),
+          // Boolean property demonstrating correct parameter order
+          active: GObject.ParamSpec.boolean(
+            "active",
+            null, // nick (required, but can be null)
+            null, // blurb (required, but can be null)
+            GObject.ParamFlags.READWRITE,
+            false, // default value
+          ),
 
-					// Float property demonstrating correct parameter order
-					ratio: GObject.ParamSpec.float(
-						"ratio",
-						"Ratio", // nick (providing a value)
-						"A ratio value between 0.0 and 1.0", // blurb (providing a value)
-						GObject.ParamFlags.READWRITE,
-						0.0, // minimum
-						1.0, // maximum
-						0.5, // default value
-					),
+          // Float property demonstrating correct parameter order
+          ratio: GObject.ParamSpec.float(
+            "ratio",
+            "Ratio", // nick (providing a value)
+            "A ratio value between 0.0 and 1.0", // blurb (providing a value)
+            GObject.ParamFlags.READWRITE,
+            0.0, // minimum
+            1.0, // maximum
+            0.5, // default value
+          ),
 
-					// Object property demonstrating correct parameter order
-					parent: GObject.ParamSpec.object(
-						"parent",
-						null, // nick (required, but can be null)
-						null, // blurb (required, but can be null)
-						GObject.ParamFlags.READWRITE,
-						GObject.Object.$gtype, // objectType (required GType - using Object as default)
-					),
+          // Object property demonstrating correct parameter order
+          parent: GObject.ParamSpec.object(
+            "parent",
+            null, // nick (required, but can be null)
+            null, // blurb (required, but can be null)
+            GObject.ParamFlags.READWRITE,
+            GObject.Object.$gtype, // objectType (required GType - using Object as default)
+          ),
 
-					// String property with null default value (matching our fix)
-					nullable_string: GObject.ParamSpec.string(
-						"nullable-string",
-						"Nullable String", // nick (providing a value)
-						"A string property that can be null", // blurb (providing a value)
-						GObject.ParamFlags.READWRITE,
-						null, // defaultValue (null is allowed)
-					),
+          // String property with null default value (matching our fix)
+          nullable_string: GObject.ParamSpec.string(
+            "nullable-string",
+            "Nullable String", // nick (providing a value)
+            "A string property that can be null", // blurb (providing a value)
+            GObject.ParamFlags.READWRITE,
+            null, // defaultValue (null is allowed)
+          ),
 
-					// String property with specific default value
-					description: GObject.ParamSpec.string(
-						"description",
-						"Description", // nick
-						"Object description", // blurb
-						GObject.ParamFlags.READWRITE,
-						"Default description", // defaultValue
-					),
+          // String property with specific default value
+          description: GObject.ParamSpec.string(
+            "description",
+            "Description", // nick
+            "Object description", // blurb
+            GObject.ParamFlags.READWRITE,
+            "Default description", // defaultValue
+          ),
 
-					// File property demonstrating object property with specific GType
-					file: GObject.ParamSpec.object(
-						"file",
-						"File", // nick
-						"A file property", // blurb
-						GObject.ParamFlags.READWRITE,
-						Gio.File.$gtype, // objectType (specific GType for Gio.File)
-					),
-				},
-			},
-			ExampleObject,
-		);
-	}
+          // File property demonstrating object property with specific GType
+          file: GObject.ParamSpec.object(
+            "file",
+            "File", // nick
+            "A file property", // blurb
+            GObject.ParamFlags.READWRITE,
+            Gio.File.$gtype, // objectType (specific GType for Gio.File)
+          ),
+        },
+      },
+      ExampleObject,
+    );
+  }
 
-	// Property values
-	protected declare _fullProperty: string;
-	protected declare _minimalProperty: string;
-	protected declare _nullableDefault: string | null;
-	protected declare _globalStringNull: string | null;
-	protected declare _variantProperty: GLib.Variant | null;
-	protected declare _optionalNickBlurb: string | null;
-	protected declare _minimalParams: string | null;
-	protected declare _count: number;
-	protected declare _active: boolean;
-	protected declare _ratio: number;
-	protected declare _file: Gio.File | null;
+  // Property values
+  declare protected _fullProperty: string;
+  declare protected _minimalProperty: string;
+  declare protected _nullableDefault: string | null;
+  declare protected _globalStringNull: string | null;
+  declare protected _variantProperty: GLib.Variant | null;
+  declare protected _optionalNickBlurb: string | null;
+  declare protected _minimalParams: string | null;
+  declare protected _count: number;
+  declare protected _active: boolean;
+  declare protected _ratio: number;
+  declare protected _file: Gio.File | null;
 
-	// Property getters/setters
-	get full_property(): string {
-		return this._fullProperty;
-	}
+  // Property getters/setters
+  get full_property(): string {
+    return this._fullProperty;
+  }
 
-	set full_property(value: string) {
-		this._fullProperty = value;
-	}
+  set full_property(value: string) {
+    this._fullProperty = value;
+  }
 
-	get minimal_property(): string {
-		return this._minimalProperty;
-	}
+  get minimal_property(): string {
+    return this._minimalProperty;
+  }
 
-	set minimal_property(value: string) {
-		this._minimalProperty = value;
-	}
+  set minimal_property(value: string) {
+    this._minimalProperty = value;
+  }
 
-	get nullable_default(): string | null {
-		return this._nullableDefault;
-	}
+  get nullable_default(): string | null {
+    return this._nullableDefault;
+  }
 
-	set nullable_default(value: string | null) {
-		this._nullableDefault = value;
-	}
+  set nullable_default(value: string | null) {
+    this._nullableDefault = value;
+  }
 
-	get global_string_null(): string | null {
-		return this._globalStringNull;
-	}
+  get global_string_null(): string | null {
+    return this._globalStringNull;
+  }
 
-	set global_string_null(value: string | null) {
-		this._globalStringNull = value;
-	}
+  set global_string_null(value: string | null) {
+    this._globalStringNull = value;
+  }
 
-	get variant_property(): GLib.Variant | null {
-		return this._variantProperty;
-	}
+  get variant_property(): GLib.Variant | null {
+    return this._variantProperty;
+  }
 
-	set variant_property(value: GLib.Variant | null) {
-		this._variantProperty = value;
-	}
+  set variant_property(value: GLib.Variant | null) {
+    this._variantProperty = value;
+  }
 
-	get count(): number {
-		return this._count;
-	}
+  get count(): number {
+    return this._count;
+  }
 
-	set count(value: number) {
-		this._count = value;
-	}
+  set count(value: number) {
+    this._count = value;
+  }
 
-	get active(): boolean {
-		return this._active;
-	}
+  get active(): boolean {
+    return this._active;
+  }
 
-	set active(value: boolean) {
-		this._active = value;
-	}
+  set active(value: boolean) {
+    this._active = value;
+  }
 
-	get ratio(): number {
-		return this._ratio;
-	}
+  get ratio(): number {
+    return this._ratio;
+  }
 
-	set ratio(value: number) {
-		this._ratio = value;
-	}
+  set ratio(value: number) {
+    this._ratio = value;
+  }
 
-	get file(): Gio.File | null {
-		return this._file;
-	}
+  get file(): Gio.File | null {
+    return this._file;
+  }
 
-	set file(value: Gio.File | null) {
-		this._file = value;
-	}
+  set file(value: Gio.File | null) {
+    this._file = value;
+  }
 }
 
 // Create and test the object
@@ -329,10 +329,10 @@ const properties = ExampleObject.list_properties();
 
 console.log("\nProperty Information:");
 for (const pspec of properties) {
-	console.log(`\nProperty: ${pspec.get_name()}`);
-	console.log(`Nick: ${pspec.get_nick() || "(null)"}`);
-	console.log(`Blurb: ${pspec.get_blurb() || "(null)"}`);
-	console.log(`Type: ${pspec.value_type.name}`);
+  console.log(`\nProperty: ${pspec.get_name()}`);
+  console.log(`Nick: ${pspec.get_nick() || "(null)"}`);
+  console.log(`Blurb: ${pspec.get_blurb() || "(null)"}`);
+  console.log(`Type: ${pspec.value_type.name}`);
 }
 
 // Demonstrate GObject.Object.get_property and GObject.Object.set_property methods
@@ -424,7 +424,10 @@ nullableStringValue.init(GObject.TYPE_STRING);
 // Get the property value (should be null initially)
 obj.get_property("nullable-default", nullableStringValue);
 const initialValue = nullableStringValue.get_string();
-console.log("Get initial value from GObject.Value:", initialValue === null ? "null" : `"${initialValue}"`);
+console.log(
+  "Get initial value from GObject.Value:",
+  initialValue === null ? "null" : `"${initialValue}"`,
+);
 
 // Set to a string value
 nullableStringValue.set_string("Test String");
@@ -444,7 +447,10 @@ globalStringValue.init(GObject.TYPE_STRING);
 
 obj.get_property("global-string-null", globalStringValue);
 const globalInitialValue = globalStringValue.get_string();
-console.log("Global string initial value:", globalInitialValue === null ? "null" : `"${globalInitialValue}"`);
+console.log(
+  "Global string initial value:",
+  globalInitialValue === null ? "null" : `"${globalInitialValue}"`,
+);
 
 globalStringValue.set_string("Global Test");
 obj.set_property("global-string-null", globalStringValue);
@@ -496,12 +502,12 @@ console.log("Target active:", targetObj.active);
 // Example 1: Simple property binding with default transformation
 console.log("\nExample 1: Simple property binding");
 const binding1 = sourceObj.bind_property_full(
-	"full-property",
-	targetObj,
-	"full-property",
-	GObject.BindingFlags.DEFAULT,
-	null, // Use default transformation (no custom conversion needed)
-	null, // Use default reverse transformation (not used in DEFAULT mode)
+  "full-property",
+  targetObj,
+  "full-property",
+  GObject.BindingFlags.DEFAULT,
+  null, // Use default transformation (no custom conversion needed)
+  null, // Use default reverse transformation (not used in DEFAULT mode)
 );
 
 console.log("✅ Property binding created successfully");
@@ -515,12 +521,12 @@ console.log("Target full_property now:", targetObj.full_property);
 // Example 2: Bidirectional binding
 console.log("\nExample 2: Bidirectional property binding");
 const binding2 = sourceObj.bind_property_full(
-	"count",
-	targetObj,
-	"count",
-	GObject.BindingFlags.BIDIRECTIONAL,
-	null, // Use default transformation for source-to-target
-	null, // Use default transformation for target-to-source
+  "count",
+  targetObj,
+  "count",
+  GObject.BindingFlags.BIDIRECTIONAL,
+  null, // Use default transformation for source-to-target
+  null, // Use default transformation for target-to-source
 );
 
 console.log("✅ Bidirectional binding created successfully");
@@ -539,12 +545,12 @@ console.log("Source count now:", sourceObj.count);
 // Example 3: Sync create binding
 console.log("\nExample 3: Binding with immediate synchronization");
 const binding3 = sourceObj.bind_property_full(
-	"active",
-	targetObj,
-	"active",
-	GObject.BindingFlags.SYNC_CREATE,
-	null, // Use default transformation
-	null, // Use default reverse transformation
+  "active",
+  targetObj,
+  "active",
+  GObject.BindingFlags.SYNC_CREATE,
+  null, // Use default transformation
+  null, // Use default reverse transformation
 );
 
 console.log("✅ Sync create binding created successfully");
@@ -580,7 +586,9 @@ binding3.unbind();
 
 console.log("\n✅ All property binding examples completed successfully!");
 console.log("This demonstrates proper usage of bind_property_full() with different binding modes.");
-console.log("Using null for transformation functions provides default behavior without custom conversion.");
+console.log(
+  "Using null for transformation functions provides default behavior without custom conversion.",
+);
 
 console.log("\n=== Fix Validation Summary ===");
 console.log("✅ ParamSpec.string() static method now accepts null as default value");

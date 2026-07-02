@@ -10,50 +10,50 @@ const win = builder.get_object("mainWindow") as Gtk.Window;
 
 win.set_default_size(600, 400);
 win.connect("show", () => {
-	Gtk.main();
+  Gtk.main();
 });
 win.connect("destroy", () => {
-	Gtk.main_quit();
-	return true;
+  Gtk.main_quit();
+  return true;
 });
 
 const closeButton = builder.get_object("closeButton");
 if (!closeButton) {
-	throw new Error("Builder object closeButton not found!");
+  throw new Error("Builder object closeButton not found!");
 }
 
 const actionButton = builder.get_object("actionButton");
 if (!actionButton) {
-	throw new Error("Builder object actionButton not found!");
+  throw new Error("Builder object actionButton not found!");
 }
 
 const label = builder.get_object("helloLabel") as Gtk.Label | null;
 if (!label) {
-	throw new Error("Builder object helloLabel not found!");
+  throw new Error("Builder object helloLabel not found!");
 }
 
 closeButton.connect("clicked", () => {
-	win.close();
-	print("window closed");
+  win.close();
+  print("window closed");
 });
 
 actionButton.connect("clicked", () => {
-	Promise.resolve().then(() => {
-		print("event promise.then() called");
-	});
+  Promise.resolve().then(() => {
+    print("event promise.then() called");
+  });
 });
 
 label.set_text("Hello World!");
 
 const action = () =>
-	new Promise((resolve) => {
-		resolve("CHANGED");
-		print("new Promise(...)  called");
-	});
+  new Promise((resolve) => {
+    resolve("CHANGED");
+    print("new Promise(...)  called");
+  });
 
 action().then((res) => {
-	print("promise.then() called ");
-	label.set_text(res as string);
+  print("promise.then() called ");
+  label.set_text(res as string);
 });
 
 win.show_all();

@@ -1,17 +1,14 @@
 /**
  * GVariant Type Validation Tests
- * 
+ *
  * Tests for validating TypeScript type generation for GLib.Variant methods.
  * Focus areas:
  * - Tuple parsing
  * - Type inference for unpack/deepUnpack/recursiveUnpack methods
  */
 
-import { describe, it, expect } from 'vitest';
-import {
-  validateGIRTypeScriptAuto,
-  expectIdentifierTypeAuto,
-} from '@ts-for-gir/language-server';
+import { describe, it, expect } from "vitest";
+import { validateGIRTypeScriptAuto, expectIdentifierTypeAuto } from "@ts-for-gir/language-server";
 
 // Test helpers using Vitest expectations for clearer failures
 function expectCompilation(code: string) {
@@ -19,7 +16,7 @@ function expectCompilation(code: string) {
   if (!result.success) {
     // Show first few diagnostics to aid debugging in failures
     // eslint-disable-next-line no-console
-    console.error('TypeScript compile errors (first 5):', result.errors.slice(0, 5));
+    console.error("TypeScript compile errors (first 5):", result.errors.slice(0, 5));
   }
   expect(result.success).toBe(true);
   return result;
@@ -33,10 +30,9 @@ function expectType(code: string, identifier: string, pattern: RegExp) {
   return res;
 }
 
-describe('GVariant Type Validation', () => {
-  
-  describe('Tuple Parsing and Inference', () => {
-    it('should correctly parse integer tuples', () => {
+describe("GVariant Type Validation", () => {
+  describe("Tuple Parsing and Inference", () => {
+    it("should correctly parse integer tuples", () => {
       const testCode = `
         import GLib from 'gi://GLib?version=2.0';
         
@@ -58,26 +54,37 @@ describe('GVariant Type Validation', () => {
       `;
 
       const result = validateGIRTypeScriptAuto(testCode);
-      
+
       if (!result.success) {
-        console.log('Tuple parsing issue:', result.errors);
+        console.log("Tuple parsing issue:", result.errors);
       }
-      
+
       // CORRECTION based on runtime analysis: unpack() returns [Variant, Variant], deepUnpack() returns [number, number]
-      const tupleUnpackType = expectIdentifierTypeAuto(testCode, 'tupleUnpack', /\[Variant.*,\s*Variant.*\]|Variant.*\[\]/);
-      const tupleDeepUnpackType = expectIdentifierTypeAuto(testCode, 'tupleDeepUnpack', /\[number,\s*number\]|number.*\[\]/);
-      
+      const tupleUnpackType = expectIdentifierTypeAuto(
+        testCode,
+        "tupleUnpack",
+        /\[Variant.*,\s*Variant.*\]|Variant.*\[\]/,
+      );
+      const tupleDeepUnpackType = expectIdentifierTypeAuto(
+        testCode,
+        "tupleDeepUnpack",
+        /\[number,\s*number\]|number.*\[\]/,
+      );
+
       // Log current state for debugging
-      console.log('Tuple unpack type (should be [Variant, Variant]):', tupleUnpackType.actualType);
-      console.log('Tuple deepUnpack type (should be [number, number]):', tupleDeepUnpackType.actualType);
-      
+      console.log("Tuple unpack type (should be [Variant, Variant]):", tupleUnpackType.actualType);
+      console.log(
+        "Tuple deepUnpack type (should be [number, number]):",
+        tupleDeepUnpackType.actualType,
+      );
+
       // The unpack() method should return tuple of Variants, deepUnpack() should return actual values
       expect(tupleUnpackType.success).toBe(true);
       expect(tupleDeepUnpackType.success).toBe(true);
       expect(tupleUnpackType.matches).toBe(true);
     });
 
-    it('should handle complex tuple types', () => {
+    it("should handle complex tuple types", () => {
       const testCode = `
         import GLib from 'gi://GLib?version=2.0';
         
@@ -99,17 +106,21 @@ describe('GVariant Type Validation', () => {
 
       expectCompilation(testCode);
       // CORRECTION: unpack() returns tuple of Variants, deepUnpack() returns actual values
-      expectType(testCode, 'simple', /\[Variant.*,\s*Variant.*\]/);
-      expectType(testCode, 'withBool', /\[Variant.*,\s*Variant.*,\s*Variant.*\]/);
-      expectType(testCode, 'doubles', /\[Variant.*,\s*Variant.*\]/);
+      expectType(testCode, "simple", /\[Variant.*,\s*Variant.*\]/);
+      expectType(testCode, "withBool", /\[Variant.*,\s*Variant.*,\s*Variant.*\]/);
+      expectType(testCode, "doubles", /\[Variant.*,\s*Variant.*\]/);
       // deepUnpack() should return actual values
-      expectType(testCode, 'simpleDeep', /\[string,\s*number\]|(string|number).*\[\]/);
-      expectType(testCode, 'boolDeep', /\[string,\s*number,\s*boolean\]|(string|number|boolean).*\[\]/);
+      expectType(testCode, "simpleDeep", /\[string,\s*number\]|(string|number).*\[\]/);
+      expectType(
+        testCode,
+        "boolDeep",
+        /\[string,\s*number,\s*boolean\]|(string|number|boolean).*\[\]/,
+      );
     });
   });
 
-  describe('Unpacking Method Type Inference', () => {
-    it('should differentiate between unpack, deepUnpack, and recursiveUnpack', () => {
+  describe("Unpacking Method Type Inference", () => {
+    it("should differentiate between unpack, deepUnpack, and recursiveUnpack", () => {
       const testCode = `
         import GLib from 'gi://GLib?version=2.0';
         
@@ -135,18 +146,18 @@ describe('GVariant Type Validation', () => {
 
       expectCompilation(testCode);
       // Arrays
-      expectType(testCode, 'shallowUnpack', /Variant.*\[\]/);
-      expectType(testCode, 'deepUnpack', /string.*\[\]|Array.*string/);
-      expectType(testCode, 'recursiveUnpack', /string.*\[\]|Array.*string/);
+      expectType(testCode, "shallowUnpack", /Variant.*\[\]/);
+      expectType(testCode, "deepUnpack", /string.*\[\]|Array.*string/);
+      expectType(testCode, "recursiveUnpack", /string.*\[\]|Array.*string/);
       // Dictionary types - preserve index signature expectation
-      expectType(testCode, 'dictShallow', /\{\s*\[.*\]:\s*Variant/);
-      expectType(testCode, 'dictDeep', /\{\s*\[.*\]:\s*Variant/);
-      const dictRecursiveType = expectType(testCode, 'dictRecursive', /\{\s*\[.*\]:\s*unknown/);
+      expectType(testCode, "dictShallow", /\{\s*\[.*\]:\s*Variant/);
+      expectType(testCode, "dictDeep", /\{\s*\[.*\]:\s*Variant/);
+      const dictRecursiveType = expectType(testCode, "dictRecursive", /\{\s*\[.*\]:\s*unknown/);
       // recursiveUnpack should not contain Variant types (GJS test confirms this)
       expect(String(dictRecursiveType.actualType)).not.toMatch(/Variant(?!.*Error)/);
     });
 
-    it('should handle nested variant structures', () => {
+    it("should handle nested variant structures", () => {
       const testCode = `
         import GLib from 'gi://GLib?version=2.0';
         
@@ -166,14 +177,14 @@ describe('GVariant Type Validation', () => {
       `;
 
       expectCompilation(testCode);
-      expectType(testCode, 'level1', /\{\s*\[.*\]:\s*Variant/);
-      expectType(testCode, 'level2', /\{\s*\[.*\]:\s*Variant/);
-      const fullType = expectType(testCode, 'fullUnpack', /\{\s*\[.*\]:\s*unknown/);
+      expectType(testCode, "level1", /\{\s*\[.*\]:\s*Variant/);
+      expectType(testCode, "level2", /\{\s*\[.*\]:\s*Variant/);
+      const fullType = expectType(testCode, "fullUnpack", /\{\s*\[.*\]:\s*unknown/);
       // recursiveUnpack should not contain Variant types (fully unpacked)
       expect(String(fullType.actualType)).not.toMatch(/Variant(?!.*Error)/);
     });
 
-    it('should handle struct variants like GJS tests', () => {
+    it("should handle struct variants like GJS tests", () => {
       const testCode = `
         import GLib from 'gi://GLib?version=2.0';
         
@@ -199,16 +210,16 @@ describe('GVariant Type Validation', () => {
 
       expectCompilation(testCode);
       // Test struct unpacking based on GJS test expectations - strict type checking
-      expectType(testCode, 'unpacked', /\[.*\]|Array/);
-      expectType(testCode, 'firstElement', /string/);
-      expectType(testCode, 'thirdElement', /string/);
-      expectType(testCode, 'fourthElement', /Variant/);
-      expectType(testCode, 'fifthElement', /\[\]|Array|number.*\[\]/);
+      expectType(testCode, "unpacked", /\[.*\]|Array/);
+      expectType(testCode, "firstElement", /string/);
+      expectType(testCode, "thirdElement", /string/);
+      expectType(testCode, "fourthElement", /Variant/);
+      expectType(testCode, "fifthElement", /\[\]|Array|number.*\[\]/);
     });
   });
 
-  describe('Compile-time ReturnType inference', () => {
-    it('should infer correct ReturnType for common patterns and match expected types', () => {
+  describe("Compile-time ReturnType inference", () => {
+    it("should infer correct ReturnType for common patterns and match expected types", () => {
       const testCode = `
         import GLib from 'gi://GLib?version=2.0';
 
@@ -247,23 +258,23 @@ describe('GVariant Type Validation', () => {
       expectCompilation(testCode);
       // Verify expected types (see examples/glib-2-variant/main.ts expectations)
       // Tuples
-      expectType(testCode, 'intTupleValue', /\[Variant.*,\s*Variant.*\]/);
-      expectType(testCode, 'stringIntTupleValue', /\[string,\s*number\]|(string|number).*\[\]/);
+      expectType(testCode, "intTupleValue", /\[Variant.*,\s*Variant.*\]/);
+      expectType(testCode, "stringIntTupleValue", /\[string,\s*number\]|(string|number).*\[\]/);
       // Arrays
-      expectType(testCode, 'stringArrayUnpackVal', /Variant.*\[\]/);
-      expectType(testCode, 'stringArrayDeepVal', /string.*\[\]|Array.*string/);
+      expectType(testCode, "stringArrayUnpackVal", /Variant.*\[\]/);
+      expectType(testCode, "stringArrayDeepVal", /string.*\[\]|Array.*string/);
       // Dictionaries
-      expectType(testCode, 'dictUnpackVal', /\{\s*\[.*\]:\s*Variant/);
-      expectType(testCode, 'dictDeepVal', /\{\s*\[.*\]:\s*Variant/);
-      expectType(testCode, 'dictRecursiveVal', /\{\s*\[.*\]:\s*unknown/);
+      expectType(testCode, "dictUnpackVal", /\{\s*\[.*\]:\s*Variant/);
+      expectType(testCode, "dictDeepVal", /\{\s*\[.*\]:\s*Variant/);
+      expectType(testCode, "dictRecursiveVal", /\{\s*\[.*\]:\s*unknown/);
       // Simple
-      expectType(testCode, 'booleanUnpackVal', /boolean/);
-      expectType(testCode, 'stringDeepVal', /string/);
+      expectType(testCode, "booleanUnpackVal", /boolean/);
+      expectType(testCode, "stringDeepVal", /string/);
     });
   });
 
-  describe('Generic parameter override (Advanced Variant Types enabled)', () => {
-    it('should allow explicit generic parameters to override inferred types (also works without Advanced Variant Types)', () => {
+  describe("Generic parameter override (Advanced Variant Types enabled)", () => {
+    it("should allow explicit generic parameters to override inferred types (also works without Advanced Variant Types)", () => {
       const testCode = `
         import GLib from 'gi://GLib?version=2.0';
         
@@ -285,13 +296,13 @@ describe('GVariant Type Validation', () => {
 
       expectCompilation(testCode);
       // Test type expectations with and without explicit type parameters - strict checking
-      expectType(testCode, 'unpacked', /\{\s*\[.*\]:\s*any/);
-      expectType(testCode, 'unpackedNoType', /\{\s*\[.*\]:\s*Variant/);
+      expectType(testCode, "unpacked", /\{\s*\[.*\]:\s*any/);
+      expectType(testCode, "unpackedNoType", /\{\s*\[.*\]:\s*Variant/);
     });
   });
 
-  describe('Simple Type Validation', () => {
-    it('should handle simple variant types correctly', () => {
+  describe("Simple Type Validation", () => {
+    it("should handle simple variant types correctly", () => {
       const testCode = `
         import GLib from 'gi://GLib?version=2.0';
         
@@ -316,22 +327,22 @@ describe('GVariant Type Validation', () => {
 
       expectCompilation(testCode);
       // boolean
-      expectType(testCode, 'boolUnpack', /boolean/);
-      expectType(testCode, 'boolDeep', /boolean/);
-      expectType(testCode, 'boolRecursive', /boolean/);
+      expectType(testCode, "boolUnpack", /boolean/);
+      expectType(testCode, "boolDeep", /boolean/);
+      expectType(testCode, "boolRecursive", /boolean/);
       // string
-      expectType(testCode, 'stringUnpack', /string/);
-      expectType(testCode, 'stringDeep', /string/);
-      expectType(testCode, 'stringRecursive', /string/);
+      expectType(testCode, "stringUnpack", /string/);
+      expectType(testCode, "stringDeep", /string/);
+      expectType(testCode, "stringRecursive", /string/);
       // number
-      expectType(testCode, 'numberUnpack', /number/);
-      expectType(testCode, 'numberDeep', /number/);
-      expectType(testCode, 'numberRecursive', /number/);
+      expectType(testCode, "numberUnpack", /number/);
+      expectType(testCode, "numberDeep", /number/);
+      expectType(testCode, "numberRecursive", /number/);
     });
   });
 
-  describe('Real-world Usage Patterns', () => {
-    it('should validate DBus-style variant usage', () => {
+  describe("Real-world Usage Patterns", () => {
+    it("should validate DBus-style variant usage", () => {
       const testCode = `
         import GLib from 'gi://GLib?version=2.0';
         
@@ -356,19 +367,19 @@ describe('GVariant Type Validation', () => {
 
       const result = expectCompilation(testCode);
       // Test type expectations for DBus patterns - strict checking
-      expectType(testCode, 'service', /string/);
-      expectType(testCode, 'params', /\{\s*\[.*\]:\s*Variant/);
+      expectType(testCode, "service", /string/);
+      expectType(testCode, "params", /\{\s*\[.*\]:\s*Variant/);
       // For a{sv}, values are Variants with unknown contained types at compile time.
       // Therefore, deepUnpack() on params.method yields unknown.
-      expectType(testCode, 'methodA', /(unknown)/);
-      expectType(testCode, 'methodB', /(string)/);
+      expectType(testCode, "methodA", /(unknown)/);
+      expectType(testCode, "methodB", /(string)/);
       // Compilation should succeed
       expect(result.success).toBe(true);
     });
   });
 
-  describe('GVariant nesting depth (type-level)', () => {
-    it('should infer nested arrays within reasonable depth', () => {
+  describe("GVariant nesting depth (type-level)", () => {
+    it("should infer nested arrays within reasonable depth", () => {
       // 12-level nested array of strings: 'aaaaaaaaaaaa' + 's'
       const testCode = `
         import GLib from 'gi://GLib?version=2.0';
@@ -380,12 +391,12 @@ describe('GVariant Type Validation', () => {
 
       expectCompilation(testCode);
       // Should be a 12-level nested array of strings
-      expectType(testCode, 'd', /string(\[\]){12}/);
+      expectType(testCode, "d", /string(\[\]){12}/);
     });
   });
-  
-  describe('Additional semantics from gvariant-types', () => {
-    it('handles byte arrays (ay): constructor types and unpacking results', () => {
+
+  describe("Additional semantics from gvariant-types", () => {
+    it("handles byte arrays (ay): constructor types and unpacking results", () => {
       const testCode = `
         import GLib from 'gi://GLib?version=2.0';
         
@@ -397,12 +408,12 @@ describe('GVariant Type Validation', () => {
         const u3 = fromString.recursiveUnpack();
       `;
       expectCompilation(testCode);
-      expectType(testCode, 'u1', /Uint8Array/);
-      expectType(testCode, 'u2', /Uint8Array/);
-      expectType(testCode, 'u3', /Uint8Array/);
+      expectType(testCode, "u1", /Uint8Array/);
+      expectType(testCode, "u2", /Uint8Array/);
+      expectType(testCode, "u3", /Uint8Array/);
     });
 
-    it('handles Maybe types (mT): nullability across unpack methods for simple and container types', () => {
+    it("handles Maybe types (mT): nullability across unpack methods for simple and container types", () => {
       const testCode = `
         import GLib from 'gi://GLib?version=2.0';
         
@@ -418,14 +429,14 @@ describe('GVariant Type Validation', () => {
       `;
       expectCompilation(testCode);
       // simple maybe
-      expectType(testCode, 'mu1', /string\s*\|\s*null|null\s*\|\s*string/);
-      expectType(testCode, 'md1', /string\s*\|\s*null|null\s*\|\s*string/);
-      expectType(testCode, 'mr1', /string\s*\|\s*null|null\s*\|\s*string/);
+      expectType(testCode, "mu1", /string\s*\|\s*null|null\s*\|\s*string/);
+      expectType(testCode, "md1", /string\s*\|\s*null|null\s*\|\s*string/);
+      expectType(testCode, "mr1", /string\s*\|\s*null|null\s*\|\s*string/);
       // container maybe (array of strings)
-      expectType(testCode, 'mau', /(string\[\])\s*\|\s*null|null\s*\|\s*(string\[\])/);
+      expectType(testCode, "mau", /(string\[\])\s*\|\s*null|null\s*\|\s*(string\[\])/);
     });
 
-    it('handles uniform dictionaries (a{ss}, a{si}, a{sb})', () => {
+    it("handles uniform dictionaries (a{ss}, a{si}, a{sb})", () => {
       const testCode = `
         import GLib from 'gi://GLib?version=2.0';
         
@@ -447,20 +458,20 @@ describe('GVariant Type Validation', () => {
       `;
       expectCompilation(testCode);
       // shallow keeps Variant values
-      expectType(testCode, 's1', /\{\s*\[.*\]:\s*Variant/);
-      expectType(testCode, 's2', /\{\s*\[.*\]:\s*Variant/);
-      expectType(testCode, 's3', /\{\s*\[.*\]:\s*Variant/);
+      expectType(testCode, "s1", /\{\s*\[.*\]:\s*Variant/);
+      expectType(testCode, "s2", /\{\s*\[.*\]:\s*Variant/);
+      expectType(testCode, "s3", /\{\s*\[.*\]:\s*Variant/);
       // deep infers uniform native value types
-      expectType(testCode, 'dd1', /\{\s*\[.*\]:\s*string/);
-      expectType(testCode, 'dd2', /\{\s*\[.*\]:\s*number/);
-      expectType(testCode, 'dd3', /\{\s*\[.*\]:\s*boolean/);
+      expectType(testCode, "dd1", /\{\s*\[.*\]:\s*string/);
+      expectType(testCode, "dd2", /\{\s*\[.*\]:\s*number/);
+      expectType(testCode, "dd3", /\{\s*\[.*\]:\s*boolean/);
       // recursive matches deep for uniform dicts
-      expectType(testCode, 'dr1', /\{\s*\[.*\]:\s*string/);
-      expectType(testCode, 'dr2', /\{\s*\[.*\]:\s*number/);
-      expectType(testCode, 'dr3', /\{\s*\[.*\]:\s*boolean/);
+      expectType(testCode, "dr1", /\{\s*\[.*\]:\s*string/);
+      expectType(testCode, "dr2", /\{\s*\[.*\]:\s*number/);
+      expectType(testCode, "dr3", /\{\s*\[.*\]:\s*boolean/);
     });
 
-    it('handles Variant type (v) and arrays of variants (av)', () => {
+    it("handles Variant type (v) and arrays of variants (av)", () => {
       const testCode = `
         import GLib from 'gi://GLib?version=2.0';
         
@@ -476,16 +487,16 @@ describe('GVariant Type Validation', () => {
       `;
       expectCompilation(testCode);
       // scalar v
-      expectType(testCode, 'vu', /Variant/);
-      expectType(testCode, 'vd', /Variant/);
-      expectType(testCode, 'vr', /\bunknown\b/);
+      expectType(testCode, "vu", /Variant/);
+      expectType(testCode, "vd", /Variant/);
+      expectType(testCode, "vr", /\bunknown\b/);
       // array of variants
-      expectType(testCode, 'avu', /Variant.*\[\]/);
-      expectType(testCode, 'avd', /Variant.*\[\]/);
-      expectType(testCode, 'avr', /(unknown\[\])|Array<\s*unknown\s*>/);
+      expectType(testCode, "avu", /Variant.*\[\]/);
+      expectType(testCode, "avd", /Variant.*\[\]/);
+      expectType(testCode, "avr", /(unknown\[\])|Array<\s*unknown\s*>/);
     });
 
-    it('treats handle and unknown types as unknown (h, ?)', () => {
+    it("treats handle and unknown types as unknown (h, ?)", () => {
       const testCode = `
         import GLib from 'gi://GLib?version=2.0';
         
@@ -502,17 +513,17 @@ describe('GVariant Type Validation', () => {
       `;
       expectCompilation(testCode);
       // All methods yield unknown for these base types
-      expectType(testCode, 'hu', /(unknown)/);
-      expectType(testCode, 'hd', /(unknown)/);
-      expectType(testCode, 'hr', /(unknown)/);
-      expectType(testCode, 'qu', /(unknown)/);
-      expectType(testCode, 'qd', /(unknown)/);
-      expectType(testCode, 'qr', /(unknown)/);
+      expectType(testCode, "hu", /(unknown)/);
+      expectType(testCode, "hd", /(unknown)/);
+      expectType(testCode, "hr", /(unknown)/);
+      expectType(testCode, "qu", /(unknown)/);
+      expectType(testCode, "qd", /(unknown)/);
+      expectType(testCode, "qr", /(unknown)/);
     });
   });
 
-  describe('new_tuple accepts Variant[] (Issue #296)', () => {
-    it('should accept Variant instances, not VariantType', () => {
+  describe("new_tuple accepts Variant[] (Issue #296)", () => {
+    it("should accept Variant instances, not VariantType", () => {
       const testCode = `
         import GLib from 'gi://GLib?version=2.0';
 
@@ -522,10 +533,10 @@ describe('GVariant Type Validation', () => {
         ]);
       `;
       expectCompilation(testCode);
-      expectType(testCode, 'tuple', /Variant<"\(si\)">/);
+      expectType(testCode, "tuple", /Variant<"\(si\)">/);
     });
 
-    it('should infer correct tuple type for multiple elements', () => {
+    it("should infer correct tuple type for multiple elements", () => {
       const testCode = `
         import GLib from 'gi://GLib?version=2.0';
 
@@ -536,29 +547,29 @@ describe('GVariant Type Validation', () => {
         ]);
       `;
       expectCompilation(testCode);
-      expectType(testCode, 'tuple', /Variant<"\(bsi\)">/);
+      expectType(testCode, "tuple", /Variant<"\(bsi\)">/);
     });
   });
 
-  describe('Nested dictionary parsing (Issue #286)', () => {
-    it('should parse nested dictionaries for recursiveUnpack', () => {
+  describe("Nested dictionary parsing (Issue #286)", () => {
+    it("should parse nested dictionaries for recursiveUnpack", () => {
       const testCode = `
         import GLib from 'gi://GLib?version=2.0';
 
         type NestedDict = GLib.$ParseRecursiveVariant<"a{sa{sv}}">;
       `;
       expectCompilation(testCode);
-      expectType(testCode, 'NestedDict', /\{ \[key: string\]/);
+      expectType(testCode, "NestedDict", /\{ \[key: string\]/);
     });
 
-    it('should parse nested dictionaries for deepUnpack', () => {
+    it("should parse nested dictionaries for deepUnpack", () => {
       const testCode = `
         import GLib from 'gi://GLib?version=2.0';
 
         type NestedDictDeep = GLib.$ParseDeepVariant<"a{sa{sv}}">;
       `;
       expectCompilation(testCode);
-      expectType(testCode, 'NestedDictDeep', /\{ \[key: string\]/);
+      expectType(testCode, "NestedDictDeep", /\{ \[key: string\]/);
     });
   });
 });

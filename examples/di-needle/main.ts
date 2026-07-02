@@ -10,235 +10,271 @@ import { Container, inject, injectable } from "@needle-di/core";
 // GObject-based Logger with properties and constructor injection
 @injectable()
 class GObjectLogger extends GObject.Object {
-	static {
-		GObject.registerClass(
-			{
-				GTypeName: "GObjectLogger",
-				Properties: {
-					logCount: GObject.ParamSpec.int("log-count", null, null, GObject.ParamFlags.READABLE, 0, 1000000, 0),
-					prefix: GObject.ParamSpec.string("prefix", null, null, GObject.ParamFlags.READWRITE, "[LOG]"),
-				},
-			},
-			GObjectLogger,
-		);
-	}
+  static {
+    GObject.registerClass(
+      {
+        GTypeName: "GObjectLogger",
+        Properties: {
+          logCount: GObject.ParamSpec.int(
+            "log-count",
+            null,
+            null,
+            GObject.ParamFlags.READABLE,
+            0,
+            1000000,
+            0,
+          ),
+          prefix: GObject.ParamSpec.string(
+            "prefix",
+            null,
+            null,
+            GObject.ParamFlags.READWRITE,
+            "[LOG]",
+          ),
+        },
+      },
+      GObjectLogger,
+    );
+  }
 
-	private _logCount = 0;
-	private _prefix = "[LOG]";
+  private _logCount = 0;
+  private _prefix = "[LOG]";
 
-	get logCount() {
-		return this._logCount;
-	}
-	get prefix() {
-		return this._prefix;
-	}
-	set prefix(value: string) {
-		this._prefix = value;
-		this.notify("prefix");
-	}
+  get logCount() {
+    return this._logCount;
+  }
+  get prefix() {
+    return this._prefix;
+  }
+  set prefix(value: string) {
+    this._prefix = value;
+    this.notify("prefix");
+  }
 
-	log(msg: string): void {
-		log(`${this._prefix} ${msg}`);
-		this._logCount++;
-		this.notify("log-count");
-	}
+  log(msg: string): void {
+    log(`${this._prefix} ${msg}`);
+    this._logCount++;
+    this.notify("log-count");
+  }
 }
 
 // GObject-based Database with constructor injection
 @injectable()
 class GObjectDatabase extends GObject.Object {
-	static {
-		GObject.registerClass(
-			{
-				GTypeName: "GObjectDatabase",
-				Properties: {
-					connectionStatus: GObject.ParamSpec.string(
-						"connection-status",
-						null,
-						null,
-						GObject.ParamFlags.READABLE,
-						"disconnected",
-					),
-				},
-			},
-			GObjectDatabase,
-		);
-	}
+  static {
+    GObject.registerClass(
+      {
+        GTypeName: "GObjectDatabase",
+        Properties: {
+          connectionStatus: GObject.ParamSpec.string(
+            "connection-status",
+            null,
+            null,
+            GObject.ParamFlags.READABLE,
+            "disconnected",
+          ),
+        },
+      },
+      GObjectDatabase,
+    );
+  }
 
-	private _connectionStatus = "connected";
+  private _connectionStatus = "connected";
 
-	constructor(private logger = inject(GObjectLogger)) {
-		super();
-		this.logger.log("Database connected");
-	}
+  constructor(private logger = inject(GObjectLogger)) {
+    super();
+    this.logger.log("Database connected");
+  }
 
-	get connectionStatus() {
-		return this._connectionStatus;
-	}
+  get connectionStatus() {
+    return this._connectionStatus;
+  }
 
-	save(data: string): void {
-		this.logger.log(`Saving to database: ${data}`);
-		this.logger.log("Database save completed");
-	}
+  save(data: string): void {
+    this.logger.log(`Saving to database: ${data}`);
+    this.logger.log("Database save completed");
+  }
 }
 
 // GObject-based Email service with constructor injection
 @injectable()
 class GObjectEmail extends GObject.Object {
-	static {
-		GObject.registerClass(
-			{
-				GTypeName: "GObjectEmail",
-				Properties: {
-					smtpHost: GObject.ParamSpec.string("smtp-host", null, null, GObject.ParamFlags.READWRITE, "localhost"),
-					emailsSent: GObject.ParamSpec.int("emails-sent", null, null, GObject.ParamFlags.READABLE, 0, 1000000, 0),
-				},
-			},
-			GObjectEmail,
-		);
-	}
+  static {
+    GObject.registerClass(
+      {
+        GTypeName: "GObjectEmail",
+        Properties: {
+          smtpHost: GObject.ParamSpec.string(
+            "smtp-host",
+            null,
+            null,
+            GObject.ParamFlags.READWRITE,
+            "localhost",
+          ),
+          emailsSent: GObject.ParamSpec.int(
+            "emails-sent",
+            null,
+            null,
+            GObject.ParamFlags.READABLE,
+            0,
+            1000000,
+            0,
+          ),
+        },
+      },
+      GObjectEmail,
+    );
+  }
 
-	private _smtpHost = "localhost";
-	private _emailsSent = 0;
+  private _smtpHost = "localhost";
+  private _emailsSent = 0;
 
-	constructor(private logger = inject(GObjectLogger)) {
-		super();
-		this.logger.log("Email service initialized");
-	}
+  constructor(private logger = inject(GObjectLogger)) {
+    super();
+    this.logger.log("Email service initialized");
+  }
 
-	get smtpHost() {
-		return this._smtpHost;
-	}
-	set smtpHost(value: string) {
-		this._smtpHost = value;
-		this.notify("smtp-host");
-	}
-	get emailsSent() {
-		return this._emailsSent;
-	}
+  get smtpHost() {
+    return this._smtpHost;
+  }
+  set smtpHost(value: string) {
+    this._smtpHost = value;
+    this.notify("smtp-host");
+  }
+  get emailsSent() {
+    return this._emailsSent;
+  }
 
-	send(to: string, message: string): void {
-		this.logger.log(`Sending email to ${to} via ${this._smtpHost}: ${message}`);
-		this._emailsSent++;
-		this.notify("emails-sent");
-		this.logger.log("Email sent successfully");
-	}
+  send(to: string, message: string): void {
+    this.logger.log(`Sending email to ${to} via ${this._smtpHost}: ${message}`);
+    this._emailsSent++;
+    this.notify("emails-sent");
+    this.logger.log("Email sent successfully");
+  }
 }
 
 // GObject-based User service with multiple constructor dependencies
 @injectable()
 class GObjectUserService extends GObject.Object {
-	static {
-		GObject.registerClass(
-			{
-				GTypeName: "GObjectUserService",
-				Properties: {
-					usersCreated: GObject.ParamSpec.int("users-created", null, null, GObject.ParamFlags.READABLE, 0, 1000000, 0),
-				},
-			},
-			GObjectUserService,
-		);
-	}
+  static {
+    GObject.registerClass(
+      {
+        GTypeName: "GObjectUserService",
+        Properties: {
+          usersCreated: GObject.ParamSpec.int(
+            "users-created",
+            null,
+            null,
+            GObject.ParamFlags.READABLE,
+            0,
+            1000000,
+            0,
+          ),
+        },
+      },
+      GObjectUserService,
+    );
+  }
 
-	private _usersCreated = 0;
+  private _usersCreated = 0;
 
-	constructor(
-		public readonly logger = inject(GObjectLogger),
-		public readonly database = inject(GObjectDatabase),
-		public readonly email = inject(GObjectEmail),
-	) {
-		super();
-		this.logger.log("User service initialized with all dependencies");
-	}
+  constructor(
+    public readonly logger = inject(GObjectLogger),
+    public readonly database = inject(GObjectDatabase),
+    public readonly email = inject(GObjectEmail),
+  ) {
+    super();
+    this.logger.log("User service initialized with all dependencies");
+  }
 
-	get usersCreated() {
-		return this._usersCreated;
-	}
+  get usersCreated() {
+    return this._usersCreated;
+  }
 
-	createUser(name: string, email: string): string {
-		const userId = `user_${Date.now()}`;
-		const userData = `${userId}:${name}:${email}`;
+  createUser(name: string, email: string): string {
+    const userId = `user_${Date.now()}`;
+    const userData = `${userId}:${name}:${email}`;
 
-		this.logger.log(`Creating user: ${name}`);
-		this.database.save(userData);
-		this.email.send(email, `Welcome ${name}! Your ID is ${userId}`);
-		this.logger.log(`User created: ${userId}`);
+    this.logger.log(`Creating user: ${name}`);
+    this.database.save(userData);
+    this.email.send(email, `Welcome ${name}! Your ID is ${userId}`);
+    this.logger.log(`User created: ${userId}`);
 
-		this._usersCreated++;
-		this.notify("users-created");
+    this._usersCreated++;
+    this.notify("users-created");
 
-		return userId;
-	}
+    return userId;
+  }
 }
 
 // GObject-based Application service
 @injectable()
 class GObjectApp extends Gio.Application {
-	static {
-		GObject.registerClass(
-			{
-				GTypeName: "GObjectApp",
-				Properties: {
-					appName: GObject.ParamSpec.string(
-						"app-name",
-						null,
-						null,
-						GObject.ParamFlags.READWRITE,
-						"User Management App",
-					),
-				},
-				Signals: {
-					"user-processed": {
-						param_types: [GObject.TYPE_STRING, GObject.TYPE_STRING],
-					},
-				},
-			},
-			GObjectApp,
-		);
-	}
+  static {
+    GObject.registerClass(
+      {
+        GTypeName: "GObjectApp",
+        Properties: {
+          appName: GObject.ParamSpec.string(
+            "app-name",
+            null,
+            null,
+            GObject.ParamFlags.READWRITE,
+            "User Management App",
+          ),
+        },
+        Signals: {
+          "user-processed": {
+            param_types: [GObject.TYPE_STRING, GObject.TYPE_STRING],
+          },
+        },
+      },
+      GObjectApp,
+    );
+  }
 
-	private _appName = "User Management App";
+  private _appName = "User Management App";
 
-	constructor(
-		public readonly userService = inject(GObjectUserService),
-		public readonly logger = inject(GObjectLogger),
-	) {
-		super({
-			application_id: "com.example.UserManagementApp",
-			flags: Gio.ApplicationFlags.HANDLES_COMMAND_LINE,
-		});
-		this.logger.log(`${this._appName} started`);
+  constructor(
+    public readonly userService = inject(GObjectUserService),
+    public readonly logger = inject(GObjectLogger),
+  ) {
+    super({
+      application_id: "com.example.UserManagementApp",
+      flags: Gio.ApplicationFlags.HANDLES_COMMAND_LINE,
+    });
+    this.logger.log(`${this._appName} started`);
 
-		// Connect to GObject signal
-		this.connect("user-processed", (_obj, userName, userId) => {
-			console.log(`🎉 GObject signal received: User ${userName} created with ID ${userId}`);
-		});
-	}
+    // Connect to GObject signal
+    this.connect("user-processed", (_obj, userName, userId) => {
+      console.log(`🎉 GObject signal received: User ${userName} created with ID ${userId}`);
+    });
+  }
 
-	override vfunc_command_line(commandLine: Gio.ApplicationCommandLine): number {
-		const args = commandLine.get_arguments();
-		const name = args[1];
-		const email = args[2];
-		this.processNewUser(name, email);
-		return 0;
-	}
+  override vfunc_command_line(commandLine: Gio.ApplicationCommandLine): number {
+    const args = commandLine.get_arguments();
+    const name = args[1];
+    const email = args[2];
+    this.processNewUser(name, email);
+    return 0;
+  }
 
-	get appName() {
-		return this._appName;
-	}
-	set appName(value: string) {
-		this._appName = value;
-		this.notify("app-name");
-	}
+  get appName() {
+    return this._appName;
+  }
+  set appName(value: string) {
+    this._appName = value;
+    this.notify("app-name");
+  }
 
-	processNewUser(name: string, email: string): void {
-		this.logger.log(`Processing new user: ${name} in ${this._appName}`);
-		const userId = this.userService.createUser(name, email);
-		this.logger.log(`User ${name} processed successfully with ID: ${userId}`);
+  processNewUser(name: string, email: string): void {
+    this.logger.log(`Processing new user: ${name} in ${this._appName}`);
+    const userId = this.userService.createUser(name, email);
+    this.logger.log(`User ${name} processed successfully with ID: ${userId}`);
 
-		// Emit GObject signal
-		this.emit("user-processed", name, userId);
-	}
+    // Emit GObject signal
+    this.emit("user-processed", name, userId);
+  }
 }
 
 // All GObject services automatically resolved with their dependencies!
@@ -246,14 +282,14 @@ const needle = new Container();
 const app = needle.get(GObjectApp);
 
 app
-	.runAsync(ARGV)
-	.then((exitStatus: number) => {
-		// Show GObject properties after processing
-		console.log(`📊 Logger count: ${app.logger.logCount}`);
-		console.log(`📧 Emails sent: ${app.userService.email.emailsSent}`);
-		console.log(`👥 Users created: ${app.userService.usersCreated}`);
-		console.log(`👉 Exited with status: ${exitStatus}`);
-	})
-	.catch((error: unknown) => {
-		console.error(error);
-	});
+  .runAsync(ARGV)
+  .then((exitStatus: number) => {
+    // Show GObject properties after processing
+    console.log(`📊 Logger count: ${app.logger.logCount}`);
+    console.log(`📧 Emails sent: ${app.userService.email.emailsSent}`);
+    console.log(`👥 Users created: ${app.userService.usersCreated}`);
+    console.log(`👉 Exited with status: ${exitStatus}`);
+  })
+  .catch((error: unknown) => {
+    console.error(error);
+  });

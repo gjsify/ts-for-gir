@@ -48,21 +48,16 @@
 // The key assertion for ACCEPTED tests is the ABSENCE of the path-rejection
 // message; any forward-progress indicator proves path-detection passed.
 
-import { describe, it, before, after } from 'node:test';
-import assert from 'node:assert/strict';
-import { execFile } from 'node:child_process';
-import { promisify } from 'node:util';
-import { createServer } from 'node:http';
-import {
-  existsSync,
-  mkdirSync,
-  writeFileSync,
-  rmSync,
-} from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { tmpdir } from 'node:os';
-import { createRequire } from 'node:module';
+import { describe, it, before, after } from "node:test";
+import assert from "node:assert/strict";
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
+import { createServer } from "node:http";
+import { existsSync, mkdirSync, writeFileSync, rmSync } from "node:fs";
+import { join, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+import { tmpdir } from "node:os";
+import { createRequire } from "node:module";
 
 // Async execFile: the test runs an in-process mock GitHub API server, and the
 // spawned CLI fetches it. A SYNCHRONOUS spawn (execFileSync) would block this
@@ -71,22 +66,22 @@ import { createRequire } from 'node:module';
 const execFileAsync = promisify(execFile);
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const MONOREPO_ROOT = join(__dirname, '..', '..', '..');
+const MONOREPO_ROOT = join(__dirname, "..", "..", "..");
 
 // Compiled Node bundle — same binary used by dual-runtime-parity.
 // Requires `gjsify run build:app` to have been run first.
-const NODE_BIN = join(MONOREPO_ROOT, 'packages', 'cli', 'bin', 'ts-for-gir');
+const NODE_BIN = join(MONOREPO_ROOT, "packages", "cli", "bin", "ts-for-gir");
 
 // --import preload: sets process.argv[1] from TS_FOR_GIR_ARGV1_OVERRIDE
 // before the CLI module loads.
-const ARGV1_PRELOAD = join(__dirname, 'argv1-override.mjs');
+const ARGV1_PRELOAD = join(__dirname, "argv1-override.mjs");
 
 // ── Fake GitHub release ───────────────────────────────────────────────────────
 //
 // A version guaranteed to differ from the current installed version so the
 // handler does NOT short-circuit at "Already up to date" and proceeds to the
 // asset lookup → binary-path check.
-const FAKE_LATEST_VERSION = '99.99.99-test';
+const FAKE_LATEST_VERSION = "99.99.99-test";
 
 // ── Helper: run CLI with controlled argv[1] and mocked GitHub API ─────────────
 
@@ -103,19 +98,19 @@ const FAKE_LATEST_VERSION = '99.99.99-test';
  * @param {object}   [extraEnv]  Additional env vars merged on top of process.env
  */
 async function runSelfUpdate(fakeArgv1, apiBase, extraArgs = [], extraEnv = {}) {
-  const result = { stdout: '', stderr: '', exitCode: null };
+  const result = { stdout: "", stderr: "", exitCode: null };
   try {
     const { stdout, stderr } = await execFileAsync(
-      'node',
-      [`--import=${ARGV1_PRELOAD}`, NODE_BIN, 'self-update', ...extraArgs],
+      "node",
+      [`--import=${ARGV1_PRELOAD}`, NODE_BIN, "self-update", ...extraArgs],
       {
-        encoding: 'utf8',
+        encoding: "utf8",
         timeout: 30_000,
         env: {
           ...process.env,
           TS_FOR_GIR_GITHUB_API: apiBase,
           TS_FOR_GIR_ARGV1_OVERRIDE: fakeArgv1,
-          NODE_NO_WARNINGS: '1',
+          NODE_NO_WARNINGS: "1",
           ...extraEnv,
         },
       },
@@ -124,8 +119,8 @@ async function runSelfUpdate(fakeArgv1, apiBase, extraArgs = [], extraEnv = {}) 
     result.stderr = stderr;
     result.exitCode = 0;
   } catch (err) {
-    result.stdout = err.stdout || '';
-    result.stderr = err.stderr || '';
+    result.stdout = err.stdout || "";
+    result.stderr = err.stderr || "";
     result.exitCode = err.code ?? 1;
     result.error = err;
   }
@@ -134,7 +129,7 @@ async function runSelfUpdate(fakeArgv1, apiBase, extraArgs = [], extraEnv = {}) 
 
 // ── Test suite ────────────────────────────────────────────────────────────────
 
-describe('self-update binary-path detection (#418 regression guard)', { timeout: 180_000 }, () => {
+describe("self-update binary-path detection (#418 regression guard)", { timeout: 180_000 }, () => {
   let server;
   let apiBase;
   let tmpRoot;
@@ -164,16 +159,16 @@ describe('self-update binary-path detection (#418 regression guard)', { timeout:
     // 30 s timeout fired — two such spawns exceeded the 60 s suite timeout.
     server = createServer((req, res) => {
       try {
-        const url = req.url ?? '';
-        if (url === '/repos/gjsify/ts-for-gir/releases/latest') {
+        const url = req.url ?? "";
+        if (url === "/repos/gjsify/ts-for-gir/releases/latest") {
           const port = server.address().port;
-          res.writeHead(200, { 'content-type': 'application/json', 'connection': 'close' });
+          res.writeHead(200, { "content-type": "application/json", connection: "close" });
           res.end(
             JSON.stringify({
               tag_name: `v${FAKE_LATEST_VERSION}`,
               assets: [
                 {
-                  name: 'ts-for-gir-gjs',
+                  name: "ts-for-gir-gjs",
                   // Serve the download URL with a real 200 + tiny stub body.
                   // This lets downloadBinary() complete promptly; the CLI will
                   // then overwrite the fake on-disk binary (acceptable in tests).
@@ -184,28 +179,28 @@ describe('self-update binary-path detection (#418 regression guard)', { timeout:
           );
           return;
         }
-        if (url === '/fake-binary') {
+        if (url === "/fake-binary") {
           // Minimal stub "binary" — just enough bytes for arrayBuffer() to
           // resolve immediately. The CLI writes it to a tmp file and renames it
           // over the fake argv1 path; both operations succeed and the process
           // exits cleanly with "Successfully updated".
-          const stub = Buffer.from('#!/bin/sh\n# stub\n');
+          const stub = Buffer.from("#!/bin/sh\n# stub\n");
           res.writeHead(200, {
-            'content-type': 'application/octet-stream',
-            'content-length': String(stub.length),
-            'connection': 'close',
+            "content-type": "application/octet-stream",
+            "content-length": String(stub.length),
+            connection: "close",
           });
           res.end(stub);
           return;
         }
         // All other paths → 404.
-        res.writeHead(404, { 'connection': 'close' }).end('not found in mock');
+        res.writeHead(404, { connection: "close" }).end("not found in mock");
       } catch (e) {
         res.writeHead(500).end(String(e));
       }
     });
 
-    await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
+    await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
     apiBase = `http://127.0.0.1:${server.address().port}`;
   });
 
@@ -231,27 +226,34 @@ describe('self-update binary-path detection (#418 regression guard)', { timeout:
   // process exits cleanly with "Successfully updated".
   // The key assertion is the ABSENCE of "Cannot determine current binary path".
 
-  it('gjsify-global path under $HOME/.local/share/gjsify/global/ is ACCEPTED (rc.17 regression guard)', async () => {
-    const fakeHome = join(tmpRoot, 'home-xdg-home');
+  it("gjsify-global path under $HOME/.local/share/gjsify/global/ is ACCEPTED (rc.17 regression guard)", async () => {
+    const fakeHome = join(tmpRoot, "home-xdg-home");
     const globalBinDir = join(
-      fakeHome, '.local', 'share', 'gjsify', 'global',
-      'node_modules', '@ts-for-gir', 'cli', 'bin',
+      fakeHome,
+      ".local",
+      "share",
+      "gjsify",
+      "global",
+      "node_modules",
+      "@ts-for-gir",
+      "cli",
+      "bin",
     );
     mkdirSync(globalBinDir, { recursive: true });
-    const fakeArgv1 = join(globalBinDir, 'ts-for-gir-gjs');
+    const fakeArgv1 = join(globalBinDir, "ts-for-gir-gjs");
     // Create a placeholder file so existsSync(currentPath) passes in the handler.
-    writeFileSync(fakeArgv1, '#!/bin/sh\n', { mode: 0o755 });
+    writeFileSync(fakeArgv1, "#!/bin/sh\n", { mode: 0o755 });
 
     const result = await runSelfUpdate(fakeArgv1, apiBase, [], {
       HOME: fakeHome,
-      XDG_DATA_HOME: '',     // ensure only HOME is consulted
+      XDG_DATA_HOME: "", // ensure only HOME is consulted
     });
 
     // THE REGRESSION ASSERTION: path-detection must NOT reject this path.
     assert.ok(
-      !result.stderr.includes('Cannot determine current binary path'),
+      !result.stderr.includes("Cannot determine current binary path"),
       `rc.17 regression: gjsify-global HOME path was rejected.\n` +
-      `stderr: ${result.stderr}\nstdout: ${result.stdout}`,
+        `stderr: ${result.stderr}\nstdout: ${result.stdout}`,
     );
 
     // Handler must have advanced past path-detection to the download step.
@@ -260,45 +262,50 @@ describe('self-update binary-path detection (#418 regression guard)', { timeout:
     // assertion is robust against minor message wording changes.
     const combined = result.stdout + result.stderr;
     assert.ok(
-      combined.includes('Checking for updates') ||
-      combined.includes('Updating to') ||
-      combined.includes('Successfully updated') ||
-      combined.includes('Update failed') ||
-      combined.includes(FAKE_LATEST_VERSION),
+      combined.includes("Checking for updates") ||
+        combined.includes("Updating to") ||
+        combined.includes("Successfully updated") ||
+        combined.includes("Update failed") ||
+        combined.includes(FAKE_LATEST_VERSION),
       `Expected handler to proceed past path-detection; got:\n` +
-      `stdout: ${result.stdout}\nstderr: ${result.stderr}`,
+        `stdout: ${result.stdout}\nstderr: ${result.stderr}`,
     );
   });
 
-  it('gjsify-global path under $XDG_DATA_HOME/gjsify/global/ is ACCEPTED', async () => {
-    const fakeXdgData = join(tmpRoot, 'xdg-data');
+  it("gjsify-global path under $XDG_DATA_HOME/gjsify/global/ is ACCEPTED", async () => {
+    const fakeXdgData = join(tmpRoot, "xdg-data");
     const globalBinDir = join(
-      fakeXdgData, 'gjsify', 'global',
-      'node_modules', '@ts-for-gir', 'cli', 'bin',
+      fakeXdgData,
+      "gjsify",
+      "global",
+      "node_modules",
+      "@ts-for-gir",
+      "cli",
+      "bin",
     );
     mkdirSync(globalBinDir, { recursive: true });
-    const fakeArgv1 = join(globalBinDir, 'ts-for-gir-gjs');
-    writeFileSync(fakeArgv1, '#!/bin/sh\n', { mode: 0o755 });
+    const fakeArgv1 = join(globalBinDir, "ts-for-gir-gjs");
+    writeFileSync(fakeArgv1, "#!/bin/sh\n", { mode: 0o755 });
 
     const result = await runSelfUpdate(fakeArgv1, apiBase, [], {
       XDG_DATA_HOME: fakeXdgData,
     });
 
     assert.ok(
-      !result.stderr.includes('Cannot determine current binary path'),
+      !result.stderr.includes("Cannot determine current binary path"),
       `XDG gjsify-global path was rejected.\n` +
-      `stderr: ${result.stderr}\nstdout: ${result.stdout}`,
+        `stderr: ${result.stderr}\nstdout: ${result.stdout}`,
     );
 
     const combined = result.stdout + result.stderr;
     assert.ok(
-      combined.includes('Checking for updates') ||
-      combined.includes('Updating to') ||
-      combined.includes('Successfully updated') ||
-      combined.includes('Update failed') ||
-      combined.includes(FAKE_LATEST_VERSION),
+      combined.includes("Checking for updates") ||
+        combined.includes("Updating to") ||
+        combined.includes("Successfully updated") ||
+        combined.includes("Update failed") ||
+        combined.includes(FAKE_LATEST_VERSION),
       `Expected handler to proceed past path-detection; got:\n` +
-      `stdout: ${result.stdout}\nstderr: ${result.stderr}`,
+        `stdout: ${result.stdout}\nstderr: ${result.stderr}`,
     );
   });
 
@@ -310,24 +317,24 @@ describe('self-update binary-path detection (#418 regression guard)', { timeout:
   // self-update should refuse and tell the user to update via their package
   // manager.
 
-  it('project-local node_modules path (not gjsify-global) is REJECTED', async () => {
-    const fakeHome = join(tmpRoot, 'home-local-nm');
+  it("project-local node_modules path (not gjsify-global) is REJECTED", async () => {
+    const fakeHome = join(tmpRoot, "home-local-nm");
     mkdirSync(fakeHome, { recursive: true });
     // Path is under a project directory, NOT under fakeHome's gjsify-global.
     const localNodeModulesArgv1 =
-      '/home/user/myproject/node_modules/@ts-for-gir/cli/bin/ts-for-gir-gjs';
+      "/home/user/myproject/node_modules/@ts-for-gir/cli/bin/ts-for-gir-gjs";
 
     const result = await runSelfUpdate(localNodeModulesArgv1, apiBase, [], {
       HOME: fakeHome,
-      XDG_DATA_HOME: join(fakeHome, '.local', 'share'),
+      XDG_DATA_HOME: join(fakeHome, ".local", "share"),
     });
 
     const combined = result.stdout + result.stderr;
     assert.ok(
-      combined.includes('Cannot determine current binary path') ||
-      combined.includes('self-update only works when running the installed GJS binary'),
+      combined.includes("Cannot determine current binary path") ||
+        combined.includes("self-update only works when running the installed GJS binary"),
       `Expected path-rejection message for project-local node_modules; got:\n` +
-      `stdout: ${result.stdout}\nstderr: ${result.stderr}`,
+        `stdout: ${result.stdout}\nstderr: ${result.stderr}`,
     );
     // The CLI prints the rejection message but exits 0 (it treats "can't
     // self-update from here" as non-fatal). The MESSAGE is the rejection
@@ -341,17 +348,17 @@ describe('self-update binary-path detection (#418 regression guard)', { timeout:
   // self-update — there is no installed binary to atomically replace.
   // getCurrentBinaryPath() returns null immediately for any path ending in .ts.
 
-  it('.ts dev path (source execution) is REJECTED', async () => {
-    const devTsArgv1 = join(MONOREPO_ROOT, 'packages', 'cli', 'src', 'start.ts');
+  it(".ts dev path (source execution) is REJECTED", async () => {
+    const devTsArgv1 = join(MONOREPO_ROOT, "packages", "cli", "src", "start.ts");
 
     const result = await runSelfUpdate(devTsArgv1, apiBase);
 
     const combined = result.stdout + result.stderr;
     assert.ok(
-      combined.includes('Cannot determine current binary path') ||
-      combined.includes('self-update only works when running the installed GJS binary'),
+      combined.includes("Cannot determine current binary path") ||
+        combined.includes("self-update only works when running the installed GJS binary"),
       `Expected dev-path rejection for .ts argv[1]; got:\n` +
-      `stdout: ${result.stdout}\nstderr: ${result.stderr}`,
+        `stdout: ${result.stdout}\nstderr: ${result.stderr}`,
     );
     // As above: the rejection MESSAGE is the guard; the CLI exits 0.
   });
@@ -367,46 +374,51 @@ describe('self-update binary-path detection (#418 regression guard)', { timeout:
 
   it('reports "Already up to date" when mock API returns the current version', async () => {
     const req = createRequire(import.meta.url);
-    const { version: currentVersion } = req(
-      join(MONOREPO_ROOT, 'packages', 'cli', 'package.json'),
-    );
+    const { version: currentVersion } = req(join(MONOREPO_ROOT, "packages", "cli", "package.json"));
 
     // Dedicated server that advertises the current version (matches installed).
     let sameVersionServer;
     let sameVersionApiBase;
     try {
       sameVersionServer = createServer((req2, res) => {
-        const url = req2.url ?? '';
-        if (url === '/repos/gjsify/ts-for-gir/releases/latest') {
-          res.writeHead(200, { 'content-type': 'application/json' });
+        const url = req2.url ?? "";
+        if (url === "/repos/gjsify/ts-for-gir/releases/latest") {
+          res.writeHead(200, { "content-type": "application/json" });
           res.end(JSON.stringify({ tag_name: `v${currentVersion}`, assets: [] }));
           return;
         }
-        res.writeHead(404).end('not found');
+        res.writeHead(404).end("not found");
       });
-      await new Promise((resolve) => sameVersionServer.listen(0, '127.0.0.1', resolve));
+      await new Promise((resolve) => sameVersionServer.listen(0, "127.0.0.1", resolve));
       sameVersionApiBase = `http://127.0.0.1:${sameVersionServer.address().port}`;
 
       // Use a gjsify-global path so path-detection doesn't interfere.
       // The file doesn't need to exist on disk — the handler returns before
       // reaching existsSync() when versions match.
-      const fakeHome = join(tmpRoot, 'home-uptodate');
+      const fakeHome = join(tmpRoot, "home-uptodate");
       mkdirSync(fakeHome, { recursive: true });
       const gjsifyGlobalArgv1 = join(
         fakeHome,
-        '.local', 'share', 'gjsify', 'global',
-        'node_modules', '@ts-for-gir', 'cli', 'bin', 'ts-for-gir-gjs',
+        ".local",
+        "share",
+        "gjsify",
+        "global",
+        "node_modules",
+        "@ts-for-gir",
+        "cli",
+        "bin",
+        "ts-for-gir-gjs",
       );
 
       const result = await runSelfUpdate(gjsifyGlobalArgv1, sameVersionApiBase, [], {
         HOME: fakeHome,
-        XDG_DATA_HOME: '',
+        XDG_DATA_HOME: "",
       });
 
       assert.ok(
-        result.stdout.includes('Already up to date'),
+        result.stdout.includes("Already up to date"),
         `Expected "Already up to date" message; got:\n` +
-        `stdout: ${result.stdout}\nstderr: ${result.stderr}`,
+          `stdout: ${result.stdout}\nstderr: ${result.stderr}`,
       );
       assert.equal(result.exitCode, 0, 'Expected zero exit for "Already up to date"');
     } finally {

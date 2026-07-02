@@ -20,27 +20,27 @@ const loop = GLib.MainLoop.new(null, false);
 const textDecoder = new TextDecoder();
 
 function cat(filename: string) {
-	const file = Gio.file_new_for_path(filename);
+  const file = Gio.file_new_for_path(filename);
 
-	file.load_contents_async(null, (obj, res) => {
-		let contents: Uint8Array | undefined;
-		try {
-			contents = obj?.load_contents_finish(res)?.[1];
-		} catch (e) {
-			logError(e);
-			loop.quit();
-			return;
-		}
-		print(textDecoder.decode(contents));
-		loop.quit();
-	});
+  file.load_contents_async(null, (obj, res) => {
+    let contents: Uint8Array | undefined;
+    try {
+      contents = obj?.load_contents_finish(res)?.[1];
+    } catch (e) {
+      logError(e);
+      loop.quit();
+      return;
+    }
+    print(textDecoder.decode(contents));
+    loop.quit();
+  });
 
-	// Tests instanceof, see https://github.com/gjsify/ts-for-gir/issues/195
-	if (!(file instanceof Gio.File)) {
-		throw new Error("file is not an instance of Gio.File");
-	}
+  // Tests instanceof, see https://github.com/gjsify/ts-for-gir/issues/195
+  if (!(file instanceof Gio.File)) {
+    throw new Error("file is not an instance of Gio.File");
+  }
 
-	loop.run();
+  loop.run();
 }
 
 if (ARGV.length !== 1) printerr("Usage: gio-cat.js filename");

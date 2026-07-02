@@ -23,32 +23,32 @@
 // lifecycle scripts. So that suite never catches a packer-side regression.
 // This suite is the divergence detector.
 
-import { describe, it, before, after } from 'node:test';
-import assert from 'node:assert/strict';
-import { execFileSync } from 'node:child_process';
-import { existsSync, mkdtempSync, rmSync } from 'node:fs';
-import { tmpdir } from 'node:os';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { describe, it, before, after } from "node:test";
+import assert from "node:assert/strict";
+import { execFileSync } from "node:child_process";
+import { existsSync, mkdtempSync, rmSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const MONOREPO_ROOT = join(__dirname, '..', '..', '..');
-const CLI_DIR = join(MONOREPO_ROOT, 'packages', 'cli');
+const MONOREPO_ROOT = join(__dirname, "..", "..", "..");
+const CLI_DIR = join(MONOREPO_ROOT, "packages", "cli");
 
 // All scaffold templates that must be present in the packed tarball under
 // `package/dist-templates/<name>/`. Keep in sync with the templates that
 // ship in packages/cli/templates/ — the create-command's
 // TEMPLATE_CHOICES is the source of truth, this mirror catches drift in
 // the packer's output.
-const REQUIRED_TEMPLATES = ['types-gjsify', 'types-locally', 'types-npm', 'types-workspace'];
+const REQUIRED_TEMPLATES = ["types-gjsify", "types-locally", "types-npm", "types-workspace"];
 
 function gjsifyPackAvailable() {
-	try {
-		execFileSync('gjsify', ['--version'], { stdio: 'pipe' });
-		return true;
-	} catch {
-		return false;
-	}
+  try {
+    execFileSync("gjsify", ["--version"], { stdio: "pipe" });
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 /**
@@ -58,106 +58,106 @@ function gjsifyPackAvailable() {
  * collide.
  */
 function packCliWithGjsify(destDir) {
-	const stdout = execFileSync(
-		'gjsify',
-		['pack', CLI_DIR, '--pack-destination', destDir, '--json'],
-		{ encoding: 'utf8', timeout: 5 * 60 * 1000 },
-	);
-	const meta = JSON.parse(stdout);
-	const tarball = meta.filename || (Array.isArray(meta) && meta[0]?.filename);
-	if (!tarball) {
-		throw new Error(`gjsify pack --json returned unexpected shape: ${stdout}`);
-	}
-	return join(destDir, tarball);
+  const stdout = execFileSync(
+    "gjsify",
+    ["pack", CLI_DIR, "--pack-destination", destDir, "--json"],
+    { encoding: "utf8", timeout: 5 * 60 * 1000 },
+  );
+  const meta = JSON.parse(stdout);
+  const tarball = meta.filename || (Array.isArray(meta) && meta[0]?.filename);
+  if (!tarball) {
+    throw new Error(`gjsify pack --json returned unexpected shape: ${stdout}`);
+  }
+  return join(destDir, tarball);
 }
 
 /** List every entry in a .tgz tarball using tar(1) — present on every CI runner. */
 function listTarballEntries(tgzPath) {
-	const stdout = execFileSync('tar', ['-tzf', tgzPath], {
-		encoding: 'utf8',
-		maxBuffer: 50 * 1024 * 1024,
-	});
-	return stdout.split('\n').filter((l) => l.length > 0);
+  const stdout = execFileSync("tar", ["-tzf", tgzPath], {
+    encoding: "utf8",
+    maxBuffer: 50 * 1024 * 1024,
+  });
+  return stdout.split("\n").filter((l) => l.length > 0);
 }
 
-describe('@ts-for-gir/cli tarball shape (gjsify pack — production packer)', () => {
-	let tmpDir;
-	let tarballPath;
-	let entries;
+describe("@ts-for-gir/cli tarball shape (gjsify pack — production packer)", () => {
+  let tmpDir;
+  let tarballPath;
+  let entries;
 
-	before(async () => {
-		if (!gjsifyPackAvailable()) {
-			// Skipping is acceptable on systems without gjsify — CI always has
-			// it via the install.mjs bootstrap. Locally, contributors hit this
-			// only if they run e2e before installing gjsify, which the parent
-			// `package.json` scripts already require.
-			console.log('  skipping: gjsify not on PATH');
-			return;
-		}
-		tmpDir = mkdtempSync(join(tmpdir(), 'ts-for-gir-e2e-tarball-shape-'));
-		tarballPath = packCliWithGjsify(tmpDir);
-		entries = listTarballEntries(tarballPath);
-	});
+  before(async () => {
+    if (!gjsifyPackAvailable()) {
+      // Skipping is acceptable on systems without gjsify — CI always has
+      // it via the install.mjs bootstrap. Locally, contributors hit this
+      // only if they run e2e before installing gjsify, which the parent
+      // `package.json` scripts already require.
+      console.log("  skipping: gjsify not on PATH");
+      return;
+    }
+    tmpDir = mkdtempSync(join(tmpdir(), "ts-for-gir-e2e-tarball-shape-"));
+    tarballPath = packCliWithGjsify(tmpDir);
+    entries = listTarballEntries(tarballPath);
+  });
 
-	after(() => {
-		if (tmpDir && !process.env.TS_FOR_GIR_E2E_KEEP_TEMP) {
-			rmSync(tmpDir, { recursive: true, force: true });
-		}
-	});
+  after(() => {
+    if (tmpDir && !process.env.TS_FOR_GIR_E2E_KEEP_TEMP) {
+      rmSync(tmpDir, { recursive: true, force: true });
+    }
+  });
 
-	it('tarball was produced', () => {
-		if (!gjsifyPackAvailable()) return;
-		assert.ok(existsSync(tarballPath), `tarball missing at ${tarballPath}`);
-	});
+  it("tarball was produced", () => {
+    if (!gjsifyPackAvailable()) return;
+    assert.ok(existsSync(tarballPath), `tarball missing at ${tarballPath}`);
+  });
 
-	it('tarball contains package.json', () => {
-		if (!gjsifyPackAvailable()) return;
-		assert.ok(
-			entries.includes('package/package.json'),
-			'package.json missing — tarball produced by an incompatible packer?',
-		);
-	});
+  it("tarball contains package.json", () => {
+    if (!gjsifyPackAvailable()) return;
+    assert.ok(
+      entries.includes("package/package.json"),
+      "package.json missing — tarball produced by an incompatible packer?",
+    );
+  });
 
-	it('tarball contains bin/ts-for-gir-gjs', () => {
-		if (!gjsifyPackAvailable()) return;
-		assert.ok(
-			entries.includes('package/bin/ts-for-gir-gjs'),
-			'GJS bundle missing — `gjsify run build:app:gjs` did not run before pack',
-		);
-	});
+  it("tarball contains bin/ts-for-gir-gjs", () => {
+    if (!gjsifyPackAvailable()) return;
+    assert.ok(
+      entries.includes("package/bin/ts-for-gir-gjs"),
+      "GJS bundle missing — `gjsify run build:app:gjs` did not run before pack",
+    );
+  });
 
-	for (const template of REQUIRED_TEMPLATES) {
-		it(`tarball contains dist-templates/${template}/package.json`, () => {
-			if (!gjsifyPackAvailable()) return;
-			const expected = `package/dist-templates/${template}/package.json`;
-			assert.ok(
-				entries.includes(expected),
-				[
-					`Template "${template}" missing from packed tarball at ${expected}.`,
-					'',
-					'This is the 4.0.0 regression pattern: `gjsify pack` skips npm',
-					'lifecycle scripts (prepack/prepare/prepublishOnly), so any',
-					'workspace artifact that depended on those scripts is missing',
-					'from the published tarball. The fix is to chain the artifact',
-					'generation into the regular `build` script. See',
-					'packages/cli/package.json — `build` must run',
-					'`scripts/process-templates.mjs` directly.',
-				].join('\n'),
-			);
-		});
-	}
+  for (const template of REQUIRED_TEMPLATES) {
+    it(`tarball contains dist-templates/${template}/package.json`, () => {
+      if (!gjsifyPackAvailable()) return;
+      const expected = `package/dist-templates/${template}/package.json`;
+      assert.ok(
+        entries.includes(expected),
+        [
+          `Template "${template}" missing from packed tarball at ${expected}.`,
+          "",
+          "This is the 4.0.0 regression pattern: `gjsify pack` skips npm",
+          "lifecycle scripts (prepack/prepare/prepublishOnly), so any",
+          "workspace artifact that depended on those scripts is missing",
+          "from the published tarball. The fix is to chain the artifact",
+          "generation into the regular `build` script. See",
+          "packages/cli/package.json — `build` must run",
+          "`scripts/process-templates.mjs` directly.",
+        ].join("\n"),
+      );
+    });
+  }
 
-	it(`exactly ${REQUIRED_TEMPLATES.length} templates are present (no extras, no missing)`, () => {
-		if (!gjsifyPackAvailable()) return;
-		const templateDirs = new Set();
-		for (const entry of entries) {
-			const m = entry.match(/^package\/dist-templates\/([^/]+)\//);
-			if (m) templateDirs.add(m[1]);
-		}
-		assert.deepEqual(
-			[...templateDirs].sort(),
-			[...REQUIRED_TEMPLATES].sort(),
-			'Mismatch between expected templates and tarball contents — update REQUIRED_TEMPLATES or fix packages/cli/templates/',
-		);
-	});
+  it(`exactly ${REQUIRED_TEMPLATES.length} templates are present (no extras, no missing)`, () => {
+    if (!gjsifyPackAvailable()) return;
+    const templateDirs = new Set();
+    for (const entry of entries) {
+      const m = entry.match(/^package\/dist-templates\/([^/]+)\//);
+      if (m) templateDirs.add(m[1]);
+    }
+    assert.deepEqual(
+      [...templateDirs].sort(),
+      [...REQUIRED_TEMPLATES].sort(),
+      "Mismatch between expected templates and tarball contents — update REQUIRED_TEMPLATES or fix packages/cli/templates/",
+    );
+  });
 });

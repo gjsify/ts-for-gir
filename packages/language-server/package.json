@@ -1,43 +1,43 @@
 {
-	"name": "@ts-for-gir/language-server",
-	"version": "4.0.4",
-	"description": "TypeScript Language Server utilities for validating generated GIR type definitions",
-	"type": "module",
-	"main": "src/index.ts",
-	"exports": {
-		".": "./src/index.ts"
-	},
-	"keywords": [
-		"typescript",
-		"language-server",
-		"gir",
-		"gobject",
-		"introspection",
-		"validation"
-	],
-	"author": "Pascal Garber <pascal@mailfreun.de>",
-	"license": "MIT",
-	"engines": {
-		"node": ">=22"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/gjsify/ts-for-gir.git"
-	},
-	"bugs": {
-		"url": "https://github.com/gjsify/ts-for-gir/issues"
-	},
-	"dependencies": {
-		"@ts-for-gir/lib": "workspace:^",
-		"typescript": "^6.0.3"
-	},
-	"scripts": {
-		"test": "vitest run",
-		"test:watch": "vitest"
-	},
-	"devDependencies": {
-		"@ts-for-gir/tsconfig": "workspace:^",
-		"@types/node": "^25.6.2",
-		"vitest": "^4.1.5"
-	}
+  "name": "@ts-for-gir/language-server",
+  "version": "4.0.4",
+  "description": "TypeScript Language Server utilities for validating generated GIR type definitions",
+  "type": "module",
+  "main": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "keywords": [
+    "typescript",
+    "language-server",
+    "gir",
+    "gobject",
+    "introspection",
+    "validation"
+  ],
+  "author": "Pascal Garber <pascal@mailfreun.de>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gjsify/ts-for-gir.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gjsify/ts-for-gir/issues"
+  },
+  "dependencies": {
+    "@ts-for-gir/lib": "workspace:^",
+    "typescript": "^6.0.3"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "@ts-for-gir/tsconfig": "workspace:^",
+    "@types/node": "^25.6.2",
+    "vitest": "^4.1.9"
+  }
 }

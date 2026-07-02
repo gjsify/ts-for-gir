@@ -1,28 +1,28 @@
 {
-	"name": "@ts-for-gir-example/soup-3-http-example",
-	"description": "Simple GJS Soup 3 HTTP client/server example app",
-	"type": "module",
-	"private": true,
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings esbuild.ts",
-		"start:server": "gjs -m dist/http-server.js",
-		"start:client": "gjs -m dist/http-client.js",
-		"start": "concurrently 'npm:start:*'",
-		"check": "tsc --noEmit",
-		"clear": "rm -rf dist @types"
-	},
-	"author": "Pascal Garber <pascal@mailfreun.de>",
-	"license": "MIT",
-	"devDependencies": {
-		"concurrently": "^9.2.1",
-		"esbuild": "^0.28.0",
-		"typescript": "^6.0.3"
-	},
-	"dependencies": {
-		"@girs/gio-2.0": "workspace:^",
-		"@girs/gjs": "workspace:^",
-		"@girs/glib-2.0": "workspace:^",
-		"@girs/soup-3.0": "workspace:^"
-	}
+  "name": "@ts-for-gir-example/soup-3-http-example",
+  "description": "Simple GJS Soup 3 HTTP client/server example app",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node --experimental-specifier-resolution=node --experimental-strip-types --experimental-transform-types --no-warnings esbuild.ts",
+    "start:server": "gjs -m dist/http-server.js",
+    "start:client": "gjs -m dist/http-client.js",
+    "start": "concurrently 'npm:start:*'",
+    "check": "tsc --noEmit",
+    "clear": "rm -rf dist @types"
+  },
+  "author": "Pascal Garber <pascal@mailfreun.de>",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^10.0.3",
+    "esbuild": "^0.28.1",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "@girs/gio-2.0": "workspace:^",
+    "@girs/gjs": "workspace:^",
+    "@girs/glib-2.0": "workspace:^",
+    "@girs/soup-3.0": "workspace:^"
+  }
 }

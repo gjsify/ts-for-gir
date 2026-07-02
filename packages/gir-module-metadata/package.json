@@ -1,42 +1,42 @@
 {
-	"name": "@ts-for-gir/gir-module-metadata",
-	"version": "4.0.4",
-	"description": "Curated metadata (descriptions, licenses, logos, URLs) for GIR namespaces",
-	"main": "src/index.ts",
-	"module": "src/index.ts",
-	"type": "module",
-	"engines": {
-		"node": ">=18"
-	},
-	"exports": {
-		".": "./src/index.ts"
-	},
-	"scripts": {
-		"check": "tsc --noEmit"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/gjsify/ts-for-gir.git"
-	},
-	"author": "Pascal Garber <pascal@mailfreun.de>",
-	"files": [
-		"src"
-	],
-	"license": "Apache-2.0",
-	"bugs": {
-		"url": "https://github.com/gjsify/ts-for-gir/issues"
-	},
-	"homepage": "https://github.com/gjsify/ts-for-gir#readme",
-	"keywords": [
-		"gir",
-		"gobject-introspection",
-		"metadata",
-		"gnome",
-		"gtk"
-	],
-	"devDependencies": {
-		"@ts-for-gir/tsconfig": "workspace:^",
-		"@types/node": "^25.6.2",
-		"typescript": "^6.0.3"
-	}
+  "name": "@ts-for-gir/gir-module-metadata",
+  "version": "4.0.4",
+  "description": "Curated metadata (descriptions, licenses, logos, URLs) for GIR namespaces",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "check": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gjsify/ts-for-gir.git"
+  },
+  "author": "Pascal Garber <pascal@mailfreun.de>",
+  "files": [
+    "src"
+  ],
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/gjsify/ts-for-gir/issues"
+  },
+  "homepage": "https://github.com/gjsify/ts-for-gir#readme",
+  "keywords": [
+    "gir",
+    "gobject-introspection",
+    "metadata",
+    "gnome",
+    "gtk"
+  ],
+  "devDependencies": {
+    "@ts-for-gir/tsconfig": "workspace:^",
+    "@types/node": "^25.6.2",
+    "typescript": "^6.0.3"
+  }
 }

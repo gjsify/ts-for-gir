@@ -2,9 +2,37 @@
 
 ## [4.1.0](https://github.com/gjsify/ts-for-gir/compare/v4.0.4...v4.1.0) (2026-07-02)
 
+### Features
+
+* **cli:** show the active runtime in --help ([#429](https://github.com/gjsify/ts-for-gir/issues/429)) ([eec1e0d](https://github.com/gjsify/ts-for-gir/commit/eec1e0d2b83af10d019552d2145b4b60e4a65df1))
+
+### Bug Fixes
+
+* **cli:** deterministic gir discovery + Node 24 CI ([#434](https://github.com/gjsify/ts-for-gir/issues/434)) ([8486258](https://github.com/gjsify/ts-for-gir/commit/8486258edafcd7518bccffd805f634c6335db552))
+* dedupe [@girs](https://github.com/girs) deps with release-only versions ([#432](https://github.com/gjsify/ts-for-gir/issues/432)) ([5455c76](https://github.com/gjsify/ts-for-gir/commit/5455c760496db6320bb9ea3afff5bdca2a621e7f)), closes [#431](https://github.com/gjsify/ts-for-gir/issues/431) [#431](https://github.com/gjsify/ts-for-gir/issues/431)
+
+### Maintenance
+
+* complete changelogs (all commit types) + commitlint ([#430](https://github.com/gjsify/ts-for-gir/issues/430)) ([84fe705](https://github.com/gjsify/ts-for-gir/commit/84fe70592eabea7886ba0e0af004c70be923fce2))
+* **deps:** upgrade deps + oxc migration ([#433](https://github.com/gjsify/ts-for-gir/issues/433)) ([b8be0c5](https://github.com/gjsify/ts-for-gir/commit/b8be0c54896d878fed526e21a2536027569188eb)), closes [#434](https://github.com/gjsify/ts-for-gir/issues/434)
+* Update types git submodules ([6550048](https://github.com/gjsify/ts-for-gir/commit/65500487c2808e7b1f1d9dd085a52838e1384fa7))
+
+### Tests
+
+* **e2e:** dual-runtime parity for the ts-for-gir CLI ([#427](https://github.com/gjsify/ts-for-gir/issues/427)) ([12aff7f](https://github.com/gjsify/ts-for-gir/commit/12aff7fbd35bccd8f39bf2722a8f1c2211b66e3b))
+* **e2e:** self-update binary-path regression guard ([#428](https://github.com/gjsify/ts-for-gir/issues/428)) ([a43a0db](https://github.com/gjsify/ts-for-gir/commit/a43a0dbbd22663a2413d3963e697a3c68a4ca88d)), closes [#418](https://github.com/gjsify/ts-for-gir/issues/418)
+
 ## [4.0.4](https://github.com/gjsify/ts-for-gir/compare/v4.0.3...v4.0.4) (2026-05-26)
 
+### Build System
+
+* **cli:** bundle the Node CLI with `gjsify build --app node` ([#426](https://github.com/gjsify/ts-for-gir/issues/426)) ([2974c40](https://github.com/gjsify/ts-for-gir/commit/2974c40d8ccae30255d7c770efd6bac0f80b8027))
+
 ## [4.0.3](https://github.com/gjsify/ts-for-gir/compare/v4.0.2...v4.0.3) (2026-05-26)
+
+### Maintenance
+
+* bump @gjsify/cli to ^0.4.26 ([#425](https://github.com/gjsify/ts-for-gir/issues/425)) ([c13acc1](https://github.com/gjsify/ts-for-gir/commit/c13acc1621094166498c3de458fddecb2187a026)), closes [gjsify#311](https://github.com/gjsify/gjsify/issues/311) [gjsify/ts-for-gir#392](https://github.com/gjsify/ts-for-gir/issues/392)
 
 ## [4.0.2](https://github.com/gjsify/ts-for-gir/compare/v4.0.1...v4.0.2) (2026-05-26)
 

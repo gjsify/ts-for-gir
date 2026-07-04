@@ -18,6 +18,9 @@
 		"before:init": [
 			"yarn format",
 			"git diff --exit-code || (echo 'Formatting produced changes. Please commit them first.' && exit 1)"
+		],
+		"after:beforeRelease": [
+			"node scripts/check-release-changelog.mjs"
 		]
 	},
 	"plugins": {

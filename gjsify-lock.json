@@ -3,6 +3,7 @@
   "requested": [
     "@biomejs/biome@^2.5.1",
     "@gjsify/cli@^0.29.0",
+    "@gjsify/rolldown-native@^0.29.0",
     "@release-it/bumper@^7.0.6",
     "@release-it/conventional-changelog@^11.0.1",
     "concurrently@^10.0.3",
@@ -1254,6 +1255,73 @@
       "resolved": "https://registry.npmjs.org/@gjsify/resolve-npm/-/resolve-npm-0.29.0.tgz",
       "integrity": "sha512-KfqfQ4llyWiO+4pA5cNLj+reHU4gbmgBhSwrStwwLaJ5kwLeukXCeQQtWqMLJWUlBRSg/UMluYAIrIntdr/tsQ=="
     },
+    "node_modules/@gjsify/rolldown-native": {
+      "version": "0.29.0",
+      "resolved": "https://registry.npmjs.org/@gjsify/rolldown-native/-/rolldown-native-0.29.0.tgz",
+      "integrity": "sha512-bx1MgBUHz9G/h4h+brIRdaVTnLQWJY9NIIt5XeuMIdMKM/HE3scMitd9KfCty6IZNLz5zcpw8pcm+4bj8ZJqkA==",
+      "dependencies": {
+        "@girs/gjs": "^4.1.0",
+        "@girs/glib-2.0": "^4.1.0",
+        "@girs/gobject-2.0": "^4.1.0"
+      },
+      "optionalDependencies": {
+        "@gjsify/rolldown-native-darwin-arm64": "0.29.0",
+        "@gjsify/rolldown-native-darwin-x64": "0.29.0",
+        "@gjsify/rolldown-native-linux-arm64": "0.29.0",
+        "@gjsify/rolldown-native-linux-x64": "0.29.0"
+      }
+    },
+    "node_modules/@gjsify/rolldown-native-darwin-arm64": {
+      "version": "0.29.0",
+      "resolved": "https://registry.npmjs.org/@gjsify/rolldown-native-darwin-arm64/-/rolldown-native-darwin-arm64-0.29.0.tgz",
+      "integrity": "sha512-Eq+IatupBVG+eRx12HrxeQVjcMwdpUbv2fj6uOsFxtWCgpqcp8fhSiq5EMd9Y762z23lRvLorzS9UNCQh0WdWQ==",
+      "os": [
+        "darwin"
+      ],
+      "cpu": [
+        "arm64"
+      ],
+      "optional": true
+    },
+    "node_modules/@gjsify/rolldown-native-darwin-x64": {
+      "version": "0.29.0",
+      "resolved": "https://registry.npmjs.org/@gjsify/rolldown-native-darwin-x64/-/rolldown-native-darwin-x64-0.29.0.tgz",
+      "integrity": "sha512-4KxQefa3UT3hNhv+/lUvJBQNN6OByS+nG2YqOkYWCKvxW7tyrcinlmm33NxvaNTxwFWyB9Cx9Pn4BulA2AePiQ==",
+      "os": [
+        "darwin"
+      ],
+      "cpu": [
+        "x64"
+      ],
+      "optional": true
+    },
+    "node_modules/@gjsify/rolldown-native-linux-arm64": {
+      "version": "0.29.0",
+      "resolved": "https://registry.npmjs.org/@gjsify/rolldown-native-linux-arm64/-/rolldown-native-linux-arm64-0.29.0.tgz",
+      "integrity": "sha512-DwgFIcdBBQpGkX8de+oRuRDF/6ffi9ddKBbUZj88rgQ2IyoshOPLEZAKWiX5sgr/564zdj0leCIABJ9w5c85UA==",
+      "os": [
+        "linux"
+      ],
+      "cpu": [
+        "arm64"
+      ],
+      "optional": true
+    },
+    "node_modules/@gjsify/rolldown-native-linux-x64": {
+      "version": "0.29.0",
+      "resolved": "https://registry.npmjs.org/@gjsify/rolldown-native-linux-x64/-/rolldown-native-linux-x64-0.29.0.tgz",
+      "integrity": "sha512-s97JQvx8pDy1851SICpuWLfOjFxFA8qjV9HmX5FyojGIZvx4DtNJK9moUYjKbEPkRmcbheFZopnZir2ddXo7SQ==",
+      "os": [
+        "linux"
+      ],
+      "cpu": [
+        "x64"
+      ],
+      "libc": [
+        "glibc"
+      ],
+      "optional": true
+    },
     "node_modules/@gjsify/rolldown-plugin-deepkit": {
       "version": "0.29.0",
       "resolved": "https://registry.npmjs.org/@gjsify/rolldown-plugin-deepkit/-/rolldown-plugin-deepkit-0.29.0.tgz",
@@ -1288,14 +1356,6 @@
       "dependencies": {
         "execa": "^9.6.1",
         "minify-xml": "^4.5.2"
-      }
-    },
-    "node_modules/@gjsify/rolldown-plugin-gjsify/node_modules/acorn": {
-      "version": "8.18.0",
-      "resolved": "https://registry.npmjs.org/acorn/-/acorn-8.18.0.tgz",
-      "integrity": "sha512-lGq+9yr1/GuAWaVYIHRjvvySG5/4VfKIvC8EWxStPdcDh/Ka7FG3twP6v4d5BkravUilhIAsG4Qj83t02LWUPQ==",
-      "bin": {
-        "acorn": "bin/acorn"
       }
     },
     "node_modules/@gjsify/rolldown-plugin-pnp": {
@@ -4928,9 +4988,9 @@
       "integrity": "sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ=="
     },
     "node_modules/acorn": {
-      "version": "8.16.0",
-      "resolved": "https://registry.npmjs.org/acorn/-/acorn-8.16.0.tgz",
-      "integrity": "sha512-UVJyE9MttOsBQIDKw1skb9nAwQuR5wuGD3+82K6JgJlm/Y+KI92oNsMNGZCYdDsVtRHSak0pcV5Dno5+4jh9sw==",
+      "version": "8.18.0",
+      "resolved": "https://registry.npmjs.org/acorn/-/acorn-8.18.0.tgz",
+      "integrity": "sha512-lGq+9yr1/GuAWaVYIHRjvvySG5/4VfKIvC8EWxStPdcDh/Ka7FG3twP6v4d5BkravUilhIAsG4Qj83t02LWUPQ==",
       "bin": {
         "acorn": "bin/acorn"
       }

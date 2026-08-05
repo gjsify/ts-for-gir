@@ -8,7 +8,11 @@ _%>
 {
     "name": "<%- npmScope %>/<%- importName %>",
     "version": "<%- APP_VERSION %>",
-    <%_ if(typeof girModule !== "undefined"){ _%>
+    <%_ /* Emitted ONLY when the library states its own version (LibraryVersion.declaredByLibrary).
+           Otherwise the value is the NAMESPACE version wearing a release's clothes — `4.0.0` for
+           Gdk-4.0, which ships inside GTK 4.2x — and a consumer comparing it against the installed
+           library reports a skew that does not exist. Absent is the honest answer. */ _%>
+    <%_ if(typeof girModule !== "undefined" && girModule.libraryVersion && girModule.libraryVersion.declaredByLibrary){ _%>
     "libraryVersion": "<%- girModule.libraryVersion %>",
     <%_ } _%>
     "description": "<%- PACKAGE_DESC %>",

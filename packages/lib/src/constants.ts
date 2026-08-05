@@ -38,7 +38,11 @@ export const APP_SOURCE = "https://github.com/gjsify/ts-for-gir";
 export const APP_VERSION = getPackageVersion();
 
 export const PACKAGE_DESC = (packageName: string, libraryVersion?: LibraryVersion) => {
-	if (libraryVersion) {
+	// "generated from library version X" is a CLAIM, so it is only made when the library
+	// stated X itself. For a namespace-derived version it was false in every published
+	// description: `@girs/gdk-4.0` read "generated from library version 4.0.0" while the
+	// GIR it was generated from came with GTK 4.2x. See LibraryVersion.declaredByLibrary.
+	if (libraryVersion?.declaredByLibrary) {
 		return `GJS TypeScript type definitions for ${packageName}, generated from library version ${libraryVersion.toString()}`;
 	}
 	return `GJS TypeScript type definitions for ${packageName}`;

@@ -39,5 +39,36 @@ const nodeArgs = [
 	...process.argv.slice(2), // Forward all CLI arguments to the TypeScript file
 ];
 
-// Spawn the Node.js process with TypeScript support and inherit stdio
-spawn("node", nodeArgs, { stdio: "inherit" });
+// Spawn the Node.js process with TypeScript support and inherit stdio.
+//
+// `process.execPath`, not the string "node": this wrapper already runs under a Node
+// that accepts the experimental flags above, and resolving `node` from PATH again can
+// pick a different one.
+const child = spawn(process.execPath, nodeArgs, { stdio: "inherit" });
+
+// PROPAGATE THE CHILD'S OUTCOME. Without this the wrapper returned immediately and the
+// process exited 0 no matter what the CLI did — so `ts-for-gir-dev generate …` reported
+// SUCCESS on a failed generation. Not cosmetic: the repo's own `build:types` is
+//
+//     ts-for-gir-dev generate --configName=… && gjsify install
+//
+// so the step that generates all ~700 `@girs/*` packages could not fail in CI. A
+// generator crash, an unresolvable dependency, a thrown parse error — every one of them
+// landed as a green step, leaving a human reading the log as the only signal.
+child.on("error", (error) => {
+	console.error(`ts-for-gir-dev: failed to spawn ${process.execPath}: ${error.message}`);
+	process.exit(1);
+});
+
+child.on("exit", (code, signal) => {
+	// A signal-killed child must not report success either. Re-raise the same signal on
+	// ourselves so the caller sees the real cause (128+n) instead of a synthetic code —
+	// `default` is restored first, otherwise the re-raise is swallowed by our own handler
+	// for signals Node installs one for (SIGINT/SIGTERM).
+	if (signal) {
+		process.removeAllListeners(signal);
+		process.kill(process.pid, signal);
+		return;
+	}
+	process.exit(code ?? 1);
+});

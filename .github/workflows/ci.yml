@@ -47,7 +47,7 @@ jobs:
       - name: Install container prerequisites
         run: |
 
-          dnf install -y git tar xz findutils curl gjs libsoup3
+          dnf install -y git tar xz findutils curl gjs libsoup3 json-glib
 
           git config --global --add safe.directory "*"
       - name: Set up Node.js 24
@@ -80,7 +80,7 @@ jobs:
     steps:
       - name: Install container prerequisites
         run: |
-          dnf install -y git tar xz findutils curl gjs libsoup3
+          dnf install -y git tar xz findutils curl gjs libsoup3 json-glib
           git config --global --add safe.directory "*"
       - name: Set up Node.js 24
         uses: actions/setup-node@v4
@@ -117,7 +117,7 @@ jobs:
     steps:
       - name: Install container prerequisites
         run: |
-          dnf install -y git tar xz findutils curl gjs libsoup3
+          dnf install -y git tar xz findutils curl gjs libsoup3 json-glib
           git config --global --add safe.directory "*"
       - name: Set up Node.js 24
         uses: actions/setup-node@v4
@@ -174,7 +174,7 @@ jobs:
       - name: Install container prerequisites
         run: |
 
-          dnf install -y git tar xz findutils curl gjs libsoup3
+          dnf install -y git tar xz findutils curl gjs libsoup3 json-glib
 
           git config --global --add safe.directory "*"
       - name: Set up Node.js 24

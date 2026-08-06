@@ -1,0 +1,25 @@
+{
+  "name": "@ts-for-gir-test/library-version",
+  "description": "Tests for LibraryVersion — whether a library stated its own version or the namespace version was substituted",
+  "type": "module",
+  "private": true,
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "keywords": ["gir", "testing", "version"],
+  "author": "Pascal Garber <pascal@mailfreun.de>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@ts-for-gir/lib": "workspace:^",
+    "vitest": "^4.1.9"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.2",
+    "typescript": "^6.0.3"
+  }
+}

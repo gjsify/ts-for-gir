@@ -102,6 +102,18 @@ export class IntrospectedProperty extends IntrospectedBase<IntrospectedEnum | In
 	defaultValue?: string;
 	/** GIR getter attribute: name of the getter method for this property (used for nullable inference). */
 	getter?: string;
+	/**
+	 * The property name exactly as GIR spells it — `icon-name`, not `icon_name`.
+	 *
+	 * {@link name} is rewritten twice on the way in: `fromXML` replaces `-` with
+	 * `_` so the name is a legal identifier, and `propertyCase: "both"` then emits
+	 * a second camelCase COPY of every property. Neither spelling is the name
+	 * GObject registered, and `g_object_set()`, GtkBuilder XML and Blueprint all
+	 * want the registered one. Carrying it costs one string and removes a
+	 * derivation; it is also the key that pairs the two `propertyCase` copies back
+	 * up, since both copies keep it.
+	 */
+	girName?: string;
 
 	get namespace() {
 		return this.parent.namespace;
@@ -124,6 +136,7 @@ export class IntrospectedProperty extends IntrospectedBase<IntrospectedEnum | In
 		})._copyBaseProperties(this);
 		prop.defaultValue = this.defaultValue;
 		prop.getter = this.getter;
+		prop.girName = this.girName;
 		return prop;
 	}
 
@@ -208,6 +221,8 @@ export class IntrospectedProperty extends IntrospectedBase<IntrospectedEnum | In
 		property.defaultValue = element.$["default-value"];
 
 		property.getter = element.$.getter;
+
+		property.girName = name;
 
 		if (element.$.nullable === "1" || element.$["allow-none"] === "1") {
 			property.type = makeNullable(property.type);

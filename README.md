@@ -162,5 +162,7 @@ gjsify run build:doc            # build HTML docs into ./docs
 - [TypeScript API Documentation](https://gjsify.github.io/docs)
 - [Examples](/examples/README.md)
 - [CLI Documentation](/packages/cli/README.md)
+- [Using ts-for-gir as a library](/packages/lib/README.md#using-ts-for-gir-as-a-library) — building your
+  own TSX / framework types from GIR, and which of the three routes needs no library at all
 - [gjsify/types](https://github.com/gjsify/types) — pre-generated NPM packages
 - [gjsify/gnome-shell](https://github.com/gjsify/gnome-shell) — hand-written Shell Extension types

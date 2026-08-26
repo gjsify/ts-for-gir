@@ -130,10 +130,12 @@ export function emitSurfaceTypes(surface: WidgetSurface): string {
  * ${surface.widgets.length} concrete widgets, ${emitted.length} declarations${inlined.length > 0 ? ` (${inlined.length} inlined from a namespace with no surface)` : ""}, ${surface.enums.size} enum nick unions, ${slotTotal} slot candidates.
  *
  * Module-scoped exports only. There is no \`JSX\` namespace here, no tag spelling and
- * no \`on<Signal>\` prop name: those are DIALECT, every framework answers them
- * differently, and a JSX namespace is a global declaration that a second library
- * cannot declare without colliding. Each consumer builds its own dialect on these
- * names.
+ * no \`on<Signal>\` prop name: those are DIALECT, and every framework answers them
+ * differently. The shape to avoid is the GLOBAL AUGMENT — a \`declare global\` on
+ * \`React.JSX\` collides with every other library on a shared tag — while a
+ * module-scoped \`JSX\` behind a \`jsxImportSource\` does not. This package is used by
+ * projects that want nothing to do with JSX, so it emits neither; a consumer declaring
+ * a module-scoped namespace over these names is doing it right.
  *
  * Three things this is and \`ConstructorProps\` is not: WRITABLE-only (measured on
  * Gtk-4.0, \`ConstructorProps\` offers 150 read-only properties across 68 classes as

@@ -164,8 +164,17 @@ function classLikeMembers(module: GirModule): IntrospectedBaseClass[] {
  *
  * Deliberately NOT `resolveParents()`: its `implements()` THROWS on an interface it
  * cannot resolve, which would take down a whole 705-namespace run for one namespace
- * with a missing dependency. Here an unresolvable base is a base that contributes
- * nothing, and the gate below reports it if it would have contributed a property.
+ * with a missing dependency.
+ *
+ * The trade is real and stated rather than papered over: an unresolvable base is simply
+ * absent from the chain, so the widget loses whatever it declared and NOTHING here says
+ * so — and if the root `GtkWidget` itself were the unresolvable one, the namespace would
+ * emit no surface at all, silently. What bounds it is a measurement, not a guard: over
+ * Gtk-4.0, Gtk-3.0, Adw-1, GtkSource-5, WebKit-6.0, Handy-1, Shumate-1.0, GimpUi-3.0 and
+ * GcrUi-3 — every widget chain in them — the count of unresolvable supers and interfaces
+ * is ZERO, and every one of those namespaces emits its surface. A guard for a case with
+ * no instance is a cost with no finding; the backstop is the committed `types-*` diff,
+ * where a surface that stopped being emitted is a deleted file.
  */
 function resolveClassLike(module: GirModule, id: TypeIdentifier): IntrospectedBaseClass | null {
   const target = module.getInstalledImport(id.namespace);

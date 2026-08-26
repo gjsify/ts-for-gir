@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!-- Base-1.0.gir — a widget namespace another one inherits from, so its props interfaces
+     are IMPORTED rather than copied. `Widget.holder` is deliberately typed `Base.Widget`
+     and redeclared in Derived-1.0.gir with a different type: TypeScript requires a
+     declaration's own member to be assignable to its base's, and GimpUi-3.0 breaks exactly
+     that in the real corpus (`GimpDialog` redeclares `parent` as `Gtk.Widget` where GTK 3's
+     writable `GtkWidget:parent` is a `Gtk.Container`). The repair is `Omit` on the base. -->
+<repository version="1.2" xmlns="http://www.gtk.org/introspection/core/1.0" xmlns:c="http://www.gtk.org/introspection/c/1.0" xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="GLib" version="2.0"/>
+  <package name="base"/>
+  <c:include name="base.h"/>
+  <namespace name="Base" version="1.0" shared-library="libbase.so" c:prefix="Gtk" c:identifier-prefixes="Gtk" c:symbol-prefixes="gtk">
+    <class name="Widget" c:symbol-prefix="widget" c:type="GtkWidget" glib:type-name="GtkWidget" glib:get-type="gtk_widget_get_type" parent="GObject.Object" abstract="1">
+      <property name="visible" writable="1" transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="holder" writable="1" transfer-ownership="none">
+        <type name="Widget" c:type="GtkWidget*"/>
+      </property>
+    </class>
+    <class name="Bin" c:symbol-prefix="bin" c:type="GtkBin" glib:type-name="GtkBin" glib:get-type="gtk_bin_get_type" parent="Widget"/>
+  </namespace>
+</repository>

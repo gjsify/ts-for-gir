@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<!-- Mini-1.0.gir — synthetic widget-toolkit fixture for ts-for-gir-test/widget-surface.
+
+     Small on purpose: the surface generator's rules are all decidable on a handful of
+     declarations, and a fixture that generates in under a second is a fixture the gate
+     can be run against a DELIBERATELY BROKEN variant of. The one thing it borrows from
+     the real world is the GType `GtkWidget`, because that name is the root the surface
+     tests membership against. -->
+<repository version="1.2" xmlns="http://www.gtk.org/introspection/core/1.0" xmlns:c="http://www.gtk.org/introspection/c/1.0" xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="GLib" version="2.0"/>
+  <package name="mini"/>
+  <c:include name="mini.h"/>
+  <namespace name="Mini" version="1.0" shared-library="libmini.so" c:prefix="Gtk" c:identifier-prefixes="Gtk" c:symbol-prefixes="gtk">
+
+    <!-- The enum whose nicks the surface must read from `glib:nick`. `SIDE_WAYS` is the
+         load-bearing member: its nick is `sideways`, which the underscore substitution
+         would spell `side-ways`. -->
+    <enumeration name="Orientation" c:type="GtkOrientation" glib:type-name="GtkOrientation" glib:get-type="gtk_orientation_get_type">
+      <member name="horizontal" value="0" c:identifier="GTK_ORIENTATION_HORIZONTAL" glib:nick="horizontal"/>
+      <member name="vertical" value="1" c:identifier="GTK_ORIENTATION_VERTICAL" glib:nick="vertical"/>
+      <member name="side_ways" value="2" c:identifier="GTK_ORIENTATION_SIDE_WAYS" glib:nick="sideways"/>
+    </enumeration>
+
+    <!-- Registered, non-flags, and referenced by NO property in this namespace. It must
+         still get a nick union: a consumer in another namespace can reach it (measured —
+         `GtkSourceView.text-window-type` reaches `Gtk.TextWindowType`, which no Gtk-4.0
+         widget property uses, and the emit-what-you-reference version left
+         `@girs/gtksource-5/surface` importing a name `@girs/gtk-4.0/surface` did not have). -->
+    <enumeration name="Unreferenced" c:type="GtkUnreferenced" glib:type-name="GtkUnreferenced" glib:get-type="gtk_unreferenced_get_type">
+      <member name="one" value="0" c:identifier="GTK_UNREFERENCED_ONE" glib:nick="one"/>
+      <member name="two" value="1" c:identifier="GTK_UNREFERENCED_TWO" glib:nick="two"/>
+    </enumeration>
+
+    <!-- A bitfield, which must stay `number`: GObject exposes no way to resolve a nick SET. -->
+    <bitfield name="StateFlags" c:type="GtkStateFlags" glib:type-name="GtkStateFlags" glib:get-type="gtk_state_flags_get_type">
+      <member name="active" value="1" c:identifier="GTK_STATE_FLAG_ACTIVE" glib:nick="active"/>
+      <member name="focused" value="2" c:identifier="GTK_STATE_FLAG_FOCUSED" glib:nick="focused"/>
+    </bitfield>
+
+    <!-- The interface that carries `orientation`. GObject installs interface properties on
+         the implementor at runtime while GIR keeps them once, here — a class-only walk
+         emits a Box without its most-written property. -->
+    <interface name="Orientable" c:symbol-prefix="orientable" c:type="GtkOrientable" glib:type-name="GtkOrientable" glib:get-type="gtk_orientable_get_type">
+      <property name="orientation" writable="1" transfer-ownership="none" version="1.2">
+        <doc xml:space="preserve">The orientation of the orientable.</doc>
+        <type name="Orientation" c:type="GtkOrientation"/>
+      </property>
+    </interface>
+
+    <!-- Abstract, so it must NOT get a `Widgets` row, and it must still get a props
+         interface because every widget inherits from it. -->
+    <class name="Widget" c:symbol-prefix="widget" c:type="GtkWidget" glib:type-name="GtkWidget" glib:get-type="gtk_widget_get_type" parent="GObject.Object" abstract="1">
+      <property name="visible" writable="1" transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="css-classes" writable="1" transfer-ownership="none">
+        <array>
+          <type name="utf8" c:type="gchar*"/>
+        </array>
+      </property>
+      <property name="state-flags" writable="1" transfer-ownership="none">
+        <type name="StateFlags" c:type="GtkStateFlags"/>
+      </property>
+      <!-- READ-ONLY. `ConstructorProps` offers this as settable; writing it is exit 0. -->
+      <property name="parent" readable="1" writable="0" transfer-ownership="none">
+        <type name="Widget" c:type="GtkWidget*"/>
+      </property>
+      <!-- CONSTRUCT-ONLY: a renderer must rebuild rather than patch. -->
+      <property name="css-name" writable="1" construct-only="1" transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <glib:signal name="destroy" when="cleanup"/>
+    </class>
+
+    <class name="Box" c:symbol-prefix="box" c:type="GtkBox" glib:type-name="GtkBox" glib:get-type="gtk_box_get_type" parent="Widget">
+      <implements name="Orientable"/>
+      <property name="spacing" writable="1" transfer-ownership="none">
+        <type name="gint" c:type="gint"/>
+      </property>
+      <glib:signal name="child-added" when="last">
+        <parameters>
+          <parameter name="child" transfer-ownership="none">
+            <type name="Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <!-- A slot candidate: exactly one widget argument. -->
+      <method name="set_child" c:identifier="gtk_box_set_child">
+        <return-value transfer-ownership="none"><type name="none" c:type="void"/></return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none"><type name="Mini.Box" c:type="GtkBox*"/></instance-parameter>
+          <parameter name="child" transfer-ownership="none"><type name="Widget" c:type="GtkWidget*"/></parameter>
+        </parameters>
+      </method>
+      <!-- ALSO a candidate, and it parents nothing. Same C signature, same transfer —
+           nothing in the GIR separates the two, which is why curation decides. -->
+      <method name="set_activatable_widget" c:identifier="gtk_box_set_activatable_widget">
+        <return-value transfer-ownership="none"><type name="none" c:type="void"/></return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none"><type name="Mini.Box" c:type="GtkBox*"/></instance-parameter>
+          <parameter name="widget" transfer-ownership="none"><type name="Widget" c:type="GtkWidget*"/></parameter>
+        </parameters>
+      </method>
+      <!-- NOT a candidate: the single argument is not a widget. -->
+      <method name="set_label" c:identifier="gtk_box_set_label">
+        <return-value transfer-ownership="none"><type name="none" c:type="void"/></return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none"><type name="Mini.Box" c:type="GtkBox*"/></instance-parameter>
+          <parameter name="label" transfer-ownership="none"><type name="utf8" c:type="const gchar*"/></parameter>
+        </parameters>
+      </method>
+    </class>
+
+    <!-- Not a widget: no row, no props interface. -->
+    <class name="Adjustment" c:symbol-prefix="adjustment" c:type="GtkAdjustment" glib:type-name="GtkAdjustment" glib:get-type="gtk_adjustment_get_type" parent="GObject.Object">
+      <property name="value" writable="1" transfer-ownership="none">
+        <type name="gdouble" c:type="gdouble"/>
+      </property>
+    </class>
+
+  </namespace>
+</repository>

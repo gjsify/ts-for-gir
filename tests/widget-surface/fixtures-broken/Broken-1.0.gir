@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!-- Broken-1.0.gir — a widget with a settable property whose GIR type resolves to nothing.
+     The main emitter degrades an unresolvable type to `never`, which is the right answer
+     for a method signature and the wrong one for a vocabulary: a property offered as
+     `never` accepts no value at all, so the widget quietly loses it. The surface generator
+     must REFUSE and name the property. -->
+<repository version="1.2" xmlns="http://www.gtk.org/introspection/core/1.0" xmlns:c="http://www.gtk.org/introspection/c/1.0" xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="GLib" version="2.0"/>
+  <package name="broken"/>
+  <c:include name="broken.h"/>
+  <namespace name="Broken" version="1.0" shared-library="libbroken.so" c:prefix="Gtk" c:identifier-prefixes="Gtk" c:symbol-prefixes="gtk">
+    <class name="Widget" c:symbol-prefix="widget" c:type="GtkWidget" glib:type-name="GtkWidget" glib:get-type="gtk_widget_get_type" parent="GObject.Object" abstract="1">
+      <property name="visible" writable="1" transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+    </class>
+    <class name="Panel" c:symbol-prefix="panel" c:type="GtkPanel" glib:type-name="GtkPanel" glib:get-type="gtk_panel_get_type" parent="Widget">
+      <property name="mystery" writable="1" transfer-ownership="none">
+        <type name="NoSuchType" c:type="GtkNoSuchType*"/>
+      </property>
+    </class>
+  </namespace>
+</repository>

@@ -32,6 +32,7 @@ export interface GenerateCommandArgs extends BaseCommandArgs {
   noComments: boolean;
   /** Generate promisified functions for async/finish calls */
   promisify: boolean;
+  widgetSurface: boolean;
   /** Scope of the generated NPM packages */
   npmScope: string;
   /** Uses the workspace protocol for the generated packages which can be used with package managers like Yarn and PNPM */

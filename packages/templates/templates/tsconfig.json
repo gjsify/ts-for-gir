@@ -12,6 +12,14 @@ if (packageName === 'Gjs') {
 }
 includes.push(`./${entryPointName}.d.ts`)
 
+// The widget surface is type-checked by the package's own `npm test`
+// (`tsc --project tsconfig.json`). That is the only thing that can catch a surface
+// referencing a name the main emitter did not emit — the generator cannot, because
+// it is emitting both halves from the same model and would agree with itself.
+if (typeof girModule !== 'undefined' && girModule && girModule.hasWidgetSurface) {
+  includes.push(`./${entryPointName}-surface.d.ts`)
+}
+
 // Build paths mappings for cross-package type resolution (needed for TypeDoc inheritance)
 let paths = {}
 if (typeof girModule !== 'undefined' && girModule && girModule.transitiveDependencies) {

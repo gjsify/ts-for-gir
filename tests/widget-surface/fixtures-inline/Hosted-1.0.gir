@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!-- Hosted-1.0.gir — declares widgets and roots them on a base from a namespace that does
+     not. Pairs with Carrier-1.0.gir: `Carrier.Holder` has settable properties and no
+     surface to be imported from, so the generator INLINES it here rather than dropping it.
+     Measured in the real corpus exactly once (Gcr.Prompt), which is why this is a positive
+     fixture and not an error case. -->
+<repository version="1.2" xmlns="http://www.gtk.org/introspection/core/1.0" xmlns:c="http://www.gtk.org/introspection/c/1.0" xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="GLib" version="2.0"/>
+  <include name="Carrier" version="1.0"/>
+  <package name="hosted"/>
+  <c:include name="hosted.h"/>
+  <namespace name="Hosted" version="1.0" shared-library="libhosted.so" c:prefix="Gtk" c:identifier-prefixes="Gtk" c:symbol-prefixes="gtk">
+    <class name="Widget" c:symbol-prefix="widget" c:type="GtkWidget" glib:type-name="GtkWidget" glib:get-type="gtk_widget_get_type" parent="Carrier.Holder" abstract="1">
+      <property name="visible" writable="1" transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+    </class>
+    <class name="Panel" c:symbol-prefix="panel" c:type="GtkPanel" glib:type-name="GtkPanel" glib:get-type="gtk_panel_get_type" parent="Widget">
+      <property name="spacing" writable="1" transfer-ownership="none">
+        <type name="gint" c:type="gint"/>
+      </property>
+    </class>
+  </namespace>
+</repository>

@@ -90,6 +90,13 @@ export const options: { [name: string]: Options } = {
     default: defaults.promisify,
     normalize: true,
   },
+  widgetSurface: {
+    type: "boolean",
+    description:
+      "Emit the GIR-derived widget vocabulary on a `./surface` subpath for namespaces that declare GtkWidget descendants",
+    default: defaults.widgetSurface,
+    normalize: true,
+  },
   npmScope: {
     type: "string",
     description: "Scope of the generated NPM packages",
@@ -184,6 +191,7 @@ export const generateOptions = {
   noNamespace: options.noNamespace,
   noComments: options.noComments,
   promisify: options.promisify,
+  widgetSurface: options.widgetSurface,
   npmScope: options.npmScope,
   workspace: options.workspace,
   depVersionFormat: options.depVersionFormat,

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!-- Derived-1.0.gir — a second widget namespace, so Base's interfaces are imported from
+     `@girs/base-1.0/surface`. `Panel.holder` redeclares the inherited property with an
+     incompatible type; see Base-1.0.gir. -->
+<repository version="1.2" xmlns="http://www.gtk.org/introspection/core/1.0" xmlns:c="http://www.gtk.org/introspection/c/1.0" xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="GLib" version="2.0"/>
+  <include name="Base" version="1.0"/>
+  <package name="derived"/>
+  <c:include name="derived.h"/>
+  <namespace name="Derived" version="1.0" shared-library="libderived.so" c:prefix="Drv" c:identifier-prefixes="Drv" c:symbol-prefixes="drv">
+    <class name="Thing" c:symbol-prefix="thing" c:type="DrvThing" glib:type-name="DrvThing" glib:get-type="drv_thing_get_type" parent="GObject.Object"/>
+    <class name="Panel" c:symbol-prefix="panel" c:type="DrvPanel" glib:type-name="DrvPanel" glib:get-type="drv_panel_get_type" parent="Base.Widget">
+      <property name="holder" writable="1" transfer-ownership="none">
+        <type name="Thing" c:type="DrvThing*"/>
+      </property>
+    </class>
+  </namespace>
+</repository>

@@ -4,7 +4,7 @@ TS type definition generator for GObject Introspection (GIR) → GJS. Prefer ret
 
 ## General
 
-- `./types`, `./gjs`, `./vala-girs` are git submodules — **never delete**
+- `./types-release`, `./types-dev`, `./refs/*` are git submodules — **never delete**
 - Always use `.ts` import extensions — TS runs directly, no build step
 - Config files: `.ts-for-gir.*.rc.js` in project root
 
@@ -15,7 +15,7 @@ Yarn v4 workspaces | Node >= 22 | all ESM (`"type": "module"`)
 Category | Path | Namespace | Notes
 ---|---|---|---
 Core | `/packages/*` | `@ts-for-gir/*`, `@gi.ts/*` | No build, runs TS directly
-Types | `/types/*` | `@girs/*` | Generated — **never edit manually**
+Types | `/types-release/*`, `/types-dev/*` | `@girs/*` | Generated — **never edit manually**
 Examples | `/examples/*` | `@ts-for-gir-example/*` | Req build (GJS can't run TS)
 Tests | `/tests/*` | `@ts-for-gir-test/*` | Generator tests
 
@@ -39,7 +39,7 @@ gjsify run ts-for-gir-dev list
 
 ## Generation Flow
 
-GIR XML (`/girs/`) → `@gi.ts/parser` → `@ts-for-gir/lib` → `@ts-for-gir/generator-typescript` → `/types/@girs/*`
+GIR XML (`/girs/`) → `@gi.ts/parser` → `@ts-for-gir/lib` → `@ts-for-gir/generator-typescript` → `/types-dev/@girs/*`
 
 ### Key Files
 
@@ -61,7 +61,7 @@ Use `node.assertClass("ClassName").noEmit()` to disable auto-generation; templat
 
 ### Output Dirs
 
-`/types/*` (submodule, branch `main`): official published types, may be cached
+`/types-release/*` (submodule, branch `main`): official published types, may be cached
 `/types-dev/*` (submodule, branch `dev`): development types, used by examples and workspace `@girs/*` packages
 Custom `--outdir=./test-types-*`: fresh generation for dev/testing
 
@@ -77,6 +77,36 @@ When modifying generators, templates, injections, or lib code that affects gener
 `gjsify run build` chains all steps: `build:app → build:types → build:examples → build:json → build:doc`
 
 **Important:** Examples import from `@girs/*` packages which resolve to `/types-dev/`. Generator changes will NOT be reflected in examples or `gjsify run check` until `gjsify run build:types` has been run.
+
+### Widget surface (`@girs/<ns>/surface`)
+
+Opt-in subpath (`widgetSurface`, on in `.ts-for-gir.packages-all.rc.js`) carrying the
+GIR-derived widget VOCABULARY: a writable-only, optional, GObject-keyed props interface per
+declaration, the construct-only name union, enum nick unions from `glib:nick`, a GType-keyed
+`Widgets` map, and the same facts again as runtime data in the sibling `.js` — because types
+are erased and the only check that can go red for a real reason is a consumer asking the
+INSTALLED library whether every name is real. Code: `packages/generator-typescript/src/surface/`.
+Decided in gjsify's ADR 0029.
+
+Three rules bind work here. **The vocabulary ships, the dialect does not** — no tag spelling,
+no `on<Signal>` prop, no `JSX.IntrinsicElements`, no Vue `GlobalComponents`, no camelCase
+property key. A JSX namespace is a GLOBAL declaration, so a second library declaring one
+collides on every shared tag, and `@girs/*` is the package that must not do that.
+**Only namespaces that DECLARE a concrete `GtkWidget` descendant emit one** — a handful of the
+705 GIRs; a cross-namespace base is imported from its owner's `./surface`, and a base owned by
+a namespace with no surface is dropped when it contributes no settable property and INLINED
+when it does, named in that file's provenance line. (Refusing it was the first version, and it
+took a 705-namespace run down at namespace 265 on `Gcr.Prompt` — the only such base in the
+corpus.) **Nothing is derived that GIR carries**: the nick comes
+from `glib:nick` (889 of 40 940 members disagree with the underscore substitution, none of them
+in Gtk-4.0 or Adw-1 — which is how a derived nick passes review), the dashed property name from
+`IntrospectedProperty.girName`, the GType from `glibTypeName`.
+
+Gate: `tests/widget-surface` — positives plus three controls that must go the other way (flag
+off emits nothing, a broken fixture exits non-zero naming the declaration, and the `.d.ts` and
+`.js` halves are read separately and compared). The emitted surface is also in each package's
+own `tsconfig.json#include`, so `gjsify run check:types` compiles it — the only thing that
+catches a surface referencing a name the main emitter did not emit.
 
 ### GIR → TS Mapping
 

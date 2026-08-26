@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!-- Carrier-1.0.gir — a namespace that declares NO widgets and yet contributes a settable
+     property to a widget's base chain. There is no `@girs/carrier-1.0/surface` to import
+     `CarrierHolderProps` from, and dropping the base would shrink the vocabulary by a
+     property nobody would notice was missing — so the consuming surface inlines it. A
+     surface for Carrier itself is the wrong answer: it would be a widget surface with no
+     widgets in it. -->
+<repository version="1.2" xmlns="http://www.gtk.org/introspection/core/1.0" xmlns:c="http://www.gtk.org/introspection/c/1.0" xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="GLib" version="2.0"/>
+  <package name="carrier"/>
+  <c:include name="carrier.h"/>
+  <namespace name="Carrier" version="1.0" shared-library="libcarrier.so" c:prefix="Carrier" c:identifier-prefixes="Carrier" c:symbol-prefixes="carrier">
+    <class name="Holder" c:symbol-prefix="holder" c:type="CarrierHolder" glib:type-name="CarrierHolder" glib:get-type="carrier_holder_get_type" parent="GObject.Object">
+      <property name="title" writable="1" transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+    </class>
+  </namespace>
+</repository>

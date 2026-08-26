@@ -22,6 +22,10 @@ tests/**/dist/
 
 # Generator output of test workspaces
 tests/**/generated/
+tests/**/generated-off/
+tests/**/generated-inline/
+tests/**/generated-cross/
+tests/**/generated-broken/
 
 # Local Claude Code state (plans, settings)
 .claude/

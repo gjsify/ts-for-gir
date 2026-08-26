@@ -14,6 +14,18 @@ export abstract class IntrospectedBase<Parent extends IntrospectedNamespace | An
 	doc?: string | null;
 	metadata?: IntrospectedMetadata;
 	deprecated?: boolean;
+	/**
+	 * GIR's `glib:type-name` — the GType a class, interface, enum or bitfield
+	 * registers under (`GtkBox`, `GtkOrientation`).
+	 *
+	 * It is NOT derivable from {@link name}: the TS name is namespace-local and
+	 * sanitized, while the GType is the C prefix plus the type name and the two
+	 * disagree wherever a namespace's `c:prefix` is not its namespace (`Adw` vs
+	 * `AdwaitaFoo`, `WebKit` vs `WebKitWebView`). `resolve_names` already carried
+	 * it, mixed in with `c:type` and `glib:type-struct` and therefore unusable as
+	 * an answer to "which GType is this".
+	 */
+	glibTypeName?: string;
 	resolve_names: string[] = [];
 	private _emit = true;
 	private _commentWarning?: string;
@@ -73,6 +85,7 @@ export abstract class IntrospectedBase<Parent extends IntrospectedNamespace | An
 		this.doc = from.doc;
 		this.metadata = from.metadata;
 		this.deprecated = from.deprecated;
+		this.glibTypeName = from.glibTypeName;
 		this.resolve_names = from.resolve_names;
 
 		// Whether this node should be emitted.

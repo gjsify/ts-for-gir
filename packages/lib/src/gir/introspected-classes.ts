@@ -1120,6 +1120,7 @@ export class IntrospectedClass extends IntrospectedBaseClass {
 		name: string,
 	): void {
 		if (element.$["glib:type-name"]) {
+			clazz.glibTypeName = element.$["glib:type-name"];
 			clazz.resolve_names.push(element.$["glib:type-name"]);
 			ns.registerResolveName(element.$["glib:type-name"], ns.namespace, name);
 		}
@@ -1426,6 +1427,7 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
 		name: string,
 	): void {
 		if (element.$["glib:type-name"]) {
+			iface.glibTypeName = element.$["glib:type-name"];
 			iface.resolve_names.push(element.$["glib:type-name"]);
 			namespace.registerResolveName(element.$["glib:type-name"], namespace.namespace, name);
 		}

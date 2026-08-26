@@ -136,6 +136,9 @@ Options:
                                                       [boolean] [default: false]
       --promisify               Generate promisified functions for async/finish
                                 calls                  [boolean] [default: true]
+      --widgetSurface           Emit the GIR-derived widget vocabulary on a
+                                `./surface` subpath for namespaces that declare
+                                GtkWidget descendants [boolean] [default: false]
       --npmScope                Scope of the generated NPM packages
                                                      [string] [default: "@girs"]
       --workspace               Uses the workspace protocol for the generated
@@ -524,6 +527,43 @@ The `noAdvancedVariants` option disables the advanced GLib.Variant class with st
 ```bash
 ts-for-gir generate * --noAdvancedVariants=false
 ```
+
+### widgetSurface
+
+Emits the GIR-derived widget **vocabulary** on an opt-in `@girs/<ns>/surface` subpath, for the
+namespaces that declare concrete descendants of `GtkWidget` — `Gtk-4.0`, `Adw-1`, `Gtk-3.0`,
+`GtkSource`, `WebKit` and so on. Every other namespace emits nothing regardless of the flag, so
+this is not something a Gio-only project pays for. Requires `--package`.
+
+What the subpath exports, all module-scoped:
+
+```ts
+import type { Widgets, GtkBoxProps, GtkOrientationNick } from '@girs/gtk-4.0/surface';
+import { OWN_PROPS, ENUM_NICKS, SINCE } from '@girs/gtk-4.0/surface';
+
+// One props interface per GIR DECLARATION, mirroring GIR's own inheritance:
+// writable-only, optional, keyed by the name GObject registered.
+declare const box: GtkBoxProps;   // { 'css-classes'?: string[]; orientation?: …; spacing?: number }
+
+// A GType-keyed map, pointing at the `SignalSignatures` @girs already emits.
+type BoxSignals = Widgets['GtkBox']['signals'];
+```
+
+Three things this is and `X.ConstructorProps` is not: **writable-only** (measured on Gtk-4.0,
+`ConstructorProps` offers 150 read-only properties across 68 classes as settable, and GTK's
+failure mode for writing one is exit 0), **optional**, and **keyed by the registered name** —
+the dashed spelling `g_object_set()`, GtkBuilder XML and Blueprint all use.
+
+What it deliberately does **not** contain: tag spellings, `on<Signal>` handler prop names,
+`JSX.IntrinsicElements`, a Vue `GlobalComponents` interface, camelCase property keys. Those are
+framework dialect, every framework answers them differently, and a JSX namespace is a global
+declaration — a second library declaring one collides on every shared tag. Build your dialect on
+these names instead.
+
+Beside the `.d.ts`, the same subpath exports the facts as runtime **data** (`OWN_PROPS`,
+`OWN_SIGNALS`, `DECLS`, `ENUM_NICKS`, `SLOT_CANDIDATES`, `SINCE`), because types are erased and
+the check worth having is a consumer asking the *installed* library whether every name is real.
+`SINCE` is what lets that check tell a version gap from a defect without an allowlist.
 
 ### package
 

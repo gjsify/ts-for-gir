@@ -1,0 +1,17 @@
+{
+    "name": "@ts-for-gir-test/widget-surface",
+    "type": "module",
+    "private": true,
+    "scripts": {
+        "test": "gjsify run clear && gjsify run generate && gjsify run generate:off && gjsify run generate:inline && gjsify run generate:cross && gjsify run assert",
+        "generate": "ts-for-gir-dev generate --configName .ts-for-gir.rc.js",
+        "generate:off": "ts-for-gir-dev generate --configName .ts-for-gir.off.rc.js",
+        "generate:inline": "ts-for-gir-dev generate --configName .ts-for-gir.inline.rc.js",
+        "generate:cross": "ts-for-gir-dev generate --configName .ts-for-gir.cross.rc.js",
+        "assert": "node --no-warnings assert.mjs",
+        "clear": "rm -rf generated generated-off generated-inline generated-cross generated-broken"
+    },
+    "devDependencies": {
+        "@ts-for-gir/cli": "workspace:^"
+    }
+}

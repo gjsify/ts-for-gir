@@ -96,6 +96,7 @@ export class IntrospectedEnum extends IntrospectedNamespaceMember {
 
 		if (element.$["glib:type-name"]) {
 			em.isRegistered = true;
+			em.glibTypeName = element.$["glib:type-name"];
 			em.resolve_names.push(element.$["glib:type-name"]);
 
 			ns.registerResolveName(element.$["glib:type-name"], ns.namespace, em.name);

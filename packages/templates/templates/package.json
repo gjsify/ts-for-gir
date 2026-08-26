@@ -63,6 +63,18 @@ _%>
         "default": "./<%- entryPointName %>-import.js"
       },
       <%_ } _%>
+      <%_ /* The GIR-derived widget vocabulary (ADR 0029 in the gjsify repository). Its own
+             subpath on purpose: a consumer that never imports it parses zero extra bytes,
+             because TypeScript reads only the files a program reaches. Emitted only for
+             namespaces that declare GtkWidget descendants, so the entry is conditional on the
+             FILE existing rather than on the flag being set. */ _%>
+      <%_ if (typeof girModule !== "undefined" && girModule && girModule.hasWidgetSurface) { _%>
+      "./surface": {
+        "types": "./<%- entryPointName %>-surface.d.ts",
+        "import": "./<%- entryPointName %>-surface.js",
+        "default": "./<%- entryPointName %>-surface.js"
+      },
+      <%_ } _%>
       "./<%- entryPointName %>": {
         "types": "./<%- entryPointName %>.d.ts",
         "import": "./<%- entryPointName %>.js",

@@ -68,9 +68,15 @@ export class SurfaceError extends Error {}
  * So `never` stays in the interface rather than being dropped (dropping shrinks the
  * vocabulary by a property nobody would notice was missing, and the name is still a
  * real writable ParamSpec a consumer's runtime check must find in `OWN_PROPS`), and
- * every occurrence is NAMED in the provenance line. Measured across Gtk-4.0, Gtk-3.0,
- * Adw-1, GimpUi-3.0 and GcrUi-3: two, both above. Naming them is what makes a third
- * one a diff instead of a property that silently stopped accepting values.
+ * every occurrence is NAMED in the provenance line.
+ *
+ * No corpus-wide count is written down here, deliberately. Fourteen widget namespaces
+ * were measured and four turned up — a writable `gpointer` in `GcrTreeSelector:columns`,
+ * `Gtk.Object:user-data` and `Gtk.Notebook:group`, a C callback in
+ * `GimpDialog:help-func` — and the first five namespaces looked at had said "two", which
+ * is how a number in a comment becomes wrong. Each surface names its OWN, which is the
+ * answer that cannot go stale, and is what makes the next one a diff instead of a
+ * property that silently stopped accepting values.
  */
 const acceptsNothing = (ts: string): boolean => /\bnever\b/.test(ts);
 

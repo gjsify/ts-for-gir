@@ -151,10 +151,11 @@ ${renderImports(surface).join("\n")}
 // ---------------------------------------------------------------------------
 // Enum nicks — the string vocabulary GObject registered, from GIR's \`glib:nick\`.
 //
-// Not derived from the member name: measured across the 705 GIR files in this
-// repository, 889 of the 40 940 members carrying the attribute disagree with the
-// underscore substitution. Gtk-4.0 and Adw-1 happen not to be among them, which is
+// Not derived from the member name. Substituting underscores for dashes is not a law:
+// some nicks keep an underscore the substitution would have replaced, and only the
+// attribute knows which. Gtk-4.0 and Adw-1 contradict no derivation at all, which is
 // how a derived nick passes review and breaks elsewhere.
+// Re-measure with \`scripts/check-nick-derivation.mjs\` in ts-for-gir.
 // ---------------------------------------------------------------------------
 
 ${nicks.join("\n")}

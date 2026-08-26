@@ -70,13 +70,18 @@ export class SurfaceError extends Error {}
  * real writable ParamSpec a consumer's runtime check must find in `OWN_PROPS`), and
  * every occurrence is NAMED in the provenance line.
  *
- * No corpus-wide count is written down here, deliberately. Fourteen widget namespaces
- * were measured and four turned up — a writable `gpointer` in `GcrTreeSelector:columns`,
- * `Gtk.Object:user-data` and `Gtk.Notebook:group`, a C callback in
- * `GimpDialog:help-func` — and the first five namespaces looked at had said "two", which
- * is how a number in a comment becomes wrong. Each surface names its OWN, which is the
- * answer that cannot go stale, and is what makes the next one a diff instead of a
- * property that silently stopped accepting values.
+ * No count is written down here, deliberately. The first pass measured five namespaces
+ * and said "two"; widening to fourteen said four; widening to forty-four found more than
+ * twenty, eleven of them on `AgsGui.Cartesian` alone — a widget that loses most of its
+ * settable properties and, before the provenance line existed, said nothing about it.
+ * Any number here is a number that is already wrong.
+ *
+ * The RULE does not drift, and it is the useful half: every case measured is a writable
+ * `gpointer` — `GcrTreeSelector:columns`, `Gtk.Object:user-data`, `Gtk.Notebook:group`,
+ * `Wnck.ActionMenu:window`, `Phosh.LayerSurface:wl-output` — plus one C callback,
+ * `GimpDialog:help-func`. Nothing EXPRESSIBLE is being flattened. Each surface names its
+ * own in its own provenance line, which is the answer that cannot go stale, and is what
+ * makes the next one a diff instead of a property that silently stopped taking values.
  */
 const acceptsNothing = (ts: string): boolean => /\bnever\b/.test(ts);
 

@@ -14,13 +14,12 @@
 //      NOTHING. The surface would reference a name the main emitter never emitted, so the
 //      generator must exit non-zero and name the property. Note the scope: what is refused
 //      is an unresolvable identifier, NOT every property that prints `never`. A writable
-//      `gpointer` resolves fine and no TypeScript value satisfies it — four found over
-//      fourteen widget namespaces, in `GcrTreeSelector:columns`, `Gtk.Object:user-data`,
-//      `Gtk.Notebook:group` and (as a C callback) `GimpDialog:help-func`. Those are
-//      emitted as `never`, kept in `OWN_PROPS` because the ParamSpec is real, and NAMED in
-//      the provenance line of the surface that carries them. The `user-data` assertions
-//      below hold that second half, because a rule stated in a comment and enforced
-//      nowhere is the one that drifts.
+//      `gpointer` resolves fine and no TypeScript value satisfies it — `GcrTreeSelector:
+//      columns`, `Wnck.ActionMenu:window`, eleven on `AgsGui.Cartesian` — as does one C
+//      callback, `GimpDialog:help-func`. Those are emitted as `never`, kept in `OWN_PROPS`
+//      because the ParamSpec is real, and NAMED in the provenance line of the surface that
+//      carries them. The `user-data` assertions below hold that second half, because a
+//      rule stated in a comment and enforced nowhere is the one that drifts.
 //   3. TYPE HALF vs RUNTIME HALF — the two are read independently (regex over the `.d.ts`,
 //      `import()` of the `.js`) and compared. Emitting both from one model means the
 //      generator agrees with itself; this is the only check that notices if it stops.

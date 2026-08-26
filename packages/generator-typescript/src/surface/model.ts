@@ -54,6 +54,26 @@ const WIDGET_ROOT_GTYPE = "GtkWidget";
 /** Thrown with the offending member named — never swallowed into a fallback type. */
 export class SurfaceError extends Error {}
 
+/**
+ * A property whose printed type accepts no value at all.
+ *
+ * There are two ways a property can end up unusable, and only one of them is a
+ * generator defect. An UNRESOLVABLE identifier is: the model has no such type, so the
+ * surface would reference a name the main emitter never emitted, and
+ * {@link printPropType} throws. A RESOLVABLE type TypeScript cannot express is not:
+ * `GcrTreeSelector:columns` is a writable `gpointer` and `GimpDialog:help-func` is a C
+ * callback, and the model prints both as `never` on purpose — a caller cannot pass one
+ * from GJS either.
+ *
+ * So `never` stays in the interface rather than being dropped (dropping shrinks the
+ * vocabulary by a property nobody would notice was missing, and the name is still a
+ * real writable ParamSpec a consumer's runtime check must find in `OWN_PROPS`), and
+ * every occurrence is NAMED in the provenance line. Measured across Gtk-4.0, Gtk-3.0,
+ * Adw-1, GimpUi-3.0 and GcrUi-3: two, both above. Naming them is what makes a third
+ * one a diff instead of a property that silently stopped accepting values.
+ */
+const acceptsNothing = (ts: string): boolean => /\bnever\b/.test(ts);
+
 export interface SurfaceProp {
   /** The name GObject registered — `icon-name`, dashed. */
   readonly girName: string;
@@ -652,6 +672,13 @@ export function buildWidgetSurface(module: GirModule, config: OptionsGeneration)
   // shape of the base graph shows up in a diff rather than in a support question.
   if (dropped.length > 0) provenanceParts.push(`dropped empty base(s): ${dropped.join(" ")}`);
   if (inlined.length > 0) provenanceParts.push(`inlined base(s) from a namespace with no surface: ${inlined.join(" ")}`);
+  const unsettable = [...withBases.values()]
+    .filter((decl) => decl.emitted)
+    .flatMap((decl) => decl.props.filter((prop) => acceptsNothing(prop.ts)).map((prop) => `${decl.key}.${prop.girName}`))
+    .sort();
+  if (unsettable.length > 0) {
+    provenanceParts.push(`prop(s) no TypeScript value satisfies: ${unsettable.join(" ")}`);
+  }
 
   return {
     namespace: module.namespace,

@@ -94,8 +94,10 @@ property key. A JSX namespace is a GLOBAL declaration, so a second library decla
 collides on every shared tag, and `@girs/*` is the package that must not do that.
 **Only namespaces that DECLARE a concrete `GtkWidget` descendant emit one** — a handful of the
 705 GIRs; a cross-namespace base is imported from its owner's `./surface`, and a base owned by
-a namespace with no surface is dropped only if it contributes no settable property (otherwise
-the generator refuses and names it). **Nothing is derived that GIR carries**: the nick comes
+a namespace with no surface is dropped when it contributes no settable property and INLINED
+when it does, named in that file's provenance line. (Refusing it was the first version, and it
+took a 705-namespace run down at namespace 265 on `Gcr.Prompt` — the only such base in the
+corpus.) **Nothing is derived that GIR carries**: the nick comes
 from `glib:nick` (889 of 40 940 members disagree with the underscore substitution, none of them
 in Gtk-4.0 or Adw-1 — which is how a derived nick passes review), the dashed property name from
 `IntrospectedProperty.girName`, the GType from `glibTypeName`.

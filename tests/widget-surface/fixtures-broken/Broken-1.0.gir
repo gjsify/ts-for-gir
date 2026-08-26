@@ -1,9 +1,13 @@
 <?xml version="1.0"?>
-<!-- Broken-1.0.gir — a widget with a settable property whose GIR type resolves to nothing.
+<!-- Broken-1.0.gir — a widget with a settable property whose GIR type resolves to NOTHING.
      The main emitter degrades an unresolvable type to `never`, which is the right answer
-     for a method signature and the wrong one for a vocabulary: a property offered as
-     `never` accepts no value at all, so the widget quietly loses it. The surface generator
-     must REFUSE and name the property. -->
+     for a method signature and the wrong one here: the surface would carry a property the
+     model has no type for, so a later rename in the main emitter could not be detected.
+     The surface generator must REFUSE and name the property.
+
+     What this fixture does NOT cover, deliberately: a type that resolves fine and no
+     TypeScript value satisfies (a writable `gpointer`, a C callback). Those are emitted as
+     `never` and named in the provenance line — `Mini-1.0.gir` carries that case. -->
 <repository version="1.2" xmlns="http://www.gtk.org/introspection/core/1.0" xmlns:c="http://www.gtk.org/introspection/c/1.0" xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <include name="GLib" version="2.0"/>

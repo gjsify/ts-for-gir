@@ -78,6 +78,16 @@
       <property name="spacing" writable="1" transfer-ownership="none">
         <type name="gint" c:type="gint"/>
       </property>
+      <!-- RESOLVABLE and inexpressible. A writable `gpointer` is a real ParamSpec the
+           runtime data must carry, and there is no TypeScript value that satisfies it —
+           the model prints `never`, and so does the surface. Distinct from the Broken
+           fixture, whose type resolves to NOTHING and is refused: this one is emitted and
+           NAMED in the provenance line, so a second such property is a diff rather than a
+           property that silently stopped accepting values. Real cases: two, in
+           `GcrTreeSelector:columns` and `GimpDialog:help-func`. -->
+      <property name="user-data" writable="1" transfer-ownership="none">
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
       <glib:signal name="child-added" when="last">
         <parameters>
           <parameter name="child" transfer-ownership="none">

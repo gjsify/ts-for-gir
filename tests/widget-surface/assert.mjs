@@ -11,10 +11,14 @@
 //   1. FLAG OFF, same input — no surface file and no `./surface` in the package.json. A
 //      subpath that appears either way is not opt-in.
 //   2. A BROKEN input — a widget with a settable property whose GIR type resolves to
-//      nothing. The main emitter degrades that to `never`, which is right for a method
-//      signature and wrong for a vocabulary: a property offered as `never` accepts no
-//      value, so the widget quietly loses it. The generator must exit non-zero and name
-//      the property.
+//      NOTHING. The surface would reference a name the main emitter never emitted, so the
+//      generator must exit non-zero and name the property. Note the scope: what is refused
+//      is an unresolvable identifier, NOT every property that prints `never`. A writable
+//      `gpointer` resolves fine and no TypeScript value satisfies it (`GcrTreeSelector:
+//      columns`, `GimpDialog:help-func` — two in the whole corpus); those are emitted as
+//      `never`, kept in `OWN_PROPS` because the ParamSpec is real, and NAMED in the
+//      provenance line. The `user-data` assertions below hold that second half, because a
+//      rule that is stated in a comment and enforced nowhere is the one that drifts.
 //   3. TYPE HALF vs RUNTIME HALF — the two are read independently (regex over the `.d.ts`,
 //      `import()` of the `.js`) and compared. Emitting both from one model means the
 //      generator agrees with itself; this is the only check that notices if it stops.
@@ -55,6 +59,12 @@ const must = [
   ["construct-only unions inherit", /GtkBoxConstructOnly = GtkWidgetConstructOnly \| GtkOrientableConstructOnly/],
   // The nick axis: read from `glib:nick`, never derived from the member name.
   ["nick union from glib:nick", /GtkOrientationNick = 'horizontal' \| 'vertical' \| 'sideways';/],
+  // Resolvable, inexpressible, and therefore emitted rather than refused — see the header.
+  ["a gpointer property is kept as never", /'user-data'\?: never;/],
+  [
+    "…and named in the provenance line",
+    /prop\(s\) no TypeScript value satisfies: Mini\.Box\.user-data/,
+  ],
   // Every registered enum the namespace declares, not only the ones its own properties
   // reference: another namespace's widget can reach this one, and the version that emitted
   // only what it referenced left a real consumer importing a name that did not exist.
@@ -152,6 +162,11 @@ if (data.ENUM_NICKS?.GtkStateFlags) {
 }
 if (data.SINCE?.["GtkOrientable.orientation"] !== "1.2") {
   fail(`SINCE lost the GIR version attribute: ${JSON.stringify(data.SINCE)}`);
+}
+if (!data.OWN_PROPS?.GtkBox?.includes("user-data")) {
+  // Dropping it from the runtime data would hide a real writable ParamSpec from the
+  // consumer check that asks the installed library whether every name here exists.
+  fail(`OWN_PROPS.GtkBox lost the gpointer property: ${JSON.stringify(data.OWN_PROPS?.GtkBox)}`);
 }
 if (data.OWN_SIGNALS?.GtkBox?.join(",") !== "child-added") {
   fail(`OWN_SIGNALS.GtkBox is ${JSON.stringify(data.OWN_SIGNALS?.GtkBox)}`);

@@ -90,17 +90,22 @@ Decided in gjsify's ADR 0029.
 
 Three rules bind work here. **The vocabulary ships, the dialect does not** — no tag spelling,
 no `on<Signal>` prop, no `JSX.IntrinsicElements`, no Vue `GlobalComponents`, no camelCase
-property key. A JSX namespace is a GLOBAL declaration, so a second library declaring one
-collides on every shared tag, and `@girs/*` is the package that must not do that.
+property key. The shape to refuse is the GLOBAL AUGMENT, not JSX: a `declare global` on
+`React.JSX` collides with every other library on a shared tag, while a module-scoped `JSX`
+behind a `jsxImportSource` does not (gjsify's gtk-host ships two of them, Solid and React,
+in one package). `@girs/*` is used by projects that want nothing to do with JSX, so it emits
+neither -- but a consumer declaring a module-scoped namespace is doing it right.
 **Only namespaces that DECLARE a concrete `GtkWidget` descendant emit one** — a handful of the
 705 GIRs; a cross-namespace base is imported from its owner's `./surface`, and a base owned by
 a namespace with no surface is dropped when it contributes no settable property and INLINED
 when it does, named in that file's provenance line. (Refusing it was the first version, and it
 took a 705-namespace run down at namespace 265 on `Gcr.Prompt` — the only such base in the
 corpus.) **Nothing is derived that GIR carries**: the nick comes
-from `glib:nick` (889 of 40 940 members disagree with the underscore substitution, none of them
-in Gtk-4.0 or Adw-1 — which is how a derived nick passes review), the dashed property name from
-`IntrospectedProperty.girName`, the GType from `glibTypeName`.
+from `glib:nick` — substitution is not a law, some nicks keep an underscore it would have
+replaced, and Gtk-4.0 and Adw-1 contradict nothing, which is how a derived nick passes review;
+`gjsify run check:girs` re-measures that over `girs/` and asserts the two invariants the
+fallback rests on — the dashed property name from `IntrospectedProperty.girName`, the GType
+from `glibTypeName`.
 
 Gate: `tests/widget-surface` — positives plus three controls that must go the other way (flag
 off emits nothing, a broken fixture exits non-zero naming the declaration, and the `.d.ts` and

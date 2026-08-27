@@ -17,14 +17,23 @@ export class GirEnumMember extends IntrospectedBase<IntrospectedEnum> {
 	 * modelled the attribute since the beginning and nothing read it, so every
 	 * consumer that needed a nick derived one from the member name instead.
 	 *
-	 * The derivation is right by luck rather than by construction: measured across
-	 * the 705 GIR files in `girs/`, 40 940 of 59 789 members carry `glib:nick` and
-	 * 889 of those do NOT equal `name.toLowerCase().replace(/_/g, "-")`. Gtk-4.0
-	 * and Adw-1 happen to be among the zero-disagreement namespaces (799 of 807 and
-	 * 120 of 120 carry the attribute, none contradicting), which is exactly how a
-	 * derived nick survives review and then breaks somewhere else. So the attribute
-	 * is the answer wherever it exists and the derivation is the fallback for the
-	 * members GIR leaves without one.
+	 * The derivation is right by luck rather than by construction, and the corpus says
+	 * so in a way no single count does. `scripts/check-nick-derivation.mjs` measures it
+	 * over `girs/` and asserts the two invariants this fallback rests on:
+	 *
+	 * - A nick differs from its member name ONLY in which underscores became dashes.
+	 *   Some keep underscores the substitution would have replaced -- `audio_unit_client_activated`
+	 *   registers as `audio_unit-client-activated`, and nothing but the attribute knows
+	 *   which underscore survived. That is why the attribute wins wherever it exists.
+	 * - Case is never part of that difference, so this fallback must not change case.
+	 *   It used to call `toLowerCase()`, which was wrong in principle and invisible in
+	 *   practice: no member LACKING the attribute has an uppercase name, so the fallback's
+	 *   entire input is already lowercase and dropping the call changed no generated type.
+	 *
+	 * Gtk-4.0 and Adw-1 contradict no derivation at all, which is exactly how a derived
+	 * nick survives review and then breaks in some other namespace. The script carries the
+	 * counts, deliberately: quoted here they drift, and two repositories already quoted two
+	 * different ones from this same corpus because each named a different derivation.
 	 */
 	nick: string;
 
@@ -54,8 +63,9 @@ export class GirEnumMember extends IntrospectedBase<IntrospectedEnum> {
 		const upper = element.$.name.toUpperCase();
 		const c_identifier = element.$["c:identifier"];
 		// The fallback reads the ORIGINAL member name, not `upper`: GIR writes
-		// `baseline_fill` and the nick GObject registered is `baseline-fill`.
-		const nick = element.$["glib:nick"] ?? element.$.name.toLowerCase().replace(/_/g, "-");
+		// `baseline_fill` and the nick GObject registered is `baseline-fill`. It preserves
+		// case, because a nick never differs from its name by case -- see `nick` above.
+		const nick = element.$["glib:nick"] ?? element.$.name.replace(/_/g, "-");
 
 		const enumMember = new GirEnumMember(upper, element.$.value, parent, c_identifier, nick);
 

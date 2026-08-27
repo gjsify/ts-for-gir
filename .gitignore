@@ -44,3 +44,4 @@ ts-for-gir-report.json
 build-dir/
 repo/
 *.flatpak
+.readme-examples.*.ts

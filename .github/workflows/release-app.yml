@@ -42,7 +42,7 @@ jobs:
     - name: Install container prerequisites
       run: |
 
-        dnf install -y git tar xz findutils curl gjs libsoup3 nodejs
+        dnf install -y git tar xz findutils curl gjs libsoup3 json-glib nodejs
 
         git config --global --add safe.directory "*"
 

@@ -137,9 +137,113 @@ second opinion about what a class is, and then a type you emit can reference a n
 main emitter never produced — invisible until some namespace with an unusual shape hits
 it. The widget surface is built this way for exactly that reason.
 
+#### Loading a namespace
+
+Four steps, and the fourth is the one that is easy to miss: **`load()` resolves and
+registers the module, `parse()` fills it.** A `GirModule` you never parsed has
+`members.size === 0` and reports no error — it is a valid empty module, not a failure.
+
+```ts
+import { defaults } from "@ts-for-gir/cli";
+import { DependencyManager, GirModule, NSRegistry } from "@ts-for-gir/lib";
+
+// `defaults` is the CLI's full flag set. Take it and override; hand-rolling an
+// `OptionsGeneration` is a second copy of ~30 fields that drifts on the next flag.
+const config = { ...defaults, girDirectories: ["/usr/share/gir-1.0"], outdir: null };
+
+const registry = new NSRegistry();
+const deps = DependencyManager.getInstance(config);
+
+const gtk = await GirModule.load(await deps.get("Gtk", "4.0"), config, registry);
+gtk.parse(); // ← without this, `gtk.members` is empty
+
+console.log(gtk.namespace, gtk.version, String(gtk.libraryVersion));
+// Gtk 4.0 4.23.0
+```
+
+`deps.get()` returns a `Dependency` whose `.exists` is `false` when no GIR was found in
+`girDirectories` — check it, because `GirModule.load()` turns that into a thrown
+`Failed to load gir xml of <package>` one line later.
+
+#### Walking the model
+
+`module.members` is a `Map`, and a value is either one member or an ARRAY of them
+(same name, different kinds). Discriminate with `instanceof`, never on a string:
+
+```ts
+import { IntrospectedClass, IntrospectedEnum } from "@ts-for-gir/lib";
+
+const classes: IntrospectedClass[] = [];
+const enums: IntrospectedEnum[] = [];
+for (const member of gtk.members.values()) {
+  for (const m of Array.isArray(member) ? member : [member]) {
+    if (m instanceof IntrospectedClass) classes.push(m);
+    else if (m instanceof IntrospectedEnum) enums.push(m);
+  }
+}
+console.log(`${classes.length} classes, ${enums.length} enums`);
+// 269 classes, 133 enums
+```
+
+`IntrospectedError` extends `IntrospectedEnum`, so the 133 above includes the 9 error
+domains — which is usually what you want, and always worth knowing.
+
+#### Properties: `writable`, `constructOnly`, and both spellings
+
+`cls.props` is the class's OWN properties — not the inherited chain. Each carries
+`writable`, `readable` and `constructOnly`, which is the distinction
+`X.ConstructorProps` does not make:
+
+```ts
+const widget = classes.find((c) => c.name === "Widget")!;
+const readOnly = widget.props.filter((p) => !p.writable).map((p) => p.name);
+console.log(readOnly.join(", "));
+// has_default, hasDefault, has_focus, hasFocus, parent, root, scale_factor, scaleFactor
+```
+
+Note the doubling. **The model carries every property twice — once `snake_case`, once
+`camelCase`** — because both are valid ways to reach it from generated bindings. Neither
+is GObject's own name: `g_object_set()` takes `has-default`, in kebab. If you are
+emitting kebab keys, normalise and de-duplicate rather than mapping `props` one to one,
+or you emit two keys for one property.
+
+Those five names are also the concrete reason a widget surface is not
+`Partial<ConstructorProps>`: `Gtk.Widget.ConstructorProps` offers `has_default`,
+`has_focus`, `parent`, `root` and `scale_factor` as settable, and GTK's failure mode for
+writing one is exit 0.
+
+#### Enums and their nicks
+
+`enum.members` is a `Map` too, and `nick` is GIR's `glib:nick` — the string GObject
+itself accepts, which is what an attribute or a JSX prop carries:
+
+```ts
+const align = enums.find((e) => e.name === "Align")!;
+console.log([...align.members.values()].map((m) => m.nick).join(" | "));
+// fill | start | end | center | baseline-fill | baseline | baseline-center
+```
+
+Read the nick; do not derive it from the member name. The derivation that lowercases is
+wrong for 792 members across the 705 GIRs in `girs/` — see
+`scripts/check-nick-derivation.mjs`, which measures it and asserts the invariants.
+
+#### Running it
+
 **One hard constraint: these packages are deliberately build-step-free.**
 `@ts-for-gir/lib`, `@ts-for-gir/cli` and `@gi.ts/parser` all resolve
 `exports["."]` to `./src/index.ts`, so importing one means importing TypeScript source.
 Your build has to compile or bundle it; plain Node cannot `import` it, and you must not
 put it in the `dependencies` of a package you publish, or every one of your consumers
 inherits raw TS. A `devDependency` you bundle is the seam that works.
+
+For a one-off script, Node 24 runs the examples above directly — but only in the full
+transform mode:
+
+```sh
+node --experimental-transform-types my-script.ts   # works
+node --experimental-strip-types my-script.ts       # ERR_UNSUPPORTED_TYPESCRIPT_SYNTAX
+```
+
+Strip-only mode erases types without emitting code, and the library uses TypeScript
+`enum`s, which have a runtime representation. The error names the enum, not the import,
+so it reads like a problem in your file.

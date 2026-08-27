@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir",
-  "version": "4.1.0",
+  "version": "4.2.0",
   "description": "Typescript .d.ts generator from GIR for gjs",
   "type": "module",
   "private": true,
@@ -27,7 +27,7 @@
     "check:types": "gjsify foreach test -v -p --include '@girs/*'",
     "check:app": "gjsify foreach check -v -pt --include '@ts-for-gir/*' --include '@gi.ts/*'",
     "check:girs": "node --no-warnings scripts/check-nick-derivation.mjs girs",
-		"check:pm": "node --no-warnings scripts/check-package-manager.mjs",
+    "check:pm": "node --no-warnings scripts/check-package-manager.mjs",
     "check": "gjsify run check:lint && gjsify run check:app && gjsify run check:girs && gjsify run check:pm",
     "update:submodules": "git submodule foreach git pull",
     "update:packages": "gjsify upgrade --latest",

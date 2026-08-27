@@ -1,5 +1,28 @@
 # Changelog
 
+## [4.2.0](https://github.com/gjsify/ts-for-gir/compare/v4.1.0...v4.2.0) (2026-08-27)
+
+### Features
+
+* emit the GIR-derived widget vocabulary on `@girs/<ns>/surface` ([#438](https://github.com/gjsify/ts-for-gir/issues/438)) ([57d957f](https://github.com/gjsify/ts-for-gir/commit/57d957f4eee36f2bb8a7e1c895e43112bc71619e))
+
+### Bug Fixes
+
+* **ci:** bump @gjsify/cli to 0.30.0 and install json-glib ([#437](https://github.com/gjsify/ts-for-gir/issues/437)) ([3222c98](https://github.com/gjsify/ts-for-gir/commit/3222c985b0dafccebcd4ad22ca64db27b0e2c7dc)), closes [gjsify#994](https://github.com/gjsify/gjsify/issues/994) [gjsify#988](https://github.com/gjsify/gjsify/issues/988)
+* **cli:** propagate the dev wrapper's exit code ([#435](https://github.com/gjsify/ts-for-gir/issues/435)) ([b9d30e3](https://github.com/gjsify/ts-for-gir/commit/b9d30e32bd0ea3aa73f8fa25c00a0b33c0069827))
+* **lib:** correct the nick derivation and document library use ([#439](https://github.com/gjsify/ts-for-gir/issues/439)) ([8211c7d](https://github.com/gjsify/ts-for-gir/commit/8211c7d46fdee3b9dd1e5e7a53abab1a627ecb0e))
+* **lib:** only claim a version the library states ([#436](https://github.com/gjsify/ts-for-gir/issues/436)) ([87dc649](https://github.com/gjsify/ts-for-gir/commit/87dc64928565c37041c0af865adf75559e8aec64))
+* **release:** fix empty release changelogs ([3a2fb7b](https://github.com/gjsify/ts-for-gir/commit/3a2fb7b01337631f578cde34d161f3a2926e12b1)), closes [#433](https://github.com/gjsify/ts-for-gir/issues/433)
+* **release:** the release hook called a package manager we removed ([#440](https://github.com/gjsify/ts-for-gir/issues/440)) ([fd532ff](https://github.com/gjsify/ts-for-gir/commit/fd532ff2302e09577664afb8db1c2b1a6286c55b)), closes [#438](https://github.com/gjsify/ts-for-gir/issues/438) [#439](https://github.com/gjsify/ts-for-gir/issues/439)
+
+### Documentation
+
+* backfill missing CHANGELOG.md entries ([990f359](https://github.com/gjsify/ts-for-gir/commit/990f35965a412a55cd2637108ac2b94ce9e83d40))
+
+### Maintenance
+
+* **refs:** update all submodules to latest upstream ([d598623](https://github.com/gjsify/ts-for-gir/commit/d598623831f63ff8b273db686261b84565bc1829))
+
 ## [4.1.0](https://github.com/gjsify/ts-for-gir/compare/v4.0.4...v4.1.0) (2026-07-02)
 
 ### Features

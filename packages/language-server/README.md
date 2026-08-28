@@ -254,4 +254,4 @@ describe('GIR Type Tests', () => {
 
 ## Development
 
-This package provides the foundation for building GIR type validation and inspection tools. The type expectation functionality enables precise testing of whether generated TypeScript definitions match the expected types, making it ideal for automated testing and validation of GIR type generation.
+Use this package to check generated TypeScript against the types you expect. That is what the type-expectation API is for, and it is how the generator's own type tests assert their results.

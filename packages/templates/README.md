@@ -22,7 +22,7 @@ Template collection for `ts-for-gir`. This package contains EJS templates and st
 
 ## Purpose
 
-The templates package serves as the template repository for the `ts-for-gir` ecosystem, providing:
+This package holds every template the generator writes from:
 
 - **EJS Templates**: Dynamic templates for generating TypeScript declaration files (.d.ts)
 - **Static Templates**: Pre-built type definitions for core GJS modules and runtime APIs

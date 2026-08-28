@@ -22,7 +22,7 @@ This package defines the base interface that all generators in the ts-for-gir ec
 
 ## Purpose
 
-The generator-base package serves as the foundation for creating specific generators like:
+Every concrete generator extends the base class here:
 - TypeScript definition generators (implemented in `@ts-for-gir/generator-typescript`)
 - HTML documentation generators (placeholder in `@ts-for-gir/generator-html-doc`)
 - Potentially other output formats in the future
@@ -52,5 +52,5 @@ The package also includes a `GeneratorType` enum that defines the available gene
 
 ## Usage
 
-This package is not used directly by end users but serves as a dependency for concrete generator implementations and the main CLI tool.
+End users never import this package. The concrete generators and the CLI depend on it.
 

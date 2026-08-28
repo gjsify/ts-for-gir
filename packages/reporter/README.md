@@ -139,7 +139,7 @@ constructor(
 
 - `reportProblem(problem: ProblemEntry): void` - Report a single problem
 - `reportProblems(problems: ProblemEntry[]): void` - Report multiple problems
-- `generateReport(): GenerationReport` - Generate comprehensive report
+- `generateReport(): GenerationReport` - Build the report over every recorded problem
 - `exportToFile(filename: string): Promise<void>` - Export report to file
 
 ### ReporterBase
@@ -164,7 +164,7 @@ Service for managing multiple reporter instances.
 
 ## Integration with ts-for-gir
 
-This package is designed to integrate seamlessly with the ts-for-gir generator system:
+Pass a reporter to `GirModule` and it collects every problem the generation run finds:
 
 ```typescript
 import { ConsoleReporter } from '@ts-for-gir/reporter';

@@ -1,5 +1,23 @@
 # Changelog
 
+## [4.3.0](https://github.com/gjsify/ts-for-gir/compare/v4.2.0...v4.3.0) (2026-08-28)
+
+### Features
+
+* GNOME 51 beta types ([#444](https://github.com/gjsify/ts-for-gir/issues/444)) ([575ec30](https://github.com/gjsify/ts-for-gir/commit/575ec30dc49fa3064beeab0201acd33f4fcd04f4))
+
+### Bug Fixes
+
+* **ci:** release workflows lacked the native lib CI already installs ([#442](https://github.com/gjsify/ts-for-gir/issues/442)) ([1b42957](https://github.com/gjsify/ts-for-gir/commit/1b4295730ed6a727cb700511e9ddd72bc757cae7)), references [#437](https://github.com/gjsify/ts-for-gir/issues/437)
+
+### Documentation
+
+* **lib:** the library section had no library code ([#443](https://github.com/gjsify/ts-for-gir/issues/443)) ([3b42b0c](https://github.com/gjsify/ts-for-gir/commit/3b42b0c6b03446e4f3a8a5f24f7f0a434837bdc5))
+
+### Maintenance
+
+* **deps:** update every external dependency ([#447](https://github.com/gjsify/ts-for-gir/issues/447)) ([8c5494c](https://github.com/gjsify/ts-for-gir/commit/8c5494cb0f6abda39e52775c1a04655487988c48)), references [#446](https://github.com/gjsify/ts-for-gir/issues/446) [#448](https://github.com/gjsify/ts-for-gir/issues/448)
+
 ## [4.2.0](https://github.com/gjsify/ts-for-gir/compare/v4.1.0...v4.2.0) (2026-08-27)
 
 ### Features

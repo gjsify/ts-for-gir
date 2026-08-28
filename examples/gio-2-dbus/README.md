@@ -22,7 +22,7 @@ const data = variant.deepUnpack<{ [key: string]: GLib.Variant }>();
 const data = variant.deepUnpack();
 ```
 
-Both approaches work simultaneously, providing seamless migration paths.
+Both work at the same time, so you can move one call site at a time.
 
 ### Benefits of Advanced Variants
 

@@ -61,25 +61,25 @@ and/or use gtk-doc annotations.  -->
       <constructor name="new" c:identifier="spice_display_new">
         <doc xml:space="preserve"
              filename="src/spice-widget.c"
-             line="3512">Creates a new #SpiceDisplay widget.</doc>
-        <source-position filename="src/spice-widget.h" line="73"/>
+             line="3536">Creates a new #SpiceDisplay widget.</doc>
+        <source-position filename="src/spice-widget.h" line="75"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/spice-widget.c"
-               line="3519">a new #SpiceDisplay widget.</doc>
+               line="3543">a new #SpiceDisplay widget.</doc>
           <type name="Display" c:type="SpiceDisplay*"/>
         </return-value>
         <parameters>
           <parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/spice-widget.c"
-                 line="3514">a #SpiceSession</doc>
+                 line="3538">a #SpiceSession</doc>
             <type name="SpiceClientGLib.Session" c:type="SpiceSession*"/>
           </parameter>
           <parameter name="channel_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/spice-widget.c"
-                 line="3515">the display channel ID to associate with #SpiceDisplay</doc>
+                 line="3539">the display channel ID to associate with #SpiceDisplay</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -89,31 +89,31 @@ and/or use gtk-doc annotations.  -->
                    version="0.13">
         <doc xml:space="preserve"
              filename="src/spice-widget.c"
-             line="3527">Creates a new #SpiceDisplay widget associated with the monitor id.</doc>
-        <source-position filename="src/spice-widget.h" line="74"/>
+             line="3551">Creates a new #SpiceDisplay widget associated with the monitor id.</doc>
+        <source-position filename="src/spice-widget.h" line="77"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/spice-widget.c"
-               line="3536">a new #SpiceDisplay widget.</doc>
+               line="3560">a new #SpiceDisplay widget.</doc>
           <type name="Display" c:type="SpiceDisplay*"/>
         </return-value>
         <parameters>
           <parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/spice-widget.c"
-                 line="3529">a #SpiceSession</doc>
+                 line="3553">a #SpiceSession</doc>
             <type name="SpiceClientGLib.Session" c:type="SpiceSession*"/>
           </parameter>
           <parameter name="channel_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/spice-widget.c"
-                 line="3530">the display channel ID to associate with #SpiceDisplay</doc>
+                 line="3554">the display channel ID to associate with #SpiceDisplay</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="monitor_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/spice-widget.c"
-                 line="3531">the monitor id within the display channel</doc>
+                 line="3555">the monitor id within the display channel</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -121,19 +121,19 @@ and/or use gtk-doc annotations.  -->
       <method name="get_grab_keys" c:identifier="spice_display_get_grab_keys">
         <doc xml:space="preserve"
              filename="src/spice-widget.c"
-             line="826">Finds the current grab key combination for the @display.</doc>
-        <source-position filename="src/spice-widget.h" line="79"/>
+             line="846">Finds the current grab key combination for the @display.</doc>
+        <source-position filename="src/spice-widget.h" line="86"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/spice-widget.c"
-               line="832">the current grab key combination.</doc>
+               line="852">the current grab key combination.</doc>
           <type name="GrabSequence" c:type="SpiceGrabSequence*"/>
         </return-value>
         <parameters>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/spice-widget.c"
-                 line="828">the display widget</doc>
+                 line="848">the display widget</doc>
             <type name="Display" c:type="SpiceDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -141,19 +141,19 @@ and/or use gtk-doc annotations.  -->
       <method name="get_pixbuf" c:identifier="spice_display_get_pixbuf">
         <doc xml:space="preserve"
              filename="src/spice-widget.c"
-             line="3575">Take a screenshot of the display.</doc>
-        <source-position filename="src/spice-widget.h" line="82"/>
+             line="3599">Take a screenshot of the display.</doc>
+        <source-position filename="src/spice-widget.h" line="91"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/spice-widget.c"
-               line="3581">a #GdkPixbuf with the screenshot image buffer</doc>
+               line="3605">a #GdkPixbuf with the screenshot image buffer</doc>
           <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
         </return-value>
         <parameters>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/spice-widget.c"
-                 line="3577">a #SpiceDisplay</doc>
+                 line="3601">a #SpiceDisplay</doc>
             <type name="Display" c:type="SpiceDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -163,41 +163,7 @@ and/or use gtk-doc annotations.  -->
               version="0.40">
         <doc xml:space="preserve"
              filename="src/spice-widget.c"
-             line="3547">Ungrab the keyboard.</doc>
-        <source-position filename="src/spice-widget.h" line="76"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="display" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="src/spice-widget.c"
-                 line="3549">a #SpiceDisplay</doc>
-            <type name="Display" c:type="SpiceDisplay*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="mouse_ungrab" c:identifier="spice_display_mouse_ungrab">
-        <doc xml:space="preserve"
-             filename="src/spice-widget.c"
-             line="3562">Ungrab the mouse.</doc>
-        <source-position filename="src/spice-widget.h" line="77"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="display" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="src/spice-widget.c"
-                 line="3564">a #SpiceDisplay</doc>
-            <type name="Display" c:type="SpiceDisplay*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="send_keys" c:identifier="spice_display_send_keys">
-        <doc xml:space="preserve"
-             filename="src/spice-widget.c"
-             line="1909">Send keyval press/release events to the display.</doc>
+             line="3571">Ungrab the keyboard.</doc>
         <source-position filename="src/spice-widget.h" line="80"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -206,37 +172,16 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/spice-widget.c"
-                 line="1911">The #SpiceDisplay</doc>
+                 line="3573">a #SpiceDisplay</doc>
             <type name="Display" c:type="SpiceDisplay*"/>
           </instance-parameter>
-          <parameter name="keyvals" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="src/spice-widget.c"
-                 line="1912">Keyval array</doc>
-            <array length="1" zero-terminated="0" c:type="const guint*">
-              <type name="guint" c:type="guint"/>
-            </array>
-          </parameter>
-          <parameter name="nkeyvals" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="src/spice-widget.c"
-                 line="1913">Length of keyvals</doc>
-            <type name="gint" c:type="int"/>
-          </parameter>
-          <parameter name="kind" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="src/spice-widget.c"
-                 line="1914">#SpiceDisplayKeyEvent action</doc>
-            <type name="DisplayKeyEvent" c:type="SpiceDisplayKeyEvent"/>
-          </parameter>
         </parameters>
       </method>
-      <method name="set_grab_keys" c:identifier="spice_display_set_grab_keys">
+      <method name="mouse_ungrab" c:identifier="spice_display_mouse_ungrab">
         <doc xml:space="preserve"
              filename="src/spice-widget.c"
-             line="761">Set the key combination to grab/ungrab the keyboard. The default is
-"Control L + Alt L".</doc>
-        <source-position filename="src/spice-widget.h" line="78"/>
+             line="3586">Ungrab the mouse.</doc>
+        <source-position filename="src/spice-widget.h" line="82"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -244,13 +189,68 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/spice-widget.c"
-                 line="763">the display widget</doc>
+                 line="3588">a #SpiceDisplay</doc>
+            <type name="Display" c:type="SpiceDisplay*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="send_keys" c:identifier="spice_display_send_keys">
+        <doc xml:space="preserve"
+             filename="src/spice-widget.c"
+             line="1929">Send keyval press/release events to the display.</doc>
+        <source-position filename="src/spice-widget.h" line="88"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="display" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/spice-widget.c"
+                 line="1931">The #SpiceDisplay</doc>
+            <type name="Display" c:type="SpiceDisplay*"/>
+          </instance-parameter>
+          <parameter name="keyvals" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/spice-widget.c"
+                 line="1932">Keyval array</doc>
+            <array length="1" zero-terminated="0" c:type="const guint*">
+              <type name="guint" c:type="guint"/>
+            </array>
+          </parameter>
+          <parameter name="nkeyvals" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/spice-widget.c"
+                 line="1933">Length of keyvals</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="kind" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/spice-widget.c"
+                 line="1934">#SpiceDisplayKeyEvent action</doc>
+            <type name="DisplayKeyEvent" c:type="SpiceDisplayKeyEvent"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_grab_keys" c:identifier="spice_display_set_grab_keys">
+        <doc xml:space="preserve"
+             filename="src/spice-widget.c"
+             line="781">Set the key combination to grab/ungrab the keyboard. The default is
+"Control L + Alt L".</doc>
+        <source-position filename="src/spice-widget.h" line="84"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="display" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/spice-widget.c"
+                 line="783">the display widget</doc>
             <type name="Display" c:type="SpiceDisplay*"/>
           </instance-parameter>
           <parameter name="seq" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/spice-widget.c"
-                 line="764">key sequence</doc>
+                 line="784">key sequence</doc>
             <type name="GrabSequence" c:type="SpiceGrabSequence*"/>
           </parameter>
         </parameters>
@@ -262,7 +262,7 @@ and/or use gtk-doc annotations.  -->
                 default-value="0">
         <doc xml:space="preserve"
              filename="src/spice-widget.c"
-             line="2406">channel-id for this #SpiceDisplay</doc>
+             line="2426">channel-id for this #SpiceDisplay</doc>
         <type name="gint" c:type="gint"/>
       </property>
       <property name="disable-inputs"
@@ -273,7 +273,7 @@ and/or use gtk-doc annotations.  -->
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="src/spice-widget.c"
-             line="2515">Disable all keyboard &amp; mouse inputs.</doc>
+             line="2535">Disable all keyboard &amp; mouse inputs.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="grab-keyboard"
@@ -298,7 +298,7 @@ and/or use gtk-doc annotations.  -->
                 default-value="100">
         <doc xml:space="preserve"
              filename="src/spice-widget.c"
-             line="2495">Delay in ms of non-modifiers key press events. If the key is
+             line="2515">Delay in ms of non-modifiers key press events. If the key is
 released before this delay, a single press &amp; release event is
 sent to the server. If the key is pressed longer than the
 keypress-delay, the server will receive the delayed press
@@ -313,7 +313,7 @@ event, and a following release event when the key is released.</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="src/spice-widget.c"
-             line="2550">Select monitor from #SpiceDisplay to show.
+             line="2570">Select monitor from #SpiceDisplay to show.
 The value -1 means the whole display is shown.
 By default, the monitor 0 is selected.</doc>
         <type name="gint" c:type="gint"/>
@@ -326,7 +326,7 @@ By default, the monitor 0 is selected.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="src/spice-widget.c"
-             line="2479">If scaling, only scale down, never up.</doc>
+             line="2499">If scaling, only scale down, never up.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="ready"
@@ -335,7 +335,7 @@ By default, the monitor 0 is selected.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="src/spice-widget.c"
-             line="2452">Indicate whether the display is ready to be shown. It takes
+             line="2472">Indicate whether the display is ready to be shown. It takes
 into account several conditions, such as the channel display
 "mark" state, whether the monitor area is visible..</doc>
         <type name="gboolean" c:type="gboolean"/>
@@ -360,7 +360,7 @@ into account several conditions, such as the channel display
                 transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/spice-widget.c"
-             line="2391">#SpiceSession for this #SpiceDisplay</doc>
+             line="2411">#SpiceSession for this #SpiceDisplay</doc>
         <type name="SpiceClientGLib.Session"/>
       </property>
       <property name="zoom-level"
@@ -371,7 +371,7 @@ into account several conditions, such as the channel display
                 default-value="100">
         <doc xml:space="preserve"
              filename="src/spice-widget.c"
-             line="2532">Zoom level in percentage, from 10 to 400. Default to 100.
+             line="2552">Zoom level in percentage, from 10 to 400. Default to 100.
 (this option is only supported with cairo backend when scaling
 is enabled)</doc>
         <type name="gint" c:type="gint"/>
@@ -379,7 +379,7 @@ is enabled)</doc>
       <glib:signal name="grab-keys-pressed" when="first">
         <doc xml:space="preserve"
              filename="src/spice-widget.c"
-             line="2605">Notify when the grab keys have been pressed</doc>
+             line="2625">Notify when the grab keys have been pressed</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -387,7 +387,7 @@ is enabled)</doc>
       <glib:signal name="keyboard-grab" when="first">
         <doc xml:space="preserve"
              filename="src/spice-widget.c"
-             line="2587">Notify when the keyboard grab is active or not.</doc>
+             line="2607">Notify when the keyboard grab is active or not.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -395,7 +395,7 @@ is enabled)</doc>
           <parameter name="status" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/spice-widget.c"
-                 line="2590">1 if grabbed, 0 otherwise.</doc>
+                 line="2610">1 if grabbed, 0 otherwise.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -403,7 +403,7 @@ is enabled)</doc>
       <glib:signal name="mouse-grab" when="first">
         <doc xml:space="preserve"
              filename="src/spice-widget.c"
-             line="2569">Notify when the mouse grab is active or not.</doc>
+             line="2589">Notify when the mouse grab is active or not.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -411,7 +411,7 @@ is enabled)</doc>
           <parameter name="status" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/spice-widget.c"
-                 line="2572">1 if grabbed, 0 otherwise.</doc>
+                 line="2592">1 if grabbed, 0 otherwise.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -502,25 +502,25 @@ is enabled)</doc>
       <constructor name="new" c:identifier="spice_grab_sequence_new">
         <doc xml:space="preserve"
              filename="src/spice-grabsequence.c"
-             line="47">Creates a new grab sequence from a list of keysym values</doc>
-        <source-position filename="src/spice-grabsequence.h" line="45"/>
+             line="48">Creates a new grab sequence from a list of keysym values</doc>
+        <source-position filename="src/spice-grabsequence.h" line="47"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/spice-grabsequence.c"
-               line="54">a new grab sequence object</doc>
+               line="55">a new grab sequence object</doc>
           <type name="GrabSequence" c:type="SpiceGrabSequence*"/>
         </return-value>
         <parameters>
           <parameter name="nkeysyms" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/spice-grabsequence.c"
-                 line="49">length of @keysyms</doc>
+                 line="50">length of @keysyms</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="keysyms" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/spice-grabsequence.c"
-                 line="50">the keysym values</doc>
+                 line="51">the keysym values</doc>
             <array length="0" zero-terminated="0" c:type="guint*">
               <type name="guint" c:type="guint"/>
             </array>
@@ -531,19 +531,19 @@ is enabled)</doc>
                    c:identifier="spice_grab_sequence_new_from_string">
         <doc xml:space="preserve"
              filename="src/spice-grabsequence.c"
-             line="69">Creates a new #SpiceGrabSequence from the string representation.</doc>
-        <source-position filename="src/spice-grabsequence.h" line="46"/>
+             line="70">Creates a new #SpiceGrabSequence from the string representation.</doc>
+        <source-position filename="src/spice-grabsequence.h" line="49"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/spice-grabsequence.c"
-               line="75">a new #SpiceGrabSequence.</doc>
+               line="76">a new #SpiceGrabSequence.</doc>
           <type name="GrabSequence" c:type="SpiceGrabSequence*"/>
         </return-value>
         <parameters>
           <parameter name="str" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/spice-grabsequence.c"
-                 line="71">a string of '+' separated key names (ex: "Control_L+Alt_L")</doc>
+                 line="72">a string of '+' separated key names (ex: "Control_L+Alt_L")</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -551,19 +551,19 @@ is enabled)</doc>
       <method name="as_string" c:identifier="spice_grab_sequence_as_string">
         <doc xml:space="preserve"
              filename="src/spice-grabsequence.c"
-             line="141">Creates a string representing the @sequence.</doc>
-        <source-position filename="src/spice-grabsequence.h" line="49"/>
+             line="142">Creates a string representing the @sequence.</doc>
+        <source-position filename="src/spice-grabsequence.h" line="55"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/spice-grabsequence.c"
-               line="147">a newly allocated string representing the key sequence</doc>
+               line="148">a newly allocated string representing the key sequence</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="sequence" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/spice-grabsequence.c"
-                 line="143">a #SpiceGrabSequence</doc>
+                 line="144">a #SpiceGrabSequence</doc>
             <type name="GrabSequence" c:type="SpiceGrabSequence*"/>
           </instance-parameter>
         </parameters>
@@ -571,19 +571,19 @@ is enabled)</doc>
       <method name="copy" c:identifier="spice_grab_sequence_copy">
         <doc xml:space="preserve"
              filename="src/spice-grabsequence.c"
-             line="106">Creates a copy of the @sequence.</doc>
-        <source-position filename="src/spice-grabsequence.h" line="47"/>
+             line="107">Creates a copy of the @sequence.</doc>
+        <source-position filename="src/spice-grabsequence.h" line="51"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/spice-grabsequence.c"
-               line="112">a copy of @sequence</doc>
+               line="113">a copy of @sequence</doc>
           <type name="GrabSequence" c:type="SpiceGrabSequence*"/>
         </return-value>
         <parameters>
           <instance-parameter name="sequence" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/spice-grabsequence.c"
-                 line="108">sequence to copy</doc>
+                 line="109">sequence to copy</doc>
             <type name="GrabSequence" c:type="SpiceGrabSequence*"/>
           </instance-parameter>
         </parameters>
@@ -591,8 +591,8 @@ is enabled)</doc>
       <method name="free" c:identifier="spice_grab_sequence_free">
         <doc xml:space="preserve"
              filename="src/spice-grabsequence.c"
-             line="128">Free @sequence.</doc>
-        <source-position filename="src/spice-grabsequence.h" line="48"/>
+             line="129">Free @sequence.</doc>
+        <source-position filename="src/spice-grabsequence.h" line="53"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -600,7 +600,7 @@ is enabled)</doc>
           <instance-parameter name="sequence" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/spice-grabsequence.c"
-                 line="130">a #SpiceGrabSequence</doc>
+                 line="131">a #SpiceGrabSequence</doc>
             <type name="GrabSequence" c:type="SpiceGrabSequence*"/>
           </instance-parameter>
         </parameters>
@@ -626,7 +626,7 @@ function is called for a certain #SpiceSession.
 
 Note that this function returns a weak reference, which should not be used
 after the #SpiceSession itself has been unref-ed by the caller.</doc>
-        <source-position filename="src/spice-gtk-session.h" line="51"/>
+        <source-position filename="src/spice-gtk-session.h" line="53"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/spice-gtk-session.c"
@@ -651,7 +651,7 @@ Since 0.8</doc>
              line="1685">Copy client-side clipboard to guest clipboard.
 
 Since 0.8</doc>
-        <source-position filename="src/spice-gtk-session.h" line="52"/>
+        <source-position filename="src/spice-gtk-session.h" line="55"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -671,7 +671,7 @@ Since 0.8</doc>
              line="1707">Copy guest clipboard to client-side clipboard.
 
 Since 0.8</doc>
-        <source-position filename="src/spice-gtk-session.h" line="53"/>
+        <source-position filename="src/spice-gtk-session.h" line="57"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -849,7 +849,7 @@ session had keyboard focus.</doc>
         <doc xml:space="preserve"
              filename="src/usb-device-widget.c"
              line="399">Creates a new widget to control USB redirection.</doc>
-        <source-position filename="src/usb-device-widget.h" line="54"/>
+        <source-position filename="src/usb-device-widget.h" line="56"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/usb-device-widget.c"

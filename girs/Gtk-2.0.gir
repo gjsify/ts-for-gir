@@ -150332,7 +150332,7 @@ property is set to %FALSE again.</doc>
                 writable="1"
                 transfer-ownership="none"
                 setter="set_sensitive"
-                getter="is_sensitive"
+                getter="get_sensitive"
                 default-value="TRUE">
         <type name="gboolean" c:type="gboolean"/>
       </property>

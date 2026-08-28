@@ -869,7 +869,7 @@ get emitted.</doc>
                    version="2.2">
         <doc xml:space="preserve"
              filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-             line="833">Creates a new #GnomeDesktopThumbnailFactory.
+             line="834">Creates a new #GnomeDesktopThumbnailFactory.
 
 This function must be called on the main thread.</doc>
         <source-position filename="libcinnamon-desktop/gnome-desktop-thumbnail.h"
@@ -877,7 +877,7 @@ This function must be called on the main thread.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-               line="841">a new #GnomeDesktopThumbnailFactory</doc>
+               line="842">a new #GnomeDesktopThumbnailFactory</doc>
           <type name="DesktopThumbnailFactory"
                 c:type="GnomeDesktopThumbnailFactory*"/>
         </return-value>
@@ -885,7 +885,7 @@ This function must be called on the main thread.</doc>
           <parameter name="size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-                 line="835">The thumbnail size to use</doc>
+                 line="836">The thumbnail size to use</doc>
             <type name="DesktopThumbnailSize"
                   c:type="GnomeDesktopThumbnailSize"/>
           </parameter>
@@ -896,7 +896,7 @@ This function must be called on the main thread.</doc>
               version="2.2">
         <doc xml:space="preserve"
              filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-             line="1029">Returns TRUE if this GnomeIconFactory can (at least try) to thumbnail
+             line="1030">Returns TRUE if this GnomeIconFactory can (at least try) to thumbnail
 this file. Thumbnails or files with failed thumbnails won't be thumbnailed.
 
 Usage of this function is threadsafe.</doc>
@@ -905,33 +905,33 @@ Usage of this function is threadsafe.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-               line="1041">TRUE if the file can be thumbnailed.</doc>
+               line="1042">TRUE if the file can be thumbnailed.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-                 line="1031">a #GnomeDesktopThumbnailFactory</doc>
+                 line="1032">a #GnomeDesktopThumbnailFactory</doc>
             <type name="DesktopThumbnailFactory"
                   c:type="GnomeDesktopThumbnailFactory*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-                 line="1032">the uri of a file</doc>
+                 line="1033">the uri of a file</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="mime_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-                 line="1033">the mime type of the file</doc>
+                 line="1034">the mime type of the file</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="mtime" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-                 line="1034">the mtime of the file</doc>
+                 line="1035">the mtime of the file</doc>
             <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
@@ -941,7 +941,7 @@ Usage of this function is threadsafe.</doc>
               version="2.2">
         <doc xml:space="preserve"
              filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-             line="1564">Creates a failed thumbnail for the file so that we don't try
+             line="1517">Creates a failed thumbnail for the file so that we don't try
 to re-thumbnail the file later.
 
 Usage of this function is threadsafe.</doc>
@@ -954,20 +954,20 @@ Usage of this function is threadsafe.</doc>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-                 line="1566">a #GnomeDesktopThumbnailFactory</doc>
+                 line="1519">a #GnomeDesktopThumbnailFactory</doc>
             <type name="DesktopThumbnailFactory"
                   c:type="GnomeDesktopThumbnailFactory*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-                 line="1567">the uri of a file</doc>
+                 line="1520">the uri of a file</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="mtime" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-                 line="1568">the modification time of the file</doc>
+                 line="1521">the modification time of the file</doc>
             <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
@@ -977,7 +977,7 @@ Usage of this function is threadsafe.</doc>
               version="2.2">
         <doc xml:space="preserve"
              filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-             line="1206">Tries to generate a thumbnail for the specified file. If it succeeds
+             line="1172">Tries to generate a thumbnail for the specified file. If it succeeds
 it returns a pixbuf that can be used as a thumbnail.
 
 Usage of this function is threadsafe.</doc>
@@ -986,27 +986,27 @@ Usage of this function is threadsafe.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-               line="1217">thumbnail pixbuf if thumbnailing succeeded, %NULL otherwise.</doc>
+               line="1183">thumbnail pixbuf if thumbnailing succeeded, %NULL otherwise.</doc>
           <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-                 line="1208">a #GnomeDesktopThumbnailFactory</doc>
+                 line="1174">a #GnomeDesktopThumbnailFactory</doc>
             <type name="DesktopThumbnailFactory"
                   c:type="GnomeDesktopThumbnailFactory*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-                 line="1209">the uri of a file</doc>
+                 line="1175">the uri of a file</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="mime_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-                 line="1210">the mime type of the file</doc>
+                 line="1176">the mime type of the file</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1016,7 +1016,7 @@ Usage of this function is threadsafe.</doc>
               version="2.2">
         <doc xml:space="preserve"
              filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-             line="919">Tries to locate an failed thumbnail for the file specified. Writing
+             line="920">Tries to locate an failed thumbnail for the file specified. Writing
 and looking for failed thumbnails is important to avoid to try to
 thumbnail e.g. broken images several times.
 
@@ -1026,27 +1026,27 @@ Usage of this function is threadsafe.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-               line="931">TRUE if there is a failed thumbnail for the file.</doc>
+               line="932">TRUE if there is a failed thumbnail for the file.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-                 line="921">a #GnomeDesktopThumbnailFactory</doc>
+                 line="922">a #GnomeDesktopThumbnailFactory</doc>
             <type name="DesktopThumbnailFactory"
                   c:type="GnomeDesktopThumbnailFactory*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-                 line="922">the uri of a file</doc>
+                 line="923">the uri of a file</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="mtime" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-                 line="923">the mtime of the file</doc>
+                 line="924">the mtime of the file</doc>
             <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
@@ -1056,7 +1056,7 @@ Usage of this function is threadsafe.</doc>
               version="2.2">
         <doc xml:space="preserve"
              filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-             line="857">Tries to locate an existing thumbnail for the file specified.
+             line="858">Tries to locate an existing thumbnail for the file specified.
 
 Usage of this function is threadsafe.</doc>
         <source-position filename="libcinnamon-desktop/gnome-desktop-thumbnail.h"
@@ -1064,27 +1064,27 @@ Usage of this function is threadsafe.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-               line="867">The absolute path of the thumbnail, or %NULL if none exist.</doc>
+               line="868">The absolute path of the thumbnail, or %NULL if none exist.</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-                 line="859">a #GnomeDesktopThumbnailFactory</doc>
+                 line="860">a #GnomeDesktopThumbnailFactory</doc>
             <type name="DesktopThumbnailFactory"
                   c:type="GnomeDesktopThumbnailFactory*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-                 line="860">the uri of a file</doc>
+                 line="861">the uri of a file</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="mtime" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-                 line="861">the mtime of the file</doc>
+                 line="862">the mtime of the file</doc>
             <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
@@ -1094,7 +1094,7 @@ Usage of this function is threadsafe.</doc>
               version="2.2">
         <doc xml:space="preserve"
              filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-             line="1451">Saves @thumbnail at the right place. If the save fails a
+             line="1404">Saves @thumbnail at the right place. If the save fails a
 failed thumbnail is written.
 
 Usage of this function is threadsafe.</doc>
@@ -1107,26 +1107,26 @@ Usage of this function is threadsafe.</doc>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-                 line="1453">a #GnomeDesktopThumbnailFactory</doc>
+                 line="1406">a #GnomeDesktopThumbnailFactory</doc>
             <type name="DesktopThumbnailFactory"
                   c:type="GnomeDesktopThumbnailFactory*"/>
           </instance-parameter>
           <parameter name="thumbnail" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-                 line="1454">the thumbnail as a pixbuf</doc>
+                 line="1407">the thumbnail as a pixbuf</doc>
             <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
           </parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-                 line="1455">the uri of a file</doc>
+                 line="1408">the uri of a file</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="original_mtime" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-                 line="1456">the modification time of the original file</doc>
+                 line="1409">the modification time of the original file</doc>
             <type name="time_t" c:type="time_t"/>
           </parameter>
         </parameters>
@@ -4217,7 +4217,7 @@ will be used instead.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libcinnamon-desktop/gnome-xkb-info.c"
-               line="680">a new #GnomeXkbInfo instance.</doc>
+               line="681">a new #GnomeXkbInfo instance.</doc>
           <type name="XkbInfo" c:type="GnomeXkbInfo*"/>
         </return-value>
       </constructor>
@@ -4228,7 +4228,7 @@ will be used instead.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libcinnamon-desktop/gnome-xkb-info.c"
-               line="691">a new #GnomeXkbInfo instance that includes extra layouts and options.</doc>
+               line="692">a new #GnomeXkbInfo instance that includes extra layouts and options.</doc>
           <type name="XkbInfo" c:type="GnomeXkbInfo*"/>
         </return-value>
       </constructor>
@@ -4240,20 +4240,20 @@ will be used instead.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libcinnamon-desktop/gnome-xkb-info.c"
-               line="765">the translated description for the group @group_id.</doc>
+               line="766">the translated description for the group @group_id.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-xkb-info.c"
-                 line="762">a #GnomeXkbInfo</doc>
+                 line="763">a #GnomeXkbInfo</doc>
             <type name="XkbInfo" c:type="GnomeXkbInfo*"/>
           </instance-parameter>
           <parameter name="group_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-xkb-info.c"
-                 line="763">identifier for group</doc>
+                 line="764">identifier for group</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4266,26 +4266,26 @@ will be used instead.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libcinnamon-desktop/gnome-xkb-info.c"
-               line="862">the translated description for the option @id.</doc>
+               line="863">the translated description for the option @id.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-xkb-info.c"
-                 line="858">a #GnomeXkbInfo</doc>
+                 line="859">a #GnomeXkbInfo</doc>
             <type name="XkbInfo" c:type="GnomeXkbInfo*"/>
           </instance-parameter>
           <parameter name="group_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-xkb-info.c"
-                 line="859">identifier for group containing the option</doc>
+                 line="860">identifier for group containing the option</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-xkb-info.c"
-                 line="860">option identifier</doc>
+                 line="861">option identifier</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4295,13 +4295,13 @@ will be used instead.</doc>
               version="3.6">
         <doc xml:space="preserve"
              filename="libcinnamon-desktop/gnome-xkb-info.c"
-             line="704">Returns a list of all layout identifiers we know about.</doc>
+             line="705">Returns a list of all layout identifiers we know about.</doc>
         <source-position filename="libcinnamon-desktop/gnome-xkb-info.h"
                          line="63"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="libcinnamon-desktop/gnome-xkb-info.c"
-               line="710">the list
+               line="711">the list
 of layout names. The caller takes ownership of the #GList but not
 of the strings themselves, those are internally allocated and must
 not be modified.</doc>
@@ -4313,7 +4313,7 @@ not be modified.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-xkb-info.c"
-                 line="706">a #GnomeXkbInfo</doc>
+                 line="707">a #GnomeXkbInfo</doc>
             <type name="XkbInfo" c:type="GnomeXkbInfo*"/>
           </instance-parameter>
         </parameters>
@@ -4323,13 +4323,13 @@ not be modified.</doc>
               version="3.6">
         <doc xml:space="preserve"
              filename="libcinnamon-desktop/gnome-xkb-info.c"
-             line="732">Returns a list of all option group identifiers we know about.</doc>
+             line="733">Returns a list of all option group identifiers we know about.</doc>
         <source-position filename="libcinnamon-desktop/gnome-xkb-info.h"
                          line="70"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="libcinnamon-desktop/gnome-xkb-info.c"
-               line="738">the list
+               line="739">the list
 of option group ids. The caller takes ownership of the #GList but
 not of the strings themselves, those are internally allocated and
 must not be modified.</doc>
@@ -4341,7 +4341,7 @@ must not be modified.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-xkb-info.c"
-                 line="734">a #GnomeXkbInfo</doc>
+                 line="735">a #GnomeXkbInfo</doc>
             <type name="XkbInfo" c:type="GnomeXkbInfo*"/>
           </instance-parameter>
         </parameters>
@@ -4351,14 +4351,14 @@ must not be modified.</doc>
               version="3.18">
         <doc xml:space="preserve"
              filename="libcinnamon-desktop/gnome-xkb-info.c"
-             line="1092">Returns a list of all languages supported by a layout, given by
+             line="1093">Returns a list of all languages supported by a layout, given by
 @layout_id.</doc>
         <source-position filename="libcinnamon-desktop/gnome-xkb-info.h"
                          line="84"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="libcinnamon-desktop/gnome-xkb-info.c"
-               line="1100">the list of
+               line="1101">the list of
 ISO 639 code strings. The caller takes ownership of the #GList but
 not of the strings themselves, those are internally allocated and
 must not be modified.</doc>
@@ -4370,13 +4370,13 @@ must not be modified.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-xkb-info.c"
-                 line="1094">a #GnomeXkbInfo</doc>
+                 line="1095">a #GnomeXkbInfo</doc>
             <type name="XkbInfo" c:type="GnomeXkbInfo*"/>
           </instance-parameter>
           <parameter name="layout_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-xkb-info.c"
-                 line="1095">a layout identifier</doc>
+                 line="1096">a layout identifier</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4386,7 +4386,7 @@ must not be modified.</doc>
               version="3.6">
         <doc xml:space="preserve"
              filename="libcinnamon-desktop/gnome-xkb-info.c"
-             line="893">Retrieves information about a layout. Both @display_name and
+             line="894">Retrieves information about a layout. Both @display_name and
 @short_name are suitable to show in UIs and might be localized if
 translations are available.
 
@@ -4401,20 +4401,20 @@ all the (out) parameters are set to %NULL.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libcinnamon-desktop/gnome-xkb-info.c"
-               line="917">%TRUE if the layout exists or %FALSE otherwise.</doc>
+               line="918">%TRUE if the layout exists or %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-xkb-info.c"
-                 line="895">a #GnomeXkbInfo</doc>
+                 line="896">a #GnomeXkbInfo</doc>
             <type name="XkbInfo" c:type="GnomeXkbInfo*"/>
           </instance-parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-xkb-info.c"
-                 line="896">layout's identifier about which to retrieve the info</doc>
+                 line="897">layout's identifier about which to retrieve the info</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="display_name"
@@ -4425,7 +4425,7 @@ all the (out) parameters are set to %NULL.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-xkb-info.c"
-                 line="897">location to store
+                 line="898">location to store
 the layout's display name, or %NULL</doc>
             <type name="utf8" c:type="const gchar**"/>
           </parameter>
@@ -4437,7 +4437,7 @@ the layout's display name, or %NULL</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-xkb-info.c"
-                 line="899">location to store
+                 line="900">location to store
 the layout's short name, or %NULL</doc>
             <type name="utf8" c:type="const gchar**"/>
           </parameter>
@@ -4449,7 +4449,7 @@ the layout's short name, or %NULL</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-xkb-info.c"
-                 line="901">location to store
+                 line="902">location to store
 the layout's XKB name, or %NULL</doc>
             <type name="utf8" c:type="const gchar**"/>
           </parameter>
@@ -4461,7 +4461,7 @@ the layout's XKB name, or %NULL</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-xkb-info.c"
-                 line="903">location to store
+                 line="904">location to store
 the layout's XKB variant, or %NULL</doc>
             <type name="utf8" c:type="const gchar**"/>
           </parameter>
@@ -4472,14 +4472,14 @@ the layout's XKB variant, or %NULL</doc>
               version="3.8">
         <doc xml:space="preserve"
              filename="libcinnamon-desktop/gnome-xkb-info.c"
-             line="1035">Returns a list of all layout identifiers we know about for
+             line="1036">Returns a list of all layout identifiers we know about for
 @country_code.</doc>
         <source-position filename="libcinnamon-desktop/gnome-xkb-info.h"
                          line="82"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="libcinnamon-desktop/gnome-xkb-info.c"
-               line="1043">the list
+               line="1044">the list
 of layout ids. The caller takes ownership of the #GList but not of
 the strings themselves, those are internally allocated and must not
 be modified.</doc>
@@ -4491,13 +4491,13 @@ be modified.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-xkb-info.c"
-                 line="1037">a #GnomeXkbInfo</doc>
+                 line="1038">a #GnomeXkbInfo</doc>
             <type name="XkbInfo" c:type="GnomeXkbInfo*"/>
           </instance-parameter>
           <parameter name="country_code" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-xkb-info.c"
-                 line="1038">an ISO 3166 code string</doc>
+                 line="1039">an ISO 3166 code string</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4507,14 +4507,14 @@ be modified.</doc>
               version="3.8">
         <doc xml:space="preserve"
              filename="libcinnamon-desktop/gnome-xkb-info.c"
-             line="988">Returns a list of all layout identifiers we know about for
+             line="989">Returns a list of all layout identifiers we know about for
 @language_code.</doc>
         <source-position filename="libcinnamon-desktop/gnome-xkb-info.h"
                          line="80"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="libcinnamon-desktop/gnome-xkb-info.c"
-               line="996">the list
+               line="997">the list
 of layout ids. The caller takes ownership of the #GList but not of
 the strings themselves, those are internally allocated and must not
 be modified.</doc>
@@ -4526,13 +4526,13 @@ be modified.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-xkb-info.c"
-                 line="990">a #GnomeXkbInfo</doc>
+                 line="991">a #GnomeXkbInfo</doc>
             <type name="XkbInfo" c:type="GnomeXkbInfo*"/>
           </instance-parameter>
           <parameter name="language_code" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-xkb-info.c"
-                 line="991">an ISO 639 code string</doc>
+                 line="992">an ISO 639 code string</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4541,26 +4541,26 @@ be modified.</doc>
               c:identifier="gnome_xkb_info_get_option_group_allows_multiple_selection">
         <doc xml:space="preserve"
              filename="libcinnamon-desktop/gnome-xkb-info.c"
-             line="790">Gets whether multiple options can be selected for a given group.</doc>
+             line="791">Gets whether multiple options can be selected for a given group.</doc>
         <source-position filename="libcinnamon-desktop/gnome-xkb-info.h"
                          line="73"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libcinnamon-desktop/gnome-xkb-info.c"
-               line="797">%TRUE if multiple selection is allowed, %FALSE otherwise.</doc>
+               line="798">%TRUE if multiple selection is allowed, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-xkb-info.c"
-                 line="792">a #GnomeXkbInfo</doc>
+                 line="793">a #GnomeXkbInfo</doc>
             <type name="XkbInfo" c:type="GnomeXkbInfo*"/>
           </instance-parameter>
           <parameter name="group_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-xkb-info.c"
-                 line="793">identifier for group</doc>
+                 line="794">identifier for group</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4570,14 +4570,14 @@ be modified.</doc>
               version="6.6">
         <doc xml:space="preserve"
              filename="libcinnamon-desktop/gnome-xkb-info.c"
-             line="820">Returns a list of all option identifiers we know about for group
+             line="821">Returns a list of all option identifiers we know about for group
 @group_id.</doc>
         <source-position filename="libcinnamon-desktop/gnome-xkb-info.h"
                          line="75"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="libcinnamon-desktop/gnome-xkb-info.c"
-               line="828">the list
+               line="829">the list
 of option ids. The caller takes ownership of the #GList but not of
 the strings themselves, those are internally allocated and must not
 be modified.</doc>
@@ -4589,13 +4589,13 @@ be modified.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-xkb-info.c"
-                 line="822">a #GnomeXkbInfo</doc>
+                 line="823">a #GnomeXkbInfo</doc>
             <type name="XkbInfo" c:type="GnomeXkbInfo*"/>
           </instance-parameter>
           <parameter name="group_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libcinnamon-desktop/gnome-xkb-info.c"
-                 line="823">group's identifier about which to retrieve the options</doc>
+                 line="824">group's identifier about which to retrieve the options</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4727,27 +4727,27 @@ that is empty, will just create a new vector for you.</doc>
               version="2.2">
       <doc xml:space="preserve"
            filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-           line="1705">Returns whether the thumbnail has the correct uri embedded in the
+           line="1658">Returns whether the thumbnail has the correct uri embedded in the
 Thumb::URI option in the png.</doc>
       <source-position filename="libcinnamon-desktop/gnome-desktop-thumbnail.h"
                        line="92"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-             line="1713">TRUE if the thumbnail is for @uri</doc>
+             line="1666">TRUE if the thumbnail is for @uri</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="pixbuf" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-               line="1707">an loaded thumbnail pixbuf</doc>
+               line="1660">an loaded thumbnail pixbuf</doc>
           <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
         </parameter>
         <parameter name="uri" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-               line="1708">a uri</doc>
+               line="1661">a uri</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>
@@ -4757,33 +4757,33 @@ Thumb::URI option in the png.</doc>
               version="2.2">
       <doc xml:space="preserve"
            filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-           line="1730">Returns whether the thumbnail has the correct uri and mtime embedded in the
+           line="1683">Returns whether the thumbnail has the correct uri and mtime embedded in the
 png options.</doc>
       <source-position filename="libcinnamon-desktop/gnome-desktop-thumbnail.h"
                        line="94"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-             line="1739">TRUE if the thumbnail has the right @uri and @mtime</doc>
+             line="1692">TRUE if the thumbnail has the right @uri and @mtime</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="pixbuf" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-               line="1732">an loaded thumbnail #GdkPixbuf</doc>
+               line="1685">an loaded thumbnail #GdkPixbuf</doc>
           <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
         </parameter>
         <parameter name="uri" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-               line="1733">a uri</doc>
+               line="1686">a uri</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="mtime" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-               line="1734">the mtime</doc>
+               line="1687">the mtime</doc>
           <type name="time_t" c:type="time_t"/>
         </parameter>
       </parameters>
@@ -4795,7 +4795,7 @@ png options.</doc>
               deprecated-version="2.22">
       <doc xml:space="preserve"
            filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-           line="1651">Calculates the MD5 checksum of the uri. This can be useful
+           line="1604">Calculates the MD5 checksum of the uri. This can be useful
 if you want to manually handle thumbnail files.</doc>
       <doc-deprecated xml:space="preserve">Use #GChecksum instead</doc-deprecated>
       <source-position filename="libcinnamon-desktop/gnome-desktop-thumbnail.h"
@@ -4803,14 +4803,14 @@ if you want to manually handle thumbnail files.</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-             line="1658">A string with the MD5 digest of the uri string.</doc>
+             line="1611">A string with the MD5 digest of the uri string.</doc>
         <type name="utf8" c:type="char*"/>
       </return-value>
       <parameters>
         <parameter name="uri" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-               line="1653">an uri</doc>
+               line="1606">an uri</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>
@@ -4820,26 +4820,26 @@ if you want to manually handle thumbnail files.</doc>
               version="2.2">
       <doc xml:space="preserve"
            filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-           line="1671">Returns the filename that a thumbnail of size @size for @uri would have.</doc>
+           line="1624">Returns the filename that a thumbnail of size @size for @uri would have.</doc>
       <source-position filename="libcinnamon-desktop/gnome-desktop-thumbnail.h"
                        line="98"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-             line="1678">an absolute filename</doc>
+             line="1631">an absolute filename</doc>
         <type name="utf8" c:type="char*"/>
       </return-value>
       <parameters>
         <parameter name="uri" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-               line="1673">an uri</doc>
+               line="1626">an uri</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="size" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libcinnamon-desktop/gnome-desktop-thumbnail.c"
-               line="1674">a thumbnail size</doc>
+               line="1627">a thumbnail size</doc>
           <type name="DesktopThumbnailSize"
                 c:type="GnomeDesktopThumbnailSize"/>
         </parameter>

@@ -2617,14 +2617,7 @@ but is good enough for most purposes.</doc>
       <source-position filename="shumate/shumate-location.h" line="57"/>
       <type name="gdouble" c:type="gdouble"/>
     </constant>
-    <constant name="MICRO_VERSION" value="0" c:type="SHUMATE_MICRO_VERSION">
-      <doc xml:space="preserve"
-           filename="shumate/shumate-version.h"
-           line="48">The micro version of libshumate (3, if %SHUMATE_VERSION is 1.2.3)</doc>
-      <source-position filename="shumate/shumate-version.h" line="53"/>
-      <type name="gint" c:type="gint"/>
-    </constant>
-    <constant name="MINOR_VERSION" value="6" c:type="SHUMATE_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="7" c:type="SHUMATE_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="shumate/shumate-version.h"
            line="41">The minor version of libshumate (2, if %SHUMATE_VERSION is 1.2.3)</doc>
@@ -2682,12 +2675,12 @@ methods.
       <constructor name="new" c:identifier="shumate_map_new">
         <doc xml:space="preserve"
              filename="shumate/shumate-map.c"
-             line="1024">Creates an instance of #ShumateMap.</doc>
+             line="1043">Creates an instance of #ShumateMap.</doc>
         <source-position filename="shumate/shumate-map.h" line="41"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-map.c"
-               line="1029">a new #ShumateMap ready to be used as a #GtkWidget.</doc>
+               line="1048">a new #ShumateMap ready to be used as a #GtkWidget.</doc>
           <type name="Map" c:type="ShumateMap*"/>
         </return-value>
       </constructor>
@@ -2700,7 +2693,7 @@ methods.
       <method name="add_layer" c:identifier="shumate_map_add_layer">
         <doc xml:space="preserve"
              filename="shumate/shumate-map.c"
-             line="1266">Adds a new layer to the view</doc>
+             line="1285">Adds a new layer to the view</doc>
         <source-position filename="shumate/shumate-map.h" line="76"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2709,13 +2702,13 @@ methods.
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1268">a #ShumateMap</doc>
+                 line="1287">a #ShumateMap</doc>
             <type name="Map" c:type="ShumateMap*"/>
           </instance-parameter>
           <parameter name="layer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1269">a #ShumateLayer</doc>
+                 line="1288">a #ShumateLayer</doc>
             <type name="Layer" c:type="ShumateLayer*"/>
           </parameter>
         </parameters>
@@ -2723,7 +2716,7 @@ methods.
       <method name="center_on" c:identifier="shumate_map_center_on">
         <doc xml:space="preserve"
              filename="shumate/shumate-map.c"
-             line="1073">Centers the map on these coordinates.</doc>
+             line="1092">Centers the map on these coordinates.</doc>
         <source-position filename="shumate/shumate-map.h" line="46"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2732,19 +2725,19 @@ methods.
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1075">a #ShumateMap</doc>
+                 line="1094">a #ShumateMap</doc>
             <type name="Map" c:type="ShumateMap*"/>
           </instance-parameter>
           <parameter name="latitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1076">the longitude to center the map at</doc>
+                 line="1095">the longitude to center the map at</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="longitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1077">the longitude to center the map at</doc>
+                 line="1096">the longitude to center the map at</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>
@@ -2754,19 +2747,19 @@ methods.
               glib:get-property="animate-zoom">
         <doc xml:space="preserve"
              filename="shumate/shumate-map.c"
-             line="1432">Checks whether the view animates zoom level changes.</doc>
+             line="1451">Checks whether the view animates zoom level changes.</doc>
         <source-position filename="shumate/shumate-map.h" line="87"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-map.c"
-               line="1438">TRUE if the view animates zooms, FALSE otherwise.</doc>
+               line="1457">TRUE if the view animates zooms, FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1434">a #ShumateMap</doc>
+                 line="1453">a #ShumateMap</doc>
             <type name="Map" c:type="ShumateMap*"/>
           </instance-parameter>
         </parameters>
@@ -2776,12 +2769,12 @@ methods.
               glib:get-property="go-to-duration">
         <doc xml:space="preserve"
              filename="shumate/shumate-map.c"
-             line="1229">Get the 'go-to-duration' property.</doc>
+             line="1248">Get the 'go-to-duration' property.</doc>
         <source-position filename="shumate/shumate-map.h" line="67"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-map.c"
-               line="1235">the animation duration when calling [method@Map.go_to],
+               line="1254">the animation duration when calling [method@Map.go_to],
   in milliseconds.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
@@ -2789,7 +2782,7 @@ methods.
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1231">a #ShumateMap</doc>
+                 line="1250">a #ShumateMap</doc>
             <type name="Map" c:type="ShumateMap*"/>
           </instance-parameter>
         </parameters>
@@ -2799,19 +2792,19 @@ methods.
               glib:get-property="state">
         <doc xml:space="preserve"
              filename="shumate/shumate-map.c"
-             line="1448">Gets the view's state.</doc>
+             line="1467">Gets the view's state.</doc>
         <source-position filename="shumate/shumate-map.h" line="88"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-map.c"
-               line="1454">the state.</doc>
+               line="1473">the state.</doc>
           <type name="State" c:type="ShumateState"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1450">a #ShumateMap</doc>
+                 line="1469">a #ShumateMap</doc>
             <type name="Map" c:type="ShumateMap*"/>
           </instance-parameter>
         </parameters>
@@ -2821,19 +2814,19 @@ methods.
               glib:get-property="viewport">
         <doc xml:space="preserve"
              filename="shumate/shumate-map.c"
-             line="1057">Get the #ShumateViewport used by this view.</doc>
+             line="1076">Get the #ShumateViewport used by this view.</doc>
         <source-position filename="shumate/shumate-map.h" line="44"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-map.c"
-               line="1063">the #ShumateViewport</doc>
+               line="1082">the #ShumateViewport</doc>
           <type name="Viewport" c:type="ShumateViewport*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1059">a #ShumateMap</doc>
+                 line="1078">a #ShumateMap</doc>
             <type name="Map" c:type="ShumateMap*"/>
           </instance-parameter>
         </parameters>
@@ -2843,19 +2836,19 @@ methods.
               glib:get-property="zoom-on-double-click">
         <doc xml:space="preserve"
              filename="shumate/shumate-map.c"
-             line="1415">Checks whether the view zooms on double click.</doc>
+             line="1434">Checks whether the view zooms on double click.</doc>
         <source-position filename="shumate/shumate-map.h" line="86"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-map.c"
-               line="1421">TRUE if the view zooms on double click, FALSE otherwise.</doc>
+               line="1440">TRUE if the view zooms on double click, FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1417">a #ShumateMap</doc>
+                 line="1436">a #ShumateMap</doc>
             <type name="Map" c:type="ShumateMap*"/>
           </instance-parameter>
         </parameters>
@@ -2863,7 +2856,7 @@ methods.
       <method name="go_to" c:identifier="shumate_map_go_to">
         <doc xml:space="preserve"
              filename="shumate/shumate-map.c"
-             line="1113">Move from the current position to these coordinates. All tiles in the
+             line="1132">Move from the current position to these coordinates. All tiles in the
 intermediate view WILL be loaded!</doc>
         <source-position filename="shumate/shumate-map.h" line="50"/>
         <return-value transfer-ownership="none">
@@ -2873,19 +2866,19 @@ intermediate view WILL be loaded!</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1115">a #ShumateMap</doc>
+                 line="1134">a #ShumateMap</doc>
             <type name="Map" c:type="ShumateMap*"/>
           </instance-parameter>
           <parameter name="latitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1116">the longitude to center the map at</doc>
+                 line="1135">the longitude to center the map at</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="longitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1117">the longitude to center the map at</doc>
+                 line="1136">the longitude to center the map at</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>
@@ -2893,7 +2886,7 @@ intermediate view WILL be loaded!</doc>
       <method name="go_to_full" c:identifier="shumate_map_go_to_full">
         <doc xml:space="preserve"
              filename="shumate/shumate-map.c"
-             line="1139">Move from the current position to these coordinates and zoom to the given
+             line="1158">Move from the current position to these coordinates and zoom to the given
 zoom level. All tiles in the intermediate view WILL be loaded!</doc>
         <source-position filename="shumate/shumate-map.h" line="53"/>
         <return-value transfer-ownership="none">
@@ -2903,25 +2896,25 @@ zoom level. All tiles in the intermediate view WILL be loaded!</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1141">a #ShumateMap</doc>
+                 line="1160">a #ShumateMap</doc>
             <type name="Map" c:type="ShumateMap*"/>
           </instance-parameter>
           <parameter name="latitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1142">the longitude to center the map at</doc>
+                 line="1161">the longitude to center the map at</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="longitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1143">the longitude to center the map at</doc>
+                 line="1162">the longitude to center the map at</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="zoom_level" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1144">the zoom level to end at</doc>
+                 line="1163">the zoom level to end at</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>
@@ -2930,7 +2923,7 @@ zoom level. All tiles in the intermediate view WILL be loaded!</doc>
               c:identifier="shumate_map_go_to_full_with_duration">
         <doc xml:space="preserve"
              filename="shumate/shumate-map.c"
-             line="1169">Move from the current position to these coordinates and zoom to the given
+             line="1188">Move from the current position to these coordinates and zoom to the given
 zoom level. The given duration is used instead of the map's default [property@Map:go-to-duration].
 All tiles in the intermediate view WILL be loaded!</doc>
         <source-position filename="shumate/shumate-map.h" line="57"/>
@@ -2941,31 +2934,31 @@ All tiles in the intermediate view WILL be loaded!</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1171">a #ShumateMap</doc>
+                 line="1190">a #ShumateMap</doc>
             <type name="Map" c:type="ShumateMap*"/>
           </instance-parameter>
           <parameter name="latitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1172">the longitude to center the map at</doc>
+                 line="1191">the longitude to center the map at</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="longitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1173">the longitude to center the map at</doc>
+                 line="1192">the longitude to center the map at</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="zoom_level" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1174">the zoom level to end at</doc>
+                 line="1193">the zoom level to end at</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="duration_ms" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1175">animation duration in milliseconds</doc>
+                 line="1194">animation duration in milliseconds</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -2974,7 +2967,7 @@ All tiles in the intermediate view WILL be loaded!</doc>
               c:identifier="shumate_map_insert_layer_above">
         <doc xml:space="preserve"
              filename="shumate/shumate-map.c"
-             line="1307">Adds @layer to @self above @next_sibling or, if @next_sibling is %NULL, at
+             line="1326">Adds @layer to @self above @next_sibling or, if @next_sibling is %NULL, at
 the bottom of the layer list.</doc>
         <source-position filename="shumate/shumate-map.h" line="83"/>
         <return-value transfer-ownership="none">
@@ -2984,13 +2977,13 @@ the bottom of the layer list.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1309">a #ShumateMap</doc>
+                 line="1328">a #ShumateMap</doc>
             <type name="Map" c:type="ShumateMap*"/>
           </instance-parameter>
           <parameter name="layer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1310">a #ShumateLayer</doc>
+                 line="1329">a #ShumateLayer</doc>
             <type name="Layer" c:type="ShumateLayer*"/>
           </parameter>
           <parameter name="next_sibling"
@@ -2999,7 +2992,7 @@ the bottom of the layer list.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1311">a #ShumateLayer that is a child of @self, or %NULL</doc>
+                 line="1330">a #ShumateLayer that is a child of @self, or %NULL</doc>
             <type name="Layer" c:type="ShumateLayer*"/>
           </parameter>
         </parameters>
@@ -3008,7 +3001,7 @@ the bottom of the layer list.</doc>
               c:identifier="shumate_map_insert_layer_behind">
         <doc xml:space="preserve"
              filename="shumate/shumate-map.c"
-             line="1284">Adds @layer to @self behind @next_sibling or, if @next_sibling is %NULL, at
+             line="1303">Adds @layer to @self behind @next_sibling or, if @next_sibling is %NULL, at
 the top of the layer list.</doc>
         <source-position filename="shumate/shumate-map.h" line="80"/>
         <return-value transfer-ownership="none">
@@ -3018,13 +3011,13 @@ the top of the layer list.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1286">a #ShumateMap</doc>
+                 line="1305">a #ShumateMap</doc>
             <type name="Map" c:type="ShumateMap*"/>
           </instance-parameter>
           <parameter name="layer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1287">a #ShumateLayer</doc>
+                 line="1306">a #ShumateLayer</doc>
             <type name="Layer" c:type="ShumateLayer*"/>
           </parameter>
           <parameter name="next_sibling"
@@ -3033,7 +3026,7 @@ the top of the layer list.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1288">a #ShumateLayer that is a child of @self, or %NULL</doc>
+                 line="1307">a #ShumateLayer that is a child of @self, or %NULL</doc>
             <type name="Layer" c:type="ShumateLayer*"/>
           </parameter>
         </parameters>
@@ -3041,7 +3034,7 @@ the top of the layer list.</doc>
       <method name="remove_layer" c:identifier="shumate_map_remove_layer">
         <doc xml:space="preserve"
              filename="shumate/shumate-map.c"
-             line="1330">Removes the given layer from the view</doc>
+             line="1349">Removes the given layer from the view</doc>
         <source-position filename="shumate/shumate-map.h" line="78"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3050,13 +3043,13 @@ the top of the layer list.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1332">a #ShumateMap</doc>
+                 line="1351">a #ShumateMap</doc>
             <type name="Map" c:type="ShumateMap*"/>
           </instance-parameter>
           <parameter name="layer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1333">a #ShumateLayer</doc>
+                 line="1352">a #ShumateLayer</doc>
             <type name="Layer" c:type="ShumateLayer*"/>
           </parameter>
         </parameters>
@@ -3066,7 +3059,7 @@ the top of the layer list.</doc>
               glib:set-property="animate-zoom">
         <doc xml:space="preserve"
              filename="shumate/shumate-map.c"
-             line="1398">Should the view animate zoom level changes.</doc>
+             line="1417">Should the view animate zoom level changes.</doc>
         <source-position filename="shumate/shumate-map.h" line="74"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3075,13 +3068,13 @@ the top of the layer list.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1400">a #ShumateMap</doc>
+                 line="1419">a #ShumateMap</doc>
             <type name="Map" c:type="ShumateMap*"/>
           </instance-parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1401">a #gboolean</doc>
+                 line="1420">a #gboolean</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -3091,7 +3084,7 @@ the top of the layer list.</doc>
               glib:set-property="go-to-duration">
         <doc xml:space="preserve"
              filename="shumate/shumate-map.c"
-             line="1246">Set the duration of the transition of [method@Map.go_to].</doc>
+             line="1265">Set the duration of the transition of [method@Map.go_to].</doc>
         <source-position filename="shumate/shumate-map.h" line="68"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3100,13 +3093,13 @@ the top of the layer list.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1248">a #ShumateMap</doc>
+                 line="1267">a #ShumateMap</doc>
             <type name="Map" c:type="ShumateMap*"/>
           </instance-parameter>
           <parameter name="duration" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1249">the animation duration, in milliseconds</doc>
+                 line="1268">the animation duration, in milliseconds</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -3114,7 +3107,7 @@ the top of the layer list.</doc>
       <method name="set_map_source" c:identifier="shumate_map_set_map_source">
         <doc xml:space="preserve"
              filename="shumate/shumate-map.c"
-             line="1353">Changes the currently used map source. #g_object_unref() will be called on
+             line="1372">Changes the currently used map source. #g_object_unref() will be called on
 the previous one.
 
 As a side effect, changing the primary map source will also clear all
@@ -3127,13 +3120,13 @@ secondary map sources.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1355">a #ShumateMap</doc>
+                 line="1374">a #ShumateMap</doc>
             <type name="Map" c:type="ShumateMap*"/>
           </instance-parameter>
           <parameter name="map_source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1356">a #ShumateMapSource</doc>
+                 line="1375">a #ShumateMapSource</doc>
             <type name="MapSource" c:type="ShumateMapSource*"/>
           </parameter>
         </parameters>
@@ -3143,7 +3136,7 @@ secondary map sources.</doc>
               glib:set-property="zoom-on-double-click">
         <doc xml:space="preserve"
              filename="shumate/shumate-map.c"
-             line="1380">Should the view zoom in and recenter when the user double click on the map.</doc>
+             line="1399">Should the view zoom in and recenter when the user double click on the map.</doc>
         <source-position filename="shumate/shumate-map.h" line="72"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3152,13 +3145,13 @@ secondary map sources.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1382">a #ShumateMap</doc>
+                 line="1401">a #ShumateMap</doc>
             <type name="Map" c:type="ShumateMap*"/>
           </instance-parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1383">a #gboolean</doc>
+                 line="1402">a #gboolean</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -3166,7 +3159,7 @@ secondary map sources.</doc>
       <method name="stop_go_to" c:identifier="shumate_map_stop_go_to">
         <doc xml:space="preserve"
              filename="shumate/shumate-map.c"
-             line="1091">Stop the go to animation.  The view will stay where it was when the
+             line="1110">Stop the go to animation.  The view will stay where it was when the
 animation was stopped.</doc>
         <source-position filename="shumate/shumate-map.h" line="66"/>
         <return-value transfer-ownership="none">
@@ -3176,7 +3169,7 @@ animation was stopped.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1093">a #ShumateMap</doc>
+                 line="1112">a #ShumateMap</doc>
             <type name="Map" c:type="ShumateMap*"/>
           </instance-parameter>
         </parameters>
@@ -3184,7 +3177,7 @@ animation was stopped.</doc>
       <method name="zoom_in" c:identifier="shumate_map_zoom_in">
         <doc xml:space="preserve"
              filename="shumate/shumate-map.c"
-             line="1493">Zooms the map in. If [property@Map:animate-zoom] is `TRUE`, the change will be animated.</doc>
+             line="1512">Zooms the map in. If [property@Map:animate-zoom] is `TRUE`, the change will be animated.</doc>
         <source-position filename="shumate/shumate-map.h" line="63"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3193,7 +3186,7 @@ animation was stopped.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1495">a [class@Map]</doc>
+                 line="1514">a [class@Map]</doc>
             <type name="Map" c:type="ShumateMap*"/>
           </instance-parameter>
         </parameters>
@@ -3201,7 +3194,7 @@ animation was stopped.</doc>
       <method name="zoom_out" c:identifier="shumate_map_zoom_out">
         <doc xml:space="preserve"
              filename="shumate/shumate-map.c"
-             line="1506">Zooms the map out. If [property@Map:animate-zoom] is `TRUE`, the change will be animated.</doc>
+             line="1525">Zooms the map out. If [property@Map:animate-zoom] is `TRUE`, the change will be animated.</doc>
         <source-position filename="shumate/shumate-map.h" line="64"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3210,7 +3203,7 @@ animation was stopped.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map.c"
-                 line="1508">a [class@Map]</doc>
+                 line="1527">a [class@Map]</doc>
             <type name="Map" c:type="ShumateMap*"/>
           </instance-parameter>
         </parameters>
@@ -3223,7 +3216,7 @@ animation was stopped.</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="shumate/shumate-map.c"
-             line="857">Animate zoom change when zooming in/out.</doc>
+             line="876">Animate zoom change when zooming in/out.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="go-to-duration"
@@ -3234,7 +3227,7 @@ animation was stopped.</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="shumate/shumate-map.c"
-             line="883">The duration of an animation when going to a location, in milliseconds.
+             line="902">The duration of an animation when going to a location, in milliseconds.
 A value of 0 means that the duration is calculated automatically for you.
 
 Please note that animation of #shumate_map_ensure_visible also
@@ -3247,7 +3240,7 @@ involves a 'go-to' animation.</doc>
                 default-value="SHUMATE_STATE_NONE">
         <doc xml:space="preserve"
              filename="shumate/shumate-map.c"
-             line="869">The view's global state. Useful to inform using if the view is busy loading
+             line="888">The view's global state. Useful to inform using if the view is busy loading
 tiles or not.</doc>
         <type name="State"/>
       </property>
@@ -3256,7 +3249,7 @@ tiles or not.</doc>
                 getter="get_viewport">
         <doc xml:space="preserve"
              filename="shumate/shumate-map.c"
-             line="900">The viewport, which contains information about the center, rotation, zoom,
+             line="919">The viewport, which contains information about the center, rotation, zoom,
 etc. of the map.</doc>
         <type name="Viewport"/>
       </property>
@@ -3268,13 +3261,13 @@ etc. of the map.</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="shumate/shumate-map.c"
-             line="845">Should the view zoom in and recenter when the user double click on the map.</doc>
+             line="864">Should the view zoom in and recenter when the user double click on the map.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <glib:signal name="animation-completed" when="last" detailed="1">
         <doc xml:space="preserve"
              filename="shumate/shumate-map.c"
-             line="917">The #ShumateMap::animation-completed signal is emitted when any animation in the view
+             line="936">The #ShumateMap::animation-completed signal is emitted when any animation in the view
 ends.  This is a detailed signal.  For example, if you want to be signaled
 only for go-to animation, you should connect to
 "animation-completed::go-to". And for zoom, connect to "animation-completed::zoom".</doc>
@@ -3324,16 +3317,112 @@ and draws them as a grid.
           </parameter>
         </parameters>
       </constructor>
+      <method name="get_map_source"
+              c:identifier="shumate_map_layer_get_map_source"
+              glib:get-property="map-source"
+              version="1.7">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-map-layer.c"
+             line="996">Gets the [class@MapSource] providing tiles for this map layer.</doc>
+        <source-position filename="shumate/shumate-map-layer.h" line="38"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="shumate/shumate-map-layer.c"
+               line="1002">the [class@MapSource]</doc>
+          <type name="MapSource" c:type="ShumateMapSource*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-map-layer.c"
+                 line="998">a [class@MapLayer]</doc>
+            <type name="MapLayer" c:type="ShumateMapLayer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="refresh"
+              c:identifier="shumate_map_layer_refresh"
+              version="1.7">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-map-layer.c"
+             line="1064">Refreshes all tiles from the current map source.</doc>
+        <source-position filename="shumate/shumate-map-layer.h" line="42"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-map-layer.c"
+                 line="1066">a [class@MapLayer]</doc>
+            <type name="MapLayer" c:type="ShumateMapLayer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="retry_failed"
+              c:identifier="shumate_map_layer_retry_failed"
+              version="1.7">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-map-layer.c"
+             line="1083">Attempts to reload any tiles in an error state.
+
+This can be used to recover from temporary errors. For example, you could use [iface@Gio.NetworkMonitor] to listen
+for changes in network connectivity, and call this function when the network becomes available again.</doc>
+        <source-position filename="shumate/shumate-map-layer.h" line="43"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-map-layer.c"
+                 line="1085">a [class@MapLayer]</doc>
+            <type name="MapLayer" c:type="ShumateMapLayer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_map_source"
+              c:identifier="shumate_map_layer_set_map_source"
+              glib:set-property="map-source"
+              version="1.7">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-map-layer.c"
+             line="1012">Sets the [class@MapSource] that provides tiles for this map layer to display.
+
+Setting a new map source will refresh all tiles from the new source.</doc>
+        <source-position filename="shumate/shumate-map-layer.h" line="39"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-map-layer.c"
+                 line="1014">a [class@MapLayer]</doc>
+            <type name="MapLayer" c:type="ShumateMapLayer*"/>
+          </instance-parameter>
+          <parameter name="map_source" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="shumate/shumate-map-layer.c"
+                 line="1015">a [class@MapSource]</doc>
+            <type name="MapSource" c:type="ShumateMapSource*"/>
+          </parameter>
+        </parameters>
+      </method>
       <property name="map-source"
                 writable="1"
-                construct-only="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                setter="set_map_source"
+                getter="get_map_source">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-map-layer.c"
+             line="884">The source of the tiles this map layer displays.</doc>
         <type name="MapSource"/>
       </property>
       <glib:signal name="map-loaded" when="last" version="1.4">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-layer.c"
-             line="830">Emitted when all the tiles in the map view are finished loading.
+             line="919">Emitted when all the tiles in the map view are finished loading.
 
 As the map is panned or zoomed, this signal may be emitted multiple times.</doc>
         <return-value transfer-ownership="none">
@@ -3343,7 +3432,7 @@ As the map is panned or zoomed, this signal may be emitted multiple times.</doc>
           <parameter name="errors" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-layer.c"
-                 line="833">`TRUE` if any visible tiles failed to load</doc>
+                 line="922">`TRUE` if any visible tiles failed to load</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -3351,7 +3440,7 @@ As the map is panned or zoomed, this signal may be emitted multiple times.</doc>
       <glib:signal name="symbol-clicked" when="last" version="1.1">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-layer.c"
-             line="811">Emitted when a symbol in the map layer is clicked.</doc>
+             line="900">Emitted when a symbol in the map layer is clicked.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3359,7 +3448,7 @@ As the map is panned or zoomed, this signal may be emitted multiple times.</doc>
           <parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-layer.c"
-                 line="814">a [class@SymbolEvent] with details about the clicked symbol.</doc>
+                 line="903">a [class@SymbolEvent] with details about the clicked symbol.</doc>
             <type name="SymbolEvent"/>
           </parameter>
         </parameters>
@@ -3367,7 +3456,7 @@ As the map is panned or zoomed, this signal may be emitted multiple times.</doc>
       <glib:signal name="tile-error" when="last" version="1.4">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-layer.c"
-             line="851">Emitted when a tile fails to load.</doc>
+             line="940">Emitted when a tile fails to load.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3375,13 +3464,13 @@ As the map is panned or zoomed, this signal may be emitted multiple times.</doc>
           <parameter name="tile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-layer.c"
-                 line="854">the [class@Tile] that failed to load</doc>
+                 line="943">the [class@Tile] that failed to load</doc>
             <type name="Tile"/>
           </parameter>
           <parameter name="error" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-layer.c"
-                 line="855">the error that occurred</doc>
+                 line="944">the error that occurred</doc>
             <type name="GLib.Error"/>
           </parameter>
         </parameters>
@@ -3434,7 +3523,7 @@ using a [class@TileDownloader].</doc>
                       glib:finish-func="fill_tile_finish">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="664">Asynchronous version of shumate_map_source_fill_tile().</doc>
+             line="692">Asynchronous version of shumate_map_source_fill_tile().</doc>
         <source-position filename="shumate/shumate-map-source.h" line="49"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3443,13 +3532,13 @@ using a [class@TileDownloader].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="666">a #ShumateMapSource</doc>
+                 line="694">a #ShumateMapSource</doc>
             <type name="MapSource" c:type="ShumateMapSource*"/>
           </instance-parameter>
           <parameter name="tile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="667">a #ShumateTile</doc>
+                 line="695">a #ShumateTile</doc>
             <type name="Tile" c:type="ShumateTile*"/>
           </parameter>
           <parameter name="cancellable"
@@ -3458,7 +3547,7 @@ using a [class@TileDownloader].</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="668">a #GCancellable</doc>
+                 line="696">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -3469,7 +3558,7 @@ using a [class@TileDownloader].</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="669">a #GAsyncReadyCallback to execute upon completion</doc>
+                 line="697">a #GAsyncReadyCallback to execute upon completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -3479,7 +3568,7 @@ using a [class@TileDownloader].</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="670">closure data for @callback</doc>
+                 line="698">closure data for @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -3489,26 +3578,26 @@ using a [class@TileDownloader].</doc>
                       throws="1">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="688">Gets the success value of a completed shumate_map_source_fill_tile_async()
+             line="716">Gets the success value of a completed shumate_map_source_fill_tile_async()
 operation.</doc>
         <source-position filename="shumate/shumate-map-source.h" line="54"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-map-source.c"
-               line="697">%TRUE if the tile was filled with valid data, otherwise %FALSE</doc>
+               line="725">%TRUE if the tile was filled with valid data, otherwise %FALSE</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="690">a #ShumateMapSource</doc>
+                 line="718">a #ShumateMapSource</doc>
             <type name="MapSource" c:type="ShumateMapSource*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="691">a #GAsyncResult provided to callback</doc>
+                 line="719">a #GAsyncResult provided to callback</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -3518,7 +3607,7 @@ operation.</doc>
               glib:finish-func="fill_tile_finish">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="664">Asynchronous version of shumate_map_source_fill_tile().</doc>
+             line="692">Asynchronous version of shumate_map_source_fill_tile().</doc>
         <source-position filename="shumate/shumate-map-source.h" line="110"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3527,13 +3616,13 @@ operation.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="666">a #ShumateMapSource</doc>
+                 line="694">a #ShumateMapSource</doc>
             <type name="MapSource" c:type="ShumateMapSource*"/>
           </instance-parameter>
           <parameter name="tile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="667">a #ShumateTile</doc>
+                 line="695">a #ShumateTile</doc>
             <type name="Tile" c:type="ShumateTile*"/>
           </parameter>
           <parameter name="cancellable"
@@ -3542,7 +3631,7 @@ operation.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="668">a #GCancellable</doc>
+                 line="696">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -3553,7 +3642,7 @@ operation.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="669">a #GAsyncReadyCallback to execute upon completion</doc>
+                 line="697">a #GAsyncReadyCallback to execute upon completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -3562,7 +3651,7 @@ operation.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="670">closure data for @callback</doc>
+                 line="698">closure data for @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -3572,26 +3661,26 @@ operation.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="688">Gets the success value of a completed shumate_map_source_fill_tile_async()
+             line="716">Gets the success value of a completed shumate_map_source_fill_tile_async()
 operation.</doc>
         <source-position filename="shumate/shumate-map-source.h" line="115"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-map-source.c"
-               line="697">%TRUE if the tile was filled with valid data, otherwise %FALSE</doc>
+               line="725">%TRUE if the tile was filled with valid data, otherwise %FALSE</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="690">a #ShumateMapSource</doc>
+                 line="718">a #ShumateMapSource</doc>
             <type name="MapSource" c:type="ShumateMapSource*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="691">a #GAsyncResult provided to callback</doc>
+                 line="719">a #GAsyncResult provided to callback</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -3600,26 +3689,26 @@ operation.</doc>
               c:identifier="shumate_map_source_get_column_count">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="830">Gets the number of tiles in a column at this zoom level for this map
+             line="858">Gets the number of tiles in a column at this zoom level for this map
 source.</doc>
         <source-position filename="shumate/shumate-map-source.h" line="103"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-map-source.c"
-               line="838">the number of tiles in a column</doc>
+               line="866">the number of tiles in a column</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="map_source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="832">a #ShumateMapSource</doc>
+                 line="860">a #ShumateMapSource</doc>
             <type name="MapSource" c:type="ShumateMapSource*"/>
           </instance-parameter>
           <parameter name="zoom_level" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="833">the zoom level</doc>
+                 line="861">the zoom level</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -3629,19 +3718,19 @@ source.</doc>
               glib:get-property="id">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="307">Gets map source's id.</doc>
+             line="335">Gets map source's id.</doc>
         <source-position filename="shumate/shumate-map-source.h" line="62"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-map-source.c"
-               line="313">the map source's id.</doc>
+               line="341">the map source's id.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="map_source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="309">a #ShumateMapSource</doc>
+                 line="337">a #ShumateMapSource</doc>
             <type name="MapSource" c:type="ShumateMapSource*"/>
           </instance-parameter>
         </parameters>
@@ -3650,32 +3739,32 @@ source.</doc>
               c:identifier="shumate_map_source_get_latitude">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="786">Gets the latitude corresponding to this y position in the map source's
+             line="814">Gets the latitude corresponding to this y position in the map source's
 projection.</doc>
         <source-position filename="shumate/shumate-map-source.h" line="98"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-map-source.c"
-               line="795">the latitude</doc>
+               line="823">the latitude</doc>
           <type name="gdouble" c:type="double"/>
         </return-value>
         <parameters>
           <instance-parameter name="map_source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="788">a #ShumateMapSource</doc>
+                 line="816">a #ShumateMapSource</doc>
             <type name="MapSource" c:type="ShumateMapSource*"/>
           </instance-parameter>
           <parameter name="zoom_level" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="789">the zoom level</doc>
+                 line="817">the zoom level</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="790">a y position</doc>
+                 line="818">a y position</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>
@@ -3685,19 +3774,19 @@ projection.</doc>
               glib:get-property="license">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="391">Gets map source's license.</doc>
+             line="419">Gets map source's license.</doc>
         <source-position filename="shumate/shumate-map-source.h" line="68"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-map-source.c"
-               line="397">the map source's license.</doc>
+               line="425">the map source's license.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="map_source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="393">a #ShumateMapSource</doc>
+                 line="421">a #ShumateMapSource</doc>
             <type name="MapSource" c:type="ShumateMapSource*"/>
           </instance-parameter>
         </parameters>
@@ -3707,19 +3796,19 @@ projection.</doc>
               glib:get-property="license-uri">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="433">Gets map source's license URI.</doc>
+             line="461">Gets map source's license URI.</doc>
         <source-position filename="shumate/shumate-map-source.h" line="71"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-map-source.c"
-               line="439">the map source's license URI.</doc>
+               line="467">the map source's license URI.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="map_source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="435">a #ShumateMapSource</doc>
+                 line="463">a #ShumateMapSource</doc>
             <type name="MapSource" c:type="ShumateMapSource*"/>
           </instance-parameter>
         </parameters>
@@ -3728,32 +3817,32 @@ projection.</doc>
               c:identifier="shumate_map_source_get_longitude">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="760">Gets the longitude corresponding to this x position in the map source's
+             line="788">Gets the longitude corresponding to this x position in the map source's
 projection.</doc>
         <source-position filename="shumate/shumate-map-source.h" line="95"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-map-source.c"
-               line="769">the longitude</doc>
+               line="797">the longitude</doc>
           <type name="gdouble" c:type="double"/>
         </return-value>
         <parameters>
           <instance-parameter name="map_source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="762">a #ShumateMapSource</doc>
+                 line="790">a #ShumateMapSource</doc>
             <type name="MapSource" c:type="ShumateMapSource*"/>
           </instance-parameter>
           <parameter name="zoom_level" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="763">the zoom level</doc>
+                 line="791">the zoom level</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="764">a x position</doc>
+                 line="792">a x position</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>
@@ -3763,19 +3852,19 @@ projection.</doc>
               glib:get-property="max-zoom-level">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="516">Gets map source's maximum zoom level.</doc>
+             line="544">Gets map source's maximum zoom level.</doc>
         <source-position filename="shumate/shumate-map-source.h" line="77"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-map-source.c"
-               line="522">the maximum zoom level this map source supports</doc>
+               line="550">the maximum zoom level this map source supports</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="map_source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="518">a #ShumateMapSource</doc>
+                 line="546">a #ShumateMapSource</doc>
             <type name="MapSource" c:type="ShumateMapSource*"/>
           </instance-parameter>
         </parameters>
@@ -3784,37 +3873,37 @@ projection.</doc>
               c:identifier="shumate_map_source_get_meters_per_pixel">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="851">Gets meters per pixel at the position on the map using this map source's projection.</doc>
+             line="879">Gets meters per pixel at the position on the map using this map source's projection.</doc>
         <source-position filename="shumate/shumate-map-source.h" line="105"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-map-source.c"
-               line="860">the meters per pixel</doc>
+               line="888">the meters per pixel</doc>
           <type name="gdouble" c:type="double"/>
         </return-value>
         <parameters>
           <instance-parameter name="map_source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="853">a #ShumateMapSource</doc>
+                 line="881">a #ShumateMapSource</doc>
             <type name="MapSource" c:type="ShumateMapSource*"/>
           </instance-parameter>
           <parameter name="zoom_level" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="854">the zoom level</doc>
+                 line="882">the zoom level</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="latitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="855">a latitude</doc>
+                 line="883">a latitude</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="longitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="856">a longitude</doc>
+                 line="884">a longitude</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>
@@ -3824,19 +3913,19 @@ projection.</doc>
               glib:get-property="min-zoom-level">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="475">Gets map source's minimum zoom level.</doc>
+             line="503">Gets map source's minimum zoom level.</doc>
         <source-position filename="shumate/shumate-map-source.h" line="74"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-map-source.c"
-               line="481">the miminum zoom level this map source supports</doc>
+               line="509">the miminum zoom level this map source supports</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="map_source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="477">a #ShumateMapSource</doc>
+                 line="505">a #ShumateMapSource</doc>
             <type name="MapSource" c:type="ShumateMapSource*"/>
           </instance-parameter>
         </parameters>
@@ -3846,19 +3935,19 @@ projection.</doc>
               glib:get-property="name">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="349">Gets map source's name.</doc>
+             line="377">Gets map source's name.</doc>
         <source-position filename="shumate/shumate-map-source.h" line="65"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-map-source.c"
-               line="355">the map source's name.</doc>
+               line="383">the map source's name.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="map_source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="351">a #ShumateMapSource</doc>
+                 line="379">a #ShumateMapSource</doc>
             <type name="MapSource" c:type="ShumateMapSource*"/>
           </instance-parameter>
         </parameters>
@@ -3868,19 +3957,19 @@ projection.</doc>
               glib:get-property="projection">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="623">Gets map source's projection.</doc>
+             line="651">Gets map source's projection.</doc>
         <source-position filename="shumate/shumate-map-source.h" line="85"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-map-source.c"
-               line="629">the map source's projection.</doc>
+               line="657">the map source's projection.</doc>
           <type name="MapProjection" c:type="ShumateMapProjection"/>
         </return-value>
         <parameters>
           <instance-parameter name="map_source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="625">a #ShumateMapSource</doc>
+                 line="653">a #ShumateMapSource</doc>
             <type name="MapSource" c:type="ShumateMapSource*"/>
           </instance-parameter>
         </parameters>
@@ -3889,25 +3978,25 @@ projection.</doc>
               c:identifier="shumate_map_source_get_row_count">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="812">Gets the number of tiles in a row at this zoom level for this map source.</doc>
+             line="840">Gets the number of tiles in a row at this zoom level for this map source.</doc>
         <source-position filename="shumate/shumate-map-source.h" line="101"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-map-source.c"
-               line="819">the number of tiles in a row</doc>
+               line="847">the number of tiles in a row</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="map_source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="814">a #ShumateMapSource</doc>
+                 line="842">a #ShumateMapSource</doc>
             <type name="MapSource" c:type="ShumateMapSource*"/>
           </instance-parameter>
           <parameter name="zoom_level" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="815">the zoom level</doc>
+                 line="843">the zoom level</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -3917,19 +4006,19 @@ projection.</doc>
               glib:get-property="tile-size">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="557">Gets map source's tile size.</doc>
+             line="585">Gets map source's tile size.</doc>
         <source-position filename="shumate/shumate-map-source.h" line="80"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-map-source.c"
-               line="563">the tile's size (width and height) in pixels for this map source</doc>
+               line="591">the tile's size (width and height) in pixels for this map source</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="map_source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="559">a #ShumateMapSource</doc>
+                 line="587">a #ShumateMapSource</doc>
             <type name="MapSource" c:type="ShumateMapSource*"/>
           </instance-parameter>
         </parameters>
@@ -3938,7 +4027,7 @@ projection.</doc>
               c:identifier="shumate_map_source_get_tile_size_at_zoom">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="575">Gets the apparent size of the map tiles at the given fractional zoom level.
+             line="603">Gets the apparent size of the map tiles at the given fractional zoom level.
 
 As the map is zoomed in, a tile gets bigger and bigger until, at the next
 integer zoom level, it "splits" into four tiles at the next zoom level.
@@ -3947,7 +4036,7 @@ Thus, the size increase follows an exponential curve, base 2.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-map-source.c"
-               line="586">the tile's size (width and height) in pixels for this map source
+               line="614">the tile's size (width and height) in pixels for this map source
 at this zoom level</doc>
           <type name="gdouble" c:type="double"/>
         </return-value>
@@ -3955,13 +4044,13 @@ at this zoom level</doc>
           <instance-parameter name="map_source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="577">a #ShumateMapSource</doc>
+                 line="605">a #ShumateMapSource</doc>
             <type name="MapSource" c:type="ShumateMapSource*"/>
           </instance-parameter>
           <parameter name="zoom_level" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="578">a zoom level</doc>
+                 line="606">a zoom level</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>
@@ -3969,32 +4058,32 @@ at this zoom level</doc>
       <method name="get_x" c:identifier="shumate_map_source_get_x">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="710">Gets the x position on the map using this map source's projection.
+             line="738">Gets the x position on the map using this map source's projection.
 (0, 0) is located at the top left.</doc>
         <source-position filename="shumate/shumate-map-source.h" line="89"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-map-source.c"
-               line="719">the x position</doc>
+               line="747">the x position</doc>
           <type name="gdouble" c:type="double"/>
         </return-value>
         <parameters>
           <instance-parameter name="map_source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="712">a #ShumateMapSource</doc>
+                 line="740">a #ShumateMapSource</doc>
             <type name="MapSource" c:type="ShumateMapSource*"/>
           </instance-parameter>
           <parameter name="zoom_level" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="713">the zoom level</doc>
+                 line="741">the zoom level</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="longitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="714">a longitude</doc>
+                 line="742">a longitude</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>
@@ -4002,32 +4091,32 @@ at this zoom level</doc>
       <method name="get_y" c:identifier="shumate_map_source_get_y">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="734">Gets the y position on the map using this map source's projection.
+             line="762">Gets the y position on the map using this map source's projection.
 (0, 0) is located at the top left.</doc>
         <source-position filename="shumate/shumate-map-source.h" line="92"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-map-source.c"
-               line="743">the y position</doc>
+               line="771">the y position</doc>
           <type name="gdouble" c:type="double"/>
         </return-value>
         <parameters>
           <instance-parameter name="map_source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="736">a #ShumateMapSource</doc>
+                 line="764">a #ShumateMapSource</doc>
             <type name="MapSource" c:type="ShumateMapSource*"/>
           </instance-parameter>
           <parameter name="zoom_level" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="737">the zoom level</doc>
+                 line="765">the zoom level</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="latitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="738">a latitude</doc>
+                 line="766">a latitude</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>
@@ -4037,7 +4126,7 @@ at this zoom level</doc>
               glib:set-property="id">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="325">Sets the map source's id.</doc>
+             line="353">Sets the map source's id.</doc>
         <source-position filename="shumate/shumate-map-source.h" line="63"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4046,13 +4135,13 @@ at this zoom level</doc>
           <instance-parameter name="map_source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="327">a #ShumateMapSource</doc>
+                 line="355">a #ShumateMapSource</doc>
             <type name="MapSource" c:type="ShumateMapSource*"/>
           </instance-parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="328">an id</doc>
+                 line="356">an id</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -4062,7 +4151,7 @@ at this zoom level</doc>
               glib:set-property="license">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="409">Sets the map source's license.</doc>
+             line="437">Sets the map source's license.</doc>
         <source-position filename="shumate/shumate-map-source.h" line="69"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4071,13 +4160,13 @@ at this zoom level</doc>
           <instance-parameter name="map_source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="411">a #ShumateMapSource</doc>
+                 line="439">a #ShumateMapSource</doc>
             <type name="MapSource" c:type="ShumateMapSource*"/>
           </instance-parameter>
           <parameter name="license" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="412">the licence</doc>
+                 line="440">the licence</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -4087,7 +4176,7 @@ at this zoom level</doc>
               glib:set-property="license-uri">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="451">Sets the map source's license URI.</doc>
+             line="479">Sets the map source's license URI.</doc>
         <source-position filename="shumate/shumate-map-source.h" line="72"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4096,13 +4185,13 @@ at this zoom level</doc>
           <instance-parameter name="map_source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="453">a #ShumateMapSource</doc>
+                 line="481">a #ShumateMapSource</doc>
             <type name="MapSource" c:type="ShumateMapSource*"/>
           </instance-parameter>
           <parameter name="license_uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="454">the licence URI</doc>
+                 line="482">the licence URI</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -4112,7 +4201,7 @@ at this zoom level</doc>
               glib:set-property="max-zoom-level">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="534">Sets the map source's maximum zoom level.</doc>
+             line="562">Sets the map source's maximum zoom level.</doc>
         <source-position filename="shumate/shumate-map-source.h" line="78"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4121,13 +4210,13 @@ at this zoom level</doc>
           <instance-parameter name="map_source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="536">a #ShumateMapSource</doc>
+                 line="564">a #ShumateMapSource</doc>
             <type name="MapSource" c:type="ShumateMapSource*"/>
           </instance-parameter>
           <parameter name="zoom_level" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="537">the maximum zoom level</doc>
+                 line="565">the maximum zoom level</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -4137,7 +4226,7 @@ at this zoom level</doc>
               glib:set-property="min-zoom-level">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="493">Sets the map source's minimal zoom level.</doc>
+             line="521">Sets the map source's minimal zoom level.</doc>
         <source-position filename="shumate/shumate-map-source.h" line="75"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4146,13 +4235,13 @@ at this zoom level</doc>
           <instance-parameter name="map_source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="495">a #ShumateMapSource</doc>
+                 line="523">a #ShumateMapSource</doc>
             <type name="MapSource" c:type="ShumateMapSource*"/>
           </instance-parameter>
           <parameter name="zoom_level" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="496">the minimal zoom level</doc>
+                 line="524">the minimal zoom level</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -4162,7 +4251,7 @@ at this zoom level</doc>
               glib:set-property="name">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="367">Sets the map source's name.</doc>
+             line="395">Sets the map source's name.</doc>
         <source-position filename="shumate/shumate-map-source.h" line="66"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4171,13 +4260,13 @@ at this zoom level</doc>
           <instance-parameter name="map_source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="369">a #ShumateMapSource</doc>
+                 line="397">a #ShumateMapSource</doc>
             <type name="MapSource" c:type="ShumateMapSource*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="370">a name</doc>
+                 line="398">a name</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -4187,7 +4276,7 @@ at this zoom level</doc>
               glib:set-property="projection">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="641">Sets the map source's projection.</doc>
+             line="669">Sets the map source's projection.</doc>
         <source-position filename="shumate/shumate-map-source.h" line="86"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4196,13 +4285,13 @@ at this zoom level</doc>
           <instance-parameter name="map_source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="643">a #ShumateMapSource</doc>
+                 line="671">a #ShumateMapSource</doc>
             <type name="MapSource" c:type="ShumateMapSource*"/>
           </instance-parameter>
           <parameter name="projection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="644">a #ShumateMapProjection</doc>
+                 line="672">a #ShumateMapProjection</doc>
             <type name="MapProjection" c:type="ShumateMapProjection"/>
           </parameter>
         </parameters>
@@ -4212,7 +4301,7 @@ at this zoom level</doc>
               glib:set-property="tile-size">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="600">Sets the map source's tile size.</doc>
+             line="628">Sets the map source's tile size.</doc>
         <source-position filename="shumate/shumate-map-source.h" line="83"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4221,13 +4310,13 @@ at this zoom level</doc>
           <instance-parameter name="map_source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="602">a #ShumateMapSource</doc>
+                 line="630">a #ShumateMapSource</doc>
             <type name="MapSource" c:type="ShumateMapSource*"/>
           </instance-parameter>
           <parameter name="tile_size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="603">the tile size</doc>
+                 line="631">the tile size</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -4241,7 +4330,7 @@ at this zoom level</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="193">The id of the map source</doc>
+             line="201">The id of the map source</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="license"
@@ -4253,7 +4342,7 @@ at this zoom level</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="217">The usage license of the map source</doc>
+             line="225">The usage license of the map source</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="license-uri"
@@ -4265,7 +4354,7 @@ at this zoom level</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="229">The usage license's uri for more information</doc>
+             line="237">The usage license's uri for more information</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="max-zoom-level"
@@ -4277,7 +4366,7 @@ at this zoom level</doc>
                 default-value="18">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="253">The maximum zoom level</doc>
+             line="261">The maximum zoom level</doc>
         <type name="guint" c:type="guint"/>
       </property>
       <property name="min-zoom-level"
@@ -4289,7 +4378,7 @@ at this zoom level</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="241">The minimum zoom level</doc>
+             line="249">The minimum zoom level</doc>
         <type name="guint" c:type="guint"/>
       </property>
       <property name="name"
@@ -4301,7 +4390,7 @@ at this zoom level</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="205">The name of the map source</doc>
+             line="213">The name of the map source</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="projection"
@@ -4313,7 +4402,7 @@ at this zoom level</doc>
                 default-value="SHUMATE_MAP_PROJECTION_MERCATOR">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="277">The map projection of the map source</doc>
+             line="285">The map projection of the map source</doc>
         <type name="MapProjection"/>
       </property>
       <property name="tile-size"
@@ -4325,12 +4414,23 @@ at this zoom level</doc>
                 default-value="256">
         <doc xml:space="preserve"
              filename="shumate/shumate-map-source.c"
-             line="265">The tile size of the map source</doc>
+             line="273">The tile size of the map source</doc>
         <type name="guint" c:type="guint"/>
       </property>
       <field name="parent_instance">
         <type name="GObject.Object" c:type="GObject"/>
       </field>
+      <glib:signal name="modified" when="last" version="1.7">
+        <doc xml:space="preserve"
+             filename="shumate/shumate-map-source.c"
+             line="302">Emitted when the source is modified in such a way that tiles previously filled by it should be refreshed.
+
+It is the [class@MapSource] implementation's responsibility to emit this signal when appropriate, such as when a
+data source or rendering parameter changes.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
     </class>
     <record name="MapSourceClass"
             c:type="ShumateMapSourceClass"
@@ -4349,13 +4449,13 @@ at this zoom level</doc>
             <parameter name="self" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="shumate/shumate-map-source.c"
-                   line="666">a #ShumateMapSource</doc>
+                   line="694">a #ShumateMapSource</doc>
               <type name="MapSource" c:type="ShumateMapSource*"/>
             </parameter>
             <parameter name="tile" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="shumate/shumate-map-source.c"
-                   line="667">a #ShumateTile</doc>
+                   line="695">a #ShumateTile</doc>
               <type name="Tile" c:type="ShumateTile*"/>
             </parameter>
             <parameter name="cancellable"
@@ -4364,7 +4464,7 @@ at this zoom level</doc>
                        allow-none="1">
               <doc xml:space="preserve"
                    filename="shumate/shumate-map-source.c"
-                   line="668">a #GCancellable</doc>
+                   line="696">a #GCancellable</doc>
               <type name="Gio.Cancellable" c:type="GCancellable*"/>
             </parameter>
             <parameter name="callback"
@@ -4375,7 +4475,7 @@ at this zoom level</doc>
                        closure="4">
               <doc xml:space="preserve"
                    filename="shumate/shumate-map-source.c"
-                   line="669">a #GAsyncReadyCallback to execute upon completion</doc>
+                   line="697">a #GAsyncReadyCallback to execute upon completion</doc>
               <type name="Gio.AsyncReadyCallback"
                     c:type="GAsyncReadyCallback"/>
             </parameter>
@@ -4386,7 +4486,7 @@ at this zoom level</doc>
                        closure="4">
               <doc xml:space="preserve"
                    filename="shumate/shumate-map-source.c"
-                   line="670">closure data for @callback</doc>
+                   line="698">closure data for @callback</doc>
               <type name="gpointer" c:type="gpointer"/>
             </parameter>
           </parameters>
@@ -4398,20 +4498,20 @@ at this zoom level</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-map-source.c"
-                 line="697">%TRUE if the tile was filled with valid data, otherwise %FALSE</doc>
+                 line="725">%TRUE if the tile was filled with valid data, otherwise %FALSE</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="self" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="shumate/shumate-map-source.c"
-                   line="690">a #ShumateMapSource</doc>
+                   line="718">a #ShumateMapSource</doc>
               <type name="MapSource" c:type="ShumateMapSource*"/>
             </parameter>
             <parameter name="result" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="shumate/shumate-map-source.c"
-                   line="691">a #GAsyncResult provided to callback</doc>
+                   line="719">a #GAsyncResult provided to callback</doc>
               <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
             </parameter>
           </parameters>
@@ -5039,13 +5139,13 @@ correctly, marker selections and group marker operations.</doc>
               c:identifier="shumate_marker_layer_get_markers">
         <doc xml:space="preserve"
              filename="shumate/shumate-marker-layer.c"
-             line="573">Gets a copy of the list of all markers inserted into the layer. You should
+             line="576">Gets a copy of the list of all markers inserted into the layer. You should
 free the list but not its contents.</doc>
         <source-position filename="shumate/shumate-marker-layer.h" line="49"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="shumate/shumate-marker-layer.c"
-               line="580">the list</doc>
+               line="583">the list</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Marker"/>
           </type>
@@ -5054,7 +5154,7 @@ free the list but not its contents.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-marker-layer.c"
-                 line="575">a [class@MarkerLayer]</doc>
+                 line="578">a [class@MarkerLayer]</doc>
             <type name="MarkerLayer" c:type="ShumateMarkerLayer*"/>
           </instance-parameter>
         </parameters>
@@ -5063,12 +5163,12 @@ free the list but not its contents.</doc>
               c:identifier="shumate_marker_layer_get_selected">
         <doc xml:space="preserve"
              filename="shumate/shumate-marker-layer.c"
-             line="602">Gets a list of selected markers in the layer.</doc>
+             line="605">Gets a list of selected markers in the layer.</doc>
         <source-position filename="shumate/shumate-marker-layer.h" line="50"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="shumate/shumate-marker-layer.c"
-               line="608">the list</doc>
+               line="611">the list</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Marker"/>
           </type>
@@ -5077,7 +5177,7 @@ free the list but not its contents.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-marker-layer.c"
-                 line="604">a [class@MarkerLayer]</doc>
+                 line="607">a [class@MarkerLayer]</doc>
             <type name="MarkerLayer" c:type="ShumateMarkerLayer*"/>
           </instance-parameter>
         </parameters>
@@ -5087,19 +5187,19 @@ free the list but not its contents.</doc>
               glib:get-property="selection-mode">
         <doc xml:space="preserve"
              filename="shumate/shumate-marker-layer.c"
-             line="804">Gets the selection mode of the layer.</doc>
+             line="807">Gets the selection mode of the layer.</doc>
         <source-position filename="shumate/shumate-marker-layer.h" line="59"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-marker-layer.c"
-               line="810">the selection mode of the layer.</doc>
+               line="813">the selection mode of the layer.</doc>
           <type name="Gtk.SelectionMode" c:type="GtkSelectionMode"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-marker-layer.c"
-                 line="806">a [class@MarkerLayer]</doc>
+                 line="809">a [class@MarkerLayer]</doc>
             <type name="MarkerLayer" c:type="ShumateMarkerLayer*"/>
           </instance-parameter>
         </parameters>
@@ -5125,7 +5225,7 @@ free the list but not its contents.</doc>
               c:identifier="shumate_marker_layer_remove_marker">
         <doc xml:space="preserve"
              filename="shumate/shumate-marker-layer.c"
-             line="704">Removes the marker from the layer.</doc>
+             line="707">Removes the marker from the layer.</doc>
         <source-position filename="shumate/shumate-marker-layer.h" line="46"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5134,13 +5234,13 @@ free the list but not its contents.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-marker-layer.c"
-                 line="706">a [class@MarkerLayer]</doc>
+                 line="709">a [class@MarkerLayer]</doc>
             <type name="MarkerLayer" c:type="ShumateMarkerLayer*"/>
           </instance-parameter>
           <parameter name="marker" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-marker-layer.c"
-                 line="707">a [class@Marker]</doc>
+                 line="710">a [class@Marker]</doc>
             <type name="Marker" c:type="ShumateMarker*"/>
           </parameter>
         </parameters>
@@ -5149,7 +5249,7 @@ free the list but not its contents.</doc>
               c:identifier="shumate_marker_layer_select_all_markers">
         <doc xml:space="preserve"
              filename="shumate/shumate-marker-layer.c"
-             line="755">Selects all selectable markers in the layer.</doc>
+             line="758">Selects all selectable markers in the layer.</doc>
         <source-position filename="shumate/shumate-marker-layer.h" line="54"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5158,7 +5258,7 @@ free the list but not its contents.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-marker-layer.c"
-                 line="757">a [class@MarkerLayer]</doc>
+                 line="760">a [class@MarkerLayer]</doc>
             <type name="MarkerLayer" c:type="ShumateMarkerLayer*"/>
           </instance-parameter>
         </parameters>
@@ -5167,7 +5267,7 @@ free the list but not its contents.</doc>
               c:identifier="shumate_marker_layer_select_marker">
         <doc xml:space="preserve"
              filename="shumate/shumate-marker-layer.c"
-             line="624">Selects a marker in this layer.
+             line="627">Selects a marker in this layer.
 
 If [class@MarkerLayer]:selection-mode is %GTK_SELECTION_SINGLE or
 %GTK_SELECTION_BROWSE, all other markers will be unselected. If the mode is
@@ -5176,20 +5276,20 @@ If [class@MarkerLayer]:selection-mode is %GTK_SELECTION_SINGLE or
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-marker-layer.c"
-               line="635">%TRUE if the marker is now selected, otherwise %FALSE</doc>
+               line="638">%TRUE if the marker is now selected, otherwise %FALSE</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-marker-layer.c"
-                 line="626">a [class@MarkerLayer]</doc>
+                 line="629">a [class@MarkerLayer]</doc>
             <type name="MarkerLayer" c:type="ShumateMarkerLayer*"/>
           </instance-parameter>
           <parameter name="marker" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-marker-layer.c"
-                 line="627">a [class@Marker] that is a child of @self</doc>
+                 line="630">a [class@Marker] that is a child of @self</doc>
             <type name="Marker" c:type="ShumateMarker*"/>
           </parameter>
         </parameters>
@@ -5199,7 +5299,7 @@ If [class@MarkerLayer]:selection-mode is %GTK_SELECTION_SINGLE or
               glib:set-property="selection-mode">
         <doc xml:space="preserve"
              filename="shumate/shumate-marker-layer.c"
-             line="776">Sets the selection mode of the layer.
+             line="779">Sets the selection mode of the layer.
 
 NOTE: changing selection mode to %GTK_SELECTION_NONE, %GTK_SELECTION_SINGLE
 or %GTK_SELECTION_BROWSE will clear all previously selected markers.</doc>
@@ -5211,13 +5311,13 @@ or %GTK_SELECTION_BROWSE will clear all previously selected markers.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-marker-layer.c"
-                 line="778">a [class@MarkerLayer]</doc>
+                 line="781">a [class@MarkerLayer]</doc>
             <type name="MarkerLayer" c:type="ShumateMarkerLayer*"/>
           </instance-parameter>
           <parameter name="mode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-marker-layer.c"
-                 line="779">a [enum@Gtk.SelectionMode] value</doc>
+                 line="782">a [enum@Gtk.SelectionMode] value</doc>
             <type name="Gtk.SelectionMode" c:type="GtkSelectionMode"/>
           </parameter>
         </parameters>
@@ -5226,7 +5326,7 @@ or %GTK_SELECTION_BROWSE will clear all previously selected markers.</doc>
               c:identifier="shumate_marker_layer_unselect_all_markers">
         <doc xml:space="preserve"
              filename="shumate/shumate-marker-layer.c"
-             line="734">Unselects all markers in the layer.</doc>
+             line="737">Unselects all markers in the layer.</doc>
         <source-position filename="shumate/shumate-marker-layer.h" line="55"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5235,7 +5335,7 @@ or %GTK_SELECTION_BROWSE will clear all previously selected markers.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-marker-layer.c"
-                 line="736">a [class@MarkerLayer]</doc>
+                 line="739">a [class@MarkerLayer]</doc>
             <type name="MarkerLayer" c:type="ShumateMarkerLayer*"/>
           </instance-parameter>
         </parameters>
@@ -5244,7 +5344,7 @@ or %GTK_SELECTION_BROWSE will clear all previously selected markers.</doc>
               c:identifier="shumate_marker_layer_unselect_marker">
         <doc xml:space="preserve"
              filename="shumate/shumate-marker-layer.c"
-             line="674">Unselects a marker in this layer.
+             line="677">Unselects a marker in this layer.
 
 This works even if [class@MarkerLayer]:selection-mode is
 %GTK_SELECTION_BROWSE. Browse mode only prevents user interaction, not the
@@ -5257,13 +5357,13 @@ program, from unselecting a marker.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-marker-layer.c"
-                 line="676">a [class@MarkerLayer]</doc>
+                 line="679">a [class@MarkerLayer]</doc>
             <type name="MarkerLayer" c:type="ShumateMarkerLayer*"/>
           </instance-parameter>
           <parameter name="marker" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-marker-layer.c"
-                 line="677">a [class@Marker] that is a child of @self</doc>
+                 line="680">a [class@Marker] that is a child of @self</doc>
             <type name="Marker" c:type="ShumateMarker*"/>
           </parameter>
         </parameters>
@@ -6531,7 +6631,7 @@ a [class@Shumate.Scale] and a [class@Shumate.Compass].</doc>
               c:identifier="shumate_simple_map_add_overlay_layer">
         <doc xml:space="preserve"
              filename="shumate/shumate-simple-map.c"
-             line="430">Adds a map layer as an overlay on top of the base map.</doc>
+             line="427">Adds a map layer as an overlay on top of the base map.</doc>
         <source-position filename="shumate/shumate-simple-map.h" line="43"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6540,13 +6640,13 @@ a [class@Shumate.Scale] and a [class@Shumate.Compass].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="432">a [class@SimpleMap]</doc>
+                 line="429">a [class@SimpleMap]</doc>
             <type name="SimpleMap" c:type="ShumateSimpleMap*"/>
           </instance-parameter>
           <parameter name="layer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="433">a [class@Layer] to add</doc>
+                 line="430">a [class@Layer] to add</doc>
             <type name="Layer" c:type="ShumateLayer*"/>
           </parameter>
         </parameters>
@@ -6557,19 +6657,19 @@ a [class@Shumate.Scale] and a [class@Shumate.Compass].</doc>
               version="1.4">
         <doc xml:space="preserve"
              filename="shumate/shumate-simple-map.c"
-             line="627">Gets the [class@MapLayer] that displays the base map.</doc>
+             line="624">Gets the [class@MapLayer] that displays the base map.</doc>
         <source-position filename="shumate/shumate-simple-map.h" line="66"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-simple-map.c"
-               line="633">the base map layer</doc>
+               line="630">the base map layer</doc>
           <type name="MapLayer" c:type="ShumateMapLayer*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="629">a [class@SimpleMap]</doc>
+                 line="626">a [class@SimpleMap]</doc>
             <type name="SimpleMap" c:type="ShumateSimpleMap*"/>
           </instance-parameter>
         </parameters>
@@ -6579,19 +6679,19 @@ a [class@Shumate.Scale] and a [class@Shumate.Compass].</doc>
               glib:get-property="compass">
         <doc xml:space="preserve"
              filename="shumate/shumate-simple-map.c"
-             line="527">Gets the compass widget for the map.</doc>
+             line="524">Gets the compass widget for the map.</doc>
         <source-position filename="shumate/shumate-simple-map.h" line="54"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-simple-map.c"
-               line="533">a [class@Compass]</doc>
+               line="530">a [class@Compass]</doc>
           <type name="Compass" c:type="ShumateCompass*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="529">a [class@SimpleMap]</doc>
+                 line="526">a [class@SimpleMap]</doc>
             <type name="SimpleMap" c:type="ShumateSimpleMap*"/>
           </instance-parameter>
         </parameters>
@@ -6601,19 +6701,19 @@ a [class@Shumate.Scale] and a [class@Shumate.Compass].</doc>
               glib:get-property="license">
         <doc xml:space="preserve"
              filename="shumate/shumate-simple-map.c"
-             line="544">Gets the license widget for the map.</doc>
+             line="541">Gets the license widget for the map.</doc>
         <source-position filename="shumate/shumate-simple-map.h" line="56"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-simple-map.c"
-               line="550">a [class@License]</doc>
+               line="547">a [class@License]</doc>
           <type name="License" c:type="ShumateLicense*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="546">a [class@SimpleMap]</doc>
+                 line="543">a [class@SimpleMap]</doc>
             <type name="SimpleMap" c:type="ShumateSimpleMap*"/>
           </instance-parameter>
         </parameters>
@@ -6623,19 +6723,19 @@ a [class@Shumate.Scale] and a [class@Shumate.Compass].</doc>
               glib:get-property="map">
         <doc xml:space="preserve"
              filename="shumate/shumate-simple-map.c"
-             line="610">Gets the [class@SimpleMap]'s underlying [class@Map].</doc>
+             line="607">Gets the [class@SimpleMap]'s underlying [class@Map].</doc>
         <source-position filename="shumate/shumate-simple-map.h" line="64"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-simple-map.c"
-               line="616">a [class@Map]</doc>
+               line="613">a [class@Map]</doc>
           <type name="Map" c:type="ShumateMap*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="612">a [class@SimpleMap]</doc>
+                 line="609">a [class@SimpleMap]</doc>
             <type name="SimpleMap" c:type="ShumateSimpleMap*"/>
           </instance-parameter>
         </parameters>
@@ -6645,19 +6745,19 @@ a [class@Shumate.Scale] and a [class@Shumate.Compass].</doc>
               glib:get-property="map-source">
         <doc xml:space="preserve"
              filename="shumate/shumate-simple-map.c"
-             line="366">Gets the map source for the current base layer.</doc>
+             line="374">Gets the map source for the current base layer.</doc>
         <source-position filename="shumate/shumate-simple-map.h" line="39"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-simple-map.c"
-               line="372">a [class@MapSource]</doc>
+               line="380">a [class@MapSource]</doc>
           <type name="MapSource" c:type="ShumateMapSource*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="368">a [class@SimpleMap]</doc>
+                 line="376">a [class@SimpleMap]</doc>
             <type name="SimpleMap" c:type="ShumateSimpleMap*"/>
           </instance-parameter>
         </parameters>
@@ -6667,19 +6767,19 @@ a [class@Shumate.Scale] and a [class@Shumate.Compass].</doc>
               glib:get-property="scale">
         <doc xml:space="preserve"
              filename="shumate/shumate-simple-map.c"
-             line="561">Gets the scale widget for the map.</doc>
+             line="558">Gets the scale widget for the map.</doc>
         <source-position filename="shumate/shumate-simple-map.h" line="58"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-simple-map.c"
-               line="567">a [class@Scale]</doc>
+               line="564">a [class@Scale]</doc>
           <type name="Scale" c:type="ShumateScale*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="563">a [class@SimpleMap]</doc>
+                 line="560">a [class@SimpleMap]</doc>
             <type name="SimpleMap" c:type="ShumateSimpleMap*"/>
           </instance-parameter>
         </parameters>
@@ -6689,19 +6789,19 @@ a [class@Shumate.Scale] and a [class@Shumate.Compass].</doc>
               glib:get-property="show-zoom-buttons">
         <doc xml:space="preserve"
              filename="shumate/shumate-simple-map.c"
-             line="577">Gets whether or not the zoom buttons are shown.</doc>
+             line="574">Gets whether or not the zoom buttons are shown.</doc>
         <source-position filename="shumate/shumate-simple-map.h" line="60"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-simple-map.c"
-               line="583">%TRUE if the zoom buttons are visible, otherwise %FALSE</doc>
+               line="580">%TRUE if the zoom buttons are visible, otherwise %FALSE</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="579">a [class@SimpleMap]</doc>
+                 line="576">a [class@SimpleMap]</doc>
             <type name="SimpleMap" c:type="ShumateSimpleMap*"/>
           </instance-parameter>
         </parameters>
@@ -6711,20 +6811,20 @@ a [class@Shumate.Scale] and a [class@Shumate.Compass].</doc>
               glib:get-property="viewport">
         <doc xml:space="preserve"
              filename="shumate/shumate-simple-map.c"
-             line="349">Gets the map's viewport, needed for constructing map layers that will be added
+             line="357">Gets the map's viewport, needed for constructing map layers that will be added
 to it.</doc>
         <source-position filename="shumate/shumate-simple-map.h" line="37"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-simple-map.c"
-               line="356">a [class@Viewport]</doc>
+               line="364">a [class@Viewport]</doc>
           <type name="Viewport" c:type="ShumateViewport*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="351">a [class@Map]</doc>
+                 line="359">a [class@Map]</doc>
             <type name="SimpleMap" c:type="ShumateSimpleMap*"/>
           </instance-parameter>
         </parameters>
@@ -6734,7 +6834,7 @@ to it.</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="shumate/shumate-simple-map.c"
-             line="449">Inserts a map layer as an overlay on top of the base map. The layer will
+             line="446">Inserts a map layer as an overlay on top of the base map. The layer will
 appear above @sibling, or at the bottom (but still above the base map)
 if @sibling is %NULL.</doc>
         <source-position filename="shumate/shumate-simple-map.h" line="45"/>
@@ -6745,13 +6845,13 @@ if @sibling is %NULL.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="451">a [class@SimpleMap]</doc>
+                 line="448">a [class@SimpleMap]</doc>
             <type name="SimpleMap" c:type="ShumateSimpleMap*"/>
           </instance-parameter>
           <parameter name="layer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="452">a [class@Layer] to insert</doc>
+                 line="449">a [class@Layer] to insert</doc>
             <type name="Layer" c:type="ShumateLayer*"/>
           </parameter>
           <parameter name="sibling" transfer-ownership="none">
@@ -6764,7 +6864,7 @@ if @sibling is %NULL.</doc>
               version="1.5">
         <doc xml:space="preserve"
              filename="shumate/shumate-simple-map.c"
-             line="481">Inserts a map layer as an overlay on top of the base map. The layer will
+             line="478">Inserts a map layer as an overlay on top of the base map. The layer will
 appear just below @sibling, or above everything else if @sibling is %NULL.</doc>
         <source-position filename="shumate/shumate-simple-map.h" line="48"/>
         <return-value transfer-ownership="none">
@@ -6774,13 +6874,13 @@ appear just below @sibling, or above everything else if @sibling is %NULL.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="483">a [class@SimpleMap]</doc>
+                 line="480">a [class@SimpleMap]</doc>
             <type name="SimpleMap" c:type="ShumateSimpleMap*"/>
           </instance-parameter>
           <parameter name="layer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="484">a [class@Layer] to insert</doc>
+                 line="481">a [class@Layer] to insert</doc>
             <type name="Layer" c:type="ShumateLayer*"/>
           </parameter>
           <parameter name="sibling" transfer-ownership="none">
@@ -6792,7 +6892,7 @@ appear just below @sibling, or above everything else if @sibling is %NULL.</doc>
               c:identifier="shumate_simple_map_remove_overlay_layer">
         <doc xml:space="preserve"
              filename="shumate/shumate-simple-map.c"
-             line="508">Removes a layer from the map.</doc>
+             line="505">Removes a layer from the map.</doc>
         <source-position filename="shumate/shumate-simple-map.h" line="51"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6801,13 +6901,13 @@ appear just below @sibling, or above everything else if @sibling is %NULL.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="510">a [class@SimpleMap]</doc>
+                 line="507">a [class@SimpleMap]</doc>
             <type name="SimpleMap" c:type="ShumateSimpleMap*"/>
           </instance-parameter>
           <parameter name="layer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="511">a [class@Layer] that was added to the map previously</doc>
+                 line="508">a [class@Layer] that was added to the map previously</doc>
             <type name="Layer" c:type="ShumateLayer*"/>
           </parameter>
         </parameters>
@@ -6817,7 +6917,7 @@ appear just below @sibling, or above everything else if @sibling is %NULL.</doc>
               glib:set-property="map-source">
         <doc xml:space="preserve"
              filename="shumate/shumate-simple-map.c"
-             line="382">Sets the source for the base map.</doc>
+             line="390">Sets the source for the base map.</doc>
         <source-position filename="shumate/shumate-simple-map.h" line="40"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6826,7 +6926,7 @@ appear just below @sibling, or above everything else if @sibling is %NULL.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="384">a [class@SimpleMap]</doc>
+                 line="392">a [class@SimpleMap]</doc>
             <type name="SimpleMap" c:type="ShumateSimpleMap*"/>
           </instance-parameter>
           <parameter name="map_source"
@@ -6835,7 +6935,7 @@ appear just below @sibling, or above everything else if @sibling is %NULL.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="385">a [class@MapSource]</doc>
+                 line="393">a [class@MapSource]</doc>
             <type name="MapSource" c:type="ShumateMapSource*"/>
           </parameter>
         </parameters>
@@ -6845,7 +6945,7 @@ appear just below @sibling, or above everything else if @sibling is %NULL.</doc>
               glib:set-property="show-zoom-buttons">
         <doc xml:space="preserve"
              filename="shumate/shumate-simple-map.c"
-             line="593">Sets whether or not the zoom buttons are shown.</doc>
+             line="590">Sets whether or not the zoom buttons are shown.</doc>
         <source-position filename="shumate/shumate-simple-map.h" line="61"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6854,13 +6954,13 @@ appear just below @sibling, or above everything else if @sibling is %NULL.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="595">a [class@SimpleMap]</doc>
+                 line="592">a [class@SimpleMap]</doc>
             <type name="SimpleMap" c:type="ShumateSimpleMap*"/>
           </instance-parameter>
           <parameter name="show_zoom_buttons" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-simple-map.c"
-                 line="596">%TRUE to show the zoom buttons, %FALSE to hide them</doc>
+                 line="593">%TRUE to show the zoom buttons, %FALSE to hide them</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -7046,7 +7146,7 @@ clicked.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-renderer.c"
-               line="1161">a #GQuark</doc>
+               line="1186">a #GQuark</doc>
           <type name="GLib.Quark" c:type="GQuark"/>
         </return-value>
       </function>
@@ -8615,7 +8715,7 @@ but as of 1.6 they are always enabled.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-renderer.c"
-             line="710">Gets a global state value.
+             line="720">Gets a global state value.
 
 If the value has not been set with [method@VectorRenderer.set_global_state], the default
 defined in the style will be returned, or %NULL if no default is defined. Note that an
@@ -8626,20 +8726,20 @@ undefined value will return %NULL.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-renderer.c"
-               line="722">the state value, or %NULL if none is set</doc>
+               line="732">the state value, or %NULL if none is set</doc>
           <type name="VectorValue" c:type="ShumateVectorValue*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-renderer.c"
-                 line="712">a [class@VectorRenderer]</doc>
+                 line="722">a [class@VectorRenderer]</doc>
             <type name="VectorRenderer" c:type="ShumateVectorRenderer*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-renderer.c"
-                 line="713">the state key</doc>
+                 line="723">the state key</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -8673,7 +8773,7 @@ undefined value will return %NULL.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-renderer.c"
-             line="751">Resets a global state value to the default defined in the style, or to null
+             line="761">Resets a global state value to the default defined in the style, or to null
 if no default is defined.</doc>
         <source-position filename="shumate/shumate-vector-renderer.h"
                          line="58"/>
@@ -8684,13 +8784,13 @@ if no default is defined.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-renderer.c"
-                 line="753">a [class@VectorRenderer]</doc>
+                 line="763">a [class@VectorRenderer]</doc>
             <type name="VectorRenderer" c:type="ShumateVectorRenderer*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-renderer.c"
-                 line="754">the state key</doc>
+                 line="764">the state key</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -8739,7 +8839,7 @@ will have no effect.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-renderer.c"
-             line="673">Sets a global state value.
+             line="676">Sets a global state value.
 
 Global state can be accessed in the stylesheet through the "global-state" expression operator.
 This allows styles to provide options that can be configured without changing the style JSON.
@@ -8754,19 +8854,19 @@ Previously rendered tiles are not affected by changes to global state and must b
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-renderer.c"
-                 line="675">a [class@VectorRenderer]</doc>
+                 line="678">a [class@VectorRenderer]</doc>
             <type name="VectorRenderer" c:type="ShumateVectorRenderer*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-renderer.c"
-                 line="676">the state key</doc>
+                 line="679">the state key</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-renderer.c"
-                 line="677">the state value</doc>
+                 line="680">the state value</doc>
             <type name="VectorValue" c:type="ShumateVectorValue*"/>
           </parameter>
         </parameters>
@@ -9471,19 +9571,19 @@ it generated will be cleared.
                    version="1.6">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-value.c"
-             line="104">Creates a new [struct@VectorValue] with a boolean value.</doc>
+             line="110">Creates a new [struct@VectorValue] with a boolean value.</doc>
         <source-position filename="shumate/shumate-vector-value.h" line="63"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-value.c"
-               line="110">a new [struct@VectorValue] with the given boolean value</doc>
+               line="116">a new [struct@VectorValue] with the given boolean value</doc>
           <type name="VectorValue" c:type="ShumateVectorValue*"/>
         </return-value>
         <parameters>
           <parameter name="boolean" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-value.c"
-                 line="106">a boolean value</doc>
+                 line="112">a boolean value</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -9493,19 +9593,19 @@ it generated will be cleared.
                    version="1.6">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-value.c"
-             line="121">Creates a new [struct@VectorValue] with a color value.</doc>
+             line="127">Creates a new [struct@VectorValue] with a color value.</doc>
         <source-position filename="shumate/shumate-vector-value.h" line="64"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-value.c"
-               line="127">a new [struct@VectorValue] with the given color value</doc>
+               line="133">a new [struct@VectorValue] with the given color value</doc>
           <type name="VectorValue" c:type="ShumateVectorValue*"/>
         </return-value>
         <parameters>
           <parameter name="color" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-value.c"
-                 line="123">a [struct@Gdk.RGBA]</doc>
+                 line="129">a [struct@Gdk.RGBA]</doc>
             <type name="Gdk.RGBA" c:type="const GdkRGBA*"/>
           </parameter>
         </parameters>
@@ -9515,12 +9615,13 @@ it generated will be cleared.
                    version="1.6">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-value.c"
-             line="53">Creates a new [struct@VectorValue] from a [struct@GObject.Value].</doc>
+             line="53">Creates a new [struct@VectorValue] from a [struct@GObject.Value]. Returns
+`NULL` if the GValue does not contain a compatible value.</doc>
         <source-position filename="shumate/shumate-vector-value.h" line="60"/>
-        <return-value transfer-ownership="full">
+        <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-value.c"
-               line="59">a new [struct@VectorValue] with the value from @value</doc>
+               line="60">a new [struct@VectorValue] with the value from @value</doc>
           <type name="VectorValue" c:type="ShumateVectorValue*"/>
         </return-value>
         <parameters>
@@ -9537,19 +9638,19 @@ it generated will be cleared.
                    version="1.6">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-value.c"
-             line="70">Creates a new [struct@VectorValue] with a number value.</doc>
+             line="76">Creates a new [struct@VectorValue] with a number value.</doc>
         <source-position filename="shumate/shumate-vector-value.h" line="62"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-value.c"
-               line="76">a new [struct@VectorValue] with the given number value</doc>
+               line="82">a new [struct@VectorValue] with the given number value</doc>
           <type name="VectorValue" c:type="ShumateVectorValue*"/>
         </return-value>
         <parameters>
           <parameter name="number" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-value.c"
-                 line="72">a number value</doc>
+                 line="78">a number value</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>
@@ -9559,19 +9660,19 @@ it generated will be cleared.
                    version="1.6">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-value.c"
-             line="87">Creates a new [struct@VectorValue] with a string value.</doc>
+             line="93">Creates a new [struct@VectorValue] with a string value.</doc>
         <source-position filename="shumate/shumate-vector-value.h" line="61"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-value.c"
-               line="93">a new [struct@VectorValue] with the given string value</doc>
+               line="99">a new [struct@VectorValue] with the given string value</doc>
           <type name="VectorValue" c:type="ShumateVectorValue*"/>
         </return-value>
         <parameters>
           <parameter name="string" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-value.c"
-                 line="89">a string value</doc>
+                 line="95">a string value</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -9581,7 +9682,7 @@ it generated will be cleared.
               version="1.6">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-value.c"
-             line="564">Appends @element to the array value of @self. The value of @element is copied.</doc>
+             line="570">Appends @element to the array value of @self. The value of @element is copied.</doc>
         <source-position filename="shumate/shumate-vector-value.h" line="89"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9590,13 +9691,13 @@ it generated will be cleared.
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-value.c"
-                 line="566">an array [struct@VectorValue]</doc>
+                 line="572">an array [struct@VectorValue]</doc>
             <type name="VectorValue" c:type="ShumateVectorValue*"/>
           </instance-parameter>
           <parameter name="element" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-value.c"
-                 line="567">a [struct@VectorValue] to append to the array</doc>
+                 line="573">a [struct@VectorValue] to append to the array</doc>
             <type name="VectorValue" c:type="ShumateVectorValue*"/>
           </parameter>
         </parameters>
@@ -9604,19 +9705,19 @@ it generated will be cleared.
       <method name="dup" c:identifier="shumate_vector_value_dup" version="1.6">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-value.c"
-             line="335">Creates a duplicate of @self.</doc>
+             line="341">Creates a duplicate of @self.</doc>
         <source-position filename="shumate/shumate-vector-value.h" line="69"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-value.c"
-               line="341">a new [struct@VectorValue] which is a duplicate of @self</doc>
+               line="347">a new [struct@VectorValue] which is a duplicate of @self</doc>
           <type name="VectorValue" c:type="ShumateVectorValue*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-value.c"
-                 line="337">a [struct@VectorValue]</doc>
+                 line="343">a [struct@VectorValue]</doc>
             <type name="VectorValue" c:type="ShumateVectorValue*"/>
           </instance-parameter>
         </parameters>
@@ -9626,25 +9727,33 @@ it generated will be cleared.
               version="1.6">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-value.c"
-             line="713">Compares two [struct@VectorValue]s for equality.</doc>
+             line="719">Compares two [struct@VectorValue]s for equality.
+
+Either argument may be `NULL`, which is treated as equal to a [struct@VectorValue] of type [enum@Shumate.VectorValueType.NULL].</doc>
         <source-position filename="shumate/shumate-vector-value.h" line="91"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-value.c"
-               line="720">%TRUE if @a and @b are equal, %FALSE otherwise</doc>
+               line="728">%TRUE if @a and @b are equal, %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
-          <instance-parameter name="a" transfer-ownership="none">
+          <instance-parameter name="a"
+                              transfer-ownership="none"
+                              nullable="1"
+                              allow-none="1">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-value.c"
-                 line="715">a [struct@VectorValue]</doc>
+                 line="721">a [struct@VectorValue]</doc>
             <type name="VectorValue" c:type="ShumateVectorValue*"/>
           </instance-parameter>
-          <parameter name="b" transfer-ownership="none">
+          <parameter name="b"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-value.c"
-                 line="716">a [struct@VectorValue]</doc>
+                 line="722">a [struct@VectorValue]</doc>
             <type name="VectorValue" c:type="ShumateVectorValue*"/>
           </parameter>
         </parameters>
@@ -9654,7 +9763,7 @@ it generated will be cleared.
               version="1.6">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-value.c"
-             line="226">Frees a [struct@VectorValue].</doc>
+             line="232">Frees a [struct@VectorValue].</doc>
         <source-position filename="shumate/shumate-vector-value.h" line="66"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9663,7 +9772,7 @@ it generated will be cleared.
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-value.c"
-                 line="228">a [struct@VectorValue]</doc>
+                 line="234">a [struct@VectorValue]</doc>
             <type name="VectorValue" c:type="ShumateVectorValue*"/>
           </instance-parameter>
         </parameters>
@@ -9673,19 +9782,19 @@ it generated will be cleared.
               version="1.6">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-value.c"
-             line="426">Gets the boolean value of @self.</doc>
+             line="432">Gets the boolean value of @self.</doc>
         <source-position filename="shumate/shumate-vector-value.h" line="83"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-value.c"
-               line="433">%TRUE if @self is a boolean value and @boolean was set, %FALSE otherwise</doc>
+               line="439">%TRUE if @self is a boolean value and @boolean was set, %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-value.c"
-                 line="428">a [struct@VectorValue]</doc>
+                 line="434">a [struct@VectorValue]</doc>
             <type name="VectorValue" c:type="ShumateVectorValue*"/>
           </instance-parameter>
           <parameter name="boolean"
@@ -9694,7 +9803,7 @@ it generated will be cleared.
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-value.c"
-                 line="429">a location to store the boolean value</doc>
+                 line="435">a location to store the boolean value</doc>
             <type name="gboolean" c:type="gboolean*"/>
           </parameter>
         </parameters>
@@ -9704,21 +9813,21 @@ it generated will be cleared.
               version="1.6">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-value.c"
-             line="505">Gets the color value of @self.
+             line="511">Gets the color value of @self.
 
 If @self is a string value, it will attempt to parse the string as a color.</doc>
         <source-position filename="shumate/shumate-vector-value.h" line="86"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-value.c"
-               line="514">%TRUE if @self is a color value and @color was set, %FALSE otherwise</doc>
+               line="520">%TRUE if @self is a color value and @color was set, %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-value.c"
-                 line="507">a [struct@VectorValue]</doc>
+                 line="513">a [struct@VectorValue]</doc>
             <type name="VectorValue" c:type="ShumateVectorValue*"/>
           </instance-parameter>
           <parameter name="color"
@@ -9727,7 +9836,7 @@ If @self is a string value, it will attempt to parse the string as a color.</doc
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-value.c"
-                 line="508">a location to store the color value</doc>
+                 line="514">a location to store the color value</doc>
             <type name="Gdk.RGBA" c:type="GdkRGBA*"/>
           </parameter>
         </parameters>
@@ -9737,19 +9846,19 @@ If @self is a string value, it will attempt to parse the string as a color.</doc
               version="1.6">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-value.c"
-             line="387">Gets the number value of @self.</doc>
+             line="393">Gets the number value of @self.</doc>
         <source-position filename="shumate/shumate-vector-value.h" line="77"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-value.c"
-               line="394">%TRUE if @self is a number value and @number was set, %FALSE otherwise</doc>
+               line="400">%TRUE if @self is a number value and @number was set, %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-value.c"
-                 line="389">a [struct@VectorValue]</doc>
+                 line="395">a [struct@VectorValue]</doc>
             <type name="VectorValue" c:type="ShumateVectorValue*"/>
           </instance-parameter>
           <parameter name="number"
@@ -9758,7 +9867,7 @@ If @self is a string value, it will attempt to parse the string as a color.</doc
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-value.c"
-                 line="390">a location to store the number value</doc>
+                 line="396">a location to store the number value</doc>
             <type name="gdouble" c:type="double*"/>
           </parameter>
         </parameters>
@@ -9768,19 +9877,19 @@ If @self is a string value, it will attempt to parse the string as a color.</doc
               version="1.6">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-value.c"
-             line="466">Gets the string value of @self.</doc>
+             line="472">Gets the string value of @self.</doc>
         <source-position filename="shumate/shumate-vector-value.h" line="80"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-value.c"
-               line="473">%TRUE if @self is a string value and @string was set, %FALSE otherwise</doc>
+               line="479">%TRUE if @self is a string value and @string was set, %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-value.c"
-                 line="468">a [struct@VectorValue]</doc>
+                 line="474">a [struct@VectorValue]</doc>
             <type name="VectorValue" c:type="ShumateVectorValue*"/>
           </instance-parameter>
           <parameter name="string"
@@ -9790,7 +9899,7 @@ If @self is a string value, it will attempt to parse the string as a color.</doc
                      nullable="1">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-value.c"
-                 line="469">a location to store the string value</doc>
+                 line="475">a location to store the string value</doc>
             <type name="utf8" c:type="const char**"/>
           </parameter>
         </parameters>
@@ -9800,19 +9909,19 @@ If @self is a string value, it will attempt to parse the string as a color.</doc
               version="1.6">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-value.c"
-             line="353">Gets the type of value stored in @self.</doc>
+             line="359">Gets the type of value stored in @self.</doc>
         <source-position filename="shumate/shumate-vector-value.h" line="71"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-value.c"
-               line="359">the type of @self</doc>
+               line="365">the type of @self</doc>
           <type name="VectorValueType" c:type="ShumateVectorValueType"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-value.c"
-                 line="355">a [struct@VectorValue]</doc>
+                 line="361">a [struct@VectorValue]</doc>
             <type name="VectorValue" c:type="ShumateVectorValue*"/>
           </instance-parameter>
         </parameters>
@@ -9822,19 +9931,19 @@ If @self is a string value, it will attempt to parse the string as a color.</doc
               version="1.6">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-value.c"
-             line="668">Calculates a hash value for @self.</doc>
+             line="674">Calculates a hash value for @self.</doc>
         <source-position filename="shumate/shumate-vector-value.h" line="92"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-value.c"
-               line="674">a hash value for @self</doc>
+               line="680">a hash value for @self</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-value.c"
-                 line="670">a [struct@VectorValue]</doc>
+                 line="676">a [struct@VectorValue]</doc>
             <type name="VectorValue" c:type="ShumateVectorValue*"/>
           </instance-parameter>
         </parameters>
@@ -9844,19 +9953,19 @@ If @self is a string value, it will attempt to parse the string as a color.</doc
               version="1.6">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-value.c"
-             line="280">Checks if @self is a null value.</doc>
+             line="286">Checks if @self is a null value.</doc>
         <source-position filename="shumate/shumate-vector-value.h" line="73"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="shumate/shumate-vector-value.c"
-               line="286">%TRUE if @self is a null value, %FALSE otherwise</doc>
+               line="292">%TRUE if @self is a null value, %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-value.c"
-                 line="282">a [struct@VectorValue]</doc>
+                 line="288">a [struct@VectorValue]</doc>
             <type name="VectorValue" c:type="ShumateVectorValue*"/>
           </instance-parameter>
         </parameters>
@@ -9866,7 +9975,7 @@ If @self is a string value, it will attempt to parse the string as a color.</doc
               version="1.6">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-value.c"
-             line="408">Sets @self to a boolean value.</doc>
+             line="414">Sets @self to a boolean value.</doc>
         <source-position filename="shumate/shumate-vector-value.h" line="82"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9875,13 +9984,13 @@ If @self is a string value, it will attempt to parse the string as a color.</doc
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-value.c"
-                 line="410">a [struct@VectorValue]</doc>
+                 line="416">a [struct@VectorValue]</doc>
             <type name="VectorValue" c:type="ShumateVectorValue*"/>
           </instance-parameter>
           <parameter name="boolean" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-value.c"
-                 line="411">a boolean value</doc>
+                 line="417">a boolean value</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -9891,7 +10000,7 @@ If @self is a string value, it will attempt to parse the string as a color.</doc
               version="1.6">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-value.c"
-             line="487">Sets @self to a color value.</doc>
+             line="493">Sets @self to a color value.</doc>
         <source-position filename="shumate/shumate-vector-value.h" line="85"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9900,13 +10009,13 @@ If @self is a string value, it will attempt to parse the string as a color.</doc
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-value.c"
-                 line="489">a [struct@VectorValue]</doc>
+                 line="495">a [struct@VectorValue]</doc>
             <type name="VectorValue" c:type="ShumateVectorValue*"/>
           </instance-parameter>
           <parameter name="color" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-value.c"
-                 line="490">a [struct@Gdk.RGBA]</doc>
+                 line="496">a [struct@Gdk.RGBA]</doc>
             <type name="Gdk.RGBA" c:type="const GdkRGBA*"/>
           </parameter>
         </parameters>
@@ -9916,7 +10025,7 @@ If @self is a string value, it will attempt to parse the string as a color.</doc
               version="1.6">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-value.c"
-             line="369">Sets @self to a number value.</doc>
+             line="375">Sets @self to a number value.</doc>
         <source-position filename="shumate/shumate-vector-value.h" line="76"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9925,13 +10034,13 @@ If @self is a string value, it will attempt to parse the string as a color.</doc
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-value.c"
-                 line="371">a [struct@VectorValue]</doc>
+                 line="377">a [struct@VectorValue]</doc>
             <type name="VectorValue" c:type="ShumateVectorValue*"/>
           </instance-parameter>
           <parameter name="number" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-value.c"
-                 line="372">a number value</doc>
+                 line="378">a number value</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>
@@ -9941,7 +10050,7 @@ If @self is a string value, it will attempt to parse the string as a color.</doc
               version="1.6">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-value.c"
-             line="447">Sets @self to a string value.</doc>
+             line="453">Sets @self to a string value.</doc>
         <source-position filename="shumate/shumate-vector-value.h" line="79"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9950,13 +10059,13 @@ If @self is a string value, it will attempt to parse the string as a color.</doc
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-value.c"
-                 line="449">a [struct@VectorValue]</doc>
+                 line="455">a [struct@VectorValue]</doc>
             <type name="VectorValue" c:type="ShumateVectorValue*"/>
           </instance-parameter>
           <parameter name="string" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-value.c"
-                 line="450">a string value</doc>
+                 line="456">a string value</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -9966,7 +10075,7 @@ If @self is a string value, it will attempt to parse the string as a color.</doc
               version="1.6">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-value.c"
-             line="547">Sets @self to an empty array value.</doc>
+             line="553">Sets @self to an empty array value.</doc>
         <source-position filename="shumate/shumate-vector-value.h" line="88"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9975,7 +10084,7 @@ If @self is a string value, it will attempt to parse the string as a color.</doc
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-value.c"
-                 line="549">a [struct@VectorValue]</doc>
+                 line="555">a [struct@VectorValue]</doc>
             <type name="VectorValue" c:type="ShumateVectorValue*"/>
           </instance-parameter>
         </parameters>
@@ -9985,7 +10094,7 @@ If @self is a string value, it will attempt to parse the string as a color.</doc
               version="1.6">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-value.c"
-             line="242">Sets @self to a null value.</doc>
+             line="248">Sets @self to a null value.</doc>
         <source-position filename="shumate/shumate-vector-value.h" line="74"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9994,7 +10103,7 @@ If @self is a string value, it will attempt to parse the string as a color.</doc
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="shumate/shumate-vector-value.c"
-                 line="244">a [struct@VectorValue]</doc>
+                 line="250">a [struct@VectorValue]</doc>
             <type name="VectorValue" c:type="ShumateVectorValue*"/>
           </instance-parameter>
         </parameters>
@@ -10598,7 +10707,7 @@ an application was linked to.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="shumate/shumate-vector-renderer.c"
-             line="1161">a #GQuark</doc>
+             line="1186">a #GQuark</doc>
         <type name="GLib.Quark" c:type="GQuark"/>
       </return-value>
     </function>

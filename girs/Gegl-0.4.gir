@@ -4651,7 +4651,7 @@ Returns the number of points for the coordinates in the curve.</doc>
                        line="36"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="68" c:type="GEGL_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="70" c:type="GEGL_MICRO_VERSION">
       <source-position filename="gegl/gegl-version.h" line="38"/>
       <type name="gint" c:type="gint"/>
     </constant>

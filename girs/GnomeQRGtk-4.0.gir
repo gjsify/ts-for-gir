@@ -1,0 +1,350 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GnomeQR" version="4.0"/>
+  <include name="Gtk" version="4.0"/>
+  <package name="gnome-qr-gtk-4"/>
+  <doc:format name="unknown"/>
+  <namespace name="GnomeQRGtk"
+             version="4.0"
+             shared-library="libgnome-qr-gtk-4.so.0"
+             c:identifier-prefixes="GnomeQr"
+             c:symbol-prefixes="gnome_qr">
+    <class name="Widget"
+           c:symbol-prefix="widget"
+           c:type="GnomeQrWidget"
+           parent="Gtk.Widget"
+           final="1"
+           glib:type-name="GnomeQrWidget"
+           glib:get-type="gnome_qr_widget_get_type"
+           glib:type-struct="WidgetClass">
+      <doc xml:space="preserve"
+           filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.c"
+           line="31">The `GnomeQrWidget` widget displays a rendered QR Code.
+
+## CSS nodes
+
+`GnomeQrWidget` has a single CSS node with the name `gnome-qr-code`.
+It can be themed using the `color` and `background-color` properties.
+
+## Accessibility
+
+`GnomeQrWidget` uses the `GTK_ACCESSIBLE_ROLE_IMG` role.</doc>
+      <source-position filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.h"
+                       line="31"/>
+      <implements name="Gtk.Accessible"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.ConstraintTarget"/>
+      <constructor name="new" c:identifier="gnome_qr_widget_new">
+        <doc xml:space="preserve"
+             filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.c"
+             line="296">Creates a new #GnomeQrWidget.</doc>
+        <source-position filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.h"
+                         line="33"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.c"
+               line="302">a new #GnomeQrWidget</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="text"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.c"
+                 line="298">the text to encode in the QR code</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_alternative_text"
+              c:identifier="gnome_qr_widget_get_alternative_text"
+              glib:get-property="alternative-text">
+        <doc xml:space="preserve"
+             filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.c"
+             line="451">Gets the alternative textual description of the QR code.
+
+The returned string will be %NULL if the qr code cannot be described textually.</doc>
+        <source-position filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.h"
+                         line="43"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.c"
+               line="459">the alternative textual description of @self.</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.c"
+                 line="453">a #GnomeQrWidget</doc>
+            <type name="Widget" c:type="GnomeQrWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_ecc_level"
+              c:identifier="gnome_qr_widget_get_ecc_level"
+              glib:get-property="ecc-level">
+        <doc xml:space="preserve"
+             filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.c"
+             line="539">Gets the current error correction level of the QR code.</doc>
+        <source-position filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.h"
+                         line="53"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.c"
+               line="545">the error correction level</doc>
+          <type name="GnomeQR.EccLevel" c:type="GnomeQrEccLevel"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.c"
+                 line="541">a #GnomeQrWidget</doc>
+            <type name="Widget" c:type="GnomeQrWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_size"
+              c:identifier="gnome_qr_widget_get_size"
+              glib:get-property="size">
+        <doc xml:space="preserve"
+             filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.c"
+             line="498">Gets the current natural size of the widget.</doc>
+        <source-position filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.h"
+                         line="48"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.c"
+               line="504">the size in pixels</doc>
+          <type name="gsize" c:type="size_t"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.c"
+                 line="500">a #GnomeQrWidget</doc>
+            <type name="Widget" c:type="GnomeQrWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_text"
+              c:identifier="gnome_qr_widget_get_text"
+              glib:get-property="text">
+        <doc xml:space="preserve"
+             filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.c"
+             line="401">Gets the text currently encoded in the QR code.</doc>
+        <source-position filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.h"
+                         line="38"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.c"
+               line="407">the text being encoded, or %NULL if none is set</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.c"
+                 line="403">a #GnomeQrWidget</doc>
+            <type name="Widget" c:type="GnomeQrWidget*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_alternative_text"
+              c:identifier="gnome_qr_widget_set_alternative_text"
+              glib:set-property="alternative-text">
+        <doc xml:space="preserve"
+             filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.c"
+             line="417">Sets an alternative textual description for the QR Code contents.
+
+It is equivalent to the “alt” attribute for images on websites.
+
+This text will be made available to accessibility tools.
+
+If the QR code cannot be described textually, set this property to NULL.
+
+By default, this is set to "QR Code".</doc>
+        <source-position filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.h"
+                         line="40"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.c"
+                 line="419">a #GnomeQrWidget</doc>
+            <type name="Widget" c:type="GnomeQrWidget*"/>
+          </instance-parameter>
+          <parameter name="alternative_text"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.c"
+                 line="420">the alternative text description for the QR code</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_ecc_level"
+              c:identifier="gnome_qr_widget_set_ecc_level"
+              glib:set-property="ecc-level">
+        <doc xml:space="preserve"
+             filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.c"
+             line="514">Sets the error correction level for the QR code.
+
+Higher error correction levels provide better recovery from damage
+or obscured areas, but result in larger QR codes with more modules.</doc>
+        <source-position filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.h"
+                         line="50"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.c"
+                 line="516">a #GnomeQrWidget</doc>
+            <type name="Widget" c:type="GnomeQrWidget*"/>
+          </instance-parameter>
+          <parameter name="ecc" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.c"
+                 line="517">the error correction level</doc>
+            <type name="GnomeQR.EccLevel" c:type="GnomeQrEccLevel"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_size"
+              c:identifier="gnome_qr_widget_set_size"
+              glib:set-property="size">
+        <doc xml:space="preserve"
+             filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.c"
+             line="469">Sets the natural and minimum size (width and height) of the widget.
+
+The QR code will be rendered to fit within this size while
+maintaining its aspect ratio (square).
+
+If the size is smaller than the minimum size of the QR code, it will
+be ignored and the QR code will be rendered at its minimum size
+(1 pixel per block).</doc>
+        <source-position filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.h"
+                         line="45"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.c"
+                 line="471">a #GnomeQrWidget</doc>
+            <type name="Widget" c:type="GnomeQrWidget*"/>
+          </instance-parameter>
+          <parameter name="size" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.c"
+                 line="472">the size in pixels for the widget's natural and minimum size</doc>
+            <type name="gsize" c:type="size_t"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_text"
+              c:identifier="gnome_qr_widget_set_text"
+              glib:set-property="text">
+        <doc xml:space="preserve"
+             filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.c"
+             line="372">Sets the text to be encoded in the QR code.
+
+If @text is %NULL or empty, the QR code will not be displayed.</doc>
+        <source-position filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.h"
+                         line="35"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.c"
+                 line="374">a #GnomeQrWidget</doc>
+            <type name="Widget" c:type="GnomeQrWidget*"/>
+          </instance-parameter>
+          <parameter name="text"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.c"
+                 line="375">the text to encode in the QR code</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="alternative-text"
+                writable="1"
+                construct="1"
+                transfer-ownership="none"
+                setter="set_alternative_text"
+                getter="get_alternative_text"
+                default-value="QR Code">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="ecc-level"
+                writable="1"
+                construct="1"
+                transfer-ownership="none"
+                setter="set_ecc_level"
+                getter="get_ecc_level"
+                default-value="GNOME_QR_ECC_LEVEL_MEDIUM">
+        <type name="GnomeQR.EccLevel"/>
+      </property>
+      <property name="size"
+                writable="1"
+                construct="1"
+                transfer-ownership="none"
+                setter="set_size"
+                getter="get_size"
+                default-value="0">
+        <type name="guint64" c:type="guint64"/>
+      </property>
+      <property name="text"
+                writable="1"
+                construct="1"
+                transfer-ownership="none"
+                setter="set_text"
+                getter="get_text"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <glib:signal name="changed" when="first">
+        <doc xml:space="preserve"
+             filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.c"
+             line="241">Emitted when the QR code texture has been regenerated.
+
+This signal is emitted after the widget's text or error correction
+level changes and the new QR code has been successfully  generated.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="WidgetClass"
+            c:type="GnomeQrWidgetClass"
+            glib:is-gtype-struct-for="Widget">
+      <source-position filename="libgnome-desktop/gnome-qr-gtk/gnome-qr-widget.h"
+                       line="31"/>
+      <field name="parent_class">
+        <type name="Gtk.WidgetClass" c:type="GtkWidgetClass"/>
+      </field>
+    </record>
+  </namespace>
+</repository>

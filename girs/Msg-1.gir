@@ -1005,31 +1005,31 @@ Details: https://learn.microsoft.com/en-us/graph/api/resources/drive?view=graph-
               throws="1">
         <doc xml:space="preserve"
              filename="src/drive/msg-drive-service.c"
-             line="713">Adds item to parent folder</doc>
+             line="757">Adds item to parent folder</doc>
         <source-position filename="src/drive/msg-drive-service.h" line="104"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/drive/msg-drive-service.c"
-               line="723">a new drive item</doc>
+               line="767">a new drive item</doc>
           <type name="DriveItem" c:type="MsgDriveItem*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="715">a msg drive service</doc>
+                 line="759">a msg drive service</doc>
             <type name="DriveService" c:type="MsgDriveService*"/>
           </instance-parameter>
           <parameter name="parent" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="716">parent drive item</doc>
+                 line="760">parent drive item</doc>
             <type name="DriveItem" c:type="MsgDriveItem*"/>
           </parameter>
           <parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="717">drive item to add</doc>
+                 line="761">drive item to add</doc>
             <type name="DriveItem" c:type="MsgDriveItem*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1038,7 +1038,7 @@ Details: https://learn.microsoft.com/en-us/graph/api/resources/drive?view=graph-
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="718">a cancellable</doc>
+                 line="762">a cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -1048,31 +1048,31 @@ Details: https://learn.microsoft.com/en-us/graph/api/resources/drive?view=graph-
               throws="1">
         <doc xml:space="preserve"
              filename="src/drive/msg-drive-service.c"
-             line="837">Copy a file async on remote server to a new directory.</doc>
+             line="881">Copy a file async on remote server to a new directory.</doc>
         <source-position filename="src/drive/msg-drive-service.h" line="116"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/drive/msg-drive-service.c"
-               line="847">%TRUE if accepted, %FALSE on error</doc>
+               line="891">%TRUE if accepted, %FALSE on error</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="839">#MsgDriveService</doc>
+                 line="883">#MsgDriveService</doc>
             <type name="DriveService" c:type="MsgDriveService*"/>
           </instance-parameter>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="840">source #MsgDriveItem</doc>
+                 line="884">source #MsgDriveItem</doc>
             <type name="DriveItem" c:type="MsgDriveItem*"/>
           </parameter>
           <parameter name="destination" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="841">destination directory #MsgDriveItem</doc>
+                 line="885">destination directory #MsgDriveItem</doc>
             <type name="DriveItem" c:type="MsgDriveItem*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1081,7 +1081,7 @@ Details: https://learn.microsoft.com/en-us/graph/api/resources/drive?view=graph-
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="842">a #GCancellable</doc>
+                 line="886">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -1091,31 +1091,31 @@ Details: https://learn.microsoft.com/en-us/graph/api/resources/drive?view=graph-
               throws="1">
         <doc xml:space="preserve"
              filename="src/drive/msg-drive-service.c"
-             line="479">Creates a new folder called name under parent.</doc>
+             line="523">Creates a new folder called name under parent.</doc>
         <source-position filename="src/drive/msg-drive-service.h" line="78"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/drive/msg-drive-service.c"
-               line="489">a newly created `MsgDriveItem`</doc>
+               line="533">a newly created `MsgDriveItem`</doc>
           <type name="DriveItem" c:type="MsgDriveItem*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="481">a drive service</doc>
+                 line="525">a drive service</doc>
             <type name="DriveService" c:type="MsgDriveService*"/>
           </instance-parameter>
           <parameter name="parent" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="482">parent drive item</doc>
+                 line="526">parent drive item</doc>
             <type name="DriveItem" c:type="MsgDriveItem*"/>
           </parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="483">name of new folder</doc>
+                 line="527">name of new folder</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1124,7 +1124,7 @@ Details: https://learn.microsoft.com/en-us/graph/api/resources/drive?view=graph-
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="484">a cancellable</doc>
+                 line="528">a cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -1132,25 +1132,25 @@ Details: https://learn.microsoft.com/en-us/graph/api/resources/drive?view=graph-
       <method name="delete" c:identifier="msg_drive_service_delete" throws="1">
         <doc xml:space="preserve"
              filename="src/drive/msg-drive-service.c"
-             line="552">Deletes item.</doc>
+             line="596">Deletes item.</doc>
         <source-position filename="src/drive/msg-drive-service.h" line="85"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/drive/msg-drive-service.c"
-               line="561">%TRUE when item has been deleted, otherwise %FALSE</doc>
+               line="605">%TRUE when item has been deleted, otherwise %FALSE</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="554">a drive service</doc>
+                 line="598">a drive service</doc>
             <type name="DriveService" c:type="MsgDriveService*"/>
           </instance-parameter>
           <parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="555">a #MsgDriveItem</doc>
+                 line="599">a #MsgDriveItem</doc>
             <type name="DriveItem" c:type="MsgDriveItem*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1159,7 +1159,7 @@ Details: https://learn.microsoft.com/en-us/graph/api/resources/drive?view=graph-
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="556">a cancellable</doc>
+                 line="600">a cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -1169,25 +1169,25 @@ Details: https://learn.microsoft.com/en-us/graph/api/resources/drive?view=graph-
               throws="1">
         <doc xml:space="preserve"
              filename="src/drive/msg-drive-service.c"
-             line="256">Download item</doc>
+             line="300">Download item</doc>
         <source-position filename="src/drive/msg-drive-service.h" line="62"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/drive/msg-drive-service.c"
-               line="265">input stream of drive item</doc>
+               line="309">input stream of drive item</doc>
           <type name="Gio.InputStream" c:type="GInputStream*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="258">a #MsgDriveService</doc>
+                 line="302">a #MsgDriveService</doc>
             <type name="DriveService" c:type="MsgDriveService*"/>
           </instance-parameter>
           <parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="259">a #MsgDriveItem</doc>
+                 line="303">a #MsgDriveItem</doc>
             <type name="DriveItem" c:type="MsgDriveItem*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1196,7 +1196,7 @@ Details: https://learn.microsoft.com/en-us/graph/api/resources/drive?view=graph-
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="260">a #GCancellable</doc>
+                 line="304">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -1206,25 +1206,25 @@ Details: https://learn.microsoft.com/en-us/graph/api/resources/drive?view=graph-
               throws="1">
         <doc xml:space="preserve"
              filename="src/drive/msg-drive-service.c"
-             line="457">Download url</doc>
+             line="501">Download url</doc>
         <source-position filename="src/drive/msg-drive-service.h" line="56"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/drive/msg-drive-service.c"
-               line="466">a new `GInputStream` for url</doc>
+               line="510">a new `GInputStream` for url</doc>
           <type name="Gio.InputStream" c:type="GInputStream*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="459">a #MsgDriveService</doc>
+                 line="503">a #MsgDriveService</doc>
             <type name="DriveService" c:type="MsgDriveService*"/>
           </instance-parameter>
           <parameter name="url" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="460">url to download</doc>
+                 line="504">url to download</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1233,7 +1233,7 @@ Details: https://learn.microsoft.com/en-us/graph/api/resources/drive?view=graph-
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="461">a #GCancellable</doc>
+                 line="505">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -1243,12 +1243,12 @@ Details: https://learn.microsoft.com/en-us/graph/api/resources/drive?view=graph-
               throws="1">
         <doc xml:space="preserve"
              filename="src/drive/msg-drive-service.c"
-             line="156">Queries the Microsoft Graph API for all the drives of the currently logged in user</doc>
+             line="190">Queries the Microsoft Graph API for all the drives of the currently logged in user</doc>
         <source-position filename="src/drive/msg-drive-service.h" line="39"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/drive/msg-drive-service.c"
-               line="164">all drives the user can access</doc>
+               line="198">all drives the user can access</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Drive"/>
           </type>
@@ -1257,7 +1257,7 @@ Details: https://learn.microsoft.com/en-us/graph/api/resources/drive?view=graph-
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="158">a #MsgDriveService</doc>
+                 line="192">a #MsgDriveService</doc>
             <type name="DriveService" c:type="MsgDriveService*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -1266,7 +1266,7 @@ Details: https://learn.microsoft.com/en-us/graph/api/resources/drive?view=graph-
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="159">a #GCancellable</doc>
+                 line="193">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -1276,25 +1276,25 @@ Details: https://learn.microsoft.com/en-us/graph/api/resources/drive?view=graph-
               throws="1">
         <doc xml:space="preserve"
              filename="src/drive/msg-drive-service.c"
-             line="221">Get root item of selected drive</doc>
+             line="265">Get root item of selected drive</doc>
         <source-position filename="src/drive/msg-drive-service.h" line="44"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/drive/msg-drive-service.c"
-               line="230">root 'MsgDriveItem'</doc>
+               line="274">root 'MsgDriveItem'</doc>
           <type name="DriveItem" c:type="MsgDriveItem*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="223">a #MsgDriveService</doc>
+                 line="267">a #MsgDriveService</doc>
             <type name="DriveService" c:type="MsgDriveService*"/>
           </instance-parameter>
           <parameter name="drive" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="224">a #MsgDrive</doc>
+                 line="268">a #MsgDrive</doc>
             <type name="Drive" c:type="MsgDrive*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1303,7 +1303,7 @@ Details: https://learn.microsoft.com/en-us/graph/api/resources/drive?view=graph-
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="225">a #GCancellable</doc>
+                 line="269">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -1313,12 +1313,12 @@ Details: https://learn.microsoft.com/en-us/graph/api/resources/drive?view=graph-
               throws="1">
         <doc xml:space="preserve"
              filename="src/drive/msg-drive-service.c"
-             line="773">Requests all shared with me items</doc>
+             line="817">Requests all shared with me items</doc>
         <source-position filename="src/drive/msg-drive-service.h" line="111"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/drive/msg-drive-service.c"
-               line="781">shared with me list</doc>
+               line="825">shared with me list</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="DriveItem"/>
           </type>
@@ -1327,7 +1327,7 @@ Details: https://learn.microsoft.com/en-us/graph/api/resources/drive?view=graph-
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="775">a #MsgDriveService</doc>
+                 line="819">a #MsgDriveService</doc>
             <type name="DriveService" c:type="MsgDriveService*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -1336,7 +1336,7 @@ Details: https://learn.microsoft.com/en-us/graph/api/resources/drive?view=graph-
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="776">a #GCancellable</doc>
+                 line="820">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -1346,12 +1346,12 @@ Details: https://learn.microsoft.com/en-us/graph/api/resources/drive?view=graph-
               throws="1">
         <doc xml:space="preserve"
              filename="src/drive/msg-drive-service.c"
-             line="304">Get a list of all files in folder item</doc>
+             line="348">Get a list of all files in folder item</doc>
         <source-position filename="src/drive/msg-drive-service.h" line="50"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/drive/msg-drive-service.c"
-               line="313">all items in folder</doc>
+               line="357">all items in folder</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="DriveItem"/>
           </type>
@@ -1360,13 +1360,13 @@ Details: https://learn.microsoft.com/en-us/graph/api/resources/drive?view=graph-
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="306">a #MsgDriveService</doc>
+                 line="350">a #MsgDriveService</doc>
             <type name="DriveService" c:type="MsgDriveService*"/>
           </instance-parameter>
           <parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="307">a #MsgDriveItem</doc>
+                 line="351">a #MsgDriveItem</doc>
             <type name="DriveItem" c:type="MsgDriveItem*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1375,7 +1375,7 @@ Details: https://learn.microsoft.com/en-us/graph/api/resources/drive?view=graph-
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="308">a #GCancellable</doc>
+                 line="352">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -1385,31 +1385,31 @@ Details: https://learn.microsoft.com/en-us/graph/api/resources/drive?view=graph-
               throws="1">
         <doc xml:space="preserve"
              filename="src/drive/msg-drive-service.c"
-             line="908">Move a file async on remote server to a new directory.</doc>
+             line="952">Move a file async on remote server to a new directory.</doc>
         <source-position filename="src/drive/msg-drive-service.h" line="123"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/drive/msg-drive-service.c"
-               line="918">moved #MsgDriveItem</doc>
+               line="962">moved #MsgDriveItem</doc>
           <type name="DriveItem" c:type="MsgDriveItem*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="910">#MsgDriveService</doc>
+                 line="954">#MsgDriveService</doc>
             <type name="DriveService" c:type="MsgDriveService*"/>
           </instance-parameter>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="911">source #MsgDriveItem</doc>
+                 line="955">source #MsgDriveItem</doc>
             <type name="DriveItem" c:type="MsgDriveItem*"/>
           </parameter>
           <parameter name="destination" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="912">destination directory #MsgDriveItem</doc>
+                 line="956">destination directory #MsgDriveItem</doc>
             <type name="DriveItem" c:type="MsgDriveItem*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1418,7 +1418,7 @@ Details: https://learn.microsoft.com/en-us/graph/api/resources/drive?view=graph-
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="913">a #GCancellable</doc>
+                 line="957">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -1426,31 +1426,31 @@ Details: https://learn.microsoft.com/en-us/graph/api/resources/drive?view=graph-
       <method name="rename" c:identifier="msg_drive_service_rename" throws="1">
         <doc xml:space="preserve"
              filename="src/drive/msg-drive-service.c"
-             line="390">Sets a new drive item name</doc>
+             line="434">Sets a new drive item name</doc>
         <source-position filename="src/drive/msg-drive-service.h" line="70"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/drive/msg-drive-service.c"
-               line="400">the renamed `MsgDriveItem`</doc>
+               line="444">the renamed `MsgDriveItem`</doc>
           <type name="DriveItem" c:type="MsgDriveItem*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="392">a #MsgDriveService</doc>
+                 line="436">a #MsgDriveService</doc>
             <type name="DriveService" c:type="MsgDriveService*"/>
           </instance-parameter>
           <parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="393">a #MsgDriveItem</doc>
+                 line="437">a #MsgDriveItem</doc>
             <type name="DriveItem" c:type="MsgDriveItem*"/>
           </parameter>
           <parameter name="new_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="394">new name of item</doc>
+                 line="438">new name of item</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1459,7 +1459,7 @@ Details: https://learn.microsoft.com/en-us/graph/api/resources/drive?view=graph-
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="395">a #GCancellable</doc>
+                 line="439">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -1467,25 +1467,25 @@ Details: https://learn.microsoft.com/en-us/graph/api/resources/drive?view=graph-
       <method name="update" c:identifier="msg_drive_service_update" throws="1">
         <doc xml:space="preserve"
              filename="src/drive/msg-drive-service.c"
-             line="589">Creates an update stream for drive item in order to update it's content.</doc>
+             line="633">Creates an update stream for drive item in order to update it's content.</doc>
         <source-position filename="src/drive/msg-drive-service.h" line="91"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/drive/msg-drive-service.c"
-               line="598">an output stream</doc>
+               line="642">an output stream</doc>
           <type name="Gio.OutputStream" c:type="GOutputStream*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="591">a drive service</doc>
+                 line="635">a drive service</doc>
             <type name="DriveService" c:type="MsgDriveService*"/>
           </instance-parameter>
           <parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="592">a drive item</doc>
+                 line="636">a drive item</doc>
             <type name="DriveItem" c:type="MsgDriveItem*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1494,7 +1494,7 @@ Details: https://learn.microsoft.com/en-us/graph/api/resources/drive?view=graph-
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="593">a cancellable</doc>
+                 line="637">a cancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -1504,31 +1504,31 @@ Details: https://learn.microsoft.com/en-us/graph/api/resources/drive?view=graph-
               throws="1">
         <doc xml:space="preserve"
              filename="src/drive/msg-drive-service.c"
-             line="662">Finish a update session of given #item.</doc>
+             line="706">Finish a update session of given #item.</doc>
         <source-position filename="src/drive/msg-drive-service.h" line="97"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/drive/msg-drive-service.c"
-               line="672">a new #MsgDriveItem or %NULL on error.</doc>
+               line="716">a new #MsgDriveItem or %NULL on error.</doc>
           <type name="DriveItem" c:type="MsgDriveItem*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="664">a #MsgDriveService</doc>
+                 line="708">a #MsgDriveService</doc>
             <type name="DriveService" c:type="MsgDriveService*"/>
           </instance-parameter>
           <parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="665">a #MsgDriveItem</doc>
+                 line="709">a #MsgDriveItem</doc>
             <type name="DriveItem" c:type="MsgDriveItem*"/>
           </parameter>
           <parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="666">stream where data is store and needs to be transfered</doc>
+                 line="710">stream where data is store and needs to be transfered</doc>
             <type name="Gio.OutputStream" c:type="GOutputStream*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1537,7 +1537,7 @@ Details: https://learn.microsoft.com/en-us/graph/api/resources/drive?view=graph-
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/drive/msg-drive-service.c"
-                 line="667">a #GCancellable</doc>
+                 line="711">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>

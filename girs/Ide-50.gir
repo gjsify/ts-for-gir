@@ -2015,7 +2015,7 @@ ide_application_addin_load().</doc>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <constant name="BUILD_IDENTIFIER"
-              value="50.rc.1"
+              value="50.0"
               c:type="IDE_BUILD_IDENTIFIER">
       <doc xml:space="preserve"
            filename="src/libide/core/ide-build-ident.h"
@@ -78111,7 +78111,7 @@ ide_unsaved_file_ref() to increment its reference count.</doc>
       <source-position filename="src/libide/core/ide-version.h" line="69"/>
       <type name="gdouble" c:type="gdouble"/>
     </constant>
-    <constant name="VERSION_S" value="50.rc.1" c:type="IDE_VERSION_S">
+    <constant name="VERSION_S" value="50.0" c:type="IDE_VERSION_S">
       <doc xml:space="preserve"
            filename="src/libide/core/ide-version.h"
            line="71">libide version, encoded as a string, useful for printing and

@@ -5,10 +5,12 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Clutter" version="1.0"/>
   <package name="cally-1.0"/>
   <c:include name="cally/cally.h"/>
+  <doc:format name="unknown"/>
   <namespace name="Cally"
              version="1.0"
              shared-library="libclutter-1.0.so.0"
@@ -367,6 +369,9 @@ only private data</doc>
               c:type="AtkGObjectAccessibleClass"/>
       </field>
       <field name="notify_clutter">
+        <doc xml:space="preserve"
+             filename="cally-actor.h"
+             line="91">Signal handler for notify signal on Clutter actor</doc>
         <callback name="notify_clutter">
           <source-position filename="cally-actor.h" line="110"/>
           <return-value transfer-ownership="none">
@@ -383,6 +388,10 @@ only private data</doc>
         </callback>
       </field>
       <field name="focus_clutter">
+        <doc xml:space="preserve"
+             filename="cally-actor.h"
+             line="92">Signal handler for key-focus-in and key-focus-out
+  signal on Clutter actor. This virtual functions is deprecated.</doc>
         <callback name="focus_clutter">
           <source-position filename="cally-actor.h" line="113"/>
           <return-value transfer-ownership="none">
@@ -399,6 +408,10 @@ only private data</doc>
         </callback>
       </field>
       <field name="add_actor">
+        <doc xml:space="preserve"
+             filename="cally-actor.h"
+             line="94">Signal handler for actor-added signal on
+  ClutterContainer interface</doc>
         <callback name="add_actor">
           <source-position filename="cally-actor.h" line="116"/>
           <return-value transfer-ownership="none">
@@ -418,6 +431,10 @@ only private data</doc>
         </callback>
       </field>
       <field name="remove_actor">
+        <doc xml:space="preserve"
+             filename="cally-actor.h"
+             line="96">Signal handler for actor-added signal on
+  ClutterContainer interface</doc>
         <callback name="remove_actor">
           <source-position filename="cally-actor.h" line="120"/>
           <return-value transfer-ownership="none">

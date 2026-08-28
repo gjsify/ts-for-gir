@@ -5,11 +5,13 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <include name="GdkPixbuf" version="2.0"/>
   <include name="Gio" version="2.0"/>
   <package name="appstream-glib"/>
+  <doc:format name="unknown"/>
   <namespace name="AppStreamGlib"
              version="1.0"
              shared-library="libappstream-glib.so.8"
@@ -700,12 +702,12 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
       <constructor name="new" c:identifier="as_app_new" version="0.1.0">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="6758">Creates a new #AsApp.</doc>
+             line="6756">Creates a new #AsApp.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="463"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libappstream-glib/as-app.c"
-               line="6763">a #AsApp</doc>
+               line="6761">a #AsApp</doc>
           <type name="App" c:type="AsApp*"/>
         </return-value>
       </constructor>
@@ -942,7 +944,7 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
       <method name="add_addon" c:identifier="as_app_add_addon" version="0.1.7">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="3923">Adds a addon to an application.</doc>
+             line="3921">Adds an addon to an application.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="667"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -951,13 +953,13 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3925">a #AsApp instance.</doc>
+                 line="3923">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="addon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3926">a #AsApp instance.</doc>
+                 line="3924">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </parameter>
         </parameters>
@@ -967,7 +969,7 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
               version="0.7.8">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="3486">Adds a agreement to an application.</doc>
+             line="3484">Adds an agreement to an application.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="642"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -976,13 +978,13 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3488">a #AsApp instance.</doc>
+                 line="3486">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="agreement" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3489">a #AsAgreement instance.</doc>
+                 line="3487">a #AsAgreement instance.</doc>
             <type name="Agreement" c:type="AsAgreement*"/>
           </parameter>
         </parameters>
@@ -990,7 +992,7 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
       <method name="add_arch" c:identifier="as_app_add_arch" version="0.1.1">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="3751">Adds a package name to an application.</doc>
+             line="3749">Adds a package name to an application.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="628"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -999,13 +1001,13 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3753">a #AsApp instance.</doc>
+                 line="3751">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="arch" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3754">the package name.</doc>
+                 line="3752">the package name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1015,7 +1017,7 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
               version="0.3.5">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="3610">Adds a bundle to an application.</doc>
+             line="3608">Adds a bundle to an application.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="646"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1024,13 +1026,13 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3612">a #AsApp instance.</doc>
+                 line="3610">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="bundle" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3613">a #AsBundle instance.</doc>
+                 line="3611">a #AsBundle instance.</doc>
             <type name="Bundle" c:type="AsBundle*"/>
           </parameter>
         </parameters>
@@ -1040,7 +1042,7 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="2889">Adds a menu category to the application.</doc>
+             line="2887">Adds a menu category to the application.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="605"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1049,13 +1051,13 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="2891">a #AsApp instance.</doc>
+                 line="2889">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="category" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="2892">the category.</doc>
+                 line="2890">the category.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1065,7 +1067,7 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="2941">Adds a desktop that requires this application to be installed.</doc>
+             line="2939">Adds a desktop that requires this application to be installed.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="657"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1074,13 +1076,13 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="2943">a #AsApp instance.</doc>
+                 line="2941">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="compulsory_for_desktop" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="2944">the desktop string, e.g. "GNOME".</doc>
+                 line="2942">the desktop string, e.g. "GNOME".</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1090,7 +1092,7 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
               version="0.5.12">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="3458">Adds a content_rating to an application.</doc>
+             line="3456">Adds a content_rating to an application.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="640"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1099,13 +1101,13 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3460">a #AsApp instance.</doc>
+                 line="3458">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="content_rating" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3461">a #AsContentRating instance.</doc>
+                 line="3459">a #AsContentRating instance.</doc>
             <type name="ContentRating" c:type="AsContentRating*"/>
           </parameter>
         </parameters>
@@ -1115,7 +1117,7 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
               version="0.1.7">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="3891">Adds a parent ID to the application.</doc>
+             line="3889">Adds a parent ID to the application.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="669"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1124,13 +1126,13 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3893">a #AsApp instance.</doc>
+                 line="3891">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="extends" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3894">the full ID, e.g. "eclipse.desktop".</doc>
+                 line="3892">the full ID, e.g. "eclipse.desktop".</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1140,7 +1142,7 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
               version="0.6.9">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="3146">Add a format the application has been built from.</doc>
+             line="3144">Add a format the application has been built from.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="620"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1149,13 +1151,13 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3148">a #AsApp instance.</doc>
+                 line="3146">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="format" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3149">the #AsFormat.</doc>
+                 line="3147">the #AsFormat.</doc>
             <type name="Format" c:type="AsFormat*"/>
           </parameter>
         </parameters>
@@ -1163,7 +1165,7 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
       <method name="add_icon" c:identifier="as_app_add_icon" version="0.3.1">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="3548">Adds a icon to an application.</doc>
+             line="3546">Adds an icon to an application.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="644"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1172,13 +1174,13 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3550">a #AsApp instance.</doc>
+                 line="3548">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3551">a #AsIcon instance.</doc>
+                 line="3549">a #AsIcon instance.</doc>
             <type name="Icon" c:type="AsIcon*"/>
           </parameter>
         </parameters>
@@ -1188,7 +1190,7 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
               version="0.3.0">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="2999">Add a keyword the application should match against.</doc>
+             line="2997">Add a keyword the application should match against.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="609"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1197,7 +1199,7 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3001">a #AsApp instance.</doc>
+                 line="2999">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="locale"
@@ -1206,13 +1208,13 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3002">the locale. e.g. "en_GB"</doc>
+                 line="3000">the locale. e.g. "en_GB"</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="keyword" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3003">the keyword.</doc>
+                 line="3001">the keyword.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1220,7 +1222,7 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
       <method name="add_kudo" c:identifier="as_app_add_kudo" version="0.2.2">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="3036">Add a kudo the application has obtained.</doc>
+             line="3034">Add a kudo the application has obtained.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="612"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1229,13 +1231,13 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3038">a #AsApp instance.</doc>
+                 line="3036">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="kudo" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3039">the kudo.</doc>
+                 line="3037">the kudo.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1245,7 +1247,7 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
               version="0.2.2">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="3193">Add a kudo the application has obtained.</doc>
+             line="3191">Add a kudo the application has obtained.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="616"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1254,13 +1256,13 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3195">a #AsApp instance.</doc>
+                 line="3193">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="kudo_kind" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3196">the #AsKudoKind.</doc>
+                 line="3194">the #AsKudoKind.</doc>
             <type name="KudoKind" c:type="AsKudoKind"/>
           </parameter>
         </parameters>
@@ -1270,7 +1272,7 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="3781">Adds a language to the application.</doc>
+             line="3779">Adds a language to the application.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="654"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1279,13 +1281,13 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3783">a #AsApp instance.</doc>
+                 line="3781">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="percentage" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3784">the percentage completion of the translation, or 0 for unknown</doc>
+                 line="3782">the percentage completion of the translation, or 0 for unknown</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="locale"
@@ -1294,7 +1296,7 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3785">the locale. e.g. "en_GB"</doc>
+                 line="3783">the locale. e.g. "en_GB"</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1304,7 +1306,7 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
               version="0.6.13">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="3347">Adds a launchable to an application.</doc>
+             line="3345">Adds a launchable to an application.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="634"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1313,13 +1315,13 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3349">a #AsApp instance.</doc>
+                 line="3347">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="launchable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3350">a #AsLaunchable instance.</doc>
+                 line="3348">a #AsLaunchable instance.</doc>
             <type name="Launchable" c:type="AsLaunchable*"/>
           </parameter>
         </parameters>
@@ -1329,7 +1331,7 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="3844">Adds a metadata entry to the application.</doc>
+             line="3842">Adds a metadata entry to the application.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="662"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1338,13 +1340,13 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3846">a #AsApp instance.</doc>
+                 line="3844">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3847">the metadata key.</doc>
+                 line="3845">the metadata key.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value"
@@ -1353,7 +1355,7 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3848">the value to store.</doc>
+                 line="3846">the value to store.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1363,7 +1365,7 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="3209">Adds a mimetype the application can process.</doc>
+             line="3207">Adds a mimetype the application can process.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="624"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1372,13 +1374,13 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3211">a #AsApp instance.</doc>
+                 line="3209">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="mimetype" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3212">the mimetype.</doc>
+                 line="3210">the mimetype.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1388,7 +1390,7 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
               version="0.3.5">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="3086">Add a permission the application has obtained.</doc>
+             line="3084">Add a permission the application has obtained.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="618"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1397,13 +1399,13 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3088">a #AsApp instance.</doc>
+                 line="3086">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="permission" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3089">the permission.</doc>
+                 line="3087">the permission.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1413,7 +1415,7 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="3718">Adds a package name to an application.</doc>
+             line="3716">Adds a package name to an application.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="626"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1422,13 +1424,13 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3720">a #AsApp instance.</doc>
+                 line="3718">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="pkgname" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3721">the package name.</doc>
+                 line="3719">the package name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1438,7 +1440,7 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
               version="0.1.6">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="3317">Adds a provide to an application.</doc>
+             line="3315">Adds a provide to an application.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="632"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1447,13 +1449,13 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3319">a #AsApp instance.</doc>
+                 line="3317">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="provide" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3320">a #AsProvide instance.</doc>
+                 line="3318">a #AsProvide instance.</doc>
             <type name="Provide" c:type="AsProvide*"/>
           </parameter>
         </parameters>
@@ -1488,7 +1490,7 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="3287">Adds a release to an application.</doc>
+             line="3285">Adds a release to an application.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="630"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1497,13 +1499,13 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3289">a #AsApp instance.</doc>
+                 line="3287">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="release" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3290">a #AsRelease instance.</doc>
+                 line="3288">a #AsRelease instance.</doc>
             <type name="Release" c:type="AsRelease*"/>
           </parameter>
         </parameters>
@@ -1513,7 +1515,7 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
               version="0.6.7">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="3693">Adds a require to an application.</doc>
+             line="3691">Adds a require to an application.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="652"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1522,13 +1524,13 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3695">a #AsApp instance.</doc>
+                 line="3693">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="require" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3696">a #AsRequire instance.</doc>
+                 line="3694">a #AsRequire instance.</doc>
             <type name="Require" c:type="AsRequire*"/>
           </parameter>
         </parameters>
@@ -1538,7 +1540,7 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
               version="0.6.1">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="3431">Adds a review to an application.</doc>
+             line="3429">Adds a review to an application.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="638"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1547,13 +1549,13 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3433">a #AsApp instance.</doc>
+                 line="3431">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="review" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3434">a #AsReview instance.</doc>
+                 line="3432">a #AsReview instance.</doc>
             <type name="Review" c:type="AsReview*"/>
           </parameter>
         </parameters>
@@ -1563,7 +1565,7 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="3392">Adds a screenshot to an application.</doc>
+             line="3390">Adds a screenshot to an application.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="636"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1572,13 +1574,13 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3394">a #AsApp instance.</doc>
+                 line="3392">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="screenshot" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3395">a #AsScreenshot instance.</doc>
+                 line="3393">a #AsScreenshot instance.</doc>
             <type name="Screenshot" c:type="AsScreenshot*"/>
           </parameter>
         </parameters>
@@ -1588,7 +1590,7 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
               version="0.6.1">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="3677">Adds a suggest to an application.</doc>
+             line="3675">Adds a suggest to an application.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="650"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1597,13 +1599,13 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3679">a #AsApp instance.</doc>
+                 line="3677">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="suggest" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3680">a #AsSuggest instance.</doc>
+                 line="3678">a #AsSuggest instance.</doc>
             <type name="Suggest" c:type="AsSuggest*"/>
           </parameter>
         </parameters>
@@ -1613,7 +1615,7 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
               version="0.5.8">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="3650">Adds a translation to an application.</doc>
+             line="3648">Adds a translation to an application.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="648"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1622,13 +1624,13 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3652">a #AsApp instance.</doc>
+                 line="3650">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="translation" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3653">a #AsTranslation instance.</doc>
+                 line="3651">a #AsTranslation instance.</doc>
             <type name="Translation" c:type="AsTranslation*"/>
           </parameter>
         </parameters>
@@ -1636,7 +1638,7 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
       <method name="add_url" c:identifier="as_app_add_url" version="0.1.0">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="3812">Adds some URL data to the application.</doc>
+             line="3810">Adds some URL data to the application.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="659"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1645,19 +1647,19 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3814">a #AsApp instance.</doc>
+                 line="3812">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="url_kind" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3815">the URL kind, e.g. %AS_URL_KIND_HOMEPAGE</doc>
+                 line="3813">the URL kind, e.g. %AS_URL_KIND_HOMEPAGE</doc>
             <type name="UrlKind" c:type="AsUrlKind"/>
           </parameter>
           <parameter name="url" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3816">the full URL.</doc>
+                 line="3814">the full URL.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1668,7 +1670,7 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="6654">Adds a reason to not include the application in the metadata.</doc>
+             line="6652">Adds a reason to not include the application in the metadata.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="683"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1677,19 +1679,19 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="6656">A #AsApp</doc>
+                 line="6654">A #AsApp</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="fmt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="6657">format string</doc>
+                 line="6655">format string</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="6658">varargs</doc>
+                 line="6656">varargs</doc>
             <varargs/>
           </parameter>
         </parameters>
@@ -1700,25 +1702,25 @@ This has been deprecated since 0.6.9 in favour of using AsFormatKind.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="6626">Converts all the icons in the application to a specific kind.</doc>
+             line="6624">Converts all the icons in the application to a specific kind.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="726"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libappstream-glib/as-app.c"
-               line="6634">%TRUE for success</doc>
+               line="6632">%TRUE for success</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="6628">A #AsApp.</doc>
+                 line="6626">A #AsApp.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="kind" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="6629">the AsIconKind, e.g. %AS_ICON_KIND_EMBEDDED.</doc>
+                 line="6627">the AsIconKind, e.g. %AS_ICON_KIND_EMBEDDED.</doc>
             <type name="IconKind" c:type="AsIconKind"/>
           </parameter>
         </parameters>
@@ -1786,7 +1788,7 @@ properties:
               version="0.7.8">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="1339">Gets a agreement the application has defined of a specific type.</doc>
+             line="1339">Gets an agreement the application has defined of a specific type.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="709"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -1883,19 +1885,19 @@ if all architectures are supported.</doc>
               version="0.3.5">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="6577">Finds the default bundle.</doc>
+             line="6575">Finds the default bundle.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="717"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libappstream-glib/as-app.c"
-               line="6583">a #AsBundle, or %NULL</doc>
+               line="6581">a #AsBundle, or %NULL</doc>
           <type name="Bundle" c:type="AsBundle*"/>
         </return-value>
         <parameters>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="6579">A #AsApp</doc>
+                 line="6577">A #AsApp</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
         </parameters>
@@ -2323,19 +2325,19 @@ if all architectures are supported.</doc>
               version="0.3.1">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="6528">Finds the default icon.</doc>
+             line="6526">Finds the default icon.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="713"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libappstream-glib/as-app.c"
-               line="6534">a #AsIcon, or %NULL</doc>
+               line="6532">a #AsIcon, or %NULL</doc>
           <type name="Icon" c:type="AsIcon*"/>
         </return-value>
         <parameters>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="6530">A #AsApp</doc>
+                 line="6528">A #AsApp</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
         </parameters>
@@ -2345,31 +2347,31 @@ if all architectures are supported.</doc>
               version="0.3.1">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="6599">Finds an icon of a specific size.</doc>
+             line="6597">Finds an icon of a specific size.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="714"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libappstream-glib/as-app.c"
-               line="6607">a #AsIcon, or %NULL</doc>
+               line="6605">a #AsIcon, or %NULL</doc>
           <type name="Icon" c:type="AsIcon*"/>
         </return-value>
         <parameters>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="6601">A #AsApp</doc>
+                 line="6599">A #AsApp</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="6602">Size in pixels</doc>
+                 line="6600">Size in pixels</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="height" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="6603">Size in pixels</doc>
+                 line="6601">Size in pixels</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -3321,20 +3323,20 @@ application is required to be installed.</doc>
               version="0.6.13">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="6740">Gets the token match fields. The bitfield given here is used to choose what
+             line="6738">Gets the token match fields. The bitfield given here is used to choose what
 is included in the token cache.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="479"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libappstream-glib/as-app.c"
-               line="6747">a #AsAppSearchMatch, e.g. %AS_APP_SEARCH_MATCH_PKGNAME</doc>
+               line="6745">a #AsAppSearchMatch, e.g. %AS_APP_SEARCH_MATCH_PKGNAME</doc>
           <type name="guint16" c:type="guint16"/>
         </return-value>
         <parameters>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="6742">a #AsApp instance.</doc>
+                 line="6740">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
         </parameters>
@@ -3595,12 +3597,12 @@ entry set.</doc>
       <method name="get_vetos" c:identifier="as_app_get_vetos" version="0.2.5">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="6511">Gets the list of vetos.</doc>
+             line="6509">Gets the list of vetos.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="510"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libappstream-glib/as-app.c"
-               line="6517">A list of vetos</doc>
+               line="6515">A list of vetos</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="utf8"/>
           </array>
@@ -3609,7 +3611,7 @@ entry set.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="6513">A #AsApp</doc>
+                 line="6511">A #AsApp</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
         </parameters>
@@ -3786,31 +3788,31 @@ entry set.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="6253">Parses an AppData file and populates the application state.</doc>
+             line="6251">Parses an AppData file and populates the application state.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="697"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libappstream-glib/as-app.c"
-               line="6262">%TRUE for success</doc>
+               line="6260">%TRUE for success</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="6255">a #AsApp instance.</doc>
+                 line="6253">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="6256">data to parse.</doc>
+                 line="6254">data to parse.</doc>
             <type name="GLib.Bytes" c:type="GBytes*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="6257">#AsAppParseFlags, e.g. %AS_APP_PARSE_FLAG_USE_HEURISTICS</doc>
+                 line="6255">#AsAppParseFlags, e.g. %AS_APP_PARSE_FLAG_USE_HEURISTICS</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
         </parameters>
@@ -3821,33 +3823,33 @@ entry set.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="6375">Parses a desktop or AppData file and populates the application state.
+             line="6373">Parses a desktop or AppData file and populates the application state.
 
 Applications that are not suitable for the store will have vetos added.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="693"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libappstream-glib/as-app.c"
-               line="6386">%TRUE for success</doc>
+               line="6384">%TRUE for success</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="6377">a #AsApp instance.</doc>
+                 line="6375">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="6378">file to load.</doc>
+                 line="6376">file to load.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="6379">#AsAppParseFlags, e.g. %AS_APP_PARSE_FLAG_USE_HEURISTICS</doc>
+                 line="6377">#AsAppParseFlags, e.g. %AS_APP_PARSE_FLAG_USE_HEURISTICS</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
         </parameters>
@@ -3857,7 +3859,7 @@ Applications that are not suitable for the store will have vetos added.</doc>
               version="0.6.13">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="2919">Removed a menu category from the application.</doc>
+             line="2917">Removed a menu category from the application.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="607"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3866,13 +3868,13 @@ Applications that are not suitable for the store will have vetos added.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="2921">a #AsApp instance.</doc>
+                 line="2919">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="category" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="2922">the category.</doc>
+                 line="2920">the category.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3882,7 +3884,7 @@ Applications that are not suitable for the store will have vetos added.</doc>
               version="0.6.9">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="3174">Removes a format the application has been built from.</doc>
+             line="3172">Removes a format the application has been built from.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="622"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3891,13 +3893,13 @@ Applications that are not suitable for the store will have vetos added.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3176">a #AsApp instance.</doc>
+                 line="3174">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="format" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3177">the #AsFormat.</doc>
+                 line="3175">the #AsFormat.</doc>
             <type name="Format" c:type="AsFormat*"/>
           </parameter>
         </parameters>
@@ -3907,7 +3909,7 @@ Applications that are not suitable for the store will have vetos added.</doc>
               version="0.6.13">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="3064">Remove a kudo the application has obtained.</doc>
+             line="3062">Remove a kudo the application has obtained.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="614"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3916,13 +3918,13 @@ Applications that are not suitable for the store will have vetos added.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3066">a #AsApp instance.</doc>
+                 line="3064">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="kudo" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3067">the kudo.</doc>
+                 line="3065">the kudo.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3932,7 +3934,7 @@ Applications that are not suitable for the store will have vetos added.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="3875">Removes a metadata item from the application.</doc>
+             line="3873">Removes a metadata item from the application.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="665"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3941,13 +3943,13 @@ Applications that are not suitable for the store will have vetos added.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3877">a #AsApp instance.</doc>
+                 line="3875">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="3878">the metadata key.</doc>
+                 line="3876">the metadata key.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3957,7 +3959,7 @@ Applications that are not suitable for the store will have vetos added.</doc>
               version="0.4.1">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="6676">Removes a reason to not include the application in the metadata.</doc>
+             line="6674">Removes a reason to not include the application in the metadata.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="687"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3966,13 +3968,13 @@ Applications that are not suitable for the store will have vetos added.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="6678">A #AsApp</doc>
+                 line="6676">A #AsApp</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="description" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="6679">veto string</doc>
+                 line="6677">veto string</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3982,25 +3984,25 @@ Applications that are not suitable for the store will have vetos added.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="6036">Searches application data for a specific keyword.</doc>
+             line="6034">Searches application data for a specific keyword.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="691"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libappstream-glib/as-app.c"
-               line="6043">a match scrore, where 0 is no match and 100 is the best match.</doc>
+               line="6041">a match scrore, where 0 is no match and 100 is the best match.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="6038">a #AsApp instance.</doc>
+                 line="6036">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="search" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="6039">the search term.</doc>
+                 line="6037">the search term.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4010,12 +4012,12 @@ Applications that are not suitable for the store will have vetos added.</doc>
               version="0.1.3">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="6120">Searches application data for all the specific keywords.</doc>
+             line="6118">Searches application data for all the specific keywords.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="689"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libappstream-glib/as-app.c"
-               line="6127">a match scrore, where 0 is no match and larger numbers are better
+               line="6125">a match scrore, where 0 is no match and larger numbers are better
 matches.
 
 It's probably a good idea to use as_utils_search_tokenize() to populate
@@ -4026,13 +4028,13 @@ search as very short or common keywords will return a lot of matches.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="6122">a #AsApp instance.</doc>
+                 line="6120">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="search" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="6123">the search terms.</doc>
+                 line="6121">the search terms.</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
         </parameters>
@@ -4067,7 +4069,7 @@ search as very short or common keywords will return a lot of matches.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="2764">Sets the application summary for a specific locale.</doc>
+             line="2762">Sets the application summary for a specific locale.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="592"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4076,7 +4078,7 @@ search as very short or common keywords will return a lot of matches.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="2766">a #AsApp instance.</doc>
+                 line="2764">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="locale"
@@ -4085,13 +4087,13 @@ search as very short or common keywords will return a lot of matches.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="2767">the locale. e.g. "en_GB"</doc>
+                 line="2765">the locale. e.g. "en_GB"</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="comment" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="2768">the application summary.</doc>
+                 line="2766">the application summary.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4101,7 +4103,7 @@ search as very short or common keywords will return a lot of matches.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="2836">Sets the application description markup for a specific locale.</doc>
+             line="2834">Sets the application description markup for a specific locale.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="598"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4110,7 +4112,7 @@ search as very short or common keywords will return a lot of matches.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="2838">a #AsApp instance.</doc>
+                 line="2836">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="locale"
@@ -4119,13 +4121,13 @@ search as very short or common keywords will return a lot of matches.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="2839">the locale. e.g. "en_GB"</doc>
+                 line="2837">the locale. e.g. "en_GB"</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="description" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="2840">the application description.</doc>
+                 line="2838">the application description.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4135,7 +4137,7 @@ search as very short or common keywords will return a lot of matches.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="2800">Sets the application developer name for a specific locale.</doc>
+             line="2798">Sets the application developer name for a specific locale.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="595"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4144,7 +4146,7 @@ search as very short or common keywords will return a lot of matches.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="2802">a #AsApp instance.</doc>
+                 line="2800">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="locale"
@@ -4153,13 +4155,13 @@ search as very short or common keywords will return a lot of matches.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="2803">the locale. e.g. "en_GB"</doc>
+                 line="2801">the locale. e.g. "en_GB"</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="developer_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="2804">the application developer name.</doc>
+                 line="2802">the application developer name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4169,7 +4171,7 @@ search as very short or common keywords will return a lot of matches.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="2706">Sets the icon path, where local icons would be found.</doc>
+             line="2704">Sets the icon path, where local icons would be found.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="587"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4178,13 +4180,13 @@ search as very short or common keywords will return a lot of matches.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="2708">a #AsApp instance.</doc>
+                 line="2706">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="icon_path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="2709">the local path.</doc>
+                 line="2707">the local path.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4313,7 +4315,7 @@ search as very short or common keywords will return a lot of matches.</doc>
       <method name="set_name" c:identifier="as_app_set_name" version="0.1.0">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="2730">Sets the application name for a specific locale.</doc>
+             line="2728">Sets the application name for a specific locale.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="589"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4322,7 +4324,7 @@ search as very short or common keywords will return a lot of matches.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="2732">a #AsApp instance.</doc>
+                 line="2730">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="locale"
@@ -4331,13 +4333,13 @@ search as very short or common keywords will return a lot of matches.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="2733">the locale. e.g. "en_GB"</doc>
+                 line="2731">the locale. e.g. "en_GB"</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="2734">the application name.</doc>
+                 line="2732">the application name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4347,7 +4349,7 @@ search as very short or common keywords will return a lot of matches.</doc>
               version="0.3.2">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="2675">Sets the application origin.</doc>
+             line="2673">Sets the application origin.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="575"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4356,13 +4358,13 @@ search as very short or common keywords will return a lot of matches.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="2677">a #AsApp instance.</doc>
+                 line="2675">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="origin" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="2678">the origin, e.g. "fedora-21"</doc>
+                 line="2676">the origin, e.g. "fedora-21"</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4372,7 +4374,7 @@ search as very short or common keywords will return a lot of matches.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="2872">Sets the application priority, where 0 is default and positive numbers
+             line="2870">Sets the application priority, where 0 is default and positive numbers
 are better than negative numbers.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="603"/>
         <return-value transfer-ownership="none">
@@ -4382,13 +4384,13 @@ are better than negative numbers.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="2874">a #AsApp instance.</doc>
+                 line="2872">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="priority" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="2875">the priority.</doc>
+                 line="2873">the priority.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -4471,7 +4473,7 @@ are better than negative numbers.</doc>
               version="0.6.13">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="6723">Sets the token match fields. The bitfield given here is used to choose what
+             line="6721">Sets the token match fields. The bitfield given here is used to choose what
 is included in the token cache.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="573"/>
         <return-value transfer-ownership="none">
@@ -4481,13 +4483,13 @@ is included in the token cache.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="6725">a #AsApp instance.</doc>
+                 line="6723">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="search_match" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="6726">the #AsAppSearchMatch, e.g. %AS_APP_SEARCH_MATCH_PKGNAME</doc>
+                 line="6724">the #AsAppSearchMatch, e.g. %AS_APP_SEARCH_MATCH_PKGNAME</doc>
             <type name="guint16" c:type="guint16"/>
           </parameter>
         </parameters>
@@ -4644,7 +4646,7 @@ trusted input.</doc>
       <method name="subsume" c:identifier="as_app_subsume" version="0.1.0">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="4369">Copies information from the donor to the application object.</doc>
+             line="4367">Copies information from the donor to the application object.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="678"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4653,13 +4655,13 @@ trusted input.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="4371">a #AsApp instance.</doc>
+                 line="4369">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="donor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="4372">the donor.</doc>
+                 line="4370">the donor.</doc>
             <type name="App" c:type="AsApp*"/>
           </parameter>
         </parameters>
@@ -4669,7 +4671,7 @@ trusted input.</doc>
               version="0.1.4">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="4342">Copies information from the donor to the application object.</doc>
+             line="4340">Copies information from the donor to the application object.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="680"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4678,19 +4680,19 @@ trusted input.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="4344">a #AsApp instance.</doc>
+                 line="4342">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="donor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="4345">the donor.</doc>
+                 line="4343">the donor.</doc>
             <type name="App" c:type="AsApp*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="4346">any optional #AsAppSubsumeFlags, e.g. %AS_APP_SUBSUME_FLAG_NO_OVERWRITE</doc>
+                 line="4344">any optional #AsAppSubsumeFlags, e.g. %AS_APP_SUBSUME_FLAG_NO_OVERWRITE</doc>
             <type name="guint64" c:type="guint64"/>
           </parameter>
         </parameters>
@@ -4701,25 +4703,25 @@ trusted input.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="6478">Exports a DOM tree to an XML file.</doc>
+             line="6476">Exports a DOM tree to an XML file.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="701"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libappstream-glib/as-app.c"
-               line="6487">%TRUE for success</doc>
+               line="6485">%TRUE for success</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="6480">a #AsApp instance.</doc>
+                 line="6478">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="6481">a #GFile</doc>
+                 line="6479">a #GFile</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
           <parameter name="cancellable"
@@ -4728,7 +4730,7 @@ trusted input.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="6482">A #GCancellable</doc>
+                 line="6480">A #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -4739,19 +4741,19 @@ trusted input.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.c"
-             line="6453">Exports a DOM tree to an XML string.</doc>
+             line="6451">Exports a DOM tree to an XML string.</doc>
         <source-position filename="libappstream-glib/as-app.h" line="705"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libappstream-glib/as-app.c"
-               line="6460">an XML string, or %NULL</doc>
+               line="6458">an XML string, or %NULL</doc>
           <type name="GLib.String" c:type="GString*"/>
         </return-value>
         <parameters>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-app.c"
-                 line="6455">a #AsApp instance.</doc>
+                 line="6453">a #AsApp instance.</doc>
             <type name="App" c:type="AsApp*"/>
           </instance-parameter>
         </parameters>
@@ -4909,12 +4911,12 @@ trusted input.</doc>
               c:identifier="AS_APP_KIND_INPUT_METHOD">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.h"
-             line="288">A input method add-on</doc>
+             line="288">An input method add-on</doc>
       </member>
       <member name="web_app" value="5" c:identifier="AS_APP_KIND_WEB_APP">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-app.h"
-             line="289">A web appication</doc>
+             line="289">A web application</doc>
       </member>
       <member name="source" value="6" c:identifier="AS_APP_KIND_SOURCE">
         <doc xml:space="preserve"
@@ -8247,12 +8249,12 @@ NOTE: This is only set for icons of type %AS_ICON_KIND_REMOTE</doc>
               c:identifier="AS_ID_KIND_INPUT_METHOD">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-enums.h"
-             line="24">A input method add-on</doc>
+             line="24">An input method add-on</doc>
       </member>
       <member name="web_app" value="5" c:identifier="AS_ID_KIND_WEB_APP">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-enums.h"
-             line="25">A web appication</doc>
+             line="25">A web application</doc>
       </member>
       <member name="source" value="6" c:identifier="AS_ID_KIND_SOURCE">
         <doc xml:space="preserve"
@@ -9645,7 +9647,7 @@ using as_image_get_basename(). This can be overridden if required.</doc>
               c:identifier="AS_NODE_INSERT_FLAG_BASE64_ENCODED">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-node.h"
-             line="70">The data is Base64 enoded</doc>
+             line="70">The data is Base64 encoded</doc>
       </member>
     </enumeration>
     <enumeration name="NodeToXmlFlags" c:type="AsNodeToXmlFlags">
@@ -11943,7 +11945,7 @@ NOTE: This is not stored in the XML file, and is only available in-memory.</doc>
         <doc xml:space="preserve"
              filename="libappstream-glib/as-review.c"
              line="729">Adds metadata to the review object.
-It is left for the the plugin to use this method as required, but a
+It is left for the plugin to use this method as required, but a
 typical use would be to store some secure authentication token.</doc>
         <source-position filename="libappstream-glib/as-review.h" line="96"/>
         <return-value transfer-ownership="none">
@@ -12118,7 +12120,7 @@ voted on the review or if the user wrote the review themselves.</doc>
         <doc xml:space="preserve"
              filename="libappstream-glib/as-review.c"
              line="707">Gets some metadata from a review object.
-It is left for the the plugin to use this method as required, but a
+It is left for the plugin to use this method as required, but a
 typical use would be to retrieve some secure authentication token.</doc>
         <source-position filename="libappstream-glib/as-review.h" line="68"/>
         <return-value transfer-ownership="none">
@@ -12263,7 +12265,7 @@ Higher numbers indicate a more important or relevant review.</doc>
               version="0.6.1">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-review.c"
-             line="652">Gets the version string for the application being reviewed..</doc>
+             line="652">Gets the version string for the application being reviewed.</doc>
         <source-position filename="libappstream-glib/as-review.h" line="63"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -12443,7 +12445,7 @@ a better review for the specific user.</doc>
               version="0.6.1">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-review.c"
-             line="494">Sets the star rating of the review, where 100 is 5 stars..</doc>
+             line="494">Sets the star rating of the review, where 100 is 5 stars.</doc>
         <source-position filename="libappstream-glib/as-review.h" line="82"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -12458,7 +12460,7 @@ a better review for the specific user.</doc>
           <parameter name="rating" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libappstream-glib/as-review.c"
-                 line="497">a integer as a percentage, or 0 for unset</doc>
+                 line="497">an integer as a percentage, or 0 for unset</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -14366,7 +14368,8 @@ taken place.</doc>
       <method name="load"
               c:identifier="as_store_load"
               version="0.1.2"
-              throws="1">
+              throws="1"
+              glib:async-func="load_async">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-store.c"
              line="3534">Loads the store from the default locations.</doc>
@@ -14403,7 +14406,9 @@ taken place.</doc>
       </method>
       <method name="load_async"
               c:identifier="as_store_load_async"
-              version="0.7.11">
+              version="0.7.11"
+              glib:finish-func="load_finish"
+              glib:sync-func="load">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-store.c"
              line="3601">Asynchronously loads the store from the default locations.</doc>
@@ -14487,7 +14492,8 @@ taken place.</doc>
       <method name="load_path"
               c:identifier="as_store_load_path"
               version="0.2.2"
-              throws="1">
+              throws="1"
+              glib:async-func="load_path_async">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-store.c"
              line="3216">Loads the store from a specific path.</doc>
@@ -14524,7 +14530,9 @@ taken place.</doc>
       </method>
       <method name="load_path_async"
               c:identifier="as_store_load_path_async"
-              version="0.7.11">
+              version="0.7.11"
+              glib:finish-func="load_path_finish"
+              glib:sync-func="load_path">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-store.c"
              line="3257">Asynchronously loads the store from a specific path.</doc>
@@ -15467,7 +15475,7 @@ or removed from the store.</doc>
       <method name="add_id" c:identifier="as_suggest_add_id" version="0.6.1">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-suggest.c"
-             line="157">Add a the suggest application ID.</doc>
+             line="157">Add the suggest application ID.</doc>
         <source-position filename="libappstream-glib/as-suggest.h" line="64"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -16702,7 +16710,7 @@ See also: #AsApp</doc>
     <docsection name="as-problem">
       <doc xml:space="preserve"
            filename="libappstream-glib/as-problem.c"
-           line="8">Problems have a unlocalized message and also contain a line number and kind.
+           line="8">Problems have an unlocalized message and also contain a line number and kind.
 
 See also: #AsApp</doc>
     </docsection>
@@ -16770,7 +16778,7 @@ See also: #AsScreenshot</doc>
       <doc xml:space="preserve"
            filename="libappstream-glib/as-tag.c"
            line="8">These functions will convert a tag enum such as %AS_TAG_COMPONENT to
-it's string form, and also vice-versa.
+its string form, and also vice-versa.
 
 These helper functions may be useful if implementing an AppStream parser.</doc>
     </docsection>
@@ -17574,12 +17582,12 @@ than @line_len. Words are not split.</doc>
               version="0.1.0">
       <doc xml:space="preserve"
            filename="libappstream-glib/as-node.c"
-           line="1763">Extracts localized values from the DOM tree</doc>
+           line="1762">Extracts localized values from the DOM tree</doc>
       <source-position filename="libappstream-glib/as-node.h" line="120"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-node.c"
-             line="1770">A hash table with the locale (e.g. en_GB) as the key</doc>
+             line="1769">A hash table with the locale (e.g. en_GB) as the key</doc>
         <type name="GLib.HashTable" c:type="GHashTable*">
           <type name="gpointer" c:type="gpointer"/>
           <type name="gpointer" c:type="gpointer"/>
@@ -17589,13 +17597,13 @@ than @line_len. Words are not split.</doc>
         <parameter name="node" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libappstream-glib/as-node.c"
-               line="1765">a #AsNode</doc>
+               line="1764">a #AsNode</doc>
           <type name="GLib.Node" c:type="const GNode*"/>
         </parameter>
         <parameter name="key" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libappstream-glib/as-node.c"
-               line="1766">the key to use, e.g. "copyright"</doc>
+               line="1765">the key to use, e.g. "copyright"</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -17605,25 +17613,25 @@ than @line_len. Words are not split.</doc>
               version="0.1.0">
       <doc xml:space="preserve"
            filename="libappstream-glib/as-node.c"
-           line="1812">Gets the 'best' locale version of a specific data value.</doc>
+           line="1809">Gets the 'best' locale version of a specific data value.</doc>
       <source-position filename="libappstream-glib/as-node.h" line="122"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-node.c"
-             line="1819">the string value, or %NULL if there was no data</doc>
+             line="1816">the string value, or %NULL if there was no data</doc>
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
       <parameters>
         <parameter name="node" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libappstream-glib/as-node.c"
-               line="1814">a #AsNode.</doc>
+               line="1811">a #AsNode.</doc>
           <type name="GLib.Node" c:type="const GNode*"/>
         </parameter>
         <parameter name="key" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libappstream-glib/as-node.c"
-               line="1815">the tag name.</doc>
+               line="1812">the tag name.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -17634,7 +17642,7 @@ than @line_len. Words are not split.</doc>
               throws="1">
       <doc xml:space="preserve"
            filename="libappstream-glib/as-node.c"
-           line="2089">Denormalize AppData data like this:
+           line="2086">Denormalize AppData data like this:
 
 |[
 &lt;description&gt;
@@ -17657,7 +17665,7 @@ into a hash that contains:
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libappstream-glib/as-node.c"
-             line="2114">a hash table of data</doc>
+             line="2111">a hash table of data</doc>
         <type name="GLib.HashTable" c:type="GHashTable*">
           <type name="gpointer" c:type="gpointer"/>
           <type name="gpointer" c:type="gpointer"/>
@@ -17667,7 +17675,7 @@ into a hash that contains:
         <parameter name="node" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libappstream-glib/as-node.c"
-               line="2091">a #AsNode.</doc>
+               line="2088">a #AsNode.</doc>
           <type name="GLib.Node" c:type="const GNode*"/>
         </parameter>
       </parameters>
@@ -17768,7 +17776,7 @@ into a hash that contains:
               version="0.1.0">
       <doc xml:space="preserve"
            filename="libappstream-glib/as-node.c"
-           line="1713">Inserts a hash table of data into the DOM.</doc>
+           line="1712">Inserts a hash table of data into the DOM.</doc>
       <source-position filename="libappstream-glib/as-node.h" line="187"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -17777,25 +17785,25 @@ into a hash that contains:
         <parameter name="parent" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libappstream-glib/as-node.c"
-               line="1715">a parent #AsNode.</doc>
+               line="1714">a parent #AsNode.</doc>
           <type name="GLib.Node" c:type="GNode*"/>
         </parameter>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libappstream-glib/as-node.c"
-               line="1716">the tag name, e.g. "id".</doc>
+               line="1715">the tag name, e.g. "id".</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="attr_key" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libappstream-glib/as-node.c"
-               line="1717">the key to use as the attribute in the XML, e.g. "key".</doc>
+               line="1716">the key to use as the attribute in the XML, e.g. "key".</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="hash" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libappstream-glib/as-node.c"
-               line="1718">the hash table with the key as the key to use in the XML.</doc>
+               line="1717">the hash table with the key as the key to use in the XML.</doc>
           <type name="GLib.HashTable" c:type="GHashTable*">
             <type name="gpointer" c:type="gpointer"/>
             <type name="gpointer" c:type="gpointer"/>
@@ -17804,7 +17812,7 @@ into a hash that contains:
         <parameter name="insert_flags" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libappstream-glib/as-node.c"
-               line="1719">any %AsNodeInsertFlags.</doc>
+               line="1718">any %AsNodeInsertFlags.</doc>
           <type name="NodeInsertFlags" c:type="AsNodeInsertFlags"/>
         </parameter>
       </parameters>
@@ -17814,7 +17822,7 @@ into a hash that contains:
               version="0.1.0">
       <doc xml:space="preserve"
            filename="libappstream-glib/as-node.c"
-           line="1642">Inserts a localized key into the DOM.</doc>
+           line="1641">Inserts a localized key into the DOM.</doc>
       <source-position filename="libappstream-glib/as-node.h" line="183"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -17823,19 +17831,19 @@ into a hash that contains:
         <parameter name="parent" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libappstream-glib/as-node.c"
-               line="1644">a parent #AsNode.</doc>
+               line="1643">a parent #AsNode.</doc>
           <type name="GLib.Node" c:type="GNode*"/>
         </parameter>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libappstream-glib/as-node.c"
-               line="1645">the tag name, e.g. "id".</doc>
+               line="1644">the tag name, e.g. "id".</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="localized" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libappstream-glib/as-node.c"
-               line="1646">the hash table of data, with the locale as the key.</doc>
+               line="1645">the hash table of data, with the locale as the key.</doc>
           <type name="GLib.HashTable" c:type="GHashTable*">
             <type name="gpointer" c:type="gpointer"/>
             <type name="gpointer" c:type="gpointer"/>
@@ -17844,7 +17852,7 @@ into a hash that contains:
         <parameter name="insert_flags" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libappstream-glib/as-node.c"
-               line="1647">any %AsNodeInsertFlags.</doc>
+               line="1646">any %AsNodeInsertFlags.</doc>
           <type name="NodeInsertFlags" c:type="AsNodeInsertFlags"/>
         </parameter>
       </parameters>
@@ -18022,7 +18030,7 @@ into a hash that contains:
     <function name="node_to_xml" c:identifier="as_node_to_xml" version="0.1.0">
       <doc xml:space="preserve"
            filename="libappstream-glib/as-node.c"
-           line="562">Converts a node and it's children to XML.</doc>
+           line="562">Converts a node and its children to XML.</doc>
       <source-position filename="libappstream-glib/as-node.h" line="146"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
@@ -18753,10 +18761,10 @@ returned search tokens.</doc>
               version="0.1.5">
       <doc xml:space="preserve"
            filename="libappstream-glib/as-utils.c"
-           line="402">Tokenizes the SPDX license string (or any simarly formatted string)
-into parts. Any licence parts of the string e.g. "LGPL-2.0+" are prefexed
+           line="402">Tokenizes the SPDX license string (or any similarly formatted string)
+into parts. Any licence parts of the string e.g. "LGPL-2.0+" are prefixed
 with "@", the conjunctive replaced with "&amp;" and the disjunctive replaced
-with "|". Brackets are added as indervidual tokens and other strings are
+with "|". Brackets are added as individual tokens and other strings are
 appended into single tokens where possible.</doc>
       <source-position filename="libappstream-glib/as-utils.h" line="131"/>
       <return-value transfer-ownership="full">

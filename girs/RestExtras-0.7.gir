@@ -5,6 +5,7 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <include name="Rest" version="0.7"/>
@@ -15,6 +16,7 @@ and/or use gtk-doc annotations.  -->
   <c:include name="rest/lastfm-proxy-call.h"/>
   <c:include name="rest/lastfm-proxy.h"/>
   <c:include name="rest/youtube-proxy.h"/>
+  <doc:format name="unknown"/>
   <namespace name="RestExtras"
              version="0.7"
              shared-library="librest-extras-0.7.so.0"

@@ -2100,7 +2100,7 @@ using the provided functions.</doc>
               glib:name="LIGHTDM_PROMPT_TYPE_SECRET">
         <doc xml:space="preserve"
              filename="lightdm/greeter.h"
-             line="41">prompt is for secret information.  The entered information should be obscured so it can't be publically visible.</doc>
+             line="41">prompt is for secret information.  The entered information should be obscured so it can't be publicly visible.</doc>
       </member>
     </enumeration>
     <function-macro name="SESSION"
@@ -2153,19 +2153,19 @@ using the provided functions.</doc>
               glib:get-property="comment">
         <doc xml:space="preserve"
              filename="session.c"
-             line="291">Get the comment for a session</doc>
+             line="293">Get the comment for a session</doc>
         <source-position filename="lightdm/session.h" line="67"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="session.c"
-               line="297">The session comment</doc>
+               line="299">The session comment</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="session.c"
-                 line="293">A #LightDMSession</doc>
+                 line="295">A #LightDMSession</doc>
             <type name="Session" c:type="LightDMSession*"/>
           </instance-parameter>
         </parameters>
@@ -2175,19 +2175,19 @@ using the provided functions.</doc>
               glib:get-property="key">
         <doc xml:space="preserve"
              filename="session.c"
-             line="240">Get the key for a session</doc>
+             line="242">Get the key for a session</doc>
         <source-position filename="lightdm/session.h" line="61"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="session.c"
-               line="246">The session key</doc>
+               line="248">The session key</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="session.c"
-                 line="242">A #LightDMSession</doc>
+                 line="244">A #LightDMSession</doc>
             <type name="Session" c:type="LightDMSession*"/>
           </instance-parameter>
         </parameters>
@@ -2197,19 +2197,19 @@ using the provided functions.</doc>
               glib:get-property="name">
         <doc xml:space="preserve"
              filename="session.c"
-             line="274">Get the name for a session</doc>
+             line="276">Get the name for a session</doc>
         <source-position filename="lightdm/session.h" line="65"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="session.c"
-               line="280">The session name</doc>
+               line="282">The session name</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="session.c"
-                 line="276">A #LightDMSession</doc>
+                 line="278">A #LightDMSession</doc>
             <type name="Session" c:type="LightDMSession*"/>
           </instance-parameter>
         </parameters>
@@ -2218,19 +2218,19 @@ using the provided functions.</doc>
               c:identifier="lightdm_session_get_session_type">
         <doc xml:space="preserve"
              filename="session.c"
-             line="257">Get the type a session</doc>
+             line="259">Get the type a session</doc>
         <source-position filename="lightdm/session.h" line="63"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="session.c"
-               line="263">The session type, e.g. x or mir</doc>
+               line="265">The session type, e.g. x or mir</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="session" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="session.c"
-                 line="259">A #LightDMSession</doc>
+                 line="261">A #LightDMSession</doc>
             <type name="Session" c:type="LightDMSession*"/>
           </instance-parameter>
         </parameters>
@@ -2816,7 +2816,7 @@ using the provided functions.</doc>
       <glib:signal name="changed" when="last">
         <doc xml:space="preserve"
              filename="user.c"
-             line="849">The ::changed signal gets emitted this user account is modified.</doc>
+             line="850">The ::changed signal gets emitted this user account is modified.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3378,7 +3378,7 @@ e.g. "16.04.1 LTS (Xenial Xapus)"</doc>
               c:identifier="lightdm_get_os_version_id">
       <doc xml:space="preserve"
            filename="system.c"
-           line="148">Get a word descibing the OS version, suitable for checking which version of the OS this greeter is running on.
+           line="148">Get a word describing the OS version, suitable for checking which version of the OS this greeter is running on.
 e.g. "16.04"</doc>
       <source-position filename="lightdm/system.h" line="28"/>
       <return-value transfer-ownership="none" nullable="1">
@@ -3392,12 +3392,12 @@ e.g. "16.04"</doc>
               c:identifier="lightdm_get_remote_sessions">
       <doc xml:space="preserve"
            filename="session.c"
-           line="226">Get the available remote sessions.</doc>
+           line="228">Get the available remote sessions.</doc>
       <source-position filename="lightdm/session.h" line="59"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="session.c"
-             line="231">A list of #LightDMSession</doc>
+             line="233">A list of #LightDMSession</doc>
         <type name="GLib.List" c:type="GList*">
           <type name="Session"/>
         </type>
@@ -3406,12 +3406,12 @@ e.g. "16.04"</doc>
     <function name="get_sessions" c:identifier="lightdm_get_sessions">
       <doc xml:space="preserve"
            filename="session.c"
-           line="212">Get the available sessions.</doc>
+           line="214">Get the available sessions.</doc>
       <source-position filename="lightdm/session.h" line="57"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="session.c"
-             line="217">A list of #LightDMSession</doc>
+             line="219">A list of #LightDMSession</doc>
         <type name="GLib.List" c:type="GList*">
           <type name="Session"/>
         </type>

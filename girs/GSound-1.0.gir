@@ -5,10 +5,12 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <include name="Gio" version="2.0"/>
   <c:include name="gsound.h"/>
+  <doc:format name="unknown"/>
   <namespace name="GSound"
              version="1.0"
              shared-library="libgsound.so.0"
@@ -689,7 +691,8 @@ calling this function.
       <method name="play_full"
               c:identifier="gsound_context_play_full"
               shadowed-by="play_fullv"
-              introspectable="0">
+              introspectable="0"
+              glib:finish-func="play_full_finish">
         <doc xml:space="preserve"
              filename="gsound/gsound-context.c"
              line="506">Asynchronously request a sound to be played. When playback is finished

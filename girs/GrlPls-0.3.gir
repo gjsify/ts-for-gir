@@ -5,11 +5,13 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <include name="Gio" version="2.0"/>
   <include name="Grl" version="0.3"/>
   <c:include name="pls/grl-pls.h"/>
+  <doc:format name="unknown"/>
   <namespace name="GrlPls"
              version="0.3"
              shared-library="libgrlpls-0.3.so.0"
@@ -60,7 +62,7 @@ another #GrlMedia.</doc>
     <function name="browse" c:identifier="grl_pls_browse" version="0.2.0">
       <doc xml:space="preserve"
            filename="libs/pls/grl-pls.c"
-           line="875">Browse into a playlist. The playlist entries are
+           line="878">Browse into a playlist. The playlist entries are
 returned via the @callback function as GrlMedia objects.
 This function imitates the API and way of working of
 #grl_source_browse.
@@ -76,26 +78,26 @@ and sample code.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libs/pls/grl-pls.c"
-             line="899">the operation identifier</doc>
+             line="902">the operation identifier</doc>
         <type name="guint" c:type="guint"/>
       </return-value>
       <parameters>
         <parameter name="source" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/pls/grl-pls.c"
-               line="877">a source</doc>
+               line="880">a source</doc>
           <type name="Grl.Source" c:type="GrlSource*"/>
         </parameter>
         <parameter name="playlist" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/pls/grl-pls.c"
-               line="878">a playlist</doc>
+               line="881">a playlist</doc>
           <type name="Grl.Media" c:type="GrlMedia*"/>
         </parameter>
         <parameter name="keys" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/pls/grl-pls.c"
-               line="879">the #GList of
+               line="882">the #GList of
 #GrlKeyID&lt;!-- --&gt;s to request</doc>
           <type name="GLib.List" c:type="const GList*">
             <type name="Grl.KeyID"/>
@@ -104,7 +106,7 @@ and sample code.</doc>
         <parameter name="options" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/pls/grl-pls.c"
-               line="881">options wanted for that operation</doc>
+               line="884">options wanted for that operation</doc>
           <type name="Grl.OperationOptions" c:type="GrlOperationOptions*"/>
         </parameter>
         <parameter name="filter_func"
@@ -114,7 +116,7 @@ and sample code.</doc>
                    scope="async">
           <doc xml:space="preserve"
                filename="libs/pls/grl-pls.c"
-               line="882">A filter function, or %NULL</doc>
+               line="885">A filter function, or %NULL</doc>
           <type name="FilterFunc" c:type="GrlPlsFilterFunc"/>
         </parameter>
         <parameter name="callback"
@@ -123,7 +125,7 @@ and sample code.</doc>
                    closure="6">
           <doc xml:space="preserve"
                filename="libs/pls/grl-pls.c"
-               line="883">the user defined callback</doc>
+               line="886">the user defined callback</doc>
           <type name="Grl.SourceResultCb" c:type="GrlSourceResultCb"/>
         </parameter>
         <parameter name="user_data"
@@ -132,7 +134,7 @@ and sample code.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libs/pls/grl-pls.c"
-               line="884">the user data to pass in the callback</doc>
+               line="887">the user data to pass in the callback</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>
@@ -142,7 +144,7 @@ and sample code.</doc>
               version="0.2.0">
       <doc xml:space="preserve"
            filename="libs/pls/grl-pls.c"
-           line="774">Browse into a playlist. The playlist entries are
+           line="777">Browse into a playlist. The playlist entries are
 returned via the bs-&gt;callback function as GrlMedia objects.
 This function is more suitable to be called from plugins, which by
 design get the GrlSourceBrowseSpec already filled in.
@@ -162,7 +164,7 @@ information and sample code.</doc>
         <parameter name="source" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/pls/grl-pls.c"
-               line="776">a source</doc>
+               line="779">a source</doc>
           <type name="Grl.Source" c:type="GrlSource*"/>
         </parameter>
         <parameter name="filter_func"
@@ -172,13 +174,13 @@ information and sample code.</doc>
                    scope="async">
           <doc xml:space="preserve"
                filename="libs/pls/grl-pls.c"
-               line="777">A filter function, or %NULL</doc>
+               line="780">A filter function, or %NULL</doc>
           <type name="FilterFunc" c:type="GrlPlsFilterFunc"/>
         </parameter>
         <parameter name="bs" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/pls/grl-pls.c"
-               line="778">a GrlSourceBrowseSpec structure with details of the browsing operation</doc>
+               line="781">a GrlSourceBrowseSpec structure with details of the browsing operation</doc>
           <type name="Grl.SourceBrowseSpec" c:type="GrlSourceBrowseSpec*"/>
         </parameter>
       </parameters>
@@ -189,7 +191,7 @@ information and sample code.</doc>
               throws="1">
       <doc xml:space="preserve"
            filename="libs/pls/grl-pls.c"
-           line="946">Browse into a playlist. The playlist entries are
+           line="949">Browse into a playlist. The playlist entries are
 returned via the @callback function as GrlMedia objects.
 This function imitates the API and way of working of
 #grl_source_browse_sync.
@@ -209,7 +211,7 @@ and sample code.</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libs/pls/grl-pls.c"
-             line="973">a #GList with #GrlMedia
+             line="976">a #GList with #GrlMedia
 elements. After use g_object_unref() every element and g_list_free() the
 list.</doc>
         <type name="GLib.List" c:type="GList*">
@@ -220,19 +222,19 @@ list.</doc>
         <parameter name="source" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/pls/grl-pls.c"
-               line="948">a source</doc>
+               line="951">a source</doc>
           <type name="Grl.Source" c:type="GrlSource*"/>
         </parameter>
         <parameter name="playlist" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/pls/grl-pls.c"
-               line="949">a playlist</doc>
+               line="952">a playlist</doc>
           <type name="Grl.Media" c:type="GrlMedia*"/>
         </parameter>
         <parameter name="keys" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/pls/grl-pls.c"
-               line="950">the #GList of
+               line="953">the #GList of
 #GrlKeyID&lt;!-- --&gt;s to request</doc>
           <type name="GLib.List" c:type="const GList*">
             <type name="Grl.KeyID"/>
@@ -241,7 +243,7 @@ list.</doc>
         <parameter name="options" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/pls/grl-pls.c"
-               line="953">options wanted for that operation</doc>
+               line="956">options wanted for that operation</doc>
           <type name="Grl.OperationOptions" c:type="GrlOperationOptions*"/>
         </parameter>
         <parameter name="filter_func"
@@ -251,7 +253,7 @@ list.</doc>
                    scope="async">
           <doc xml:space="preserve"
                filename="libs/pls/grl-pls.c"
-               line="952">A filter function, or %NULL</doc>
+               line="955">A filter function, or %NULL</doc>
           <type name="FilterFunc" c:type="GrlPlsFilterFunc"/>
         </parameter>
       </parameters>
@@ -261,7 +263,7 @@ list.</doc>
               version="0.2.0">
       <doc xml:space="preserve"
            filename="libs/pls/grl-pls.c"
-           line="1196">This function will update (if @content is non-%NULL) or create a
+           line="1239">This function will update (if @content is non-%NULL) or create a
 GrlMedia and populate it with information from @info.
 
 If @info is %NULL, a call to g_file_query_info() will be made.
@@ -272,38 +274,38 @@ and want to easily create GrlMedia from filesystem information.</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libs/pls/grl-pls.c"
-             line="1213">a new #GrlMedia.</doc>
+             line="1256">a new #GrlMedia.</doc>
         <type name="Grl.Media" c:type="GrlMedia*"/>
       </return-value>
       <parameters>
         <parameter name="content" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/pls/grl-pls.c"
-               line="1198">an existing #GrlMedia for the file, or %NULL</doc>
+               line="1241">an existing #GrlMedia for the file, or %NULL</doc>
           <type name="Grl.Media" c:type="GrlMedia*"/>
         </parameter>
         <parameter name="file" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/pls/grl-pls.c"
-               line="1199">a #GFile pointing to the file or directory in question</doc>
+               line="1242">a #GFile pointing to the file or directory in question</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </parameter>
         <parameter name="info" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/pls/grl-pls.c"
-               line="1200">an existing #GFileInfo, or %NULL</doc>
+               line="1243">an existing #GFileInfo, or %NULL</doc>
           <type name="Gio.FileInfo" c:type="GFileInfo*"/>
         </parameter>
         <parameter name="handle_pls" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/pls/grl-pls.c"
-               line="1201">Whether playlists should be handled as containers</doc>
+               line="1244">Whether playlists should be handled as containers</doc>
           <type name="gboolean" c:type="gboolean"/>
         </parameter>
         <parameter name="options" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/pls/grl-pls.c"
-               line="1202">a #GrlOperationOptions representing the options to apply
+               line="1245">a #GrlOperationOptions representing the options to apply
   to this operation.</doc>
           <type name="Grl.OperationOptions" c:type="GrlOperationOptions*"/>
         </parameter>
@@ -314,7 +316,7 @@ and want to easily create GrlMedia from filesystem information.</doc>
               version="0.2.0">
       <doc xml:space="preserve"
            filename="libs/pls/grl-pls.c"
-           line="1382">Returns the list of attributes to pass to
+           line="1435">Returns the list of attributes to pass to
 g_file_query_info() to make it possible to
 populate a GrlMedia using grl_pls_file_to_media().
 
@@ -323,7 +325,7 @@ Do not free the result of this function.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libs/pls/grl-pls.c"
-             line="1391">a string containing the
+             line="1444">a string containing the
 list of attributes.</doc>
         <type name="utf8" c:type="const char*"/>
       </return-value>
@@ -340,20 +342,20 @@ exposing playlist entries as GrlMedia objects.</doc>
               version="0.2.0">
       <doc xml:space="preserve"
            filename="libs/pls/grl-pls.c"
-           line="409">Check if a file identified by GrlMedia object is a playlist or not.
+           line="412">Check if a file identified by GrlMedia object is a playlist or not.
 This function does blocking I/O.</doc>
       <source-position filename="libs/pls/grl-pls.h" line="51"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libs/pls/grl-pls.c"
-             line="416">%TRUE if a GrlMedia is recognized as a playlist.</doc>
+             line="419">%TRUE if a GrlMedia is recognized as a playlist.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="media" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libs/pls/grl-pls.c"
-               line="411">GrlMedia</doc>
+               line="414">GrlMedia</doc>
           <type name="Grl.Media" c:type="GrlMedia*"/>
         </parameter>
       </parameters>

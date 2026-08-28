@@ -1,0 +1,361 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <package name="gnome-qr-4"/>
+  <doc:format name="unknown"/>
+  <namespace name="GnomeQR"
+             version="4.0"
+             shared-library="libgnome-qr-4.so.0"
+             c:identifier-prefixes="GnomeQr"
+             c:symbol-prefixes="gnome_qr">
+    <function-macro name="BYTES_PER_FORMAT"
+                    c:identifier="GNOME_QR_BYTES_PER_FORMAT"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="libgnome-desktop/gnome-qr/gnome-qr.h"
+           line="34">Calculates the number of bytes per pixel for a given pixel format.</doc>
+      <source-position filename="libgnome-desktop/gnome-qr/gnome-qr.h"
+                       line="42"/>
+      <parameters>
+        <parameter name="format">
+          <doc xml:space="preserve"
+               filename="libgnome-desktop/gnome-qr/gnome-qr.h"
+               line="36">a #GnomeQrPixelFormat</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <record name="Color" c:type="GnomeQrColor">
+      <doc xml:space="preserve"
+           filename="libgnome-desktop/gnome-qr/gnome-qr.h"
+           line="99">Represents an RGBA color for QR code generation.</doc>
+      <source-position filename="libgnome-desktop/gnome-qr/gnome-qr.h"
+                       line="114"/>
+      <field name="red" writable="1">
+        <doc xml:space="preserve"
+             filename="libgnome-desktop/gnome-qr/gnome-qr.h"
+             line="101">Red component (0-255)</doc>
+        <type name="guint8" c:type="guint8"/>
+      </field>
+      <field name="green" writable="1">
+        <doc xml:space="preserve"
+             filename="libgnome-desktop/gnome-qr/gnome-qr.h"
+             line="102">Green component (0-255)</doc>
+        <type name="guint8" c:type="guint8"/>
+      </field>
+      <field name="blue" writable="1">
+        <doc xml:space="preserve"
+             filename="libgnome-desktop/gnome-qr/gnome-qr.h"
+             line="103">Blue component (0-255)</doc>
+        <type name="guint8" c:type="guint8"/>
+      </field>
+      <field name="alpha" writable="1">
+        <doc xml:space="preserve"
+             filename="libgnome-desktop/gnome-qr/gnome-qr.h"
+             line="104">Alpha component (0-255, where 255 is fully opaque).
+  Must be 255 when using %GNOME_QR_PIXEL_FORMAT_RGB_888.</doc>
+        <type name="guint8" c:type="guint8"/>
+      </field>
+    </record>
+    <enumeration name="EccLevel"
+                 glib:type-name="GnomeQrEccLevel"
+                 glib:get-type="gnome_qr_ecc_level_get_type"
+                 c:type="GnomeQrEccLevel">
+      <doc xml:space="preserve"
+           filename="libgnome-desktop/gnome-qr/gnome-qr.h"
+           line="68">Error correction levels for QR codes. Higher levels provide better error
+recovery at the cost of requiring bigger dimensions.</doc>
+      <member name="low"
+              value="0"
+              c:identifier="GNOME_QR_ECC_LEVEL_LOW"
+              glib:nick="low"
+              glib:name="GNOME_QR_ECC_LEVEL_LOW">
+        <doc xml:space="preserve"
+             filename="libgnome-desktop/gnome-qr/gnome-qr.h"
+             line="70">Low error correction (~7% recovery capability)</doc>
+      </member>
+      <member name="medium"
+              value="1"
+              c:identifier="GNOME_QR_ECC_LEVEL_MEDIUM"
+              glib:nick="medium"
+              glib:name="GNOME_QR_ECC_LEVEL_MEDIUM">
+        <doc xml:space="preserve"
+             filename="libgnome-desktop/gnome-qr/gnome-qr.h"
+             line="71">Medium error correction (~15% recovery capability)</doc>
+      </member>
+      <member name="quartile"
+              value="2"
+              c:identifier="GNOME_QR_ECC_LEVEL_QUARTILE"
+              glib:nick="quartile"
+              glib:name="GNOME_QR_ECC_LEVEL_QUARTILE">
+        <doc xml:space="preserve"
+             filename="libgnome-desktop/gnome-qr/gnome-qr.h"
+             line="72">Quartile error correction (~25% recovery capability)</doc>
+      </member>
+      <member name="high"
+              value="3"
+              c:identifier="GNOME_QR_ECC_LEVEL_HIGH"
+              glib:nick="high"
+              glib:name="GNOME_QR_ECC_LEVEL_HIGH">
+        <doc xml:space="preserve"
+             filename="libgnome-desktop/gnome-qr/gnome-qr.h"
+             line="73">High error correction (~30% recovery capability)</doc>
+      </member>
+    </enumeration>
+    <enumeration name="PixelFormat"
+                 glib:type-name="GnomeQrPixelFormat"
+                 glib:get-type="gnome_qr_pixel_format_get_type"
+                 c:type="GnomeQrPixelFormat">
+      <doc xml:space="preserve"
+           filename="libgnome-desktop/gnome-qr/gnome-qr.h"
+           line="85">Pixel formats for the generated QR code image data.</doc>
+      <member name="a_8"
+              value="0"
+              c:identifier="GNOME_QR_PIXEL_FORMAT_A_8"
+              glib:nick="a-8"
+              glib:name="GNOME_QR_PIXEL_FORMAT_A_8">
+      </member>
+      <member name="g_8"
+              value="1"
+              c:identifier="GNOME_QR_PIXEL_FORMAT_G_8"
+              glib:nick="g-8"
+              glib:name="GNOME_QR_PIXEL_FORMAT_G_8">
+      </member>
+      <member name="rgb_888"
+              value="2"
+              c:identifier="GNOME_QR_PIXEL_FORMAT_RGB_888"
+              glib:nick="rgb-888"
+              glib:name="GNOME_QR_PIXEL_FORMAT_RGB_888">
+        <doc xml:space="preserve"
+             filename="libgnome-desktop/gnome-qr/gnome-qr.h"
+             line="87">24-bit RGB format (3 bytes per pixel)</doc>
+      </member>
+      <member name="rgba_8888"
+              value="3"
+              c:identifier="GNOME_QR_PIXEL_FORMAT_RGBA_8888"
+              glib:nick="rgba-8888"
+              glib:name="GNOME_QR_PIXEL_FORMAT_RGBA_8888">
+        <doc xml:space="preserve"
+             filename="libgnome-desktop/gnome-qr/gnome-qr.h"
+             line="88">32-bit RGBA format (4 bytes per pixel)</doc>
+      </member>
+    </enumeration>
+    <function name="generate_qr_code_async"
+              c:identifier="gnome_qr_generate_qr_code_async">
+      <doc xml:space="preserve"
+           filename="libgnome-desktop/gnome-qr/gnome-qr.c"
+           line="281">Generates the QrCode asynchronously.
+
+Use gnome_qr_generate_qr_code_finish() to complete it.</doc>
+      <source-position filename="libgnome-desktop/gnome-qr/gnome-qr.h"
+                       line="130"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="text" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgnome-desktop/gnome-qr/gnome-qr.c"
+               line="283">The text of which generate the QR code</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="requested_size" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgnome-desktop/gnome-qr/gnome-qr.c"
+               line="284">The requested size (width and height) in pixels of the QR code.
+  Only square QR codes are supported. If the requested size is smaller than
+  the minimum required size for the QR code, it will be generated with 1 pixel
+  per block.</doc>
+          <type name="gsize" c:type="size_t"/>
+        </parameter>
+        <parameter name="bg_color"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="libgnome-desktop/gnome-qr/gnome-qr.c"
+               line="288">The background color of the code
+  or %NULL to use default (white)</doc>
+          <type name="Color" c:type="const GnomeQrColor*"/>
+        </parameter>
+        <parameter name="fg_color"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="libgnome-desktop/gnome-qr/gnome-qr.c"
+               line="290">The foreground color of the code
+  or %NULL to use default (black)</doc>
+          <type name="Color" c:type="const GnomeQrColor*"/>
+        </parameter>
+        <parameter name="format" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgnome-desktop/gnome-qr/gnome-qr.c"
+               line="292">The pixel format for the output image data</doc>
+          <type name="PixelFormat" c:type="GnomeQrPixelFormat"/>
+        </parameter>
+        <parameter name="ecc" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgnome-desktop/gnome-qr/gnome-qr.c"
+               line="293">The error correction level</doc>
+          <type name="EccLevel" c:type="GnomeQrEccLevel"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="libgnome-desktop/gnome-qr/gnome-qr.c"
+               line="294">A #GCancellable to cancel the operation</doc>
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+        <parameter name="callback"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   scope="async"
+                   closure="8">
+          <doc xml:space="preserve"
+               filename="libgnome-desktop/gnome-qr/gnome-qr.c"
+               line="295">function to call returning success or failure
+  of the async grabbing</doc>
+          <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="libgnome-desktop/gnome-qr/gnome-qr.c"
+               line="297">the data to pass to callback function</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="generate_qr_code_finish"
+              c:identifier="gnome_qr_generate_qr_code_finish"
+              throws="1">
+      <doc xml:space="preserve"
+           filename="libgnome-desktop/gnome-qr/gnome-qr.c"
+           line="338">Finish the asynchronous operation started by
+gnome_qr_generate_qr_code_async() and obtain its result.</doc>
+      <source-position filename="libgnome-desktop/gnome-qr/gnome-qr.h"
+                       line="140"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="libgnome-desktop/gnome-qr/gnome-qr.c"
+             line="349">The pixel data or %NULL on error</doc>
+        <type name="GLib.Bytes" c:type="GBytes*"/>
+      </return-value>
+      <parameters>
+        <parameter name="result" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgnome-desktop/gnome-qr/gnome-qr.c"
+               line="340">the #GAsyncResult that was provided to the callback</doc>
+          <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+        </parameter>
+        <parameter name="pixel_size_out"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgnome-desktop/gnome-qr/gnome-qr.c"
+               line="341">The actual square QR code size (width and height)
+  in pixels. Note that it may not match the @requested_size in
+  gnome_qr_generate_qr_code_async().</doc>
+          <type name="gsize" c:type="size_t*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="generate_qr_code_sync"
+              c:identifier="gnome_qr_generate_qr_code_sync"
+              throws="1">
+      <doc xml:space="preserve"
+           filename="libgnome-desktop/gnome-qr/gnome-qr.c"
+           line="145">Generates the QrCode synchronously.</doc>
+      <source-position filename="libgnome-desktop/gnome-qr/gnome-qr.h"
+                       line="120"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="libgnome-desktop/gnome-qr/gnome-qr.c"
+             line="165">The pixel data or %NULL on error</doc>
+        <type name="GLib.Bytes" c:type="GBytes*"/>
+      </return-value>
+      <parameters>
+        <parameter name="text" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgnome-desktop/gnome-qr/gnome-qr.c"
+               line="147">the text of which generate the QR code</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="requested_size" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgnome-desktop/gnome-qr/gnome-qr.c"
+               line="148">The requested size (width and height) in pixels of the QR code.
+  Only square QR codes are supported. If the requested size is smaller than
+  the minimum required size for the QR code, it will be generated with 1 pixel
+  per block.</doc>
+          <type name="gsize" c:type="size_t"/>
+        </parameter>
+        <parameter name="bg_color"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="libgnome-desktop/gnome-qr/gnome-qr.c"
+               line="152">The background color of the code
+  or %NULL to use default (white)</doc>
+          <type name="Color" c:type="const GnomeQrColor*"/>
+        </parameter>
+        <parameter name="fg_color"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="libgnome-desktop/gnome-qr/gnome-qr.c"
+               line="154">The foreground color of the code
+  or %NULL to use default (black)</doc>
+          <type name="Color" c:type="const GnomeQrColor*"/>
+        </parameter>
+        <parameter name="format" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgnome-desktop/gnome-qr/gnome-qr.c"
+               line="156">The pixel format for the output image data</doc>
+          <type name="PixelFormat" c:type="GnomeQrPixelFormat"/>
+        </parameter>
+        <parameter name="ecc" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgnome-desktop/gnome-qr/gnome-qr.c"
+               line="157">The error correction level</doc>
+          <type name="EccLevel" c:type="GnomeQrEccLevel"/>
+        </parameter>
+        <parameter name="pixel_size_out"
+                   direction="out"
+                   caller-allocates="0"
+                   transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgnome-desktop/gnome-qr/gnome-qr.c"
+               line="158">The actual square QR code size (width and height)
+  in pixels. Note that it may not match @requested_size.</doc>
+          <type name="gsize" c:type="size_t*"/>
+        </parameter>
+        <parameter name="cancellable"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="libgnome-desktop/gnome-qr/gnome-qr.c"
+               line="160">A #GCancellable to cancel the operation</doc>
+          <type name="Gio.Cancellable" c:type="GCancellable*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

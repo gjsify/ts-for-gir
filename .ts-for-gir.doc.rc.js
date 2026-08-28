@@ -77,6 +77,15 @@ export default {
     "Rest-1.0",
 
     // === GNOME Shell ===
+    // GNOME 51 realigned Mutter's API version with the GNOME major, so these
+    // jumped 18 -> 51 in one step; 19..50 do not exist. The GNOME 50 set stays
+    // documented alongside it — both are current for someone.
+    "Meta-51",
+    "Clutter-51",
+    "Cogl-51",
+    "Mtk-51",
+    "St-51",
+    "Shell-51",
     "Meta-18",
     "Clutter-18",
     "Cogl-18",

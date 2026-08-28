@@ -5,8 +5,10 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Gtk" version="3.0"/>
+  <doc:format name="unknown"/>
   <namespace name="GooCanvas"
              version="2.0"
              shared-library="libgoocanvas-2.0.so.9"
@@ -686,22 +688,26 @@ See the #cairo_antialias_t documentation.</doc>
       <member name="default"
               value="0"
               c:identifier="CAIRO_ANTIALIAS_DEFAULT"
-              glib:nick="default">
+              glib:nick="default"
+              glib:name="CAIRO_ANTIALIAS_DEFAULT">
       </member>
       <member name="none"
               value="1"
               c:identifier="CAIRO_ANTIALIAS_NONE"
-              glib:nick="none">
+              glib:nick="none"
+              glib:name="CAIRO_ANTIALIAS_NONE">
       </member>
       <member name="gray"
               value="2"
               c:identifier="CAIRO_ANTIALIAS_GRAY"
-              glib:nick="gray">
+              glib:nick="gray"
+              glib:name="CAIRO_ANTIALIAS_GRAY">
       </member>
       <member name="subpixel"
               value="3"
               c:identifier="CAIRO_ANTIALIAS_SUBPIXEL"
-              glib:nick="subpixel">
+              glib:nick="subpixel"
+              glib:name="CAIRO_ANTIALIAS_SUBPIXEL">
       </member>
     </enumeration>
     <enumeration name="CairoFillRule"
@@ -717,12 +723,14 @@ See the #cairo_fill_rule_t documentation.</doc>
       <member name="winding"
               value="0"
               c:identifier="CAIRO_FILL_RULE_WINDING"
-              glib:nick="winding">
+              glib:nick="winding"
+              glib:name="CAIRO_FILL_RULE_WINDING">
       </member>
       <member name="even_odd"
               value="1"
               c:identifier="CAIRO_FILL_RULE_EVEN_ODD"
-              glib:nick="even-odd">
+              glib:nick="even-odd"
+              glib:name="CAIRO_FILL_RULE_EVEN_ODD">
       </member>
     </enumeration>
     <enumeration name="CairoHintMetrics"
@@ -738,17 +746,20 @@ See the #cairo_hint_metrics_t documentation.</doc>
       <member name="default"
               value="0"
               c:identifier="CAIRO_HINT_METRICS_DEFAULT"
-              glib:nick="default">
+              glib:nick="default"
+              glib:name="CAIRO_HINT_METRICS_DEFAULT">
       </member>
       <member name="off"
               value="1"
               c:identifier="CAIRO_HINT_METRICS_OFF"
-              glib:nick="off">
+              glib:nick="off"
+              glib:name="CAIRO_HINT_METRICS_OFF">
       </member>
       <member name="on"
               value="2"
               c:identifier="CAIRO_HINT_METRICS_ON"
-              glib:nick="on">
+              glib:nick="on"
+              glib:name="CAIRO_HINT_METRICS_ON">
       </member>
     </enumeration>
     <enumeration name="CairoLineCap"
@@ -764,17 +775,20 @@ See the #cairo_line_cap_t documentation.</doc>
       <member name="butt"
               value="0"
               c:identifier="CAIRO_LINE_CAP_BUTT"
-              glib:nick="butt">
+              glib:nick="butt"
+              glib:name="CAIRO_LINE_CAP_BUTT">
       </member>
       <member name="round"
               value="1"
               c:identifier="CAIRO_LINE_CAP_ROUND"
-              glib:nick="round">
+              glib:nick="round"
+              glib:name="CAIRO_LINE_CAP_ROUND">
       </member>
       <member name="square"
               value="2"
               c:identifier="CAIRO_LINE_CAP_SQUARE"
-              glib:nick="square">
+              glib:nick="square"
+              glib:name="CAIRO_LINE_CAP_SQUARE">
       </member>
     </enumeration>
     <enumeration name="CairoLineJoin"
@@ -790,17 +804,20 @@ See the #cairo_line_join_t documentation.</doc>
       <member name="miter"
               value="0"
               c:identifier="CAIRO_LINE_JOIN_MITER"
-              glib:nick="miter">
+              glib:nick="miter"
+              glib:name="CAIRO_LINE_JOIN_MITER">
       </member>
       <member name="round"
               value="1"
               c:identifier="CAIRO_LINE_JOIN_ROUND"
-              glib:nick="round">
+              glib:nick="round"
+              glib:name="CAIRO_LINE_JOIN_ROUND">
       </member>
       <member name="bevel"
               value="2"
               c:identifier="CAIRO_LINE_JOIN_BEVEL"
-              glib:nick="bevel">
+              glib:nick="bevel"
+              glib:name="CAIRO_LINE_JOIN_BEVEL">
       </member>
     </enumeration>
     <glib:boxed glib:name="CairoMatrix"
@@ -843,72 +860,86 @@ See the #cairo_operator_t documentation.</doc>
       <member name="clear"
               value="0"
               c:identifier="CAIRO_OPERATOR_CLEAR"
-              glib:nick="clear">
+              glib:nick="clear"
+              glib:name="CAIRO_OPERATOR_CLEAR">
       </member>
       <member name="source"
               value="1"
               c:identifier="CAIRO_OPERATOR_SOURCE"
-              glib:nick="source">
+              glib:nick="source"
+              glib:name="CAIRO_OPERATOR_SOURCE">
       </member>
       <member name="over"
               value="2"
               c:identifier="CAIRO_OPERATOR_OVER"
-              glib:nick="over">
+              glib:nick="over"
+              glib:name="CAIRO_OPERATOR_OVER">
       </member>
       <member name="in"
               value="3"
               c:identifier="CAIRO_OPERATOR_IN"
-              glib:nick="in">
+              glib:nick="in"
+              glib:name="CAIRO_OPERATOR_IN">
       </member>
       <member name="out"
               value="4"
               c:identifier="CAIRO_OPERATOR_OUT"
-              glib:nick="out">
+              glib:nick="out"
+              glib:name="CAIRO_OPERATOR_OUT">
       </member>
       <member name="atop"
               value="5"
               c:identifier="CAIRO_OPERATOR_ATOP"
-              glib:nick="atop">
+              glib:nick="atop"
+              glib:name="CAIRO_OPERATOR_ATOP">
       </member>
       <member name="dest"
               value="6"
               c:identifier="CAIRO_OPERATOR_DEST"
-              glib:nick="dest">
+              glib:nick="dest"
+              glib:name="CAIRO_OPERATOR_DEST">
       </member>
       <member name="dest_over"
               value="7"
               c:identifier="CAIRO_OPERATOR_DEST_OVER"
-              glib:nick="dest-over">
+              glib:nick="dest-over"
+              glib:name="CAIRO_OPERATOR_DEST_OVER">
       </member>
       <member name="dest_in"
               value="8"
               c:identifier="CAIRO_OPERATOR_DEST_IN"
-              glib:nick="dest-in">
+              glib:nick="dest-in"
+              glib:name="CAIRO_OPERATOR_DEST_IN">
       </member>
       <member name="dest_out"
               value="9"
               c:identifier="CAIRO_OPERATOR_DEST_OUT"
-              glib:nick="dest-out">
+              glib:nick="dest-out"
+              glib:name="CAIRO_OPERATOR_DEST_OUT">
       </member>
       <member name="dest_atop"
               value="10"
               c:identifier="CAIRO_OPERATOR_DEST_ATOP"
-              glib:nick="dest-atop">
+              glib:nick="dest-atop"
+              glib:name="CAIRO_OPERATOR_DEST_ATOP">
       </member>
       <member name="xor"
               value="11"
               c:identifier="CAIRO_OPERATOR_XOR"
-              glib:nick="xor">
+              glib:nick="xor"
+              glib:name="CAIRO_OPERATOR_XOR">
       </member>
       <member name="add"
               value="12"
               c:identifier="CAIRO_OPERATOR_ADD"
-              glib:nick="add">
+              glib:nick="add"
+              glib:name="CAIRO_OPERATOR_ADD">
       </member>
       <member name="saturate"
               value="13"
               c:identifier="CAIRO_OPERATOR_SATURATE"
-              glib:nick="saturate">
+              glib:nick="saturate"
+              glib:name="CAIRO_OPERATOR_SATURATE">
       </member>
     </enumeration>
     <glib:boxed glib:name="CairoPattern"
@@ -1287,6 +1318,10 @@ application code can connect signal handlers to the new view if desired.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="item_created">
+        <doc xml:space="preserve"
+             filename="goocanvas.h"
+             line="168">signal emitted when a new canvas item has been created.
+ Applications can connect to this to setup signal handlers for the new item.</doc>
         <source-position filename="goocanvas.h" line="185"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1950,7 +1985,9 @@ item model.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_scale" c:identifier="goo_canvas_get_scale">
+      <method name="get_scale"
+              c:identifier="goo_canvas_get_scale"
+              glib:get-property="scale">
         <doc xml:space="preserve"
              filename="goocanvas.c"
              line="2364">Gets the current scale of the canvas.
@@ -2154,10 +2191,7 @@ same way that ordinary item models are added to the root item model.</doc>
                  line="3546">the events to receive during the grab.</doc>
             <type name="Gdk.EventMask" c:type="GdkEventMask"/>
           </parameter>
-          <parameter name="cursor"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
+          <parameter name="cursor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="goocanvas.c"
                  line="3547">the cursor to display during the grab, or NULL.</doc>
@@ -2499,7 +2533,9 @@ of items in the model. Any current canvas items will be removed.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="set_scale" c:identifier="goo_canvas_set_scale">
+      <method name="set_scale"
+              c:identifier="goo_canvas_set_scale"
+              glib:set-property="scale">
         <doc xml:space="preserve"
              filename="goocanvas.c"
              line="2441">Sets the scale of the canvas.
@@ -2667,16 +2703,23 @@ new bounds so the display is updated correctly.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <property name="anchor" writable="1" transfer-ownership="none">
+      <property name="anchor"
+                writable="1"
+                transfer-ownership="none"
+                default-value="GOO_CANVAS_ANCHOR_NORTH_WEST">
         <type name="CanvasAnchorType"/>
       </property>
-      <property name="automatic-bounds" writable="1" transfer-ownership="none">
+      <property name="automatic-bounds"
+                writable="1"
+                transfer-ownership="none"
+                default-value="FALSE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="background-color"
                 readable="0"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="background-color-gdk-rgba"
@@ -2692,56 +2735,100 @@ new bounds so the display is updated correctly.</doc>
       <property name="background-color-rgb"
                 readable="0"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="0">
         <type name="guint" c:type="guint"/>
       </property>
       <property name="bounds-from-origin"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="TRUE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
-      <property name="bounds-padding" writable="1" transfer-ownership="none">
+      <property name="bounds-padding"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="clear-background" writable="1" transfer-ownership="none">
+      <property name="clear-background"
+                writable="1"
+                transfer-ownership="none"
+                default-value="TRUE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
-      <property name="integer-layout" writable="1" transfer-ownership="none">
+      <property name="integer-layout"
+                writable="1"
+                transfer-ownership="none"
+                default-value="FALSE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="redraw-when-scrolled"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="FALSE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
-      <property name="resolution-x" writable="1" transfer-ownership="none">
+      <property name="resolution-x"
+                writable="1"
+                transfer-ownership="none"
+                default-value="96.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="resolution-y" writable="1" transfer-ownership="none">
+      <property name="resolution-y"
+                writable="1"
+                transfer-ownership="none"
+                default-value="96.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="scale" writable="1" transfer-ownership="none">
+      <property name="scale"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_scale"
+                getter="get_scale"
+                default-value="1.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="scale-x" writable="1" transfer-ownership="none">
+      <property name="scale-x"
+                writable="1"
+                transfer-ownership="none"
+                default-value="1.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="scale-y" writable="1" transfer-ownership="none">
+      <property name="scale-y"
+                writable="1"
+                transfer-ownership="none"
+                default-value="1.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="units" writable="1" transfer-ownership="none">
+      <property name="units"
+                writable="1"
+                transfer-ownership="none"
+                default-value="GTK_UNIT_NONE">
         <type name="Gtk.Unit"/>
       </property>
-      <property name="x1" writable="1" transfer-ownership="none">
+      <property name="x1"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="x2" writable="1" transfer-ownership="none">
+      <property name="x2"
+                writable="1"
+                transfer-ownership="none"
+                default-value="1000.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="y1" writable="1" transfer-ownership="none">
+      <property name="y1"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="y2" writable="1" transfer-ownership="none">
+      <property name="y2"
+                writable="1"
+                transfer-ownership="none"
+                default-value="1000.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <field name="container">
@@ -2914,7 +3001,8 @@ a particular anchor point.</doc>
       <member name="center"
               value="0"
               c:identifier="GOO_CANVAS_ANCHOR_CENTER"
-              glib:nick="center">
+              glib:nick="center"
+              glib:name="GOO_CANVAS_ANCHOR_CENTER">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="144">the anchor is in the center of the object.</doc>
@@ -2922,7 +3010,8 @@ a particular anchor point.</doc>
       <member name="north"
               value="1"
               c:identifier="GOO_CANVAS_ANCHOR_NORTH"
-              glib:nick="north">
+              glib:nick="north"
+              glib:name="GOO_CANVAS_ANCHOR_NORTH">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="145">the anchor is at the top of the object, centered horizontally.</doc>
@@ -2930,7 +3019,8 @@ a particular anchor point.</doc>
       <member name="north_west"
               value="2"
               c:identifier="GOO_CANVAS_ANCHOR_NORTH_WEST"
-              glib:nick="north-west">
+              glib:nick="north-west"
+              glib:name="GOO_CANVAS_ANCHOR_NORTH_WEST">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="146">the anchor is at the top-left of the object.</doc>
@@ -2938,7 +3028,8 @@ a particular anchor point.</doc>
       <member name="north_east"
               value="3"
               c:identifier="GOO_CANVAS_ANCHOR_NORTH_EAST"
-              glib:nick="north-east">
+              glib:nick="north-east"
+              glib:name="GOO_CANVAS_ANCHOR_NORTH_EAST">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="147">the anchor is at the top-right of the object.</doc>
@@ -2946,7 +3037,8 @@ a particular anchor point.</doc>
       <member name="south"
               value="4"
               c:identifier="GOO_CANVAS_ANCHOR_SOUTH"
-              glib:nick="south">
+              glib:nick="south"
+              glib:name="GOO_CANVAS_ANCHOR_SOUTH">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="148">the anchor is at the bottom of the object, centered horizontally.</doc>
@@ -2954,7 +3046,8 @@ a particular anchor point.</doc>
       <member name="south_west"
               value="5"
               c:identifier="GOO_CANVAS_ANCHOR_SOUTH_WEST"
-              glib:nick="south-west">
+              glib:nick="south-west"
+              glib:name="GOO_CANVAS_ANCHOR_SOUTH_WEST">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="149">the anchor is at the bottom-left of the object.</doc>
@@ -2962,7 +3055,8 @@ a particular anchor point.</doc>
       <member name="south_east"
               value="6"
               c:identifier="GOO_CANVAS_ANCHOR_SOUTH_EAST"
-              glib:nick="south-east">
+              glib:nick="south-east"
+              glib:name="GOO_CANVAS_ANCHOR_SOUTH_EAST">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="150">the anchor is at the bottom-right of the object.</doc>
@@ -2970,7 +3064,8 @@ a particular anchor point.</doc>
       <member name="west"
               value="7"
               c:identifier="GOO_CANVAS_ANCHOR_WEST"
-              glib:nick="west">
+              glib:nick="west"
+              glib:name="GOO_CANVAS_ANCHOR_WEST">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="151">the anchor is on the left of the object, centered vertically.</doc>
@@ -2978,7 +3073,8 @@ a particular anchor point.</doc>
       <member name="east"
               value="8"
               c:identifier="GOO_CANVAS_ANCHOR_EAST"
-              glib:nick="east">
+              glib:nick="east"
+              glib:name="GOO_CANVAS_ANCHOR_EAST">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="152">the anchor is on the right of the object, centered vertically.</doc>
@@ -2986,7 +3082,8 @@ a particular anchor point.</doc>
       <member name="n"
               value="1"
               c:identifier="GOO_CANVAS_ANCHOR_N"
-              glib:nick="n">
+              glib:nick="n"
+              glib:name="GOO_CANVAS_ANCHOR_N">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="153">see GOO_CANVAS_ANCHOR_NORTH.</doc>
@@ -2994,7 +3091,8 @@ a particular anchor point.</doc>
       <member name="nw"
               value="2"
               c:identifier="GOO_CANVAS_ANCHOR_NW"
-              glib:nick="nw">
+              glib:nick="nw"
+              glib:name="GOO_CANVAS_ANCHOR_NW">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="154">see GOO_CANVAS_ANCHOR_NORTH_WEST.</doc>
@@ -3002,7 +3100,8 @@ a particular anchor point.</doc>
       <member name="ne"
               value="3"
               c:identifier="GOO_CANVAS_ANCHOR_NE"
-              glib:nick="ne">
+              glib:nick="ne"
+              glib:name="GOO_CANVAS_ANCHOR_NE">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="155">see GOO_CANVAS_ANCHOR_NORTH_EAST.</doc>
@@ -3010,7 +3109,8 @@ a particular anchor point.</doc>
       <member name="s"
               value="4"
               c:identifier="GOO_CANVAS_ANCHOR_S"
-              glib:nick="s">
+              glib:nick="s"
+              glib:name="GOO_CANVAS_ANCHOR_S">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="156">see GOO_CANVAS_ANCHOR_SOUTH.</doc>
@@ -3018,7 +3118,8 @@ a particular anchor point.</doc>
       <member name="sw"
               value="5"
               c:identifier="GOO_CANVAS_ANCHOR_SW"
-              glib:nick="sw">
+              glib:nick="sw"
+              glib:name="GOO_CANVAS_ANCHOR_SW">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="157">see GOO_CANVAS_ANCHOR_SOUTH_WEST.</doc>
@@ -3026,7 +3127,8 @@ a particular anchor point.</doc>
       <member name="se"
               value="6"
               c:identifier="GOO_CANVAS_ANCHOR_SE"
-              glib:nick="se">
+              glib:nick="se"
+              glib:name="GOO_CANVAS_ANCHOR_SE">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="158">see GOO_CANVAS_ANCHOR_SOUTH_EAST.</doc>
@@ -3034,7 +3136,8 @@ a particular anchor point.</doc>
       <member name="w"
               value="7"
               c:identifier="GOO_CANVAS_ANCHOR_W"
-              glib:nick="w">
+              glib:nick="w"
+              glib:name="GOO_CANVAS_ANCHOR_W">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="159">see GOO_CANVAS_ANCHOR_WEST.</doc>
@@ -3042,7 +3145,8 @@ a particular anchor point.</doc>
       <member name="e"
               value="8"
               c:identifier="GOO_CANVAS_ANCHOR_E"
-              glib:nick="e">
+              glib:nick="e"
+              glib:name="GOO_CANVAS_ANCHOR_E">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="160">see GOO_CANVAS_ANCHOR_EAST.</doc>
@@ -3059,7 +3163,8 @@ animation is reached.</doc>
       <member name="freeze"
               value="0"
               c:identifier="GOO_CANVAS_ANIMATE_FREEZE"
-              glib:nick="freeze">
+              glib:nick="freeze"
+              glib:name="GOO_CANVAS_ANIMATE_FREEZE">
         <doc xml:space="preserve"
              filename="goocanvasitem.h"
              line="18">the item remains in the final position.</doc>
@@ -3067,7 +3172,8 @@ animation is reached.</doc>
       <member name="reset"
               value="1"
               c:identifier="GOO_CANVAS_ANIMATE_RESET"
-              glib:nick="reset">
+              glib:nick="reset"
+              glib:name="GOO_CANVAS_ANIMATE_RESET">
         <doc xml:space="preserve"
              filename="goocanvasitem.h"
              line="19">the item is moved back to the initial position.</doc>
@@ -3075,7 +3181,8 @@ animation is reached.</doc>
       <member name="restart"
               value="2"
               c:identifier="GOO_CANVAS_ANIMATE_RESTART"
-              glib:nick="restart">
+              glib:nick="restart"
+              glib:name="GOO_CANVAS_ANIMATE_RESTART">
         <doc xml:space="preserve"
              filename="goocanvasitem.h"
              line="20">the animation is restarted from the initial
@@ -3084,7 +3191,8 @@ animation is reached.</doc>
       <member name="bounce"
               value="3"
               c:identifier="GOO_CANVAS_ANIMATE_BOUNCE"
-              glib:nick="bounce">
+              glib:nick="bounce"
+              glib:name="GOO_CANVAS_ANIMATE_BOUNCE">
         <doc xml:space="preserve"
              filename="goocanvasitem.h"
              line="22">the animation bounces back and forth between the
@@ -3137,6 +3245,10 @@ subclasses may override.</doc>
         <type name="Gtk.ContainerClass" c:type="GtkContainerClass"/>
       </field>
       <field name="create_item">
+        <doc xml:space="preserve"
+             filename="goocanvas.h"
+             line="166">a virtual method that subclasses may override to create custom
+ canvas items for item models.</doc>
         <callback name="create_item">
           <source-position filename="goocanvas.h" line="181"/>
           <return-value transfer-ownership="full">
@@ -3162,6 +3274,10 @@ subclasses may override.</doc>
         </callback>
       </field>
       <field name="item_created">
+        <doc xml:space="preserve"
+             filename="goocanvas.h"
+             line="168">signal emitted when a new canvas item has been created.
+ Applications can connect to this to setup signal handlers for the new item.</doc>
         <callback name="item_created">
           <source-position filename="goocanvas.h" line="185"/>
           <return-value transfer-ownership="none">
@@ -3339,28 +3455,52 @@ It is drawn with a red outline with a width of 5.0 and filled with blue:
           </parameter>
         </parameters>
       </function>
-      <property name="center-x" writable="1" transfer-ownership="none">
+      <property name="center-x"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="center-y" writable="1" transfer-ownership="none">
+      <property name="center-y"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="height" writable="1" transfer-ownership="none">
+      <property name="height"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="radius-x" writable="1" transfer-ownership="none">
+      <property name="radius-x"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="radius-y" writable="1" transfer-ownership="none">
+      <property name="radius-y"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="width" writable="1" transfer-ownership="none">
+      <property name="width"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="x" writable="1" transfer-ownership="none">
+      <property name="x"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="y" writable="1" transfer-ownership="none">
+      <property name="y"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <field name="parent_object">
@@ -3523,28 +3663,52 @@ It is drawn with a red outline with a width of 5.0 and filled with blue:
           </parameter>
         </parameters>
       </function>
-      <property name="center-x" writable="1" transfer-ownership="none">
+      <property name="center-x"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="center-y" writable="1" transfer-ownership="none">
+      <property name="center-y"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="height" writable="1" transfer-ownership="none">
+      <property name="height"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="radius-x" writable="1" transfer-ownership="none">
+      <property name="radius-x"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="radius-y" writable="1" transfer-ownership="none">
+      <property name="radius-y"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="width" writable="1" transfer-ownership="none">
+      <property name="width"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="x" writable="1" transfer-ownership="none">
+      <property name="x"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="y" writable="1" transfer-ownership="none">
+      <property name="y"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <field name="parent_object">
@@ -3739,7 +3903,8 @@ Here's an example showing how to create a grid:
       <property name="border-color"
                 readable="0"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="border-color-gdk-rgba"
@@ -3753,7 +3918,8 @@ Here's an example showing how to create a grid:
       </property>
       <property name="border-color-rgba"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="0">
         <type name="guint" c:type="guint"/>
       </property>
       <property name="border-pattern" writable="1" transfer-ownership="none">
@@ -3765,16 +3931,23 @@ Here's an example showing how to create a grid:
                 transfer-ownership="none">
         <type name="GdkPixbuf.Pixbuf"/>
       </property>
-      <property name="border-width" writable="1" transfer-ownership="none">
+      <property name="border-width"
+                writable="1"
+                transfer-ownership="none"
+                default-value="-1.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="height" writable="1" transfer-ownership="none">
+      <property name="height"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <property name="horz-grid-line-color"
                 readable="0"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="horz-grid-line-color-gdk-rgba"
@@ -3788,7 +3961,8 @@ Here's an example showing how to create a grid:
       </property>
       <property name="horz-grid-line-color-rgba"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="0">
         <type name="guint" c:type="guint"/>
       </property>
       <property name="horz-grid-line-pattern"
@@ -3804,23 +3978,27 @@ Here's an example showing how to create a grid:
       </property>
       <property name="horz-grid-line-width"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="-1.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <property name="show-horz-grid-lines"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="TRUE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="show-vert-grid-lines"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="TRUE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="vert-grid-line-color"
                 readable="0"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="vert-grid-line-color-gdk-rgba"
@@ -3834,7 +4012,8 @@ Here's an example showing how to create a grid:
       </property>
       <property name="vert-grid-line-color-rgba"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="0">
         <type name="guint" c:type="guint"/>
       </property>
       <property name="vert-grid-line-pattern"
@@ -3850,33 +4029,56 @@ Here's an example showing how to create a grid:
       </property>
       <property name="vert-grid-line-width"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="-1.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <property name="vert-grid-lines-on-top"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="FALSE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
-      <property name="width" writable="1" transfer-ownership="none">
+      <property name="width"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="x" writable="1" transfer-ownership="none">
+      <property name="x"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="x-offset" writable="1" transfer-ownership="none">
+      <property name="x-offset"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="x-step" writable="1" transfer-ownership="none">
+      <property name="x-step"
+                writable="1"
+                transfer-ownership="none"
+                default-value="10.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="y" writable="1" transfer-ownership="none">
+      <property name="y"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="y-offset" writable="1" transfer-ownership="none">
+      <property name="y-offset"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="y-step" writable="1" transfer-ownership="none">
+      <property name="y-step"
+                writable="1"
+                transfer-ownership="none"
+                default-value="10.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <field name="parent_object">
@@ -4130,7 +4332,8 @@ Here's an example showing how to create a grid:
       <property name="border-color"
                 readable="0"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="border-color-gdk-rgba"
@@ -4140,7 +4343,8 @@ Here's an example showing how to create a grid:
       </property>
       <property name="border-color-rgba"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="0">
         <type name="guint" c:type="guint"/>
       </property>
       <property name="border-pattern" writable="1" transfer-ownership="none">
@@ -4152,16 +4356,23 @@ Here's an example showing how to create a grid:
                 transfer-ownership="none">
         <type name="GdkPixbuf.Pixbuf"/>
       </property>
-      <property name="border-width" writable="1" transfer-ownership="none">
+      <property name="border-width"
+                writable="1"
+                transfer-ownership="none"
+                default-value="-1.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="height" writable="1" transfer-ownership="none">
+      <property name="height"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <property name="horz-grid-line-color"
                 readable="0"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="horz-grid-line-color-gdk-rgba"
@@ -4171,7 +4382,8 @@ Here's an example showing how to create a grid:
       </property>
       <property name="horz-grid-line-color-rgba"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="0">
         <type name="guint" c:type="guint"/>
       </property>
       <property name="horz-grid-line-pattern"
@@ -4187,23 +4399,27 @@ Here's an example showing how to create a grid:
       </property>
       <property name="horz-grid-line-width"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="-1.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <property name="show-horz-grid-lines"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="TRUE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="show-vert-grid-lines"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="TRUE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="vert-grid-line-color"
                 readable="0"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="vert-grid-line-color-gdk-rgba"
@@ -4213,7 +4429,8 @@ Here's an example showing how to create a grid:
       </property>
       <property name="vert-grid-line-color-rgba"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="0">
         <type name="guint" c:type="guint"/>
       </property>
       <property name="vert-grid-line-pattern"
@@ -4229,33 +4446,56 @@ Here's an example showing how to create a grid:
       </property>
       <property name="vert-grid-line-width"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="-1.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <property name="vert-grid-lines-on-top"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="FALSE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
-      <property name="width" writable="1" transfer-ownership="none">
+      <property name="width"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="x" writable="1" transfer-ownership="none">
+      <property name="x"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="x-offset" writable="1" transfer-ownership="none">
+      <property name="x-offset"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="x-step" writable="1" transfer-ownership="none">
+      <property name="x-step"
+                writable="1"
+                transfer-ownership="none"
+                default-value="10.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="y" writable="1" transfer-ownership="none">
+      <property name="y"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="y-offset" writable="1" transfer-ownership="none">
+      <property name="y-offset"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="y-step" writable="1" transfer-ownership="none">
+      <property name="y-step"
+                writable="1"
+                transfer-ownership="none"
+                default-value="10.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <field name="parent_object">
@@ -4369,16 +4609,28 @@ g_object_get() and g_object_set().</doc>
           </parameter>
         </parameters>
       </function>
-      <property name="height" writable="1" transfer-ownership="none">
+      <property name="height"
+                writable="1"
+                transfer-ownership="none"
+                default-value="-1.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="width" writable="1" transfer-ownership="none">
+      <property name="width"
+                writable="1"
+                transfer-ownership="none"
+                default-value="-1.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="x" writable="1" transfer-ownership="none">
+      <property name="x"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="y" writable="1" transfer-ownership="none">
+      <property name="y"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <field name="parent_object">
@@ -4494,16 +4746,28 @@ to the signal handlers of the corresponding #GooCanvasGroup objects.
           </parameter>
         </parameters>
       </function>
-      <property name="height" writable="1" transfer-ownership="none">
+      <property name="height"
+                writable="1"
+                transfer-ownership="none"
+                default-value="-1.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="width" writable="1" transfer-ownership="none">
+      <property name="width"
+                writable="1"
+                transfer-ownership="none"
+                default-value="-1.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="x" writable="1" transfer-ownership="none">
+      <property name="x"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="y" writable="1" transfer-ownership="none">
+      <property name="y"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <field name="parent_object">
@@ -4654,10 +4918,16 @@ This example creates an image scaled to a size of 200x200:
           </parameter>
         </parameters>
       </function>
-      <property name="alpha" writable="1" transfer-ownership="none">
+      <property name="alpha"
+                writable="1"
+                transfer-ownership="none"
+                default-value="1.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="height" writable="1" transfer-ownership="none">
+      <property name="height"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <property name="pattern" writable="1" transfer-ownership="none">
@@ -4669,16 +4939,28 @@ This example creates an image scaled to a size of 200x200:
                 transfer-ownership="none">
         <type name="GdkPixbuf.Pixbuf"/>
       </property>
-      <property name="scale-to-fit" writable="1" transfer-ownership="none">
+      <property name="scale-to-fit"
+                writable="1"
+                transfer-ownership="none"
+                default-value="FALSE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
-      <property name="width" writable="1" transfer-ownership="none">
+      <property name="width"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="x" writable="1" transfer-ownership="none">
+      <property name="x"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="y" writable="1" transfer-ownership="none">
+      <property name="y"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <field name="parent_object">
@@ -4850,10 +5132,16 @@ This example creates an image scaled to a size of 200x200:
           </parameter>
         </parameters>
       </function>
-      <property name="alpha" writable="1" transfer-ownership="none">
+      <property name="alpha"
+                writable="1"
+                transfer-ownership="none"
+                default-value="1.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="height" writable="1" transfer-ownership="none">
+      <property name="height"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <property name="pattern" writable="1" transfer-ownership="none">
@@ -4865,16 +5153,28 @@ This example creates an image scaled to a size of 200x200:
                 transfer-ownership="none">
         <type name="GdkPixbuf.Pixbuf"/>
       </property>
-      <property name="scale-to-fit" writable="1" transfer-ownership="none">
+      <property name="scale-to-fit"
+                writable="1"
+                transfer-ownership="none"
+                default-value="FALSE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
-      <property name="width" writable="1" transfer-ownership="none">
+      <property name="width"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="x" writable="1" transfer-ownership="none">
+      <property name="x"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="y" writable="1" transfer-ownership="none">
+      <property name="y"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <field name="parent_object">
@@ -5009,7 +5309,7 @@ items, specifically layout container items such as #GooCanvasTable.
 
 It returns all child properties of a canvas item class.</doc>
         <source-position filename="goocanvasitem.h" line="484"/>
-        <return-value transfer-ownership="container">
+        <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="goocanvasitem.c"
                line="2377">a newly allocated
@@ -5129,6 +5429,9 @@ provided. Simple items can just add these to their bounds.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="animation_finished">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="136">signal emitted when the item's animation has finished.</doc>
         <source-position filename="goocanvasitem.h" line="293"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5143,6 +5446,10 @@ provided. Simple items can just add these to their bounds.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="button_press_event">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="126">signal emitted when a mouse button is pressed within
+ the item.</doc>
         <source-position filename="goocanvasitem.h" line="260"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -5160,6 +5467,9 @@ provided. Simple items can just add these to their bounds.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="button_release_event">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="128">signal emitted when a mouse button is released.</doc>
         <source-position filename="goocanvasitem.h" line="263"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -5177,6 +5487,9 @@ provided. Simple items can just add these to their bounds.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="child_notify">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="134">signal emitted when a child property is changed.</doc>
         <source-position filename="goocanvasitem.h" line="281"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5191,6 +5504,9 @@ provided. Simple items can just add these to their bounds.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="enter_notify_event">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="123">signal emitted when the mouse enters the item.</doc>
         <source-position filename="goocanvasitem.h" line="251"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -5208,6 +5524,9 @@ provided. Simple items can just add these to their bounds.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="focus_in_event">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="129">signal emitted when the item receices the keyboard focus.</doc>
         <source-position filename="goocanvasitem.h" line="266"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -5225,6 +5544,9 @@ provided. Simple items can just add these to their bounds.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="focus_out_event">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="130">signal emitted when the item loses the keyboard focus.</doc>
         <source-position filename="goocanvasitem.h" line="269"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -5318,6 +5640,10 @@ item, whether they are painted or not.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_child_property">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="89">gets a child property of a given child item,
+ e.g. the "row" or "column" property of an item in a #GooCanvasTable.</doc>
         <source-position filename="goocanvasitem.h" line="185"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5701,6 +6027,9 @@ by layout items such as #GooCanvasTable.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="grab_broken_event">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="133">signal emitted when a grab that the item has is lost.</doc>
         <source-position filename="goocanvasitem.h" line="278"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -5744,6 +6073,9 @@ be actually visible to the user.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="key_press_event">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="131">signal emitted when a key is pressed.</doc>
         <source-position filename="goocanvasitem.h" line="272"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -5761,6 +6093,9 @@ be actually visible to the user.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="key_release_event">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="132">signal emitted when a key is released.</doc>
         <source-position filename="goocanvasitem.h" line="275"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -5778,6 +6113,9 @@ be actually visible to the user.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="leave_notify_event">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="124">signal emitted when the mouse leaves the item.</doc>
         <source-position filename="goocanvasitem.h" line="254"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -5795,6 +6133,9 @@ be actually visible to the user.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="motion_notify_event">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="125">signal emitted when the mouse moves within the item.</doc>
         <source-position filename="goocanvasitem.h" line="257"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -5883,6 +6224,9 @@ Note that the @scale argument may be different to the current scale in the
         </parameters>
       </virtual-method>
       <virtual-method name="query_tooltip">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="135">signal emitted to query the tooltip of an item.</doc>
         <source-position filename="goocanvasitem.h" line="283"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -5950,6 +6294,10 @@ as soon as the application is idle, and before the canvas is redrawn.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="scroll_event">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="137">signal emitted when the mouse wheel is activated within
+the item.</doc>
         <source-position filename="goocanvasitem.h" line="296"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -5993,6 +6341,9 @@ It sets the canvas of the item.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="set_child_property">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="91">sets a child property for a given child item.</doc>
         <source-position filename="goocanvasitem.h" line="190"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6703,7 +7054,9 @@ It gets the items at the given point.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_parent" c:identifier="goo_canvas_item_get_parent">
+      <method name="get_parent"
+              c:identifier="goo_canvas_item_get_parent"
+              glib:get-property="parent">
         <doc xml:space="preserve"
              filename="goocanvasitem.c"
              line="742">Gets the parent of the given item.</doc>
@@ -6930,7 +7283,8 @@ its parent's style.</doc>
         </parameters>
       </method>
       <method name="get_transform"
-              c:identifier="goo_canvas_item_get_transform">
+              c:identifier="goo_canvas_item_get_transform"
+              glib:get-property="transform">
         <doc xml:space="preserve"
              filename="goocanvasitem.c"
              line="938">Gets the transformation matrix of an item.</doc>
@@ -7474,7 +7828,9 @@ Containers should also pass on any changes in their own status to children.</doc
           </parameter>
         </parameters>
       </method>
-      <method name="set_parent" c:identifier="goo_canvas_item_set_parent">
+      <method name="set_parent"
+              c:identifier="goo_canvas_item_set_parent"
+              glib:set-property="parent">
         <doc xml:space="preserve"
              filename="goocanvasitem.c"
              line="759">This function is only intended to be used when implementing new canvas
@@ -7571,7 +7927,8 @@ To do that use the #GooCanvasItem:parent property.
         </parameters>
       </method>
       <method name="set_transform"
-              c:identifier="goo_canvas_item_set_transform">
+              c:identifier="goo_canvas_item_set_transform"
+              glib:set-property="transform">
         <doc xml:space="preserve"
              filename="goocanvasitem.c"
              line="987">Sets the transformation matrix of an item.</doc>
@@ -7756,22 +8113,41 @@ Updates the item, if needed, and any children.</doc>
           </parameter>
         </parameters>
       </method>
-      <property name="can-focus" writable="1" transfer-ownership="none">
+      <property name="can-focus"
+                writable="1"
+                transfer-ownership="none"
+                default-value="FALSE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
-      <property name="description" writable="1" transfer-ownership="none">
+      <property name="description"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="parent" writable="1" transfer-ownership="none">
+      <property name="parent"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_parent"
+                getter="get_parent">
         <type name="CanvasItem"/>
       </property>
-      <property name="pointer-events" writable="1" transfer-ownership="none">
+      <property name="pointer-events"
+                writable="1"
+                transfer-ownership="none"
+                default-value="GOO_CANVAS_EVENTS_VISIBLE_MASK | GOO_CANVAS_EVENTS_PAINTED_MASK | GOO_CANVAS_EVENTS_FILL_MASK | GOO_CANVAS_EVENTS_STROKE_MASK">
         <type name="CanvasPointerEvents"/>
       </property>
-      <property name="title" writable="1" transfer-ownership="none">
+      <property name="title"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="tooltip" writable="1" transfer-ownership="none">
+      <property name="tooltip"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
         <doc xml:space="preserve"
              filename="goocanvasitem.c"
              line="525">The tooltip to display for the item, or %NULL to display no tooltip.
@@ -7781,15 +8157,23 @@ Note that this property has no effect unless the
 containing this item.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="transform" writable="1" transfer-ownership="none">
+      <property name="transform"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_transform"
+                getter="get_transform">
         <type name="CairoMatrix"/>
       </property>
-      <property name="visibility" writable="1" transfer-ownership="none">
+      <property name="visibility"
+                writable="1"
+                transfer-ownership="none"
+                default-value="GOO_CANVAS_ITEM_VISIBLE">
         <type name="CanvasItemVisibility"/>
       </property>
       <property name="visibility-threshold"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <glib:signal name="animation-finished" when="last">
@@ -8217,6 +8601,9 @@ get_transform_for_child().</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_canvas">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="81">returns the canvas the item is in.</doc>
         <callback name="get_canvas">
           <source-position filename="goocanvasitem.h" line="168"/>
           <return-value transfer-ownership="none">
@@ -8236,6 +8623,9 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="set_canvas">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="82">sets the canvas the item is in.</doc>
         <callback name="set_canvas">
           <source-position filename="goocanvasitem.h" line="169"/>
           <return-value transfer-ownership="none">
@@ -8258,6 +8648,9 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="get_n_children">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="83">returns the number of children of the item.</doc>
         <callback name="get_n_children">
           <source-position filename="goocanvasitem.h" line="171"/>
           <return-value transfer-ownership="none">
@@ -8277,6 +8670,9 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="get_child">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="84">returns the child at the given index.</doc>
         <callback name="get_child">
           <source-position filename="goocanvasitem.h" line="172"/>
           <return-value transfer-ownership="none">
@@ -8303,6 +8699,9 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="request_update">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="85">requests that an update is scheduled.</doc>
         <callback name="request_update">
           <source-position filename="goocanvasitem.h" line="174"/>
           <return-value transfer-ownership="none">
@@ -8319,6 +8718,9 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="add_child">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="86">adds a child.</doc>
         <callback name="add_child">
           <source-position filename="goocanvasitem.h" line="177"/>
           <return-value transfer-ownership="none">
@@ -8348,6 +8750,9 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="move_child">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="87">moves a child up or down the stacking order.</doc>
         <callback name="move_child">
           <source-position filename="goocanvasitem.h" line="180"/>
           <return-value transfer-ownership="none">
@@ -8376,6 +8781,9 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="remove_child">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="88">removes a child.</doc>
         <callback name="remove_child">
           <source-position filename="goocanvasitem.h" line="183"/>
           <return-value transfer-ownership="none">
@@ -8398,6 +8806,10 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="get_child_property">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="89">gets a child property of a given child item,
+ e.g. the "row" or "column" property of an item in a #GooCanvasTable.</doc>
         <callback name="get_child_property">
           <source-position filename="goocanvasitem.h" line="185"/>
           <return-value transfer-ownership="none">
@@ -8423,6 +8835,9 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="set_child_property">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="91">sets a child property for a given child item.</doc>
         <callback name="set_child_property">
           <source-position filename="goocanvasitem.h" line="190"/>
           <return-value transfer-ownership="none">
@@ -8448,6 +8863,9 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="get_transform_for_child">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="92">gets the transform used to lay out a given child.</doc>
         <callback name="get_transform_for_child">
           <source-position filename="goocanvasitem.h" line="195"/>
           <return-value transfer-ownership="none">
@@ -8482,6 +8900,9 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="get_parent">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="93">gets the item's parent.</doc>
         <callback name="get_parent">
           <source-position filename="goocanvasitem.h" line="200"/>
           <return-value transfer-ownership="none">
@@ -8501,6 +8922,9 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="set_parent">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="94">sets the item's parent.</doc>
         <callback name="set_parent">
           <source-position filename="goocanvasitem.h" line="201"/>
           <return-value transfer-ownership="none">
@@ -8523,6 +8947,9 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="get_bounds">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="95">gets the bounds of the item.</doc>
         <callback name="get_bounds">
           <source-position filename="goocanvasitem.h" line="203"/>
           <return-value transfer-ownership="none">
@@ -8548,6 +8975,9 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="get_items_at">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="96">gets all the items at the given point.</doc>
         <callback name="get_items_at">
           <source-position filename="goocanvasitem.h" line="205"/>
           <return-value transfer-ownership="none">
@@ -8612,6 +9042,10 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="update">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="97">updates the item, if needed. It recalculates the bounds of the item
+ and requests redraws of parts of the canvas if necessary.</doc>
         <callback name="update">
           <source-position filename="goocanvasitem.h" line="212"/>
           <return-value transfer-ownership="none">
@@ -8646,6 +9080,9 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="paint">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="99">renders the item to the given cairo context.</doc>
         <callback name="paint">
           <source-position filename="goocanvasitem.h" line="216"/>
           <return-value transfer-ownership="none">
@@ -8681,6 +9118,11 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="get_requested_area">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="100">returns the requested area of the item, in its parent's
+ coordinate space. This is only used for items in layout containers such as
+ #GooCanvasTable.</doc>
         <callback name="get_requested_area">
           <source-position filename="goocanvasitem.h" line="221"/>
           <return-value transfer-ownership="none">
@@ -8713,6 +9155,12 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="allocate_area">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="110">allocates the item's area, in its parent's coordinate space.
+ The item must recalculate its bounds and request redraws of parts of the
+ canvas if necessary. This is only used for items in layout containers such
+ as #GooCanvasTable.</doc>
         <callback name="allocate_area">
           <source-position filename="goocanvasitem.h" line="224"/>
           <return-value transfer-ownership="none">
@@ -8763,6 +9211,9 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="get_transform">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="114">gets the item's transformation matrix.</doc>
         <callback name="get_transform">
           <source-position filename="goocanvasitem.h" line="232"/>
           <return-value transfer-ownership="none">
@@ -8791,6 +9242,9 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="set_transform">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="115">sets the item's transformation matrix.</doc>
         <callback name="set_transform">
           <source-position filename="goocanvasitem.h" line="234"/>
           <return-value transfer-ownership="none">
@@ -8817,6 +9271,9 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="get_style">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="116">gets the item's style.</doc>
         <callback name="get_style">
           <source-position filename="goocanvasitem.h" line="236"/>
           <return-value transfer-ownership="none">
@@ -8836,6 +9293,9 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="set_style">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="117">sets the item's style.</doc>
         <callback name="set_style">
           <source-position filename="goocanvasitem.h" line="237"/>
           <return-value transfer-ownership="none">
@@ -8858,6 +9318,9 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="is_visible">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="118">returns %TRUE if the item is currently visible.</doc>
         <callback name="is_visible">
           <source-position filename="goocanvasitem.h" line="239"/>
           <return-value transfer-ownership="none">
@@ -8877,6 +9340,13 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="get_requested_height">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="103">returns the requested height of the item,
+ given a particular allocated width, using the parent's coordinate space.
+ Note that this method should only be used if the position of the item
+ remains unchanged. If the position might change use
+ get_requested_area_for_width() instead.</doc>
         <callback name="get_requested_height">
           <source-position filename="goocanvasitem.h" line="240"/>
           <return-value transfer-ownership="none">
@@ -8910,6 +9380,9 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="get_model">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="121">gets the model that the canvas item is viewing.</doc>
         <callback name="get_model">
           <source-position filename="goocanvasitem.h" line="245"/>
           <return-value transfer-ownership="none">
@@ -8929,6 +9402,9 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="set_model">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="122">sets the model that the canvas item will view.</doc>
         <callback name="set_model">
           <source-position filename="goocanvasitem.h" line="246"/>
           <return-value transfer-ownership="none">
@@ -8951,6 +9427,9 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="enter_notify_event">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="123">signal emitted when the mouse enters the item.</doc>
         <callback name="enter_notify_event">
           <source-position filename="goocanvasitem.h" line="251"/>
           <return-value transfer-ownership="none">
@@ -8970,6 +9449,9 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="leave_notify_event">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="124">signal emitted when the mouse leaves the item.</doc>
         <callback name="leave_notify_event">
           <source-position filename="goocanvasitem.h" line="254"/>
           <return-value transfer-ownership="none">
@@ -8989,6 +9471,9 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="motion_notify_event">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="125">signal emitted when the mouse moves within the item.</doc>
         <callback name="motion_notify_event">
           <source-position filename="goocanvasitem.h" line="257"/>
           <return-value transfer-ownership="none">
@@ -9008,6 +9493,10 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="button_press_event">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="126">signal emitted when a mouse button is pressed within
+ the item.</doc>
         <callback name="button_press_event">
           <source-position filename="goocanvasitem.h" line="260"/>
           <return-value transfer-ownership="none">
@@ -9027,6 +9516,9 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="button_release_event">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="128">signal emitted when a mouse button is released.</doc>
         <callback name="button_release_event">
           <source-position filename="goocanvasitem.h" line="263"/>
           <return-value transfer-ownership="none">
@@ -9046,6 +9538,9 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="focus_in_event">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="129">signal emitted when the item receices the keyboard focus.</doc>
         <callback name="focus_in_event">
           <source-position filename="goocanvasitem.h" line="266"/>
           <return-value transfer-ownership="none">
@@ -9065,6 +9560,9 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="focus_out_event">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="130">signal emitted when the item loses the keyboard focus.</doc>
         <callback name="focus_out_event">
           <source-position filename="goocanvasitem.h" line="269"/>
           <return-value transfer-ownership="none">
@@ -9084,6 +9582,9 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="key_press_event">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="131">signal emitted when a key is pressed.</doc>
         <callback name="key_press_event">
           <source-position filename="goocanvasitem.h" line="272"/>
           <return-value transfer-ownership="none">
@@ -9103,6 +9604,9 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="key_release_event">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="132">signal emitted when a key is released.</doc>
         <callback name="key_release_event">
           <source-position filename="goocanvasitem.h" line="275"/>
           <return-value transfer-ownership="none">
@@ -9122,6 +9626,9 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="grab_broken_event">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="133">signal emitted when a grab that the item has is lost.</doc>
         <callback name="grab_broken_event">
           <source-position filename="goocanvasitem.h" line="278"/>
           <return-value transfer-ownership="none">
@@ -9141,6 +9648,9 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="child_notify">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="134">signal emitted when a child property is changed.</doc>
         <callback name="child_notify">
           <source-position filename="goocanvasitem.h" line="281"/>
           <return-value transfer-ownership="none">
@@ -9157,6 +9667,9 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="query_tooltip">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="135">signal emitted to query the tooltip of an item.</doc>
         <callback name="query_tooltip">
           <source-position filename="goocanvasitem.h" line="283"/>
           <return-value transfer-ownership="none">
@@ -9182,6 +9695,9 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="get_is_static">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="119">returns %TRUE if the item is static.</doc>
         <callback name="get_is_static">
           <source-position filename="goocanvasitem.h" line="289"/>
           <return-value transfer-ownership="none">
@@ -9201,6 +9717,9 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="set_is_static">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="120">notifies the item whether it is static or not.</doc>
         <callback name="set_is_static">
           <source-position filename="goocanvasitem.h" line="290"/>
           <return-value transfer-ownership="none">
@@ -9223,6 +9742,9 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="animation_finished">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="136">signal emitted when the item's animation has finished.</doc>
         <callback name="animation_finished">
           <source-position filename="goocanvasitem.h" line="293"/>
           <return-value transfer-ownership="none">
@@ -9239,6 +9761,10 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="scroll_event">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="137">signal emitted when the mouse wheel is activated within
+the item.</doc>
         <callback name="scroll_event">
           <source-position filename="goocanvasitem.h" line="296"/>
           <return-value transfer-ownership="none">
@@ -9258,6 +9784,10 @@ get_transform_for_child().</doc>
         </callback>
       </field>
       <field name="get_requested_area_for_width">
+        <doc xml:space="preserve"
+             filename="goocanvasitem.h"
+             line="108">returns the requested bounds of the item,
+ given a particular allocated width, using the parent's coordinate space.</doc>
         <callback name="get_requested_area_for_width">
           <source-position filename="goocanvasitem.h" line="300"/>
           <return-value transfer-ownership="none">
@@ -9419,7 +9949,7 @@ It returns all child properties of a canvas item class.</doc>
                line="1155">
  a newly allocated array of #GParamSpec*. The array must be freed with g_free().</doc>
           <array length="1" zero-terminated="0" c:type="GParamSpec**">
-            <type name="GObject.ParamSpec" c:type="GParamSpec*"/>
+            <type name="GObject.ParamSpec"/>
           </array>
         </return-value>
         <parameters>
@@ -9471,6 +10001,9 @@ It returns all child properties of a canvas item class.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="animation_finished">
+        <doc xml:space="preserve"
+             filename="goocanvasitemmodel.h"
+             line="57">signal emitted when the model's animation has finished.</doc>
         <source-position filename="goocanvasitemmodel.h" line="138"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9485,6 +10018,9 @@ It returns all child properties of a canvas item class.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="changed">
+        <doc xml:space="preserve"
+             filename="goocanvasitemmodel.h"
+             line="55">signal emitted when the model has changed.</doc>
         <source-position filename="goocanvasitemmodel.h" line="133"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9499,6 +10035,9 @@ It returns all child properties of a canvas item class.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="child_added">
+        <doc xml:space="preserve"
+             filename="goocanvasitemmodel.h"
+             line="52">signal emitted when a child is added.</doc>
         <source-position filename="goocanvasitemmodel.h" line="126"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9513,6 +10052,9 @@ It returns all child properties of a canvas item class.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="child_moved">
+        <doc xml:space="preserve"
+             filename="goocanvasitemmodel.h"
+             line="53">signal emitted when a child is moved in the stacking order.</doc>
         <source-position filename="goocanvasitemmodel.h" line="128"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9530,6 +10072,9 @@ It returns all child properties of a canvas item class.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="child_notify">
+        <doc xml:space="preserve"
+             filename="goocanvasitemmodel.h"
+             line="56">signal emitted when a child property has changed.</doc>
         <source-position filename="goocanvasitemmodel.h" line="135"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9544,6 +10089,9 @@ It returns all child properties of a canvas item class.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="child_removed">
+        <doc xml:space="preserve"
+             filename="goocanvasitemmodel.h"
+             line="54">signal emitted when a child is removed.</doc>
         <source-position filename="goocanvasitemmodel.h" line="131"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9558,6 +10106,9 @@ It returns all child properties of a canvas item class.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="create_item" introspectable="0">
+        <doc xml:space="preserve"
+             filename="goocanvasitemmodel.h"
+             line="47">creates a default canvas item to view the model.</doc>
         <source-position filename="goocanvasitemmodel.h" line="113"/>
         <return-value>
           <type name="CanvasItem" c:type="GooCanvasItem*"/>
@@ -9599,6 +10150,10 @@ It returns all child properties of a canvas item class.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="get_child_property">
+        <doc xml:space="preserve"
+             filename="goocanvasitemmodel.h"
+             line="42">gets a child property of a given child model,
+ e.g. the "row" or "column" property of a model in a #GooCanvasTableModel.</doc>
         <source-position filename="goocanvasitemmodel.h" line="97"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9761,6 +10316,9 @@ return its parent's style.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="set_child_property">
+        <doc xml:space="preserve"
+             filename="goocanvasitemmodel.h"
+             line="44">sets a child property for a given child model.</doc>
         <source-position filename="goocanvasitemmodel.h" line="102"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -10140,7 +10698,8 @@ and rotation.</doc>
         </parameters>
       </method>
       <method name="get_parent"
-              c:identifier="goo_canvas_item_model_get_parent">
+              c:identifier="goo_canvas_item_model_get_parent"
+              glib:get-property="parent">
         <doc xml:space="preserve"
              filename="goocanvasitemmodel.c"
              line="441">Gets the parent of the given model.</doc>
@@ -10231,7 +10790,8 @@ return its parent's style.</doc>
         </parameters>
       </method>
       <method name="get_transform"
-              c:identifier="goo_canvas_item_model_get_transform">
+              c:identifier="goo_canvas_item_model_get_transform"
+              glib:get-property="transform">
         <doc xml:space="preserve"
              filename="goocanvasitemmodel.c"
              line="592">Gets the transformation matrix of an item model.</doc>
@@ -10570,7 +11130,8 @@ origin.</doc>
         </parameters>
       </method>
       <method name="set_parent"
-              c:identifier="goo_canvas_item_model_set_parent">
+              c:identifier="goo_canvas_item_model_set_parent"
+              glib:set-property="parent">
         <doc xml:space="preserve"
              filename="goocanvasitemmodel.c"
              line="456">This function is only intended to be used when implementing new canvas
@@ -10667,7 +11228,8 @@ To do that use the #GooCanvasItemModel:parent property.
         </parameters>
       </method>
       <method name="set_transform"
-              c:identifier="goo_canvas_item_model_set_transform">
+              c:identifier="goo_canvas_item_model_set_transform"
+              glib:set-property="transform">
         <doc xml:space="preserve"
              filename="goocanvasitemmodel.c"
              line="611">Sets the transformation matrix of an item model.</doc>
@@ -10814,33 +11376,60 @@ position.</doc>
           </parameter>
         </parameters>
       </method>
-      <property name="can-focus" writable="1" transfer-ownership="none">
+      <property name="can-focus"
+                writable="1"
+                transfer-ownership="none"
+                default-value="FALSE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
-      <property name="description" writable="1" transfer-ownership="none">
+      <property name="description"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="parent" writable="1" transfer-ownership="none">
+      <property name="parent"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_parent"
+                getter="get_parent">
         <type name="CanvasItemModel"/>
       </property>
-      <property name="pointer-events" writable="1" transfer-ownership="none">
+      <property name="pointer-events"
+                writable="1"
+                transfer-ownership="none"
+                default-value="GOO_CANVAS_EVENTS_VISIBLE_MASK | GOO_CANVAS_EVENTS_PAINTED_MASK | GOO_CANVAS_EVENTS_FILL_MASK | GOO_CANVAS_EVENTS_STROKE_MASK">
         <type name="CanvasPointerEvents"/>
       </property>
-      <property name="title" writable="1" transfer-ownership="none">
+      <property name="title"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="tooltip" writable="1" transfer-ownership="none">
+      <property name="tooltip"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="transform" writable="1" transfer-ownership="none">
+      <property name="transform"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_transform"
+                getter="get_transform">
         <type name="CairoMatrix"/>
       </property>
-      <property name="visibility" writable="1" transfer-ownership="none">
+      <property name="visibility"
+                writable="1"
+                transfer-ownership="none"
+                default-value="GOO_CANVAS_ITEM_VISIBLE">
         <type name="CanvasItemVisibility"/>
       </property>
       <property name="visibility-threshold"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <glib:signal name="animation-finished" when="last">
@@ -10976,6 +11565,9 @@ get_child_property() and set_child_property().</doc>
         <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
       </field>
       <field name="get_n_children">
+        <doc xml:space="preserve"
+             filename="goocanvasitemmodel.h"
+             line="37">returns the number of children of the model.</doc>
         <callback name="get_n_children">
           <source-position filename="goocanvasitemmodel.h" line="84"/>
           <return-value transfer-ownership="none">
@@ -10995,6 +11587,9 @@ get_child_property() and set_child_property().</doc>
         </callback>
       </field>
       <field name="get_child">
+        <doc xml:space="preserve"
+             filename="goocanvasitemmodel.h"
+             line="38">returns the child at the given index.</doc>
         <callback name="get_child">
           <source-position filename="goocanvasitemmodel.h" line="85"/>
           <return-value transfer-ownership="none">
@@ -11021,6 +11616,9 @@ get_child_property() and set_child_property().</doc>
         </callback>
       </field>
       <field name="add_child">
+        <doc xml:space="preserve"
+             filename="goocanvasitemmodel.h"
+             line="39">adds a child.</doc>
         <callback name="add_child">
           <source-position filename="goocanvasitemmodel.h" line="89"/>
           <return-value transfer-ownership="none">
@@ -11050,6 +11648,9 @@ get_child_property() and set_child_property().</doc>
         </callback>
       </field>
       <field name="move_child">
+        <doc xml:space="preserve"
+             filename="goocanvasitemmodel.h"
+             line="40">moves a child up or down the stacking order.</doc>
         <callback name="move_child">
           <source-position filename="goocanvasitemmodel.h" line="92"/>
           <return-value transfer-ownership="none">
@@ -11078,6 +11679,9 @@ get_child_property() and set_child_property().</doc>
         </callback>
       </field>
       <field name="remove_child">
+        <doc xml:space="preserve"
+             filename="goocanvasitemmodel.h"
+             line="41">removes a child.</doc>
         <callback name="remove_child">
           <source-position filename="goocanvasitemmodel.h" line="95"/>
           <return-value transfer-ownership="none">
@@ -11100,6 +11704,10 @@ get_child_property() and set_child_property().</doc>
         </callback>
       </field>
       <field name="get_child_property">
+        <doc xml:space="preserve"
+             filename="goocanvasitemmodel.h"
+             line="42">gets a child property of a given child model,
+ e.g. the "row" or "column" property of a model in a #GooCanvasTableModel.</doc>
         <callback name="get_child_property">
           <source-position filename="goocanvasitemmodel.h" line="97"/>
           <return-value transfer-ownership="none">
@@ -11125,6 +11733,9 @@ get_child_property() and set_child_property().</doc>
         </callback>
       </field>
       <field name="set_child_property">
+        <doc xml:space="preserve"
+             filename="goocanvasitemmodel.h"
+             line="44">sets a child property for a given child model.</doc>
         <callback name="set_child_property">
           <source-position filename="goocanvasitemmodel.h" line="102"/>
           <return-value transfer-ownership="none">
@@ -11150,6 +11761,9 @@ get_child_property() and set_child_property().</doc>
         </callback>
       </field>
       <field name="get_parent">
+        <doc xml:space="preserve"
+             filename="goocanvasitemmodel.h"
+             line="45">gets the model's parent.</doc>
         <callback name="get_parent">
           <source-position filename="goocanvasitemmodel.h" line="109"/>
           <return-value transfer-ownership="none">
@@ -11169,6 +11783,9 @@ get_child_property() and set_child_property().</doc>
         </callback>
       </field>
       <field name="set_parent">
+        <doc xml:space="preserve"
+             filename="goocanvasitemmodel.h"
+             line="46">sets the model's parent.</doc>
         <callback name="set_parent">
           <source-position filename="goocanvasitemmodel.h" line="110"/>
           <return-value transfer-ownership="none">
@@ -11191,6 +11808,9 @@ get_child_property() and set_child_property().</doc>
         </callback>
       </field>
       <field name="create_item" introspectable="0">
+        <doc xml:space="preserve"
+             filename="goocanvasitemmodel.h"
+             line="47">creates a default canvas item to view the model.</doc>
         <callback name="create_item" introspectable="0">
           <source-position filename="goocanvasitemmodel.h" line="113"/>
           <return-value>
@@ -11207,6 +11827,9 @@ get_child_property() and set_child_property().</doc>
         </callback>
       </field>
       <field name="get_transform">
+        <doc xml:space="preserve"
+             filename="goocanvasitemmodel.h"
+             line="48">gets the model's transformation matrix.</doc>
         <callback name="get_transform">
           <source-position filename="goocanvasitemmodel.h" line="117"/>
           <return-value transfer-ownership="none">
@@ -11232,6 +11855,9 @@ get_child_property() and set_child_property().</doc>
         </callback>
       </field>
       <field name="set_transform">
+        <doc xml:space="preserve"
+             filename="goocanvasitemmodel.h"
+             line="49">sets the model's transformation matrix.</doc>
         <callback name="set_transform">
           <source-position filename="goocanvasitemmodel.h" line="119"/>
           <return-value transfer-ownership="none">
@@ -11258,6 +11884,9 @@ get_child_property() and set_child_property().</doc>
         </callback>
       </field>
       <field name="get_style">
+        <doc xml:space="preserve"
+             filename="goocanvasitemmodel.h"
+             line="50">gets the model's style.</doc>
         <callback name="get_style">
           <source-position filename="goocanvasitemmodel.h" line="121"/>
           <return-value transfer-ownership="none">
@@ -11277,6 +11906,9 @@ get_child_property() and set_child_property().</doc>
         </callback>
       </field>
       <field name="set_style">
+        <doc xml:space="preserve"
+             filename="goocanvasitemmodel.h"
+             line="51">sets the model's style.</doc>
         <callback name="set_style">
           <source-position filename="goocanvasitemmodel.h" line="122"/>
           <return-value transfer-ownership="none">
@@ -11299,6 +11931,9 @@ get_child_property() and set_child_property().</doc>
         </callback>
       </field>
       <field name="child_added">
+        <doc xml:space="preserve"
+             filename="goocanvasitemmodel.h"
+             line="52">signal emitted when a child is added.</doc>
         <callback name="child_added">
           <source-position filename="goocanvasitemmodel.h" line="126"/>
           <return-value transfer-ownership="none">
@@ -11315,6 +11950,9 @@ get_child_property() and set_child_property().</doc>
         </callback>
       </field>
       <field name="child_moved">
+        <doc xml:space="preserve"
+             filename="goocanvasitemmodel.h"
+             line="53">signal emitted when a child is moved in the stacking order.</doc>
         <callback name="child_moved">
           <source-position filename="goocanvasitemmodel.h" line="128"/>
           <return-value transfer-ownership="none">
@@ -11334,6 +11972,9 @@ get_child_property() and set_child_property().</doc>
         </callback>
       </field>
       <field name="child_removed">
+        <doc xml:space="preserve"
+             filename="goocanvasitemmodel.h"
+             line="54">signal emitted when a child is removed.</doc>
         <callback name="child_removed">
           <source-position filename="goocanvasitemmodel.h" line="131"/>
           <return-value transfer-ownership="none">
@@ -11350,6 +11991,9 @@ get_child_property() and set_child_property().</doc>
         </callback>
       </field>
       <field name="changed">
+        <doc xml:space="preserve"
+             filename="goocanvasitemmodel.h"
+             line="55">signal emitted when the model has changed.</doc>
         <callback name="changed">
           <source-position filename="goocanvasitemmodel.h" line="133"/>
           <return-value transfer-ownership="none">
@@ -11366,6 +12010,9 @@ get_child_property() and set_child_property().</doc>
         </callback>
       </field>
       <field name="child_notify">
+        <doc xml:space="preserve"
+             filename="goocanvasitemmodel.h"
+             line="56">signal emitted when a child property has changed.</doc>
         <callback name="child_notify">
           <source-position filename="goocanvasitemmodel.h" line="135"/>
           <return-value transfer-ownership="none">
@@ -11382,6 +12029,9 @@ get_child_property() and set_child_property().</doc>
         </callback>
       </field>
       <field name="animation_finished">
+        <doc xml:space="preserve"
+             filename="goocanvasitemmodel.h"
+             line="57">signal emitted when the model's animation has finished.</doc>
         <callback name="animation_finished">
           <source-position filename="goocanvasitemmodel.h" line="138"/>
           <return-value transfer-ownership="none">
@@ -11480,16 +12130,23 @@ create_item() method of the #GooCanvasItemModel interface, to create
 the default canvas item to view the item model.</doc>
       <source-position filename="goocanvasitemsimple.h" line="239"/>
       <implements name="CanvasItemModel"/>
-      <property name="antialias" writable="1" transfer-ownership="none">
+      <property name="antialias"
+                writable="1"
+                transfer-ownership="none"
+                default-value="CAIRO_ANTIALIAS_GRAY">
         <type name="CairoAntialias"/>
       </property>
-      <property name="clip-fill-rule" writable="1" transfer-ownership="none">
+      <property name="clip-fill-rule"
+                writable="1"
+                transfer-ownership="none"
+                default-value="CAIRO_FILL_RULE_WINDING">
         <type name="CairoFillRule"/>
       </property>
       <property name="clip-path"
                 readable="0"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="NULL">
         <doc xml:space="preserve"
              filename="goocanvasitemsimple.c"
              line="332">The sequence of commands describing the clip path of the item, specified
@@ -11501,7 +12158,8 @@ Graphics (SVG)&lt;/ulink&gt; path element.</doc>
       <property name="fill-color"
                 readable="0"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="fill-color-gdk-rgba"
@@ -11509,7 +12167,10 @@ Graphics (SVG)&lt;/ulink&gt; path element.</doc>
                 transfer-ownership="none">
         <type name="Gdk.RGBA"/>
       </property>
-      <property name="fill-color-rgba" writable="1" transfer-ownership="none">
+      <property name="fill-color-rgba"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0">
         <type name="guint" c:type="guint"/>
       </property>
       <property name="fill-pattern" writable="1" transfer-ownership="none">
@@ -11521,42 +12182,65 @@ Graphics (SVG)&lt;/ulink&gt; path element.</doc>
                 transfer-ownership="none">
         <type name="GdkPixbuf.Pixbuf"/>
       </property>
-      <property name="fill-rule" writable="1" transfer-ownership="none">
+      <property name="fill-rule"
+                writable="1"
+                transfer-ownership="none"
+                default-value="CAIRO_FILL_RULE_WINDING">
         <type name="CairoFillRule"/>
       </property>
-      <property name="font" writable="1" transfer-ownership="none">
+      <property name="font"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="font-desc" writable="1" transfer-ownership="none">
         <type name="Pango.FontDescription"/>
       </property>
-      <property name="hint-metrics" writable="1" transfer-ownership="none">
+      <property name="hint-metrics"
+                writable="1"
+                transfer-ownership="none"
+                default-value="CAIRO_HINT_METRICS_OFF">
         <type name="CairoHintMetrics"/>
       </property>
-      <property name="line-cap" writable="1" transfer-ownership="none">
+      <property name="line-cap"
+                writable="1"
+                transfer-ownership="none"
+                default-value="CAIRO_LINE_CAP_BUTT">
         <type name="CairoLineCap"/>
       </property>
       <property name="line-dash" writable="1" transfer-ownership="none">
         <type name="CanvasLineDash"/>
       </property>
-      <property name="line-join" writable="1" transfer-ownership="none">
+      <property name="line-join"
+                writable="1"
+                transfer-ownership="none"
+                default-value="CAIRO_LINE_JOIN_MITER">
         <type name="CairoLineJoin"/>
       </property>
       <property name="line-join-miter-limit"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="10.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="line-width" writable="1" transfer-ownership="none">
+      <property name="line-width"
+                writable="1"
+                transfer-ownership="none"
+                default-value="2.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="operator" writable="1" transfer-ownership="none">
+      <property name="operator"
+                writable="1"
+                transfer-ownership="none"
+                default-value="CAIRO_OPERATOR_OVER">
         <type name="CairoOperator"/>
       </property>
       <property name="stroke-color"
                 readable="0"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="stroke-color-gdk-rgba"
@@ -11566,7 +12250,8 @@ Graphics (SVG)&lt;/ulink&gt; path element.</doc>
       </property>
       <property name="stroke-color-rgba"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="0">
         <type name="guint" c:type="guint"/>
       </property>
       <property name="stroke-pattern" writable="1" transfer-ownership="none">
@@ -11668,6 +12353,15 @@ correctly.)</doc>
       <source-position filename="goocanvasitemsimple.h" line="160"/>
       <implements name="CanvasItem"/>
       <virtual-method name="simple_create_path">
+        <doc xml:space="preserve"
+             filename="goocanvasitemsimple.h"
+             line="115">simple subclasses that draw basic shapes and paths only
+ need to override this one method. It creates the path for the item.
+ All updating, painting and hit-testing is provided automatically by the
+ #GooCanvasItemSimple class. (This method is used by the builtin
+ #GooCanvasEllipse, #GooCanvasRect and #GooCanvasPath items.)
+ More complicated subclasses must override @simple_update, @simple_paint and
+ @simple_is_item_at instead.</doc>
         <source-position filename="goocanvasitemsimple.h" line="139"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11682,6 +12376,9 @@ correctly.)</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="simple_is_item_at">
+        <doc xml:space="preserve"
+             filename="goocanvasitemsimple.h"
+             line="125">subclasses should override this to do hit-testing.</doc>
         <source-position filename="goocanvasitemsimple.h" line="147"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -11705,6 +12402,9 @@ correctly.)</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="simple_paint">
+        <doc xml:space="preserve"
+             filename="goocanvasitemsimple.h"
+             line="124">subclasses should override this to paint their item.</doc>
         <source-position filename="goocanvasitemsimple.h" line="144"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11722,6 +12422,10 @@ correctly.)</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="simple_update">
+        <doc xml:space="preserve"
+             filename="goocanvasitemsimple.h"
+             line="122">subclasses should override this to calculate their new
+ bounds, in user space.</doc>
         <source-position filename="goocanvasitemsimple.h" line="142"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11833,7 +12537,8 @@ doesn't have its own style it uses the parent item's style.</doc>
         </parameters>
       </method>
       <method name="get_line_width"
-              c:identifier="goo_canvas_item_simple_get_line_width">
+              c:identifier="goo_canvas_item_simple_get_line_width"
+              glib:get-property="line-width">
         <doc xml:space="preserve"
              filename="goocanvasitemsimple.c"
              line="1881">Gets the item's line width.</doc>
@@ -12011,16 +12716,23 @@ needed.</doc>
           </parameter>
         </parameters>
       </method>
-      <property name="antialias" writable="1" transfer-ownership="none">
+      <property name="antialias"
+                writable="1"
+                transfer-ownership="none"
+                default-value="CAIRO_ANTIALIAS_GRAY">
         <type name="CairoAntialias"/>
       </property>
-      <property name="clip-fill-rule" writable="1" transfer-ownership="none">
+      <property name="clip-fill-rule"
+                writable="1"
+                transfer-ownership="none"
+                default-value="CAIRO_FILL_RULE_WINDING">
         <type name="CairoFillRule"/>
       </property>
       <property name="clip-path"
                 readable="0"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="NULL">
         <doc xml:space="preserve"
              filename="goocanvasitemsimple.c"
              line="324">The sequence of commands describing the clip path of the item, specified
@@ -12032,7 +12744,8 @@ Graphics (SVG)&lt;/ulink&gt; path element.</doc>
       <property name="fill-color"
                 readable="0"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="fill-color-gdk-rgba"
@@ -12044,7 +12757,10 @@ Graphics (SVG)&lt;/ulink&gt; path element.</doc>
              line="275">The color to use to paint the interior of the item, specified as a GdkRGBA. To disable painting set the 'fill-pattern' property to NULL.</doc>
         <type name="Gdk.RGBA"/>
       </property>
-      <property name="fill-color-rgba" writable="1" transfer-ownership="none">
+      <property name="fill-color-rgba"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0">
         <type name="guint" c:type="guint"/>
       </property>
       <property name="fill-pattern" writable="1" transfer-ownership="none">
@@ -12056,42 +12772,66 @@ Graphics (SVG)&lt;/ulink&gt; path element.</doc>
                 transfer-ownership="none">
         <type name="GdkPixbuf.Pixbuf"/>
       </property>
-      <property name="fill-rule" writable="1" transfer-ownership="none">
+      <property name="fill-rule"
+                writable="1"
+                transfer-ownership="none"
+                default-value="CAIRO_FILL_RULE_WINDING">
         <type name="CairoFillRule"/>
       </property>
-      <property name="font" writable="1" transfer-ownership="none">
+      <property name="font"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="font-desc" writable="1" transfer-ownership="none">
         <type name="Pango.FontDescription"/>
       </property>
-      <property name="hint-metrics" writable="1" transfer-ownership="none">
+      <property name="hint-metrics"
+                writable="1"
+                transfer-ownership="none"
+                default-value="CAIRO_HINT_METRICS_OFF">
         <type name="CairoHintMetrics"/>
       </property>
-      <property name="line-cap" writable="1" transfer-ownership="none">
+      <property name="line-cap"
+                writable="1"
+                transfer-ownership="none"
+                default-value="CAIRO_LINE_CAP_BUTT">
         <type name="CairoLineCap"/>
       </property>
       <property name="line-dash" writable="1" transfer-ownership="none">
         <type name="CanvasLineDash"/>
       </property>
-      <property name="line-join" writable="1" transfer-ownership="none">
+      <property name="line-join"
+                writable="1"
+                transfer-ownership="none"
+                default-value="CAIRO_LINE_JOIN_MITER">
         <type name="CairoLineJoin"/>
       </property>
       <property name="line-join-miter-limit"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="10.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="line-width" writable="1" transfer-ownership="none">
+      <property name="line-width"
+                writable="1"
+                transfer-ownership="none"
+                getter="get_line_width"
+                default-value="2.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="operator" writable="1" transfer-ownership="none">
+      <property name="operator"
+                writable="1"
+                transfer-ownership="none"
+                default-value="CAIRO_OPERATOR_OVER">
         <type name="CairoOperator"/>
       </property>
       <property name="stroke-color"
                 readable="0"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="stroke-color-gdk-rgba"
@@ -12105,7 +12845,8 @@ Graphics (SVG)&lt;/ulink&gt; path element.</doc>
       </property>
       <property name="stroke-color-rgba"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="0">
         <type name="guint" c:type="guint"/>
       </property>
       <property name="stroke-pattern" writable="1" transfer-ownership="none">
@@ -12184,6 +12925,15 @@ items must override the update(), paint() and is_item_at() methods instead.</doc
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="simple_create_path">
+        <doc xml:space="preserve"
+             filename="goocanvasitemsimple.h"
+             line="115">simple subclasses that draw basic shapes and paths only
+ need to override this one method. It creates the path for the item.
+ All updating, painting and hit-testing is provided automatically by the
+ #GooCanvasItemSimple class. (This method is used by the builtin
+ #GooCanvasEllipse, #GooCanvasRect and #GooCanvasPath items.)
+ More complicated subclasses must override @simple_update, @simple_paint and
+ @simple_is_item_at instead.</doc>
         <callback name="simple_create_path">
           <source-position filename="goocanvasitemsimple.h" line="139"/>
           <return-value transfer-ownership="none">
@@ -12200,6 +12950,10 @@ items must override the update(), paint() and is_item_at() methods instead.</doc
         </callback>
       </field>
       <field name="simple_update">
+        <doc xml:space="preserve"
+             filename="goocanvasitemsimple.h"
+             line="122">subclasses should override this to calculate their new
+ bounds, in user space.</doc>
         <callback name="simple_update">
           <source-position filename="goocanvasitemsimple.h" line="142"/>
           <return-value transfer-ownership="none">
@@ -12216,6 +12970,9 @@ items must override the update(), paint() and is_item_at() methods instead.</doc
         </callback>
       </field>
       <field name="simple_paint">
+        <doc xml:space="preserve"
+             filename="goocanvasitemsimple.h"
+             line="124">subclasses should override this to paint their item.</doc>
         <callback name="simple_paint">
           <source-position filename="goocanvasitemsimple.h" line="144"/>
           <return-value transfer-ownership="none">
@@ -12235,6 +12992,9 @@ items must override the update(), paint() and is_item_at() methods instead.</doc
         </callback>
       </field>
       <field name="simple_is_item_at">
+        <doc xml:space="preserve"
+             filename="goocanvasitemsimple.h"
+             line="125">subclasses should override this to do hit-testing.</doc>
         <callback name="simple_is_item_at">
           <source-position filename="goocanvasitemsimple.h" line="147"/>
           <return-value transfer-ownership="none">
@@ -12388,7 +13148,8 @@ item is visible.</doc>
       <member name="hidden"
               value="0"
               c:identifier="GOO_CANVAS_ITEM_HIDDEN"
-              glib:nick="hidden">
+              glib:nick="hidden"
+              glib:name="GOO_CANVAS_ITEM_HIDDEN">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="70">the item is invisible, and is not allocated any
@@ -12397,7 +13158,8 @@ item is visible.</doc>
       <member name="invisible"
               value="1"
               c:identifier="GOO_CANVAS_ITEM_INVISIBLE"
-              glib:nick="invisible">
+              glib:nick="invisible"
+              glib:name="GOO_CANVAS_ITEM_INVISIBLE">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="72">the item is invisible, but it is still allocated
@@ -12406,7 +13168,8 @@ item is visible.</doc>
       <member name="visible"
               value="2"
               c:identifier="GOO_CANVAS_ITEM_VISIBLE"
-              glib:nick="visible">
+              glib:nick="visible"
+              glib:name="GOO_CANVAS_ITEM_VISIBLE">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="74">the item is visible.</doc>
@@ -12414,7 +13177,8 @@ item is visible.</doc>
       <member name="visible_above_threshold"
               value="3"
               c:identifier="GOO_CANVAS_ITEM_VISIBLE_ABOVE_THRESHOLD"
-              glib:nick="visible-above-threshold">
+              glib:nick="visible-above-threshold"
+              glib:name="GOO_CANVAS_ITEM_VISIBLE_ABOVE_THRESHOLD">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="75">the item is visible when the
@@ -12677,7 +13441,8 @@ quarter missing:
       <property name="data"
                 readable="0"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="NULL">
         <doc xml:space="preserve"
              filename="goocanvaspath.c"
              line="61">The sequence of path commands, specified as a string using the same syntax
@@ -12685,16 +13450,28 @@ as in the &lt;ulink url="http://www.w3.org/Graphics/SVG/"&gt;Scalable Vector
 Graphics (SVG)&lt;/ulink&gt; path element.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="height" writable="1" transfer-ownership="none">
+      <property name="height"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="width" writable="1" transfer-ownership="none">
+      <property name="width"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="x" writable="1" transfer-ownership="none">
+      <property name="x"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="y" writable="1" transfer-ownership="none">
+      <property name="y"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <field name="parent">
@@ -12838,7 +13615,8 @@ Scalable Vector Graphics (SVG) specification&lt;/ulink&gt; for more details.</do
       <member name="move_to"
               value="0"
               c:identifier="GOO_CANVAS_PATH_MOVE_TO"
-              glib:nick="move-to">
+              glib:nick="move-to"
+              glib:name="GOO_CANVAS_PATH_MOVE_TO">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="95">move to the given point.</doc>
@@ -12846,7 +13624,8 @@ Scalable Vector Graphics (SVG) specification&lt;/ulink&gt; for more details.</do
       <member name="close_path"
               value="1"
               c:identifier="GOO_CANVAS_PATH_CLOSE_PATH"
-              glib:nick="close-path">
+              glib:nick="close-path"
+              glib:name="GOO_CANVAS_PATH_CLOSE_PATH">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="96">close the current path, drawing a line from the
@@ -12855,7 +13634,8 @@ Scalable Vector Graphics (SVG) specification&lt;/ulink&gt; for more details.</do
       <member name="line_to"
               value="2"
               c:identifier="GOO_CANVAS_PATH_LINE_TO"
-              glib:nick="line-to">
+              glib:nick="line-to"
+              glib:name="GOO_CANVAS_PATH_LINE_TO">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="98">draw a line to the given point.</doc>
@@ -12863,7 +13643,8 @@ Scalable Vector Graphics (SVG) specification&lt;/ulink&gt; for more details.</do
       <member name="horizontal_line_to"
               value="3"
               c:identifier="GOO_CANVAS_PATH_HORIZONTAL_LINE_TO"
-              glib:nick="horizontal-line-to">
+              glib:nick="horizontal-line-to"
+              glib:name="GOO_CANVAS_PATH_HORIZONTAL_LINE_TO">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="99">draw a horizontal line to the given
@@ -12872,7 +13653,8 @@ Scalable Vector Graphics (SVG) specification&lt;/ulink&gt; for more details.</do
       <member name="vertical_line_to"
               value="4"
               c:identifier="GOO_CANVAS_PATH_VERTICAL_LINE_TO"
-              glib:nick="vertical-line-to">
+              glib:nick="vertical-line-to"
+              glib:name="GOO_CANVAS_PATH_VERTICAL_LINE_TO">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="101">draw a vertical line to the given y
@@ -12881,7 +13663,8 @@ Scalable Vector Graphics (SVG) specification&lt;/ulink&gt; for more details.</do
       <member name="curve_to"
               value="5"
               c:identifier="GOO_CANVAS_PATH_CURVE_TO"
-              glib:nick="curve-to">
+              glib:nick="curve-to"
+              glib:name="GOO_CANVAS_PATH_CURVE_TO">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="103">draw a bezier curve using two control
@@ -12890,7 +13673,8 @@ Scalable Vector Graphics (SVG) specification&lt;/ulink&gt; for more details.</do
       <member name="smooth_curve_to"
               value="6"
               c:identifier="GOO_CANVAS_PATH_SMOOTH_CURVE_TO"
-              glib:nick="smooth-curve-to">
+              glib:nick="smooth-curve-to"
+              glib:name="GOO_CANVAS_PATH_SMOOTH_CURVE_TO">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="105">draw a bezier curve using a reflection
@@ -12900,7 +13684,8 @@ Scalable Vector Graphics (SVG) specification&lt;/ulink&gt; for more details.</do
       <member name="quadratic_curve_to"
               value="7"
               c:identifier="GOO_CANVAS_PATH_QUADRATIC_CURVE_TO"
-              glib:nick="quadratic-curve-to">
+              glib:nick="quadratic-curve-to"
+              glib:name="GOO_CANVAS_PATH_QUADRATIC_CURVE_TO">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="108">draw a quadratic bezier curve using
@@ -12909,7 +13694,8 @@ Scalable Vector Graphics (SVG) specification&lt;/ulink&gt; for more details.</do
       <member name="smooth_quadratic_curve_to"
               value="8"
               c:identifier="GOO_CANVAS_PATH_SMOOTH_QUADRATIC_CURVE_TO"
-              glib:nick="smooth-quadratic-curve-to">
+              glib:nick="smooth-quadratic-curve-to"
+              glib:name="GOO_CANVAS_PATH_SMOOTH_QUADRATIC_CURVE_TO">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="110">draw a quadratic bezier curve
@@ -12919,7 +13705,8 @@ Scalable Vector Graphics (SVG) specification&lt;/ulink&gt; for more details.</do
       <member name="elliptical_arc"
               value="9"
               c:identifier="GOO_CANVAS_PATH_ELLIPTICAL_ARC"
-              glib:nick="elliptical-arc">
+              glib:nick="elliptical-arc"
+              glib:name="GOO_CANVAS_PATH_ELLIPTICAL_ARC">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="113">draw an elliptical arc, using the given
@@ -13040,19 +13827,32 @@ quarter missing:
       <property name="data"
                 readable="0"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="height" writable="1" transfer-ownership="none">
+      <property name="height"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="width" writable="1" transfer-ownership="none">
+      <property name="width"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="x" writable="1" transfer-ownership="none">
+      <property name="x"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="y" writable="1" transfer-ownership="none">
+      <property name="y"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <field name="parent_object">
@@ -13113,7 +13913,8 @@ quarter missing:
       <member name="visible_mask"
               value="1"
               c:identifier="GOO_CANVAS_EVENTS_VISIBLE_MASK"
-              glib:nick="visible-mask">
+              glib:nick="visible-mask"
+              glib:name="GOO_CANVAS_EVENTS_VISIBLE_MASK">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="21">a mask indicating that the item only
@@ -13122,7 +13923,8 @@ quarter missing:
       <member name="painted_mask"
               value="2"
               c:identifier="GOO_CANVAS_EVENTS_PAINTED_MASK"
-              glib:nick="painted-mask">
+              glib:nick="painted-mask"
+              glib:name="GOO_CANVAS_EVENTS_PAINTED_MASK">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="23">a mask indicating that the item only
@@ -13131,7 +13933,8 @@ quarter missing:
       <member name="fill_mask"
               value="4"
               c:identifier="GOO_CANVAS_EVENTS_FILL_MASK"
-              glib:nick="fill-mask">
+              glib:nick="fill-mask"
+              glib:name="GOO_CANVAS_EVENTS_FILL_MASK">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="25">a mask indicating that the filled part of
@@ -13140,7 +13943,8 @@ quarter missing:
       <member name="stroke_mask"
               value="8"
               c:identifier="GOO_CANVAS_EVENTS_STROKE_MASK"
-              glib:nick="stroke-mask">
+              glib:nick="stroke-mask"
+              glib:name="GOO_CANVAS_EVENTS_STROKE_MASK">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="27">a mask indicating that the stroked part
@@ -13149,7 +13953,8 @@ quarter missing:
       <member name="none"
               value="0"
               c:identifier="GOO_CANVAS_EVENTS_NONE"
-              glib:nick="none">
+              glib:nick="none"
+              glib:name="GOO_CANVAS_EVENTS_NONE">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="29">the item doesn't receive events at all.</doc>
@@ -13157,7 +13962,8 @@ quarter missing:
       <member name="visible_painted"
               value="15"
               c:identifier="GOO_CANVAS_EVENTS_VISIBLE_PAINTED"
-              glib:nick="visible-painted">
+              glib:nick="visible-painted"
+              glib:name="GOO_CANVAS_EVENTS_VISIBLE_PAINTED">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="30">the item receives events in its
@@ -13166,7 +13972,8 @@ quarter missing:
       <member name="visible_fill"
               value="5"
               c:identifier="GOO_CANVAS_EVENTS_VISIBLE_FILL"
-              glib:nick="visible-fill">
+              glib:nick="visible-fill"
+              glib:name="GOO_CANVAS_EVENTS_VISIBLE_FILL">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="32">the item's interior receives events
@@ -13175,7 +13982,8 @@ quarter missing:
       <member name="visible_stroke"
               value="9"
               c:identifier="GOO_CANVAS_EVENTS_VISIBLE_STROKE"
-              glib:nick="visible-stroke">
+              glib:nick="visible-stroke"
+              glib:name="GOO_CANVAS_EVENTS_VISIBLE_STROKE">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="34">the item's perimeter receives
@@ -13184,7 +13992,8 @@ quarter missing:
       <member name="visible"
               value="13"
               c:identifier="GOO_CANVAS_EVENTS_VISIBLE"
-              glib:nick="visible">
+              glib:nick="visible"
+              glib:name="GOO_CANVAS_EVENTS_VISIBLE">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="36">the item receives events when it is visible,
@@ -13193,7 +14002,8 @@ quarter missing:
       <member name="painted"
               value="14"
               c:identifier="GOO_CANVAS_EVENTS_PAINTED"
-              glib:nick="painted">
+              glib:nick="painted"
+              glib:name="GOO_CANVAS_EVENTS_PAINTED">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="38">the item receives events in its painted areas,
@@ -13202,7 +14012,8 @@ quarter missing:
       <member name="fill"
               value="4"
               c:identifier="GOO_CANVAS_EVENTS_FILL"
-              glib:nick="fill">
+              glib:nick="fill"
+              glib:name="GOO_CANVAS_EVENTS_FILL">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="40">the item's interior receives events, whether it
@@ -13211,7 +14022,8 @@ quarter missing:
       <member name="stroke"
               value="8"
               c:identifier="GOO_CANVAS_EVENTS_STROKE"
-              glib:nick="stroke">
+              glib:nick="stroke"
+              glib:name="GOO_CANVAS_EVENTS_STROKE">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="42">the item's perimeter receives events, whether
@@ -13220,7 +14032,8 @@ quarter missing:
       <member name="all"
               value="12"
               c:identifier="GOO_CANVAS_EVENTS_ALL"
-              glib:nick="all">
+              glib:nick="all"
+              glib:name="GOO_CANVAS_EVENTS_ALL">
         <doc xml:space="preserve"
              filename="goocanvasutils.h"
              line="44">the item's perimeter and interior receive events,
@@ -13540,37 +14353,67 @@ Here's an example showing how to create a line from (100,100) to (300,300).
           </parameter>
         </parameters>
       </function>
-      <property name="arrow-length" writable="1" transfer-ownership="none">
+      <property name="arrow-length"
+                writable="1"
+                transfer-ownership="none"
+                default-value="5.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="arrow-tip-length" writable="1" transfer-ownership="none">
+      <property name="arrow-tip-length"
+                writable="1"
+                transfer-ownership="none"
+                default-value="4.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="arrow-width" writable="1" transfer-ownership="none">
+      <property name="arrow-width"
+                writable="1"
+                transfer-ownership="none"
+                default-value="4.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="close-path" writable="1" transfer-ownership="none">
+      <property name="close-path"
+                writable="1"
+                transfer-ownership="none"
+                default-value="FALSE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
-      <property name="end-arrow" writable="1" transfer-ownership="none">
+      <property name="end-arrow"
+                writable="1"
+                transfer-ownership="none"
+                default-value="FALSE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
-      <property name="height" writable="1" transfer-ownership="none">
+      <property name="height"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <property name="points" writable="1" transfer-ownership="none">
         <type name="CanvasPoints"/>
       </property>
-      <property name="start-arrow" writable="1" transfer-ownership="none">
+      <property name="start-arrow"
+                writable="1"
+                transfer-ownership="none"
+                default-value="FALSE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
-      <property name="width" writable="1" transfer-ownership="none">
+      <property name="width"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="x" writable="1" transfer-ownership="none">
+      <property name="x"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="y" writable="1" transfer-ownership="none">
+      <property name="y"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <field name="parent">
@@ -13827,37 +14670,67 @@ Here's an example showing how to create a line from (100,100) to (300,300).
           </parameter>
         </parameters>
       </function>
-      <property name="arrow-length" writable="1" transfer-ownership="none">
+      <property name="arrow-length"
+                writable="1"
+                transfer-ownership="none"
+                default-value="5.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="arrow-tip-length" writable="1" transfer-ownership="none">
+      <property name="arrow-tip-length"
+                writable="1"
+                transfer-ownership="none"
+                default-value="4.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="arrow-width" writable="1" transfer-ownership="none">
+      <property name="arrow-width"
+                writable="1"
+                transfer-ownership="none"
+                default-value="4.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="close-path" writable="1" transfer-ownership="none">
+      <property name="close-path"
+                writable="1"
+                transfer-ownership="none"
+                default-value="FALSE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
-      <property name="end-arrow" writable="1" transfer-ownership="none">
+      <property name="end-arrow"
+                writable="1"
+                transfer-ownership="none"
+                default-value="FALSE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
-      <property name="height" writable="1" transfer-ownership="none">
+      <property name="height"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <property name="points" writable="1" transfer-ownership="none">
         <type name="CanvasPoints"/>
       </property>
-      <property name="start-arrow" writable="1" transfer-ownership="none">
+      <property name="start-arrow"
+                writable="1"
+                transfer-ownership="none"
+                default-value="FALSE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
-      <property name="width" writable="1" transfer-ownership="none">
+      <property name="width"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="x" writable="1" transfer-ownership="none">
+      <property name="x"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="y" writable="1" transfer-ownership="none">
+      <property name="y"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <field name="parent_object">
@@ -13997,22 +14870,40 @@ width of 200 and a height of 100.
           </parameter>
         </parameters>
       </function>
-      <property name="height" writable="1" transfer-ownership="none">
+      <property name="height"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="radius-x" writable="1" transfer-ownership="none">
+      <property name="radius-x"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="radius-y" writable="1" transfer-ownership="none">
+      <property name="radius-y"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="width" writable="1" transfer-ownership="none">
+      <property name="width"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="x" writable="1" transfer-ownership="none">
+      <property name="x"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="y" writable="1" transfer-ownership="none">
+      <property name="y"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <field name="parent">
@@ -14176,22 +15067,40 @@ width of 200 and a height of 100.
           </parameter>
         </parameters>
       </function>
-      <property name="height" writable="1" transfer-ownership="none">
+      <property name="height"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="radius-x" writable="1" transfer-ownership="none">
+      <property name="radius-x"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="radius-y" writable="1" transfer-ownership="none">
+      <property name="radius-y"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="width" writable="1" transfer-ownership="none">
+      <property name="width"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="x" writable="1" transfer-ownership="none">
+      <property name="x"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="y" writable="1" transfer-ownership="none">
+      <property name="y"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <field name="parent_object">
@@ -14643,34 +15552,52 @@ a triangle in it:
           </parameter>
         </parameters>
       </function>
-      <property name="column-spacing" writable="1" transfer-ownership="none">
+      <property name="column-spacing"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <property name="homogeneous-columns"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="FALSE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
-      <property name="homogeneous-rows" writable="1" transfer-ownership="none">
+      <property name="homogeneous-rows"
+                writable="1"
+                transfer-ownership="none"
+                default-value="FALSE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="horz-grid-line-width"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="row-spacing" writable="1" transfer-ownership="none">
+      <property name="row-spacing"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <property name="vert-grid-line-width"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="x-border-spacing" writable="1" transfer-ownership="none">
+      <property name="x-border-spacing"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="y-border-spacing" writable="1" transfer-ownership="none">
+      <property name="y-border-spacing"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <field name="parent">
@@ -14762,7 +15689,8 @@ a triangle in it:
     </record>
     <record name="CanvasTableLayoutData"
             c:type="GooCanvasTableLayoutData"
-            disguised="1">
+            disguised="1"
+            opaque="1">
       <source-position filename="goocanvastable.h" line="33"/>
     </record>
     <class name="CanvasTableModel"
@@ -14869,34 +15797,52 @@ a triangle in it:
           </parameter>
         </parameters>
       </function>
-      <property name="column-spacing" writable="1" transfer-ownership="none">
+      <property name="column-spacing"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <property name="homogeneous-columns"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="FALSE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
-      <property name="homogeneous-rows" writable="1" transfer-ownership="none">
+      <property name="homogeneous-rows"
+                writable="1"
+                transfer-ownership="none"
+                default-value="FALSE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="horz-grid-line-width"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="row-spacing" writable="1" transfer-ownership="none">
+      <property name="row-spacing"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <property name="vert-grid-line-width"
                 writable="1"
-                transfer-ownership="none">
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="x-border-spacing" writable="1" transfer-ownership="none">
+      <property name="x-border-spacing"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="y-border-spacing" writable="1" transfer-ownership="none">
+      <property name="y-border-spacing"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <field name="parent_object">
@@ -15090,34 +16036,64 @@ in a layout container such as #GooCanvasTable.</doc>
           </parameter>
         </parameters>
       </method>
-      <property name="alignment" writable="1" transfer-ownership="none">
+      <property name="alignment"
+                writable="1"
+                transfer-ownership="none"
+                default-value="PANGO_ALIGN_LEFT">
         <type name="Pango.Alignment"/>
       </property>
-      <property name="anchor" writable="1" transfer-ownership="none">
+      <property name="anchor"
+                writable="1"
+                transfer-ownership="none"
+                default-value="GOO_CANVAS_ANCHOR_NORTH_WEST">
         <type name="CanvasAnchorType"/>
       </property>
-      <property name="ellipsize" writable="1" transfer-ownership="none">
+      <property name="ellipsize"
+                writable="1"
+                transfer-ownership="none"
+                default-value="PANGO_ELLIPSIZE_NONE">
         <type name="Pango.EllipsizeMode"/>
       </property>
-      <property name="height" writable="1" transfer-ownership="none">
+      <property name="height"
+                writable="1"
+                transfer-ownership="none"
+                default-value="-1.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="text" writable="1" transfer-ownership="none">
+      <property name="text"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="use-markup" writable="1" transfer-ownership="none">
+      <property name="use-markup"
+                writable="1"
+                transfer-ownership="none"
+                default-value="FALSE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
-      <property name="width" writable="1" transfer-ownership="none">
+      <property name="width"
+                writable="1"
+                transfer-ownership="none"
+                default-value="-1.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="wrap" writable="1" transfer-ownership="none">
+      <property name="wrap"
+                writable="1"
+                transfer-ownership="none"
+                default-value="PANGO_WRAP_WORD">
         <type name="Pango.WrapMode"/>
       </property>
-      <property name="x" writable="1" transfer-ownership="none">
+      <property name="x"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="y" writable="1" transfer-ownership="none">
+      <property name="y"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <field name="parent">
@@ -15301,34 +16277,64 @@ of the text box placed at (500,500):
           </parameter>
         </parameters>
       </function>
-      <property name="alignment" writable="1" transfer-ownership="none">
+      <property name="alignment"
+                writable="1"
+                transfer-ownership="none"
+                default-value="PANGO_ALIGN_LEFT">
         <type name="Pango.Alignment"/>
       </property>
-      <property name="anchor" writable="1" transfer-ownership="none">
+      <property name="anchor"
+                writable="1"
+                transfer-ownership="none"
+                default-value="GOO_CANVAS_ANCHOR_NORTH_WEST">
         <type name="CanvasAnchorType"/>
       </property>
-      <property name="ellipsize" writable="1" transfer-ownership="none">
+      <property name="ellipsize"
+                writable="1"
+                transfer-ownership="none"
+                default-value="PANGO_ELLIPSIZE_NONE">
         <type name="Pango.EllipsizeMode"/>
       </property>
-      <property name="height" writable="1" transfer-ownership="none">
+      <property name="height"
+                writable="1"
+                transfer-ownership="none"
+                default-value="-1.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="text" writable="1" transfer-ownership="none">
+      <property name="text"
+                writable="1"
+                transfer-ownership="none"
+                default-value="NULL">
         <type name="utf8" c:type="gchar*"/>
       </property>
-      <property name="use-markup" writable="1" transfer-ownership="none">
+      <property name="use-markup"
+                writable="1"
+                transfer-ownership="none"
+                default-value="FALSE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
-      <property name="width" writable="1" transfer-ownership="none">
+      <property name="width"
+                writable="1"
+                transfer-ownership="none"
+                default-value="-1.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="wrap" writable="1" transfer-ownership="none">
+      <property name="wrap"
+                writable="1"
+                transfer-ownership="none"
+                default-value="PANGO_WRAP_WORD">
         <type name="Pango.WrapMode"/>
       </property>
-      <property name="x" writable="1" transfer-ownership="none">
+      <property name="x"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="y" writable="1" transfer-ownership="none">
+      <property name="y"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <field name="parent_object">
@@ -15484,22 +16490,37 @@ Here's an example showing how to create an entry widget centered at (100.0,
           </parameter>
         </parameters>
       </function>
-      <property name="anchor" writable="1" transfer-ownership="none">
+      <property name="anchor"
+                writable="1"
+                transfer-ownership="none"
+                default-value="GOO_CANVAS_ANCHOR_NORTH_WEST">
         <type name="CanvasAnchorType"/>
       </property>
-      <property name="height" writable="1" transfer-ownership="none">
+      <property name="height"
+                writable="1"
+                transfer-ownership="none"
+                default-value="-1.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <property name="widget" writable="1" transfer-ownership="none">
         <type name="Gtk.Widget"/>
       </property>
-      <property name="width" writable="1" transfer-ownership="none">
+      <property name="width"
+                writable="1"
+                transfer-ownership="none"
+                default-value="-1.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="x" writable="1" transfer-ownership="none">
+      <property name="x"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
-      <property name="y" writable="1" transfer-ownership="none">
+      <property name="y"
+                writable="1"
+                transfer-ownership="none"
+                default-value="0.000000">
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <field name="parent_object">
@@ -16104,7 +17125,7 @@ items, specifically layout container items such as #GooCanvasTable.
 
 It returns all child properties of a canvas item class.</doc>
       <source-position filename="goocanvasitem.h" line="484"/>
-      <return-value transfer-ownership="container">
+      <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="goocanvasitem.c"
              line="2377">a newly allocated
@@ -16216,7 +17237,7 @@ It returns all child properties of a canvas item class.</doc>
              line="1155">
  a newly allocated array of #GParamSpec*. The array must be freed with g_free().</doc>
         <array length="1" zero-terminated="0" c:type="GParamSpec**">
-          <type name="GObject.ParamSpec" c:type="GParamSpec*"/>
+          <type name="GObject.ParamSpec"/>
         </array>
       </return-value>
       <parameters>

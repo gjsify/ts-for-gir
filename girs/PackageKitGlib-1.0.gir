@@ -594,14 +594,14 @@ and/or use gtk-doc annotations.  -->
       <constructor name="new" c:identifier="pk_client_new" version="0.5.2">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="4689">#PkClient is a nice GObject wrapper for PackageKit and makes writing
+             line="4747">#PkClient is a nice GObject wrapper for PackageKit and makes writing
 frontends easy.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="112"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/packagekit-glib2/pk-client.c"
-               line="4695">A new #PkClient instance</doc>
+               line="4753">A new #PkClient instance</doc>
           <type name="Client" c:type="PkClient*"/>
         </return-value>
       </constructor>
@@ -699,7 +699,7 @@ applications.</doc>
               glib:finish-func="pk_client_generic_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="3736">We may want to agree to a EULA dialog if one is presented.</doc>
+             line="3794">We may want to agree to a EULA dialog if one is presented.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="336"/>
         <return-value transfer-ownership="none">
@@ -709,13 +709,13 @@ applications.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3738">a valid #PkClient instance</doc>
+                 line="3796">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="eula_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3739">the &lt;literal&gt;eula_id&lt;/literal&gt; we are agreeing to</doc>
+                 line="3797">the &lt;literal&gt;eula_id&lt;/literal&gt; we are agreeing to</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -724,7 +724,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3740">a #GCancellable or %NULL</doc>
+                 line="3798">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -733,7 +733,7 @@ applications.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3741">the function to run when the progress changes</doc>
+                 line="3799">the function to run when the progress changes</doc>
             <type name="ProgressCallback" c:type="PkProgressCallback"/>
           </parameter>
           <parameter name="progress_user_data"
@@ -742,7 +742,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3742">data to pass to @progress_callback</doc>
+                 line="3800">data to pass to @progress_callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_ready"
@@ -753,7 +753,7 @@ applications.</doc>
                      closure="5">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3743">the function to run on completion</doc>
+                 line="3801">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -762,7 +762,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3744">the data to pass to @callback_ready</doc>
+                 line="3802">the data to pass to @callback_ready</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -833,7 +833,7 @@ applications.</doc>
               glib:finish-func="pk_client_generic_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="4132">Adopt a transaction which allows the caller to monitor the state or cancel it.</doc>
+             line="4190">Adopt a transaction which allows the caller to monitor the state or cancel it.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="399"/>
         <return-value transfer-ownership="none">
@@ -843,13 +843,13 @@ applications.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4134">a valid #PkClient instance</doc>
+                 line="4192">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="transaction_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4135">a transaction ID such as "/21_ebcbdaae_data"</doc>
+                 line="4193">a transaction ID such as "/21_ebcbdaae_data"</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -858,7 +858,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4136">a #GCancellable or %NULL</doc>
+                 line="4194">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -867,7 +867,7 @@ applications.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4137">the function to run when the progress changes</doc>
+                 line="4195">the function to run when the progress changes</doc>
             <type name="ProgressCallback" c:type="PkProgressCallback"/>
           </parameter>
           <parameter name="progress_user_data"
@@ -876,7 +876,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4138">data to pass to @progress_callback</doc>
+                 line="4196">data to pass to @progress_callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_ready"
@@ -887,7 +887,7 @@ applications.</doc>
                      closure="5">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4139">the function to run on completion</doc>
+                 line="4197">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -896,7 +896,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4140">the data to pass to @callback_ready</doc>
+                 line="4198">the data to pass to @callback_ready</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -981,7 +981,7 @@ applications.</doc>
               glib:finish-func="pk_client_generic_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="2959">Get the packages that depend this one, i.e. child-&gt;parent.</doc>
+             line="3017">Get the packages that depend this one, i.e. child-&gt;parent.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="221"/>
         <return-value transfer-ownership="none">
@@ -991,19 +991,19 @@ applications.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2961">a valid #PkClient instance</doc>
+                 line="3019">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="filters" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2962">a #PkBitfield such as %PK_FILTER_ENUM_GUI | %PK_FILTER_ENUM_FREE or %PK_FILTER_ENUM_NONE</doc>
+                 line="3020">a #PkBitfield such as %PK_FILTER_ENUM_GUI | %PK_FILTER_ENUM_FREE or %PK_FILTER_ENUM_NONE</doc>
             <type name="Bitfield" c:type="PkBitfield"/>
           </parameter>
           <parameter name="package_ids" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2963">a null terminated array of package_id structures such as "hal;0.0.1;i386;fedora"</doc>
+                 line="3021">a null terminated array of package_id structures such as "hal;0.0.1;i386;fedora"</doc>
             <array c:type="gchar**">
               <type name="utf8" c:type="gchar*"/>
             </array>
@@ -1011,7 +1011,7 @@ applications.</doc>
           <parameter name="recursive" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2964">If we should search recursively for depends</doc>
+                 line="3022">If we should search recursively for depends</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="cancellable"
@@ -1020,7 +1020,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2965">a #GCancellable or %NULL</doc>
+                 line="3023">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -1029,7 +1029,7 @@ applications.</doc>
                      closure="5">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2966">the function to run when the progress changes</doc>
+                 line="3024">the function to run when the progress changes</doc>
             <type name="ProgressCallback" c:type="PkProgressCallback"/>
           </parameter>
           <parameter name="progress_user_data"
@@ -1038,7 +1038,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2967">data to pass to @progress_callback</doc>
+                 line="3025">data to pass to @progress_callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_ready"
@@ -1049,7 +1049,7 @@ applications.</doc>
                      closure="7">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2968">the function to run on completion</doc>
+                 line="3026">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1058,7 +1058,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2969">the data to pass to @callback_ready</doc>
+                 line="3027">the data to pass to @callback_ready</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1137,7 +1137,7 @@ applications.</doc>
               glib:finish-func="pk_client_generic_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="2812">Downloads package files to a specified location.</doc>
+             line="2870">Downloads package files to a specified location.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="196"/>
         <return-value transfer-ownership="none">
@@ -1147,13 +1147,13 @@ applications.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2814">a valid #PkClient instance</doc>
+                 line="2872">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="package_ids" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2815">a null terminated array of package_id structures such as "hal;0.0.1;i386;fedora"</doc>
+                 line="2873">a null terminated array of package_id structures such as "hal;0.0.1;i386;fedora"</doc>
             <array c:type="gchar**">
               <type name="utf8" c:type="gchar*"/>
             </array>
@@ -1161,7 +1161,7 @@ applications.</doc>
           <parameter name="directory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2816">the location where packages are to be downloaded</doc>
+                 line="2874">the location where packages are to be downloaded</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1170,7 +1170,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2817">a #GCancellable or %NULL</doc>
+                 line="2875">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -1179,7 +1179,7 @@ applications.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2818">the function to run when the progress changes</doc>
+                 line="2876">the function to run when the progress changes</doc>
             <type name="ProgressCallback" c:type="PkProgressCallback"/>
           </parameter>
           <parameter name="progress_user_data"
@@ -1188,7 +1188,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2819">data to pass to @progress_callback</doc>
+                 line="2877">data to pass to @progress_callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_ready"
@@ -1199,7 +1199,7 @@ applications.</doc>
                      closure="6">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2820">the function to run on completion</doc>
+                 line="2878">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1208,7 +1208,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2821">the data to pass to @callback_ready</doc>
+                 line="2879">the data to pass to @callback_ready</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1219,26 +1219,26 @@ applications.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="2326">Gets the result from the asynchronous function.</doc>
+             line="2384">Gets the result from the asynchronous function.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="115"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/packagekit-glib2/pk-client.c"
-               line="2334">the #PkResults, or %NULL. Free with g_object_unref()</doc>
+               line="2392">the #PkResults, or %NULL. Free with g_object_unref()</doc>
           <type name="Results" c:type="PkResults*"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2328">a valid #PkClient instance</doc>
+                 line="2386">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2329">the #GAsyncResult</doc>
+                 line="2387">the #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -1249,20 +1249,20 @@ applications.</doc>
               version="0.6.10">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="4393">Gets the background value.</doc>
+             line="4451">Gets the background value.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="426"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/packagekit-glib2/pk-client.c"
-               line="4399">The background status.</doc>
+               line="4457">The background status.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4395">a valid #PkClient instance</doc>
+                 line="4453">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
         </parameters>
@@ -1273,20 +1273,20 @@ applications.</doc>
               version="0.6.10">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="4501">Gets the maximum cache age value.</doc>
+             line="4559">Gets the maximum cache age value.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="433"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/packagekit-glib2/pk-client.c"
-               line="4507">The cache age in seconds</doc>
+               line="4565">The cache age in seconds</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4503">a valid #PkClient instance</doc>
+                 line="4561">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
         </parameters>
@@ -1351,7 +1351,7 @@ applications.</doc>
               glib:finish-func="pk_client_generic_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="3264">Get a list of all categories supported.</doc>
+             line="3322">Get a list of all categories supported.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="273"/>
         <return-value transfer-ownership="none">
@@ -1361,7 +1361,7 @@ applications.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3266">a valid #PkClient instance</doc>
+                 line="3324">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -1370,7 +1370,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3267">a #GCancellable or %NULL</doc>
+                 line="3325">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -1379,7 +1379,7 @@ applications.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3268">the function to run when the progress changes</doc>
+                 line="3326">the function to run when the progress changes</doc>
             <type name="ProgressCallback" c:type="PkProgressCallback"/>
           </parameter>
           <parameter name="progress_user_data"
@@ -1388,7 +1388,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3269">data to pass to @progress_callback</doc>
+                 line="3327">data to pass to @progress_callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_ready"
@@ -1399,7 +1399,7 @@ applications.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3270">the function to run on completion</doc>
+                 line="3328">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1408,7 +1408,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3271">the data to pass to @callback_ready</doc>
+                 line="3329">the data to pass to @callback_ready</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1482,7 +1482,7 @@ applications.</doc>
               glib:finish-func="pk_client_generic_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="2603">Get details of a package, so more information can be obtained for GUI
+             line="2661">Get details of a package, so more information can be obtained for GUI
 or command line tools.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="164"/>
@@ -1493,13 +1493,13 @@ or command line tools.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2605">a valid #PkClient instance</doc>
+                 line="2663">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="package_ids" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2606">a null terminated array of package_id structures such as "hal;0.0.1;i386;fedora"</doc>
+                 line="2664">a null terminated array of package_id structures such as "hal;0.0.1;i386;fedora"</doc>
             <array c:type="gchar**">
               <type name="utf8" c:type="gchar*"/>
             </array>
@@ -1510,7 +1510,7 @@ or command line tools.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2607">a #GCancellable or %NULL</doc>
+                 line="2665">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -1519,7 +1519,7 @@ or command line tools.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2608">the function to run when the progress changes</doc>
+                 line="2666">the function to run when the progress changes</doc>
             <type name="ProgressCallback" c:type="PkProgressCallback"/>
           </parameter>
           <parameter name="progress_user_data"
@@ -1528,7 +1528,7 @@ or command line tools.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2609">data to pass to @progress_callback</doc>
+                 line="2667">data to pass to @progress_callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_ready"
@@ -1539,7 +1539,7 @@ or command line tools.</doc>
                      closure="5">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2610">the function to run on completion</doc>
+                 line="2668">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1548,7 +1548,7 @@ or command line tools.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2611">the data to pass to @callback_ready</doc>
+                 line="2669">the data to pass to @callback_ready</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1622,7 +1622,7 @@ applications.</doc>
               glib:finish-func="pk_client_generic_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="2653">Get details of a package, so more information can be obtained for GUI
+             line="2711">Get details of a package, so more information can be obtained for GUI
 or command line tools.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="172"/>
@@ -1633,13 +1633,13 @@ or command line tools.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2655">a valid #PkClient instance</doc>
+                 line="2713">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="files" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2656">a null terminated array of filenames</doc>
+                 line="2714">a null terminated array of filenames</doc>
             <array c:type="gchar**">
               <type name="utf8" c:type="gchar*"/>
             </array>
@@ -1650,7 +1650,7 @@ or command line tools.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2657">a #GCancellable or %NULL</doc>
+                 line="2715">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -1659,7 +1659,7 @@ or command line tools.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2658">the function to run when the progress changes</doc>
+                 line="2716">the function to run when the progress changes</doc>
             <type name="ProgressCallback" c:type="PkProgressCallback"/>
           </parameter>
           <parameter name="progress_user_data"
@@ -1668,7 +1668,7 @@ or command line tools.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2659">data to pass to @progress_callback</doc>
+                 line="2717">data to pass to @progress_callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_ready"
@@ -1679,7 +1679,7 @@ or command line tools.</doc>
                      closure="5">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2660">the function to run on completion</doc>
+                 line="2718">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1688,7 +1688,7 @@ or command line tools.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2661">the data to pass to @callback_ready</doc>
+                 line="2719">the data to pass to @callback_ready</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1699,13 +1699,13 @@ or command line tools.</doc>
               version="1.2.7">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="4545">Gets the client details-with-deps-size value.</doc>
+             line="4603">Gets the client details-with-deps-size value.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="436"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/packagekit-glib2/pk-client.c"
-               line="4551">whether the pk_client_get_details_async() should include dependencies
+               line="4609">whether the pk_client_get_details_async() should include dependencies
    download sizes for packages, which are not installed.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1713,7 +1713,7 @@ or command line tools.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4547">a valid #PkClient instance</doc>
+                 line="4605">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
         </parameters>
@@ -1779,7 +1779,7 @@ applications.</doc>
               glib:finish-func="pk_client_generic_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="3168">This method should return a list of distribution upgrades that are available.
+             line="3226">This method should return a list of distribution upgrades that are available.
 It should not return updates, only major upgrades.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="258"/>
@@ -1790,7 +1790,7 @@ It should not return updates, only major upgrades.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3170">a valid #PkClient instance</doc>
+                 line="3228">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -1799,7 +1799,7 @@ It should not return updates, only major upgrades.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3171">a #GCancellable or %NULL</doc>
+                 line="3229">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -1808,7 +1808,7 @@ It should not return updates, only major upgrades.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3172">the function to run when the progress changes</doc>
+                 line="3230">the function to run when the progress changes</doc>
             <type name="ProgressCallback" c:type="PkProgressCallback"/>
           </parameter>
           <parameter name="progress_user_data"
@@ -1817,7 +1817,7 @@ It should not return updates, only major upgrades.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3173">data to pass to @progress_callback</doc>
+                 line="3231">data to pass to @progress_callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_ready"
@@ -1828,7 +1828,7 @@ It should not return updates, only major upgrades.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3174">the function to run on completion</doc>
+                 line="3232">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1837,7 +1837,7 @@ It should not return updates, only major upgrades.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3175">the data to pass to @callback_ready</doc>
+                 line="3233">the data to pass to @callback_ready</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1910,7 +1910,7 @@ applications.</doc>
               glib:finish-func="pk_client_generic_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="3215">Get the file list (i.e. a list of files installed) for the specified package.</doc>
+             line="3273">Get the file list (i.e. a list of files installed) for the specified package.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="265"/>
         <return-value transfer-ownership="none">
@@ -1920,13 +1920,13 @@ applications.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3217">a valid #PkClient instance</doc>
+                 line="3275">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="package_ids" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3218">a null terminated array of package_id structures such as "hal;0.0.1;i386;fedora"</doc>
+                 line="3276">a null terminated array of package_id structures such as "hal;0.0.1;i386;fedora"</doc>
             <array c:type="gchar**">
               <type name="utf8" c:type="gchar*"/>
             </array>
@@ -1937,7 +1937,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3219">a #GCancellable or %NULL</doc>
+                 line="3277">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -1946,7 +1946,7 @@ applications.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3220">the function to run when the progress changes</doc>
+                 line="3278">the function to run when the progress changes</doc>
             <type name="ProgressCallback" c:type="PkProgressCallback"/>
           </parameter>
           <parameter name="progress_user_data"
@@ -1955,7 +1955,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3221">data to pass to @progress_callback</doc>
+                 line="3279">data to pass to @progress_callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_ready"
@@ -1966,7 +1966,7 @@ applications.</doc>
                      closure="5">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3222">the function to run on completion</doc>
+                 line="3280">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1975,7 +1975,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3223">the data to pass to @callback_ready</doc>
+                 line="3281">the data to pass to @callback_ready</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -2049,7 +2049,7 @@ applications.</doc>
               glib:finish-func="pk_client_generic_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="2708">Get file list of a package, so more information can be obtained for GUI
+             line="2766">Get file list of a package, so more information can be obtained for GUI
 or command line tools.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="180"/>
@@ -2060,13 +2060,13 @@ or command line tools.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2710">a valid #PkClient instance</doc>
+                 line="2768">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="files" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2711">a null terminated array of filenames</doc>
+                 line="2769">a null terminated array of filenames</doc>
             <array c:type="gchar**">
               <type name="utf8" c:type="gchar*"/>
             </array>
@@ -2077,7 +2077,7 @@ or command line tools.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2712">a #GCancellable or %NULL</doc>
+                 line="2770">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -2086,7 +2086,7 @@ or command line tools.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2713">the function to run when the progress changes</doc>
+                 line="2771">the function to run when the progress changes</doc>
             <type name="ProgressCallback" c:type="PkProgressCallback"/>
           </parameter>
           <parameter name="progress_user_data"
@@ -2095,7 +2095,7 @@ or command line tools.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2714">data to pass to @progress_callback</doc>
+                 line="2772">data to pass to @progress_callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_ready"
@@ -2106,7 +2106,7 @@ or command line tools.</doc>
                      closure="5">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2715">the function to run on completion</doc>
+                 line="2773">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -2115,7 +2115,7 @@ or command line tools.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2716">the data to pass to @callback_ready</doc>
+                 line="2774">the data to pass to @callback_ready</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -2126,20 +2126,20 @@ or command line tools.</doc>
               version="0.6.10">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="4457">Gets if the transaction client idle value.</doc>
+             line="4515">Gets if the transaction client idle value.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="430"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/packagekit-glib2/pk-client.c"
-               line="4463">if this client is idle.</doc>
+               line="4521">if this client is idle.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4459">a valid #PkClient instance</doc>
+                 line="4517">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
         </parameters>
@@ -2150,20 +2150,20 @@ or command line tools.</doc>
               version="0.6.10">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="4437">Gets the client interactive value.</doc>
+             line="4495">Gets the client interactive value.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="429"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/packagekit-glib2/pk-client.c"
-               line="4443">if the transaction is due to run interactivly.</doc>
+               line="4501">if the transaction is due to run interactivly.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4439">a valid #PkClient instance</doc>
+                 line="4497">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
         </parameters>
@@ -2174,20 +2174,20 @@ or command line tools.</doc>
               version="0.6.10">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="4348">Gets the locale used for this transaction.</doc>
+             line="4406">Gets the locale used for this transaction.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="423"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/packagekit-glib2/pk-client.c"
-               line="4354">The locale.</doc>
+               line="4412">The locale.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4350">a valid #PkClient instance</doc>
+                 line="4408">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
         </parameters>
@@ -2258,7 +2258,7 @@ applications.</doc>
               glib:finish-func="pk_client_generic_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="2911">Get the old transaction list, mainly used for the transaction viewer.</doc>
+             line="2969">Get the old transaction list, mainly used for the transaction viewer.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="213"/>
         <return-value transfer-ownership="none">
@@ -2268,13 +2268,13 @@ applications.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2913">a valid #PkClient instance</doc>
+                 line="2971">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="number" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2914">the number of past transactions to return, or 0 for all</doc>
+                 line="2972">the number of past transactions to return, or 0 for all</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="cancellable"
@@ -2283,7 +2283,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2915">a #GCancellable or %NULL</doc>
+                 line="2973">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -2292,7 +2292,7 @@ applications.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2916">the function to run when the progress changes</doc>
+                 line="2974">the function to run when the progress changes</doc>
             <type name="ProgressCallback" c:type="PkProgressCallback"/>
           </parameter>
           <parameter name="progress_user_data"
@@ -2301,7 +2301,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2917">data to pass to @progress_callback</doc>
+                 line="2975">data to pass to @progress_callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_ready"
@@ -2312,7 +2312,7 @@ applications.</doc>
                      closure="5">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2918">the function to run on completion</doc>
+                 line="2976">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -2321,7 +2321,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2919">the data to pass to @callback_ready</doc>
+                 line="2977">the data to pass to @callback_ready</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -2392,7 +2392,7 @@ applications.</doc>
               glib:finish-func="pk_client_generic_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="3012">Get the list of packages from the backend</doc>
+             line="3070">Get the list of packages from the backend</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="231"/>
         <return-value transfer-ownership="none">
@@ -2402,13 +2402,13 @@ applications.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3014">a valid #PkClient instance</doc>
+                 line="3072">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="filters" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3015">a #PkBitfield such as %PK_FILTER_ENUM_GUI | %PK_FILTER_ENUM_FREE or %PK_FILTER_ENUM_NONE</doc>
+                 line="3073">a #PkBitfield such as %PK_FILTER_ENUM_GUI | %PK_FILTER_ENUM_FREE or %PK_FILTER_ENUM_NONE</doc>
             <type name="Bitfield" c:type="PkBitfield"/>
           </parameter>
           <parameter name="cancellable"
@@ -2417,7 +2417,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3016">a #GCancellable or %NULL</doc>
+                 line="3074">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -2426,7 +2426,7 @@ applications.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3017">the function to run when the progress changes</doc>
+                 line="3075">the function to run when the progress changes</doc>
             <type name="ProgressCallback" c:type="PkProgressCallback"/>
           </parameter>
           <parameter name="progress_user_data"
@@ -2435,7 +2435,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3018">data to pass to @progress_callback</doc>
+                 line="3076">data to pass to @progress_callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_ready"
@@ -2446,7 +2446,7 @@ applications.</doc>
                      closure="5">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3019">the function to run on completion</doc>
+                 line="3077">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -2455,7 +2455,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3020">the data to pass to @callback_ready</doc>
+                 line="3078">the data to pass to @callback_ready</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -2510,7 +2510,7 @@ applications.</doc>
               glib:sync-func="get_progress">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="4242">Find the current state of a transaction.</doc>
+             line="4300">Find the current state of a transaction.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="411"/>
         <return-value transfer-ownership="none">
@@ -2520,13 +2520,13 @@ applications.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4244">a valid #PkClient instance</doc>
+                 line="4302">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="transaction_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4245">a transaction ID such as "/21_ebcbdaae_data"</doc>
+                 line="4303">a transaction ID such as "/21_ebcbdaae_data"</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -2535,7 +2535,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4246">a #GCancellable or %NULL</doc>
+                 line="4304">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback_ready"
@@ -2546,7 +2546,7 @@ applications.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4247">the function to run on completion</doc>
+                 line="4305">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -2555,7 +2555,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4248">the data to pass to @callback_ready</doc>
+                 line="4306">the data to pass to @callback_ready</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -2566,26 +2566,26 @@ applications.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="4196">Gets the result from the asynchronous function.</doc>
+             line="4254">Gets the result from the asynchronous function.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="407"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/packagekit-glib2/pk-client.c"
-               line="4204">the #PkProgress, or %NULL. Free with g_object_unref()</doc>
+               line="4262">the #PkProgress, or %NULL. Free with g_object_unref()</doc>
           <type name="Progress" c:type="PkProgress*"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4198">a valid #PkClient instance</doc>
+                 line="4256">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4199">the #GAsyncResult</doc>
+                 line="4257">the #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -2656,7 +2656,7 @@ applications.</doc>
               glib:finish-func="pk_client_generic_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="3784">Get the list of repositories installed on the system.</doc>
+             line="3842">Get the list of repositories installed on the system.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="344"/>
         <return-value transfer-ownership="none">
@@ -2666,13 +2666,13 @@ applications.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3786">a valid #PkClient instance</doc>
+                 line="3844">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="filters" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3787">a #PkBitfield such as %PK_FILTER_ENUM_DEVELOPMENT or %PK_FILTER_ENUM_NONE</doc>
+                 line="3845">a #PkBitfield such as %PK_FILTER_ENUM_DEVELOPMENT or %PK_FILTER_ENUM_NONE</doc>
             <type name="Bitfield" c:type="PkBitfield"/>
           </parameter>
           <parameter name="cancellable"
@@ -2681,7 +2681,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3788">a #GCancellable or %NULL</doc>
+                 line="3846">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -2690,7 +2690,7 @@ applications.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3789">the function to run when the progress changes</doc>
+                 line="3847">the function to run when the progress changes</doc>
             <type name="ProgressCallback" c:type="PkProgressCallback"/>
           </parameter>
           <parameter name="progress_user_data"
@@ -2699,7 +2699,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3790">data to pass to @progress_callback</doc>
+                 line="3848">data to pass to @progress_callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_ready"
@@ -2710,7 +2710,7 @@ applications.</doc>
                      closure="5">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3791">the function to run on completion</doc>
+                 line="3849">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -2719,7 +2719,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3792">the data to pass to @callback_ready</doc>
+                 line="3850">the data to pass to @callback_ready</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -2793,7 +2793,7 @@ applications.</doc>
               glib:finish-func="pk_client_generic_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="2762">Get details about the specific update, for instance any CVE urls and
+             line="2820">Get details about the specific update, for instance any CVE urls and
 severity information.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="188"/>
@@ -2804,13 +2804,13 @@ severity information.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2764">a valid #PkClient instance</doc>
+                 line="2822">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="package_ids" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2765">a null terminated array of package_id structures such as "hal;0.0.1;i386;fedora"</doc>
+                 line="2823">a null terminated array of package_id structures such as "hal;0.0.1;i386;fedora"</doc>
             <array c:type="gchar**">
               <type name="utf8" c:type="gchar*"/>
             </array>
@@ -2821,7 +2821,7 @@ severity information.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2766">a #GCancellable or %NULL</doc>
+                 line="2824">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -2830,7 +2830,7 @@ severity information.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2767">the function to run when the progress changes</doc>
+                 line="2825">the function to run when the progress changes</doc>
             <type name="ProgressCallback" c:type="PkProgressCallback"/>
           </parameter>
           <parameter name="progress_user_data"
@@ -2839,7 +2839,7 @@ severity information.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2768">data to pass to @progress_callback</doc>
+                 line="2826">data to pass to @progress_callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_ready"
@@ -2850,7 +2850,7 @@ severity information.</doc>
                      closure="5">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2769">the function to run on completion</doc>
+                 line="2827">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -2859,7 +2859,7 @@ severity information.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2770">the data to pass to @callback_ready</doc>
+                 line="2828">the data to pass to @callback_ready</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -2930,7 +2930,7 @@ applications.</doc>
               glib:finish-func="pk_client_generic_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="2863">Get a list of all the packages that can be updated for all repositories.</doc>
+             line="2921">Get a list of all the packages that can be updated for all repositories.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="205"/>
         <return-value transfer-ownership="none">
@@ -2940,13 +2940,13 @@ applications.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2865">a valid #PkClient instance</doc>
+                 line="2923">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="filters" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2866">a #PkBitfield such as %PK_FILTER_ENUM_DEVELOPMENT or %PK_FILTER_ENUM_NONE</doc>
+                 line="2924">a #PkBitfield such as %PK_FILTER_ENUM_DEVELOPMENT or %PK_FILTER_ENUM_NONE</doc>
             <type name="Bitfield" c:type="PkBitfield"/>
           </parameter>
           <parameter name="cancellable"
@@ -2955,7 +2955,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2867">a #GCancellable or %NULL</doc>
+                 line="2925">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -2964,7 +2964,7 @@ applications.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2868">the function to run when the progress changes</doc>
+                 line="2926">the function to run when the progress changes</doc>
             <type name="ProgressCallback" c:type="PkProgressCallback"/>
           </parameter>
           <parameter name="progress_user_data"
@@ -2973,7 +2973,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2869">data to pass to @progress_callback</doc>
+                 line="2927">data to pass to @progress_callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_ready"
@@ -2984,7 +2984,7 @@ applications.</doc>
                      closure="5">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2870">the function to run on completion</doc>
+                 line="2928">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -2993,7 +2993,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2871">the data to pass to @callback_ready</doc>
+                 line="2929">the data to pass to @callback_ready</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -3073,7 +3073,7 @@ applications.</doc>
               glib:finish-func="pk_client_generic_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="3656">Install a file locally, and get the deps from the repositories.
+             line="3714">Install a file locally, and get the deps from the repositories.
 This is useful for double clicking on a .rpm or .deb file.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="327"/>
@@ -3084,19 +3084,19 @@ This is useful for double clicking on a .rpm or .deb file.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3658">a valid #PkClient instance</doc>
+                 line="3716">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="transaction_flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3659">a transaction type bitfield</doc>
+                 line="3717">a transaction type bitfield</doc>
             <type name="Bitfield" c:type="PkBitfield"/>
           </parameter>
           <parameter name="files" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3660">a file such as "/home/hughsie/Desktop/hal-devel-0.10.0.rpm"</doc>
+                 line="3718">a file such as "/home/hughsie/Desktop/hal-devel-0.10.0.rpm"</doc>
             <array c:type="gchar**">
               <type name="utf8" c:type="gchar*"/>
             </array>
@@ -3107,7 +3107,7 @@ This is useful for double clicking on a .rpm or .deb file.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3661">a #GCancellable or %NULL</doc>
+                 line="3719">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -3116,7 +3116,7 @@ This is useful for double clicking on a .rpm or .deb file.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3662">the function to run when the progress changes</doc>
+                 line="3720">the function to run when the progress changes</doc>
             <type name="ProgressCallback" c:type="PkProgressCallback"/>
           </parameter>
           <parameter name="progress_user_data"
@@ -3125,7 +3125,7 @@ This is useful for double clicking on a .rpm or .deb file.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3663">data to pass to @progress_callback</doc>
+                 line="3721">data to pass to @progress_callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_ready"
@@ -3136,7 +3136,7 @@ This is useful for double clicking on a .rpm or .deb file.</doc>
                      closure="6">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3664">the function to run on completion</doc>
+                 line="3722">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -3145,7 +3145,7 @@ This is useful for double clicking on a .rpm or .deb file.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3665">the data to pass to @callback_ready</doc>
+                 line="3723">the data to pass to @callback_ready</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -3224,7 +3224,7 @@ applications.</doc>
               glib:finish-func="pk_client_generic_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="3425">Install a package of the newest and most correct version.</doc>
+             line="3483">Install a package of the newest and most correct version.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="299"/>
         <return-value transfer-ownership="none">
@@ -3234,19 +3234,19 @@ applications.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3427">a valid #PkClient instance</doc>
+                 line="3485">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="transaction_flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3428">a transaction type bitfield</doc>
+                 line="3486">a transaction type bitfield</doc>
             <type name="Bitfield" c:type="PkBitfield"/>
           </parameter>
           <parameter name="package_ids" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3429">a null terminated array of package_id structures such as "hal;0.0.1;i386;fedora"</doc>
+                 line="3487">a null terminated array of package_id structures such as "hal;0.0.1;i386;fedora"</doc>
             <array c:type="gchar**">
               <type name="utf8" c:type="gchar*"/>
             </array>
@@ -3257,7 +3257,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3430">a #GCancellable or %NULL</doc>
+                 line="3488">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -3266,7 +3266,7 @@ applications.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3431">the function to run when the progress changes</doc>
+                 line="3489">the function to run when the progress changes</doc>
             <type name="ProgressCallback" c:type="PkProgressCallback"/>
           </parameter>
           <parameter name="progress_user_data"
@@ -3275,7 +3275,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3432">data to pass to @progress_callback</doc>
+                 line="3490">data to pass to @progress_callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_ready"
@@ -3286,7 +3286,7 @@ applications.</doc>
                      closure="6">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3433">the function to run on completion</doc>
+                 line="3491">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -3295,7 +3295,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3434">the data to pass to @callback_ready</doc>
+                 line="3492">the data to pass to @callback_ready</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -3378,7 +3378,7 @@ applications.</doc>
               glib:finish-func="pk_client_generic_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="3476">Install a software repository signature of the newest and most correct version.</doc>
+             line="3534">Install a software repository signature of the newest and most correct version.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="308"/>
         <return-value transfer-ownership="none">
@@ -3388,25 +3388,25 @@ applications.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3478">a valid #PkClient instance</doc>
+                 line="3536">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3479">the signature type, e.g. %PK_SIGTYPE_ENUM_GPG</doc>
+                 line="3537">the signature type, e.g. %PK_SIGTYPE_ENUM_GPG</doc>
             <type name="SigTypeEnum" c:type="PkSigTypeEnum"/>
           </parameter>
           <parameter name="key_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3480">a key ID such as "0df23df"</doc>
+                 line="3538">a key ID such as "0df23df"</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="package_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3481">a signature_id structure such as "hal;0.0.1;i386;fedora"</doc>
+                 line="3539">a signature_id structure such as "hal;0.0.1;i386;fedora"</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -3415,7 +3415,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3482">a #GCancellable or %NULL</doc>
+                 line="3540">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -3424,7 +3424,7 @@ applications.</doc>
                      closure="5">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3483">the function to run when the progress changes</doc>
+                 line="3541">the function to run when the progress changes</doc>
             <type name="ProgressCallback" c:type="PkProgressCallback"/>
           </parameter>
           <parameter name="progress_user_data"
@@ -3433,7 +3433,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3484">data to pass to @progress_callback</doc>
+                 line="3542">data to pass to @progress_callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_ready"
@@ -3444,7 +3444,7 @@ applications.</doc>
                      closure="7">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3485">the function to run on completion</doc>
+                 line="3543">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -3453,7 +3453,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3486">the data to pass to @callback_ready</doc>
+                 line="3544">the data to pass to @callback_ready</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -3527,7 +3527,7 @@ applications.</doc>
               glib:finish-func="pk_client_generic_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="3374">Refresh the cache, i.e. download new metadata from a remote URL so that
+             line="3432">Refresh the cache, i.e. download new metadata from a remote URL so that
 package lists are up to date.
 This action may take a few minutes and should be done when the session and
 system are idle.</doc>
@@ -3540,13 +3540,13 @@ system are idle.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3376">a valid #PkClient instance</doc>
+                 line="3434">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="force" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3377">if we should aggressively drop caches</doc>
+                 line="3435">if we should aggressively drop caches</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="cancellable"
@@ -3555,7 +3555,7 @@ system are idle.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3378">a #GCancellable or %NULL</doc>
+                 line="3436">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -3564,7 +3564,7 @@ system are idle.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3379">the function to run when the progress changes</doc>
+                 line="3437">the function to run when the progress changes</doc>
             <type name="ProgressCallback" c:type="PkProgressCallback"/>
           </parameter>
           <parameter name="progress_user_data"
@@ -3573,7 +3573,7 @@ system are idle.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3380">data to pass to @progress_callback</doc>
+                 line="3438">data to pass to @progress_callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_ready"
@@ -3584,7 +3584,7 @@ system are idle.</doc>
                      closure="5">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3381">the function to run on completion</doc>
+                 line="3439">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -3593,7 +3593,7 @@ system are idle.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3382">the data to pass to @callback_ready</doc>
+                 line="3440">the data to pass to @callback_ready</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -3686,7 +3686,7 @@ applications.</doc>
               glib:finish-func="pk_client_generic_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="3310">Remove a package (optionally with dependancies) from the system.
+             line="3368">Remove a package (optionally with dependancies) from the system.
 If @allow_deps is set to %FALSE, and other packages would have to be removed,
 then the transaction would fail.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
@@ -3698,19 +3698,19 @@ then the transaction would fail.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3312">a valid #PkClient instance</doc>
+                 line="3370">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="transaction_flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3313">a transaction type bitfield</doc>
+                 line="3371">a transaction type bitfield</doc>
             <type name="Bitfield" c:type="PkBitfield"/>
           </parameter>
           <parameter name="package_ids" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3314">a null terminated array of package_id structures such as "hal;0.0.1;i386;fedora"</doc>
+                 line="3372">a null terminated array of package_id structures such as "hal;0.0.1;i386;fedora"</doc>
             <array c:type="gchar**">
               <type name="utf8" c:type="gchar*"/>
             </array>
@@ -3718,13 +3718,13 @@ then the transaction would fail.</doc>
           <parameter name="allow_deps" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3315">if other dependent packages are allowed to be removed from the computer</doc>
+                 line="3373">if other dependent packages are allowed to be removed from the computer</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="autoremove" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3316">if other packages installed at the same time should be tried to remove</doc>
+                 line="3374">if other packages installed at the same time should be tried to remove</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="cancellable"
@@ -3733,7 +3733,7 @@ then the transaction would fail.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3317">a #GCancellable or %NULL</doc>
+                 line="3375">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -3742,7 +3742,7 @@ then the transaction would fail.</doc>
                      closure="6">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3318">the function to run when the progress changes</doc>
+                 line="3376">the function to run when the progress changes</doc>
             <type name="ProgressCallback" c:type="PkProgressCallback"/>
           </parameter>
           <parameter name="progress_user_data"
@@ -3751,7 +3751,7 @@ then the transaction would fail.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3319">data to pass to @progress_callback</doc>
+                 line="3377">data to pass to @progress_callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_ready"
@@ -3762,7 +3762,7 @@ then the transaction would fail.</doc>
                      closure="8">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3320">the function to run on completion</doc>
+                 line="3378">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -3771,7 +3771,7 @@ then the transaction would fail.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3321">the data to pass to @callback_ready</doc>
+                 line="3379">the data to pass to @callback_ready</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -3847,7 +3847,7 @@ applications.</doc>
               glib:finish-func="pk_client_generic_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="4052">This transaction will try to recover from a broken package management system:
+             line="4110">This transaction will try to recover from a broken package management system:
 e.g. the installation of a package with unsatisfied dependencies has
 been forced by the user using a low level tool (rpm or dpkg) or the
 system was shutdown during processing an installation.
@@ -3862,13 +3862,13 @@ The backend will decide what is best to do.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4054">a valid #PkClient instance</doc>
+                 line="4112">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="transaction_flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4055">a transaction type bitfield</doc>
+                 line="4113">a transaction type bitfield</doc>
             <type name="Bitfield" c:type="PkBitfield"/>
           </parameter>
           <parameter name="cancellable"
@@ -3877,7 +3877,7 @@ The backend will decide what is best to do.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4056">a #GCancellable or %NULL</doc>
+                 line="4114">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -3886,7 +3886,7 @@ The backend will decide what is best to do.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4057">the function to run when the progress changes</doc>
+                 line="4115">the function to run when the progress changes</doc>
             <type name="ProgressCallback" c:type="PkProgressCallback"/>
           </parameter>
           <parameter name="progress_user_data"
@@ -3895,7 +3895,7 @@ The backend will decide what is best to do.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4058">data to pass to @progress_callback</doc>
+                 line="4116">data to pass to @progress_callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_ready"
@@ -3906,7 +3906,7 @@ The backend will decide what is best to do.</doc>
                      closure="5">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4059">the function to run on completion</doc>
+                 line="4117">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -3915,7 +3915,7 @@ The backend will decide what is best to do.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4060">the data to pass to @callback_ready</doc>
+                 line="4118">the data to pass to @callback_ready</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -3992,7 +3992,7 @@ applications.</doc>
               glib:finish-func="pk_client_generic_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="3832">Enable or disable the repository.</doc>
+             line="3890">Enable or disable the repository.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="352"/>
         <return-value transfer-ownership="none">
@@ -4002,19 +4002,19 @@ applications.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3834">a valid #PkClient instance</doc>
+                 line="3892">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="repo_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3835">a repo_id structure such as "livna-devel"</doc>
+                 line="3893">a repo_id structure such as "livna-devel"</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="enabled" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3836">if we should enable the repository</doc>
+                 line="3894">if we should enable the repository</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="cancellable"
@@ -4023,7 +4023,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3837">a #GCancellable or %NULL</doc>
+                 line="3895">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -4032,7 +4032,7 @@ applications.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3838">the function to run when the progress changes</doc>
+                 line="3896">the function to run when the progress changes</doc>
             <type name="ProgressCallback" c:type="PkProgressCallback"/>
           </parameter>
           <parameter name="progress_user_data"
@@ -4041,7 +4041,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3839">data to pass to @progress_callback</doc>
+                 line="3897">data to pass to @progress_callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_ready"
@@ -4052,7 +4052,7 @@ applications.</doc>
                      closure="6">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3840">the function to run on completion</doc>
+                 line="3898">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -4061,7 +4061,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3841">the data to pass to @callback_ready</doc>
+                 line="3899">the data to pass to @callback_ready</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -4144,7 +4144,7 @@ applications.</doc>
               glib:finish-func="pk_client_generic_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="3935">Removes a repo and optionally the packages installed from it.</doc>
+             line="3993">Removes a repo and optionally the packages installed from it.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="371"/>
         <return-value transfer-ownership="none">
@@ -4154,25 +4154,25 @@ applications.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3937">a valid #PkClient instance</doc>
+                 line="3995">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="transaction_flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3938">transaction flags</doc>
+                 line="3996">transaction flags</doc>
             <type name="Bitfield" c:type="PkBitfield"/>
           </parameter>
           <parameter name="repo_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3939">a repo_id structure such as "livna-devel"</doc>
+                 line="3997">a repo_id structure such as "livna-devel"</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="autoremove" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3940">If packages should be auto-removed</doc>
+                 line="3998">If packages should be auto-removed</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="cancellable"
@@ -4181,7 +4181,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3941">a #GCancellable or %NULL</doc>
+                 line="3999">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -4190,7 +4190,7 @@ applications.</doc>
                      closure="5">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3942">the function to run when the progress changes</doc>
+                 line="4000">the function to run when the progress changes</doc>
             <type name="ProgressCallback" c:type="PkProgressCallback"/>
           </parameter>
           <parameter name="progress_user_data"
@@ -4199,7 +4199,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3943">data to pass to @progress_callback</doc>
+                 line="4001">data to pass to @progress_callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_ready"
@@ -4210,7 +4210,7 @@ applications.</doc>
                      closure="7">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3944">the function to run on completion</doc>
+                 line="4002">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -4219,7 +4219,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3945">the data to pass to @callback_ready</doc>
+                 line="4003">the data to pass to @callback_ready</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -4303,7 +4303,7 @@ applications.</doc>
               glib:finish-func="pk_client_generic_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="3882">We may want to set a repository parameter.
+             line="3940">We may want to set a repository parameter.
 NOTE: this is free text, and is left to the backend to define a format.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="361"/>
@@ -4314,25 +4314,25 @@ NOTE: this is free text, and is left to the backend to define a format.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3884">a valid #PkClient instance</doc>
+                 line="3942">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="repo_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3885">a repo_id structure such as "livna-devel"</doc>
+                 line="3943">a repo_id structure such as "livna-devel"</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="parameter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3886">the parameter to change</doc>
+                 line="3944">the parameter to change</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3887">what we should change it to</doc>
+                 line="3945">what we should change it to</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -4341,7 +4341,7 @@ NOTE: this is free text, and is left to the backend to define a format.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3888">a #GCancellable or %NULL</doc>
+                 line="3946">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -4350,7 +4350,7 @@ NOTE: this is free text, and is left to the backend to define a format.</doc>
                      closure="5">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3889">the function to run when the progress changes</doc>
+                 line="3947">the function to run when the progress changes</doc>
             <type name="ProgressCallback" c:type="PkProgressCallback"/>
           </parameter>
           <parameter name="progress_user_data"
@@ -4359,7 +4359,7 @@ NOTE: this is free text, and is left to the backend to define a format.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3890">data to pass to @progress_callback</doc>
+                 line="3948">data to pass to @progress_callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_ready"
@@ -4370,7 +4370,7 @@ NOTE: this is free text, and is left to the backend to define a format.</doc>
                      closure="7">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3891">the function to run on completion</doc>
+                 line="3949">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -4379,7 +4379,7 @@ NOTE: this is free text, and is left to the backend to define a format.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3892">the data to pass to @callback_ready</doc>
+                 line="3950">the data to pass to @callback_ready</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -4464,7 +4464,7 @@ applications.</doc>
               glib:finish-func="pk_client_generic_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="3060">Get the packages that require this one, i.e. parent-&gt;child.</doc>
+             line="3118">Get the packages that require this one, i.e. parent-&gt;child.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="239"/>
         <return-value transfer-ownership="none">
@@ -4474,19 +4474,19 @@ applications.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3062">a valid #PkClient instance</doc>
+                 line="3120">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="filters" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3063">a #PkBitfield such as %PK_FILTER_ENUM_GUI | %PK_FILTER_ENUM_FREE or %PK_FILTER_ENUM_NONE</doc>
+                 line="3121">a #PkBitfield such as %PK_FILTER_ENUM_GUI | %PK_FILTER_ENUM_FREE or %PK_FILTER_ENUM_NONE</doc>
             <type name="Bitfield" c:type="PkBitfield"/>
           </parameter>
           <parameter name="package_ids" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3064">a null terminated array of package_id structures such as "hal;0.0.1;i386;fedora"</doc>
+                 line="3122">a null terminated array of package_id structures such as "hal;0.0.1;i386;fedora"</doc>
             <array c:type="gchar**">
               <type name="utf8" c:type="gchar*"/>
             </array>
@@ -4494,7 +4494,7 @@ applications.</doc>
           <parameter name="recursive" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3065">If we should search recursively for requires</doc>
+                 line="3123">If we should search recursively for requires</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="cancellable"
@@ -4503,7 +4503,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3066">a #GCancellable or %NULL</doc>
+                 line="3124">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -4512,7 +4512,7 @@ applications.</doc>
                      closure="5">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3067">the function to run when the progress changes</doc>
+                 line="3125">the function to run when the progress changes</doc>
             <type name="ProgressCallback" c:type="PkProgressCallback"/>
           </parameter>
           <parameter name="progress_user_data"
@@ -4521,7 +4521,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3068">data to pass to @progress_callback</doc>
+                 line="3126">data to pass to @progress_callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_ready"
@@ -4532,7 +4532,7 @@ applications.</doc>
                      closure="7">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3069">the function to run on completion</doc>
+                 line="3127">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -4541,7 +4541,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3070">the data to pass to @callback_ready</doc>
+                 line="3128">the data to pass to @callback_ready</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -4622,7 +4622,7 @@ applications.</doc>
               glib:finish-func="pk_client_generic_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="2348">Resolve a package name into a @package_id. This can return installed and
+             line="2406">Resolve a package name into a @package_id. This can return installed and
 available packages and allows you find out if a package is installed locally
 or is available in a repository.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
@@ -4634,19 +4634,19 @@ or is available in a repository.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2350">a valid #PkClient instance</doc>
+                 line="2408">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="filters" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2351">a #PkBitfield such as %PK_FILTER_ENUM_GUI | %PK_FILTER_ENUM_FREE or %PK_FILTER_ENUM_NONE</doc>
+                 line="2409">a #PkBitfield such as %PK_FILTER_ENUM_GUI | %PK_FILTER_ENUM_FREE or %PK_FILTER_ENUM_NONE</doc>
             <type name="Bitfield" c:type="PkBitfield"/>
           </parameter>
           <parameter name="packages" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2352">an array of package names to resolve, e.g. "gnome-system-tools"</doc>
+                 line="2410">an array of package names to resolve, e.g. "gnome-system-tools"</doc>
             <array c:type="gchar**">
               <type name="utf8" c:type="gchar*"/>
             </array>
@@ -4657,7 +4657,7 @@ or is available in a repository.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2353">a #GCancellable or %NULL</doc>
+                 line="2411">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -4666,7 +4666,7 @@ or is available in a repository.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2354">the function to run when the progress changes</doc>
+                 line="2412">the function to run when the progress changes</doc>
             <type name="ProgressCallback" c:type="PkProgressCallback"/>
           </parameter>
           <parameter name="progress_user_data"
@@ -4675,7 +4675,7 @@ or is available in a repository.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2355">data to pass to @progress_callback</doc>
+                 line="2413">data to pass to @progress_callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_ready"
@@ -4686,7 +4686,7 @@ or is available in a repository.</doc>
                      closure="6">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2356">the function to run on completion</doc>
+                 line="2414">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -4695,7 +4695,7 @@ or is available in a repository.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2357">the data to pass to @callback_ready</doc>
+                 line="2415">the data to pass to @callback_ready</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -4776,7 +4776,7 @@ applications.</doc>
               glib:finish-func="pk_client_generic_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="2451">Search all detailed summary information to try and find a keyword.
+             line="2509">Search all detailed summary information to try and find a keyword.
 Think of this as pk_client_search_names(), but trying much harder and
 taking longer.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
@@ -4788,19 +4788,19 @@ taking longer.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2453">a valid #PkClient instance</doc>
+                 line="2511">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="filters" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2454">a #PkBitfield such as %PK_FILTER_ENUM_GUI | %PK_FILTER_ENUM_FREE or %PK_FILTER_ENUM_NONE</doc>
+                 line="2512">a #PkBitfield such as %PK_FILTER_ENUM_GUI | %PK_FILTER_ENUM_FREE or %PK_FILTER_ENUM_NONE</doc>
             <type name="Bitfield" c:type="PkBitfield"/>
           </parameter>
           <parameter name="values" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2455">free text to search for, for instance, "power"</doc>
+                 line="2513">free text to search for, for instance, "power"</doc>
             <array c:type="gchar**">
               <type name="utf8" c:type="gchar*"/>
             </array>
@@ -4811,7 +4811,7 @@ taking longer.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2456">a #GCancellable or %NULL</doc>
+                 line="2514">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -4820,7 +4820,7 @@ taking longer.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2457">the function to run when the progress changes</doc>
+                 line="2515">the function to run when the progress changes</doc>
             <type name="ProgressCallback" c:type="PkProgressCallback"/>
           </parameter>
           <parameter name="progress_user_data"
@@ -4829,7 +4829,7 @@ taking longer.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2458">data to pass to @progress_callback</doc>
+                 line="2516">data to pass to @progress_callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_ready"
@@ -4840,7 +4840,7 @@ taking longer.</doc>
                      closure="6">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2459">the function to run on completion</doc>
+                 line="2517">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -4849,7 +4849,7 @@ taking longer.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2460">the data to pass to @callback_ready</doc>
+                 line="2518">the data to pass to @callback_ready</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -4928,7 +4928,7 @@ applications.</doc>
               glib:finish-func="pk_client_generic_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="2553">Search for packages that provide a specific file.</doc>
+             line="2611">Search for packages that provide a specific file.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="155"/>
         <return-value transfer-ownership="none">
@@ -4938,19 +4938,19 @@ applications.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2555">a valid #PkClient instance</doc>
+                 line="2613">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="filters" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2556">a #PkBitfield such as %PK_FILTER_ENUM_GUI | %PK_FILTER_ENUM_FREE or %PK_FILTER_ENUM_NONE</doc>
+                 line="2614">a #PkBitfield such as %PK_FILTER_ENUM_GUI | %PK_FILTER_ENUM_FREE or %PK_FILTER_ENUM_NONE</doc>
             <type name="Bitfield" c:type="PkBitfield"/>
           </parameter>
           <parameter name="values" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2557">file to search for, for instance, "/sbin/service"</doc>
+                 line="2615">file to search for, for instance, "/sbin/service"</doc>
             <array c:type="gchar**">
               <type name="utf8" c:type="gchar*"/>
             </array>
@@ -4961,7 +4961,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2558">a #GCancellable or %NULL</doc>
+                 line="2616">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -4970,7 +4970,7 @@ applications.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2559">the function to run when the progress changes</doc>
+                 line="2617">the function to run when the progress changes</doc>
             <type name="ProgressCallback" c:type="PkProgressCallback"/>
           </parameter>
           <parameter name="progress_user_data"
@@ -4979,7 +4979,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2560">data to pass to @progress_callback</doc>
+                 line="2618">data to pass to @progress_callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_ready"
@@ -4990,7 +4990,7 @@ applications.</doc>
                      closure="6">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2561">the function to run on completion</doc>
+                 line="2619">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -4999,7 +4999,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2562">the data to pass to @callback_ready</doc>
+                 line="2620">the data to pass to @callback_ready</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -5078,7 +5078,7 @@ applications.</doc>
               glib:finish-func="pk_client_generic_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="2503">Return all packages in a specific group.</doc>
+             line="2561">Return all packages in a specific group.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="146"/>
         <return-value transfer-ownership="none">
@@ -5088,19 +5088,19 @@ applications.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2505">a valid #PkClient instance</doc>
+                 line="2563">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="filters" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2506">a #PkBitfield such as %PK_FILTER_ENUM_GUI | %PK_FILTER_ENUM_FREE or %PK_FILTER_ENUM_NONE</doc>
+                 line="2564">a #PkBitfield such as %PK_FILTER_ENUM_GUI | %PK_FILTER_ENUM_FREE or %PK_FILTER_ENUM_NONE</doc>
             <type name="Bitfield" c:type="PkBitfield"/>
           </parameter>
           <parameter name="values" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2507">a group enum to search for, for instance, "system-tools"</doc>
+                 line="2565">a group enum to search for, for instance, "system-tools"</doc>
             <array c:type="gchar**">
               <type name="utf8" c:type="gchar*"/>
             </array>
@@ -5111,7 +5111,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2508">a #GCancellable or %NULL</doc>
+                 line="2566">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -5120,7 +5120,7 @@ applications.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2509">the function to run when the progress changes</doc>
+                 line="2567">the function to run when the progress changes</doc>
             <type name="ProgressCallback" c:type="PkProgressCallback"/>
           </parameter>
           <parameter name="progress_user_data"
@@ -5129,7 +5129,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2510">data to pass to @progress_callback</doc>
+                 line="2568">data to pass to @progress_callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_ready"
@@ -5140,7 +5140,7 @@ applications.</doc>
                      closure="6">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2511">the function to run on completion</doc>
+                 line="2569">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -5149,7 +5149,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2512">the data to pass to @callback_ready</doc>
+                 line="2570">the data to pass to @callback_ready</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -5229,7 +5229,7 @@ applications.</doc>
               glib:finish-func="pk_client_generic_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="2400">Search all the locally installed files and remote repositories for a package
+             line="2458">Search all the locally installed files and remote repositories for a package
 that matches a specific name.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="128"/>
@@ -5240,19 +5240,19 @@ that matches a specific name.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2402">a valid #PkClient instance</doc>
+                 line="2460">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="filters" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2403">a #PkBitfield such as %PK_FILTER_ENUM_GUI | %PK_FILTER_ENUM_FREE or %PK_FILTER_ENUM_NONE</doc>
+                 line="2461">a #PkBitfield such as %PK_FILTER_ENUM_GUI | %PK_FILTER_ENUM_FREE or %PK_FILTER_ENUM_NONE</doc>
             <type name="Bitfield" c:type="PkBitfield"/>
           </parameter>
           <parameter name="values" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2404">free text to search for, for instance, "power"</doc>
+                 line="2462">free text to search for, for instance, "power"</doc>
             <array c:type="gchar**">
               <type name="utf8" c:type="gchar*"/>
             </array>
@@ -5263,7 +5263,7 @@ that matches a specific name.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2405">a #GCancellable or %NULL</doc>
+                 line="2463">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -5272,7 +5272,7 @@ that matches a specific name.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2406">the function to run when the progress changes</doc>
+                 line="2464">the function to run when the progress changes</doc>
             <type name="ProgressCallback" c:type="PkProgressCallback"/>
           </parameter>
           <parameter name="progress_user_data"
@@ -5281,7 +5281,7 @@ that matches a specific name.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2407">data to pass to @progress_callback</doc>
+                 line="2465">data to pass to @progress_callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_ready"
@@ -5292,7 +5292,7 @@ that matches a specific name.</doc>
                      closure="6">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2408">the function to run on completion</doc>
+                 line="2466">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -5301,7 +5301,7 @@ that matches a specific name.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="2409">the data to pass to @callback_ready</doc>
+                 line="2467">the data to pass to @callback_ready</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -5312,7 +5312,7 @@ that matches a specific name.</doc>
               version="0.6.10">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="4368">Sets the background value for the client. A background transaction
+             line="4426">Sets the background value for the client. A background transaction
 is usually scheduled at a lower priority and is usually given less
 network and disk performance.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
@@ -5324,13 +5324,13 @@ network and disk performance.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4370">a valid #PkClient instance</doc>
+                 line="4428">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="background" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4371">if the transaction is a background transaction</doc>
+                 line="4429">if the transaction is a background transaction</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -5341,7 +5341,7 @@ network and disk performance.</doc>
               version="0.6.10">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="4477">Sets the maximum cache age value for the client.</doc>
+             line="4535">Sets the maximum cache age value for the client.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="431"/>
         <return-value transfer-ownership="none">
@@ -5351,13 +5351,13 @@ network and disk performance.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4479">a valid #PkClient instance</doc>
+                 line="4537">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="cache_age" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4480">the cache age to set in seconds, where %G_MAXUINT
+                 line="4538">the cache age to set in seconds, where %G_MAXUINT
 means cache "never expires"</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
@@ -5369,7 +5369,7 @@ means cache "never expires"</doc>
               version="1.2.7">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="4521">Sets whether the pk_client_get_details_async() should include dependencies
+             line="4579">Sets whether the pk_client_get_details_async() should include dependencies
 download sizes for packages, which are not installed.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="434"/>
@@ -5380,13 +5380,13 @@ download sizes for packages, which are not installed.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4523">a valid #PkClient instance</doc>
+                 line="4581">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="details_with_deps_size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4524">the value to set</doc>
+                 line="4582">the value to set</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -5397,7 +5397,7 @@ download sizes for packages, which are not installed.</doc>
               version="0.6.10">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="4413">Sets the interactive value for the client. Interactive transactions
+             line="4471">Sets the interactive value for the client. Interactive transactions
 are usually allowed to ask the user questions.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="427"/>
@@ -5408,13 +5408,13 @@ are usually allowed to ask the user questions.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4415">a valid #PkClient instance</doc>
+                 line="4473">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="interactive" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4416">the value to set</doc>
+                 line="4474">the value to set</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -5425,7 +5425,7 @@ are usually allowed to ask the user questions.</doc>
               version="0.6.10">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="4323">Sets the locale to be used for the client. This may affect returned
+             line="4381">Sets the locale to be used for the client. This may affect returned
 results.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="421"/>
@@ -5436,13 +5436,13 @@ results.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4325">a valid #PkClient instance</doc>
+                 line="4383">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="locale" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4326">the locale to set, e.g. "en_GB.UTF-8"</doc>
+                 line="4384">the locale to set, e.g. "en_GB.UTF-8"</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -5521,7 +5521,7 @@ applications.</doc>
               glib:finish-func="pk_client_generic_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="3528">Update specific packages to the newest available versions.</doc>
+             line="3586">Update specific packages to the newest available versions.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
                          line="318"/>
         <return-value transfer-ownership="none">
@@ -5531,19 +5531,19 @@ applications.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3530">a valid #PkClient instance</doc>
+                 line="3588">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="transaction_flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3531">a transaction type bitfield</doc>
+                 line="3589">a transaction type bitfield</doc>
             <type name="Bitfield" c:type="PkBitfield"/>
           </parameter>
           <parameter name="package_ids" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3532">a null terminated array of package_id structures such as "hal;0.0.1;i386;fedora"</doc>
+                 line="3590">a null terminated array of package_id structures such as "hal;0.0.1;i386;fedora"</doc>
             <array c:type="gchar**">
               <type name="utf8" c:type="gchar*"/>
             </array>
@@ -5554,7 +5554,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3533">a #GCancellable or %NULL</doc>
+                 line="3591">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -5563,7 +5563,7 @@ applications.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3534">the function to run when the progress changes</doc>
+                 line="3592">the function to run when the progress changes</doc>
             <type name="ProgressCallback" c:type="PkProgressCallback"/>
           </parameter>
           <parameter name="progress_user_data"
@@ -5572,7 +5572,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3535">data to pass to @progress_callback</doc>
+                 line="3593">data to pass to @progress_callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_ready"
@@ -5583,7 +5583,7 @@ applications.</doc>
                      closure="6">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3536">the function to run on completion</doc>
+                 line="3594">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -5592,7 +5592,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3537">the data to pass to @callback_ready</doc>
+                 line="3595">the data to pass to @callback_ready</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -5679,7 +5679,7 @@ applications.</doc>
               glib:finish-func="pk_client_generic_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="3993">This transaction will update the distro to the next version, which may
+             line="4051">This transaction will update the distro to the next version, which may
 involve just downloading the installer and setting up the boot device,
 or may involve doing an on-line upgrade.
 
@@ -5693,25 +5693,25 @@ The backend will decide what is best to do.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3995">a valid #PkClient instance</doc>
+                 line="4053">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="transaction_flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3996">a transaction type bitfield</doc>
+                 line="4054">a transaction type bitfield</doc>
             <type name="Bitfield" c:type="PkBitfield"/>
           </parameter>
           <parameter name="distro_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3997">a distro ID such as "fedora-14"</doc>
+                 line="4055">a distro ID such as "fedora-14"</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="upgrade_kind" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3998">a #PkUpgradeKindEnum such as %PK_UPGRADE_KIND_ENUM_COMPLETE</doc>
+                 line="4056">a #PkUpgradeKindEnum such as %PK_UPGRADE_KIND_ENUM_COMPLETE</doc>
             <type name="UpgradeKindEnum" c:type="PkUpgradeKindEnum"/>
           </parameter>
           <parameter name="cancellable"
@@ -5720,7 +5720,7 @@ The backend will decide what is best to do.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3999">a #GCancellable or %NULL</doc>
+                 line="4057">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -5729,7 +5729,7 @@ The backend will decide what is best to do.</doc>
                      closure="5">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4000">the function to run when the progress changes</doc>
+                 line="4058">the function to run when the progress changes</doc>
             <type name="ProgressCallback" c:type="PkProgressCallback"/>
           </parameter>
           <parameter name="progress_user_data"
@@ -5738,7 +5738,7 @@ The backend will decide what is best to do.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4001">data to pass to @progress_callback</doc>
+                 line="4059">data to pass to @progress_callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_ready"
@@ -5749,7 +5749,7 @@ The backend will decide what is best to do.</doc>
                      closure="7">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4002">the function to run on completion</doc>
+                 line="4060">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -5758,7 +5758,7 @@ The backend will decide what is best to do.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="4003">the data to pass to @callback_ready</doc>
+                 line="4061">the data to pass to @callback_ready</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -5839,7 +5839,7 @@ applications.</doc>
               glib:finish-func="pk_client_generic_finish">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="3113">This should return packages that provide the supplied attributes.
+             line="3171">This should return packages that provide the supplied attributes.
 This method is useful for finding out what package(s) provide a modalias
 or GStreamer codec string.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client.h"
@@ -5851,19 +5851,19 @@ or GStreamer codec string.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3115">a valid #PkClient instance</doc>
+                 line="3173">a valid #PkClient instance</doc>
             <type name="Client" c:type="PkClient*"/>
           </instance-parameter>
           <parameter name="filters" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3116">a #PkBitfield such as %PK_FILTER_ENUM_GUI | %PK_FILTER_ENUM_FREE or %PK_FILTER_ENUM_NONE</doc>
+                 line="3174">a #PkBitfield such as %PK_FILTER_ENUM_GUI | %PK_FILTER_ENUM_FREE or %PK_FILTER_ENUM_NONE</doc>
             <type name="Bitfield" c:type="PkBitfield"/>
           </parameter>
           <parameter name="values" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3117">a search term such as "sound/mp3"</doc>
+                 line="3175">a search term such as "sound/mp3"</doc>
             <array c:type="gchar**">
               <type name="utf8" c:type="gchar*"/>
             </array>
@@ -5874,7 +5874,7 @@ or GStreamer codec string.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3118">a #GCancellable or %NULL</doc>
+                 line="3176">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -5883,7 +5883,7 @@ or GStreamer codec string.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3119">the function to run when the progress changes</doc>
+                 line="3177">the function to run when the progress changes</doc>
             <type name="ProgressCallback" c:type="PkProgressCallback"/>
           </parameter>
           <parameter name="progress_user_data"
@@ -5892,7 +5892,7 @@ or GStreamer codec string.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3120">data to pass to @progress_callback</doc>
+                 line="3178">data to pass to @progress_callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback_ready"
@@ -5903,7 +5903,7 @@ or GStreamer codec string.</doc>
                      closure="6">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3121">the function to run on completion</doc>
+                 line="3179">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -5912,7 +5912,7 @@ or GStreamer codec string.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client.c"
-                 line="3122">the data to pass to @callback_ready</doc>
+                 line="3180">the data to pass to @callback_ready</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -5935,7 +5935,7 @@ or GStreamer codec string.</doc>
                 default-value="4294967295">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="4620">The cache age in seconds, where %G_MAXUINT means cache
+             line="4678">The cache age in seconds, where %G_MAXUINT means cache
 "never expires"</doc>
         <type name="guint" c:type="guint"/>
       </property>
@@ -5955,7 +5955,7 @@ or GStreamer codec string.</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="4608">Whether there are transactions in progress on this client or not</doc>
+             line="4666">Whether there are transactions in progress on this client or not</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="interactive"
@@ -6168,11 +6168,11 @@ or GStreamer codec string.</doc>
                 version="0.5.2">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="437">An error quark for #PkClientError.</doc>
+             line="450">An error quark for #PkClientError.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/packagekit-glib2/pk-client.c"
-               line="442">an error quark.</doc>
+               line="455">an error quark.</doc>
           <type name="GLib.Quark" c:type="GQuark"/>
         </return-value>
       </function>
@@ -6194,7 +6194,7 @@ or GStreamer codec string.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/packagekit-glib2/pk-client-helper.c"
-               line="634">a new #PkClientHelper object.</doc>
+               line="680">a new #PkClientHelper object.</doc>
           <type name="ClientHelper" c:type="PkClientHelper*"/>
         </return-value>
       </constructor>
@@ -6206,7 +6206,7 @@ or GStreamer codec string.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/packagekit-glib2/pk-client-helper.c"
-               line="555">TRUE if there is an accepted connection, FALSE
+               line="601">TRUE if there is an accepted connection, FALSE
               otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -6214,7 +6214,7 @@ or GStreamer codec string.</doc>
           <instance-parameter name="client_helper" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client-helper.c"
-                 line="553">a valid #PkClientHelper instance</doc>
+                 line="599">a valid #PkClientHelper instance</doc>
             <type name="ClientHelper" c:type="PkClientHelper*"/>
           </instance-parameter>
         </parameters>
@@ -6225,39 +6225,39 @@ or GStreamer codec string.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client-helper.c"
-             line="397">Starts the helper process, by running the helper process and setting
+             line="443">Starts the helper process, by running the helper process and setting
 up the socket for use.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client-helper.h"
                          line="70"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/packagekit-glib2/pk-client-helper.c"
-               line="408">%TRUE for success</doc>
+               line="454">%TRUE for success</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="client_helper" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client-helper.c"
-                 line="399">a valid #PkClientHelper instance</doc>
+                 line="445">a valid #PkClientHelper instance</doc>
             <type name="ClientHelper" c:type="PkClientHelper*"/>
           </instance-parameter>
           <parameter name="socket_filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client-helper.c"
-                 line="400">a socket filename that does not already exist</doc>
+                 line="446">a socket filename that does not already exist</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="argv" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client-helper.c"
-                 line="401">the executable, along with any arguments</doc>
+                 line="447">the executable, along with any arguments</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
           <parameter name="envp" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client-helper.c"
-                 line="402">the environment</doc>
+                 line="448">the environment</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
         </parameters>
@@ -6268,39 +6268,39 @@ up the socket for use.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client-helper.c"
-             line="502">Starts the helper process, by running the helper process and setting
+             line="548">Starts the helper process, by running the helper process and setting
 up the socket for use.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client-helper.h"
                          line="75"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/packagekit-glib2/pk-client-helper.c"
-               line="513">%TRUE for success</doc>
+               line="559">%TRUE for success</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="client_helper" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client-helper.c"
-                 line="504">a valid #PkClientHelper instance</doc>
+                 line="550">a valid #PkClientHelper instance</doc>
             <type name="ClientHelper" c:type="PkClientHelper*"/>
           </instance-parameter>
           <parameter name="socket" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client-helper.c"
-                 line="505">the (bound and listening) #GSocket instance to use</doc>
+                 line="551">the (bound and listening) #GSocket instance to use</doc>
             <type name="Gio.Socket" c:type="GSocket*"/>
           </parameter>
           <parameter name="argv" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client-helper.c"
-                 line="506">the executable, along with any arguments</doc>
+                 line="552">the executable, along with any arguments</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
           <parameter name="envp" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client-helper.c"
-                 line="507">the environment</doc>
+                 line="553">the environment</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
         </parameters>
@@ -6311,21 +6311,21 @@ up the socket for use.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client-helper.c"
-             line="121">Stops the helper process, by killing the helper process and deleting
+             line="164">Stops the helper process, by killing the helper process and deleting
 the socket.</doc>
         <source-position filename="lib/packagekit-glib2/pk-client-helper.h"
                          line="68"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/packagekit-glib2/pk-client-helper.c"
-               line="129">%TRUE for success</doc>
+               line="172">%TRUE for success</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="client_helper" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-client-helper.c"
-                 line="123">a valid #PkClientHelper instance</doc>
+                 line="166">a valid #PkClientHelper instance</doc>
             <type name="ClientHelper" c:type="PkClientHelper*"/>
           </instance-parameter>
         </parameters>
@@ -6397,7 +6397,7 @@ the socket.</doc>
             opaque="1">
       <doc xml:space="preserve"
            filename="lib/packagekit-glib2/pk-client-helper.c"
-           line="58">Private #PkClientHelper data</doc>
+           line="59">Private #PkClientHelper data</doc>
       <source-position filename="lib/packagekit-glib2/pk-client-helper.h"
                        line="44"/>
     </record>
@@ -12026,7 +12026,7 @@ package action, rather than a general state</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="MICRO_VERSION" value="4" c:type="PK_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="6" c:type="PK_MICRO_VERSION">
       <source-position filename="lib/packagekit-glib2/pk-version.h" line="33"/>
       <type name="gint" c:type="gint"/>
     </constant>
@@ -13725,7 +13725,7 @@ be one of %PK_INFO_ENUM_UNKNOWN, %PK_INFO_ENUM_LOW,
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/packagekit-glib2/pk-package-sack.c"
-               line="1112">a new #PkPackageSack object.</doc>
+               line="1111">a new #PkPackageSack object.</doc>
           <type name="PackageSack" c:type="PkPackageSack*"/>
         </return-value>
       </constructor>
@@ -14049,7 +14049,7 @@ applications.</doc>
               glib:sync-func="get_details">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-package-sack.c"
-             line="904">Merges in details about packages.</doc>
+             line="903">Merges in details about packages.</doc>
         <source-position filename="lib/packagekit-glib2/pk-package-sack.h"
                          line="155"/>
         <return-value transfer-ownership="none">
@@ -14059,7 +14059,7 @@ applications.</doc>
           <instance-parameter name="sack" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-package-sack.c"
-                 line="906">a valid #PkPackageSack instance</doc>
+                 line="905">a valid #PkPackageSack instance</doc>
             <type name="PackageSack" c:type="PkPackageSack*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -14068,7 +14068,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-package-sack.c"
-                 line="907">a #GCancellable or %NULL</doc>
+                 line="906">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -14077,7 +14077,7 @@ applications.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-package-sack.c"
-                 line="908">the function to run when the progress changes</doc>
+                 line="907">the function to run when the progress changes</doc>
             <type name="ProgressCallback" c:type="PkProgressCallback"/>
           </parameter>
           <parameter name="progress_user_data"
@@ -14086,7 +14086,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-package-sack.c"
-                 line="909">data to pass to @progress_callback</doc>
+                 line="908">data to pass to @progress_callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback"
@@ -14097,7 +14097,7 @@ applications.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-package-sack.c"
-                 line="910">the function to run on completion</doc>
+                 line="909">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -14106,7 +14106,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-package-sack.c"
-                 line="911">the data to pass to @callback</doc>
+                 line="910">the data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -14225,7 +14225,7 @@ applications.</doc>
               glib:sync-func="get_update_detail">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-package-sack.c"
-             line="1032">Merges in update details about packages.</doc>
+             line="1031">Merges in update details about packages.</doc>
         <source-position filename="lib/packagekit-glib2/pk-package-sack.h"
                          line="163"/>
         <return-value transfer-ownership="none">
@@ -14235,7 +14235,7 @@ applications.</doc>
           <instance-parameter name="sack" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-package-sack.c"
-                 line="1034">a valid #PkPackageSack instance</doc>
+                 line="1033">a valid #PkPackageSack instance</doc>
             <type name="PackageSack" c:type="PkPackageSack*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -14244,7 +14244,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-package-sack.c"
-                 line="1035">a #GCancellable or %NULL</doc>
+                 line="1034">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="progress_callback"
@@ -14253,7 +14253,7 @@ applications.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-package-sack.c"
-                 line="1036">the function to run when the progress changes</doc>
+                 line="1035">the function to run when the progress changes</doc>
             <type name="ProgressCallback" c:type="PkProgressCallback"/>
           </parameter>
           <parameter name="progress_user_data"
@@ -14262,7 +14262,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-package-sack.c"
-                 line="1037">data to pass to @progress_callback</doc>
+                 line="1036">data to pass to @progress_callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="callback"
@@ -14273,7 +14273,7 @@ applications.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-package-sack.c"
-                 line="1038">the function to run on completion</doc>
+                 line="1037">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -14282,7 +14282,7 @@ applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/packagekit-glib2/pk-package-sack.c"
-                 line="1039">the data to pass to @callback</doc>
+                 line="1038">the data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -24519,11 +24519,11 @@ The backend will decide what is best to do.</doc>
               version="0.5.2">
       <doc xml:space="preserve"
            filename="lib/packagekit-glib2/pk-client.c"
-           line="437">An error quark for #PkClientError.</doc>
+           line="450">An error quark for #PkClientError.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="lib/packagekit-glib2/pk-client.c"
-             line="442">an error quark.</doc>
+             line="455">an error quark.</doc>
         <type name="GLib.Quark" c:type="GQuark"/>
       </return-value>
     </function>

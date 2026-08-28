@@ -70,7 +70,7 @@ and/or use gtk-doc annotations.  -->
       <constructor name="new" c:identifier="up_client_new" version="0.9.0">
         <doc xml:space="preserve"
              filename="libupower-glib/up-client.c"
-             line="614">Creates a new #UpClient object. If connecting to upowerd on D-Bus fails,
+             line="616">Creates a new #UpClient object. If connecting to upowerd on D-Bus fails,
 this returns %NULL and prints out a warning with the error message.
 Consider using up_client_new_full() instead which allows you to handle errors
 and canceling long operations yourself.</doc>
@@ -78,7 +78,7 @@ and canceling long operations yourself.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libupower-glib/up-client.c"
-               line="622">a new UpClient object, or %NULL on failure.</doc>
+               line="624">a new UpClient object, or %NULL on failure.</doc>
           <type name="Client" c:type="UpClient*"/>
         </return-value>
       </constructor>
@@ -88,12 +88,12 @@ and canceling long operations yourself.</doc>
                    throws="1">
         <doc xml:space="preserve"
              filename="libupower-glib/up-client.c"
-             line="699">Finishes an operation started with up_client_new_async().</doc>
+             line="701">Finishes an operation started with up_client_new_async().</doc>
         <source-position filename="libupower-glib/up-client.h" line="79"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libupower-glib/up-client.c"
-               line="707">a #UpClient or %NULL if @error is set.
+               line="709">a #UpClient or %NULL if @error is set.
     Free with g_object_unref().</doc>
           <type name="Client" c:type="UpClient*"/>
         </return-value>
@@ -101,7 +101,7 @@ and canceling long operations yourself.</doc>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libupower-glib/up-client.c"
-                 line="701">a #GAsyncResult obtained from the #GAsyncReadyCallback passed
+                 line="703">a #GAsyncResult obtained from the #GAsyncReadyCallback passed
     to up_client_new_async()</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
@@ -113,13 +113,13 @@ and canceling long operations yourself.</doc>
                    throws="1">
         <doc xml:space="preserve"
              filename="libupower-glib/up-client.c"
-             line="596">Creates a new #UpClient object. If connecting to upowerd on D-Bus fails,
+             line="598">Creates a new #UpClient object. If connecting to upowerd on D-Bus fails,
 this returns %NULL and sets @error.</doc>
         <source-position filename="libupower-glib/up-client.h" line="75"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libupower-glib/up-client.c"
-               line="604">a new UpClient object, or %NULL on failure.</doc>
+               line="606">a new UpClient object, or %NULL on failure.</doc>
           <type name="Client" c:type="UpClient*"/>
         </return-value>
         <parameters>
@@ -129,7 +129,7 @@ this returns %NULL and sets @error.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libupower-glib/up-client.c"
-                 line="598">A #GCancellable or %NULL.</doc>
+                 line="600">A #GCancellable or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -140,7 +140,7 @@ this returns %NULL and sets @error.</doc>
                 glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="libupower-glib/up-client.c"
-             line="668">Asynchronously creates a new #UpClient object.
+             line="670">Asynchronously creates a new #UpClient object.
 
 This is an asynchronous failable function.</doc>
         <source-position filename="libupower-glib/up-client.h" line="76"/>
@@ -154,7 +154,7 @@ This is an asynchronous failable function.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libupower-glib/up-client.c"
-                 line="670">a #GCancellable or %NULL</doc>
+                 line="672">a #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -165,7 +165,7 @@ This is an asynchronous failable function.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="libupower-glib/up-client.c"
-                 line="671">a #GAsyncReadyCallback to call when the request is satisfied</doc>
+                 line="673">a #GAsyncReadyCallback to call when the request is satisfied</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -174,7 +174,7 @@ This is an asynchronous failable function.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libupower-glib/up-client.c"
-                 line="672">the data to pass to @callback</doc>
+                 line="674">the data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -212,20 +212,20 @@ This is an asynchronous failable function.</doc>
               version="1.0">
         <doc xml:space="preserve"
              filename="libupower-glib/up-client.c"
-             line="250">Gets a string representing the configured critical action,
+             line="252">Gets a string representing the configured critical action,
 depending on availability.</doc>
         <source-position filename="libupower-glib/up-client.h" line="84"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libupower-glib/up-client.c"
-               line="257">the action name, or %NULL on error.</doc>
+               line="259">the action name, or %NULL on error.</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libupower-glib/up-client.c"
-                 line="252">a #UpClient instance.</doc>
+                 line="254">a #UpClient instance.</doc>
             <type name="Client" c:type="UpClient*"/>
           </instance-parameter>
         </parameters>
@@ -236,19 +236,19 @@ depending on availability.</doc>
               version="0.9.0">
         <doc xml:space="preserve"
              filename="libupower-glib/up-client.c"
-             line="275">Get UPower daemon version.</doc>
+             line="277">Get UPower daemon version.</doc>
         <source-position filename="libupower-glib/up-client.h" line="96"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libupower-glib/up-client.c"
-               line="281">string containing the daemon version, e.g. 008</doc>
+               line="283">string containing the daemon version, e.g. 008</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libupower-glib/up-client.c"
-                 line="277">a #UpClient instance.</doc>
+                 line="279">a #UpClient instance.</doc>
             <type name="Client" c:type="UpClient*"/>
           </instance-parameter>
         </parameters>
@@ -416,19 +416,19 @@ elements when you are finished with the array.</doc>
               version="0.9.0">
         <doc xml:space="preserve"
              filename="libupower-glib/up-client.c"
-             line="292">Get whether the laptop lid is closed.</doc>
+             line="294">Get whether the laptop lid is closed.</doc>
         <source-position filename="libupower-glib/up-client.h" line="97"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libupower-glib/up-client.c"
-               line="298">%TRUE if lid is closed or %FALSE otherwise.</doc>
+               line="300">%TRUE if lid is closed or %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libupower-glib/up-client.c"
-                 line="294">a #UpClient instance.</doc>
+                 line="296">a #UpClient instance.</doc>
             <type name="Client" c:type="UpClient*"/>
           </instance-parameter>
         </parameters>
@@ -439,19 +439,19 @@ elements when you are finished with the array.</doc>
               version="0.9.2">
         <doc xml:space="preserve"
              filename="libupower-glib/up-client.c"
-             line="309">Get whether a laptop lid is present on this machine.</doc>
+             line="311">Get whether a laptop lid is present on this machine.</doc>
         <source-position filename="libupower-glib/up-client.h" line="98"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libupower-glib/up-client.c"
-               line="315">%TRUE if the machine has a laptop lid</doc>
+               line="317">%TRUE if the machine has a laptop lid</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libupower-glib/up-client.c"
-                 line="311">a #UpClient instance.</doc>
+                 line="313">a #UpClient instance.</doc>
             <type name="Client" c:type="UpClient*"/>
           </instance-parameter>
         </parameters>
@@ -462,19 +462,19 @@ elements when you are finished with the array.</doc>
               version="0.9.0">
         <doc xml:space="preserve"
              filename="libupower-glib/up-client.c"
-             line="326">Get whether the system is running on battery power.</doc>
+             line="328">Get whether the system is running on battery power.</doc>
         <source-position filename="libupower-glib/up-client.h" line="99"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libupower-glib/up-client.c"
-               line="332">%TRUE if the system is currently running on battery, %FALSE otherwise.</doc>
+               line="334">%TRUE if the system is currently running on battery, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libupower-glib/up-client.c"
-                 line="328">a #UpClient instance.</doc>
+                 line="330">a #UpClient instance.</doc>
             <type name="Client" c:type="UpClient*"/>
           </instance-parameter>
         </parameters>
@@ -486,7 +486,7 @@ elements when you are finished with the array.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="libupower-glib/up-client.c"
-             line="443">The daemon version.</doc>
+             line="445">The daemon version.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="lid-is-closed"
@@ -496,7 +496,7 @@ elements when you are finished with the array.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="libupower-glib/up-client.c"
-             line="471">If the laptop lid is closed.</doc>
+             line="473">If the laptop lid is closed.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="lid-is-present"
@@ -506,7 +506,7 @@ elements when you are finished with the array.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="libupower-glib/up-client.c"
-             line="485">If a laptop lid is present.</doc>
+             line="487">If a laptop lid is present.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="on-battery"
@@ -516,7 +516,7 @@ elements when you are finished with the array.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="libupower-glib/up-client.c"
-             line="457">If the computer is on battery power.</doc>
+             line="459">If the computer is on battery power.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <field name="parent">
@@ -528,7 +528,7 @@ elements when you are finished with the array.</doc>
       <glib:signal name="device-added" when="last" version="0.9.0">
         <doc xml:space="preserve"
              filename="libupower-glib/up-client.c"
-             line="500">The ::device-added signal is emitted when a power device is added.</doc>
+             line="502">The ::device-added signal is emitted when a power device is added.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -536,7 +536,7 @@ elements when you are finished with the array.</doc>
           <parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libupower-glib/up-client.c"
-                 line="503">the #UpDevice that was added.</doc>
+                 line="505">the #UpDevice that was added.</doc>
             <type name="Device"/>
           </parameter>
         </parameters>
@@ -544,7 +544,7 @@ elements when you are finished with the array.</doc>
       <glib:signal name="device-removed" when="last" version="1.0">
         <doc xml:space="preserve"
              filename="libupower-glib/up-client.c"
-             line="516">The ::device-removed signal is emitted when a power device is removed.</doc>
+             line="518">The ::device-removed signal is emitted when a power device is removed.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -552,7 +552,7 @@ elements when you are finished with the array.</doc>
           <parameter name="object_path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libupower-glib/up-client.c"
-                 line="519">the object path of the #UpDevice that was removed.</doc>
+                 line="521">the object path of the #UpDevice that was removed.</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -2118,7 +2118,7 @@ The #BatteryLevel only uses the following values:
       <source-position filename="libupower-glib/up-version.h" line="43"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="1" c:type="UP_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="3" c:type="UP_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="libupower-glib/up-version.h"
            line="52">The compile-time micro version</doc>

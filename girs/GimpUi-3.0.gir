@@ -10,6 +10,7 @@ and/or use gtk-doc annotations.  -->
   <include name="Babl" version="0.1"/>
   <include name="GExiv2" version="0.10"/>
   <include name="GLib" version="2.0"/>
+  <include name="GLibUnix" version="2.0"/>
   <include name="GObject" version="2.0"/>
   <include name="GdkPixbuf" version="2.0"/>
   <include name="Gegl" version="0.4"/>
@@ -14113,7 +14114,7 @@ a PDF or PS document.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgimpwidgets/gimppageselector.c"
-               line="944">A newly allocated string representing the set of selected
+               line="958">A newly allocated string representing the set of selected
          pages. See gimp_page_selector_select_range() for the
          format of the string.</doc>
           <type name="utf8" c:type="gchar*"/>
@@ -14122,7 +14123,7 @@ a PDF or PS document.</doc>
           <instance-parameter name="selector" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimppageselector.c"
-                 line="942">Pointer to a #GimpPageSelector.</doc>
+                 line="956">Pointer to a #GimpPageSelector.</doc>
             <type name="PageSelector" c:type="GimpPageSelector*"/>
           </instance-parameter>
         </parameters>
@@ -18887,19 +18888,19 @@ Subclass responsibilities:
               version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpresourcechooser.c"
-             line="426">Returns the label widget.</doc>
+             line="434">Returns the label widget.</doc>
         <source-position filename="libgimp/gimpresourcechooser.h" line="52"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimp/gimpresourcechooser.c"
-               line="432">the [class@Gtk.Widget] showing the label text.</doc>
+               line="440">the [class@Gtk.Widget] showing the label text.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="widget" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpresourcechooser.c"
-                 line="428">A [class@ResourceChooser].</doc>
+                 line="436">A [class@ResourceChooser].</doc>
             <type name="ResourceChooser" c:type="GimpResourceChooser*"/>
           </instance-parameter>
         </parameters>
@@ -18910,19 +18911,19 @@ Subclass responsibilities:
               version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpresourcechooser.c"
-             line="367">Gets the currently selected resource.</doc>
+             line="375">Gets the currently selected resource.</doc>
         <source-position filename="libgimp/gimpresourcechooser.h" line="49"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimp/gimpresourcechooser.c"
-               line="373">an internal copy of the resource which must not be freed.</doc>
+               line="381">an internal copy of the resource which must not be freed.</doc>
           <type name="Gimp.Resource" c:type="GimpResource*"/>
         </return-value>
         <parameters>
           <instance-parameter name="chooser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpresourcechooser.c"
-                 line="369">A #GimpResourceChooser</doc>
+                 line="377">A #GimpResourceChooser</doc>
             <type name="ResourceChooser" c:type="GimpResourceChooser*"/>
           </instance-parameter>
         </parameters>
@@ -18933,7 +18934,7 @@ Subclass responsibilities:
               version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpresourcechooser.c"
-             line="389">Sets the currently selected resource.
+             line="397">Sets the currently selected resource.
 This will select the resource in both the button and any chooser popup.</doc>
         <source-position filename="libgimp/gimpresourcechooser.h" line="50"/>
         <return-value transfer-ownership="none">
@@ -18943,13 +18944,13 @@ This will select the resource in both the button and any chooser popup.</doc>
           <instance-parameter name="chooser" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpresourcechooser.c"
-                 line="391">A #GimpResourceChooser</doc>
+                 line="399">A #GimpResourceChooser</doc>
             <type name="ResourceChooser" c:type="GimpResourceChooser*"/>
           </instance-parameter>
           <parameter name="resource" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpresourcechooser.c"
-                 line="392">Resource to set.</doc>
+                 line="400">Resource to set.</doc>
             <type name="Gimp.Resource" c:type="GimpResource*"/>
           </parameter>
         </parameters>
@@ -19132,14 +19133,14 @@ ordinary children of off-screen children.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimpwidgets/gimpruler.c"
-               line="673">the current position of the @ruler widget.</doc>
+               line="675">the current position of the @ruler widget.</doc>
           <type name="gdouble" c:type="gdouble"/>
         </return-value>
         <parameters>
           <instance-parameter name="ruler" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpruler.c"
-                 line="671">a #GimpRuler</doc>
+                 line="673">a #GimpRuler</doc>
             <type name="Ruler" c:type="GimpRuler*"/>
           </instance-parameter>
         </parameters>
@@ -19149,7 +19150,7 @@ ordinary children of off-screen children.</doc>
               version="2.8">
         <doc xml:space="preserve"
              filename="libgimpwidgets/gimpruler.c"
-             line="727">Retrieves values indicating the range and current position of a #GimpRuler.
+             line="729">Retrieves values indicating the range and current position of a #GimpRuler.
 See gimp_ruler_set_range().</doc>
         <source-position filename="libgimpwidgets/gimpruler.h" line="49"/>
         <return-value transfer-ownership="none">
@@ -19159,7 +19160,7 @@ See gimp_ruler_set_range().</doc>
           <instance-parameter name="ruler" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpruler.c"
-                 line="729">a #GimpRuler</doc>
+                 line="731">a #GimpRuler</doc>
             <type name="Ruler" c:type="GimpRuler*"/>
           </instance-parameter>
           <parameter name="lower"
@@ -19170,7 +19171,7 @@ See gimp_ruler_set_range().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpruler.c"
-                 line="730">location to store lower limit of the ruler,
+                 line="732">location to store lower limit of the ruler,
                           or %NULL</doc>
             <type name="gdouble" c:type="gdouble*"/>
           </parameter>
@@ -19182,7 +19183,7 @@ See gimp_ruler_set_range().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpruler.c"
-                 line="732">location to store upper limit of the ruler,
+                 line="734">location to store upper limit of the ruler,
                           or %NULL</doc>
             <type name="gdouble" c:type="gdouble*"/>
           </parameter>
@@ -19194,7 +19195,7 @@ See gimp_ruler_set_range().</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpruler.c"
-                 line="734">location to store the maximum size of the ruler
+                 line="736">location to store the maximum size of the ruler
                              used when calculating the space to leave for
                              the text, or %NULL.</doc>
             <type name="gdouble" c:type="gdouble*"/>
@@ -19278,7 +19279,7 @@ gimp_ruler_add_track_widget().</doc>
               version="2.8">
         <doc xml:space="preserve"
              filename="libgimpwidgets/gimpruler.c"
-             line="685">This sets the range of the ruler.</doc>
+             line="687">This sets the range of the ruler.</doc>
         <source-position filename="libgimpwidgets/gimpruler.h" line="45"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -19287,25 +19288,25 @@ gimp_ruler_add_track_widget().</doc>
           <instance-parameter name="ruler" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpruler.c"
-                 line="687">a #GimpRuler</doc>
+                 line="689">a #GimpRuler</doc>
             <type name="Ruler" c:type="GimpRuler*"/>
           </instance-parameter>
           <parameter name="lower" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpruler.c"
-                 line="688">the lower limit of the ruler</doc>
+                 line="690">the lower limit of the ruler</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="upper" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpruler.c"
-                 line="689">the upper limit of the ruler</doc>
+                 line="691">the upper limit of the ruler</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="max_size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpruler.c"
-                 line="690">the maximum size of the ruler used when calculating the space to
+                 line="692">the maximum size of the ruler used when calculating the space to
 leave for the text</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
@@ -20083,7 +20084,7 @@ of the #GimpUnitComboBox to allow the caller to add labels or a
       <method name="add_field" c:identifier="gimp_size_entry_add_field">
         <doc xml:space="preserve"
              filename="libgimpwidgets/gimpsizeentry.c"
-             line="428">Adds an input field to the #GimpSizeEntry.
+             line="432">Adds an input field to the #GimpSizeEntry.
 
 The new input field will have the index 0. If you specified @show_refval
 as %TRUE in gimp_size_entry_new() you have to pass an additional
@@ -20097,13 +20098,13 @@ as %TRUE in gimp_size_entry_new() you have to pass an additional
           <instance-parameter name="gse" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="430">The sizeentry you want to add a field to.</doc>
+                 line="434">The sizeentry you want to add a field to.</doc>
             <type name="SizeEntry" c:type="GimpSizeEntry*"/>
           </instance-parameter>
           <parameter name="value_spinbutton" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="431">The spinbutton to display the field's value.</doc>
+                 line="435">The spinbutton to display the field's value.</doc>
             <type name="Gtk.SpinButton" c:type="GtkSpinButton*"/>
           </parameter>
           <parameter name="refval_spinbutton"
@@ -20112,7 +20113,7 @@ as %TRUE in gimp_size_entry_new() you have to pass an additional
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="432">The spinbutton to display the field's reference value.</doc>
+                 line="436">The spinbutton to display the field's reference value.</doc>
             <type name="Gtk.SpinButton" c:type="GtkSpinButton*"/>
           </parameter>
         </parameters>
@@ -20120,43 +20121,43 @@ as %TRUE in gimp_size_entry_new() you have to pass an additional
       <method name="attach_label" c:identifier="gimp_size_entry_attach_label">
         <doc xml:space="preserve"
              filename="libgimpwidgets/gimpsizeentry.c"
-             line="542">Attaches a #GtkLabel to the #GimpSizeEntry (which is a #GtkGrid).</doc>
+             line="546">Attaches a #GtkLabel to the #GimpSizeEntry (which is a #GtkGrid).</doc>
         <source-position filename="libgimpwidgets/gimpsizeentry.h" line="59"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimpwidgets/gimpsizeentry.c"
-               line="552">A pointer to the new #GtkLabel widget.</doc>
+               line="556">A pointer to the new #GtkLabel widget.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="gse" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="544">The sizeentry you want to add a label to.</doc>
+                 line="548">The sizeentry you want to add a label to.</doc>
             <type name="SizeEntry" c:type="GimpSizeEntry*"/>
           </instance-parameter>
           <parameter name="text" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="545">The text of the label.</doc>
+                 line="549">The text of the label.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="row" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="546">The row where the label will be attached.</doc>
+                 line="550">The row where the label will be attached.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="column" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="547">The column where the label will be attached.</doc>
+                 line="551">The column where the label will be attached.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="alignment" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="548">The horizontal alignment of the label.</doc>
+                 line="552">The horizontal alignment of the label.</doc>
             <type name="gfloat" c:type="gfloat"/>
           </parameter>
         </parameters>
@@ -20165,27 +20166,27 @@ as %TRUE in gimp_size_entry_new() you have to pass an additional
               c:identifier="gimp_size_entry_get_help_widget">
         <doc xml:space="preserve"
              filename="libgimpwidgets/gimpsizeentry.c"
-             line="1589">You shouldn't fiddle with the internals of a #GimpSizeEntry but
+             line="1593">You shouldn't fiddle with the internals of a #GimpSizeEntry but
 if you want to set tooltips using gimp_help_set_help_data() you
 can use this function to get a pointer to the spinbuttons.</doc>
         <source-position filename="libgimpwidgets/gimpsizeentry.h" line="112"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimpwidgets/gimpsizeentry.c"
-               line="1598">a #GtkWidget pointer that you can attach a tooltip to.</doc>
+               line="1602">a #GtkWidget pointer that you can attach a tooltip to.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="gse" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="1591">a #GimpSizeEntry</doc>
+                 line="1595">a #GimpSizeEntry</doc>
             <type name="SizeEntry" c:type="GimpSizeEntry*"/>
           </instance-parameter>
           <parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="1592">the index of the widget you want to get a pointer to</doc>
+                 line="1596">the index of the widget you want to get a pointer to</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -20204,7 +20205,7 @@ can use this function to get a pointer to the spinbuttons.</doc>
       <method name="get_refval" c:identifier="gimp_size_entry_get_refval">
         <doc xml:space="preserve"
              filename="libgimpwidgets/gimpsizeentry.c"
-             line="1044">Returns the reference value for field # @field of the #GimpSizeEntry.
+             line="1048">Returns the reference value for field # @field of the #GimpSizeEntry.
 
 The reference value is either a distance in pixels or a resolution
 in dpi, depending on which #GimpSizeEntryUpdatePolicy you chose in
@@ -20213,20 +20214,20 @@ gimp_size_entry_new().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimpwidgets/gimpsizeentry.c"
-               line="1055">The reference value of the chosen @field.</doc>
+               line="1059">The reference value of the chosen @field.</doc>
           <type name="gdouble" c:type="gdouble"/>
         </return-value>
         <parameters>
           <instance-parameter name="gse" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="1046">The sizeentry you want to know a reference value of.</doc>
+                 line="1050">The sizeentry you want to know a reference value of.</doc>
             <type name="SizeEntry" c:type="GimpSizeEntry*"/>
           </instance-parameter>
           <parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="1047">The index of the field you want to know the reference value of.</doc>
+                 line="1051">The index of the field you want to know the reference value of.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -20234,20 +20235,20 @@ gimp_size_entry_new().</doc>
       <method name="get_unit" c:identifier="gimp_size_entry_get_unit">
         <doc xml:space="preserve"
              filename="libgimpwidgets/gimpsizeentry.c"
-             line="1164">Returns the #GimpUnit the user has selected in the #GimpSizeEntry's
+             line="1168">Returns the #GimpUnit the user has selected in the #GimpSizeEntry's
 #GimpUnitComboBox.</doc>
         <source-position filename="libgimpwidgets/gimpsizeentry.h" line="100"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimpwidgets/gimpsizeentry.c"
-               line="1171">The sizeentry's unit.</doc>
+               line="1175">The sizeentry's unit.</doc>
           <type name="Gimp.Unit" c:type="GimpUnit*"/>
         </return-value>
         <parameters>
           <instance-parameter name="gse" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="1166">The sizeentry you want to know the unit of.</doc>
+                 line="1170">The sizeentry you want to know the unit of.</doc>
             <type name="SizeEntry" c:type="GimpSizeEntry*"/>
           </instance-parameter>
         </parameters>
@@ -20258,14 +20259,14 @@ gimp_size_entry_new().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimpwidgets/gimpsizeentry.c"
-               line="532">the size entry's #GimpUnitComboBox.</doc>
+               line="536">the size entry's #GimpUnitComboBox.</doc>
           <type name="UnitComboBox" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="gse" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="530">a #GimpSizeEntry.</doc>
+                 line="534">a #GimpSizeEntry.</doc>
             <type name="SizeEntry" c:type="GimpSizeEntry*"/>
           </instance-parameter>
         </parameters>
@@ -20286,7 +20287,7 @@ gimp_size_entry_new().</doc>
       <method name="get_value" c:identifier="gimp_size_entry_get_value">
         <doc xml:space="preserve"
              filename="libgimpwidgets/gimpsizeentry.c"
-             line="782">Returns the value of field # @field of the #GimpSizeEntry.
+             line="786">Returns the value of field # @field of the #GimpSizeEntry.
 
 The @value returned is a distance or resolution
 in the #GimpUnit the user has selected in the #GimpSizeEntry's
@@ -20299,20 +20300,20 @@ NOTE: In most cases you won't be interested in this value because the
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimpwidgets/gimpsizeentry.c"
-               line="797">The value of the chosen @field.</doc>
+               line="801">The value of the chosen @field.</doc>
           <type name="gdouble" c:type="gdouble"/>
         </return-value>
         <parameters>
           <instance-parameter name="gse" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="784">The sizeentry you want to know a value of.</doc>
+                 line="788">The sizeentry you want to know a value of.</doc>
             <type name="SizeEntry" c:type="GimpSizeEntry*"/>
           </instance-parameter>
           <parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="785">The index of the field you want to know the value of.</doc>
+                 line="789">The index of the field you want to know the value of.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -20320,7 +20321,7 @@ NOTE: In most cases you won't be interested in this value because the
       <method name="grab_focus" c:identifier="gimp_size_entry_grab_focus">
         <doc xml:space="preserve"
              filename="libgimpwidgets/gimpsizeentry.c"
-             line="1537">This function is rather ugly and just a workaround for the fact that
+             line="1541">This function is rather ugly and just a workaround for the fact that
 it's impossible to implement gtk_widget_grab_focus() for a #GtkGrid (is this actually true after the Table-&gt;Grid conversion?).</doc>
         <source-position filename="libgimpwidgets/gimpsizeentry.h" line="109"/>
         <return-value transfer-ownership="none">
@@ -20330,7 +20331,7 @@ it's impossible to implement gtk_widget_grab_focus() for a #GtkGrid (is this act
           <instance-parameter name="gse" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="1539">The sizeentry you want to grab the keyboard focus.</doc>
+                 line="1543">The sizeentry you want to grab the keyboard focus.</doc>
             <type name="SizeEntry" c:type="GimpSizeEntry*"/>
           </instance-parameter>
         </parameters>
@@ -20340,7 +20341,7 @@ it's impossible to implement gtk_widget_grab_focus() for a #GtkGrid (is this act
               version="2.4">
         <doc xml:space="preserve"
              filename="libgimpwidgets/gimpsizeentry.c"
-             line="1557">Iterates over all entries in the #GimpSizeEntry and calls
+             line="1561">Iterates over all entries in the #GimpSizeEntry and calls
 gtk_entry_set_activates_default() on them.</doc>
         <source-position filename="libgimpwidgets/gimpsizeentry.h" line="110"/>
         <return-value transfer-ownership="none">
@@ -20350,13 +20351,13 @@ gtk_entry_set_activates_default() on them.</doc>
           <instance-parameter name="gse" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="1559">A #GimpSizeEntry</doc>
+                 line="1563">A #GimpSizeEntry</doc>
             <type name="SizeEntry" c:type="GimpSizeEntry*"/>
           </instance-parameter>
           <parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="1560">%TRUE to activate window's default widget on Enter keypress</doc>
+                 line="1564">%TRUE to activate window's default widget on Enter keypress</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -20365,7 +20366,7 @@ gtk_entry_set_activates_default() on them.</doc>
               c:identifier="gimp_size_entry_set_pixel_digits">
         <doc xml:space="preserve"
              filename="libgimpwidgets/gimpsizeentry.c"
-             line="1513">This function allows you set up a #GimpSizeEntry so that sub-pixel
+             line="1517">This function allows you set up a #GimpSizeEntry so that sub-pixel
 sizes can be entered.</doc>
         <source-position filename="libgimpwidgets/gimpsizeentry.h" line="106"/>
         <return-value transfer-ownership="none">
@@ -20375,13 +20376,13 @@ sizes can be entered.</doc>
           <instance-parameter name="gse" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="1515">a #GimpSizeEntry</doc>
+                 line="1519">a #GimpSizeEntry</doc>
             <type name="SizeEntry" c:type="GimpSizeEntry*"/>
           </instance-parameter>
           <parameter name="digits" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="1516">the number of digits to display for a pixel size</doc>
+                 line="1520">the number of digits to display for a pixel size</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -20389,7 +20390,7 @@ sizes can be entered.</doc>
       <method name="set_refval" c:identifier="gimp_size_entry_set_refval">
         <doc xml:space="preserve"
              filename="libgimpwidgets/gimpsizeentry.c"
-             line="1115">Sets the reference value for field # @field of the #GimpSizeEntry.
+             line="1119">Sets the reference value for field # @field of the #GimpSizeEntry.
 
 The @refval passed is either a distance in pixels or a resolution in dpi,
 depending on which #GimpSizeEntryUpdatePolicy you chose in
@@ -20402,19 +20403,19 @@ gimp_size_entry_new().</doc>
           <instance-parameter name="gse" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="1117">The sizeentry you want to set a reference value for.</doc>
+                 line="1121">The sizeentry you want to set a reference value for.</doc>
             <type name="SizeEntry" c:type="GimpSizeEntry*"/>
           </instance-parameter>
           <parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="1118">The index of the field you want to set the reference value for.</doc>
+                 line="1122">The index of the field you want to set the reference value for.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="refval" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="1119">The new reference value for @field.</doc>
+                 line="1123">The new reference value for @field.</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
         </parameters>
@@ -20423,7 +20424,7 @@ gimp_size_entry_new().</doc>
               c:identifier="gimp_size_entry_set_refval_boundaries">
         <doc xml:space="preserve"
              filename="libgimpwidgets/gimpsizeentry.c"
-             line="909">Limits the range of possible reference values which can be entered in
+             line="913">Limits the range of possible reference values which can be entered in
 field # @field of the #GimpSizeEntry.
 
 The current reference value of the @field will be clamped to fit in the
@@ -20436,26 +20437,26 @@ The current reference value of the @field will be clamped to fit in the
           <instance-parameter name="gse" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="911">The sizeentry you want to set the reference value boundaries for.</doc>
+                 line="915">The sizeentry you want to set the reference value boundaries for.</doc>
             <type name="SizeEntry" c:type="GimpSizeEntry*"/>
           </instance-parameter>
           <parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="912">The index of the field you want to set the reference value
+                 line="916">The index of the field you want to set the reference value
         boundaries for.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="lower" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="914">The new lower boundary of the reference value of the chosen @field.</doc>
+                 line="918">The new lower boundary of the reference value of the chosen @field.</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="upper" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="915">The new upper boundary of the reference value of the chosen @field.</doc>
+                 line="919">The new upper boundary of the reference value of the chosen @field.</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
         </parameters>
@@ -20464,7 +20465,7 @@ The current reference value of the @field will be clamped to fit in the
               c:identifier="gimp_size_entry_set_refval_digits">
         <doc xml:space="preserve"
              filename="libgimpwidgets/gimpsizeentry.c"
-             line="1004">Sets the decimal digits of field # @field of the #GimpSizeEntry to
+             line="1008">Sets the decimal digits of field # @field of the #GimpSizeEntry to
 @digits.
 
 If you don't specify this value explicitly, the reference value's number
@@ -20478,19 +20479,19 @@ of digits will equal to 0 for #GIMP_SIZE_ENTRY_UPDATE_SIZE and to 2 for
           <instance-parameter name="gse" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="1006">The sizeentry you want to set the reference value digits for.</doc>
+                 line="1010">The sizeentry you want to set the reference value digits for.</doc>
             <type name="SizeEntry" c:type="GimpSizeEntry*"/>
           </instance-parameter>
           <parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="1007">The index of the field you want to set the reference value for.</doc>
+                 line="1011">The index of the field you want to set the reference value for.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="digits" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="1008">The new number of decimal digits for the #GtkSpinButton which
+                 line="1012">The new number of decimal digits for the #GtkSpinButton which
          displays @field's reference value.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
@@ -20500,7 +20501,7 @@ of digits will equal to 0 for #GIMP_SIZE_ENTRY_UPDATE_SIZE and to 2 for
               c:identifier="gimp_size_entry_set_resolution">
         <doc xml:space="preserve"
              filename="libgimpwidgets/gimpsizeentry.c"
-             line="605">Sets the resolution (in dpi) for field # @field of the #GimpSizeEntry.
+             line="609">Sets the resolution (in dpi) for field # @field of the #GimpSizeEntry.
 
 The @resolution passed will be clamped to fit in
 [#GIMP_MIN_RESOLUTION..#GIMP_MAX_RESOLUTION].
@@ -20515,25 +20516,25 @@ gimp_size_entry_new() doesn't equal to #GIMP_SIZE_ENTRY_UPDATE_SIZE.</doc>
           <instance-parameter name="gse" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="607">The sizeentry you want to set a resolution for.</doc>
+                 line="611">The sizeentry you want to set a resolution for.</doc>
             <type name="SizeEntry" c:type="GimpSizeEntry*"/>
           </instance-parameter>
           <parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="608">The index of the field you want to set the resolution for.</doc>
+                 line="612">The index of the field you want to set the resolution for.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="resolution" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="609">The new resolution (in dpi) for the chosen @field.</doc>
+                 line="613">The new resolution (in dpi) for the chosen @field.</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="keep_size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="610">%TRUE if the @field's size in pixels should stay the same.
+                 line="614">%TRUE if the @field's size in pixels should stay the same.
              %FALSE if the @field's size in units should stay the same.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
@@ -20542,7 +20543,7 @@ gimp_size_entry_new() doesn't equal to #GIMP_SIZE_ENTRY_UPDATE_SIZE.</doc>
       <method name="set_size" c:identifier="gimp_size_entry_set_size">
         <doc xml:space="preserve"
              filename="libgimpwidgets/gimpsizeentry.c"
-             line="650">Sets the pixel values for field # @field of the #GimpSizeEntry
+             line="654">Sets the pixel values for field # @field of the #GimpSizeEntry
 which will be treated as 0% and 100%.
 
 These values will be used if you specified @menu_show_percent as %TRUE
@@ -20559,25 +20560,25 @@ gimp_size_entry_new() doesn't equal to GIMP_SIZE_ENTRY_UPDATE_SIZE.</doc>
           <instance-parameter name="gse" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="652">The sizeentry you want to set a size for.</doc>
+                 line="656">The sizeentry you want to set a size for.</doc>
             <type name="SizeEntry" c:type="GimpSizeEntry*"/>
           </instance-parameter>
           <parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="653">The index of the field you want to set the size for.</doc>
+                 line="657">The index of the field you want to set the size for.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="lower" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="654">The reference value which will be treated as 0%.</doc>
+                 line="658">The reference value which will be treated as 0%.</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="upper" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="655">The reference value which will be treated as 100%.</doc>
+                 line="659">The reference value which will be treated as 100%.</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
         </parameters>
@@ -20585,7 +20586,7 @@ gimp_size_entry_new() doesn't equal to GIMP_SIZE_ENTRY_UPDATE_SIZE.</doc>
       <method name="set_unit" c:identifier="gimp_size_entry_set_unit">
         <doc xml:space="preserve"
              filename="libgimpwidgets/gimpsizeentry.c"
-             line="1228">Sets the #GimpSizeEntry's unit. The reference value for all fields will
+             line="1232">Sets the #GimpSizeEntry's unit. The reference value for all fields will
 stay the same but the value in units or pixels per unit will change
 according to which #GimpSizeEntryUpdatePolicy you chose in
 gimp_size_entry_new().</doc>
@@ -20597,13 +20598,13 @@ gimp_size_entry_new().</doc>
           <instance-parameter name="gse" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="1230">The sizeentry you want to change the unit for.</doc>
+                 line="1234">The sizeentry you want to change the unit for.</doc>
             <type name="SizeEntry" c:type="GimpSizeEntry*"/>
           </instance-parameter>
           <parameter name="unit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="1231">The new unit.</doc>
+                 line="1235">The new unit.</doc>
             <type name="Gimp.Unit" c:type="GimpUnit*"/>
           </parameter>
         </parameters>
@@ -20611,7 +20612,7 @@ gimp_size_entry_new().</doc>
       <method name="set_value" c:identifier="gimp_size_entry_set_value">
         <doc xml:space="preserve"
              filename="libgimpwidgets/gimpsizeentry.c"
-             line="858">Sets the value for field # @field of the #GimpSizeEntry.
+             line="862">Sets the value for field # @field of the #GimpSizeEntry.
 
 The @value passed is treated to be a distance or resolution
 in the #GimpUnit the user has selected in the #GimpSizeEntry's
@@ -20628,19 +20629,19 @@ NOTE: In most cases you won't be interested in this value because the
           <instance-parameter name="gse" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="860">The sizeentry you want to set a value for.</doc>
+                 line="864">The sizeentry you want to set a value for.</doc>
             <type name="SizeEntry" c:type="GimpSizeEntry*"/>
           </instance-parameter>
           <parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="861">The index of the field you want to set a value for.</doc>
+                 line="865">The index of the field you want to set a value for.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="862">The new value for @field.</doc>
+                 line="866">The new value for @field.</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
         </parameters>
@@ -20649,7 +20650,7 @@ NOTE: In most cases you won't be interested in this value because the
               c:identifier="gimp_size_entry_set_value_boundaries">
         <doc xml:space="preserve"
              filename="libgimpwidgets/gimpsizeentry.c"
-             line="688">Limits the range of possible values which can be entered in field # @field
+             line="692">Limits the range of possible values which can be entered in field # @field
 of the #GimpSizeEntry.
 
 The current value of the @field will be clamped to fit in the @field's
@@ -20668,25 +20669,25 @@ NOTE: In most cases you won't be interested in this function because the
           <instance-parameter name="gse" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="690">The sizeentry you want to set value boundaries for.</doc>
+                 line="694">The sizeentry you want to set value boundaries for.</doc>
             <type name="SizeEntry" c:type="GimpSizeEntry*"/>
           </instance-parameter>
           <parameter name="field" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="691">The index of the field you want to set value boundaries for.</doc>
+                 line="695">The index of the field you want to set value boundaries for.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="lower" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="692">The new lower boundary of the value of the chosen @field.</doc>
+                 line="696">The new lower boundary of the value of the chosen @field.</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="upper" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="693">The new upper boundary of the value of the chosen @field.</doc>
+                 line="697">The new upper boundary of the value of the chosen @field.</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
         </parameters>
@@ -20696,7 +20697,7 @@ NOTE: In most cases you won't be interested in this function because the
               version="2.4">
         <doc xml:space="preserve"
              filename="libgimpwidgets/gimpsizeentry.c"
-             line="1493">Controls whether a unit menu is shown in the size entry.  If
+             line="1497">Controls whether a unit menu is shown in the size entry.  If
 @show is %TRUE, the menu is shown; otherwise it is hidden.</doc>
         <source-position filename="libgimpwidgets/gimpsizeentry.h" line="103"/>
         <return-value transfer-ownership="none">
@@ -20706,13 +20707,13 @@ NOTE: In most cases you won't be interested in this function because the
           <instance-parameter name="gse" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="1495">a #GimpSizeEntry</doc>
+                 line="1499">a #GimpSizeEntry</doc>
             <type name="SizeEntry" c:type="GimpSizeEntry*"/>
           </instance-parameter>
           <parameter name="show" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpwidgets/gimpsizeentry.c"
-                 line="1496">Boolean</doc>
+                 line="1500">Boolean</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>

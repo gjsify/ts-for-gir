@@ -136,7 +136,7 @@ them with ges_asset_unproxy().</doc>
       <function name="needs_reload" c:identifier="ges_asset_needs_reload">
         <doc xml:space="preserve"
              filename="ges/ges-asset.c"
-             line="1502">Indicate that an existing #GESAsset in the cache should be reloaded
+             line="1503">Indicate that an existing #GESAsset in the cache should be reloaded
 upon the next request. This can be used when some condition has
 changed, which may require that an existing asset should be updated.
 For example, if an external resource has changed or now become
@@ -149,7 +149,7 @@ ges_asset_request_async().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-asset.c"
-               line="1519">%TRUE if the specified asset exists in the cache and could be
+               line="1520">%TRUE if the specified asset exists in the cache and could be
 marked for reloading.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -157,7 +157,7 @@ marked for reloading.</doc>
           <parameter name="extractable_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-asset.c"
-                 line="1504">The #GESAsset:extractable-type of the asset that
+                 line="1505">The #GESAsset:extractable-type of the asset that
 needs reloading</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
@@ -167,7 +167,7 @@ needs reloading</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ges/ges-asset.c"
-                 line="1506">The #GESAsset:id of the asset asset that needs
+                 line="1507">The #GESAsset:id of the asset asset that needs
 reloading</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -179,7 +179,7 @@ reloading</doc>
                 glib:async-func="request_async">
         <doc xml:space="preserve"
              filename="ges/ges-asset.c"
-             line="1205">Returns an asset with the given properties. If such an asset already
+             line="1206">Returns an asset with the given properties. If such an asset already
 exists in the cache (it has been previously created in GES), then a
 reference to the existing asset is returned. Otherwise, a newly created
 asset is returned, and also added to the cache.
@@ -215,7 +215,7 @@ want to wait for the request to finish.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="ges/ges-asset.c"
-               line="1245">A reference to the requested
+               line="1246">A reference to the requested
 asset, or %NULL if an error occurred.</doc>
           <type name="Asset" c:type="GESAsset*"/>
         </return-value>
@@ -223,7 +223,7 @@ asset, or %NULL if an error occurred.</doc>
           <parameter name="extractable_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-asset.c"
-                 line="1207">The #GESAsset:extractable-type of the asset</doc>
+                 line="1208">The #GESAsset:extractable-type of the asset</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
           <parameter name="id"
@@ -232,7 +232,7 @@ asset, or %NULL if an error occurred.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ges/ges-asset.c"
-                 line="1208">The #GESAsset:id of the asset</doc>
+                 line="1209">The #GESAsset:id of the asset</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -243,7 +243,7 @@ asset, or %NULL if an error occurred.</doc>
                 glib:sync-func="request">
         <doc xml:space="preserve"
              filename="ges/ges-asset.c"
-             line="1351">Requests an asset with the given properties asynchronously (see
+             line="1352">Requests an asset with the given properties asynchronously (see
 ges_asset_request()). When the asset has been initialized or fetched
 from the cache, the given callback function will be called. The
 asset can then be retrieved in the callback using the
@@ -294,7 +294,7 @@ ges_asset_request_async (GES_TYPE_URI_CLIP, some_uri, NULL,
           <parameter name="extractable_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-asset.c"
-                 line="1353">The #GESAsset:extractable-type of the asset</doc>
+                 line="1354">The #GESAsset:extractable-type of the asset</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
           <parameter name="id"
@@ -303,7 +303,7 @@ ges_asset_request_async (GES_TYPE_URI_CLIP, some_uri, NULL,
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ges/ges-asset.c"
-                 line="1354">The #GESAsset:id of the asset</doc>
+                 line="1355">The #GESAsset:id of the asset</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -312,7 +312,7 @@ ges_asset_request_async (GES_TYPE_URI_CLIP, some_uri, NULL,
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ges/ges-asset.c"
-                 line="1355">An object to allow cancellation of the
+                 line="1356">An object to allow cancellation of the
 asset request, or %NULL to ignore</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
@@ -324,7 +324,7 @@ asset request, or %NULL to ignore</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="ges/ges-asset.c"
-                 line="1357">A function to call when the initialization is finished</doc>
+                 line="1358">A function to call when the initialization is finished</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -333,7 +333,7 @@ asset request, or %NULL to ignore</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ges/ges-asset.c"
-                 line="1358">Data to be passed to @callback</doc>
+                 line="1359">Data to be passed to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -343,13 +343,13 @@ asset request, or %NULL to ignore</doc>
                 throws="1">
         <doc xml:space="preserve"
              filename="ges/ges-asset.c"
-             line="1607">Fetches an asset requested by ges_asset_request_async(), which
+             line="1608">Fetches an asset requested by ges_asset_request_async(), which
 finalises the request.</doc>
         <source-position filename="ges/ges-asset.h" line="121"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="ges/ges-asset.c"
-               line="1615">The requested asset, or %NULL if an error
+               line="1616">The requested asset, or %NULL if an error
 occurred.</doc>
           <type name="Asset" c:type="GESAsset*"/>
         </return-value>
@@ -357,7 +357,7 @@ occurred.</doc>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-asset.c"
-                 line="1609">The task result to fetch the asset from</doc>
+                 line="1610">The task result to fetch the asset from</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -365,14 +365,14 @@ occurred.</doc>
       <virtual-method name="extract" invoker="extract" throws="1">
         <doc xml:space="preserve"
              filename="ges/ges-asset.c"
-             line="1573">Extracts a new #GESAsset:extractable-type object from the asset. The
+             line="1574">Extracts a new #GESAsset:extractable-type object from the asset. The
 #GESAsset:id of the asset may determine the properties and state of the
 newly created object.</doc>
         <source-position filename="ges/ges-asset.h" line="88"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-asset.c"
-               line="1583">A newly created object, or %NULL if an
+               line="1584">A newly created object, or %NULL if an
 error occurred.</doc>
           <type name="Extractable" c:type="GESExtractable*"/>
         </return-value>
@@ -380,7 +380,7 @@ error occurred.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-asset.c"
-                 line="1575">The #GESAsset to extract an object from</doc>
+                 line="1576">The #GESAsset to extract an object from</doc>
             <type name="Asset" c:type="GESAsset*"/>
           </instance-parameter>
         </parameters>
@@ -462,14 +462,14 @@ asset is already in a usable state after the properties have been set).</doc>
       <method name="extract" c:identifier="ges_asset_extract" throws="1">
         <doc xml:space="preserve"
              filename="ges/ges-asset.c"
-             line="1573">Extracts a new #GESAsset:extractable-type object from the asset. The
+             line="1574">Extracts a new #GESAsset:extractable-type object from the asset. The
 #GESAsset:id of the asset may determine the properties and state of the
 newly created object.</doc>
         <source-position filename="ges/ges-asset.h" line="126"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-asset.c"
-               line="1583">A newly created object, or %NULL if an
+               line="1584">A newly created object, or %NULL if an
 error occurred.</doc>
           <type name="Extractable" c:type="GESExtractable*"/>
         </return-value>
@@ -477,7 +477,7 @@ error occurred.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-asset.c"
-                 line="1575">The #GESAsset to extract an object from</doc>
+                 line="1576">The #GESAsset to extract an object from</doc>
             <type name="Asset" c:type="GESAsset*"/>
           </instance-parameter>
         </parameters>
@@ -487,12 +487,12 @@ error occurred.</doc>
               version="1.8">
         <doc xml:space="preserve"
              filename="ges/ges-asset.c"
-             line="1682">Retrieve the error that was set on the asset when it was loaded.</doc>
+             line="1683">Retrieve the error that was set on the asset when it was loaded.</doc>
         <source-position filename="ges/ges-asset.h" line="124"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="ges/ges-asset.c"
-               line="1688">The error set on @asset, or
+               line="1689">The error set on @asset, or
 %NULL if no error occurred when @asset was loaded.</doc>
           <type name="GLib.Error" c:type="GError*"/>
         </return-value>
@@ -500,7 +500,7 @@ error occurred.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-asset.c"
-                 line="1684">A #GESAsset</doc>
+                 line="1685">A #GESAsset</doc>
             <type name="Asset" c:type="GESAsset*"/>
           </instance-parameter>
         </parameters>
@@ -510,19 +510,19 @@ error occurred.</doc>
               glib:get-property="extractable-type">
         <doc xml:space="preserve"
              filename="ges/ges-asset.c"
-             line="1189">Gets the #GESAsset:extractable-type of the asset.</doc>
+             line="1190">Gets the #GESAsset:extractable-type of the asset.</doc>
         <source-position filename="ges/ges-asset.h" line="107"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-asset.c"
-               line="1195">The extractable type of @self.</doc>
+               line="1196">The extractable type of @self.</doc>
           <type name="GType" c:type="GType"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-asset.c"
-                 line="1191">The #GESAsset</doc>
+                 line="1192">The #GESAsset</doc>
             <type name="Asset" c:type="GESAsset*"/>
           </instance-parameter>
         </parameters>
@@ -532,19 +532,19 @@ error occurred.</doc>
               glib:get-property="id">
         <doc xml:space="preserve"
              filename="ges/ges-asset.c"
-             line="1557">Gets the #GESAsset:id of the asset.</doc>
+             line="1558">Gets the #GESAsset:id of the asset.</doc>
         <source-position filename="ges/ges-asset.h" line="119"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-asset.c"
-               line="1563">The ID of @self.</doc>
+               line="1564">The ID of @self.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-asset.c"
-                 line="1559">A #GESAsset</doc>
+                 line="1560">A #GESAsset</doc>
             <type name="Asset" c:type="GESAsset*"/>
           </instance-parameter>
         </parameters>
@@ -554,19 +554,19 @@ error occurred.</doc>
               glib:get-property="proxy">
         <doc xml:space="preserve"
              filename="ges/ges-asset.c"
-             line="1077">Gets the default #GESAsset:proxy of the asset.</doc>
+             line="1078">Gets the default #GESAsset:proxy of the asset.</doc>
         <source-position filename="ges/ges-asset.h" line="141"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="ges/ges-asset.c"
-               line="1083">The default proxy of @asset.</doc>
+               line="1084">The default proxy of @asset.</doc>
           <type name="Asset" c:type="GESAsset*"/>
         </return-value>
         <parameters>
           <instance-parameter name="asset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-asset.c"
-                 line="1079">A #GESAsset</doc>
+                 line="1080">A #GESAsset</doc>
             <type name="Asset" c:type="GESAsset*"/>
           </instance-parameter>
         </parameters>
@@ -576,7 +576,7 @@ error occurred.</doc>
               glib:get-property="proxy-target">
         <doc xml:space="preserve"
              filename="ges/ges-asset.c"
-             line="1097">Gets the #GESAsset:proxy-target of the asset.
+             line="1098">Gets the #GESAsset:proxy-target of the asset.
 
 Note that the proxy target may have loaded with an error, so you should
 call ges_asset_get_error() on the returned target.</doc>
@@ -584,7 +584,7 @@ call ges_asset_get_error() on the returned target.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="ges/ges-asset.c"
-               line="1106">The asset that @proxy is a proxy
+               line="1107">The asset that @proxy is a proxy
 of.</doc>
           <type name="Asset" c:type="GESAsset*"/>
         </return-value>
@@ -592,7 +592,7 @@ of.</doc>
           <instance-parameter name="proxy" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-asset.c"
-                 line="1099">A #GESAsset</doc>
+                 line="1100">A #GESAsset</doc>
             <type name="Asset" c:type="GESAsset*"/>
           </instance-parameter>
         </parameters>
@@ -600,14 +600,14 @@ of.</doc>
       <method name="list_proxies" c:identifier="ges_asset_list_proxies">
         <doc xml:space="preserve"
              filename="ges/ges-asset.c"
-             line="1058">Get all the proxies that the asset has. The first item of the list will
+             line="1059">Get all the proxies that the asset has. The first item of the list will
 be the default #GESAsset:proxy. The second will be the proxy that is
 'next in line' to be default, and so on.</doc>
         <source-position filename="ges/ges-asset.h" line="137"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-asset.c"
-               line="1066">The list of proxies
+               line="1067">The list of proxies
 that @asset has.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Asset"/>
@@ -617,7 +617,7 @@ that @asset has.</doc>
           <instance-parameter name="asset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-asset.c"
-                 line="1060">A #GESAsset</doc>
+                 line="1061">A #GESAsset</doc>
             <type name="Asset" c:type="GESAsset*"/>
           </instance-parameter>
         </parameters>
@@ -627,7 +627,7 @@ that @asset has.</doc>
               glib:set-property="proxy">
         <doc xml:space="preserve"
              filename="ges/ges-asset.c"
-             line="907">Sets the #GESAsset:proxy for the asset.
+             line="908">Sets the #GESAsset:proxy for the asset.
 
 If @proxy is among the existing proxies of the asset (see
 ges_asset_list_proxies()) it will be moved to become the default
@@ -645,7 +645,7 @@ remove **all** proxies from the asset.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-asset.c"
-               line="927">%TRUE if @proxy was successfully set as the default for
+               line="928">%TRUE if @proxy was successfully set as the default for
 @asset.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -653,7 +653,7 @@ remove **all** proxies from the asset.</doc>
           <instance-parameter name="asset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-asset.c"
-                 line="909">The #GESAsset to proxy</doc>
+                 line="910">The #GESAsset to proxy</doc>
             <type name="Asset" c:type="GESAsset*"/>
           </instance-parameter>
           <parameter name="proxy"
@@ -662,7 +662,7 @@ remove **all** proxies from the asset.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ges/ges-asset.c"
-                 line="910">A new default proxy for @asset</doc>
+                 line="911">A new default proxy for @asset</doc>
             <type name="Asset" c:type="GESAsset*"/>
           </parameter>
         </parameters>
@@ -670,7 +670,7 @@ remove **all** proxies from the asset.</doc>
       <method name="unproxy" c:identifier="ges_asset_unproxy">
         <doc xml:space="preserve"
              filename="ges/ges-asset.c"
-             line="1005">Removes the proxy from the available list of proxies for the asset. If
+             line="1006">Removes the proxy from the available list of proxies for the asset. If
 the given proxy is the default proxy of the list, then the next proxy
 in the available list (see ges_asset_list_proxies()) will become the
 default. If there are no other proxies, then the asset will no longer
@@ -679,7 +679,7 @@ have a default #GESAsset:proxy.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-asset.c"
-               line="1016">%TRUE if @proxy was successfully removed from @asset's proxy
+               line="1017">%TRUE if @proxy was successfully removed from @asset's proxy
 list.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -687,13 +687,13 @@ list.</doc>
           <instance-parameter name="asset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-asset.c"
-                 line="1007">The #GESAsset to no longer proxy with @proxy</doc>
+                 line="1008">The #GESAsset to no longer proxy with @proxy</doc>
             <type name="Asset" c:type="GESAsset*"/>
           </instance-parameter>
           <parameter name="proxy" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-asset.c"
-                 line="1008">An existing proxy of @asset</doc>
+                 line="1009">An existing proxy of @asset</doc>
             <type name="Asset" c:type="GESAsset*"/>
           </parameter>
         </parameters>
@@ -815,7 +815,7 @@ its get_parameters_from_id() class method and set them on a new
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-asset.c"
-                 line="1583">A newly created object, or %NULL if an
+                 line="1584">A newly created object, or %NULL if an
 error occurred.</doc>
             <type name="Extractable" c:type="GESExtractable*"/>
           </return-value>
@@ -823,7 +823,7 @@ error occurred.</doc>
             <parameter name="self" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="ges/ges-asset.c"
-                   line="1575">The #GESAsset to extract an object from</doc>
+                   line="1576">The #GESAsset to extract an object from</doc>
               <type name="Asset" c:type="GESAsset*"/>
             </parameter>
           </parameters>
@@ -9405,7 +9405,7 @@ information.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="ges/ges-multi-file-source.c"
-             line="240">The uri of the file/resource to use. You can set a start index,
+             line="235">The uri of the file/resource to use. You can set a start index,
 a stop index and a sequence pattern.
 The format is &lt;multifile://start:stop\@location-pattern&gt;.
 The pattern uses printf string formating.
@@ -9631,12 +9631,12 @@ ges_pipeline_set_render_settings().</doc>
       <constructor name="new" c:identifier="ges_pipeline_new">
         <doc xml:space="preserve"
              filename="ges/ges-pipeline.c"
-             line="501">Creates a new pipeline.</doc>
+             line="516">Creates a new pipeline.</doc>
         <source-position filename="ges/ges-pipeline.h" line="62"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-pipeline.c"
-               line="506">The newly created pipeline.</doc>
+               line="521">The newly created pipeline.</doc>
           <type name="Pipeline" c:type="GESPipeline*"/>
         </return-value>
       </constructor>
@@ -9645,19 +9645,19 @@ ges_pipeline_set_render_settings().</doc>
               glib:get-property="mode">
         <doc xml:space="preserve"
              filename="ges/ges-pipeline.c"
-             line="1248">Gets the #GESPipeline:mode of the pipeline.</doc>
+             line="1263">Gets the #GESPipeline:mode of the pipeline.</doc>
         <source-position filename="ges/ges-pipeline.h" line="77"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-pipeline.c"
-               line="1254">The current mode of @pipeline.</doc>
+               line="1269">The current mode of @pipeline.</doc>
           <type name="PipelineFlags" c:type="GESPipelineFlags"/>
         </return-value>
         <parameters>
           <instance-parameter name="pipeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-pipeline.c"
-                 line="1250">A #GESPipeline</doc>
+                 line="1265">A #GESPipeline</doc>
             <type name="Pipeline" c:type="GESPipeline*"/>
           </instance-parameter>
         </parameters>
@@ -9665,7 +9665,7 @@ ges_pipeline_set_render_settings().</doc>
       <method name="get_thumbnail" c:identifier="ges_pipeline_get_thumbnail">
         <doc xml:space="preserve"
              filename="ges/ges-pipeline.c"
-             line="1399">Gets a sample from the pipeline of the currently displayed image in
+             line="1414">Gets a sample from the pipeline of the currently displayed image in
 preview, in the specified format.
 
 Note that if you use "ANY" caps for @caps, then the current format of
@@ -9675,7 +9675,7 @@ with gst_sample_get_caps().</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="ges/ges-pipeline.c"
-               line="1412">A sample of @self's current image preview in
+               line="1427">A sample of @self's current image preview in
 the format given by @caps, or %NULL if an error prevented fetching the
 sample.</doc>
           <type name="Gst.Sample" c:type="GstSample*"/>
@@ -9684,13 +9684,13 @@ sample.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-pipeline.c"
-                 line="1401">A #GESPipeline in #GST_STATE_PLAYING or #GST_STATE_PAUSED</doc>
+                 line="1416">A #GESPipeline in #GST_STATE_PLAYING or #GST_STATE_PAUSED</doc>
             <type name="Pipeline" c:type="GESPipeline*"/>
           </instance-parameter>
           <parameter name="caps" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-pipeline.c"
-                 line="1402">Some caps to specifying the desired format, or
+                 line="1417">Some caps to specifying the desired format, or
 #GST_CAPS_ANY to use the native format</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
           </parameter>
@@ -9700,7 +9700,7 @@ sample.</doc>
               c:identifier="ges_pipeline_get_thumbnail_rgb24">
         <doc xml:space="preserve"
              filename="ges/ges-pipeline.c"
-             line="1495">Gets a sample from the pipeline of the currently displayed image in
+             line="1510">Gets a sample from the pipeline of the currently displayed image in
 preview, in the 24-bit "RGB" format and of the desired width and
 height.
 
@@ -9709,7 +9709,7 @@ See ges_pipeline_get_thumbnail().</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="ges/ges-pipeline.c"
-               line="1509">A sample of @self's current image preview in
+               line="1524">A sample of @self's current image preview in
 the "RGB" format, scaled to @width and @height, or %NULL if an error
 prevented fetching the sample.</doc>
           <type name="Gst.Sample" c:type="GstSample*"/>
@@ -9718,20 +9718,20 @@ prevented fetching the sample.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-pipeline.c"
-                 line="1497">A #GESPipeline in %GST_STATE_PLAYING or %GST_STATE_PAUSED</doc>
+                 line="1512">A #GESPipeline in %GST_STATE_PLAYING or %GST_STATE_PAUSED</doc>
             <type name="Pipeline" c:type="GESPipeline*"/>
           </instance-parameter>
           <parameter name="width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-pipeline.c"
-                 line="1498">The requested pixel width of the image, or -1 to use the native
+                 line="1513">The requested pixel width of the image, or -1 to use the native
 size</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="height" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-pipeline.c"
-                 line="1500">The requested pixel height of the image, or -1 to use the
+                 line="1515">The requested pixel height of the image, or -1 to use the
 native size</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
@@ -9741,19 +9741,19 @@ native size</doc>
               c:identifier="ges_pipeline_preview_get_audio_sink">
         <doc xml:space="preserve"
              filename="ges/ges-pipeline.c"
-             line="1627">Gets the #GESPipeline:audio-sink of the pipeline.</doc>
+             line="1642">Gets the #GESPipeline:audio-sink of the pipeline.</doc>
         <source-position filename="ges/ges-pipeline.h" line="99"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="ges/ges-pipeline.c"
-               line="1633">The audio sink used by @self for preview.</doc>
+               line="1648">The audio sink used by @self for preview.</doc>
           <type name="Gst.Element" c:type="GstElement*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-pipeline.c"
-                 line="1629">A #GESPipeline</doc>
+                 line="1644">A #GESPipeline</doc>
             <type name="Pipeline" c:type="GESPipeline*"/>
           </instance-parameter>
         </parameters>
@@ -9762,19 +9762,19 @@ native size</doc>
               c:identifier="ges_pipeline_preview_get_video_sink">
         <doc xml:space="preserve"
              filename="ges/ges-pipeline.c"
-             line="1537">Gets the #GESPipeline:video-sink of the pipeline.</doc>
+             line="1552">Gets the #GESPipeline:video-sink of the pipeline.</doc>
         <source-position filename="ges/ges-pipeline.h" line="92"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="ges/ges-pipeline.c"
-               line="1543">The video sink used by @self for preview.</doc>
+               line="1558">The video sink used by @self for preview.</doc>
           <type name="Gst.Element" c:type="GstElement*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-pipeline.c"
-                 line="1539">A #GESPipeline</doc>
+                 line="1554">A #GESPipeline</doc>
             <type name="Pipeline" c:type="GESPipeline*"/>
           </instance-parameter>
         </parameters>
@@ -9783,7 +9783,7 @@ native size</doc>
               c:identifier="ges_pipeline_preview_set_audio_sink">
         <doc xml:space="preserve"
              filename="ges/ges-pipeline.c"
-             line="1648">Sets the #GESPipeline:audio-sink of the pipeline.</doc>
+             line="1663">Sets the #GESPipeline:audio-sink of the pipeline.</doc>
         <source-position filename="ges/ges-pipeline.h" line="102"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9792,7 +9792,7 @@ native size</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-pipeline.c"
-                 line="1650">A #GESPipeline in #GST_STATE_NULL</doc>
+                 line="1665">A #GESPipeline in #GST_STATE_NULL</doc>
             <type name="Pipeline" c:type="GESPipeline*"/>
           </instance-parameter>
           <parameter name="sink"
@@ -9801,7 +9801,7 @@ native size</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ges/ges-pipeline.c"
-                 line="1651">A audio sink for @self to use for preview</doc>
+                 line="1666">A audio sink for @self to use for preview</doc>
             <type name="Gst.Element" c:type="GstElement*"/>
           </parameter>
         </parameters>
@@ -9810,7 +9810,7 @@ native size</doc>
               c:identifier="ges_pipeline_preview_set_video_sink">
         <doc xml:space="preserve"
              filename="ges/ges-pipeline.c"
-             line="1582">Sets the #GESPipeline:video-sink of the pipeline.</doc>
+             line="1597">Sets the #GESPipeline:video-sink of the pipeline.</doc>
         <source-position filename="ges/ges-pipeline.h" line="95"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9819,7 +9819,7 @@ native size</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-pipeline.c"
-                 line="1584">A #GESPipeline in #GST_STATE_NULL</doc>
+                 line="1599">A #GESPipeline in #GST_STATE_NULL</doc>
             <type name="Pipeline" c:type="GESPipeline*"/>
           </instance-parameter>
           <parameter name="sink"
@@ -9828,7 +9828,7 @@ native size</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ges/ges-pipeline.c"
-                 line="1585">A video sink for @self to use for preview</doc>
+                 line="1600">A video sink for @self to use for preview</doc>
             <type name="Gst.Element" c:type="GstElement*"/>
           </parameter>
         </parameters>
@@ -9838,13 +9838,13 @@ native size</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ges/ges-pipeline.c"
-             line="1435">Saves the currently displayed image of the pipeline in preview to the
+             line="1450">Saves the currently displayed image of the pipeline in preview to the
 given location, in the specified dimensions and format.</doc>
         <source-position filename="ges/ges-pipeline.h" line="87"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-pipeline.c"
-               line="1449">%TRUE if @self's current image preview was successfully saved
+               line="1464">%TRUE if @self's current image preview was successfully saved
 to @location using the given @format, @height and @width.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -9852,33 +9852,33 @@ to @location using the given @format, @height and @width.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-pipeline.c"
-                 line="1437">A #GESPipeline in %GST_STATE_PLAYING or %GST_STATE_PAUSED</doc>
+                 line="1452">A #GESPipeline in %GST_STATE_PLAYING or %GST_STATE_PAUSED</doc>
             <type name="Pipeline" c:type="GESPipeline*"/>
           </instance-parameter>
           <parameter name="width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-pipeline.c"
-                 line="1438">The requested pixel width of the image, or -1 to use the native
+                 line="1453">The requested pixel width of the image, or -1 to use the native
 size</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="height" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-pipeline.c"
-                 line="1440">The requested pixel height of the image, or -1 to use the
+                 line="1455">The requested pixel height of the image, or -1 to use the
 native size</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="format" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-pipeline.c"
-                 line="1442">The desired mime type (for example, "image/jpeg")</doc>
+                 line="1457">The desired mime type (for example, "image/jpeg")</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="location" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-pipeline.c"
-                 line="1443">The path to save the thumbnail to</doc>
+                 line="1458">The path to save the thumbnail to</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -9888,7 +9888,7 @@ native size</doc>
               glib:set-property="mode">
         <doc xml:space="preserve"
              filename="ges/ges-pipeline.c"
-             line="1264">Sets the #GESPipeline:mode of the pipeline.
+             line="1279">Sets the #GESPipeline:mode of the pipeline.
 
 Note that the pipeline will be set to #GST_STATE_NULL during this call to
 perform the necessary changes. You will need to set the state again yourself
@@ -9902,20 +9902,20 @@ after calling this.
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-pipeline.c"
-               line="1280">%TRUE if the mode of @pipeline was successfully set to @mode.</doc>
+               line="1295">%TRUE if the mode of @pipeline was successfully set to @mode.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="pipeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-pipeline.c"
-                 line="1266">A #GESPipeline</doc>
+                 line="1281">A #GESPipeline</doc>
             <type name="Pipeline" c:type="GESPipeline*"/>
           </instance-parameter>
           <parameter name="mode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-pipeline.c"
-                 line="1267">The mode to set for @pipeline</doc>
+                 line="1282">The mode to set for @pipeline</doc>
             <type name="PipelineFlags" c:type="GESPipelineFlags"/>
           </parameter>
         </parameters>
@@ -9924,7 +9924,7 @@ after calling this.
               c:identifier="ges_pipeline_set_render_settings">
         <doc xml:space="preserve"
              filename="ges/ges-pipeline.c"
-             line="1127">Specifies encoding setting to be used by the pipeline to render its
+             line="1142">Specifies encoding setting to be used by the pipeline to render its
 #GESPipeline:timeline, and where the result should be written to.
 
 This method **must** be called before setting the pipeline mode to
@@ -9933,27 +9933,27 @@ This method **must** be called before setting the pipeline mode to
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-pipeline.c"
-               line="1140">%TRUE if the settings were successfully set on @pipeline.</doc>
+               line="1155">%TRUE if the settings were successfully set on @pipeline.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="pipeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-pipeline.c"
-                 line="1129">A #GESPipeline</doc>
+                 line="1144">A #GESPipeline</doc>
             <type name="Pipeline" c:type="GESPipeline*"/>
           </instance-parameter>
           <parameter name="output_uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-pipeline.c"
-                 line="1130">The URI to save the #GESPipeline:timeline rendering
+                 line="1145">The URI to save the #GESPipeline:timeline rendering
 result to</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="profile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-pipeline.c"
-                 line="1132">The encoding to use for rendering the #GESPipeline:timeline</doc>
+                 line="1147">The encoding to use for rendering the #GESPipeline:timeline</doc>
             <type name="GstPbutils.EncodingProfile"
                   c:type="GstEncodingProfile*"/>
           </parameter>
@@ -9964,7 +9964,7 @@ result to</doc>
               glib:set-property="timeline">
         <doc xml:space="preserve"
              filename="ges/ges-pipeline.c"
-             line="1081">Takes the given timeline and sets it as the #GESPipeline:timeline for
+             line="1096">Takes the given timeline and sets it as the #GESPipeline:timeline for
 the pipeline.
 
 Note that you should only call this method once on a given pipeline
@@ -9974,20 +9974,20 @@ it has been set.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-pipeline.c"
-               line="1093">%TRUE if @timeline was successfully given to @pipeline.</doc>
+               line="1108">%TRUE if @timeline was successfully given to @pipeline.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="pipeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-pipeline.c"
-                 line="1083">A #GESPipeline</doc>
+                 line="1098">A #GESPipeline</doc>
             <type name="Pipeline" c:type="GESPipeline*"/>
           </instance-parameter>
           <parameter name="timeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-pipeline.c"
-                 line="1084">The timeline to set for @pipeline</doc>
+                 line="1099">The timeline to set for @pipeline</doc>
             <type name="Timeline" c:type="GESTimeline*"/>
           </parameter>
         </parameters>
@@ -9998,7 +9998,7 @@ it has been set.</doc>
                 transfer-ownership="none">
         <doc xml:space="preserve"
              filename="ges/ges-pipeline.c"
-             line="431">The audio filter(s) to apply during playback in preview mode,
+             line="446">The audio filter(s) to apply during playback in preview mode,
 immediately before the #GESPipeline:audio-sink. This exposes the
 #playsink:audio-filter property of the internal #playsink.</doc>
         <type name="Gst.Element"/>
@@ -10006,7 +10006,7 @@ immediately before the #GESPipeline:audio-sink. This exposes the
       <property name="audio-sink" writable="1" transfer-ownership="none">
         <doc xml:space="preserve"
              filename="ges/ges-pipeline.c"
-             line="385">The audio sink used for preview. This exposes the
+             line="400">The audio sink used for preview. This exposes the
 #playsink:audio-sink property of the internal #playsink.</doc>
         <type name="Gst.Element"/>
       </property>
@@ -10018,7 +10018,7 @@ immediately before the #GESPipeline:audio-sink. This exposes the
                 default-value="GES_PIPELINE_MODE_PREVIEW_AUDIO | GES_PIPELINE_MODE_PREVIEW_VIDEO">
         <doc xml:space="preserve"
              filename="ges/ges-pipeline.c"
-             line="418">The pipeline's mode. In preview mode (for audio or video, or both)
+             line="433">The pipeline's mode. In preview mode (for audio or video, or both)
 the pipeline can display the timeline's content to an end user. In
 rendering mode the pipeline can encode the timeline's content and
 save it to a file.</doc>
@@ -10030,7 +10030,7 @@ save it to a file.</doc>
                 setter="set_timeline">
         <doc xml:space="preserve"
              filename="ges/ges-pipeline.c"
-             line="405">The timeline used by this pipeline, whose content it will play and
+             line="420">The timeline used by this pipeline, whose content it will play and
 render, or %NULL if the pipeline does not yet have a timeline.
 
 Note that after you set the timeline for the first time, subsequent
@@ -10043,7 +10043,7 @@ calls to change the timeline will fail.</doc>
                 transfer-ownership="none">
         <doc xml:space="preserve"
              filename="ges/ges-pipeline.c"
-             line="445">The video filter(s) to apply during playback in preview mode,
+             line="460">The video filter(s) to apply during playback in preview mode,
 immediately before the #GESPipeline:video-sink. This exposes the
 #playsink:video-filter property of the internal #playsink.</doc>
         <type name="Gst.Element"/>
@@ -10051,7 +10051,7 @@ immediately before the #GESPipeline:video-sink. This exposes the
       <property name="video-sink" writable="1" transfer-ownership="none">
         <doc xml:space="preserve"
              filename="ges/ges-pipeline.c"
-             line="395">The video sink used for preview. This exposes the
+             line="410">The video sink used for preview. This exposes the
 #playsink:video-sink property of the internal #playsink.</doc>
         <type name="Gst.Element"/>
       </property>
@@ -10261,7 +10261,7 @@ the same temporary location.</doc>
       <constructor name="new" c:identifier="ges_project_new">
         <doc xml:space="preserve"
              filename="ges/ges-project.c"
-             line="1254">Creates a new #GESProject and sets its uri to @uri if provided. Note that
+             line="1264">Creates a new #GESProject and sets its uri to @uri if provided. Note that
 if @uri is not valid or %NULL, the uri of the project will then be set
 the first time you save the project. If you then save the project to
 other locations, it will never be updated again and the first valid URI is
@@ -10270,7 +10270,7 @@ the URI it will keep refering to.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="ges/ges-project.c"
-               line="1264">A newly created #GESProject
+               line="1274">A newly created #GESProject
 
 MT safe.</doc>
           <type name="Project" c:type="GESProject*"/>
@@ -10282,7 +10282,7 @@ MT safe.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ges/ges-project.c"
-                 line="1256">The uri to be set after creating the project.</doc>
+                 line="1266">The uri to be set after creating the project.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -10403,13 +10403,13 @@ MT safe.</doc>
       <method name="add_asset" c:identifier="ges_project_add_asset">
         <doc xml:space="preserve"
              filename="ges/ges-project.c"
-             line="1022">Adds a #GESAsset to @project, the project will keep a reference on
+             line="1032">Adds a #GESAsset to @project, the project will keep a reference on
 @asset.</doc>
         <source-position filename="ges/ges-project.h" line="78"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-project.c"
-               line="1030">%TRUE if the asset could be added %FALSE it was already
+               line="1040">%TRUE if the asset could be added %FALSE it was already
 in the project.
 
 MT safe.</doc>
@@ -10419,13 +10419,13 @@ MT safe.</doc>
           <instance-parameter name="project" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-project.c"
-                 line="1024">A #GESProject</doc>
+                 line="1034">A #GESProject</doc>
             <type name="Project" c:type="GESProject*"/>
           </instance-parameter>
           <parameter name="asset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-project.c"
-                 line="1025">A #GESAsset to add to @project</doc>
+                 line="1035">A #GESAsset to add to @project</doc>
             <type name="Asset" c:type="GESAsset*"/>
           </parameter>
         </parameters>
@@ -10434,14 +10434,14 @@ MT safe.</doc>
               c:identifier="ges_project_add_encoding_profile">
         <doc xml:space="preserve"
              filename="ges/ges-project.c"
-             line="1347">Adds @profile to the project. It lets you save in what format
+             line="1357">Adds @profile to the project. It lets you save in what format
 the project will be rendered and keep a reference to those formats.
 Also, those formats will be saved to the project file when possible.</doc>
         <source-position filename="ges/ges-project.h" line="119"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-project.c"
-               line="1357">%TRUE if @profile could be added, %FALSE otherwise
+               line="1367">%TRUE if @profile could be added, %FALSE otherwise
 
 MT safe.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -10450,13 +10450,13 @@ MT safe.</doc>
           <instance-parameter name="project" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-project.c"
-                 line="1349">A #GESProject</doc>
+                 line="1359">A #GESProject</doc>
             <type name="Project" c:type="GESProject*"/>
           </instance-parameter>
           <parameter name="profile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-project.c"
-                 line="1350">A #GstEncodingProfile to add to the project. If a profile with
+                 line="1360">A #GstEncodingProfile to add to the project. If a profile with
 the same name already exists, it will be replaced.</doc>
             <type name="GstPbutils.EncodingProfile"
                   c:type="GstEncodingProfile*"/>
@@ -10494,14 +10494,14 @@ MT safe.</doc-version>
       <method name="create_asset" c:identifier="ges_project_create_asset">
         <doc xml:space="preserve"
              filename="ges/ges-project.c"
-             line="870">Create and add a #GESAsset to @project. You should connect to the
+             line="880">Create and add a #GESAsset to @project. You should connect to the
 "asset-added" signal to get the asset when it finally gets added to
 @project</doc>
         <source-position filename="ges/ges-project.h" line="106"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-project.c"
-               line="880">%TRUE if the asset was added and started loading, %FALSE it was
+               line="890">%TRUE if the asset was added and started loading, %FALSE it was
 already in the project.
 
 MT safe.</doc>
@@ -10511,7 +10511,7 @@ MT safe.</doc>
           <instance-parameter name="project" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-project.c"
-                 line="872">A #GESProject</doc>
+                 line="882">A #GESProject</doc>
             <type name="Project" c:type="GESProject*"/>
           </instance-parameter>
           <parameter name="id"
@@ -10520,13 +10520,13 @@ MT safe.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ges/ges-project.c"
-                 line="873">The id of the asset to create and add to @project</doc>
+                 line="883">The id of the asset to create and add to @project</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="extractable_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-project.c"
-                 line="874">The #GType of the asset to create</doc>
+                 line="884">The #GType of the asset to create</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
         </parameters>
@@ -10536,14 +10536,14 @@ MT safe.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ges/ges-project.c"
-             line="918">Create and add a #GESAsset to @project. You should connect to the
+             line="928">Create and add a #GESAsset to @project. You should connect to the
 "asset-added" signal to get the asset when it finally gets added to
 @project</doc>
         <source-position filename="ges/ges-project.h" line="111"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="ges/ges-project.c"
-               line="929">The newly created #GESAsset or %NULL.
+               line="939">The newly created #GESAsset or %NULL.
 
 MT safe.</doc>
           <type name="Asset" c:type="GESAsset*"/>
@@ -10552,7 +10552,7 @@ MT safe.</doc>
           <instance-parameter name="project" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-project.c"
-                 line="920">A #GESProject</doc>
+                 line="930">A #GESProject</doc>
             <type name="Project" c:type="GESProject*"/>
           </instance-parameter>
           <parameter name="id"
@@ -10561,13 +10561,13 @@ MT safe.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ges/ges-project.c"
-                 line="921">The id of the asset to create and add to @project</doc>
+                 line="931">The id of the asset to create and add to @project</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="extractable_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-project.c"
-                 line="922">The #GType of the asset to create</doc>
+                 line="932">The #GType of the asset to create</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
         </parameters>
@@ -10577,7 +10577,7 @@ MT safe.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="ges/ges-project.c"
-               line="1097">The #GESAsset with
+               line="1107">The #GESAsset with
 @id or %NULL if no asset with @id as an ID
 
 MT safe.</doc>
@@ -10587,19 +10587,19 @@ MT safe.</doc>
           <instance-parameter name="project" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-project.c"
-                 line="1092">A #GESProject</doc>
+                 line="1102">A #GESProject</doc>
             <type name="Project" c:type="GESProject*"/>
           </instance-parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-project.c"
-                 line="1093">The id of the asset to retrieve</doc>
+                 line="1103">The id of the asset to retrieve</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="extractable_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-project.c"
-                 line="1094">The extractable_type of the asset
+                 line="1104">The extractable_type of the asset
 to retrieve from @object</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
@@ -10609,12 +10609,12 @@ to retrieve from @object</doc>
               c:identifier="ges_project_get_loading_assets">
         <doc xml:space="preserve"
              filename="ges/ges-project.c"
-             line="1412">Get the assets that are being loaded</doc>
+             line="1422">Get the assets that are being loaded</doc>
         <source-position filename="ges/ges-project.h" line="116"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="ges/ges-project.c"
-               line="1418">A set of loading asset
+               line="1428">A set of loading asset
 that will be added to @project. Note that those Asset are *not* loaded yet,
 and thus can not be used.
 
@@ -10627,7 +10627,7 @@ MT safe.</doc>
           <instance-parameter name="project" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-project.c"
-                 line="1414">A #GESProject</doc>
+                 line="1424">A #GESProject</doc>
             <type name="Project" c:type="GESProject*"/>
           </instance-parameter>
         </parameters>
@@ -10637,12 +10637,12 @@ MT safe.</doc>
               glib:get-property="uri">
         <doc xml:space="preserve"
              filename="ges/ges-project.c"
-             line="1322">Retrieve the uri that is currently set on @project</doc>
+             line="1332">Retrieve the uri that is currently set on @project</doc>
         <source-position filename="ges/ges-project.h" line="100"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="ges/ges-project.c"
-               line="1328">a newly allocated string representing uri.
+               line="1338">a newly allocated string representing uri.
 
 MT safe.</doc>
           <type name="utf8" c:type="gchar*"/>
@@ -10651,7 +10651,7 @@ MT safe.</doc>
           <instance-parameter name="project" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-project.c"
-                 line="1324">A #GESProject</doc>
+                 line="1334">A #GESProject</doc>
             <type name="Project" c:type="GESProject*"/>
           </instance-parameter>
         </parameters>
@@ -10659,14 +10659,14 @@ MT safe.</doc>
       <method name="list_assets" c:identifier="ges_project_list_assets">
         <doc xml:space="preserve"
              filename="ges/ges-project.c"
-             line="1125">List all @asset contained in @project filtering per extractable_type
+             line="1135">List all @asset contained in @project filtering per extractable_type
 as defined by @filter. It copies the asset and thus will not be updated
 in time.</doc>
         <source-position filename="ges/ges-project.h" line="84"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="ges/ges-project.c"
-               line="1135">The list of
+               line="1145">The list of
 #GESAsset the object contains
 
 MT safe.</doc>
@@ -10678,13 +10678,13 @@ MT safe.</doc>
           <instance-parameter name="project" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-project.c"
-                 line="1127">A #GESProject</doc>
+                 line="1137">A #GESProject</doc>
             <type name="Project" c:type="GESProject*"/>
           </instance-parameter>
           <parameter name="filter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-project.c"
-                 line="1128">Type of assets to list, `GES_TYPE_EXTRACTABLE` will list
+                 line="1138">Type of assets to list, `GES_TYPE_EXTRACTABLE` will list
 all assets</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
@@ -10694,13 +10694,13 @@ all assets</doc>
               c:identifier="ges_project_list_encoding_profiles">
         <doc xml:space="preserve"
              filename="ges/ges-project.c"
-             line="1394">Lists the encoding profile that have been set to @project. The first one
+             line="1404">Lists the encoding profile that have been set to @project. The first one
 is the latest added.</doc>
         <source-position filename="ges/ges-project.h" line="122"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="ges/ges-project.c"
-               line="1401">The
+               line="1411">The
 list of #GstEncodingProfile used in @project</doc>
           <type name="GLib.List" c:type="const GList*">
             <type name="GstPbutils.EncodingProfile"/>
@@ -10710,7 +10710,7 @@ list of #GstEncodingProfile used in @project</doc>
           <instance-parameter name="project" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-project.c"
-                 line="1396">A #GESProject</doc>
+                 line="1406">A #GESProject</doc>
             <type name="Project" c:type="GESProject*"/>
           </instance-parameter>
         </parameters>
@@ -10718,12 +10718,12 @@ list of #GstEncodingProfile used in @project</doc>
       <method name="load" c:identifier="ges_project_load" throws="1">
         <doc xml:space="preserve"
              filename="ges/ges-project.c"
-             line="1288">Loads @project into @timeline</doc>
+             line="1298">Loads @project into @timeline</doc>
         <source-position filename="ges/ges-project.h" line="94"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-project.c"
-               line="1296">%TRUE if the project could be loaded %FALSE otherwise.
+               line="1306">%TRUE if the project could be loaded %FALSE otherwise.
 
 MT safe.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -10732,13 +10732,13 @@ MT safe.</doc>
           <instance-parameter name="project" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-project.c"
-                 line="1290">A #GESProject that has an @uri set already</doc>
+                 line="1300">A #GESProject that has an @uri set already</doc>
             <type name="Project" c:type="GESProject*"/>
           </instance-parameter>
           <parameter name="timeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-project.c"
-                 line="1291">A blank timeline to load @project into</doc>
+                 line="1301">A blank timeline to load @project into</doc>
             <type name="Timeline" c:type="GESTimeline*"/>
           </parameter>
         </parameters>
@@ -10746,12 +10746,12 @@ MT safe.</doc>
       <method name="remove_asset" c:identifier="ges_project_remove_asset">
         <doc xml:space="preserve"
              filename="ges/ges-project.c"
-             line="1060">Remove @asset from @project.</doc>
+             line="1070">Remove @asset from @project.</doc>
         <source-position filename="ges/ges-project.h" line="81"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-project.c"
-               line="1067">%TRUE if the asset could be removed %FALSE otherwise
+               line="1077">%TRUE if the asset could be removed %FALSE otherwise
 
 MT safe.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -10760,13 +10760,13 @@ MT safe.</doc>
           <instance-parameter name="project" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-project.c"
-                 line="1062">A #GESProject</doc>
+                 line="1072">A #GESProject</doc>
             <type name="Project" c:type="GESProject*"/>
           </instance-parameter>
           <parameter name="asset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-project.c"
-                 line="1063">A #GESAsset to remove from @project</doc>
+                 line="1073">A #GESAsset to remove from @project</doc>
             <type name="Asset" c:type="GESAsset*"/>
           </parameter>
         </parameters>
@@ -10774,14 +10774,14 @@ MT safe.</doc>
       <method name="save" c:identifier="ges_project_save" throws="1">
         <doc xml:space="preserve"
              filename="ges/ges-project.c"
-             line="1163">Save the timeline of @project to @uri. You should make sure that @timeline
+             line="1173">Save the timeline of @project to @uri. You should make sure that @timeline
 is one of the timelines that have been extracted from @project
 (using ges_asset_extract (@project);)</doc>
         <source-position filename="ges/ges-project.h" line="87"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-project.c"
-               line="1179">%TRUE if the project could be save, %FALSE otherwise
+               line="1189">%TRUE if the project could be save, %FALSE otherwise
 
 MT safe.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -10790,19 +10790,19 @@ MT safe.</doc>
           <instance-parameter name="project" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-project.c"
-                 line="1165">A #GESProject to save</doc>
+                 line="1175">A #GESProject to save</doc>
             <type name="Project" c:type="GESProject*"/>
           </instance-parameter>
           <parameter name="timeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-project.c"
-                 line="1166">The #GESTimeline to save, it must have been extracted from @project</doc>
+                 line="1176">The #GESTimeline to save, it must have been extracted from @project</doc>
             <type name="Timeline" c:type="GESTimeline*"/>
           </parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-project.c"
-                 line="1167">The uri where to save @project and @timeline</doc>
+                 line="1177">The uri where to save @project and @timeline</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="formatter_asset"
@@ -10811,7 +10811,7 @@ MT safe.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ges/ges-project.c"
-                 line="1168">The formatter asset to
+                 line="1178">The formatter asset to
 use or %NULL. If %NULL, will try to save in the same format as the one
 from which the timeline as been loaded or default to the best formatter
 as defined in #ges_find_formatter_for_uri</doc>
@@ -10820,7 +10820,7 @@ as defined in #ges_find_formatter_for_uri</doc>
           <parameter name="overwrite" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-project.c"
-                 line="1172">%TRUE to overwrite file if it exists</doc>
+                 line="1182">%TRUE to overwrite file if it exists</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -12967,12 +12967,12 @@ content, or render it to a file.</doc>
       <constructor name="new" c:identifier="ges_timeline_new">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="2189">Creates a new empty timeline.</doc>
+             line="2190">Creates a new empty timeline.</doc>
         <source-position filename="ges/ges-timeline.h" line="90"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-timeline.c"
-               line="2194">The new timeline.</doc>
+               line="2195">The new timeline.</doc>
           <type name="Timeline" c:type="GESTimeline*"/>
         </return-value>
       </constructor>
@@ -12995,12 +12995,12 @@ single #GESVideoTrack.</doc>
                    throws="1">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="2209">Creates a timeline from the given URI.</doc>
+             line="2210">Creates a timeline from the given URI.</doc>
         <source-position filename="ges/ges-timeline.h" line="92"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-timeline.c"
-               line="2217">A new timeline if the uri was loaded
+               line="2218">A new timeline if the uri was loaded
 successfully, or %NULL if the uri could not be loaded.</doc>
           <type name="Timeline" c:type="GESTimeline*"/>
         </return-value>
@@ -13008,7 +13008,7 @@ successfully, or %NULL if the uri could not be loaded.</doc>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="2211">The URI to load from</doc>
+                 line="2212">The URI to load from</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -13108,7 +13108,7 @@ successfully, or %NULL if the uri could not be loaded.</doc>
               deprecated-version="1.18">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="2353">Add a layer to the timeline.
+             line="2354">Add a layer to the timeline.
 
 If the layer contains #GESClip-s, then this may trigger the creation of
 their core track element children for the timeline's tracks, and the
@@ -13127,20 +13127,20 @@ ges_timeline_append_layer() and ges_timeline_move_layer() instead.</doc-deprecat
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-timeline.c"
-               line="2375">%TRUE if @layer was properly added.</doc>
+               line="2376">%TRUE if @layer was properly added.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="timeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="2355">The #GESTimeline</doc>
+                 line="2356">The #GESTimeline</doc>
             <type name="Timeline" c:type="GESTimeline*"/>
           </instance-parameter>
           <parameter name="layer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="2356">The layer to add</doc>
+                 line="2357">The layer to add</doc>
             <type name="Layer" c:type="GESLayer*"/>
           </parameter>
         </parameters>
@@ -13148,7 +13148,7 @@ ges_timeline_append_layer() and ges_timeline_move_layer() instead.</doc-deprecat
       <method name="add_track" c:identifier="ges_timeline_add_track">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="2499">Add a track to the timeline.
+             line="2500">Add a track to the timeline.
 
 If the timeline already contains clips, then this may trigger the
 creation of their core track element children for the track, and the
@@ -13162,20 +13162,20 @@ that you avoid adding tracks to timelines that already contain clips.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-timeline.c"
-               line="2515">%TRUE if @track was properly added.</doc>
+               line="2516">%TRUE if @track was properly added.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="timeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="2501">The #GESTimeline</doc>
+                 line="2502">The #GESTimeline</doc>
             <type name="Timeline" c:type="GESTimeline*"/>
           </instance-parameter>
           <parameter name="track" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="2502">The track to add</doc>
+                 line="2503">The track to add</doc>
             <type name="Track" c:type="GESTrack*"/>
           </parameter>
         </parameters>
@@ -13183,20 +13183,20 @@ that you avoid adding tracks to timelines that already contain clips.</doc>
       <method name="append_layer" c:identifier="ges_timeline_append_layer">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="2321">Append a newly created layer to the timeline. The layer will
+             line="2322">Append a newly created layer to the timeline. The layer will
 be added at the lowest #GESLayer:priority (numerically, the highest).</doc>
         <source-position filename="ges/ges-timeline.h" line="102"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-timeline.c"
-               line="2328">The newly created layer.</doc>
+               line="2329">The newly created layer.</doc>
           <type name="Layer" c:type="GESLayer*"/>
         </return-value>
         <parameters>
           <instance-parameter name="timeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="2323">The #GESTimeline</doc>
+                 line="2324">The #GESTimeline</doc>
             <type name="Timeline" c:type="GESTimeline*"/>
           </instance-parameter>
         </parameters>
@@ -13204,7 +13204,7 @@ be added at the lowest #GESLayer:priority (numerically, the highest).</doc>
       <method name="commit" c:identifier="ges_timeline_commit">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="2871">Commit all the pending changes of the clips contained in the
+             line="2872">Commit all the pending changes of the clips contained in the
 timeline.
 
 When changes happen in a timeline, they are not immediately executed
@@ -13227,7 +13227,7 @@ usually triggered by a corresponding state changes in a containing
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-timeline.c"
-               line="2895">%TRUE if pending changes were committed, or %FALSE if nothing
+               line="2896">%TRUE if pending changes were committed, or %FALSE if nothing
 needed to be committed.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -13235,7 +13235,7 @@ needed to be committed.</doc>
           <instance-parameter name="timeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="2873">A #GESTimeline</doc>
+                 line="2874">A #GESTimeline</doc>
             <type name="Timeline" c:type="GESTimeline*"/>
           </instance-parameter>
         </parameters>
@@ -13243,7 +13243,7 @@ needed to be committed.</doc>
       <method name="commit_sync" c:identifier="ges_timeline_commit_sync">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="2926">Commit all the pending changes of the clips contained in the
+             line="2927">Commit all the pending changes of the clips contained in the
 timeline and wait for the changes to complete.
 
 See ges_timeline_commit().</doc>
@@ -13251,7 +13251,7 @@ See ges_timeline_commit().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-timeline.c"
-               line="2935">%TRUE if pending changes were committed, or %FALSE if nothing
+               line="2936">%TRUE if pending changes were committed, or %FALSE if nothing
 needed to be committed.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -13259,7 +13259,7 @@ needed to be committed.</doc>
           <instance-parameter name="timeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="2928">A #GESTimeline</doc>
+                 line="2929">A #GESTimeline</doc>
             <type name="Timeline" c:type="GESTimeline*"/>
           </instance-parameter>
         </parameters>
@@ -13269,7 +13269,7 @@ needed to be committed.</doc>
               version="1.22">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="3424">WARNING: When using that mode, GES won't guarantee the coherence of the
+             line="3425">WARNING: When using that mode, GES won't guarantee the coherence of the
 timeline. You need to ensure that the rules described in the [Overlaps and
 auto transitions](#overlaps-and-autotransitions) section are respected any time
 the timeline is [commited](ges_timeline_commit) (otherwise playback will most
@@ -13288,13 +13288,13 @@ usable:
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="3426">A #GESTimeline</doc>
+                 line="3427">A #GESTimeline</doc>
             <type name="Timeline" c:type="GESTimeline*"/>
           </instance-parameter>
           <parameter name="disable_edit_apis" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="3427">%TRUE to disable all the edit APIs so the user is in full
+                 line="3428">%TRUE to disable all the edit APIs so the user is in full
 control of ensuring timeline state validity %FALSE otherwise.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
@@ -13305,7 +13305,7 @@ control of ensuring timeline state validity %FALSE otherwise.</doc>
               version="1.20">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="2975">Freezes the timeline from being committed. This is usually needed while the
+             line="2976">Freezes the timeline from being committed. This is usually needed while the
 timeline is being rendered to ensure that not change to the timeline are
 taken into account during that moment. Once the rendering is done, you
 should call #ges_timeline_thaw_commit so that committing becomes possible
@@ -13319,7 +13319,7 @@ actually taken into account.</doc>
           <instance-parameter name="timeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="2977">The #GESTimeline</doc>
+                 line="2978">The #GESTimeline</doc>
             <type name="Timeline" c:type="GESTimeline*"/>
           </instance-parameter>
         </parameters>
@@ -13329,19 +13329,19 @@ actually taken into account.</doc>
               glib:get-property="auto-transition">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="3037">Gets #GESTimeline:auto-transition for the timeline.</doc>
+             line="3038">Gets #GESTimeline:auto-transition for the timeline.</doc>
         <source-position filename="ges/ges-timeline.h" line="138"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-timeline.c"
-               line="3043">The auto-transition of @self.</doc>
+               line="3044">The auto-transition of @self.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="timeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="3039">The #GESTimeline</doc>
+                 line="3040">The #GESTimeline</doc>
             <type name="Timeline" c:type="GESTimeline*"/>
           </instance-parameter>
         </parameters>
@@ -13351,19 +13351,19 @@ actually taken into account.</doc>
               glib:get-property="duration">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="3020">Get the current #GESTimeline:duration of the timeline</doc>
+             line="3021">Get the current #GESTimeline:duration of the timeline</doc>
         <source-position filename="ges/ges-timeline.h" line="135"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-timeline.c"
-               line="3026">The current duration of @timeline.</doc>
+               line="3027">The current duration of @timeline.</doc>
           <type name="Gst.ClockTime" c:type="GstClockTime"/>
         </return-value>
         <parameters>
           <instance-parameter name="timeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="3022">The #GESTimeline</doc>
+                 line="3023">The #GESTimeline</doc>
             <type name="Timeline" c:type="GESTimeline*"/>
           </instance-parameter>
         </parameters>
@@ -13375,14 +13375,14 @@ actually taken into account.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-timeline.c"
-               line="3472">%TRUE if edit APIs are disabled, %FALSE otherwise.</doc>
+               line="3473">%TRUE if edit APIs are disabled, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="3470">A #GESTimeline</doc>
+                 line="3471">A #GESTimeline</doc>
             <type name="Timeline" c:type="GESTimeline*"/>
           </instance-parameter>
         </parameters>
@@ -13390,12 +13390,12 @@ actually taken into account.</doc>
       <method name="get_element" c:identifier="ges_timeline_get_element">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="3124">Gets the element contained in the timeline with the given name.</doc>
+             line="3125">Gets the element contained in the timeline with the given name.</doc>
         <source-position filename="ges/ges-timeline.h" line="146"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="ges/ges-timeline.c"
-               line="3131">The timeline element in @timeline
+               line="3132">The timeline element in @timeline
 with the given @name, or %NULL if it was not found.</doc>
           <type name="TimelineElement" c:type="GESTimelineElement*"/>
         </return-value>
@@ -13403,13 +13403,13 @@ with the given @name, or %NULL if it was not found.</doc>
           <instance-parameter name="timeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="3126">The #GESTimeline</doc>
+                 line="3127">The #GESTimeline</doc>
             <type name="Timeline" c:type="GESTimeline*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="3127">The name of the element to find</doc>
+                 line="3128">The name of the element to find</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -13419,26 +13419,26 @@ with the given @name, or %NULL if it was not found.</doc>
               version="1.18">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="3398">This method allows you to convert a timeline #GstClockTime into its
+             line="3399">This method allows you to convert a timeline #GstClockTime into its
 corresponding #GESFrameNumber in the timeline's output.</doc>
         <source-position filename="ges/ges-timeline.h" line="160"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-timeline.c"
-               line="3406">The frame number @timestamp corresponds to.</doc>
+               line="3407">The frame number @timestamp corresponds to.</doc>
           <type name="FrameNumber" c:type="GESFrameNumber"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="3400">A #GESTimeline</doc>
+                 line="3401">A #GESTimeline</doc>
             <type name="Timeline" c:type="GESTimeline*"/>
           </instance-parameter>
           <parameter name="timestamp" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="3401">The timestamp to get the corresponding frame number of</doc>
+                 line="3402">The timestamp to get the corresponding frame number of</doc>
             <type name="Gst.ClockTime" c:type="GstClockTime"/>
           </parameter>
         </parameters>
@@ -13448,7 +13448,7 @@ corresponding #GESFrameNumber in the timeline's output.</doc>
               version="1.18">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="3369">This method allows you to convert a timeline output frame number into a
+             line="3370">This method allows you to convert a timeline output frame number into a
 timeline #GstClockTime. For example, this time could be used to seek to a
 particular frame in the timeline's output, or as the edit position for
 an element within the timeline.</doc>
@@ -13456,20 +13456,20 @@ an element within the timeline.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-timeline.c"
-               line="3380">The timestamp corresponding to @frame_number in the output of @self.</doc>
+               line="3381">The timestamp corresponding to @frame_number in the output of @self.</doc>
           <type name="Gst.ClockTime" c:type="GstClockTime"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="3371">The self on which to retrieve the timestamp for @frame_number</doc>
+                 line="3372">The self on which to retrieve the timestamp for @frame_number</doc>
             <type name="Timeline" c:type="GESTimeline*"/>
           </instance-parameter>
           <parameter name="frame_number" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="3372">The frame number to get the corresponding timestamp of in the
+                 line="3373">The frame number to get the corresponding timestamp of in the
                timeline coordinates</doc>
             <type name="FrameNumber" c:type="GESFrameNumber"/>
           </parameter>
@@ -13478,12 +13478,12 @@ an element within the timeline.</doc>
       <method name="get_groups" c:identifier="ges_timeline_get_groups">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="2302">Get the list of #GESGroup-s present in the timeline.</doc>
+             line="2303">Get the list of #GESGroup-s present in the timeline.</doc>
         <source-position filename="ges/ges-timeline.h" line="123"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-timeline.c"
-               line="2308">The list of
+               line="2309">The list of
 groups that contain clips present in @timeline's layers.
 Must not be changed.</doc>
           <type name="GLib.List" c:type="GList*">
@@ -13494,7 +13494,7 @@ Must not be changed.</doc>
           <instance-parameter name="timeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="2304">The #GESTimeline</doc>
+                 line="2305">The #GESTimeline</doc>
             <type name="Timeline" c:type="GESTimeline*"/>
           </instance-parameter>
         </parameters>
@@ -13502,13 +13502,13 @@ Must not be changed.</doc>
       <method name="get_layer" c:identifier="ges_timeline_get_layer">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="3195">Retrieve the layer whose index in the timeline matches the given
+             line="3196">Retrieve the layer whose index in the timeline matches the given
 priority.</doc>
         <source-position filename="ges/ges-timeline.h" line="108"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="ges/ges-timeline.c"
-               line="3203">The layer with the given
+               line="3204">The layer with the given
 @priority, or %NULL if none was found.
 
 Since 1.6</doc>
@@ -13518,13 +13518,13 @@ Since 1.6</doc>
           <instance-parameter name="timeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="3197">The #GESTimeline to retrieve a layer from</doc>
+                 line="3198">The #GESTimeline to retrieve a layer from</doc>
             <type name="Timeline" c:type="GESTimeline*"/>
           </instance-parameter>
           <parameter name="priority" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="3198">The priority/index of the layer to find</doc>
+                 line="3199">The priority/index of the layer to find</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -13532,12 +13532,12 @@ Since 1.6</doc>
       <method name="get_layers" c:identifier="ges_timeline_get_layers">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="2775">Get the list of #GESLayer-s present in the timeline.</doc>
+             line="2776">Get the list of #GESLayer-s present in the timeline.</doc>
         <source-position filename="ges/ges-timeline.h" line="106"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="ges/ges-timeline.c"
-               line="2781">The list of
+               line="2782">The list of
 layers present in @timeline sorted by priority.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Layer"/>
@@ -13547,7 +13547,7 @@ layers present in @timeline sorted by priority.</doc>
           <instance-parameter name="timeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="2777">The #GESTimeline</doc>
+                 line="2778">The #GESTimeline</doc>
             <type name="Timeline" c:type="GESTimeline*"/>
           </instance-parameter>
         </parameters>
@@ -13556,13 +13556,13 @@ layers present in @timeline sorted by priority.</doc>
               c:identifier="ges_timeline_get_pad_for_track">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="2719">Search for the #GstPad corresponding to the given timeline's track.
+             line="2720">Search for the #GstPad corresponding to the given timeline's track.
 You can link to this pad to receive the output data of the given track.</doc>
         <source-position filename="ges/ges-timeline.h" line="118"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="ges/ges-timeline.c"
-               line="2727">The pad corresponding to @track,
+               line="2728">The pad corresponding to @track,
 or %NULL if there is an error.</doc>
           <type name="Gst.Pad" c:type="GstPad*"/>
         </return-value>
@@ -13570,13 +13570,13 @@ or %NULL if there is an error.</doc>
           <instance-parameter name="timeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="2721">The #GESTimeline</doc>
+                 line="2722">The #GESTimeline</doc>
             <type name="Timeline" c:type="GESTimeline*"/>
           </instance-parameter>
           <parameter name="track" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="2722">A track</doc>
+                 line="2723">A track</doc>
             <type name="Track" c:type="GESTrack*"/>
           </parameter>
         </parameters>
@@ -13586,19 +13586,19 @@ or %NULL if there is an error.</doc>
               glib:get-property="snapping-distance">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="3086">Gets the #GESTimeline:snapping-distance for the timeline.</doc>
+             line="3087">Gets the #GESTimeline:snapping-distance for the timeline.</doc>
         <source-position filename="ges/ges-timeline.h" line="142"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-timeline.c"
-               line="3092">The snapping distance (in nanoseconds) of @timeline.</doc>
+               line="3093">The snapping distance (in nanoseconds) of @timeline.</doc>
           <type name="Gst.ClockTime" c:type="GstClockTime"/>
         </return-value>
         <parameters>
           <instance-parameter name="timeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="3088">The #GESTimeline</doc>
+                 line="3089">The #GESTimeline</doc>
             <type name="Timeline" c:type="GESTimeline*"/>
           </instance-parameter>
         </parameters>
@@ -13607,12 +13607,12 @@ or %NULL if there is an error.</doc>
               c:identifier="ges_timeline_get_track_for_pad">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="2688">Search for the #GESTrack corresponding to the given timeline's pad.</doc>
+             line="2689">Search for the #GESTrack corresponding to the given timeline's pad.</doc>
         <source-position filename="ges/ges-timeline.h" line="116"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="ges/ges-timeline.c"
-               line="2695">The track corresponding to @pad,
+               line="2696">The track corresponding to @pad,
 or %NULL if there is an error.</doc>
           <type name="Track" c:type="GESTrack*"/>
         </return-value>
@@ -13620,13 +13620,13 @@ or %NULL if there is an error.</doc>
           <instance-parameter name="timeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="2690">The #GESTimeline</doc>
+                 line="2691">The #GESTimeline</doc>
             <type name="Timeline" c:type="GESTimeline*"/>
           </instance-parameter>
           <parameter name="pad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="2691">A pad</doc>
+                 line="2692">A pad</doc>
             <type name="Gst.Pad" c:type="GstPad*"/>
           </parameter>
         </parameters>
@@ -13634,12 +13634,12 @@ or %NULL if there is an error.</doc>
       <method name="get_tracks" c:identifier="ges_timeline_get_tracks">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="2753">Get the list of #GESTrack-s used by the timeline.</doc>
+             line="2754">Get the list of #GESTrack-s used by the timeline.</doc>
         <source-position filename="ges/ges-timeline.h" line="120"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="ges/ges-timeline.c"
-               line="2759">The list of tracks
+               line="2760">The list of tracks
 used by @timeline.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Track"/>
@@ -13649,7 +13649,7 @@ used by @timeline.</doc>
           <instance-parameter name="timeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="2755">The #GESTimeline</doc>
+                 line="2756">The #GESTimeline</doc>
             <type name="Timeline" c:type="GESTimeline*"/>
           </instance-parameter>
         </parameters>
@@ -13657,19 +13657,19 @@ used by @timeline.</doc>
       <method name="is_empty" c:identifier="ges_timeline_is_empty">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="3165">Check whether the timeline is empty or not.</doc>
+             line="3166">Check whether the timeline is empty or not.</doc>
         <source-position filename="ges/ges-timeline.h" line="148"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-timeline.c"
-               line="3171">%TRUE if @timeline is empty.</doc>
+               line="3172">%TRUE if @timeline is empty.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="timeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="3167">The #GESTimeline</doc>
+                 line="3168">The #GESTimeline</doc>
             <type name="Timeline" c:type="GESTimeline*"/>
           </instance-parameter>
         </parameters>
@@ -13679,25 +13679,25 @@ used by @timeline.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="2232">Loads the contents of URI into the timeline.</doc>
+             line="2233">Loads the contents of URI into the timeline.</doc>
         <source-position filename="ges/ges-timeline.h" line="95"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-timeline.c"
-               line="2241">%TRUE if the timeline was loaded successfully from @uri.</doc>
+               line="2242">%TRUE if the timeline was loaded successfully from @uri.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="timeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="2234">An empty #GESTimeline into which to load the formatter</doc>
+                 line="2235">An empty #GESTimeline into which to load the formatter</doc>
             <type name="Timeline" c:type="GESTimeline*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="2235">The URI to load from</doc>
+                 line="2236">The URI to load from</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -13707,7 +13707,7 @@ used by @timeline.</doc>
               version="1.16">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="3326">Moves a layer within the timeline to the index given by
+             line="3327">Moves a layer within the timeline to the index given by
 @new_layer_priority.
 An index of 0 corresponds to the layer with the highest priority in a
 timeline. If @new_layer_priority is greater than the number of layers
@@ -13720,19 +13720,19 @@ present in the timeline, it will become the lowest priority layer.</doc>
           <instance-parameter name="timeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="3328">A #GESTimeline</doc>
+                 line="3329">A #GESTimeline</doc>
             <type name="Timeline" c:type="GESTimeline*"/>
           </instance-parameter>
           <parameter name="layer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="3329">A layer within @timeline, whose priority should be changed</doc>
+                 line="3330">A layer within @timeline, whose priority should be changed</doc>
             <type name="Layer" c:type="GESLayer*"/>
           </parameter>
           <parameter name="new_layer_priority" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="3330">The new index for @layer</doc>
+                 line="3331">The new index for @layer</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -13740,7 +13740,7 @@ present in the timeline, it will become the lowest priority layer.</doc>
       <method name="paste_element" c:identifier="ges_timeline_paste_element">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="3251">Paste an element inside the timeline. @element **must** be the return of
+             line="3252">Paste an element inside the timeline. @element **must** be the return of
 ges_timeline_element_copy() with `deep=TRUE`,
 and it should not be changed before pasting. @element itself is not
 placed in the timeline, instead a new element is created, alike to the
@@ -13760,7 +13760,7 @@ See also ges_timeline_element_paste().</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="ges/ges-timeline.c"
-               line="3277">The newly created element, or
+               line="3278">The newly created element, or
 %NULL if pasting fails.</doc>
           <type name="TimelineElement" c:type="GESTimelineElement*"/>
         </return-value>
@@ -13768,26 +13768,26 @@ See also ges_timeline_element_paste().</doc>
           <instance-parameter name="timeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="3253">The #GESTimeline onto which @element should be pasted</doc>
+                 line="3254">The #GESTimeline onto which @element should be pasted</doc>
             <type name="Timeline" c:type="GESTimeline*"/>
           </instance-parameter>
           <parameter name="element" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="3254">The element to paste</doc>
+                 line="3255">The element to paste</doc>
             <type name="TimelineElement" c:type="GESTimelineElement*"/>
           </parameter>
           <parameter name="position" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="3255">The position in the timeline @element should be pasted to,
+                 line="3256">The position in the timeline @element should be pasted to,
 i.e. the #GESTimelineElement:start value for the pasted element.</doc>
             <type name="Gst.ClockTime" c:type="GstClockTime"/>
           </parameter>
           <parameter name="layer_priority" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="3257">The layer into which the element should be pasted.
+                 line="3258">The layer into which the element should be pasted.
 -1 means paste to the same layer from which @element has been copied from</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
@@ -13796,25 +13796,25 @@ i.e. the #GESTimelineElement:start value for the pasted element.</doc>
       <method name="remove_layer" c:identifier="ges_timeline_remove_layer">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="2444">Removes a layer from the timeline.</doc>
+             line="2445">Removes a layer from the timeline.</doc>
         <source-position filename="ges/ges-timeline.h" line="104"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-timeline.c"
-               line="2451">%TRUE if @layer was properly removed.</doc>
+               line="2452">%TRUE if @layer was properly removed.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="timeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="2446">The #GESTimeline</doc>
+                 line="2447">The #GESTimeline</doc>
             <type name="Timeline" c:type="GESTimeline*"/>
           </instance-parameter>
           <parameter name="layer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="2447">The layer to remove</doc>
+                 line="2448">The layer to remove</doc>
             <type name="Layer" c:type="GESLayer*"/>
           </parameter>
         </parameters>
@@ -13822,25 +13822,25 @@ i.e. the #GESTimelineElement:start value for the pasted element.</doc>
       <method name="remove_track" c:identifier="ges_timeline_remove_track">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="2598">Remove a track from the timeline.</doc>
+             line="2599">Remove a track from the timeline.</doc>
         <source-position filename="ges/ges-timeline.h" line="113"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-timeline.c"
-               line="2605">%TRUE if @track was properly removed.</doc>
+               line="2606">%TRUE if @track was properly removed.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="timeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="2600">The #GESTimeline</doc>
+                 line="2601">The #GESTimeline</doc>
             <type name="Timeline" c:type="GESTimeline*"/>
           </instance-parameter>
           <parameter name="track" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="2601">The track to remove</doc>
+                 line="2602">The track to remove</doc>
             <type name="Track" c:type="GESTrack*"/>
           </parameter>
         </parameters>
@@ -13850,27 +13850,27 @@ i.e. the #GESTimelineElement:start value for the pasted element.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="2261">Saves the timeline to the given location. If @formatter_asset is %NULL,
+             line="2262">Saves the timeline to the given location. If @formatter_asset is %NULL,
 the method will attempt to save in the same format the timeline was
 loaded from, before defaulting to the formatter with highest rank.</doc>
         <source-position filename="ges/ges-timeline.h" line="97"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-timeline.c"
-               line="2274">%TRUE if @timeline was successfully saved to @uri.</doc>
+               line="2275">%TRUE if @timeline was successfully saved to @uri.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="timeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="2263">The #GESTimeline</doc>
+                 line="2264">The #GESTimeline</doc>
             <type name="Timeline" c:type="GESTimeline*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="2264">The location to save to</doc>
+                 line="2265">The location to save to</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="formatter_asset"
@@ -13879,13 +13879,13 @@ loaded from, before defaulting to the formatter with highest rank.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="2265">The formatter asset to use, or %NULL</doc>
+                 line="2266">The formatter asset to use, or %NULL</doc>
             <type name="Asset" c:type="GESAsset*"/>
           </parameter>
           <parameter name="overwrite" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="2266">%TRUE to overwrite file if it exists</doc>
+                 line="2267">%TRUE to overwrite file if it exists</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -13895,7 +13895,7 @@ loaded from, before defaulting to the formatter with highest rank.</doc>
               glib:set-property="auto-transition">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="3054">Sets #GESTimeline:auto-transition for the timeline. This will also set
+             line="3055">Sets #GESTimeline:auto-transition for the timeline. This will also set
 the corresponding #GESLayer:auto-transition for all of the timeline's
 layers to the same value. See ges_layer_set_auto_transition() if you
 wish to set the layer's #GESLayer:auto-transition individually.</doc>
@@ -13907,13 +13907,13 @@ wish to set the layer's #GESLayer:auto-transition individually.</doc>
           <instance-parameter name="timeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="3056">The #GESTimeline</doc>
+                 line="3057">The #GESTimeline</doc>
             <type name="Timeline" c:type="GESTimeline*"/>
           </instance-parameter>
           <parameter name="auto_transition" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="3057">Whether transitions should be automatically added
+                 line="3058">Whether transitions should be automatically added
 to @timeline's layers</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
@@ -13924,7 +13924,7 @@ to @timeline's layers</doc>
               glib:set-property="snapping-distance">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="3104">Sets #GESTimeline:snapping-distance for the timeline. This new value
+             line="3105">Sets #GESTimeline:snapping-distance for the timeline. This new value
 will only effect future snappings and will not be used to snap the
 current element positions within the timeline.</doc>
         <source-position filename="ges/ges-timeline.h" line="144"/>
@@ -13935,13 +13935,13 @@ current element positions within the timeline.</doc>
           <instance-parameter name="timeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="3106">The #GESTimeline</doc>
+                 line="3107">The #GESTimeline</doc>
             <type name="Timeline" c:type="GESTimeline*"/>
           </instance-parameter>
           <parameter name="snapping_distance" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="3107">The snapping distance to use (in nanoseconds)</doc>
+                 line="3108">The snapping distance to use (in nanoseconds)</doc>
             <type name="Gst.ClockTime" c:type="GstClockTime"/>
           </parameter>
         </parameters>
@@ -13951,7 +13951,7 @@ current element positions within the timeline.</doc>
               version="1.20">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="2997">Thaw the timeline so that comiting becomes possible
+             line="2998">Thaw the timeline so that comiting becomes possible
 again and any call to `commit()` that happened during the rendering is
 actually taken into account.</doc>
         <source-position filename="ges/ges-timeline.h" line="132"/>
@@ -13962,7 +13962,7 @@ actually taken into account.</doc>
           <instance-parameter name="timeline" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="2999">The #GESTimeline</doc>
+                 line="3000">The #GESTimeline</doc>
             <type name="Timeline" c:type="GESTimeline*"/>
           </instance-parameter>
         </parameters>
@@ -13975,7 +13975,7 @@ actually taken into account.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="636">Whether to automatically create a transition whenever two
+             line="637">Whether to automatically create a transition whenever two
 #GESSource-s overlap in a track of the timeline. See
 #GESLayer:auto-transition if you want this to only happen in some
 layers.</doc>
@@ -13987,7 +13987,7 @@ layers.</doc>
                 default-value="18446744073709551615">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="622">The current duration (in nanoseconds) of the timeline. A timeline
+             line="623">The current duration (in nanoseconds) of the timeline. A timeline
 'starts' at time 0, so this is the maximum end time of all of its
 #GESTimelineElement-s.</doc>
         <type name="guint64" c:type="guint64"/>
@@ -14000,7 +14000,7 @@ layers.</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="649">The distance (in nanoseconds) at which a #GESTimelineElement being
+             line="650">The distance (in nanoseconds) at which a #GESTimelineElement being
 moved within the timeline should snap one of its #GESSource-s with
 another #GESSource-s edge. See #GESEditMode for which edges can
 snap during an edit. 0 means no snapping.</doc>
@@ -14038,7 +14038,7 @@ safe, use #ges_timeline_get_tracks instead.</doc>
       <glib:signal name="commited" when="last">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="888">This signal will be emitted once the changes initiated by
+             line="889">This signal will be emitted once the changes initiated by
 ges_timeline_commit() have been executed in the backend. Use
 ges_timeline_commit_sync() if you do not want to have to connect
 to this signal.</doc>
@@ -14049,7 +14049,7 @@ to this signal.</doc>
       <glib:signal name="group-added" when="first">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="722">Will be emitted after the group is added to to the timeline. This can
+             line="723">Will be emitted after the group is added to to the timeline. This can
 happen when grouping with `ges_container_group`, or by adding
 containers to a newly created group.
 
@@ -14064,7 +14064,7 @@ were created for the timeline.</doc>
           <parameter name="group" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="725">The group that was added to @timeline</doc>
+                 line="726">The group that was added to @timeline</doc>
             <type name="Group"/>
           </parameter>
         </parameters>
@@ -14072,7 +14072,7 @@ were created for the timeline.</doc>
       <glib:signal name="group-removed" when="first">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="741">Will be emitted after the group is removed from the timeline through
+             line="742">Will be emitted after the group is removed from the timeline through
 `ges_container_ungroup`. Note that @group will no longer contain its
 former children, these are held in @children.
 
@@ -14085,13 +14085,13 @@ timeline, but this signal will **not** be emitted in such a case.</doc>
           <parameter name="group" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="744">The group that was removed from @timeline</doc>
+                 line="745">The group that was removed from @timeline</doc>
             <type name="Group"/>
           </parameter>
           <parameter name="children" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="745">A list
+                 line="746">A list
 of #GESContainer-s that _were_ the children of the removed @group</doc>
             <array name="GLib.PtrArray">
               <type name="Container"/>
@@ -14102,7 +14102,7 @@ of #GESContainer-s that _were_ the children of the removed @group</doc>
       <glib:signal name="layer-added" when="first">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="693">Will be emitted after the layer is added to the timeline.
+             line="694">Will be emitted after the layer is added to the timeline.
 
 Note that this should not be emitted whilst a timeline is being
 loaded from its #GESProject asset. You should connect to the
@@ -14115,7 +14115,7 @@ layers were created for the timeline.</doc>
           <parameter name="layer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="696">The layer that was added to @timeline</doc>
+                 line="697">The layer that was added to @timeline</doc>
             <type name="Layer"/>
           </parameter>
         </parameters>
@@ -14123,7 +14123,7 @@ layers were created for the timeline.</doc>
       <glib:signal name="layer-removed" when="first">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="710">Will be emitted after the layer is removed from the timeline.</doc>
+             line="711">Will be emitted after the layer is removed from the timeline.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -14131,7 +14131,7 @@ layers were created for the timeline.</doc>
           <parameter name="layer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="713">The layer that was removed from @timeline</doc>
+                 line="714">The layer that was removed from @timeline</doc>
             <type name="Layer"/>
           </parameter>
         </parameters>
@@ -14139,12 +14139,12 @@ layers were created for the timeline.</doc>
       <glib:signal name="select-element-track" when="last" version="1.18">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="869">Simplified version of #GESTimeline::select-tracks-for-object which only
+             line="870">Simplified version of #GESTimeline::select-tracks-for-object which only
 allows @track_element to be added to a single #GESTrack.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="ges/ges-timeline.c"
-               line="878">A track to put @track_element into, or %NULL if
+               line="879">A track to put @track_element into, or %NULL if
 it should be discarded.</doc>
           <type name="Track"/>
         </return-value>
@@ -14152,13 +14152,13 @@ it should be discarded.</doc>
           <parameter name="clip" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="872">The clip that @track_element is being added to</doc>
+                 line="873">The clip that @track_element is being added to</doc>
             <type name="Clip"/>
           </parameter>
           <parameter name="track_element" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="873">The element being added</doc>
+                 line="874">The element being added</doc>
             <type name="TrackElement"/>
           </parameter>
         </parameters>
@@ -14166,7 +14166,7 @@ it should be discarded.</doc>
       <glib:signal name="select-tracks-for-object" when="last">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="802">This will be emitted whenever the timeline needs to determine which
+             line="803">This will be emitted whenever the timeline needs to determine which
 tracks a clip's children should be added to. The track element will
 be added to each of the tracks given in the return. If a track
 element is selected to go into multiple tracks, it will be copied
@@ -14220,7 +14220,7 @@ free function on the #GPtrArray to dereference the elements.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="ges/ges-timeline.c"
-               line="860">An array of
+               line="861">An array of
 #GESTrack-s that @track_element should be added to, or %NULL to
 not add the element to any track.</doc>
           <array name="GLib.PtrArray">
@@ -14231,13 +14231,13 @@ not add the element to any track.</doc>
           <parameter name="clip" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="805">The clip that @track_element is being added to</doc>
+                 line="806">The clip that @track_element is being added to</doc>
             <type name="Clip"/>
           </parameter>
           <parameter name="track_element" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="806">The element being added</doc>
+                 line="807">The element being added</doc>
             <type name="TrackElement"/>
           </parameter>
         </parameters>
@@ -14245,7 +14245,7 @@ not add the element to any track.</doc>
       <glib:signal name="snapping-ended" when="last">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="783">Will be emitted whenever a snapping event ends. After a snap event
+             line="784">Will be emitted whenever a snapping event ends. After a snap event
 has started (see #GESTimeline::snapping-started), it can later end
 because either another timeline edit has occurred (which may or may
 not have created a new snapping event), or because the timeline has
@@ -14257,19 +14257,19 @@ been committed.</doc>
           <parameter name="obj1" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="786">The first element that was snapping</doc>
+                 line="787">The first element that was snapping</doc>
             <type name="TrackElement"/>
           </parameter>
           <parameter name="obj2" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="787">The second element that was snapping</doc>
+                 line="788">The second element that was snapping</doc>
             <type name="TrackElement"/>
           </parameter>
           <parameter name="position" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="788">The position where the two objects were to be snapped to</doc>
+                 line="789">The position where the two objects were to be snapped to</doc>
             <type name="guint64" c:type="guint64"/>
           </parameter>
         </parameters>
@@ -14277,7 +14277,7 @@ been committed.</doc>
       <glib:signal name="snapping-started" when="last">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="760">Will be emitted whenever an element's movement invokes a snapping
+             line="761">Will be emitted whenever an element's movement invokes a snapping
 event during an edit (usually of one of its ancestors) because its
 start or end point lies within the #GESTimeline:snapping-distance of
 another element's start or end point.
@@ -14293,19 +14293,19 @@ element edit within a timeline.</doc>
           <parameter name="obj1" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="763">The first element that is snapping</doc>
+                 line="764">The first element that is snapping</doc>
             <type name="TrackElement"/>
           </parameter>
           <parameter name="obj2" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="764">The second element that is snapping</doc>
+                 line="765">The second element that is snapping</doc>
             <type name="TrackElement"/>
           </parameter>
           <parameter name="position" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="765">The position where the two objects will snap to</doc>
+                 line="766">The position where the two objects will snap to</doc>
             <type name="guint64" c:type="guint64"/>
           </parameter>
         </parameters>
@@ -14313,7 +14313,7 @@ element edit within a timeline.</doc>
       <glib:signal name="track-added" when="first">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="664">Will be emitted after the track is added to the timeline.
+             line="665">Will be emitted after the track is added to the timeline.
 
 Note that this should not be emitted whilst a timeline is being
 loaded from its #GESProject asset. You should connect to the
@@ -14326,7 +14326,7 @@ tracks were created for the timeline.</doc>
           <parameter name="track" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="667">The track that was added to @timeline</doc>
+                 line="668">The track that was added to @timeline</doc>
             <type name="Track"/>
           </parameter>
         </parameters>
@@ -14334,7 +14334,7 @@ tracks were created for the timeline.</doc>
       <glib:signal name="track-removed" when="first">
         <doc xml:space="preserve"
              filename="ges/ges-timeline.c"
-             line="681">Will be emitted after the track is removed from the timeline.</doc>
+             line="682">Will be emitted after the track is removed from the timeline.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -14342,7 +14342,7 @@ tracks were created for the timeline.</doc>
           <parameter name="track" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-timeline.c"
-                 line="684">The track that was removed from @timeline</doc>
+                 line="685">The track that was removed from @timeline</doc>
             <type name="Track"/>
           </parameter>
         </parameters>
@@ -18615,7 +18615,7 @@ updating them.</doc>
       <constructor name="new" c:identifier="ges_track_new">
         <doc xml:space="preserve"
              filename="ges/ges-track.c"
-             line="891">Creates a new track with the given track-type and caps.
+             line="892">Creates a new track with the given track-type and caps.
 
 If @type is #GES_TRACK_TYPE_VIDEO, and @caps is a subset of
 "video/x-raw(ANY)", then a #GESVideoTrack is created. This will
@@ -18637,20 +18637,20 @@ ges_track_set_create_element_for_gap_func() on the returned track.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-track.c"
-               line="915">A new track.</doc>
+               line="916">A new track.</doc>
           <type name="Track" c:type="GESTrack*"/>
         </return-value>
         <parameters>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-track.c"
-                 line="893">The #GESTrack:track-type for the track</doc>
+                 line="894">The #GESTrack:track-type for the track</doc>
             <type name="TrackType" c:type="GESTrackType"/>
           </parameter>
           <parameter name="caps" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="ges/ges-track.c"
-                 line="894">The #GESTrack:caps for the track</doc>
+                 line="895">The #GESTrack:caps for the track</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
           </parameter>
         </parameters>
@@ -18669,25 +18669,25 @@ ges_track_set_create_element_for_gap_func() on the returned track.</doc>
       <method name="add_element" c:identifier="ges_track_add_element">
         <doc xml:space="preserve"
              filename="ges/ges-track.c"
-             line="1283">See ges_track_add_element(), which also gives an error.</doc>
+             line="1284">See ges_track_add_element(), which also gives an error.</doc>
         <source-position filename="ges/ges-track.h" line="89"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-track.c"
-               line="1290">%TRUE if @object was successfully added to @track.</doc>
+               line="1291">%TRUE if @object was successfully added to @track.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="track" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-track.c"
-                 line="1285">A #GESTrack</doc>
+                 line="1286">A #GESTrack</doc>
             <type name="Track" c:type="GESTrack*"/>
           </instance-parameter>
           <parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-track.c"
-                 line="1286">The element to add</doc>
+                 line="1287">The element to add</doc>
             <type name="TrackElement" c:type="GESTrackElement*"/>
           </parameter>
         </parameters>
@@ -18698,7 +18698,7 @@ ges_track_set_create_element_for_gap_func() on the returned track.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ges/ges-track.c"
-             line="1191">Adds the given track element to the track, which takes ownership of the
+             line="1192">Adds the given track element to the track, which takes ownership of the
 element.
 
 Note that this can fail if it would break a configuration rule of the
@@ -18709,20 +18709,20 @@ Note that a #GESTrackElement can only be added to one track.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-track.c"
-               line="1205">%TRUE if @object was successfully added to @track.</doc>
+               line="1206">%TRUE if @object was successfully added to @track.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="track" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-track.c"
-                 line="1193">A #GESTrack</doc>
+                 line="1194">A #GESTrack</doc>
             <type name="Track" c:type="GESTrack*"/>
           </instance-parameter>
           <parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-track.c"
-                 line="1194">The element to add</doc>
+                 line="1195">The element to add</doc>
             <type name="TrackElement" c:type="GESTrackElement*"/>
           </parameter>
         </parameters>
@@ -18730,7 +18730,7 @@ Note that a #GESTrackElement can only be added to one track.</doc>
       <method name="commit" c:identifier="ges_track_commit">
         <doc xml:space="preserve"
              filename="ges/ges-track.c"
-             line="1417">Commits all the pending changes for the elements contained in the
+             line="1418">Commits all the pending changes for the elements contained in the
 track.
 
 When changes are made to the timing or priority of elements within a
@@ -18747,7 +18747,7 @@ tracks, so you are unlikely to need to use this directly.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-track.c"
-               line="1435">%TRUE if pending changes were committed, or %FALSE if nothing
+               line="1436">%TRUE if pending changes were committed, or %FALSE if nothing
 needed to be committed.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -18755,7 +18755,7 @@ needed to be committed.</doc>
           <instance-parameter name="track" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-track.c"
-                 line="1419">A #GESTrack</doc>
+                 line="1420">A #GESTrack</doc>
             <type name="Track" c:type="GESTrack*"/>
           </instance-parameter>
         </parameters>
@@ -18765,19 +18765,19 @@ needed to be committed.</doc>
               glib:get-property="caps">
         <doc xml:space="preserve"
              filename="ges/ges-track.c"
-             line="1366">Get the #GESTrack:caps of the track.</doc>
+             line="1367">Get the #GESTrack:caps of the track.</doc>
         <source-position filename="ges/ges-track.h" line="78"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="ges/ges-track.c"
-               line="1372">The caps of @track.</doc>
+               line="1373">The caps of @track.</doc>
           <type name="Gst.Caps" c:type="const GstCaps*"/>
         </return-value>
         <parameters>
           <instance-parameter name="track" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-track.c"
-                 line="1368">A #GESTrack</doc>
+                 line="1369">A #GESTrack</doc>
             <type name="Track" c:type="GESTrack*"/>
           </instance-parameter>
         </parameters>
@@ -18785,14 +18785,14 @@ needed to be committed.</doc>
       <method name="get_elements" c:identifier="ges_track_get_elements">
         <doc xml:space="preserve"
              filename="ges/ges-track.c"
-             line="1298">Gets the track elements contained in the track. The returned list is
+             line="1299">Gets the track elements contained in the track. The returned list is
 sorted by the element's #GESTimelineElement:priority and
 #GESTimelineElement:start.</doc>
         <source-position filename="ges/ges-track.h" line="80"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="ges/ges-track.c"
-               line="1306">A list of
+               line="1307">A list of
 all the #GESTrackElement-s in @track.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="TrackElement"/>
@@ -18802,7 +18802,7 @@ all the #GESTrackElement-s in @track.</doc>
           <instance-parameter name="track" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-track.c"
-                 line="1300">A #GESTrack</doc>
+                 line="1301">A #GESTrack</doc>
             <type name="Track" c:type="GESTrack*"/>
           </instance-parameter>
         </parameters>
@@ -18812,19 +18812,19 @@ all the #GESTrackElement-s in @track.</doc>
               glib:get-property="mixing">
         <doc xml:space="preserve"
              filename="ges/ges-track.c"
-             line="1401">Gets the #GESTrack:mixing of the track.</doc>
+             line="1402">Gets the #GESTrack:mixing of the track.</doc>
         <source-position filename="ges/ges-track.h" line="109"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-track.c"
-               line="1407">Whether @track is mixing.</doc>
+               line="1408">Whether @track is mixing.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="track" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-track.c"
-                 line="1403">A #GESTrack</doc>
+                 line="1404">A #GESTrack</doc>
             <type name="Track" c:type="GESTrack*"/>
           </instance-parameter>
         </parameters>
@@ -18835,19 +18835,19 @@ all the #GESTrackElement-s in @track.</doc>
               version="1.18">
         <doc xml:space="preserve"
              filename="ges/ges-track.c"
-             line="1476">Gets the #GESTrack:restriction-caps of the track.</doc>
+             line="1477">Gets the #GESTrack:restriction-caps of the track.</doc>
         <source-position filename="ges/ges-track.h" line="117"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="ges/ges-track.c"
-               line="1482">The restriction-caps of @track.</doc>
+               line="1483">The restriction-caps of @track.</doc>
           <type name="Gst.Caps" c:type="GstCaps*"/>
         </return-value>
         <parameters>
           <instance-parameter name="track" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-track.c"
-                 line="1478">A #GESTrack</doc>
+                 line="1479">A #GESTrack</doc>
             <type name="Track" c:type="GESTrack*"/>
           </instance-parameter>
         </parameters>
@@ -18855,12 +18855,12 @@ all the #GESTrackElement-s in @track.</doc>
       <method name="get_timeline" c:identifier="ges_track_get_timeline">
         <doc xml:space="preserve"
              filename="ges/ges-track.c"
-             line="1383">Get the timeline this track belongs to.</doc>
+             line="1384">Get the timeline this track belongs to.</doc>
         <source-position filename="ges/ges-track.h" line="82"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="ges/ges-track.c"
-               line="1389">The timeline that @track belongs to, or %NULL if
+               line="1390">The timeline that @track belongs to, or %NULL if
 it does not belong to a timeline.</doc>
           <type name="Timeline" c:type="const GESTimeline*"/>
         </return-value>
@@ -18868,7 +18868,7 @@ it does not belong to a timeline.</doc>
           <instance-parameter name="track" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-track.c"
-                 line="1385">A #GESTrack</doc>
+                 line="1386">A #GESTrack</doc>
             <type name="Track" c:type="GESTrack*"/>
           </instance-parameter>
         </parameters>
@@ -18876,25 +18876,25 @@ it does not belong to a timeline.</doc>
       <method name="remove_element" c:identifier="ges_track_remove_element">
         <doc xml:space="preserve"
              filename="ges/ges-track.c"
-             line="1351">See ges_track_remove_element_full(), which also returns an error.</doc>
+             line="1352">See ges_track_remove_element_full(), which also returns an error.</doc>
         <source-position filename="ges/ges-track.h" line="96"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-track.c"
-               line="1358">%TRUE if @object was successfully removed from @track.</doc>
+               line="1359">%TRUE if @object was successfully removed from @track.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="track" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-track.c"
-                 line="1353">A #GESTrack</doc>
+                 line="1354">A #GESTrack</doc>
             <type name="Track" c:type="GESTrack*"/>
           </instance-parameter>
           <parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-track.c"
-                 line="1354">The element to remove</doc>
+                 line="1355">The element to remove</doc>
             <type name="TrackElement" c:type="GESTrackElement*"/>
           </parameter>
         </parameters>
@@ -18905,26 +18905,26 @@ it does not belong to a timeline.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="ges/ges-track.c"
-             line="1324">Removes the given track element from the track, which revokes
+             line="1325">Removes the given track element from the track, which revokes
 ownership of the element.</doc>
         <source-position filename="ges/ges-track.h" line="99"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-track.c"
-               line="1333">%TRUE if @object was successfully removed from @track.</doc>
+               line="1334">%TRUE if @object was successfully removed from @track.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="track" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-track.c"
-                 line="1326">A #GESTrack</doc>
+                 line="1327">A #GESTrack</doc>
             <type name="Track" c:type="GESTrack*"/>
           </instance-parameter>
           <parameter name="object" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-track.c"
-                 line="1327">The element to remove</doc>
+                 line="1328">The element to remove</doc>
             <type name="TrackElement" c:type="GESTrackElement*"/>
           </parameter>
         </parameters>
@@ -18934,7 +18934,7 @@ ownership of the element.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="ges/ges-track.c"
-             line="1450">Sets the function that will be used to create a #GstElement that can be
+             line="1451">Sets the function that will be used to create a #GstElement that can be
 used as a source to fill the gaps of the track. A gap is a timeline
 region where the track has no #GESTrackElement sources. Therefore, you
 are likely to want the #GstElement returned by the function to always
@@ -18951,13 +18951,13 @@ function already set appropriately.</doc>
           <instance-parameter name="track" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-track.c"
-                 line="1452">A #GESTrack</doc>
+                 line="1453">A #GESTrack</doc>
             <type name="Track" c:type="GESTrack*"/>
           </instance-parameter>
           <parameter name="func" transfer-ownership="none" scope="notified">
             <doc xml:space="preserve"
                  filename="ges/ges-track.c"
-                 line="1453">The function to be used to create a source
+                 line="1454">The function to be used to create a source
 #GstElement that can fill gaps in @track</doc>
             <type name="CreateElementForGapFunc"
                   c:type="GESCreateElementForGapFunc"/>
@@ -18969,7 +18969,7 @@ function already set appropriately.</doc>
               glib:set-property="mixing">
         <doc xml:space="preserve"
              filename="ges/ges-track.c"
-             line="1116">Sets the #GESTrack:mixing for the track.</doc>
+             line="1117">Sets the #GESTrack:mixing for the track.</doc>
         <source-position filename="ges/ges-track.h" line="106"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -18978,13 +18978,13 @@ function already set appropriately.</doc>
           <instance-parameter name="track" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-track.c"
-                 line="1118">A #GESTrack</doc>
+                 line="1119">A #GESTrack</doc>
             <type name="Track" c:type="GESTrack*"/>
           </instance-parameter>
           <parameter name="mixing" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-track.c"
-                 line="1119">Whether @track should be mixing</doc>
+                 line="1120">Whether @track should be mixing</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -18994,7 +18994,7 @@ function already set appropriately.</doc>
               glib:set-property="restriction-caps">
         <doc xml:space="preserve"
              filename="ges/ges-track.c"
-             line="1027">Sets the #GESTrack:restriction-caps for the track.
+             line="1028">Sets the #GESTrack:restriction-caps for the track.
 
 &gt; **NOTE**: Restriction caps are **not** taken into account when
 &gt; using #GESPipeline:mode=#GES_PIPELINE_MODE_SMART_RENDER.</doc>
@@ -19006,13 +19006,13 @@ function already set appropriately.</doc>
           <instance-parameter name="track" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-track.c"
-                 line="1029">A #GESTrack</doc>
+                 line="1030">A #GESTrack</doc>
             <type name="Track" c:type="GESTrack*"/>
           </instance-parameter>
           <parameter name="caps" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-track.c"
-                 line="1030">The new restriction-caps for @track</doc>
+                 line="1031">The new restriction-caps for @track</doc>
             <type name="Gst.Caps" c:type="const GstCaps*"/>
           </parameter>
         </parameters>
@@ -19020,7 +19020,7 @@ function already set appropriately.</doc>
       <method name="set_timeline" c:identifier="ges_track_set_timeline">
         <doc xml:space="preserve"
              filename="ges/ges-track.c"
-             line="962">Informs the track that it belongs to the given timeline. Calling this
+             line="963">Informs the track that it belongs to the given timeline. Calling this
 does not actually add the track to the timeline. For that, you should
 use ges_timeline_add_track(), which will also take care of informing
 the track that it belongs to the timeline. As such, there is no need
@@ -19033,7 +19033,7 @@ for you to call this method.</doc>
           <instance-parameter name="track" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-track.c"
-                 line="964">A #GESTrack
+                 line="965">A #GESTrack
 @timeline (nullable): A #GESTimeline</doc>
             <type name="Track" c:type="GESTrack*"/>
           </instance-parameter>
@@ -19046,7 +19046,7 @@ for you to call this method.</doc>
               c:identifier="ges_track_update_restriction_caps">
         <doc xml:space="preserve"
              filename="ges/ges-track.c"
-             line="1061">Updates the #GESTrack:restriction-caps of the track using the fields
+             line="1062">Updates the #GESTrack:restriction-caps of the track using the fields
 found in the given caps. Each of the #GstStructure-s in @caps is
 compared against the existing structure with the same index in the
 current #GESTrack:restriction-caps. If there is no corresponding
@@ -19070,13 +19070,13 @@ width=400".</doc>
           <instance-parameter name="track" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-track.c"
-                 line="1063">A #GESTrack</doc>
+                 line="1064">A #GESTrack</doc>
             <type name="Track" c:type="GESTrack*"/>
           </instance-parameter>
           <parameter name="caps" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-track.c"
-                 line="1064">The caps to update the restriction-caps with</doc>
+                 line="1065">The caps to update the restriction-caps with</doc>
             <type name="Gst.Caps" c:type="const GstCaps*"/>
           </parameter>
         </parameters>
@@ -19088,7 +19088,7 @@ width=400".</doc>
                 getter="get_caps">
         <doc xml:space="preserve"
              filename="ges/ges-track.c"
-             line="714">The capabilities used to choose the output of the #GESTrack's
+             line="715">The capabilities used to choose the output of the #GESTrack's
 elements. Internally, this is used to select output streams when
 several may be available, by determining whether its #GstPad is
 compatible (see #NleObject:caps for #nlecomposition). As such,
@@ -19112,7 +19112,7 @@ Default value: #GST_CAPS_ANY.</doc>
                 default-value="1000000000">
         <doc xml:space="preserve"
              filename="ges/ges-track.c"
-             line="762">Current duration of the track
+             line="763">Current duration of the track
 
 Default value: O</doc>
         <type name="guint64" c:type="guint64"/>
@@ -19124,7 +19124,7 @@ Default value: O</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="ges/ges-track.c"
-             line="811">The #nlecomposition:id of the underlying #nlecomposition.</doc>
+             line="812">The #nlecomposition:id of the underlying #nlecomposition.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="mixing"
@@ -19136,7 +19136,7 @@ Default value: O</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="ges/ges-track.c"
-             line="794">Whether the track should support the mixing of #GESLayer data, such
+             line="795">Whether the track should support the mixing of #GESLayer data, such
 as composing the video data of each layer (when part of the video
 data is transparent, the next layer will become visible) or adding
 together the audio data. As such, for audio and video tracks, you'll
@@ -19150,7 +19150,7 @@ likely want to keep this set to %TRUE.</doc>
                 getter="get_restriction_caps">
         <doc xml:space="preserve"
              filename="ges/ges-track.c"
-             line="742">The capabilities that specifies the final output format of the
+             line="743">The capabilities that specifies the final output format of the
 #GESTrack. For example, for a video track, it would specify the
 height, width, framerate and other properties of the stream.
 
@@ -19168,7 +19168,7 @@ Default value: #GST_CAPS_ANY.</doc>
                 default-value="GES_TRACK_TYPE_CUSTOM">
         <doc xml:space="preserve"
              filename="ges/ges-track.c"
-             line="777">The track type of the track. This controls the type of
+             line="778">The track type of the track. This controls the type of
 #GESTrackElement-s that can be added to the track. This should
 match with the track's #GESTrack:caps.
 
@@ -19196,7 +19196,7 @@ this.</doc>
       <glib:signal name="commited" when="last">
         <doc xml:space="preserve"
              filename="ges/ges-track.c"
-             line="851">This signal will be emitted once the changes initiated by
+             line="852">This signal will be emitted once the changes initiated by
 ges_track_commit() have been executed in the backend. In particular,
 this will be emitted whenever the underlying #nlecomposition has been
 committed (see #nlecomposition::commited).</doc>
@@ -19207,7 +19207,7 @@ committed (see #nlecomposition::commited).</doc>
       <glib:signal name="track-element-added" when="first">
         <doc xml:space="preserve"
              filename="ges/ges-track.c"
-             line="827">Will be emitted after a track element is added to the track.</doc>
+             line="828">Will be emitted after a track element is added to the track.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -19215,7 +19215,7 @@ committed (see #nlecomposition::commited).</doc>
           <parameter name="effect" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-track.c"
-                 line="830">The element that was added</doc>
+                 line="831">The element that was added</doc>
             <type name="TrackElement"/>
           </parameter>
         </parameters>
@@ -19223,7 +19223,7 @@ committed (see #nlecomposition::commited).</doc>
       <glib:signal name="track-element-removed" when="first">
         <doc xml:space="preserve"
              filename="ges/ges-track.c"
-             line="839">Will be emitted after a track element is removed from the track.</doc>
+             line="840">Will be emitted after a track element is removed from the track.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -19231,7 +19231,7 @@ committed (see #nlecomposition::commited).</doc>
           <parameter name="effect" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ges/ges-track.c"
-                 line="842">The element that was removed</doc>
+                 line="843">The element that was removed</doc>
             <type name="TrackElement"/>
           </parameter>
         </parameters>
@@ -22009,7 +22009,7 @@ contains one frame)</doc>
       <source-position filename="ges/ges-version.h" line="24"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="VERSION_MICRO" value="1" c:type="GES_VERSION_MICRO">
+    <constant name="VERSION_MICRO" value="6" c:type="GES_VERSION_MICRO">
       <source-position filename="ges/ges-version.h" line="26"/>
       <type name="gint" c:type="gint"/>
     </constant>
@@ -23823,7 +23823,7 @@ or ges_init_check().</doc>
     <function name="list_assets" c:identifier="ges_list_assets">
       <doc xml:space="preserve"
            filename="ges/ges-asset.c"
-           line="1637">List all the assets in the current cache whose
+           line="1638">List all the assets in the current cache whose
 #GESAsset:extractable-type are of the given type (including
 subclasses).
 
@@ -23834,7 +23834,7 @@ the current cache.</doc>
       <return-value transfer-ownership="container">
         <doc xml:space="preserve"
              filename="ges/ges-asset.c"
-             line="1649">A list of all
+             line="1650">A list of all
 #GESAsset-s currently in the cache whose #GESAsset:extractable-type is
 of the @filter type.</doc>
         <type name="GLib.List" c:type="GList*">
@@ -23845,7 +23845,7 @@ of the @filter type.</doc>
         <parameter name="filter" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="ges/ges-asset.c"
-               line="1639">The type of object that can be extracted from the asset</doc>
+               line="1640">The type of object that can be extracted from the asset</doc>
           <type name="GType" c:type="GType"/>
         </parameter>
       </parameters>

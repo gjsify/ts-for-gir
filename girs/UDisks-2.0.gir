@@ -49119,7 +49119,7 @@ See udisks_mdraid_proxy_new_for_bus_sync() for the synchronous, blocking version
             opaque="1">
       <source-position filename="udisks-generated.h" line="5370"/>
     </record>
-    <constant name="MICRO_VERSION" value="1" c:type="UDISKS_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="2" c:type="UDISKS_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="udisksversion.h"
            line="46">The micro version of the libudisks2 header files.</doc>

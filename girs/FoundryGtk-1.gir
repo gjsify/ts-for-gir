@@ -178,6 +178,151 @@ and/or use gtk-doc annotations.  -->
               c:type="GtkSourceGutterRendererClass"/>
       </field>
     </record>
+    <class name="GitLanes"
+           c:symbol-prefix="git_lanes"
+           c:type="FoundryGitLanes"
+           version="1.2"
+           parent="Gtk.Widget"
+           final="1"
+           glib:type-name="FoundryGitLanes"
+           glib:get-type="foundry_git_lanes_get_type"
+           glib:type-struct="GitLanesClass">
+      <doc xml:space="preserve"
+           filename="libfoundry-gtk/foundry-git-lanes.c"
+           line="25">A widget that displays Git graph lanes for a [class@Foundry.VcsGraphEntry].</doc>
+      <source-position filename="libfoundry-gtk/foundry-git-lanes.h"
+                       line="31"/>
+      <implements name="Gtk.Accessible"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.ConstraintTarget"/>
+      <constructor name="new"
+                   c:identifier="foundry_git_lanes_new"
+                   version="1.2">
+        <doc xml:space="preserve"
+             filename="libfoundry-gtk/foundry-git-lanes.c"
+             line="404">Creates a new widget to draw Git graph lanes for a [class@Foundry.VcsGraphEntry].</doc>
+        <source-position filename="libfoundry-gtk/foundry-git-lanes.h"
+                         line="34"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libfoundry-gtk/foundry-git-lanes.c"
+               line="409">a newly created [class@FoundryGtk.GitLanes]</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="dup_entry"
+              c:identifier="foundry_git_lanes_dup_entry"
+              version="1.2">
+        <doc xml:space="preserve"
+             filename="libfoundry-gtk/foundry-git-lanes.c"
+             line="418">Gets the graph entry displayed by @self.</doc>
+        <source-position filename="libfoundry-gtk/foundry-git-lanes.h"
+                         line="36"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libfoundry-gtk/foundry-git-lanes.c"
+               line="424">a [class@Foundry.VcsGraphEntry]</doc>
+          <type name="Foundry.VcsGraphEntry" c:type="FoundryVcsGraphEntry*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/foundry-git-lanes.c"
+                 line="420">a [class@FoundryGtk.GitLanes]</doc>
+            <type name="GitLanes" c:type="FoundryGitLanes*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_entry"
+              c:identifier="foundry_git_lanes_set_entry"
+              glib:set-property="entry"
+              version="1.2">
+        <doc xml:space="preserve"
+             filename="libfoundry-gtk/foundry-git-lanes.c"
+             line="435">Sets the graph entry displayed by @self.</doc>
+        <source-position filename="libfoundry-gtk/foundry-git-lanes.h"
+                         line="38"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/foundry-git-lanes.c"
+                 line="437">a [class@FoundryGtk.GitLanes]</doc>
+            <type name="GitLanes" c:type="FoundryGitLanes*"/>
+          </instance-parameter>
+          <parameter name="entry"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/foundry-git-lanes.c"
+                 line="438">a [class@Foundry.VcsGraphEntry]</doc>
+            <type name="Foundry.VcsGraphEntry" c:type="FoundryVcsGraphEntry*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_lane_colors"
+              c:identifier="foundry_git_lanes_set_lane_colors"
+              version="1.2">
+        <doc xml:space="preserve"
+             filename="libfoundry-gtk/foundry-git-lanes.c"
+             line="459">Sets the colors to use when drawing graph lanes.
+
+If @colors is %NULL, the default lane colors are used. When @colors is not
+%NULL, the colors are copied and @n_colors must be greater than zero.</doc>
+        <source-position filename="libfoundry-gtk/foundry-git-lanes.h"
+                         line="41"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/foundry-git-lanes.c"
+                 line="461">a [class@FoundryGtk.GitLanes]</doc>
+            <type name="GitLanes" c:type="FoundryGitLanes*"/>
+          </instance-parameter>
+          <parameter name="colors"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/foundry-git-lanes.c"
+                 line="462">the lane colors</doc>
+            <array length="1" zero-terminated="0" c:type="const GdkRGBA*">
+              <type name="Gdk.RGBA" c:type="GdkRGBA"/>
+            </array>
+          </parameter>
+          <parameter name="n_colors" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libfoundry-gtk/foundry-git-lanes.c"
+                 line="463">the number of colors in @colors</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="entry"
+                version="1.2"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_entry">
+        <doc xml:space="preserve"
+             filename="libfoundry-gtk/foundry-git-lanes.c"
+             line="382">The graph entry to render.</doc>
+        <type name="Foundry.VcsGraphEntry"/>
+      </property>
+    </class>
+    <record name="GitLanesClass"
+            c:type="FoundryGitLanesClass"
+            glib:is-gtype-struct-for="GitLanes">
+      <source-position filename="libfoundry-gtk/foundry-git-lanes.h"
+                       line="31"/>
+      <field name="parent_class">
+        <type name="Gtk.WidgetClass" c:type="GtkWidgetClass"/>
+      </field>
+    </record>
     <class name="MarkupView"
            c:symbol-prefix="markup_view"
            c:type="FoundryMarkupView"
@@ -1173,7 +1318,7 @@ shortcuts may activate.</doc>
               version="1.1">
         <doc xml:space="preserve"
              filename="libfoundry-gtk/editing/foundry-source-buffer.c"
-             line="772">Comments the specified text range using the appropriate comment syntax
+             line="812">Comments the specified text range using the appropriate comment syntax
 for the current language.</doc>
         <source-position filename="libfoundry-gtk/editing/foundry-source-buffer.h"
                          line="51"/>
@@ -1184,19 +1329,19 @@ for the current language.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfoundry-gtk/editing/foundry-source-buffer.c"
-                 line="774">a [class@FoundryGtk.SourceBuffer]</doc>
+                 line="814">a [class@FoundryGtk.SourceBuffer]</doc>
             <type name="SourceBuffer" c:type="FoundrySourceBuffer*"/>
           </instance-parameter>
           <parameter name="begin" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfoundry-gtk/editing/foundry-source-buffer.c"
-                 line="775">start of the text range to comment</doc>
+                 line="815">start of the text range to comment</doc>
             <type name="Gtk.TextIter" c:type="const GtkTextIter*"/>
           </parameter>
           <parameter name="end" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfoundry-gtk/editing/foundry-source-buffer.c"
-                 line="776">end of the text range to comment</doc>
+                 line="816">end of the text range to comment</doc>
             <type name="Gtk.TextIter" c:type="const GtkTextIter*"/>
           </parameter>
         </parameters>
@@ -1208,14 +1353,14 @@ for the current language.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libfoundry-gtk/editing/foundry-source-buffer.c"
-               line="552">a [class@Foundry.Context]</doc>
+               line="592">a [class@Foundry.Context]</doc>
           <type name="Foundry.Context" c:type="FoundryContext*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfoundry-gtk/editing/foundry-source-buffer.c"
-                 line="550">a [class@FoundryGtk.SourceBuffer]</doc>
+                 line="590">a [class@FoundryGtk.SourceBuffer]</doc>
             <type name="SourceBuffer" c:type="FoundrySourceBuffer*"/>
           </instance-parameter>
         </parameters>
@@ -1237,7 +1382,7 @@ for the current language.</doc>
               c:identifier="foundry_source_buffer_dup_override_syntax">
         <doc xml:space="preserve"
              filename="libfoundry-gtk/editing/foundry-source-buffer.c"
-             line="510">Gets the syntax to be used, overriding any language guessing.
+             line="550">Gets the syntax to be used, overriding any language guessing.
 
 `NULL` indicates to use the default guessed syntax.</doc>
         <source-position filename="libfoundry-gtk/editing/foundry-source-buffer.h"
@@ -1249,7 +1394,7 @@ for the current language.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfoundry-gtk/editing/foundry-source-buffer.c"
-                 line="512">a [class@FoundryGtk.SourceBuffer]</doc>
+                 line="552">a [class@FoundryGtk.SourceBuffer]</doc>
             <type name="SourceBuffer" c:type="FoundrySourceBuffer*"/>
           </instance-parameter>
         </parameters>
@@ -1321,7 +1466,7 @@ for the current language.</doc>
               version="1.1">
         <doc xml:space="preserve"
              filename="libfoundry-gtk/editing/foundry-source-buffer.c"
-             line="850">Removes comment markers from the specified text range.</doc>
+             line="890">Removes comment markers from the specified text range.</doc>
         <source-position filename="libfoundry-gtk/editing/foundry-source-buffer.h"
                          line="55"/>
         <return-value transfer-ownership="none">
@@ -1331,19 +1476,19 @@ for the current language.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfoundry-gtk/editing/foundry-source-buffer.c"
-                 line="852">a [class@FoundryGtk.SourceBuffer]</doc>
+                 line="892">a [class@FoundryGtk.SourceBuffer]</doc>
             <type name="SourceBuffer" c:type="FoundrySourceBuffer*"/>
           </instance-parameter>
           <parameter name="begin" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfoundry-gtk/editing/foundry-source-buffer.c"
-                 line="853">start of the text range to uncomment</doc>
+                 line="893">start of the text range to uncomment</doc>
             <type name="Gtk.TextIter" c:type="const GtkTextIter*"/>
           </parameter>
           <parameter name="end" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libfoundry-gtk/editing/foundry-source-buffer.c"
-                 line="854">end of the text range to uncomment</doc>
+                 line="894">end of the text range to uncomment</doc>
             <type name="Gtk.TextIter" c:type="const GtkTextIter*"/>
           </parameter>
         </parameters>
@@ -1947,10 +2092,11 @@ insight as to where in the document other changes are.</doc>
         </parameters>
       </virtual-method>
       <method name="get_view"
-              c:identifier="foundry_source_view_addin_get_view">
+              c:identifier="foundry_source_view_addin_get_view"
+              glib:get-property="view">
         <doc xml:space="preserve"
              filename="libfoundry-gtk/editing/foundry-source-view-addin.c"
-             line="115">Gets teh view for the addin.
+             line="115">Gets the view for the addin.
 
 This will always be %NULL before load has been called and after
 unload has been called.</doc>
@@ -1968,7 +2114,7 @@ unload has been called.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <property name="vie" transfer-ownership="none">
+      <property name="view" transfer-ownership="none" getter="get_view">
         <type name="SourceView"/>
       </property>
       <field name="parent_instance">

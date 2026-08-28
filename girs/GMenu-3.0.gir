@@ -5,10 +5,13 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Gio" version="2.0"/>
+  <include name="GioUnix" version="2.0"/>
   <package name="libgnome-menu-3.0"/>
   <c:include name="gmenu-tree.h"/>
+  <doc:format name="unknown"/>
   <namespace name="GMenu"
              version="3.0"
              shared-library="libgnome-menu-3.so.0"
@@ -575,7 +578,7 @@ ignored.</doc>
           <doc xml:space="preserve"
                filename="gmenu-tree.c"
                line="1253">The #GDesktopAppInfo for this entry</doc>
-          <type name="Gio.DesktopAppInfo" c:type="GDesktopAppInfo*"/>
+          <type name="GioUnix.DesktopAppInfo" c:type="GDesktopAppInfo*"/>
         </return-value>
         <parameters>
           <instance-parameter name="entry" transfer-ownership="none">

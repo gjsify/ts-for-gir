@@ -5,11 +5,13 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <include name="Gio" version="2.0"/>
   <package name="colord"/>
   <c:include name="colord.h"/>
+  <doc:format name="unknown"/>
   <namespace name="Colord"
              version="1.0"
              shared-library="libcolord.so.2"
@@ -52,12 +54,12 @@ NOTE: these values are the same as the lcms2 AOTTTTTUYFPXSEEECCCCBBB type.</doc>
       <constructor name="new" c:identifier="cd_client_new" version="0.1.0">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="2632">Creates a new #CdClient object.</doc>
+             line="2634">Creates a new #CdClient object.</doc>
         <source-position filename="lib/colord/cd-client.h" line="79"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/colord/cd-client.c"
-               line="2637">a new CdClient object.</doc>
+               line="2639">a new CdClient object.</doc>
           <type name="Client" c:type="CdClient*"/>
         </return-value>
       </constructor>
@@ -246,7 +248,11 @@ NOTE: these values are the same as the lcms2 AOTTTTTUYFPXSEEECCCCBBB type.</doc>
           </parameter>
         </parameters>
       </virtual-method>
-      <method name="connect" c:identifier="cd_client_connect" version="0.1.6">
+      <method name="connect"
+              c:identifier="cd_client_connect"
+              version="0.1.6"
+              glib:finish-func="connect_finish"
+              glib:sync-func="connect_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
              line="406">Connects to the colord daemon.</doc>
@@ -324,7 +330,8 @@ NOTE: these values are the same as the lcms2 AOTTTTTUYFPXSEEECCCCBBB type.</doc>
       <method name="connect_sync"
               c:identifier="cd_client_connect_sync"
               version="0.1.0"
-              throws="1">
+              throws="1"
+              glib:async-func="connect">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client-sync.c"
              line="63">Connects to the colord daemon.
@@ -358,7 +365,9 @@ Do not use it in GUI applications.</doc>
       </method>
       <method name="create_device"
               c:identifier="cd_client_create_device"
-              version="0.1.8">
+              version="0.1.8"
+              glib:finish-func="create_device_finish"
+              glib:sync-func="create_device_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
              line="521">Creates a color device.</doc>
@@ -461,7 +470,8 @@ Do not use it in GUI applications.</doc>
       <method name="create_device_sync"
               c:identifier="cd_client_create_device_sync"
               version="0.1.2"
-              throws="1">
+              throws="1"
+              glib:async-func="create_device">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client-sync.c"
              line="499">Creates a color device.
@@ -520,7 +530,9 @@ Do not use it in GUI applications.</doc>
       </method>
       <method name="create_profile"
               c:identifier="cd_client_create_profile"
-              version="0.1.8">
+              version="0.1.8"
+              glib:finish-func="create_profile_finish"
+              glib:sync-func="create_profile_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
              line="653">Creates a color profile.</doc>
@@ -622,10 +634,12 @@ Do not use it in GUI applications.</doc>
       </method>
       <method name="create_profile_for_icc"
               c:identifier="cd_client_create_profile_for_icc"
-              version="1.1.1">
+              version="1.1.1"
+              glib:finish-func="create_profile_for_icc_finish"
+              glib:sync-func="create_profile_for_icc_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="772">Creates a color profile for an #CdIcc Object.</doc>
+             line="770">Creates a color profile for an #CdIcc Object.</doc>
         <source-position filename="lib/colord/cd-client.h" line="112"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -634,19 +648,19 @@ Do not use it in GUI applications.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="774">a #CdClient instance.</doc>
+                 line="772">a #CdClient instance.</doc>
             <type name="Client" c:type="CdClient*"/>
           </instance-parameter>
           <parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="775">#CdIcc object</doc>
+                 line="773">#CdIcc object</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </parameter>
           <parameter name="scope" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="776">the scope of the profile</doc>
+                 line="774">the scope of the profile</doc>
             <type name="ObjectScope" c:type="CdObjectScope"/>
           </parameter>
           <parameter name="cancellable"
@@ -655,7 +669,7 @@ Do not use it in GUI applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="777">a #GCancellable, or %NULL</doc>
+                 line="775">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -666,7 +680,7 @@ Do not use it in GUI applications.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="778">the function to run on completion</doc>
+                 line="776">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -675,7 +689,7 @@ Do not use it in GUI applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="779">the data to pass to @callback</doc>
+                 line="777">the data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -686,25 +700,25 @@ Do not use it in GUI applications.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="824">Gets the result from the asynchronous function.</doc>
+             line="822">Gets the result from the asynchronous function.</doc>
         <source-position filename="lib/colord/cd-client.h" line="118"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/colord/cd-client.c"
-               line="832">a #CdProfile or %NULL</doc>
+               line="830">a #CdProfile or %NULL</doc>
           <type name="Profile" c:type="CdProfile*"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="826">a #CdClient instance.</doc>
+                 line="824">a #CdClient instance.</doc>
             <type name="Client" c:type="CdClient*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="827">the #GAsyncResult</doc>
+                 line="825">the #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -712,7 +726,8 @@ Do not use it in GUI applications.</doc>
       <method name="create_profile_for_icc_sync"
               c:identifier="cd_client_create_profile_for_icc_sync"
               version="1.1.1"
-              throws="1">
+              throws="1"
+              glib:async-func="create_profile_for_icc">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client-sync.c"
              line="387">Creates a color profile from a #CdIcc object.
@@ -759,7 +774,8 @@ Do not use it in GUI applications.</doc>
       <method name="create_profile_sync"
               c:identifier="cd_client_create_profile_sync"
               version="0.1.2"
-              throws="1">
+              throws="1"
+              glib:async-func="create_profile">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client-sync.c"
              line="326">Creates a color profile.
@@ -818,10 +834,12 @@ Do not use it in GUI applications.</doc>
       </method>
       <method name="delete_device"
               c:identifier="cd_client_delete_device"
-              version="0.1.8">
+              version="0.1.8"
+              glib:finish-func="delete_device_finish"
+              glib:sync-func="delete_device_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="1151">Deletes a device.</doc>
+             line="1153">Deletes a device.</doc>
         <source-position filename="lib/colord/cd-client.h" line="131"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -830,13 +848,13 @@ Do not use it in GUI applications.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1153">a #CdClient instance.</doc>
+                 line="1155">a #CdClient instance.</doc>
             <type name="Client" c:type="CdClient*"/>
           </instance-parameter>
           <parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1154">a #CdDevice</doc>
+                 line="1156">a #CdDevice</doc>
             <type name="Device" c:type="CdDevice*"/>
           </parameter>
           <parameter name="cancellable"
@@ -845,7 +863,7 @@ Do not use it in GUI applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1155">a #GCancellable, or %NULL</doc>
+                 line="1157">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -856,7 +874,7 @@ Do not use it in GUI applications.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1156">the function to run on completion</doc>
+                 line="1158">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -865,7 +883,7 @@ Do not use it in GUI applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1157">the data to pass to @callback</doc>
+                 line="1159">the data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -876,25 +894,25 @@ Do not use it in GUI applications.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="1107">Gets the result from the asynchronous function.</doc>
+             line="1109">Gets the result from the asynchronous function.</doc>
         <source-position filename="lib/colord/cd-client.h" line="136"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/colord/cd-client.c"
-               line="1115">success</doc>
+               line="1117">success</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1109">a #CdClient instance.</doc>
+                 line="1111">a #CdClient instance.</doc>
             <type name="Client" c:type="CdClient*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1110">the #GAsyncResult</doc>
+                 line="1112">the #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -902,7 +920,8 @@ Do not use it in GUI applications.</doc>
       <method name="delete_device_sync"
               c:identifier="cd_client_delete_device_sync"
               version="0.1.8"
-              throws="1">
+              throws="1"
+              glib:async-func="delete_device">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client-sync.c"
              line="163">Deletes a color device.
@@ -942,10 +961,12 @@ Do not use it in GUI applications.</doc>
       </method>
       <method name="delete_profile"
               c:identifier="cd_client_delete_profile"
-              version="0.1.8">
+              version="0.1.8"
+              glib:finish-func="delete_profile_finish"
+              glib:sync-func="delete_profile_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="1236">Deletes a profile.</doc>
+             line="1238">Deletes a profile.</doc>
         <source-position filename="lib/colord/cd-client.h" line="140"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -954,13 +975,13 @@ Do not use it in GUI applications.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1238">a #CdClient instance.</doc>
+                 line="1240">a #CdClient instance.</doc>
             <type name="Client" c:type="CdClient*"/>
           </instance-parameter>
           <parameter name="profile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1239">a #CdProfile</doc>
+                 line="1241">a #CdProfile</doc>
             <type name="Profile" c:type="CdProfile*"/>
           </parameter>
           <parameter name="cancellable"
@@ -969,7 +990,7 @@ Do not use it in GUI applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1240">a #GCancellable, or %NULL</doc>
+                 line="1242">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -980,7 +1001,7 @@ Do not use it in GUI applications.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1241">the function to run on completion</doc>
+                 line="1243">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -989,7 +1010,7 @@ Do not use it in GUI applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1242">the data to pass to @callback</doc>
+                 line="1244">the data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1000,25 +1021,25 @@ Do not use it in GUI applications.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="1192">Gets the result from the asynchronous function.</doc>
+             line="1194">Gets the result from the asynchronous function.</doc>
         <source-position filename="lib/colord/cd-client.h" line="145"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/colord/cd-client.c"
-               line="1200">success</doc>
+               line="1202">success</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1194">a #CdClient instance.</doc>
+                 line="1196">a #CdClient instance.</doc>
             <type name="Client" c:type="CdClient*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1195">the #GAsyncResult</doc>
+                 line="1197">the #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -1026,7 +1047,8 @@ Do not use it in GUI applications.</doc>
       <method name="delete_profile_sync"
               c:identifier="cd_client_delete_profile_sync"
               version="0.1.8"
-              throws="1">
+              throws="1"
+              glib:async-func="delete_profile">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client-sync.c"
              line="112">Deletes a color profile.
@@ -1066,10 +1088,12 @@ Do not use it in GUI applications.</doc>
       </method>
       <method name="find_device"
               c:identifier="cd_client_find_device"
-              version="0.1.8">
+              version="0.1.8"
+              glib:finish-func="find_device_finish"
+              glib:sync-func="find_device_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="1328">Finds a device by an ID.</doc>
+             line="1330">Finds a device by an ID.</doc>
         <source-position filename="lib/colord/cd-client.h" line="149"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1078,13 +1102,13 @@ Do not use it in GUI applications.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1330">a #CdClient instance.</doc>
+                 line="1332">a #CdClient instance.</doc>
             <type name="Client" c:type="CdClient*"/>
           </instance-parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1331">a device id</doc>
+                 line="1333">a device id</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1093,7 +1117,7 @@ Do not use it in GUI applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1332">a #GCancellable, or %NULL</doc>
+                 line="1334">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -1104,7 +1128,7 @@ Do not use it in GUI applications.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1333">the function to run on completion</doc>
+                 line="1335">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1113,17 +1137,19 @@ Do not use it in GUI applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1334">the data to pass to @callback</doc>
+                 line="1336">the data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
       </method>
       <method name="find_device_by_property"
               c:identifier="cd_client_find_device_by_property"
-              version="0.1.8">
+              version="0.1.8"
+              glib:finish-func="find_device_by_property_finish"
+              glib:sync-func="find_device_by_property_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="1419">Finds a color device that has a property value.</doc>
+             line="1421">Finds a color device that has a property value.</doc>
         <source-position filename="lib/colord/cd-client.h" line="158"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1132,19 +1158,19 @@ Do not use it in GUI applications.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1421">a #CdClient instance.</doc>
+                 line="1423">a #CdClient instance.</doc>
             <type name="Client" c:type="CdClient*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1422">the device property key</doc>
+                 line="1424">the device property key</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1423">the device property value</doc>
+                 line="1425">the device property value</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1153,7 +1179,7 @@ Do not use it in GUI applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1424">a #GCancellable, or %NULL</doc>
+                 line="1426">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -1164,7 +1190,7 @@ Do not use it in GUI applications.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1425">the function to run on completion</doc>
+                 line="1427">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1173,7 +1199,7 @@ Do not use it in GUI applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1426">the data to pass to @callback</doc>
+                 line="1428">the data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1184,25 +1210,25 @@ Do not use it in GUI applications.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="1368">Gets the result from the asynchronous function.</doc>
+             line="1370">Gets the result from the asynchronous function.</doc>
         <source-position filename="lib/colord/cd-client.h" line="164"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/colord/cd-client.c"
-               line="1376">a #CdDevice or %NULL</doc>
+               line="1378">a #CdDevice or %NULL</doc>
           <type name="Device" c:type="CdDevice*"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1370">a #CdClient instance.</doc>
+                 line="1372">a #CdClient instance.</doc>
             <type name="Client" c:type="CdClient*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1371">the #GAsyncResult</doc>
+                 line="1373">the #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -1210,7 +1236,8 @@ Do not use it in GUI applications.</doc>
       <method name="find_device_by_property_sync"
               c:identifier="cd_client_find_device_by_property_sync"
               version="0.1.8"
-              throws="1">
+              throws="1"
+              glib:async-func="find_device_by_property">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client-sync.c"
              line="776">Finds a color device that has a property value.
@@ -1260,25 +1287,25 @@ Do not use it in GUI applications.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="1277">Gets the result from the asynchronous function.</doc>
+             line="1279">Gets the result from the asynchronous function.</doc>
         <source-position filename="lib/colord/cd-client.h" line="154"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/colord/cd-client.c"
-               line="1285">a #CdDevice or %NULL</doc>
+               line="1287">a #CdDevice or %NULL</doc>
           <type name="Device" c:type="CdDevice*"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1279">a #CdClient instance.</doc>
+                 line="1281">a #CdClient instance.</doc>
             <type name="Client" c:type="CdClient*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1280">the #GAsyncResult</doc>
+                 line="1282">the #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -1286,7 +1313,8 @@ Do not use it in GUI applications.</doc>
       <method name="find_device_sync"
               c:identifier="cd_client_find_device_sync"
               version="0.1.0"
-              throws="1">
+              throws="1"
+              glib:async-func="find_device">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client-sync.c"
              line="722">Finds a color device.
@@ -1326,10 +1354,12 @@ Do not use it in GUI applications.</doc>
       </method>
       <method name="find_profile"
               c:identifier="cd_client_find_profile"
-              version="0.1.8">
+              version="0.1.8"
+              glib:finish-func="find_profile_finish"
+              glib:sync-func="find_profile_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="1512">Finds a profile by an ID.</doc>
+             line="1514">Finds a profile by an ID.</doc>
         <source-position filename="lib/colord/cd-client.h" line="168"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1338,13 +1368,13 @@ Do not use it in GUI applications.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1514">a #CdClient instance.</doc>
+                 line="1516">a #CdClient instance.</doc>
             <type name="Client" c:type="CdClient*"/>
           </instance-parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1515">a profile id</doc>
+                 line="1517">a profile id</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1353,7 +1383,7 @@ Do not use it in GUI applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1516">a #GCancellable, or %NULL</doc>
+                 line="1518">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -1364,7 +1394,7 @@ Do not use it in GUI applications.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1517">the function to run on completion</doc>
+                 line="1519">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1373,17 +1403,19 @@ Do not use it in GUI applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1518">the data to pass to @callback</doc>
+                 line="1520">the data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
       </method>
       <method name="find_profile_by_filename"
               c:identifier="cd_client_find_profile_by_filename"
-              version="0.1.8">
+              version="0.1.8"
+              glib:finish-func="find_profile_by_filename_finish"
+              glib:sync-func="find_profile_by_filename_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="1603">Finds a profile by a filename.</doc>
+             line="1605">Finds a profile by a filename.</doc>
         <source-position filename="lib/colord/cd-client.h" line="178"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1392,13 +1424,13 @@ Do not use it in GUI applications.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1605">a #CdClient instance.</doc>
+                 line="1607">a #CdClient instance.</doc>
             <type name="Client" c:type="CdClient*"/>
           </instance-parameter>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1606">a profile filename</doc>
+                 line="1608">a profile filename</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1407,7 +1439,7 @@ Do not use it in GUI applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1607">a #GCancellable, or %NULL</doc>
+                 line="1609">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -1418,7 +1450,7 @@ Do not use it in GUI applications.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1608">the function to run on completion</doc>
+                 line="1610">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1427,7 +1459,7 @@ Do not use it in GUI applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1609">the data to pass to @callback</doc>
+                 line="1611">the data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1438,25 +1470,25 @@ Do not use it in GUI applications.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="1552">Gets the result from the asynchronous function.</doc>
+             line="1554">Gets the result from the asynchronous function.</doc>
         <source-position filename="lib/colord/cd-client.h" line="183"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/colord/cd-client.c"
-               line="1560">a #CdProfile or %NULL</doc>
+               line="1562">a #CdProfile or %NULL</doc>
           <type name="Profile" c:type="CdProfile*"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1554">a #CdClient instance.</doc>
+                 line="1556">a #CdClient instance.</doc>
             <type name="Client" c:type="CdClient*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1555">the #GAsyncResult</doc>
+                 line="1557">the #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -1464,7 +1496,8 @@ Do not use it in GUI applications.</doc>
       <method name="find_profile_by_filename_sync"
               c:identifier="cd_client_find_profile_by_filename_sync"
               version="0.1.3"
-              throws="1">
+              throws="1"
+              glib:async-func="find_profile_by_filename">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client-sync.c"
              line="271">Finds a color profile from its filename.
@@ -1504,10 +1537,12 @@ Do not use it in GUI applications.</doc>
       </method>
       <method name="find_profile_by_property"
               c:identifier="cd_client_find_profile_by_property"
-              version="0.1.24">
+              version="0.1.24"
+              glib:finish-func="find_profile_by_property_finish"
+              glib:sync-func="find_profile_by_property_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="2215">Finds a color profile that has a property value.</doc>
+             line="2217">Finds a color profile that has a property value.</doc>
         <source-position filename="lib/colord/cd-client.h" line="229"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1516,19 +1551,19 @@ Do not use it in GUI applications.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="2217">a #CdClient instance.</doc>
+                 line="2219">a #CdClient instance.</doc>
             <type name="Client" c:type="CdClient*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="2218">the profile property key</doc>
+                 line="2220">the profile property key</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="2219">the profile property value</doc>
+                 line="2221">the profile property value</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1537,7 +1572,7 @@ Do not use it in GUI applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="2220">a #GCancellable, or %NULL</doc>
+                 line="2222">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -1548,7 +1583,7 @@ Do not use it in GUI applications.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="2221">the function to run on completion</doc>
+                 line="2223">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1557,7 +1592,7 @@ Do not use it in GUI applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="2222">the data to pass to @callback</doc>
+                 line="2224">the data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1568,25 +1603,25 @@ Do not use it in GUI applications.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="2164">Gets the result from the asynchronous function.</doc>
+             line="2166">Gets the result from the asynchronous function.</doc>
         <source-position filename="lib/colord/cd-client.h" line="235"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/colord/cd-client.c"
-               line="2172">a #CdProfile or %NULL</doc>
+               line="2174">a #CdProfile or %NULL</doc>
           <type name="Profile" c:type="CdProfile*"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="2166">a #CdClient instance.</doc>
+                 line="2168">a #CdClient instance.</doc>
             <type name="Client" c:type="CdClient*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="2167">the #GAsyncResult</doc>
+                 line="2169">the #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -1594,7 +1629,8 @@ Do not use it in GUI applications.</doc>
       <method name="find_profile_by_property_sync"
               c:identifier="cd_client_find_profile_by_property_sync"
               version="0.1.24"
-              throws="1">
+              throws="1"
+              glib:async-func="find_profile_by_property">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client-sync.c"
              line="942">Finds a color profile that has a property value.
@@ -1644,25 +1680,25 @@ Do not use it in GUI applications.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="1461">Gets the result from the asynchronous function.</doc>
+             line="1463">Gets the result from the asynchronous function.</doc>
         <source-position filename="lib/colord/cd-client.h" line="173"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/colord/cd-client.c"
-               line="1469">a #CdProfile or %NULL</doc>
+               line="1471">a #CdProfile or %NULL</doc>
           <type name="Profile" c:type="CdProfile*"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1463">a #CdClient instance.</doc>
+                 line="1465">a #CdClient instance.</doc>
             <type name="Client" c:type="CdClient*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1464">the #GAsyncResult</doc>
+                 line="1466">the #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -1670,7 +1706,8 @@ Do not use it in GUI applications.</doc>
       <method name="find_profile_sync"
               c:identifier="cd_client_find_profile_sync"
               version="0.1.0"
-              throws="1">
+              throws="1"
+              glib:async-func="find_profile">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client-sync.c"
              line="216">Finds a color profile from its id.
@@ -1710,10 +1747,12 @@ Do not use it in GUI applications.</doc>
       </method>
       <method name="find_sensor"
               c:identifier="cd_client_find_sensor"
-              version="0.1.26">
+              version="0.1.26"
+              glib:finish-func="find_sensor_finish"
+              glib:sync-func="find_sensor_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="2308">Finds a sensor by an ID.</doc>
+             line="2310">Finds a sensor by an ID.</doc>
         <source-position filename="lib/colord/cd-client.h" line="239"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1722,13 +1761,13 @@ Do not use it in GUI applications.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="2310">a #CdClient instance.</doc>
+                 line="2312">a #CdClient instance.</doc>
             <type name="Client" c:type="CdClient*"/>
           </instance-parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="2311">a sensor id</doc>
+                 line="2313">a sensor id</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1737,7 +1776,7 @@ Do not use it in GUI applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="2312">a #GCancellable, or %NULL</doc>
+                 line="2314">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -1748,7 +1787,7 @@ Do not use it in GUI applications.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="2313">the function to run on completion</doc>
+                 line="2315">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1757,7 +1796,7 @@ Do not use it in GUI applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="2314">the data to pass to @callback</doc>
+                 line="2316">the data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1768,25 +1807,25 @@ Do not use it in GUI applications.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="2257">Gets the result from the asynchronous function.</doc>
+             line="2259">Gets the result from the asynchronous function.</doc>
         <source-position filename="lib/colord/cd-client.h" line="244"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/colord/cd-client.c"
-               line="2265">a #CdSensor or %NULL</doc>
+               line="2267">a #CdSensor or %NULL</doc>
           <type name="Sensor" c:type="CdSensor*"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="2259">a #CdClient instance.</doc>
+                 line="2261">a #CdClient instance.</doc>
             <type name="Client" c:type="CdClient*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="2260">the #GAsyncResult</doc>
+                 line="2262">the #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -1794,7 +1833,8 @@ Do not use it in GUI applications.</doc>
       <method name="find_sensor_sync"
               c:identifier="cd_client_find_sensor_sync"
               version="0.1.26"
-              throws="1">
+              throws="1"
+              glib:async-func="find_sensor">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client-sync.c"
              line="998">Finds a color sensor.
@@ -1880,10 +1920,12 @@ Do not use it in GUI applications.</doc>
       </method>
       <method name="get_devices"
               c:identifier="cd_client_get_devices"
-              version="0.1.8">
+              version="0.1.8"
+              glib:finish-func="get_devices_finish"
+              glib:sync-func="get_devices_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="1810">Gets an array of color devices.</doc>
+             line="1812">Gets an array of color devices.</doc>
         <source-position filename="lib/colord/cd-client.h" line="196"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1892,7 +1934,7 @@ Do not use it in GUI applications.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1812">a #CdClient instance.</doc>
+                 line="1814">a #CdClient instance.</doc>
             <type name="Client" c:type="CdClient*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -1901,7 +1943,7 @@ Do not use it in GUI applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1813">a #GCancellable, or %NULL</doc>
+                 line="1815">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -1912,7 +1954,7 @@ Do not use it in GUI applications.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1814">the function to run on completion</doc>
+                 line="1816">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1921,17 +1963,19 @@ Do not use it in GUI applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1815">the data to pass to @callback</doc>
+                 line="1817">the data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
       </method>
       <method name="get_devices_by_kind"
               c:identifier="cd_client_get_devices_by_kind"
-              version="0.1.8">
+              version="0.1.8"
+              glib:finish-func="get_devices_by_kind_finish"
+              glib:sync-func="get_devices_by_kind_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="1898">Gets an array of color devices.</doc>
+             line="1900">Gets an array of color devices.</doc>
         <source-position filename="lib/colord/cd-client.h" line="204"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1940,13 +1984,13 @@ Do not use it in GUI applications.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1900">a #CdClient instance.</doc>
+                 line="1902">a #CdClient instance.</doc>
             <type name="Client" c:type="CdClient*"/>
           </instance-parameter>
           <parameter name="kind" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1901">the type of device.</doc>
+                 line="1903">the type of device.</doc>
             <type name="DeviceKind" c:type="CdDeviceKind"/>
           </parameter>
           <parameter name="cancellable"
@@ -1955,7 +1999,7 @@ Do not use it in GUI applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1902">a #GCancellable, or %NULL</doc>
+                 line="1904">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -1966,7 +2010,7 @@ Do not use it in GUI applications.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1903">the function to run on completion</doc>
+                 line="1905">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1975,7 +2019,7 @@ Do not use it in GUI applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1904">the data to pass to @callback</doc>
+                 line="1906">the data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1986,12 +2030,12 @@ Do not use it in GUI applications.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="1847">Gets the result from the asynchronous function.</doc>
+             line="1849">Gets the result from the asynchronous function.</doc>
         <source-position filename="lib/colord/cd-client.h" line="209"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/colord/cd-client.c"
-               line="1855">the devices</doc>
+               line="1857">the devices</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="Device"/>
           </array>
@@ -2000,13 +2044,13 @@ Do not use it in GUI applications.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1849">a #CdClient instance.</doc>
+                 line="1851">a #CdClient instance.</doc>
             <type name="Client" c:type="CdClient*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1850">the #GAsyncResult</doc>
+                 line="1852">the #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -2014,7 +2058,8 @@ Do not use it in GUI applications.</doc>
       <method name="get_devices_by_kind_sync"
               c:identifier="cd_client_get_devices_by_kind_sync"
               version="0.1.0"
-              throws="1">
+              throws="1"
+              glib:async-func="get_devices_by_kind">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client-sync.c"
              line="887">Get an array of the device objects of a specified kind.
@@ -2061,12 +2106,12 @@ Do not use it in GUI applications.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="1759">Gets the result from the asynchronous function.</doc>
+             line="1761">Gets the result from the asynchronous function.</doc>
         <source-position filename="lib/colord/cd-client.h" line="200"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/colord/cd-client.c"
-               line="1767">the devices</doc>
+               line="1769">the devices</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="Device"/>
           </array>
@@ -2075,13 +2120,13 @@ Do not use it in GUI applications.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1761">a #CdClient instance.</doc>
+                 line="1763">a #CdClient instance.</doc>
             <type name="Client" c:type="CdClient*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1762">the #GAsyncResult</doc>
+                 line="1764">the #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -2089,7 +2134,8 @@ Do not use it in GUI applications.</doc>
       <method name="get_devices_sync"
               c:identifier="cd_client_get_devices_sync"
               version="0.1.0"
-              throws="1">
+              throws="1"
+              glib:async-func="get_devices">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client-sync.c"
              line="560">Get an array of the device objects.
@@ -2150,10 +2196,12 @@ to start if it is not already running.</doc>
       </method>
       <method name="get_profiles"
               c:identifier="cd_client_get_profiles"
-              version="0.1.8">
+              version="0.1.8"
+              glib:finish-func="get_profiles_finish"
+              glib:sync-func="get_profiles_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="2014">Gets an array of color profiles.</doc>
+             line="2016">Gets an array of color profiles.</doc>
         <source-position filename="lib/colord/cd-client.h" line="213"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2162,7 +2210,7 @@ to start if it is not already running.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="2016">a #CdClient instance.</doc>
+                 line="2018">a #CdClient instance.</doc>
             <type name="Client" c:type="CdClient*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -2171,7 +2219,7 @@ to start if it is not already running.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="2017">a #GCancellable, or %NULL</doc>
+                 line="2019">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -2182,7 +2230,7 @@ to start if it is not already running.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="2018">the function to run on completion</doc>
+                 line="2020">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -2191,7 +2239,7 @@ to start if it is not already running.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="2019">the data to pass to @callback</doc>
+                 line="2021">the data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -2202,12 +2250,12 @@ to start if it is not already running.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="1963">Gets the result from the asynchronous function.</doc>
+             line="1965">Gets the result from the asynchronous function.</doc>
         <source-position filename="lib/colord/cd-client.h" line="217"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="lib/colord/cd-client.c"
-               line="1971">the profiles</doc>
+               line="1973">the profiles</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="Profile"/>
           </array>
@@ -2216,13 +2264,13 @@ to start if it is not already running.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1965">a #CdClient instance.</doc>
+                 line="1967">a #CdClient instance.</doc>
             <type name="Client" c:type="CdClient*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1966">the #GAsyncResult</doc>
+                 line="1968">the #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -2230,7 +2278,8 @@ to start if it is not already running.</doc>
       <method name="get_profiles_sync"
               c:identifier="cd_client_get_profiles_sync"
               version="0.1.0"
-              throws="1">
+              throws="1"
+              glib:async-func="get_profiles">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client-sync.c"
              line="614">Get an array of the profile objects.
@@ -2267,10 +2316,12 @@ Do not use it in GUI applications.</doc>
       </method>
       <method name="get_sensors"
               c:identifier="cd_client_get_sensors"
-              version="0.1.8">
+              version="0.1.8"
+              glib:finish-func="get_sensors_finish"
+              glib:sync-func="get_sensors_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="2127">Gets an array of color sensors.</doc>
+             line="2129">Gets an array of color sensors.</doc>
         <source-position filename="lib/colord/cd-client.h" line="221"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2279,7 +2330,7 @@ Do not use it in GUI applications.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="2129">a #CdClient instance.</doc>
+                 line="2131">a #CdClient instance.</doc>
             <type name="Client" c:type="CdClient*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -2288,7 +2339,7 @@ Do not use it in GUI applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="2130">a #GCancellable, or %NULL</doc>
+                 line="2132">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -2299,7 +2350,7 @@ Do not use it in GUI applications.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="2131">the function to run on completion</doc>
+                 line="2133">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -2308,7 +2359,7 @@ Do not use it in GUI applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="2132">the data to pass to @callback</doc>
+                 line="2134">the data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -2319,12 +2370,12 @@ Do not use it in GUI applications.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="2076">Gets the result from the asynchronous function.</doc>
+             line="2078">Gets the result from the asynchronous function.</doc>
         <source-position filename="lib/colord/cd-client.h" line="225"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/colord/cd-client.c"
-               line="2084">the sensors</doc>
+               line="2086">the sensors</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="Sensor"/>
           </array>
@@ -2333,13 +2384,13 @@ Do not use it in GUI applications.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="2078">a #CdClient instance.</doc>
+                 line="2080">a #CdClient instance.</doc>
             <type name="Client" c:type="CdClient*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="2079">the #GAsyncResult</doc>
+                 line="2081">the #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -2347,7 +2398,8 @@ Do not use it in GUI applications.</doc>
       <method name="get_sensors_sync"
               c:identifier="cd_client_get_sensors_sync"
               version="0.1.0"
-              throws="1">
+              throws="1"
+              glib:async-func="get_sensors">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client-sync.c"
              line="668">Get an array of the sensor objects.
@@ -2384,10 +2436,12 @@ Do not use it in GUI applications.</doc>
       </method>
       <method name="get_standard_space"
               c:identifier="cd_client_get_standard_space"
-              version="0.1.8">
+              version="0.1.8"
+              glib:finish-func="get_standard_space_finish"
+              glib:sync-func="get_standard_space_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="1694">Finds a standard profile space.</doc>
+             line="1696">Finds a standard profile space.</doc>
         <source-position filename="lib/colord/cd-client.h" line="187"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2396,13 +2450,13 @@ Do not use it in GUI applications.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1696">a #CdStandardSpace instance.</doc>
+                 line="1698">a #CdStandardSpace instance.</doc>
             <type name="Client" c:type="CdClient*"/>
           </instance-parameter>
           <parameter name="standard_space" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1697">a profile id</doc>
+                 line="1699">a profile id</doc>
             <type name="StandardSpace" c:type="CdStandardSpace"/>
           </parameter>
           <parameter name="cancellable"
@@ -2411,7 +2465,7 @@ Do not use it in GUI applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1698">a #GCancellable, or %NULL</doc>
+                 line="1700">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -2422,7 +2476,7 @@ Do not use it in GUI applications.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1699">the function to run on completion</doc>
+                 line="1701">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -2431,7 +2485,7 @@ Do not use it in GUI applications.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1700">the data to pass to @callback</doc>
+                 line="1702">the data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -2442,25 +2496,25 @@ Do not use it in GUI applications.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="1643">Gets the result from the asynchronous function.</doc>
+             line="1645">Gets the result from the asynchronous function.</doc>
         <source-position filename="lib/colord/cd-client.h" line="192"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/colord/cd-client.c"
-               line="1651">a #CdProfile or %NULL</doc>
+               line="1653">a #CdProfile or %NULL</doc>
           <type name="Profile" c:type="CdProfile*"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1645">a #CdClient instance.</doc>
+                 line="1647">a #CdClient instance.</doc>
             <type name="Client" c:type="CdClient*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1646">the #GAsyncResult</doc>
+                 line="1648">the #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -2468,7 +2522,8 @@ Do not use it in GUI applications.</doc>
       <method name="get_standard_space_sync"
               c:identifier="cd_client_get_standard_space_sync"
               version="0.1.2"
-              throws="1">
+              throws="1"
+              glib:async-func="get_standard_space">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client-sync.c"
              line="832">Finds a standard colorspace.
@@ -2554,10 +2609,12 @@ Do not use it in GUI applications.</doc>
       </method>
       <method name="import_profile"
               c:identifier="cd_client_import_profile"
-              version="0.1.12">
+              version="0.1.12"
+              glib:finish-func="import_profile_finish"
+              glib:sync-func="import_profile_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="1060">Imports a color profile into the users home directory.
+             line="1062">Imports a color profile into the users home directory.
 
 If the profile should be accessible for all users, then call
 cd_profile_install_system_wide() on the result.</doc>
@@ -2569,13 +2626,13 @@ cd_profile_install_system_wide() on the result.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1062">a #CdClient instance.</doc>
+                 line="1064">a #CdClient instance.</doc>
             <type name="Client" c:type="CdClient*"/>
           </instance-parameter>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1063">a #GFile</doc>
+                 line="1065">a #GFile</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
           <parameter name="cancellable"
@@ -2584,7 +2641,7 @@ cd_profile_install_system_wide() on the result.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1064">a #GCancellable, or %NULL</doc>
+                 line="1066">a #GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -2595,7 +2652,7 @@ cd_profile_install_system_wide() on the result.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1065">the function to run on completion</doc>
+                 line="1067">the function to run on completion</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -2604,7 +2661,7 @@ cd_profile_install_system_wide() on the result.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="1066">the data to pass to @callback</doc>
+                 line="1068">the data to pass to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -2615,25 +2672,25 @@ cd_profile_install_system_wide() on the result.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="893">Gets the result from the asynchronous function.</doc>
+             line="892">Gets the result from the asynchronous function.</doc>
         <source-position filename="lib/colord/cd-client.h" line="127"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/colord/cd-client.c"
-               line="901">a #CdProfile or %NULL</doc>
+               line="900">a #CdProfile or %NULL</doc>
           <type name="Profile" c:type="CdProfile*"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="895">a #CdClient instance.</doc>
+                 line="894">a #CdClient instance.</doc>
             <type name="Client" c:type="CdClient*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="896">the #GAsyncResult</doc>
+                 line="895">the #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -2641,7 +2698,8 @@ cd_profile_install_system_wide() on the result.</doc>
       <method name="import_profile_sync"
               c:identifier="cd_client_import_profile_sync"
               version="0.1.12"
-              throws="1">
+              throws="1"
+              glib:async-func="import_profile">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client-sync.c"
              line="445">Imports a color profile into the users home directory.
@@ -2686,7 +2744,7 @@ Do not use it in GUI applications.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="2432">The if the object path has been connected as is valid for use.</doc>
+             line="2434">The if the object path has been connected as is valid for use.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="daemon-version"
@@ -2696,7 +2754,7 @@ Do not use it in GUI applications.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="2390">The daemon version.</doc>
+             line="2392">The daemon version.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="system-model"
@@ -2706,7 +2764,7 @@ Do not use it in GUI applications.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="2418">The system model.</doc>
+             line="2420">The system model.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="system-vendor"
@@ -2716,7 +2774,7 @@ Do not use it in GUI applications.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="2404">The system vendor.</doc>
+             line="2406">The system vendor.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <field name="parent_instance">
@@ -2725,7 +2783,7 @@ Do not use it in GUI applications.</doc>
       <glib:signal name="changed" when="last" version="0.1.0">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="2586">The ::changed signal is emitted when properties may have changed.</doc>
+             line="2588">The ::changed signal is emitted when properties may have changed.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2733,7 +2791,7 @@ Do not use it in GUI applications.</doc>
       <glib:signal name="device-added" when="last" version="0.1.0">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="2446">The ::device-added signal is emitted when a device is added.</doc>
+             line="2448">The ::device-added signal is emitted when a device is added.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2741,7 +2799,7 @@ Do not use it in GUI applications.</doc>
           <parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="2449">the #CdDevice that was added.</doc>
+                 line="2451">the #CdDevice that was added.</doc>
             <type name="Device"/>
           </parameter>
         </parameters>
@@ -2749,7 +2807,7 @@ Do not use it in GUI applications.</doc>
       <glib:signal name="device-changed" when="last" version="0.1.2">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="2477">The ::device-changed signal is emitted when a device is changed.</doc>
+             line="2479">The ::device-changed signal is emitted when a device is changed.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2757,7 +2815,7 @@ Do not use it in GUI applications.</doc>
           <parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="2480">the #CdDevice that was changed.</doc>
+                 line="2482">the #CdDevice that was changed.</doc>
             <type name="Device"/>
           </parameter>
         </parameters>
@@ -2765,7 +2823,7 @@ Do not use it in GUI applications.</doc>
       <glib:signal name="device-removed" when="last" version="0.1.0">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="2462">The ::device-removed signal is emitted when a device is removed.</doc>
+             line="2464">The ::device-removed signal is emitted when a device is removed.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2773,7 +2831,7 @@ Do not use it in GUI applications.</doc>
           <parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="2465">the #CdDevice that was removed.</doc>
+                 line="2467">the #CdDevice that was removed.</doc>
             <type name="Device"/>
           </parameter>
         </parameters>
@@ -2781,7 +2839,7 @@ Do not use it in GUI applications.</doc>
       <glib:signal name="profile-added" when="last" version="0.1.2">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="2492">The ::profile-added signal is emitted when a profile is added.</doc>
+             line="2494">The ::profile-added signal is emitted when a profile is added.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2789,7 +2847,7 @@ Do not use it in GUI applications.</doc>
           <parameter name="profile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="2495">the #CdProfile that was added.</doc>
+                 line="2497">the #CdProfile that was added.</doc>
             <type name="Profile"/>
           </parameter>
         </parameters>
@@ -2797,7 +2855,7 @@ Do not use it in GUI applications.</doc>
       <glib:signal name="profile-changed" when="last" version="0.1.2">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="2523">The ::profile-changed signal is emitted when a profile is changed.</doc>
+             line="2525">The ::profile-changed signal is emitted when a profile is changed.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2805,7 +2863,7 @@ Do not use it in GUI applications.</doc>
           <parameter name="profile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="2526">the #CdProfile that was removed.</doc>
+                 line="2528">the #CdProfile that was removed.</doc>
             <type name="Profile"/>
           </parameter>
         </parameters>
@@ -2813,7 +2871,7 @@ Do not use it in GUI applications.</doc>
       <glib:signal name="profile-removed" when="last" version="0.1.2">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="2508">The ::profile-added signal is emitted when a profile is removed.</doc>
+             line="2510">The ::profile-added signal is emitted when a profile is removed.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2821,7 +2879,7 @@ Do not use it in GUI applications.</doc>
           <parameter name="profile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="2511">the #CdProfile that was removed.</doc>
+                 line="2513">the #CdProfile that was removed.</doc>
             <type name="Profile"/>
           </parameter>
         </parameters>
@@ -2829,7 +2887,7 @@ Do not use it in GUI applications.</doc>
       <glib:signal name="sensor-added" when="last" version="0.1.6">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="2539">The ::sensor-added signal is emitted when a sensor is added.</doc>
+             line="2541">The ::sensor-added signal is emitted when a sensor is added.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2837,7 +2895,7 @@ Do not use it in GUI applications.</doc>
           <parameter name="sensor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="2542">the #CdSensor that was added.</doc>
+                 line="2544">the #CdSensor that was added.</doc>
             <type name="Sensor"/>
           </parameter>
         </parameters>
@@ -2845,7 +2903,7 @@ Do not use it in GUI applications.</doc>
       <glib:signal name="sensor-changed" when="last" version="0.1.6">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="2570">The ::sensor-changed signal is emitted when a sensor is changed.</doc>
+             line="2572">The ::sensor-changed signal is emitted when a sensor is changed.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2853,7 +2911,7 @@ Do not use it in GUI applications.</doc>
           <parameter name="sensor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="2573">the #CdSensor that was removed.</doc>
+                 line="2575">the #CdSensor that was removed.</doc>
             <type name="Sensor"/>
           </parameter>
         </parameters>
@@ -2861,7 +2919,7 @@ Do not use it in GUI applications.</doc>
       <glib:signal name="sensor-removed" when="last" version="0.1.6">
         <doc xml:space="preserve"
              filename="lib/colord/cd-client.c"
-             line="2555">The ::sensor-added signal is emitted when a sensor is removed.</doc>
+             line="2557">The ::sensor-added signal is emitted when a sensor is removed.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2869,7 +2927,7 @@ Do not use it in GUI applications.</doc>
           <parameter name="sensor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-client.c"
-                 line="2558">the #CdSensor that was removed.</doc>
+                 line="2560">the #CdSensor that was removed.</doc>
             <type name="Sensor"/>
           </parameter>
         </parameters>
@@ -4662,7 +4720,9 @@ non-monotonic, in which case it falls back to linear interpolation.</doc>
       </virtual-method>
       <method name="add_profile"
               c:identifier="cd_device_add_profile"
-              version="0.1.8">
+              version="0.1.8"
+              glib:finish-func="add_profile_finish"
+              glib:sync-func="add_profile_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-device.c"
              line="1087">Adds a profile to a device.</doc>
@@ -4752,7 +4812,8 @@ non-monotonic, in which case it falls back to linear interpolation.</doc>
       <method name="add_profile_sync"
               c:identifier="cd_device_add_profile_sync"
               version="0.1.3"
-              throws="1">
+              throws="1"
+              glib:async-func="add_profile">
         <doc xml:space="preserve"
              filename="lib/colord/cd-device-sync.c"
              line="170">Adds a profile to a device.
@@ -4796,7 +4857,11 @@ Do not use it in GUI applications.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="connect" c:identifier="cd_device_connect" version="0.1.8">
+      <method name="connect"
+              c:identifier="cd_device_connect"
+              version="0.1.8"
+              glib:finish-func="connect_finish"
+              glib:sync-func="connect_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-device.c"
              line="893">Connects to the object and fills up initial properties.</doc>
@@ -4874,7 +4939,8 @@ Do not use it in GUI applications.</doc>
       <method name="connect_sync"
               c:identifier="cd_device_connect_sync"
               version="0.1.8"
-              throws="1">
+              throws="1"
+              glib:async-func="connect">
         <doc xml:space="preserve"
              filename="lib/colord/cd-device-sync.c"
              line="62">Connects to the object and fills up initial properties.
@@ -5311,7 +5377,9 @@ removed.</doc>
       </method>
       <method name="get_profile_for_qualifiers"
               c:identifier="cd_device_get_profile_for_qualifiers"
-              version="0.1.8">
+              version="0.1.8"
+              glib:finish-func="get_profile_for_qualifiers_finish"
+              glib:sync-func="get_profile_for_qualifiers_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-device.c"
              line="1516">Gets the preferred profile for some qualifiers.</doc>
@@ -5395,7 +5463,8 @@ removed.</doc>
       <method name="get_profile_for_qualifiers_sync"
               c:identifier="cd_device_get_profile_for_qualifiers_sync"
               version="0.1.8"
-              throws="1">
+              throws="1"
+              glib:async-func="get_profile_for_qualifiers">
         <doc xml:space="preserve"
              filename="lib/colord/cd-device-sync.c"
              line="280">Gets the preferred profile for some qualifiers.
@@ -5435,7 +5504,9 @@ Do not use it in GUI applications.</doc>
       </method>
       <method name="get_profile_relation"
               c:identifier="cd_device_get_profile_relation"
-              version="0.1.8">
+              version="0.1.8"
+              glib:finish-func="get_profile_relation_finish"
+              glib:sync-func="get_profile_relation_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-device.c"
              line="1615">Gets the property relationship to the device.</doc>
@@ -5519,7 +5590,8 @@ Do not use it in GUI applications.</doc>
       <method name="get_profile_relation_sync"
               c:identifier="cd_device_get_profile_relation_sync"
               version="0.1.8"
-              throws="1">
+              throws="1"
+              glib:async-func="get_profile_relation">
         <doc xml:space="preserve"
              filename="lib/colord/cd-device-sync.c"
              line="494">Gets the property relationship to the device.
@@ -5700,7 +5772,9 @@ Do not use it in GUI applications.</doc>
       </method>
       <method name="make_profile_default"
               c:identifier="cd_device_make_profile_default"
-              version="0.1.8">
+              version="0.1.8"
+              glib:finish-func="make_profile_default_finish"
+              glib:sync-func="make_profile_default_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-device.c"
              line="1260">Makes an already added profile default for a device.</doc>
@@ -5784,7 +5858,8 @@ Do not use it in GUI applications.</doc>
       <method name="make_profile_default_sync"
               c:identifier="cd_device_make_profile_default_sync"
               version="0.1.8"
-              throws="1">
+              throws="1"
+              glib:async-func="make_profile_default">
         <doc xml:space="preserve"
              filename="lib/colord/cd-device-sync.c"
              line="334">Makes an already added profile default for a device.
@@ -5824,7 +5899,9 @@ Do not use it in GUI applications.</doc>
       </method>
       <method name="profiling_inhibit"
               c:identifier="cd_device_profiling_inhibit"
-              version="0.1.8">
+              version="0.1.8"
+              glib:finish-func="profiling_inhibit_finish"
+              glib:sync-func="profiling_inhibit_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-device.c"
              line="1345">Sets up the device for profiling and causes no profiles to be
@@ -5903,7 +5980,8 @@ returned if cd_device_get_profile_for_qualifiers_sync() is used.</doc>
       <method name="profiling_inhibit_sync"
               c:identifier="cd_device_profiling_inhibit_sync"
               version="0.1.1"
-              throws="1">
+              throws="1"
+              glib:async-func="profiling_inhibit">
         <doc xml:space="preserve"
              filename="lib/colord/cd-device-sync.c"
              line="388">Sets up the device for profiling and causes no profiles to be
@@ -5938,7 +6016,9 @@ Do not use it in GUI applications.</doc>
       </method>
       <method name="profiling_uninhibit"
               c:identifier="cd_device_profiling_uninhibit"
-              version="0.1.8">
+              version="0.1.8"
+              glib:finish-func="profiling_uninhibit_finish"
+              glib:sync-func="profiling_uninhibit_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-device.c"
              line="1427">Restores the device after profiling and causes normal profiles to be
@@ -6017,7 +6097,8 @@ returned if cd_device_get_profile_for_qualifiers_sync() is used.</doc>
       <method name="profiling_uninhibit_sync"
               c:identifier="cd_device_profiling_uninhibit_sync"
               version="0.1.1"
-              throws="1">
+              throws="1"
+              glib:async-func="profiling_uninhibit">
         <doc xml:space="preserve"
              filename="lib/colord/cd-device-sync.c"
              line="441">Sets up the device for profiling and causes no profiles to be
@@ -6052,7 +6133,9 @@ Do not use it in GUI applications.</doc>
       </method>
       <method name="remove_profile"
               c:identifier="cd_device_remove_profile"
-              version="0.1.8">
+              version="0.1.8"
+              glib:finish-func="remove_profile_finish"
+              glib:sync-func="remove_profile_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-device.c"
              line="1175">Removes a profile from a device.</doc>
@@ -6136,7 +6219,8 @@ Do not use it in GUI applications.</doc>
       <method name="remove_profile_sync"
               c:identifier="cd_device_remove_profile_sync"
               version="0.1.2"
-              throws="1">
+              throws="1"
+              glib:async-func="remove_profile">
         <doc xml:space="preserve"
              filename="lib/colord/cd-device-sync.c"
              line="226">Removes a profile from a device.
@@ -6217,7 +6301,9 @@ Do not use it in GUI applications.</doc>
       </method>
       <method name="set_enabled"
               c:identifier="cd_device_set_enabled"
-              version="0.1.26">
+              version="0.1.26"
+              glib:finish-func="set_enabled_finish"
+              glib:sync-func="set_enabled_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-device.c"
              line="1700">Enables or disables a device.</doc>
@@ -6301,7 +6387,8 @@ Do not use it in GUI applications.</doc>
       <method name="set_enabled_sync"
               c:identifier="cd_device_set_enabled_sync"
               version="0.1.26"
-              throws="1">
+              throws="1"
+              glib:async-func="set_enabled">
         <doc xml:space="preserve"
              filename="lib/colord/cd-device-sync.c"
              line="548">Enables or disables a device.
@@ -6490,7 +6577,9 @@ Do not use it in GUI applications.</doc>
       </method>
       <method name="set_property"
               c:identifier="cd_device_set_property"
-              version="0.1.8">
+              version="0.1.8"
+              glib:finish-func="set_property_finish"
+              glib:sync-func="set_property_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-device.c"
              line="999">Sets a property on the device.</doc>
@@ -6580,7 +6669,8 @@ Do not use it in GUI applications.</doc>
       <method name="set_property_sync"
               c:identifier="cd_device_set_property_sync"
               version="0.1.8"
-              throws="1">
+              throws="1"
+              glib:async-func="set_property">
         <doc xml:space="preserve"
              filename="lib/colord/cd-device-sync.c"
              line="114">Sets an object property.
@@ -7566,12 +7656,12 @@ Do not use it in GUI applications.</doc>
       <constructor name="new" c:identifier="cd_icc_new" version="0.1.32">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="4090">Creates a new #CdIcc object.</doc>
+             line="4091">Creates a new #CdIcc object.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="132"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/colord/cd-icc.c"
-               line="4095">a new CdIcc object.</doc>
+               line="4096">a new CdIcc object.</doc>
           <type name="Icc" c:type="CdIcc*"/>
         </return-value>
       </constructor>
@@ -7590,7 +7680,7 @@ Do not use it in GUI applications.</doc>
               version="0.1.32">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="2297">Sets an item of data to the profile metadata, overwriting it if
+             line="2298">Sets an item of data to the profile metadata, overwriting it if
 it already exists.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="191"/>
         <return-value transfer-ownership="none">
@@ -7600,19 +7690,19 @@ it already exists.</doc>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2299">A valid #CdIcc</doc>
+                 line="2300">A valid #CdIcc</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2300">the metadata key</doc>
+                 line="2301">the metadata key</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2301">the UTF-8 metadata value</doc>
+                 line="2302">the UTF-8 metadata value</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -7623,19 +7713,19 @@ it already exists.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="3102">Creates a default sRGB ICC profile.</doc>
+             line="3103">Creates a default sRGB ICC profile.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="256"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/colord/cd-icc.c"
-               line="3109">%TRUE for success</doc>
+               line="3110">%TRUE for success</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="3104">A valid #CdIcc</doc>
+                 line="3105">A valid #CdIcc</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
         </parameters>
@@ -7646,25 +7736,25 @@ it already exists.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="3045">Creates a default sRGB ICC profile.</doc>
+             line="3046">Creates a default sRGB ICC profile.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="259"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/colord/cd-icc.c"
-               line="3053">%TRUE for success</doc>
+               line="3054">%TRUE for success</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="3047">A valid #CdIcc</doc>
+                 line="3048">A valid #CdIcc</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="3048">a set of #CdIccLoadFlags</doc>
+                 line="3049">a set of #CdIccLoadFlags</doc>
             <type name="IccLoadFlags" c:type="CdIccLoadFlags"/>
           </parameter>
         </parameters>
@@ -7675,49 +7765,49 @@ it already exists.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="3181">Creates an ICC profile from EDID data.</doc>
+             line="3182">Creates an ICC profile from EDID data.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="244"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/colord/cd-icc.c"
-               line="3193">%TRUE for success</doc>
+               line="3194">%TRUE for success</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="3183">A valid #CdIcc</doc>
+                 line="3184">A valid #CdIcc</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
           <parameter name="gamma_value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="3184">approximate device gamma</doc>
+                 line="3185">approximate device gamma</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="red" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="3185">primary color value</doc>
+                 line="3186">primary color value</doc>
             <type name="ColorYxy" c:type="const CdColorYxy*"/>
           </parameter>
           <parameter name="green" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="3186">primary color value</doc>
+                 line="3187">primary color value</doc>
             <type name="ColorYxy" c:type="const CdColorYxy*"/>
           </parameter>
           <parameter name="blue" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="3187">primary color value</doc>
+                 line="3188">primary color value</doc>
             <type name="ColorYxy" c:type="const CdColorYxy*"/>
           </parameter>
           <parameter name="white" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="3188">whitepoint value</doc>
+                 line="3189">whitepoint value</doc>
             <type name="ColorYxy" c:type="const CdColorYxy*"/>
           </parameter>
         </parameters>
@@ -7728,25 +7818,25 @@ it already exists.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="3119">Creates an ICC profile from EDID data.</doc>
+             line="3120">Creates an ICC profile from EDID data.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="252"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/colord/cd-icc.c"
-               line="3127">%TRUE for success</doc>
+               line="3128">%TRUE for success</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="3121">A valid #CdIcc</doc>
+                 line="3122">A valid #CdIcc</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
           <parameter name="edid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="3122">EDID data</doc>
+                 line="3123">EDID data</doc>
             <type name="Edid" c:type="CdEdid*"/>
           </parameter>
         </parameters>
@@ -7757,21 +7847,21 @@ it already exists.</doc>
               version="0.1.32">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="3005">Gets the profile red chromaticity value.
+             line="3006">Gets the profile red chromaticity value.
 This function will only return results if the profile was loaded with the
 %CD_ICC_LOAD_FLAGS_PRIMARIES flag.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="239"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/colord/cd-icc.c"
-               line="3013">the #CdColorXYZ value</doc>
+               line="3014">the #CdColorXYZ value</doc>
           <type name="ColorXYZ" c:type="const CdColorXYZ*"/>
         </return-value>
         <parameters>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="3007">a valid #CdIcc instance</doc>
+                 line="3008">a valid #CdIcc instance</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
         </parameters>
@@ -7782,21 +7872,21 @@ This function will only return results if the profile was loaded with the
               version="0.1.32">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="2429">Finds out if the profile could be deleted.
+             line="2430">Finds out if the profile could be deleted.
 This is only applicable for profiles loaded with cd_icc_load_file() as
 obviously data and fd's cannot be sanely unlinked.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="197"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/colord/cd-icc.c"
-               line="2437">%TRUE if g_file_delete() would likely work</doc>
+               line="2438">%TRUE if g_file_delete() would likely work</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2431">a #CdIcc instance.</doc>
+                 line="2432">a #CdIcc instance.</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
         </parameters>
@@ -7806,21 +7896,21 @@ obviously data and fd's cannot be sanely unlinked.</doc>
               version="1.1.1">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="1758">Gets any characterization data used to build the profile.
+             line="1759">Gets any characterization data used to build the profile.
 This function will only return results if the profile was loaded with the
 %CD_ICC_LOAD_FLAGS_CHARACTERIZATION flag.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="205"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/colord/cd-icc.c"
-               line="1766">TI3 string data</doc>
+               line="1767">TI3 string data</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="1760">a #CdIcc instance.</doc>
+                 line="1761">a #CdIcc instance.</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
         </parameters>
@@ -7831,7 +7921,7 @@ This function will only return results if the profile was loaded with the
               version="0.1.32">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="2504">Gets the profile checksum if one exists.
+             line="2505">Gets the profile checksum if one exists.
 This will either be the embedded profile ID, or the file checksum if
 the #CdIcc object was loaded using cd_icc_load_data() or cd_icc_load_file()
 and the %CD_ICC_LOAD_FLAGS_FALLBACK_MD5 flag is used.</doc>
@@ -7839,14 +7929,14 @@ and the %CD_ICC_LOAD_FLAGS_FALLBACK_MD5 flag is used.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/colord/cd-icc.c"
-               line="2513">An embedded MD5 checksum, or %NULL for not set</doc>
+               line="2514">An embedded MD5 checksum, or %NULL for not set</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2506">A valid #CdIcc</doc>
+                 line="2507">A valid #CdIcc</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
         </parameters>
@@ -7857,19 +7947,19 @@ and the %CD_ICC_LOAD_FLAGS_FALLBACK_MD5 flag is used.</doc>
               version="0.1.32">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="2223">Gets the profile colorspace</doc>
+             line="2224">Gets the profile colorspace</doc>
         <source-position filename="lib/colord/cd-icc.h" line="185"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/colord/cd-icc.c"
-               line="2229">The profile colorspace, e.g. %CD_COLORSPACE_RGB</doc>
+               line="2230">The profile colorspace, e.g. %CD_COLORSPACE_RGB</doc>
           <type name="Colorspace" c:type="CdColorspace"/>
         </return-value>
         <parameters>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2225">a #CdIcc instance.</doc>
+                 line="2226">a #CdIcc instance.</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
         </parameters>
@@ -7879,20 +7969,20 @@ and the %CD_ICC_LOAD_FLAGS_FALLBACK_MD5 flag is used.</doc>
               version="1.1.7">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="2043">Return the cmsContext instance used locally. This may be required if you
+             line="2044">Return the cmsContext instance used locally. This may be required if you
 are using native LCMS calls and then cd_icc_load_handle().</doc>
         <source-position filename="lib/colord/cd-icc.h" line="174"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="lib/colord/cd-icc.c"
-               line="2050">Do not call cmsDeleteContext() on this value!</doc>
+               line="2051">Do not call cmsDeleteContext() on this value!</doc>
           <type name="gpointer" c:type="gpointer"/>
         </return-value>
         <parameters>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2045">a #CdIcc instance.</doc>
+                 line="2046">a #CdIcc instance.</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
         </parameters>
@@ -7903,14 +7993,14 @@ are using native LCMS calls and then cd_icc_load_handle().</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="2675">Gets the profile copyright.
+             line="2676">Gets the profile copyright.
 If the translated text is not available in the selected locale then the
 default untranslated (en_US) text is returned.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="208"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/colord/cd-icc.c"
-               line="2685">The text as a UTF-8 string, or %NULL of the locale is invalid
+               line="2686">The text as a UTF-8 string, or %NULL of the locale is invalid
               or the tag does not exist.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -7918,13 +8008,13 @@ default untranslated (en_US) text is returned.</doc>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2677">A valid #CdIcc</doc>
+                 line="2678">A valid #CdIcc</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
           <parameter name="locale" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2678">A locale, e.g. "en_GB.UTF-8" or %NULL for the profile default</doc>
+                 line="2679">A locale, e.g. "en_GB.UTF-8" or %NULL for the profile default</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -7934,19 +8024,19 @@ default untranslated (en_US) text is returned.</doc>
               version="0.1.32">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="2449">Gets the ICC creation date and time.</doc>
+             line="2450">Gets the ICC creation date and time.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="198"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/colord/cd-icc.c"
-               line="2455">A #GDateTime object, or %NULL for not set</doc>
+               line="2456">A #GDateTime object, or %NULL for not set</doc>
           <type name="GLib.DateTime" c:type="GDateTime*"/>
         </return-value>
         <parameters>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2451">A valid #CdIcc</doc>
+                 line="2452">A valid #CdIcc</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
         </parameters>
@@ -7957,14 +8047,14 @@ default untranslated (en_US) text is returned.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="2647">Gets the profile description.
+             line="2648">Gets the profile description.
 If the translated text is not available in the selected locale then the
 default untranslated (en_US) text is returned.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="202"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/colord/cd-icc.c"
-               line="2657">The text as a UTF-8 string, or %NULL of the locale is invalid
+               line="2658">The text as a UTF-8 string, or %NULL of the locale is invalid
               or the tag does not exist.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -7972,13 +8062,13 @@ default untranslated (en_US) text is returned.</doc>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2649">A valid #CdIcc</doc>
+                 line="2650">A valid #CdIcc</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
           <parameter name="locale" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2650">A locale, e.g. "en_GB.UTF-8" or %NULL for the profile default</doc>
+                 line="2651">A locale, e.g. "en_GB.UTF-8" or %NULL for the profile default</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -7989,19 +8079,19 @@ default untranslated (en_US) text is returned.</doc>
               version="0.1.32">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="2133">Gets the filename of the ICC data, if one exists.</doc>
+             line="2134">Gets the filename of the ICC data, if one exists.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="176"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/colord/cd-icc.c"
-               line="2139">A filename, or %NULL</doc>
+               line="2140">A filename, or %NULL</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2135">A valid #CdIcc</doc>
+                 line="2136">A valid #CdIcc</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
         </parameters>
@@ -8012,21 +8102,21 @@ default untranslated (en_US) text is returned.</doc>
               version="0.1.32">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="2985">Gets the profile green chromaticity value.
+             line="2986">Gets the profile green chromaticity value.
 This function will only return results if the profile was loaded with the
 %CD_ICC_LOAD_FLAGS_PRIMARIES flag.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="238"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/colord/cd-icc.c"
-               line="2993">the #CdColorXYZ value</doc>
+               line="2994">the #CdColorXYZ value</doc>
           <type name="ColorXYZ" c:type="const CdColorXYZ*"/>
         </return-value>
         <parameters>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2987">a valid #CdIcc instance</doc>
+                 line="2988">a valid #CdIcc instance</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
         </parameters>
@@ -8034,20 +8124,20 @@ This function will only return results if the profile was loaded with the
       <method name="get_handle" c:identifier="cd_icc_get_handle">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="2026">Return the cmsHPROFILE instance used locally. This may be required if you
+             line="2027">Return the cmsHPROFILE instance used locally. This may be required if you
 are using the profile in a transform.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="173"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="lib/colord/cd-icc.c"
-               line="2033">Do not call cmsCloseProfile() on this value!</doc>
+               line="2034">Do not call cmsCloseProfile() on this value!</doc>
           <type name="gpointer" c:type="gpointer"/>
         </return-value>
         <parameters>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2028">a #CdIcc instance.</doc>
+                 line="2029">a #CdIcc instance.</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
         </parameters>
@@ -8058,19 +8148,19 @@ are using the profile in a transform.</doc>
               version="0.1.32">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="2187">Gets the profile kind.</doc>
+             line="2188">Gets the profile kind.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="182"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/colord/cd-icc.c"
-               line="2193">The kind, e.g. %CD_PROFILE_KIND_INPUT</doc>
+               line="2194">The kind, e.g. %CD_PROFILE_KIND_INPUT</doc>
           <type name="ProfileKind" c:type="CdProfileKind"/>
         </return-value>
         <parameters>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2189">a #CdIcc instance.</doc>
+                 line="2190">a #CdIcc instance.</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
         </parameters>
@@ -8081,14 +8171,14 @@ are using the profile in a transform.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="2701">Gets the profile manufacturer.
+             line="2702">Gets the profile manufacturer.
 If the translated text is not available in the selected locale then the
 default untranslated (en_US) text is returned.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="211"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/colord/cd-icc.c"
-               line="2711">The text as a UTF-8 string, or %NULL of the locale is invalid
+               line="2712">The text as a UTF-8 string, or %NULL of the locale is invalid
               or the tag does not exist.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -8096,13 +8186,13 @@ default untranslated (en_US) text is returned.</doc>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2703">A valid #CdIcc</doc>
+                 line="2704">A valid #CdIcc</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
           <parameter name="locale" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2704">A locale, e.g. "en_GB.UTF-8" or %NULL for the profile default</doc>
+                 line="2705">A locale, e.g. "en_GB.UTF-8" or %NULL for the profile default</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -8112,12 +8202,12 @@ default untranslated (en_US) text is returned.</doc>
               version="0.1.32">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="2259">Gets all the metadata from the ICC profile.</doc>
+             line="2260">Gets all the metadata from the ICC profile.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="188"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="lib/colord/cd-icc.c"
-               line="2265">The profile metadata</doc>
+               line="2266">The profile metadata</doc>
           <type name="GLib.HashTable" c:type="GHashTable*">
             <type name="gpointer" c:type="gpointer"/>
             <type name="gpointer" c:type="gpointer"/>
@@ -8127,7 +8217,7 @@ default untranslated (en_US) text is returned.</doc>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2261">A valid #CdIcc</doc>
+                 line="2262">A valid #CdIcc</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
         </parameters>
@@ -8137,25 +8227,25 @@ default untranslated (en_US) text is returned.</doc>
               version="0.1.32">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="2277">Gets an item of data from the ICC metadata store.</doc>
+             line="2278">Gets an item of data from the ICC metadata store.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="189"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/colord/cd-icc.c"
-               line="2284">The dictionary data, or %NULL if the key does not exist.</doc>
+               line="2285">The dictionary data, or %NULL if the key does not exist.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2279">A valid #CdIcc</doc>
+                 line="2280">A valid #CdIcc</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2280">the dictionary key</doc>
+                 line="2281">the dictionary key</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -8166,14 +8256,14 @@ default untranslated (en_US) text is returned.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="2727">Gets the profile model.
+             line="2728">Gets the profile model.
 If the translated text is not available in the selected locale then the
 default untranslated (en_US) text is returned.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="214"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/colord/cd-icc.c"
-               line="2737">The text as a UTF-8 string, or %NULL of the locale is invalid
+               line="2738">The text as a UTF-8 string, or %NULL of the locale is invalid
               or the tag does not exist.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -8181,13 +8271,13 @@ default untranslated (en_US) text is returned.</doc>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2729">A valid #CdIcc</doc>
+                 line="2730">A valid #CdIcc</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
           <parameter name="locale" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2730">A locale, e.g. "en_GB.UTF-8" or %NULL for the profile default</doc>
+                 line="2731">A locale, e.g. "en_GB.UTF-8" or %NULL for the profile default</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -8197,14 +8287,14 @@ default untranslated (en_US) text is returned.</doc>
               version="0.1.32">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="2409">Gets any named colors in the profile.
+             line="2410">Gets any named colors in the profile.
 This function will only return results if the profile was loaded with the
 %CD_ICC_LOAD_FLAGS_NAMED_COLORS flag.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="196"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="lib/colord/cd-icc.c"
-               line="2417">An array of color swatches</doc>
+               line="2418">An array of color swatches</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="ColorSwatch"/>
           </array>
@@ -8213,7 +8303,7 @@ This function will only return results if the profile was loaded with the
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2411">a #CdIcc instance.</doc>
+                 line="2412">a #CdIcc instance.</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
         </parameters>
@@ -8224,21 +8314,21 @@ This function will only return results if the profile was loaded with the
               version="0.1.32">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="2965">Gets the profile red chromaticity value.
+             line="2966">Gets the profile red chromaticity value.
 This function will only return results if the profile was loaded with the
 %CD_ICC_LOAD_FLAGS_PRIMARIES flag.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="237"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/colord/cd-icc.c"
-               line="2973">the #CdColorXYZ value</doc>
+               line="2974">the #CdColorXYZ value</doc>
           <type name="ColorXYZ" c:type="const CdColorXYZ*"/>
         </return-value>
         <parameters>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2967">a valid #CdIcc instance</doc>
+                 line="2968">a valid #CdIcc instance</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
         </parameters>
@@ -8249,12 +8339,12 @@ This function will only return results if the profile was loaded with the
               throws="1">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="3324">Generates a response curve of a specified size.</doc>
+             line="3325">Generates a response curve of a specified size.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="271"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="lib/colord/cd-icc.c"
-               line="3332">response data, or %NULL for error</doc>
+               line="3333">response data, or %NULL for error</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="ColorRGB"/>
           </array>
@@ -8263,13 +8353,13 @@ This function will only return results if the profile was loaded with the
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="3326">A valid #CdIcc</doc>
+                 line="3327">A valid #CdIcc</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
           <parameter name="size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="3327">the size of the curve to generate</doc>
+                 line="3328">the size of the curve to generate</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -8280,12 +8370,12 @@ This function will only return results if the profile was loaded with the
               version="0.1.32">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="2116">Gets the ICC profile file size</doc>
+             line="2117">Gets the ICC profile file size</doc>
         <source-position filename="lib/colord/cd-icc.h" line="175"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/colord/cd-icc.c"
-               line="2121">The size in bytes, or 0 for unknown.</doc>
+               line="2122">The size in bytes, or 0 for unknown.</doc>
           <type name="guint32" c:type="guint32"/>
         </return-value>
         <parameters>
@@ -8355,21 +8445,21 @@ Most users do not need to do this.</doc>
               version="0.1.32">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="2945">Gets the ICC color temperature, rounded to the nearest 100K.
+             line="2946">Gets the ICC color temperature, rounded to the nearest 100K.
 This function will only return results if the profile was loaded with the
 %CD_ICC_LOAD_FLAGS_PRIMARIES flag.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="241"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/colord/cd-icc.c"
-               line="2953">The color temperature in Kelvin, or 0 for error.</doc>
+               line="2954">The color temperature in Kelvin, or 0 for error.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2947">A valid #CdIcc</doc>
+                 line="2948">A valid #CdIcc</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
         </parameters>
@@ -8380,12 +8470,12 @@ This function will only return results if the profile was loaded with the
               throws="1">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="3274">Gets the video card calibration data from the profile.</doc>
+             line="3275">Gets the video card calibration data from the profile.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="263"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="lib/colord/cd-icc.c"
-               line="3282">VCGT data, or %NULL for error</doc>
+               line="3283">VCGT data, or %NULL for error</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="ColorRGB"/>
           </array>
@@ -8394,13 +8484,13 @@ This function will only return results if the profile was loaded with the
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="3276">A valid #CdIcc</doc>
+                 line="3277">A valid #CdIcc</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
           <parameter name="size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="3277">the desired size of the table data</doc>
+                 line="3278">the desired size of the table data</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -8411,19 +8501,19 @@ This function will only return results if the profile was loaded with the
               version="0.1.32">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="2151">Gets the ICC profile version, typically 2.1 or 4.2</doc>
+             line="2152">Gets the ICC profile version, typically 2.1 or 4.2</doc>
         <source-position filename="lib/colord/cd-icc.h" line="179"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/colord/cd-icc.c"
-               line="2157">A floating point version number, or 0.0 for unknown</doc>
+               line="2158">A floating point version number, or 0.0 for unknown</doc>
           <type name="gdouble" c:type="gdouble"/>
         </return-value>
         <parameters>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2153">a #CdIcc instance.</doc>
+                 line="2154">a #CdIcc instance.</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
         </parameters>
@@ -8433,12 +8523,12 @@ This function will only return results if the profile was loaded with the
               version="0.1.34">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="3788">Returns any warnings with profiles</doc>
+             line="3789">Returns any warnings with profiles</doc>
         <source-position filename="lib/colord/cd-icc.h" line="242"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="lib/colord/cd-icc.c"
-               line="3794">An array of warning values</doc>
+               line="3795">An array of warning values</doc>
           <array name="GLib.Array" c:type="GArray*">
             <type name="ProfileWarning"/>
           </array>
@@ -8447,7 +8537,7 @@ This function will only return results if the profile was loaded with the
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="3790">a #CdIcc instance.</doc>
+                 line="3791">a #CdIcc instance.</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
         </parameters>
@@ -8458,21 +8548,21 @@ This function will only return results if the profile was loaded with the
               version="0.1.32">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="3025">Gets the profile white point.
+             line="3026">Gets the profile white point.
 This function will only return results if the profile was loaded with the
 %CD_ICC_LOAD_FLAGS_PRIMARIES flag.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="240"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/colord/cd-icc.c"
-               line="3033">the #CdColorXYZ value</doc>
+               line="3034">the #CdColorXYZ value</doc>
           <type name="ColorXYZ" c:type="const CdColorXYZ*"/>
         </return-value>
         <parameters>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="3027">a valid #CdIcc instance</doc>
+                 line="3028">a valid #CdIcc instance</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
         </parameters>
@@ -8523,7 +8613,7 @@ This function will only return results if the profile was loaded with the
               throws="1">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="1978">Loads an ICC profile from an open file descriptor.</doc>
+             line="1979">Loads an ICC profile from an open file descriptor.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="146"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -8532,19 +8622,19 @@ This function will only return results if the profile was loaded with the
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="1980">a #CdIcc instance.</doc>
+                 line="1981">a #CdIcc instance.</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
           <parameter name="fd" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="1981">a file descriptor</doc>
+                 line="1982">a file descriptor</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="1982">a set of #CdIccLoadFlags</doc>
+                 line="1983">a set of #CdIccLoadFlags</doc>
             <type name="IccLoadFlags" c:type="CdIccLoadFlags"/>
           </parameter>
         </parameters>
@@ -8555,7 +8645,7 @@ This function will only return results if the profile was loaded with the
               throws="1">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="1906">Loads an ICC profile from a local or remote file.</doc>
+             line="1907">Loads an ICC profile from a local or remote file.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="140"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -8564,19 +8654,19 @@ This function will only return results if the profile was loaded with the
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="1908">a #CdIcc instance.</doc>
+                 line="1909">a #CdIcc instance.</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="1909">a #GFile</doc>
+                 line="1910">a #GFile</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="1910">a set of #CdIccLoadFlags</doc>
+                 line="1911">a set of #CdIccLoadFlags</doc>
             <type name="IccLoadFlags" c:type="CdIccLoadFlags"/>
           </parameter>
           <parameter name="cancellable"
@@ -8585,7 +8675,7 @@ This function will only return results if the profile was loaded with the
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="1911">A #GCancellable or %NULL</doc>
+                 line="1912">A #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -8596,7 +8686,7 @@ This function will only return results if the profile was loaded with the
               throws="1">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="2062">Set the internal cmsHPROFILE instance. This may be required if you create
+             line="2063">Set the internal cmsHPROFILE instance. This may be required if you create
 the profile using cmsCreateRGBProfileTHR() and then want to use the
 functionality in #CdIcc.
 
@@ -8618,7 +8708,7 @@ be called if cd_icc_load_file() has previously been used on the @icc object.</do
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2064">a #CdIcc instance.</doc>
+                 line="2065">a #CdIcc instance.</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
           <parameter name="handle"
@@ -8627,13 +8717,13 @@ be called if cd_icc_load_file() has previously been used on the @icc object.</do
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2065">a cmsHPROFILE instance</doc>
+                 line="2066">a cmsHPROFILE instance</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2066">a set of #CdIccLoadFlags</doc>
+                 line="2067">a set of #CdIccLoadFlags</doc>
             <type name="IccLoadFlags" c:type="CdIccLoadFlags"/>
           </parameter>
         </parameters>
@@ -8643,7 +8733,7 @@ be called if cd_icc_load_file() has previously been used on the @icc object.</do
               version="0.1.32">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="2322">Removes an item of metadata.</doc>
+             line="2323">Removes an item of metadata.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="194"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8652,13 +8742,13 @@ be called if cd_icc_load_file() has previously been used on the @icc object.</do
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2324">A valid #CdIcc</doc>
+                 line="2325">A valid #CdIcc</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2325">the metadata key</doc>
+                 line="2326">the metadata key</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -8697,7 +8787,7 @@ Return vale: A #GBytes structure, or %NULL for error</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="1854">Saves an ICC profile to the default per-user location.
+             line="1855">Saves an ICC profile to the default per-user location.
 
 Return vale: %TRUE for success.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="166"/>
@@ -8708,13 +8798,13 @@ Return vale: %TRUE for success.</doc>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="1856">a #CdIcc instance.</doc>
+                 line="1857">a #CdIcc instance.</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="1857">a set of #CdIccSaveFlags</doc>
+                 line="1858">a set of #CdIccSaveFlags</doc>
             <type name="IccSaveFlags" c:type="CdIccSaveFlags"/>
           </parameter>
           <parameter name="cancellable"
@@ -8723,7 +8813,7 @@ Return vale: %TRUE for success.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="1858">A #GCancellable or %NULL</doc>
+                 line="1859">A #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -8734,7 +8824,7 @@ Return vale: %TRUE for success.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="1796">Saves an ICC profile to a local or remote file.
+             line="1797">Saves an ICC profile to a local or remote file.
 
 Return vale: %TRUE for success.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="160"/>
@@ -8745,19 +8835,19 @@ Return vale: %TRUE for success.</doc>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="1798">a #CdIcc instance.</doc>
+                 line="1799">a #CdIcc instance.</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="1799">a #GFile</doc>
+                 line="1800">a #GFile</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="1800">a set of #CdIccSaveFlags</doc>
+                 line="1801">a set of #CdIccSaveFlags</doc>
             <type name="IccSaveFlags" c:type="CdIccSaveFlags"/>
           </parameter>
           <parameter name="cancellable"
@@ -8766,7 +8856,7 @@ Return vale: %TRUE for success.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="1801">A #GCancellable or %NULL</doc>
+                 line="1802">A #GCancellable or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -8776,7 +8866,7 @@ Return vale: %TRUE for success.</doc>
               version="1.1.1">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="1778">Sets the characterization data used to build the profile.</doc>
+             line="1779">Sets the characterization data used to build the profile.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="206"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8785,13 +8875,13 @@ Return vale: %TRUE for success.</doc>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="1780">a #CdIcc instance.</doc>
+                 line="1781">a #CdIcc instance.</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="1781">TI3 string data, or %NULL</doc>
+                 line="1782">TI3 string data, or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -8802,7 +8892,7 @@ Return vale: %TRUE for success.</doc>
               version="0.1.32">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="2241">Sets the colorspace kind.</doc>
+             line="2242">Sets the colorspace kind.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="186"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8811,13 +8901,13 @@ Return vale: %TRUE for success.</doc>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2243">a #CdIcc instance.</doc>
+                 line="2244">a #CdIcc instance.</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
           <parameter name="colorspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2244">the profile colorspace, e.g. %CD_COLORSPACE_RGB</doc>
+                 line="2245">the profile colorspace, e.g. %CD_COLORSPACE_RGB</doc>
             <type name="Colorspace" c:type="CdColorspace"/>
           </parameter>
         </parameters>
@@ -8827,7 +8917,7 @@ Return vale: %TRUE for success.</doc>
               version="0.1.32">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="2801">Sets the profile _copyright for a specific locale.</doc>
+             line="2802">Sets the profile _copyright for a specific locale.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="222"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8836,13 +8926,13 @@ Return vale: %TRUE for success.</doc>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2803">A valid #CdIcc</doc>
+                 line="2804">A valid #CdIcc</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
           <parameter name="locale" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2804">A locale, e.g. "en_GB.UTF-8" or %NULL for the profile default</doc>
+                 line="2805">A locale, e.g. "en_GB.UTF-8" or %NULL for the profile default</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value"
@@ -8851,7 +8941,7 @@ Return vale: %TRUE for success.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2805">New UTF-8 string value</doc>
+                 line="2806">New UTF-8 string value</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -8861,7 +8951,7 @@ Return vale: %TRUE for success.</doc>
               version="0.1.32">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="2821">Sets the profile copyrights for specific locales.</doc>
+             line="2822">Sets the profile copyrights for specific locales.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="225"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8870,13 +8960,13 @@ Return vale: %TRUE for success.</doc>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2823">A valid #CdIcc</doc>
+                 line="2824">A valid #CdIcc</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
           <parameter name="values" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2824">New translated values, with the key being the locale.</doc>
+                 line="2825">New translated values, with the key being the locale.</doc>
             <type name="GLib.HashTable" c:type="GHashTable*">
               <type name="gpointer" c:type="gpointer"/>
               <type name="gpointer" c:type="gpointer"/>
@@ -8889,7 +8979,7 @@ Return vale: %TRUE for success.</doc>
               version="1.4.2">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="2487">Sets the ICC creation date and time.</doc>
+             line="2488">Sets the ICC creation date and time.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="199"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8898,7 +8988,7 @@ Return vale: %TRUE for success.</doc>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2489">A valid #CdIcc</doc>
+                 line="2490">A valid #CdIcc</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
           <parameter name="creation_time" transfer-ownership="none">
@@ -8911,7 +9001,7 @@ Return vale: %TRUE for success.</doc>
               version="0.1.32">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="2753">Sets the profile description for a specific locale.</doc>
+             line="2754">Sets the profile description for a specific locale.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="217"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8920,13 +9010,13 @@ Return vale: %TRUE for success.</doc>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2755">A valid #CdIcc</doc>
+                 line="2756">A valid #CdIcc</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
           <parameter name="locale" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2756">A locale, e.g. "en_GB.UTF-8" or %NULL for the profile default</doc>
+                 line="2757">A locale, e.g. "en_GB.UTF-8" or %NULL for the profile default</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value"
@@ -8935,7 +9025,7 @@ Return vale: %TRUE for success.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2757">New UTF-8 string value</doc>
+                 line="2758">New UTF-8 string value</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -8945,7 +9035,7 @@ Return vale: %TRUE for success.</doc>
               version="0.1.32">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="2773">Sets the profile descriptions for specific locales.</doc>
+             line="2774">Sets the profile descriptions for specific locales.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="220"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -8954,13 +9044,13 @@ Return vale: %TRUE for success.</doc>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2775">A valid #CdIcc</doc>
+                 line="2776">A valid #CdIcc</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
           <parameter name="values" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2776">New translated values, with the key being the locale.</doc>
+                 line="2777">New translated values, with the key being the locale.</doc>
             <type name="GLib.HashTable" c:type="GHashTable*">
               <type name="gpointer" c:type="gpointer"/>
               <type name="gpointer" c:type="gpointer"/>
@@ -8973,7 +9063,7 @@ Return vale: %TRUE for success.</doc>
               version="1.1.1">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="1888">Sets the filename, which may be required if the ICC profile has been loaded
+             line="1889">Sets the filename, which may be required if the ICC profile has been loaded
 using cd_icc_load_fd() from a disk cache.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="177"/>
         <return-value transfer-ownership="none">
@@ -8983,13 +9073,13 @@ using cd_icc_load_fd() from a disk cache.</doc>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="1890">a #CdIcc instance.</doc>
+                 line="1891">a #CdIcc instance.</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="1891">a filename, or %NULL</doc>
+                 line="1892">a filename, or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -9000,7 +9090,7 @@ using cd_icc_load_fd() from a disk cache.</doc>
               version="0.1.32">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="2205">Sets the profile kind.</doc>
+             line="2206">Sets the profile kind.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="183"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9009,13 +9099,13 @@ using cd_icc_load_fd() from a disk cache.</doc>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2207">a #CdIcc instance.</doc>
+                 line="2208">a #CdIcc instance.</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
           <parameter name="kind" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2208">the profile kind, e.g. %CD_PROFILE_KIND_DISPLAY_DEVICE</doc>
+                 line="2209">the profile kind, e.g. %CD_PROFILE_KIND_DISPLAY_DEVICE</doc>
             <type name="ProfileKind" c:type="CdProfileKind"/>
           </parameter>
         </parameters>
@@ -9025,7 +9115,7 @@ using cd_icc_load_fd() from a disk cache.</doc>
               version="0.1.32">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="2849">Sets the profile manufacturer for a specific locale.</doc>
+             line="2850">Sets the profile manufacturer for a specific locale.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="227"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9034,13 +9124,13 @@ using cd_icc_load_fd() from a disk cache.</doc>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2851">A valid #CdIcc</doc>
+                 line="2852">A valid #CdIcc</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
           <parameter name="locale" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2852">A locale, e.g. "en_GB.UTF-8" or %NULL for the profile default</doc>
+                 line="2853">A locale, e.g. "en_GB.UTF-8" or %NULL for the profile default</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value"
@@ -9049,7 +9139,7 @@ using cd_icc_load_fd() from a disk cache.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2853">New UTF-8 string value</doc>
+                 line="2854">New UTF-8 string value</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -9059,7 +9149,7 @@ using cd_icc_load_fd() from a disk cache.</doc>
               version="0.1.32">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="2869">Sets the profile manufacturers for specific locales.</doc>
+             line="2870">Sets the profile manufacturers for specific locales.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="230"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9068,13 +9158,13 @@ using cd_icc_load_fd() from a disk cache.</doc>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2871">A valid #CdIcc</doc>
+                 line="2872">A valid #CdIcc</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
           <parameter name="values" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2872">New translated values, with the key being the locale.</doc>
+                 line="2873">New translated values, with the key being the locale.</doc>
             <type name="GLib.HashTable" c:type="GHashTable*">
               <type name="gpointer" c:type="gpointer"/>
               <type name="gpointer" c:type="gpointer"/>
@@ -9087,7 +9177,7 @@ using cd_icc_load_fd() from a disk cache.</doc>
               version="0.1.32">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="2897">Sets the profile model for a specific locale.</doc>
+             line="2898">Sets the profile model for a specific locale.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="232"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9096,13 +9186,13 @@ using cd_icc_load_fd() from a disk cache.</doc>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2899">A valid #CdIcc</doc>
+                 line="2900">A valid #CdIcc</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
           <parameter name="locale" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2900">A locale, e.g. "en_GB.UTF-8" or %NULL for the profile default</doc>
+                 line="2901">A locale, e.g. "en_GB.UTF-8" or %NULL for the profile default</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value"
@@ -9111,7 +9201,7 @@ using cd_icc_load_fd() from a disk cache.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2901">New UTF-8 string value</doc>
+                 line="2902">New UTF-8 string value</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -9121,7 +9211,7 @@ using cd_icc_load_fd() from a disk cache.</doc>
               version="0.1.32">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="2917">Sets the profile models for specific locales.</doc>
+             line="2918">Sets the profile models for specific locales.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="235"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9130,13 +9220,13 @@ using cd_icc_load_fd() from a disk cache.</doc>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2919">A valid #CdIcc</doc>
+                 line="2920">A valid #CdIcc</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
           <parameter name="values" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2920">New translated values, with the key being the locale.</doc>
+                 line="2921">New translated values, with the key being the locale.</doc>
             <type name="GLib.HashTable" c:type="GHashTable*">
               <type name="gpointer" c:type="gpointer"/>
               <type name="gpointer" c:type="gpointer"/>
@@ -9183,7 +9273,7 @@ Most users do not need to do this.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="3427">Sets the Video Card Gamma Table from the profile.
+             line="3428">Sets the Video Card Gamma Table from the profile.
 
 Return vale: %TRUE for success.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="267"/>
@@ -9194,13 +9284,13 @@ Return vale: %TRUE for success.</doc>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="3429">A valid #CdIcc</doc>
+                 line="3430">A valid #CdIcc</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
           <parameter name="vcgt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="3430">video card calibration data</doc>
+                 line="3431">video card calibration data</doc>
             <array name="GLib.PtrArray" c:type="GPtrArray*">
               <type name="ColorRGB"/>
             </array>
@@ -9213,7 +9303,7 @@ Return vale: %TRUE for success.</doc>
               version="0.1.32">
         <doc xml:space="preserve"
              filename="lib/colord/cd-icc.c"
-             line="2169">Sets the profile version.</doc>
+             line="2170">Sets the profile version.</doc>
         <source-position filename="lib/colord/cd-icc.h" line="180"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -9222,13 +9312,13 @@ Return vale: %TRUE for success.</doc>
           <instance-parameter name="icc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2171">a #CdIcc instance.</doc>
+                 line="2172">a #CdIcc instance.</doc>
             <type name="Icc" c:type="CdIcc*"/>
           </instance-parameter>
           <parameter name="version" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/colord/cd-icc.c"
-                 line="2172">the profile version, e.g. 2.1 or 4.0</doc>
+                 line="2173">the profile version, e.g. 2.1 or 4.0</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
         </parameters>
@@ -11217,7 +11307,11 @@ with a known reference.</doc>
           </instance-parameter>
         </parameters>
       </virtual-method>
-      <method name="connect" c:identifier="cd_profile_connect" version="0.1.8">
+      <method name="connect"
+              c:identifier="cd_profile_connect"
+              version="0.1.8"
+              glib:finish-func="connect_finish"
+              glib:sync-func="connect_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-profile.c"
              line="785">Connects to the object and fills up initial properties.</doc>
@@ -11295,7 +11389,8 @@ with a known reference.</doc>
       <method name="connect_sync"
               c:identifier="cd_profile_connect_sync"
               version="0.1.8"
-              throws="1">
+              throws="1"
+              glib:async-func="connect">
         <doc xml:space="preserve"
              filename="lib/colord/cd-profile-sync.c"
              line="60">Connects to the object and fills up initial properties.
@@ -11799,7 +11894,9 @@ users.</doc>
       </method>
       <method name="install_system_wide"
               c:identifier="cd_profile_install_system_wide"
-              version="0.1.8">
+              version="0.1.8"
+              glib:finish-func="install_system_wide_finish"
+              glib:sync-func="install_system_wide_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-profile.c"
              line="964">Sets the profile system wide.</doc>
@@ -11877,7 +11974,8 @@ users.</doc>
       <method name="install_system_wide_sync"
               c:identifier="cd_profile_install_system_wide_sync"
               version="0.1.8"
-              throws="1">
+              throws="1"
+              glib:async-func="install_system_wide">
         <doc xml:space="preserve"
              filename="lib/colord/cd-profile-sync.c"
              line="168">Sets the profile system wide.
@@ -11975,7 +12073,9 @@ Do not use it in GUI applications.</doc>
       </method>
       <method name="set_property"
               c:identifier="cd_profile_set_property"
-              version="0.1.8">
+              version="0.1.8"
+              glib:finish-func="set_property_finish"
+              glib:sync-func="set_property_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-profile.c"
              line="875">Deletes a color device.</doc>
@@ -12065,7 +12165,8 @@ Do not use it in GUI applications.</doc>
       <method name="set_property_sync"
               c:identifier="cd_profile_set_property_sync"
               version="0.1.8"
-              throws="1">
+              throws="1"
+              glib:async-func="set_property">
         <doc xml:space="preserve"
              filename="lib/colord/cd-profile-sync.c"
              line="112">Sets properties on an object
@@ -12952,7 +13053,11 @@ used, but may be of limited use.</doc>
           </instance-parameter>
         </parameters>
       </virtual-method>
-      <method name="connect" c:identifier="cd_sensor_connect" version="0.1.8">
+      <method name="connect"
+              c:identifier="cd_sensor_connect"
+              version="0.1.8"
+              glib:finish-func="connect_finish"
+              glib:sync-func="connect_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-sensor.c"
              line="616">Connects to the sensor.</doc>
@@ -13030,7 +13135,8 @@ used, but may be of limited use.</doc>
       <method name="connect_sync"
               c:identifier="cd_sensor_connect_sync"
               version="0.1.8"
-              throws="1">
+              throws="1"
+              glib:async-func="connect">
         <doc xml:space="preserve"
              filename="lib/colord/cd-sensor-sync.c"
              line="61">Connects to the object and fills up initial properties.
@@ -13427,7 +13533,9 @@ Do not use it in GUI applications.</doc>
       </method>
       <method name="get_sample"
               c:identifier="cd_sensor_get_sample"
-              version="0.1.8">
+              version="0.1.8"
+              glib:finish-func="get_sample_finish"
+              glib:sync-func="get_sample_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-sensor.c"
              line="1013">Gets a color sample from a sensor</doc>
@@ -13511,7 +13619,8 @@ Do not use it in GUI applications.</doc>
       <method name="get_sample_sync"
               c:identifier="cd_sensor_get_sample_sync"
               version="0.1.8"
-              throws="1">
+              throws="1"
+              glib:async-func="get_sample">
         <doc xml:space="preserve"
              filename="lib/colord/cd-sensor-sync.c"
              line="271">Gets a sample from the sensor.
@@ -13574,7 +13683,9 @@ Do not use it in GUI applications.</doc>
       </method>
       <method name="get_spectrum"
               c:identifier="cd_sensor_get_spectrum"
-              version="1.3.1">
+              version="1.3.1"
+              glib:finish-func="get_spectrum_finish"
+              glib:sync-func="get_spectrum_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-sensor.c"
              line="1114">Gets a color spectrum from a sensor</doc>
@@ -13658,7 +13769,8 @@ Do not use it in GUI applications.</doc>
       <method name="get_spectrum_sync"
               c:identifier="cd_sensor_get_spectrum_sync"
               version="1.3.1"
-              throws="1">
+              throws="1"
+              glib:async-func="get_spectrum">
         <doc xml:space="preserve"
              filename="lib/colord/cd-sensor-sync.c"
              line="325">Gets a spectrum from the sensor.
@@ -13768,7 +13880,11 @@ Do not use it in GUI applications.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="lock" c:identifier="cd_sensor_lock" version="0.1.8">
+      <method name="lock"
+              c:identifier="cd_sensor_lock"
+              version="0.1.8"
+              glib:finish-func="lock_finish"
+              glib:sync-func="lock_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-sensor.c"
              line="745">Locks the device so we can use it.</doc>
@@ -13846,7 +13962,8 @@ Do not use it in GUI applications.</doc>
       <method name="lock_sync"
               c:identifier="cd_sensor_lock_sync"
               version="0.1.6"
-              throws="1">
+              throws="1"
+              glib:async-func="lock">
         <doc xml:space="preserve"
              filename="lib/colord/cd-sensor-sync.c"
              line="113">Locks the device so we can use it.
@@ -13906,7 +14023,9 @@ Do not use it in GUI applications.</doc>
       </method>
       <method name="set_options"
               c:identifier="cd_sensor_set_options"
-              version="0.1.20">
+              version="0.1.20"
+              glib:finish-func="set_options_finish"
+              glib:sync-func="set_options_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-sensor.c"
              line="907">Sets options on the sensor device.</doc>
@@ -13993,7 +14112,8 @@ Do not use it in GUI applications.</doc>
       <method name="set_options_sync"
               c:identifier="cd_sensor_set_options_sync"
               version="0.1.20"
-              throws="1">
+              throws="1"
+              glib:async-func="set_options">
         <doc xml:space="preserve"
              filename="lib/colord/cd-sensor-sync.c"
              line="217">Sets options on the sensor device.
@@ -14045,7 +14165,11 @@ Do not use it in GUI applications.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="unlock" c:identifier="cd_sensor_unlock" version="0.1.8">
+      <method name="unlock"
+              c:identifier="cd_sensor_unlock"
+              version="0.1.8"
+              glib:finish-func="unlock_finish"
+              glib:sync-func="unlock_sync">
         <doc xml:space="preserve"
              filename="lib/colord/cd-sensor.c"
              line="826">Unlocks the sensor for use by other programs.</doc>
@@ -14123,7 +14247,8 @@ Do not use it in GUI applications.</doc>
       <method name="unlock_sync"
               c:identifier="cd_sensor_unlock_sync"
               version="0.1.6"
-              throws="1">
+              throws="1"
+              glib:async-func="unlock">
         <doc xml:space="preserve"
              filename="lib/colord/cd-sensor-sync.c"
              line="165">Unlocks the device for use by other programs.

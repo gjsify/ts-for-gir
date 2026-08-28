@@ -3788,7 +3788,7 @@ library. Since: 2.8</doc>
               version="2.10">
       <doc xml:space="preserve"
            filename="modulemd/include/modulemd-2.0/modulemd-module-stream.h"
-           line="32">The ModuleStream v3 specification defines the maximum lenth of the context
+           line="32">The ModuleStream v3 specification defines the maximum length of the context
 field.</doc>
       <source-position filename="modulemd/include/modulemd-2.0/modulemd-module-stream.h"
                        line="40"/>
@@ -3941,7 +3941,7 @@ context. The order of items in this list is not guaranteed.</doc>
           <doc xml:space="preserve"
                filename="modulemd/include/modulemd-2.0/modulemd-module.h"
                line="328">The newest active obsoletes attached to this module with
-specified stream and context (when eol_date is not set or it already occured
+specified stream and context (when eol_date is not set or it already occurred
 the obsoletes is active). If no context is passed it matches obsoletes without context.</doc>
           <type name="Obsoletes" c:type="ModulemdObsoletes*"/>
         </return-value>
@@ -10937,8 +10937,8 @@ represented as a 64-bit integer (such as 201807011200).</doc>
           <doc xml:space="preserve"
                filename="modulemd/include/modulemd-2.0/modulemd-obsoletes.h"
                line="248">If this #ModulemdObsoletes object has eol_date set and the
-date has not occured yet it returns false otherwise it returns true.
-(When eol_date is not set or it already occured the obsoletes is active.)</doc>
+date has not occurred yet it returns false otherwise it returns true.
+(When eol_date is not set or it already occurred the obsoletes is active.)</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>

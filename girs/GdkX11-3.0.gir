@@ -1348,7 +1348,7 @@ an is_modifier field.</doc>
              line="1848">Returns the current workspace for @screen when running under a
 window manager that supports multiple workspaces, as described
 in the
-[Extended Window Manager Hints](http://www.freedesktop.org/Standards/wm-spec) specification.</doc>
+[Extended Window Manager Hints](https://specifications.freedesktop.org/wm/latest/) specification.</doc>
         <source-position filename="gdk/x11/gdkx11screen.h" line="108"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -1403,7 +1403,7 @@ extension, 0 is returned.</doc>
              line="1829">Returns the number of workspaces for @screen when running under a
 window manager that supports multiple workspaces, as described
 in the
-[Extended Window Manager Hints](http://www.freedesktop.org/Standards/wm-spec) specification.</doc>
+[Extended Window Manager Hints](https://specifications.freedesktop.org/wm/latest/) specification.</doc>
         <source-position filename="gdk/x11/gdkx11screen.h" line="106"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
@@ -1525,7 +1525,7 @@ and should not be freed.</doc>
              filename="gdk/x11/gdkscreen-x11.c"
              line="1588">This function is specific to the X11 backend of GDK, and indicates
 whether the window manager supports a certain hint from the
-[Extended Window Manager Hints](http://www.freedesktop.org/Standards/wm-spec) specification.
+[Extended Window Manager Hints](https://specifications.freedesktop.org/wm/latest/) specification.
 
 When using this function, keep in mind that the window manager
 can change over time; so you shouldn’t use this function in
@@ -1729,7 +1729,7 @@ was already known to GDK, a new reference to the existing
              filename="gdk/x11/gdkwindow-x11.c"
              line="2160">Moves the window to the correct workspace when running under a
 window manager that supports multiple workspaces, as described
-in the [Extended Window Manager Hints](http://www.freedesktop.org/Standards/wm-spec) specification.
+in the [Extended Window Manager Hints](https://specifications.freedesktop.org/wm/latest/) specification.
 Will not do anything if the window is already on all workspaces.</doc>
         <source-position filename="gdk/x11/gdkx11window.h" line="78"/>
         <return-value transfer-ownership="none">
@@ -1751,7 +1751,7 @@ Will not do anything if the window is already on all workspaces.</doc>
              filename="gdk/x11/gdkwindow-x11.c"
              line="2248">Moves the window to the given workspace when running unde a
 window manager that supports multiple workspaces, as described
-in the [Extended Window Manager Hints](http://www.freedesktop.org/Standards/wm-spec) specification.</doc>
+in the [Extended Window Manager Hints](https://specifications.freedesktop.org/wm/latest/) specification.</doc>
         <source-position filename="gdk/x11/gdkx11window.h" line="83"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>

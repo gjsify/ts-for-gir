@@ -570,7 +570,7 @@ Since 2.6</doc>
                 version="2.6">
         <doc xml:space="preserve"
              filename="libxapp/xapp-gpu-offload-helper.c"
-             line="519">Creates a new #XAppGpuOffloadHelper instance.
+             line="523">Creates a new #XAppGpuOffloadHelper instance.
 
 The #XAppGpuOffloadHelper::ready signal will be emitted when the helper is initialized (successfully or not).</doc>
         <source-position filename="libxapp/xapp-gpu-offload-helper.h"
@@ -578,7 +578,7 @@ The #XAppGpuOffloadHelper::ready signal will be emitted when the helper is initi
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-gpu-offload-helper.c"
-               line="526">a new #XAppGpuOffloadHelper.</doc>
+               line="530">a new #XAppGpuOffloadHelper.</doc>
           <type name="GpuOffloadHelper" c:type="XAppGpuOffloadHelper*"/>
         </return-value>
       </function>
@@ -587,7 +587,7 @@ The #XAppGpuOffloadHelper::ready signal will be emitted when the helper is initi
                 version="2.6">
         <doc xml:space="preserve"
              filename="libxapp/xapp-gpu-offload-helper.c"
-             line="536">Creates a new #XAppGpuOffloadHelper instance. This performs initialization synchronously,
+             line="540">Creates a new #XAppGpuOffloadHelper instance. This performs initialization synchronously,
 and can potentially block.
 
 Use xapp_gpu_offload_helper_is_ready() to see if the helper was initialized successfully.</doc>
@@ -596,7 +596,7 @@ Use xapp_gpu_offload_helper_is_ready() to see if the helper was initialized succ
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-gpu-offload-helper.c"
-               line="544">a new #XAppGpuOffloadHelper, fully initialized.</doc>
+               line="548">a new #XAppGpuOffloadHelper, fully initialized.</doc>
           <type name="GpuOffloadHelper" c:type="XAppGpuOffloadHelper*"/>
         </return-value>
       </function>
@@ -605,20 +605,20 @@ Use xapp_gpu_offload_helper_is_ready() to see if the helper was initialized succ
               version="2.6">
         <doc xml:space="preserve"
              filename="libxapp/xapp-gpu-offload-helper.c"
-             line="680">Returns an #XAppGpuInfo for the default GPU.</doc>
+             line="684">Returns an #XAppGpuInfo for the default GPU.</doc>
         <source-position filename="libxapp/xapp-gpu-offload-helper.h"
                          line="39"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-gpu-offload-helper.c"
-               line="686">the default #XAppGpuInfo. Do not free</doc>
+               line="690">the default #XAppGpuInfo. Do not free</doc>
           <type name="GpuInfo" c:type="XAppGpuInfo*"/>
         </return-value>
         <parameters>
           <instance-parameter name="helper" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-gpu-offload-helper.c"
-                 line="682">The #XAppGpuOffloadHelper.</doc>
+                 line="686">The #XAppGpuOffloadHelper.</doc>
             <type name="GpuOffloadHelper" c:type="XAppGpuOffloadHelper*"/>
           </instance-parameter>
         </parameters>
@@ -628,26 +628,26 @@ Use xapp_gpu_offload_helper_is_ready() to see if the helper was initialized succ
               version="2.6">
         <doc xml:space="preserve"
              filename="libxapp/xapp-gpu-offload-helper.c"
-             line="709">Returns an #XAppGpuInfo with the given ID.</doc>
+             line="713">Returns an #XAppGpuInfo with the given ID.</doc>
         <source-position filename="libxapp/xapp-gpu-offload-helper.h"
                          line="40"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-gpu-offload-helper.c"
-               line="716">the appropriate #XAppGpuInfo, or %NULL if @id was invalid.</doc>
+               line="720">the appropriate #XAppGpuInfo, or %NULL if @id was invalid.</doc>
           <type name="GpuInfo" c:type="XAppGpuInfo*"/>
         </return-value>
         <parameters>
           <instance-parameter name="helper" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-gpu-offload-helper.c"
-                 line="711">The #XAppGpuOffloadHelper.</doc>
+                 line="715">The #XAppGpuOffloadHelper.</doc>
             <type name="GpuOffloadHelper" c:type="XAppGpuOffloadHelper*"/>
           </instance-parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-gpu-offload-helper.c"
-                 line="712">The ID of the info to retrieve.</doc>
+                 line="716">The ID of the info to retrieve.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -657,13 +657,13 @@ Use xapp_gpu_offload_helper_is_ready() to see if the helper was initialized succ
               version="2.6">
         <doc xml:space="preserve"
              filename="libxapp/xapp-gpu-offload-helper.c"
-             line="600">Gets the number of GPUs noticed by Switcheroo.</doc>
+             line="604">Gets the number of GPUs noticed by Switcheroo.</doc>
         <source-position filename="libxapp/xapp-gpu-offload-helper.h"
                          line="37"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-gpu-offload-helper.c"
-               line="606">the total number of GPUs. A return value larger than
+               line="610">the total number of GPUs. A return value larger than
 1 implies there are offloadable GPUs available.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
@@ -671,7 +671,7 @@ Use xapp_gpu_offload_helper_is_ready() to see if the helper was initialized succ
           <instance-parameter name="helper" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-gpu-offload-helper.c"
-                 line="602">The #XAppGpuOffloadHelper.</doc>
+                 line="606">The #XAppGpuOffloadHelper.</doc>
             <type name="GpuOffloadHelper" c:type="XAppGpuOffloadHelper*"/>
           </instance-parameter>
         </parameters>
@@ -681,13 +681,13 @@ Use xapp_gpu_offload_helper_is_ready() to see if the helper was initialized succ
               version="2.6">
         <doc xml:space="preserve"
              filename="libxapp/xapp-gpu-offload-helper.c"
-             line="620">Generates a list of #XAppGpuInfos that can be offloaded to, if there are any.</doc>
+             line="624">Generates a list of #XAppGpuInfos that can be offloaded to, if there are any.</doc>
         <source-position filename="libxapp/xapp-gpu-offload-helper.h"
                          line="38"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="libxapp/xapp-gpu-offload-helper.c"
-               line="626">a list of #XAppGpuInfos or %NULL if there is only
+               line="630">a list of #XAppGpuInfos or %NULL if there is only
 a single GPU. The elements are owned by @helper but the container itself should be freed.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="GpuInfo"/>
@@ -697,7 +697,7 @@ a single GPU. The elements are owned by @helper but the container itself should 
           <instance-parameter name="helper" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-gpu-offload-helper.c"
-                 line="622">The #XAppGpuOffloadHelper.</doc>
+                 line="626">The #XAppGpuOffloadHelper.</doc>
             <type name="GpuOffloadHelper" c:type="XAppGpuOffloadHelper*"/>
           </instance-parameter>
         </parameters>
@@ -707,20 +707,20 @@ a single GPU. The elements are owned by @helper but the container itself should 
               version="2.6">
         <doc xml:space="preserve"
              filename="libxapp/xapp-gpu-offload-helper.c"
-             line="582">Checks if there is a non-default GPU available for offloading.</doc>
+             line="586">Checks if there is a non-default GPU available for offloading.</doc>
         <source-position filename="libxapp/xapp-gpu-offload-helper.h"
                          line="36"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-gpu-offload-helper.c"
-               line="588">%TRUE if there is an extra GPU available.</doc>
+               line="592">%TRUE if there is an extra GPU available.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="helper" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-gpu-offload-helper.c"
-                 line="584">The #XAppGpuOffloadHelper.</doc>
+                 line="588">The #XAppGpuOffloadHelper.</doc>
             <type name="GpuOffloadHelper" c:type="XAppGpuOffloadHelper*"/>
           </instance-parameter>
         </parameters>
@@ -730,21 +730,21 @@ a single GPU. The elements are owned by @helper but the container itself should 
               version="2.6">
         <doc xml:space="preserve"
              filename="libxapp/xapp-gpu-offload-helper.c"
-             line="563">Checks if the helper is ready and valid. This does not mean
+             line="567">Checks if the helper is ready and valid. This does not mean
 offload support exists.</doc>
         <source-position filename="libxapp/xapp-gpu-offload-helper.h"
                          line="35"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-gpu-offload-helper.c"
-               line="570">%TRUE if the helper has been successfully initialized.</doc>
+               line="574">%TRUE if the helper has been successfully initialized.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="helper" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-gpu-offload-helper.c"
-                 line="565">The #XAppGpuOffloadHelper.</doc>
+                 line="569">The #XAppGpuOffloadHelper.</doc>
             <type name="GpuOffloadHelper" c:type="XAppGpuOffloadHelper*"/>
           </instance-parameter>
         </parameters>
@@ -752,7 +752,7 @@ offload support exists.</doc>
       <glib:signal name="ready" when="last" action="1">
         <doc xml:space="preserve"
              filename="libxapp/xapp-gpu-offload-helper.c"
-             line="465">This signal is emitted by the helper when it has completed
+             line="469">This signal is emitted by the helper when it has completed
 gathering GPU information. It will only be sent once.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -761,7 +761,7 @@ gathering GPU information. It will only be sent once.</doc>
           <parameter name="success" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-gpu-offload-helper.c"
-                 line="468">Whether or not the helper initialize successfully.</doc>
+                 line="472">Whether or not the helper initialize successfully.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -788,20 +788,20 @@ gathering GPU information. It will only be sent once.</doc>
       <constructor name="new" c:identifier="xapp_gtk_window_new">
         <doc xml:space="preserve"
              filename="libxapp/xapp-gtk-window.c"
-             line="385">Creates a new #XAppGtkWindow of type @type.  See gtk_window_new()
+             line="305">Creates a new #XAppGtkWindow of type @type.  See gtk_window_new()
 for more details.</doc>
         <source-position filename="libxapp/xapp-gtk-window.h" line="23"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-gtk-window.c"
-               line="392">A new #XAppGtkWindow (transfer: full)</doc>
+               line="312">A new #XAppGtkWindow (transfer: full)</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-gtk-window.c"
-                 line="387">The #GtkWindowType to use</doc>
+                 line="307">The #GtkWindowType to use</doc>
             <type name="Gtk.WindowType" c:type="GtkWindowType"/>
           </parameter>
         </parameters>
@@ -811,7 +811,7 @@ for more details.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libxapp/xapp-gtk-window.c"
-             line="422">Sets the icon name hint for a window manager (like muffin) to make
+             line="342">Sets the icon name hint for a window manager (like muffin) to make
 available when applications want to change their icons during runtime
 without having to resort to the internal low-res pixbufs that GdkWindow
 sets on the client side.  This also chains up and calls GtkWindow.set_icon_from_file
@@ -824,7 +824,7 @@ for convenience and compatibility.  Set to %NULL to unset.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-gtk-window.c"
-                 line="424">The #XAppGtkWindow to set the icon name for</doc>
+                 line="344">The #XAppGtkWindow to set the icon name for</doc>
             <type name="GtkWindow" c:type="XAppGtkWindow*"/>
           </instance-parameter>
           <parameter name="file_name"
@@ -833,7 +833,7 @@ for convenience and compatibility.  Set to %NULL to unset.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-gtk-window.c"
-                 line="425">The icon path to set, or %NULL to unset.</doc>
+                 line="345">The icon path to set, or %NULL to unset.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -842,7 +842,7 @@ for convenience and compatibility.  Set to %NULL to unset.</doc>
               c:identifier="xapp_gtk_window_set_icon_name">
         <doc xml:space="preserve"
              filename="libxapp/xapp-gtk-window.c"
-             line="400">Sets the icon name hint for a window manager (like muffin) to make
+             line="320">Sets the icon name hint for a window manager (like muffin) to make
 available when applications want to change their icons during runtime
 without having to resort to the internal low-res pixbufs that GdkWindow
 sets on the client side.  This also chains up and calls GtkWindow.set_icon_name
@@ -855,7 +855,7 @@ for convenience and compatibility.  Set to %NULL to unset.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-gtk-window.c"
-                 line="402">The #XAppGtkWindow to set the icon name for</doc>
+                 line="322">The #XAppGtkWindow to set the icon name for</doc>
             <type name="GtkWindow" c:type="XAppGtkWindow*"/>
           </instance-parameter>
           <parameter name="icon_name"
@@ -864,7 +864,7 @@ for convenience and compatibility.  Set to %NULL to unset.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-gtk-window.c"
-                 line="403">The icon name or path to set, or %NULL to unset.</doc>
+                 line="323">The icon name or path to set, or %NULL to unset.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -872,7 +872,7 @@ for convenience and compatibility.  Set to %NULL to unset.</doc>
       <method name="set_progress" c:identifier="xapp_gtk_window_set_progress">
         <doc xml:space="preserve"
              filename="libxapp/xapp-gtk-window.c"
-             line="446">Sets the progress hint for a window manager (like muffin) to make
+             line="366">Sets the progress hint for a window manager (like muffin) to make
 available when applications want to display the application's progress
 in some operation. The value sent to the WM will be clamped to
 between 0 and 100.
@@ -891,13 +891,13 @@ well, if it has been set.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-gtk-window.c"
-                 line="448">The #XAppGtkWindow to set the progress for</doc>
+                 line="368">The #XAppGtkWindow to set the progress for</doc>
             <type name="GtkWindow" c:type="XAppGtkWindow*"/>
           </instance-parameter>
           <parameter name="progress" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-gtk-window.c"
-                 line="449">The value to set for progress.</doc>
+                 line="369">The value to set for progress.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -906,7 +906,7 @@ well, if it has been set.</doc>
               c:identifier="xapp_gtk_window_set_progress_pulse">
         <doc xml:space="preserve"
              filename="libxapp/xapp-gtk-window.c"
-             line="474">Sets the progress pulse hint hint for a window manager (like muffin)
+             line="394">Sets the progress pulse hint hint for a window manager (like muffin)
 to make available when applications want to display indeterminate or
 ongoing progress in a task manager.
 
@@ -923,13 +923,13 @@ Setting an explicit progress value will unset this flag.</doc>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-gtk-window.c"
-                 line="476">The #XAppGtkWindow to set the progress for</doc>
+                 line="396">The #XAppGtkWindow to set the progress for</doc>
             <type name="GtkWindow" c:type="XAppGtkWindow*"/>
           </instance-parameter>
           <parameter name="pulse" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-gtk-window.c"
-                 line="477">Whether to have pulsing set or not.</doc>
+                 line="397">Whether to have pulsing set or not.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1149,7 +1149,7 @@ Setting an explicit progress value will unset this flag.</doc>
            glib:get-type="xapp_icon_chooser_button_get_type"
            glib:type-struct="IconChooserButtonClass">
       <source-position filename="libxapp/xapp-icon-chooser-button.h"
-                       line="13"/>
+                       line="12"/>
       <implements name="Atk.ImplementorIface"/>
       <implements name="Gtk.Actionable"/>
       <implements name="Gtk.Activatable"/>
@@ -1159,7 +1159,7 @@ Setting an explicit progress value will unset this flag.</doc>
              filename="libxapp/xapp-icon-chooser-button.c"
              line="246">Creates a new #XAppIconChooserButton and sets its icon to @icon.</doc>
         <source-position filename="libxapp/xapp-icon-chooser-button.h"
-                         line="15"/>
+                         line="14"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-icon-chooser-button.c"
@@ -1175,7 +1175,7 @@ Setting an explicit progress value will unset this flag.</doc>
 the dialog. Note that xapp_icon_chooser_button_new_with_size (NULL, NULL) is the same as calling
 xapp_icon_chooser_button_new ().</doc>
         <source-position filename="libxapp/xapp-icon-chooser-button.h"
-                         line="17"/>
+                         line="16"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-icon-chooser-button.c"
@@ -1198,7 +1198,7 @@ xapp_icon_chooser_button_new ().</doc>
              line="413">Gets a reference to the icon chooser dialog for the #XAppIconChooserButton.
 This is useful for setting properties on the dialog.</doc>
         <source-position filename="libxapp/xapp-icon-chooser-button.h"
-                         line="29"/>
+                         line="28"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-icon-chooser-button.c"
@@ -1221,7 +1221,7 @@ This is useful for setting properties on the dialog.</doc>
              filename="libxapp/xapp-icon-chooser-button.c"
              line="321">Gets the icon from the #XAppIconChooserButton.</doc>
         <source-position filename="libxapp/xapp-icon-chooser-button.h"
-                         line="28"/>
+                         line="27"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-icon-chooser-button.c"
@@ -1243,7 +1243,7 @@ This is useful for setting properties on the dialog.</doc>
              filename="libxapp/xapp-icon-chooser-button.c"
              line="390">Sets the icon on the #XAppIconChooserButton.</doc>
         <source-position filename="libxapp/xapp-icon-chooser-button.h"
-                         line="25"/>
+                         line="24"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1272,7 +1272,7 @@ This is useful for setting properties on the dialog.</doc>
              filename="libxapp/xapp-icon-chooser-button.c"
              line="339">Sets the icon on the #XAppIconChooserButton.</doc>
         <source-position filename="libxapp/xapp-icon-chooser-button.h"
-                         line="22"/>
+                         line="21"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1301,7 +1301,7 @@ This is useful for setting properties on the dialog.</doc>
              filename="libxapp/xapp-icon-chooser-button.c"
              line="281">Sets the icon size used in the button.</doc>
         <source-position filename="libxapp/xapp-icon-chooser-button.h"
-                         line="19"/>
+                         line="18"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1353,7 +1353,7 @@ particular size.</doc>
             c:type="XAppIconChooserButtonClass"
             glib:is-gtype-struct-for="IconChooserButton">
       <source-position filename="libxapp/xapp-icon-chooser-button.h"
-                       line="13"/>
+                       line="12"/>
       <field name="parent_class">
         <type name="Gtk.ButtonClass" c:type="GtkButtonClass"/>
       </field>
@@ -1361,24 +1361,24 @@ particular size.</doc>
     <class name="IconChooserDialog"
            c:symbol-prefix="icon_chooser_dialog"
            c:type="XAppIconChooserDialog"
-           parent="GtkWindow"
+           parent="Gtk.Dialog"
            glib:type-name="XAppIconChooserDialog"
            glib:get-type="xapp_icon_chooser_dialog_get_type"
            glib:type-struct="IconChooserDialogClass">
       <source-position filename="libxapp/xapp-icon-chooser-dialog.h"
-                       line="13"/>
+                       line="11"/>
       <implements name="Atk.ImplementorIface"/>
       <implements name="Gtk.Buildable"/>
       <constructor name="new" c:identifier="xapp_icon_chooser_dialog_new">
         <doc xml:space="preserve"
              filename="libxapp/xapp-icon-chooser-dialog.c"
-             line="696">Creates a new #XAppIconChooserDialog.</doc>
+             line="667">Creates a new #XAppIconChooserDialog.</doc>
         <source-position filename="libxapp/xapp-icon-chooser-dialog.h"
-                         line="25"/>
+                         line="23"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-icon-chooser-dialog.c"
-               line="701">a newly created #XAppIconChooserDialog</doc>
+               line="672">a newly created #XAppIconChooserDialog</doc>
           <type name="IconChooserDialog" c:type="XAppIconChooserDialog*"/>
         </return-value>
       </constructor>
@@ -1386,10 +1386,10 @@ particular size.</doc>
               c:identifier="xapp_icon_chooser_dialog_add_button">
         <doc xml:space="preserve"
              filename="libxapp/xapp-icon-chooser-dialog.c"
-             line="954">Allows a button to be added to the #GtkActionBar of the dialog with a custom
+             line="917">Allows a button to be added to the action area of the dialog with a custom
 response id.</doc>
         <source-position filename="libxapp/xapp-icon-chooser-dialog.h"
-                         line="37"/>
+                         line="35"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1397,25 +1397,25 @@ response id.</doc>
           <instance-parameter name="dialog" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-icon-chooser-dialog.c"
-                 line="956">an #XAppIconChooserDialog</doc>
+                 line="919">an #XAppIconChooserDialog</doc>
             <type name="IconChooserDialog" c:type="XAppIconChooserDialog*"/>
           </instance-parameter>
           <parameter name="button" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-icon-chooser-dialog.c"
-                 line="957">a #GtkButton to add</doc>
+                 line="920">a #GtkButton to add</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
           <parameter name="packing" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-icon-chooser-dialog.c"
-                 line="958">the #GtkPackType to specify start or end packing to the action bar</doc>
+                 line="921">the #GtkPackType to specify start or end packing to the action area</doc>
             <type name="Gtk.PackType" c:type="GtkPackType"/>
           </parameter>
           <parameter name="response_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-icon-chooser-dialog.c"
-                 line="959">the dialog response id to return when this button is clicked.</doc>
+                 line="922">the dialog response id to return when this button is clicked.</doc>
             <type name="Gtk.ResponseType" c:type="GtkResponseType"/>
           </parameter>
         </parameters>
@@ -1424,9 +1424,9 @@ response id.</doc>
               c:identifier="xapp_icon_chooser_dialog_add_custom_category">
         <doc xml:space="preserve"
              filename="libxapp/xapp-icon-chooser-dialog.c"
-             line="866">Adds a custom category to the dialog.</doc>
+             line="840">Adds a custom category to the dialog.</doc>
         <source-position filename="libxapp/xapp-icon-chooser-dialog.h"
-                         line="46"/>
+                         line="44"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1434,19 +1434,19 @@ response id.</doc>
           <instance-parameter name="dialog" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-icon-chooser-dialog.c"
-                 line="868">a #XAppIconChooserDialog</doc>
+                 line="842">a #XAppIconChooserDialog</doc>
             <type name="IconChooserDialog" c:type="XAppIconChooserDialog*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-icon-chooser-dialog.c"
-                 line="869">the name of the category as it will be displayed in the category list</doc>
+                 line="843">the name of the category as it will be displayed in the category list</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="icons" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-icon-chooser-dialog.c"
-                 line="870">a list of icon names to add to the new category</doc>
+                 line="844">a list of icon names to add to the new category</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="utf8"/>
             </type>
@@ -1458,13 +1458,13 @@ response id.</doc>
               glib:get-property="default-icon">
         <doc xml:space="preserve"
              filename="libxapp/xapp-icon-chooser-dialog.c"
-             line="823">Returns the default icon (if set).</doc>
+             line="797">Returns the default icon (if set).</doc>
         <source-position filename="libxapp/xapp-icon-chooser-dialog.h"
-                         line="42"/>
+                         line="40"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libxapp/xapp-icon-chooser-dialog.c"
-               line="828">the default icon, or NULL if none is set</doc>
+               line="802">the default icon, or NULL if none is set</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
@@ -1477,15 +1477,15 @@ response id.</doc>
               c:identifier="xapp_icon_chooser_dialog_get_icon_string">
         <doc xml:space="preserve"
              filename="libxapp/xapp-icon-chooser-dialog.c"
-             line="908">Gets the currently selected icon from the dialog. If allow-paths is TRUE, this function may return
+             line="882">Gets the currently selected icon from the dialog. If allow-paths is TRUE, this function may return
 either an icon name or a path depending on what the user selects. Otherwise it will only return an
 icon name.</doc>
         <source-position filename="libxapp/xapp-icon-chooser-dialog.h"
-                         line="35"/>
+                         line="33"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libxapp/xapp-icon-chooser-dialog.c"
-               line="916">the string representation of the currently selected icon or NULL
+               line="890">the string representation of the currently selected icon or NULL
 if no icon is selected.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -1493,7 +1493,7 @@ if no icon is selected.</doc>
           <instance-parameter name="dialog" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-icon-chooser-dialog.c"
-                 line="910">a #XAppIconChooserDialog</doc>
+                 line="884">a #XAppIconChooserDialog</doc>
             <type name="IconChooserDialog" c:type="XAppIconChooserDialog*"/>
           </instance-parameter>
         </parameters>
@@ -1501,25 +1501,25 @@ if no icon is selected.</doc>
       <method name="run" c:identifier="xapp_icon_chooser_dialog_run">
         <doc xml:space="preserve"
              filename="libxapp/xapp-icon-chooser-dialog.c"
-             line="709">Shows the dialog and enters a separate main loop until an icon is chosen or the action is canceled.
+             line="680">Shows the dialog and enters a separate main loop until an icon is chosen or the action is canceled.
 
 xapp_icon_chooser_dialog_run (), xapp_icon_chooser_dialog_run_with_icon(), and
 xapp_icon_chooser_dialog_run_with_category () may all be called multiple times. This is useful for
 applications which use this dialog multiple times, as it may improve performance for subsequent
 calls.</doc>
         <source-position filename="libxapp/xapp-icon-chooser-dialog.h"
-                         line="27"/>
+                         line="25"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-icon-chooser-dialog.c"
-               line="720">GTK_RESPONSE_OK if the user selected an icon, or GTK_RESPONSE_CANCEL otherwise</doc>
+               line="691">GTK_RESPONSE_OK if the user selected an icon, or GTK_RESPONSE_CANCEL otherwise</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="dialog" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-icon-chooser-dialog.c"
-                 line="711">a #XAppIconChooserDialog</doc>
+                 line="682">a #XAppIconChooserDialog</doc>
             <type name="IconChooserDialog" c:type="XAppIconChooserDialog*"/>
           </instance-parameter>
         </parameters>
@@ -1528,7 +1528,7 @@ calls.</doc>
               c:identifier="xapp_icon_chooser_dialog_run_with_category">
         <doc xml:space="preserve"
              filename="libxapp/xapp-icon-chooser-dialog.c"
-             line="773">Like xapp_icon_chooser_dialog_run but selects a particular category specified by @category.
+             line="746">Like xapp_icon_chooser_dialog_run but selects a particular category specified by @category.
 This is used when there is a particular category of icon that is more appropriate than the
 others. If the category does not exist, the first category in the list will be selected. To
 get a list of possible categories, use gtk_icon_theme_list_contexts ().
@@ -1538,18 +1538,18 @@ xapp_icon_chooser_dialog_run_with_category () may all be called multiple times. 
 applications which use this dialog multiple times, as it may improve performance for subsequent
 calls.</doc>
         <source-position filename="libxapp/xapp-icon-chooser-dialog.h"
-                         line="32"/>
+                         line="30"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-icon-chooser-dialog.c"
-               line="787">GTK_RESPONSE_OK if the user selected an icon, or GTK_RESPONSE_CANCEL otherwise</doc>
+               line="760">GTK_RESPONSE_OK if the user selected an icon, or GTK_RESPONSE_CANCEL otherwise</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="dialog" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-icon-chooser-dialog.c"
-                 line="775">a #XAppIconChooserDialog</doc>
+                 line="748">a #XAppIconChooserDialog</doc>
             <type name="IconChooserDialog" c:type="XAppIconChooserDialog*"/>
           </instance-parameter>
           <parameter name="category" transfer-ownership="none">
@@ -1561,7 +1561,7 @@ calls.</doc>
               c:identifier="xapp_icon_chooser_dialog_run_with_icon">
         <doc xml:space="preserve"
              filename="libxapp/xapp-icon-chooser-dialog.c"
-             line="737">Like xapp_icon_chooser_dialog_run but selects the icon specified by @icon. This can be either an
+             line="709">Like xapp_icon_chooser_dialog_run but selects the icon specified by @icon. This can be either an
 icon name or a path. Passing an icon string or path that doesn't exist is accepted, but it may show
 multiple results, or none at all. This behavior is useful if, for example, you wish to have the
 user select an image file from a particular directory.
@@ -1573,24 +1573,24 @@ xapp_icon_chooser_dialog_run_with_category () may all be called multiple times. 
 applications which use this dialog multiple times, as it may improve performance for subsequent
 calls.</doc>
         <source-position filename="libxapp/xapp-icon-chooser-dialog.h"
-                         line="29"/>
+                         line="27"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-icon-chooser-dialog.c"
-               line="754">GTK_RESPONSE_OK if the user selected an icon, or GTK_RESPONSE_CANCEL otherwise</doc>
+               line="726">GTK_RESPONSE_OK if the user selected an icon, or GTK_RESPONSE_CANCEL otherwise</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="dialog" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-icon-chooser-dialog.c"
-                 line="739">a #XAppIconChooserDialog</doc>
+                 line="711">a #XAppIconChooserDialog</doc>
             <type name="IconChooserDialog" c:type="XAppIconChooserDialog*"/>
           </instance-parameter>
           <parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-icon-chooser-dialog.c"
-                 line="740">a string representing the icon that should be selected</doc>
+                 line="712">a string representing the icon that should be selected</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -1600,10 +1600,10 @@ calls.</doc>
               glib:set-property="default-icon">
         <doc xml:space="preserve"
              filename="libxapp/xapp-icon-chooser-dialog.c"
-             line="840">Sets the default icon. If @icon is not NULL, a button will be shown that
+             line="814">Sets the default icon. If @icon is not NULL, a button will be shown that
 will reset the dialog to it's default value.</doc>
         <source-position filename="libxapp/xapp-icon-chooser-dialog.h"
-                         line="43"/>
+                         line="41"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1614,7 +1614,7 @@ will reset the dialog to it's default value.</doc>
           <parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-icon-chooser-dialog.c"
-                 line="842">the default icon, or NULL to unset</doc>
+                 line="816">the default icon, or NULL to unset</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1625,7 +1625,7 @@ will reset the dialog to it's default value.</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="libxapp/xapp-icon-chooser-dialog.c"
-             line="645">Whether to allow paths to be searched and selected or only icon names.</doc>
+             line="624">Whether to allow paths to be searched and selected or only icon names.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="default-icon"
@@ -1636,7 +1636,7 @@ will reset the dialog to it's default value.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="libxapp/xapp-icon-chooser-dialog.c"
-             line="657">The icon to use by default.</doc>
+             line="636">The icon to use by default.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="icon-size"
@@ -1645,16 +1645,11 @@ will reset the dialog to it's default value.</doc>
                 default-value="XAPP_ICON_SIZE_32">
         <doc xml:space="preserve"
              filename="libxapp/xapp-icon-chooser-dialog.c"
-             line="630">The preferred size to use when looking up icons. This only works with icon names.
+             line="609">The preferred size to use when looking up icons. This only works with icon names.
 Additionally, there is no guarantee that a selected icon name will exist in a
 particular size.</doc>
         <type name="IconSize"/>
       </property>
-      <glib:signal name="close" when="last" action="1">
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-      </glib:signal>
       <glib:signal name="select" when="last" action="1">
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1665,9 +1660,9 @@ particular size.</doc>
             c:type="XAppIconChooserDialogClass"
             glib:is-gtype-struct-for="IconChooserDialog">
       <source-position filename="libxapp/xapp-icon-chooser-dialog.h"
-                       line="13"/>
+                       line="11"/>
       <field name="parent_class">
-        <type name="GtkWindowClass" c:type="XAppGtkWindowClass"/>
+        <type name="Gtk.DialogClass" c:type="GtkDialogClass"/>
       </field>
     </record>
     <enumeration name="IconSize"
@@ -3514,12 +3509,12 @@ The sidebar widget will automatically update according to the order
                    version="1.6">
         <doc xml:space="preserve"
              filename="libxapp/xapp-status-icon.c"
-             line="1956">Creates a new #XAppStatusIcon instance</doc>
+             line="2204">Creates a new #XAppStatusIcon instance</doc>
         <source-position filename="libxapp/xapp-status-icon.h" line="49"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libxapp/xapp-status-icon.c"
-               line="1961">a new #XAppStatusIcon. Use g_object_unref when finished.</doc>
+               line="2209">a new #XAppStatusIcon. Use g_object_unref when finished.</doc>
           <type name="StatusIcon" c:type="XAppStatusIcon*"/>
         </return-value>
       </constructor>
@@ -3528,12 +3523,12 @@ The sidebar widget will automatically update according to the order
                    version="1.6">
         <doc xml:space="preserve"
              filename="libxapp/xapp-status-icon.c"
-             line="1971">Creates a new #XAppStatusIcon instance and sets its name to %name.</doc>
+             line="2219">Creates a new #XAppStatusIcon instance and sets its name to %name.</doc>
         <source-position filename="libxapp/xapp-status-icon.h" line="50"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libxapp/xapp-status-icon.c"
-               line="1976">a new #XAppStatusIcon. Use g_object_unref when finished.</doc>
+               line="2224">a new #XAppStatusIcon. Use g_object_unref when finished.</doc>
           <type name="StatusIcon" c:type="XAppStatusIcon*"/>
         </return-value>
         <parameters>
@@ -3547,12 +3542,12 @@ The sidebar widget will automatically update according to the order
                 version="1.6">
         <doc xml:space="preserve"
              filename="libxapp/xapp-status-icon.c"
-             line="2047">Looks for the existence of any active #XAppStatusIconMonitors on the bus.</doc>
+             line="2295">Looks for the existence of any active #XAppStatusIconMonitors on the bus.</doc>
         <source-position filename="libxapp/xapp-status-icon.h" line="74"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-status-icon.c"
-               line="2052">%TRUE if at least one monitor was found.</doc>
+               line="2300">%TRUE if at least one monitor was found.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
       </function>
@@ -3564,7 +3559,7 @@ The sidebar widget will automatically update according to the order
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-status-icon.c"
-               line="1675">The desired icon size - usually set by the host based on panel size.
+               line="1923">The desired icon size - usually set by the host based on panel size.
 This is not what it's guaranteed to get, and this is really only useful when
 receiving absolute icon paths from the client app.</doc>
           <type name="gint" c:type="gint"/>
@@ -3573,7 +3568,7 @@ receiving absolute icon paths from the client app.</doc>
           <instance-parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1673">a #XAppStatusIcon</doc>
+                 line="1921">a #XAppStatusIcon</doc>
             <type name="StatusIcon" c:type="XAppStatusIcon*"/>
           </instance-parameter>
         </parameters>
@@ -3584,20 +3579,20 @@ receiving absolute icon paths from the client app.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libxapp/xapp-status-icon.c"
-             line="1883">Returns a pointer to a #GtkMenu that was set previously for the
+             line="2131">Returns a pointer to a #GtkMenu that was set previously for the
 primary mouse button.  If no menu was set, this returns %NULL.</doc>
         <source-position filename="libxapp/xapp-status-icon.h" line="66"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-status-icon.c"
-               line="1890">the #GtkMenu or %NULL if none was set.</doc>
+               line="2138">the #GtkMenu or %NULL if none was set.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1885">an #XAppStatusIcon</doc>
+                 line="2133">an #XAppStatusIcon</doc>
             <type name="StatusIcon" c:type="XAppStatusIcon*"/>
           </instance-parameter>
         </parameters>
@@ -3608,20 +3603,20 @@ primary mouse button.  If no menu was set, this returns %NULL.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libxapp/xapp-status-icon.c"
-             line="1935">Returns a pointer to a #GtkMenu that was set previously for the
+             line="2183">Returns a pointer to a #GtkMenu that was set previously for the
 secondary mouse button.  If no menu was set, this returns %NULL.</doc>
         <source-position filename="libxapp/xapp-status-icon.h" line="68"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-status-icon.c"
-               line="1942">the #GtkMenu or %NULL if none was set.</doc>
+               line="2190">the #GtkMenu or %NULL if none was set.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1937">an #XAppStatusIcon</doc>
+                 line="2185">an #XAppStatusIcon</doc>
             <type name="StatusIcon" c:type="XAppStatusIcon*"/>
           </instance-parameter>
         </parameters>
@@ -3631,7 +3626,7 @@ secondary mouse button.  If no menu was set, this returns %NULL.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libxapp/xapp-status-icon.c"
-             line="1988">Gets the current #XAppStatusIconState of icon. The state is determined by whether
+             line="2236">Gets the current #XAppStatusIconState of icon. The state is determined by whether
 the icon is being displayed by an #XAppStatusMonitor client, a fallback tray icon,
 or not being displayed at all.
 
@@ -3640,14 +3635,14 @@ See #XAppStatusIconState for more details.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-status-icon.c"
-               line="1998">the icon's state.</doc>
+               line="2246">the icon's state.</doc>
           <type name="StatusIconState" c:type="XAppStatusIconState"/>
         </return-value>
         <parameters>
           <instance-parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1990">an #XAppStatusIcon</doc>
+                 line="2238">an #XAppStatusIcon</doc>
             <type name="StatusIcon" c:type="XAppStatusIcon*"/>
           </instance-parameter>
         </parameters>
@@ -3657,19 +3652,19 @@ See #XAppStatusIconState for more details.</doc>
               version="1.8.5">
         <doc xml:space="preserve"
              filename="libxapp/xapp-status-icon.c"
-             line="1795">Returns whether or not the icon should currently be visible.</doc>
+             line="2043">Returns whether or not the icon should currently be visible.</doc>
         <source-position filename="libxapp/xapp-status-icon.h" line="57"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-status-icon.c"
-               line="1801">the current visibility state.</doc>
+               line="2049">the current visibility state.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1797">an #XAppStatusIcon</doc>
+                 line="2045">an #XAppStatusIcon</doc>
             <type name="StatusIcon" c:type="XAppStatusIcon*"/>
           </instance-parameter>
         </parameters>
@@ -3679,7 +3674,7 @@ See #XAppStatusIconState for more details.</doc>
               version="1.8.6">
         <doc xml:space="preserve"
              filename="libxapp/xapp-status-icon.c"
-             line="1815">Pop up @menu using the positioning arguments. These arguments should be
+             line="2063">Pop up @menu using the positioning arguments. These arguments should be
 those provided by a #XAppStatusIcon::button-release-event.</doc>
         <source-position filename="libxapp/xapp-status-icon.h" line="58"/>
         <return-value transfer-ownership="none">
@@ -3689,7 +3684,7 @@ those provided by a #XAppStatusIcon::button-release-event.</doc>
           <instance-parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1817">an #XAppStatusIcon</doc>
+                 line="2065">an #XAppStatusIcon</doc>
             <type name="StatusIcon" c:type="XAppStatusIcon*"/>
           </instance-parameter>
           <parameter name="menu"
@@ -3698,37 +3693,37 @@ those provided by a #XAppStatusIcon::button-release-event.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1818">A #GtkMenu to display when the primary mouse button is released.</doc>
+                 line="2066">A #GtkMenu to display when the primary mouse button is released.</doc>
             <type name="Gtk.Menu" c:type="GtkMenu*"/>
           </parameter>
           <parameter name="x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1819">The x anchor position for the menu.</doc>
+                 line="2067">The x anchor position for the menu.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1820">The y anchor position for the menu.</doc>
+                 line="2068">The y anchor position for the menu.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="button" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1821">The button used to initiate this action (or 0)</doc>
+                 line="2069">The button used to initiate this action (or 0)</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="_time" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1822">The event time (or 0)</doc>
+                 line="2070">The event time (or 0)</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="panel_position" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1823">The #GtkPositionType for the position of the icon.</doc>
+                 line="2071">The #GtkPositionType for the position of the icon.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -3738,7 +3733,7 @@ those provided by a #XAppStatusIcon::button-release-event.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libxapp/xapp-status-icon.c"
-             line="1639">Sets the icon name or local path to use.</doc>
+             line="1887">Sets the icon name or local path to use.</doc>
         <source-position filename="libxapp/xapp-status-icon.h" line="52"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3747,13 +3742,13 @@ those provided by a #XAppStatusIcon::button-release-event.</doc>
           <instance-parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1641">a #XAppStatusIcon</doc>
+                 line="1889">a #XAppStatusIcon</doc>
             <type name="StatusIcon" c:type="XAppStatusIcon*"/>
           </instance-parameter>
           <parameter name="icon_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1642">An icon name or absolute path to an icon.</doc>
+                 line="1890">An icon name or absolute path to an icon.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3763,7 +3758,7 @@ those provided by a #XAppStatusIcon::button-release-event.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libxapp/xapp-status-icon.c"
-             line="1734">Sets a label, shown beside the icon</doc>
+             line="1982">Sets a label, shown beside the icon</doc>
         <source-position filename="libxapp/xapp-status-icon.h" line="55"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3772,13 +3767,13 @@ those provided by a #XAppStatusIcon::button-release-event.</doc>
           <instance-parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1736">a #XAppStatusIcon</doc>
+                 line="1984">a #XAppStatusIcon</doc>
             <type name="StatusIcon" c:type="XAppStatusIcon*"/>
           </instance-parameter>
           <parameter name="label" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1737">some text</doc>
+                 line="1985">some text</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3788,7 +3783,7 @@ those provided by a #XAppStatusIcon::button-release-event.</doc>
               version="1.8.7">
         <doc xml:space="preserve"
              filename="libxapp/xapp-status-icon.c"
-             line="2012">Sets metadata to pass to the icon proxy for an applet's use. Right now this is only so
+             line="2260">Sets metadata to pass to the icon proxy for an applet's use. Right now this is only so
 xapp-sn-watcher can tell the applets when the icon is originating from appindicator so panel
 button 'highlighting' can behave correctly.</doc>
         <source-position filename="libxapp/xapp-status-icon.h" line="70"/>
@@ -3799,7 +3794,7 @@ button 'highlighting' can behave correctly.</doc>
           <instance-parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="2014">an #XAppStatusIcon</doc>
+                 line="2262">an #XAppStatusIcon</doc>
             <type name="StatusIcon" c:type="XAppStatusIcon*"/>
           </instance-parameter>
           <parameter name="metadata"
@@ -3808,7 +3803,7 @@ button 'highlighting' can behave correctly.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="2015">A json-formatted string of key:values.</doc>
+                 line="2263">A json-formatted string of key:values.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3819,7 +3814,7 @@ button 'highlighting' can behave correctly.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libxapp/xapp-status-icon.c"
-             line="1591">Sets the status icon name. This is not shown to users.</doc>
+             line="1839">Sets the status icon name. This is not shown to users.</doc>
         <source-position filename="libxapp/xapp-status-icon.h" line="51"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3828,13 +3823,13 @@ button 'highlighting' can behave correctly.</doc>
           <instance-parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1593">a #XAppStatusIcon</doc>
+                 line="1841">a #XAppStatusIcon</doc>
             <type name="StatusIcon" c:type="XAppStatusIcon*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1594">a name (this defaults to the name of the application, if not set)</doc>
+                 line="1842">a name (this defaults to the name of the application, if not set)</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3845,7 +3840,7 @@ button 'highlighting' can behave correctly.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libxapp/xapp-status-icon.c"
-             line="1852">See the #XAppStatusIcon:primary-menu property for details</doc>
+             line="2100">See the #XAppStatusIcon:primary-menu property for details</doc>
         <source-position filename="libxapp/xapp-status-icon.h" line="65"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3854,7 +3849,7 @@ button 'highlighting' can behave correctly.</doc>
           <instance-parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1854">an #XAppStatusIcon</doc>
+                 line="2102">an #XAppStatusIcon</doc>
             <type name="StatusIcon" c:type="XAppStatusIcon*"/>
           </instance-parameter>
           <parameter name="menu"
@@ -3863,7 +3858,7 @@ button 'highlighting' can behave correctly.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1855">A #GtkMenu to display when the primary mouse button is released.</doc>
+                 line="2103">A #GtkMenu to display when the primary mouse button is released.</doc>
             <type name="Gtk.Menu" c:type="GtkMenu*"/>
           </parameter>
         </parameters>
@@ -3874,7 +3869,7 @@ button 'highlighting' can behave correctly.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libxapp/xapp-status-icon.c"
-             line="1904">See the #XAppStatusIcon:secondary-menu property for details</doc>
+             line="2152">See the #XAppStatusIcon:secondary-menu property for details</doc>
         <source-position filename="libxapp/xapp-status-icon.h" line="67"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3883,7 +3878,7 @@ button 'highlighting' can behave correctly.</doc>
           <instance-parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1906">an #XAppStatusIcon</doc>
+                 line="2154">an #XAppStatusIcon</doc>
             <type name="StatusIcon" c:type="XAppStatusIcon*"/>
           </instance-parameter>
           <parameter name="menu"
@@ -3892,7 +3887,7 @@ button 'highlighting' can behave correctly.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1907">A #GtkMenu to display when the primary mouse button is released.</doc>
+                 line="2155">A #GtkMenu to display when the primary mouse button is released.</doc>
             <type name="Gtk.Menu" c:type="GtkMenu*"/>
           </parameter>
         </parameters>
@@ -3902,7 +3897,7 @@ button 'highlighting' can behave correctly.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libxapp/xapp-status-icon.c"
-             line="1702">Sets the tooltip text</doc>
+             line="1950">Sets the tooltip text</doc>
         <source-position filename="libxapp/xapp-status-icon.h" line="54"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3911,13 +3906,13 @@ button 'highlighting' can behave correctly.</doc>
           <instance-parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1704">a #XAppStatusIcon</doc>
+                 line="1952">a #XAppStatusIcon</doc>
             <type name="StatusIcon" c:type="XAppStatusIcon*"/>
           </instance-parameter>
           <parameter name="tooltip_text" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1705">the text to show in the tooltip</doc>
+                 line="1953">the text to show in the tooltip</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3927,7 +3922,7 @@ button 'highlighting' can behave correctly.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="libxapp/xapp-status-icon.c"
-             line="1764">Sets the visibility of the status icon</doc>
+             line="2012">Sets the visibility of the status icon</doc>
         <source-position filename="libxapp/xapp-status-icon.h" line="56"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3936,13 +3931,13 @@ button 'highlighting' can behave correctly.</doc>
           <instance-parameter name="icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1766">a #XAppStatusIcon</doc>
+                 line="2014">a #XAppStatusIcon</doc>
             <type name="StatusIcon" c:type="XAppStatusIcon*"/>
           </instance-parameter>
           <parameter name="visible" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1767">whether or not the status icon should be visible</doc>
+                 line="2015">whether or not the status icon should be visible</doc>
             <type name="gboolean" c:type="const gboolean"/>
           </parameter>
         </parameters>
@@ -3954,7 +3949,7 @@ button 'highlighting' can behave correctly.</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="libxapp/xapp-status-icon.c"
-             line="1460">The icon size that is preferred by icon monitor/host - this is usually a product
+             line="1708">The icon size that is preferred by icon monitor/host - this is usually a product
 of some calculation based on the panel size.  It can be used by the client to size
 an icon to be saved as a file and its path sent to the host.
 
@@ -3970,7 +3965,7 @@ has multiple #XAppStatusIconMonitors active.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="libxapp/xapp-status-icon.c"
-             line="1480">The name of the icon for sorting purposes. If this is in the form of 'org.x.StatusIcon.foo`
+             line="1728">The name of the icon for sorting purposes. If this is in the form of 'org.x.StatusIcon.foo`
 and set immediately upon creation of the icon, it will also attempt to own this dbus name;
 this can be useful in sandboxed environments where a well-defined name is required. If
 additional icons are created, only the name given to the initial one will be used for dbus,
@@ -3985,7 +3980,7 @@ g_get_prgname() if no other name is provided.</doc>
                 getter="get_primary_menu">
         <doc xml:space="preserve"
              filename="libxapp/xapp-status-icon.c"
-             line="1404">A #GtkMenu to use when requested by the remote monitor via a left (or primary) click.
+             line="1652">A #GtkMenu to use when requested by the remote monitor via a left (or primary) click.
 
 When this property is not %NULL, the menu will be automatically positioned and
 displayed during a primary button release.
@@ -4011,7 +4006,7 @@ The same #GtkMenu widget can be set as both the primary and secondary.</doc>
                 getter="get_secondary_menu">
         <doc xml:space="preserve"
              filename="libxapp/xapp-status-icon.c"
-             line="1432">A #GtkMenu to use when requested by the remote monitor via a right (or secondary) click.
+             line="1680">A #GtkMenu to use when requested by the remote monitor via a right (or secondary) click.
 
 When this property is not %NULL, the menu will be automatically positioned and
 displayed during a secondary button release.
@@ -4033,7 +4028,7 @@ The same #GtkMenu widget can be set as both the primary and secondary.</doc>
       <glib:signal name="activate" when="first" action="1">
         <doc xml:space="preserve"
              filename="libxapp/xapp-status-icon.c"
-             line="1535">Gets emitted when the user activates the status icon.  If the XAppStatusIcon:primary-menu or
+             line="1783">Gets emitted when the user activates the status icon.  If the XAppStatusIcon:primary-menu or
 XAppStatusIcon:secondary-menu is not %NULL, this signal is skipped for the respective button
 presses.  A middle button click will always send this signal when pressed.</doc>
         <return-value transfer-ownership="none">
@@ -4043,13 +4038,13 @@ presses.  A middle button click will always send this signal when pressed.</doc>
           <parameter name="button" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1538">The button that was pressed</doc>
+                 line="1786">The button that was pressed</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="time" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1539">The time supplied by the event, or 0</doc>
+                 line="1787">The time supplied by the event, or 0</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -4057,7 +4052,7 @@ presses.  A middle button click will always send this signal when pressed.</doc>
       <glib:signal name="button-press-event" when="last" action="1">
         <doc xml:space="preserve"
              filename="libxapp/xapp-status-icon.c"
-             line="1497">Gets emitted when there is a button press received from an applet</doc>
+             line="1745">Gets emitted when there is a button press received from an applet</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4065,31 +4060,31 @@ presses.  A middle button click will always send this signal when pressed.</doc>
           <parameter name="x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1500">The absolute x position to use for menu positioning</doc>
+                 line="1748">The absolute x position to use for menu positioning</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1501">The absolute y position to use for menu positioning</doc>
+                 line="1749">The absolute y position to use for menu positioning</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="button" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1502">The button that was pressed</doc>
+                 line="1750">The button that was pressed</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="time" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1503">The time supplied by the event, or 0</doc>
+                 line="1751">The time supplied by the event, or 0</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="panel_position" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1504">The #GtkPositionType to use for menu positioning</doc>
+                 line="1752">The #GtkPositionType to use for menu positioning</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -4097,7 +4092,7 @@ presses.  A middle button click will always send this signal when pressed.</doc>
       <glib:signal name="button-release-event" when="last" action="1">
         <doc xml:space="preserve"
              filename="libxapp/xapp-status-icon.c"
-             line="1516">Gets emitted when there is a button release received from an applet</doc>
+             line="1764">Gets emitted when there is a button release received from an applet</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4105,31 +4100,31 @@ presses.  A middle button click will always send this signal when pressed.</doc>
           <parameter name="x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1519">The absolute x position to use for menu positioning</doc>
+                 line="1767">The absolute x position to use for menu positioning</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1520">The absolute y position to use for menu positioning</doc>
+                 line="1768">The absolute y position to use for menu positioning</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="button" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1521">The button that was released</doc>
+                 line="1769">The button that was released</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="time" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1522">The time supplied by the event, or 0</doc>
+                 line="1770">The time supplied by the event, or 0</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="panel_position" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1523">The #GtkPositionType to use for menu positioning</doc>
+                 line="1771">The #GtkPositionType to use for menu positioning</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -4137,7 +4132,7 @@ presses.  A middle button click will always send this signal when pressed.</doc>
       <glib:signal name="scroll-event" when="first" action="1">
         <doc xml:space="preserve"
              filename="libxapp/xapp-status-icon.c"
-             line="1571">Gets emitted when the user uses the mouse scroll wheel over the status icon.
+             line="1819">Gets emitted when the user uses the mouse scroll wheel over the status icon.
 For the most part, amounts will always be 1, unless an applet supports smooth
 scrolling.  Generally the direction value is most important.</doc>
         <return-value transfer-ownership="none">
@@ -4147,19 +4142,19 @@ scrolling.  Generally the direction value is most important.</doc>
           <parameter name="amount" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1574">The amount of movement for the scroll event</doc>
+                 line="1822">The amount of movement for the scroll event</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="direction" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1575">the #XAppScrollDirection of the scroll event</doc>
+                 line="1823">the #XAppScrollDirection of the scroll event</doc>
             <type name="ScrollDirection"/>
           </parameter>
           <parameter name="time" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1576">The time supplied by the event, or 0</doc>
+                 line="1824">The time supplied by the event, or 0</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -4167,7 +4162,7 @@ scrolling.  Generally the direction value is most important.</doc>
       <glib:signal name="state-changed" when="first" action="1">
         <doc xml:space="preserve"
              filename="libxapp/xapp-status-icon.c"
-             line="1553">Gets emitted when the state of the icon changes. If you wish
+             line="1801">Gets emitted when the state of the icon changes. If you wish
 to react to changes in how the status icon is being handled
 (perhaps to alter the menu or other click behavior), you should
 connect to this - see #XAppStatusIconState for more details.</doc>
@@ -4178,7 +4173,7 @@ connect to this - see #XAppStatusIconState for more details.</doc>
           <parameter name="new_state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxapp/xapp-status-icon.c"
-                 line="1556">The new #XAppStatusIconState of the icon</doc>
+                 line="1804">The new #XAppStatusIconState of the icon</doc>
             <type name="StatusIconState"/>
           </parameter>
         </parameters>
@@ -8406,7 +8401,7 @@ but includes the /dev/shm ramdisk as the first choice for a temporary folder.</d
               throws="1">
       <doc xml:space="preserve"
            filename="libxapp/xapp-gtk-window.c"
-           line="586">Sets the icon name hint for a window manager (like muffin) to make
+           line="520">Sets the icon name hint for a window manager (like muffin) to make
 available when applications want to change their icons during runtime
 without having to resort to the internal low-res pixbufs that GdkWindow
 sets on the client side.  This also chains up and calls GtkWindow.set_icon_from_file
@@ -8419,7 +8414,7 @@ for convenience and compatibility.  Set to %NULL to unset.</doc>
         <parameter name="window" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-gtk-window.c"
-               line="588">The #GtkWindow to set the icon name for</doc>
+               line="522">The #GtkWindow to set the icon name for</doc>
           <type name="Gtk.Window" c:type="GtkWindow*"/>
         </parameter>
         <parameter name="file_name"
@@ -8428,7 +8423,7 @@ for convenience and compatibility.  Set to %NULL to unset.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libxapp/xapp-gtk-window.c"
-               line="589">The icon path to set, or %NULL to unset.</doc>
+               line="523">The icon path to set, or %NULL to unset.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -8437,7 +8432,7 @@ for convenience and compatibility.  Set to %NULL to unset.</doc>
               c:identifier="xapp_set_window_icon_name">
       <doc xml:space="preserve"
            filename="libxapp/xapp-gtk-window.c"
-           line="554">Sets the icon name hint for a window manager (like muffin) to make
+           line="488">Sets the icon name hint for a window manager (like muffin) to make
 available when applications want to change their icons during runtime
 without having to resort to the internal low-res pixbufs that GdkWindow
 sets on the client side.  This is a function, not a method, for taking
@@ -8452,7 +8447,7 @@ to have two calls each time.  Set to %NULL to unset.</doc>
         <parameter name="window" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-gtk-window.c"
-               line="556">The #GtkWindow to set the icon name for</doc>
+               line="490">The #GtkWindow to set the icon name for</doc>
           <type name="Gtk.Window" c:type="GtkWindow*"/>
         </parameter>
         <parameter name="icon_name"
@@ -8461,7 +8456,7 @@ to have two calls each time.  Set to %NULL to unset.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libxapp/xapp-gtk-window.c"
-               line="557">The icon name to set, or %NULL to unset.</doc>
+               line="491">The icon name to set, or %NULL to unset.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -8470,7 +8465,7 @@ to have two calls each time.  Set to %NULL to unset.</doc>
               c:identifier="xapp_set_window_progress">
       <doc xml:space="preserve"
            filename="libxapp/xapp-gtk-window.c"
-           line="617">Sets the progress hint for a window manager (like muffin) to make
+           line="551">Sets the progress hint for a window manager (like muffin) to make
 available when applications want to display the application's progress
 in some operation. The value sent to the WM will be clamped to
 between 0 and 100.
@@ -8489,13 +8484,13 @@ well, if it has been set.</doc>
         <parameter name="window" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-gtk-window.c"
-               line="619">The #GtkWindow to set the progress for</doc>
+               line="553">The #GtkWindow to set the progress for</doc>
           <type name="Gtk.Window" c:type="GtkWindow*"/>
         </parameter>
         <parameter name="progress" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-gtk-window.c"
-               line="620">The value to set for progress.</doc>
+               line="554">The value to set for progress.</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
       </parameters>
@@ -8504,7 +8499,7 @@ well, if it has been set.</doc>
               c:identifier="xapp_set_window_progress_pulse">
       <doc xml:space="preserve"
            filename="libxapp/xapp-gtk-window.c"
-           line="652">Sets the progress pulse hint hint for a window manager (like muffin)
+           line="586">Sets the progress pulse hint hint for a window manager (like muffin)
 to make available when applications want to display indeterminate or
 ongoing progress in a task manager.
 
@@ -8521,13 +8516,13 @@ Setting an explicit progress value will unset this flag.</doc>
         <parameter name="window" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-gtk-window.c"
-               line="654">The #GtkWindow to set the progress for</doc>
+               line="588">The #GtkWindow to set the progress for</doc>
           <type name="Gtk.Window" c:type="GtkWindow*"/>
         </parameter>
         <parameter name="pulse" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-gtk-window.c"
-               line="655">Whether to have pulsing set or not.</doc>
+               line="589">Whether to have pulsing set or not.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </parameter>
       </parameters>
@@ -8536,7 +8531,7 @@ Setting an explicit progress value will unset this flag.</doc>
               c:identifier="xapp_set_xid_icon_from_file">
       <doc xml:space="preserve"
            filename="libxapp/xapp-gtk-window.c"
-           line="706">Sets the icon name hint for a window manager (like muffin) to make
+           line="640">Sets the icon name hint for a window manager (like muffin) to make
 available when applications want to change their icons during runtime
 without having to resort to the internal low-res pixbufs that GdkWindow
 sets on the client side.  This is a function, not a method, for applying
@@ -8550,7 +8545,7 @@ the window's XID.  Set to %NULL to unset.</doc>
         <parameter name="xid" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-gtk-window.c"
-               line="708">The Window to set the icon name for</doc>
+               line="642">The Window to set the icon name for</doc>
           <type name="gulong" c:type="gulong"/>
         </parameter>
         <parameter name="file_name"
@@ -8559,7 +8554,7 @@ the window's XID.  Set to %NULL to unset.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libxapp/xapp-gtk-window.c"
-               line="709">The icon path to set, or %NULL to unset.</doc>
+               line="643">The icon path to set, or %NULL to unset.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -8567,7 +8562,7 @@ the window's XID.  Set to %NULL to unset.</doc>
     <function name="set_xid_icon_name" c:identifier="xapp_set_xid_icon_name">
       <doc xml:space="preserve"
            filename="libxapp/xapp-gtk-window.c"
-           line="685">Sets the icon name hint for a window manager (like muffin) to make
+           line="619">Sets the icon name hint for a window manager (like muffin) to make
 available when applications want to change their icons during runtime
 without having to resort to the internal low-res pixbufs that GdkWindow
 sets on the client side.  This is a function, not a method, for applying
@@ -8581,7 +8576,7 @@ the window's XID.  Set to %NULL to unset.</doc>
         <parameter name="xid" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-gtk-window.c"
-               line="687">The Window to set the icon name for</doc>
+               line="621">The Window to set the icon name for</doc>
           <type name="gulong" c:type="gulong"/>
         </parameter>
         <parameter name="icon_name"
@@ -8590,7 +8585,7 @@ the window's XID.  Set to %NULL to unset.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="libxapp/xapp-gtk-window.c"
-               line="688">The icon name to set, or %NULL to unset.</doc>
+               line="622">The icon name to set, or %NULL to unset.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -8598,7 +8593,7 @@ the window's XID.  Set to %NULL to unset.</doc>
     <function name="set_xid_progress" c:identifier="xapp_set_xid_progress">
       <doc xml:space="preserve"
            filename="libxapp/xapp-gtk-window.c"
-           line="728">Sets the progress hint for a window manager (like muffin) to make
+           line="662">Sets the progress hint for a window manager (like muffin) to make
 available when applications want to display the application's progress
 in some operation. The value sent to the WM will be clamped to
 between 0 and 100.
@@ -8620,13 +8615,13 @@ a given (possibly foreign) window, by passing the window's XID.</doc>
         <parameter name="xid" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-gtk-window.c"
-               line="730">The Window to set the progress for</doc>
+               line="664">The Window to set the progress for</doc>
           <type name="gulong" c:type="gulong"/>
         </parameter>
         <parameter name="progress" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-gtk-window.c"
-               line="731">The value to set for progress.</doc>
+               line="665">The value to set for progress.</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
       </parameters>
@@ -8635,7 +8630,7 @@ a given (possibly foreign) window, by passing the window's XID.</doc>
               c:identifier="xapp_set_xid_progress_pulse">
       <doc xml:space="preserve"
            filename="libxapp/xapp-gtk-window.c"
-           line="758">Sets the progress pulse hint hint for a window manager (like muffin)
+           line="691">Sets the progress pulse hint hint for a window manager (like muffin)
 to make available when applications want to display indeterminate or
 ongoing progress in a task manager.
 
@@ -8652,13 +8647,13 @@ Setting an explicit progress value will unset this flag.</doc>
         <parameter name="xid" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-gtk-window.c"
-               line="760">The Window to set the progress for</doc>
+               line="693">The Window to set the progress for</doc>
           <type name="gulong" c:type="gulong"/>
         </parameter>
         <parameter name="pulse" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxapp/xapp-gtk-window.c"
-               line="761">Whether to have pulsing set or not.</doc>
+               line="694">Whether to have pulsing set or not.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </parameter>
       </parameters>
@@ -8815,7 +8810,7 @@ Since 2.6</doc>
     <docsection name="xapp-gtk-window">
       <doc xml:space="preserve"
            filename="libxapp/xapp-gtk-window.c"
-           line="21">This widget is a simple subclass of GtkWindow that provides the following
+           line="16">This widget is a simple subclass of GtkWindow that provides the following
 additional capabilities:
 
 - Ability to set an icon name or icon file path for the window manager to
@@ -8909,7 +8904,7 @@ pages.</doc>
     <docsection name="xapp-status-icon">
       <doc xml:space="preserve"
            filename="libxapp/xapp-status-icon.c"
-           line="67">The XAppStatusIcon allows applications to share status info
+           line="72">The XAppStatusIcon allows applications to share status info
 about themselves. It replaces the obsolete and very similar
 Gtk.StatusIcon widget.
 

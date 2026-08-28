@@ -1113,13 +1113,13 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="job" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ev-jobs.c"
-                 line="243">an #EvJob</doc>
+                 line="240">an #EvJob</doc>
             <type name="Job" c:type="EvJob*"/>
           </instance-parameter>
           <parameter name="error" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ev-jobs.c"
-                 line="244">a #GError</doc>
+                 line="241">a #GError</doc>
             <type name="GLib.Error" c:type="GError*"/>
           </parameter>
         </parameters>
@@ -1509,7 +1509,7 @@ and/or use gtk-doc annotations.  -->
         <return-value>
           <doc xml:space="preserve"
                filename="ev-jobs.c"
-               line="1515">a #GList of #GList&lt;!-- --&gt;s containing #EvRectangle&lt;!-- --&gt;s</doc>
+               line="1407">a #GList of #GList&lt;!-- --&gt;s containing #EvRectangle&lt;!-- --&gt;s</doc>
           <type name="GLib.List" c:type="GList**">
             <type name="gpointer" c:type="gpointer"/>
           </type>
@@ -1518,7 +1518,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="job" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ev-jobs.c"
-                 line="1513">an #EvJobFind</doc>
+                 line="1405">an #EvJobFind</doc>
             <type name="JobFind" c:type="EvJobFind*"/>
           </instance-parameter>
         </parameters>
@@ -2758,7 +2758,7 @@ and/or use gtk-doc annotations.  -->
         </return-value>
       </constructor>
       <method name="autoscroll_start" c:identifier="ev_view_autoscroll_start">
-        <source-position filename="ev-view.h" line="101"/>
+        <source-position filename="ev-view.h" line="104"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2769,7 +2769,7 @@ and/or use gtk-doc annotations.  -->
         </parameters>
       </method>
       <method name="autoscroll_stop" c:identifier="ev_view_autoscroll_stop">
-        <source-position filename="ev-view.h" line="102"/>
+        <source-position filename="ev-view.h" line="105"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2781,7 +2781,7 @@ and/or use gtk-doc annotations.  -->
       </method>
       <method name="begin_add_annotation"
               c:identifier="ev_view_begin_add_annotation">
-        <source-position filename="ev-view.h" line="111"/>
+        <source-position filename="ev-view.h" line="114"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2795,7 +2795,9 @@ and/or use gtk-doc annotations.  -->
           </parameter>
         </parameters>
       </method>
-      <method name="can_zoom_in" c:identifier="ev_view_can_zoom_in">
+      <method name="can_zoom_in"
+              c:identifier="ev_view_can_zoom_in"
+              glib:get-property="can-zoom-in">
         <source-position filename="ev-view.h" line="64"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -2806,7 +2808,9 @@ and/or use gtk-doc annotations.  -->
           </instance-parameter>
         </parameters>
       </method>
-      <method name="can_zoom_out" c:identifier="ev_view_can_zoom_out">
+      <method name="can_zoom_out"
+              c:identifier="ev_view_can_zoom_out"
+              glib:get-property="can-zoom-out">
         <source-position filename="ev-view.h" line="66"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -2819,7 +2823,7 @@ and/or use gtk-doc annotations.  -->
       </method>
       <method name="cancel_add_annotation"
               c:identifier="ev_view_cancel_add_annotation">
-        <source-position filename="ev-view.h" line="113"/>
+        <source-position filename="ev-view.h" line="116"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2859,9 +2863,9 @@ and/or use gtk-doc annotations.  -->
               c:identifier="ev_view_disconnect_handlers">
         <doc xml:space="preserve"
              filename="ev-view.c"
-             line="8126">Disconnect all signal handlers from the model, to ensure error free operation of the webview,
+             line="8250">Disconnect all signal handlers from the model, to ensure error free operation of the webview,
 we have an equivalent function for the webview.</doc>
-        <source-position filename="ev-view.h" line="118"/>
+        <source-position filename="ev-view.h" line="121"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2869,13 +2873,13 @@ we have an equivalent function for the webview.</doc>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ev-view.c"
-                 line="8128">#EvView instance</doc>
+                 line="8252">#EvView instance</doc>
             <type name="View" c:type="EvView*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="find_cancel" c:identifier="ev_view_find_cancel">
-        <source-position filename="ev-view.h" line="81"/>
+        <source-position filename="ev-view.h" line="84"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2888,7 +2892,7 @@ we have an equivalent function for the webview.</doc>
       <method name="find_changed"
               c:identifier="ev_view_find_changed"
               introspectable="0">
-        <source-position filename="ev-view.h" line="78"/>
+        <source-position filename="ev-view.h" line="81"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2896,13 +2900,13 @@ we have an equivalent function for the webview.</doc>
           <instance-parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ev-view.c"
-                 line="7458">an #EvView</doc>
+                 line="7574">an #EvView</doc>
             <type name="View" c:type="EvView*"/>
           </instance-parameter>
           <parameter name="results" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ev-view.c"
-                 line="7459">the results as returned by ev_job_find_get_results()</doc>
+                 line="7575">the results as returned by ev_job_find_get_results()</doc>
             <type name="GLib.List" c:type="GList**">
               <type name="gpointer" c:type="gpointer"/>
             </type>
@@ -2910,7 +2914,7 @@ we have an equivalent function for the webview.</doc>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="ev-view.c"
-                 line="7460">page index</doc>
+                 line="7576">page index</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -2939,7 +2943,7 @@ we have an equivalent function for the webview.</doc>
       </method>
       <method name="find_search_changed"
               c:identifier="ev_view_find_search_changed">
-        <source-position filename="ev-view.h" line="75"/>
+        <source-position filename="ev-view.h" line="78"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2951,7 +2955,7 @@ we have an equivalent function for the webview.</doc>
       </method>
       <method name="find_set_highlight_search"
               c:identifier="ev_view_find_set_highlight_search">
-        <source-position filename="ev-view.h" line="76"/>
+        <source-position filename="ev-view.h" line="79"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2964,8 +2968,25 @@ we have an equivalent function for the webview.</doc>
           </parameter>
         </parameters>
       </method>
+      <method name="find_set_result" c:identifier="ev_view_find_set_result">
+        <source-position filename="ev-view.h" line="75"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="view" transfer-ownership="none">
+            <type name="View" c:type="EvView*"/>
+          </instance-parameter>
+          <parameter name="page" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="result" transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
       <method name="focus_annotation" c:identifier="ev_view_focus_annotation">
-        <source-position filename="ev-view.h" line="109"/>
+        <source-position filename="ev-view.h" line="112"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2991,7 +3012,7 @@ we have an equivalent function for the webview.</doc>
         </parameters>
       </method>
       <method name="get_page_extents" c:identifier="ev_view_get_page_extents">
-        <source-position filename="ev-view.h" line="104"/>
+        <source-position filename="ev-view.h" line="107"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -3011,7 +3032,7 @@ we have an equivalent function for the webview.</doc>
         </parameters>
       </method>
       <method name="handle_link" c:identifier="ev_view_handle_link">
-        <source-position filename="ev-view.h" line="96"/>
+        <source-position filename="ev-view.h" line="99"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3025,7 +3046,7 @@ we have an equivalent function for the webview.</doc>
         </parameters>
       </method>
       <method name="hide_cursor" c:identifier="ev_view_hide_cursor">
-        <source-position filename="ev-view.h" line="88"/>
+        <source-position filename="ev-view.h" line="91"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3037,7 +3058,7 @@ we have an equivalent function for the webview.</doc>
       </method>
       <method name="highlight_forward_search"
               c:identifier="ev_view_highlight_forward_search">
-        <source-position filename="ev-view.h" line="84"/>
+        <source-position filename="ev-view.h" line="87"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3052,7 +3073,7 @@ we have an equivalent function for the webview.</doc>
       </method>
       <method name="is_caret_navigation_enabled"
               c:identifier="ev_view_is_caret_navigation_enabled">
-        <source-position filename="ev-view.h" line="122"/>
+        <source-position filename="ev-view.h" line="125"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -3076,7 +3097,7 @@ we have an equivalent function for the webview.</doc>
         </parameters>
       </method>
       <method name="next_page" c:identifier="ev_view_next_page">
-        <source-position filename="ev-view.h" line="98"/>
+        <source-position filename="ev-view.h" line="101"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -3087,7 +3108,7 @@ we have an equivalent function for the webview.</doc>
         </parameters>
       </method>
       <method name="previous_page" c:identifier="ev_view_previous_page">
-        <source-position filename="ev-view.h" line="99"/>
+        <source-position filename="ev-view.h" line="102"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -3110,7 +3131,7 @@ we have an equivalent function for the webview.</doc>
       </method>
       <method name="remove_annotation"
               c:identifier="ev_view_remove_annotation">
-        <source-position filename="ev-view.h" line="114"/>
+        <source-position filename="ev-view.h" line="117"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3124,7 +3145,7 @@ we have an equivalent function for the webview.</doc>
         </parameters>
       </method>
       <method name="scroll" c:identifier="ev_view_scroll">
-        <source-position filename="ev-view.h" line="93"/>
+        <source-position filename="ev-view.h" line="96"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3153,7 +3174,7 @@ we have an equivalent function for the webview.</doc>
       </method>
       <method name="set_caret_cursor_position"
               c:identifier="ev_view_set_caret_cursor_position">
-        <source-position filename="ev-view.h" line="125"/>
+        <source-position filename="ev-view.h" line="128"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3171,7 +3192,7 @@ we have an equivalent function for the webview.</doc>
       </method>
       <method name="set_caret_navigation_enabled"
               c:identifier="ev_view_set_caret_navigation_enabled">
-        <source-position filename="ev-view.h" line="123"/>
+        <source-position filename="ev-view.h" line="126"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3216,7 +3237,7 @@ we have an equivalent function for the webview.</doc>
               c:identifier="ev_view_set_page_cache_size">
         <doc xml:space="preserve"
              filename="ev-view.c"
-             line="6673">Sets the maximum size in bytes that will be used to cache
+             line="6699">Sets the maximum size in bytes that will be used to cache
 rendered pages. Use 0 to disable caching rendered pages.
 
 Note that this limit doesn't affect the current visible page range,
@@ -3236,7 +3257,7 @@ you have to use ev_document_model_set_max_scale() too.</doc>
         </parameters>
       </method>
       <method name="show_cursor" c:identifier="ev_view_show_cursor">
-        <source-position filename="ev-view.h" line="89"/>
+        <source-position filename="ev-view.h" line="92"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3248,7 +3269,7 @@ you have to use ev_document_model_set_max_scale() too.</doc>
       </method>
       <method name="supports_caret_navigation"
               c:identifier="ev_view_supports_caret_navigation">
-        <source-position filename="ev-view.h" line="121"/>
+        <source-position filename="ev-view.h" line="124"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -3305,6 +3326,18 @@ you have to use ev_document_model_set_max_scale() too.</doc>
           </instance-parameter>
         </parameters>
       </method>
+      <property name="can-zoom-in"
+                transfer-ownership="none"
+                getter="can_zoom_in"
+                default-value="TRUE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="can-zoom-out"
+                transfer-ownership="none"
+                getter="can_zoom_out"
+                default-value="TRUE">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
       <property name="is-loading"
                 transfer-ownership="none"
                 getter="is_loading"

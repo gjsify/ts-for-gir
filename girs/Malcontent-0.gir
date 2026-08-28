@@ -2138,14 +2138,14 @@ instance.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="libmalcontent/session-limits.h"
-           line="109">Initialise a stack-allocated [struct@Malcontent.SessionLimitsBuilder]
+           line="116">Initialise a stack-allocated [struct@Malcontent.SessionLimitsBuilder]
 instance at declaration time.
 
 This is typically used with `g_auto()`:
 ```c
 g_auto(MctSessionLimitsBuilder) builder = MCT_SESSION_LIMITS_BUILDER_INIT ();
 ```</doc>
-      <source-position filename="libmalcontent/session-limits.h" line="122"/>
+      <source-position filename="libmalcontent/session-limits.h" line="129"/>
     </function-macro>
     <record name="SessionLimits"
             c:type="MctSessionLimits"
@@ -2172,7 +2172,7 @@ using polkit.</doc>
               version="0.14.0">
         <doc xml:space="preserve"
              filename="libmalcontent/session-limits.c"
-             line="195">Check whether the user has time remaining in which they are allowed to use
+             line="267">Check whether the user has time remaining in which they are allowed to use
 the computer.
 
 This assumes that @now_dt is the current time and
@@ -2183,12 +2183,128 @@ session limit policy from @limits to them.
 This will return whether the user is allowed to use the computer now; further
 information about the policy and remaining time is provided in
 @time_remaining_secs_out and @time_limit_enabled_out.</doc>
-        <source-position filename="libmalcontent/session-limits.h" line="70"/>
+        <source-position filename="libmalcontent/session-limits.h" line="74"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libmalcontent/session-limits.c"
-               line="220">true if the user this @limits corresponds to is allowed to be in
+               line="295">true if the user this @limits corresponds to is allowed to be in
   an active session at the given time; false otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="limits" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/session-limits.c"
+                 line="269">a [struct@Malcontent.SessionLimits]</doc>
+            <type name="SessionLimits" c:type="MctSessionLimits*"/>
+          </instance-parameter>
+          <parameter name="now_dt" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/session-limits.c"
+                 line="270">current time in the user’s timezone, typically queried using
+  `g_date_time_new_now_local()`</doc>
+            <type name="GLib.DateTime" c:type="GDateTime*"/>
+          </parameter>
+          <parameter name="active_session_time_today_secs"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/session-limits.c"
+                 line="272">total time the user has spent in an active
+  session so far today, in seconds</doc>
+            <type name="guint64" c:type="uint64_t"/>
+          </parameter>
+          <parameter name="time_remaining_secs_out"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/session-limits.c"
+                 line="274">return location for the number
+  of seconds remaining before the user’s session has to end, if limits are
+  in force</doc>
+            <type name="guint64" c:type="guint64*"/>
+          </parameter>
+          <parameter name="time_limit_enabled_out"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/session-limits.c"
+                 line="277">return location for whether time
+  limits are enabled for this user</doc>
+            <type name="gboolean" c:type="gboolean*"/>
+          </parameter>
+          <parameter name="extension_active_out"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full"
+                     optional="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/session-limits.c"
+                 line="279">return location for whether @limits
+  has a screen time limit extension active (see
+  [method@Malcontent.SessionLimits.get_active_extension])</doc>
+            <type name="gboolean" c:type="gboolean*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="equal"
+              c:identifier="mct_session_limits_equal"
+              version="0.14.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/session-limits.c"
+             line="660">Check whether session limits configurations @a and @b are equal.</doc>
+        <source-position filename="libmalcontent/session-limits.h" line="86"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmalcontent/session-limits.c"
+               line="667">true if @a and @b are equal, false otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="a" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/session-limits.c"
+                 line="662">a session limits configuration</doc>
+            <type name="SessionLimits" c:type="MctSessionLimits*"/>
+          </instance-parameter>
+          <parameter name="b" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/session-limits.c"
+                 line="663">a session limits configuration</doc>
+            <type name="SessionLimits" c:type="MctSessionLimits*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_active_extension"
+              c:identifier="mct_session_limits_get_active_extension"
+              version="0.14.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/session-limits.c"
+             line="195">Check whether there is an active screen time limit extension, and get its
+bounds.
+
+If a screen time limit extension has been set on @limits using
+[method@Malcontent.SessionLimitsBuilder.set_active_extension], and @limits
+has at least one limit enabled (see
+[method@Malcontent.SessionLimits.is_enabled]), and the bounds of the
+extension contain @now_dt (i.e. the extension isn’t entirely in the past or
+the future), then the out arguments will be set to its bounds and true will
+be returned.
+
+Otherwise, there is no screen time limit extension active, so false will be
+returned and the out arguments will be set to zero.</doc>
+        <source-position filename="libmalcontent/session-limits.h" line="69"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmalcontent/session-limits.c"
+               line="220">true if @limits has a screen time limit extension active; false
+  otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -2205,15 +2321,7 @@ information about the policy and remaining time is provided in
   `g_date_time_new_now_local()`</doc>
             <type name="GLib.DateTime" c:type="GDateTime*"/>
           </parameter>
-          <parameter name="active_session_time_today_secs"
-                     transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libmalcontent/session-limits.c"
-                 line="200">total time the user has spent in an active
-  session so far today, in seconds</doc>
-            <type name="guint64" c:type="uint64_t"/>
-          </parameter>
-          <parameter name="time_remaining_secs_out"
+          <parameter name="out_start_time_secs"
                      direction="out"
                      caller-allocates="0"
                      transfer-ownership="full"
@@ -2221,12 +2329,12 @@ information about the policy and remaining time is provided in
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libmalcontent/session-limits.c"
-                 line="202">return location for the number
-  of seconds remaining before the user’s session has to end, if limits are
-  in force</doc>
-            <type name="guint64" c:type="guint64*"/>
+                 line="200">return location for the start time of
+  the extension, in seconds since the Unix epoch; or zero if there is no
+  active extension</doc>
+            <type name="guint64" c:type="uint64_t*"/>
           </parameter>
-          <parameter name="time_limit_enabled_out"
+          <parameter name="out_duration_secs"
                      direction="out"
                      caller-allocates="0"
                      transfer-ownership="full"
@@ -2234,37 +2342,9 @@ information about the policy and remaining time is provided in
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libmalcontent/session-limits.c"
-                 line="205">return location for whether time
-  limits are enabled for this user</doc>
-            <type name="gboolean" c:type="gboolean*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="equal"
-              c:identifier="mct_session_limits_equal"
-              version="0.14.0">
-        <doc xml:space="preserve"
-             filename="libmalcontent/session-limits.c"
-             line="477">Check whether session limits configurations @a and @b are equal.</doc>
-        <source-position filename="libmalcontent/session-limits.h" line="81"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="libmalcontent/session-limits.c"
-               line="484">true if @a and @b are equal, false otherwise</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="a" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libmalcontent/session-limits.c"
-                 line="479">a session limits configuration</doc>
-            <type name="SessionLimits" c:type="MctSessionLimits*"/>
-          </instance-parameter>
-          <parameter name="b" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libmalcontent/session-limits.c"
-                 line="480">a session limits configuration</doc>
-            <type name="SessionLimits" c:type="MctSessionLimits*"/>
+                 line="203">return location for the duration of the
+  extension, in seconds; or zero if there is no active extension</doc>
+            <type name="guint" c:type="unsigned int*"/>
           </parameter>
         </parameters>
       </method>
@@ -2437,18 +2517,18 @@ This function is equivalent to the value returned by the
               version="0.7.0">
         <doc xml:space="preserve"
              filename="libmalcontent/session-limits.c"
-             line="312">Build a [struct@GLib.Variant] which contains the session limits from @limits,
+             line="464">Build a [struct@GLib.Variant] which contains the session limits from @limits,
 in an opaque variant format.
 
 This format may change in future, but
 [func@Malcontent.SessionLimits.deserialize] is guaranteed to always be able
 to load any variant produced by the current or any previous version of
 [method@Malcontent.SessionLimits.serialize].</doc>
-        <source-position filename="libmalcontent/session-limits.h" line="76"/>
+        <source-position filename="libmalcontent/session-limits.h" line="81"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libmalcontent/session-limits.c"
-               line="324">a new, floating [struct@GLib.Variant]
+               line="476">a new, floating [struct@GLib.Variant]
   containing the session limits</doc>
           <type name="GLib.Variant" c:type="GVariant*"/>
         </return-value>
@@ -2456,7 +2536,7 @@ to load any variant produced by the current or any previous version of
           <instance-parameter name="limits" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmalcontent/session-limits.c"
-                 line="314">a [struct@Malcontent.SessionLimits]</doc>
+                 line="466">a [struct@Malcontent.SessionLimits]</doc>
             <type name="SessionLimits" c:type="MctSessionLimits*"/>
           </instance-parameter>
         </parameters>
@@ -2487,7 +2567,7 @@ zero, free the @limits and all its resources.</doc>
                 throws="1">
         <doc xml:space="preserve"
              filename="libmalcontent/session-limits.c"
-             line="354">Deserialize a set of session limits previously serialized with
+             line="512">Deserialize a set of session limits previously serialized with
 [method@Malcontent.SessionLimits.serialize].
 
 This function guarantees to be able to deserialize any serialized form from
@@ -2495,24 +2575,24 @@ this version or older versions of libmalcontent.
 
 If deserialization fails, [error@Malcontent.ManagerError.INVALID_DATA] will
 be returned.</doc>
-        <source-position filename="libmalcontent/session-limits.h" line="77"/>
+        <source-position filename="libmalcontent/session-limits.h" line="82"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libmalcontent/session-limits.c"
-               line="369">deserialized session limits</doc>
+               line="527">deserialized session limits</doc>
           <type name="SessionLimits" c:type="MctSessionLimits*"/>
         </return-value>
         <parameters>
           <parameter name="variant" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmalcontent/session-limits.c"
-                 line="356">a serialized session limits variant</doc>
+                 line="514">a serialized session limits variant</doc>
             <type name="GLib.Variant" c:type="GVariant*"/>
           </parameter>
           <parameter name="user_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmalcontent/session-limits.c"
-                 line="357">the ID of the user the session limits relate to</doc>
+                 line="515">the ID of the user the session limits relate to</doc>
             <type name="uid_t" c:type="uid_t"/>
           </parameter>
         </parameters>
@@ -2526,13 +2606,13 @@ be returned.</doc>
             c:symbol-prefix="session_limits_builder">
       <doc xml:space="preserve"
            filename="libmalcontent/session-limits.h"
-           line="84">A stack-allocated mutable structure used to build an
+           line="89">A stack-allocated mutable structure used to build an
 [struct@Malcontent.SessionLimits] instance. Use
 [method@Malcontent.SessionLimitsBuilder.init], various method calls to set
 properties of the session limits, and then
 [method@Malcontent.SessionLimitsBuilder.end], to construct an
 [struct@Malcontent.SessionLimits].</doc>
-      <source-position filename="libmalcontent/session-limits.h" line="105"/>
+      <source-position filename="libmalcontent/session-limits.h" line="112"/>
       <field name="u0" readable="0" private="1">
         <type name="guint" c:type="guint"/>
       </field>
@@ -2548,6 +2628,12 @@ properties of the session limits, and then
       <field name="u4" readable="0" private="1">
         <type name="guint" c:type="unsigned int"/>
       </field>
+      <field name="u5" readable="0" private="1">
+        <type name="guint64" c:type="uint64_t"/>
+      </field>
+      <field name="u6" readable="0" private="1">
+        <type name="guint" c:type="unsigned int"/>
+      </field>
       <field name="p0" readable="0" private="1">
         <array zero-terminated="0" fixed-size="9">
           <type name="gpointer" c:type="gpointer"/>
@@ -2558,17 +2644,17 @@ properties of the session limits, and then
                    version="0.5.0">
         <doc xml:space="preserve"
              filename="libmalcontent/session-limits.c"
-             line="589">Construct a new [struct@Malcontent.SessionLimitsBuilder] on the heap.
+             line="777">Construct a new [struct@Malcontent.SessionLimitsBuilder] on the heap.
 
 This is intended for language bindings. The returned builder must eventually
 be freed with [method@Malcontent.SessionLimitsBuilder.free], but can be
 cleared zero or more times with
 [method@Malcontent.SessionLimitsBuilder.clear] first.</doc>
-        <source-position filename="libmalcontent/session-limits.h" line="139"/>
+        <source-position filename="libmalcontent/session-limits.h" line="148"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libmalcontent/session-limits.c"
-               line="599">a new heap-allocated
+               line="787">a new heap-allocated
   [struct@Malcontent.SessionLimitsBuilder]</doc>
           <type name="SessionLimitsBuilder" c:type="MctSessionLimitsBuilder*"/>
         </return-value>
@@ -2578,14 +2664,14 @@ cleared zero or more times with
               version="0.5.0">
         <doc xml:space="preserve"
              filename="libmalcontent/session-limits.c"
-             line="563">Clear @builder, freeing any internal state in it.
+             line="751">Clear @builder, freeing any internal state in it.
 
 This will not free the top-level storage for @builder itself, which is
 assumed to be allocated on the stack.
 
 If called on an already-cleared [struct@Malcontent.SessionLimitsBuilder],
 this function is idempotent.</doc>
-        <source-position filename="libmalcontent/session-limits.h" line="134"/>
+        <source-position filename="libmalcontent/session-limits.h" line="143"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2593,7 +2679,7 @@ this function is idempotent.</doc>
           <instance-parameter name="builder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmalcontent/session-limits.c"
-                 line="565">a [struct@Malcontent.SessionLimitsBuilder]</doc>
+                 line="753">a [struct@Malcontent.SessionLimitsBuilder]</doc>
             <type name="SessionLimitsBuilder"
                   c:type="MctSessionLimitsBuilder*"/>
           </instance-parameter>
@@ -2604,23 +2690,23 @@ this function is idempotent.</doc>
               version="0.5.0">
         <doc xml:space="preserve"
              filename="libmalcontent/session-limits.c"
-             line="614">Copy the given @builder to a newly-allocated
+             line="802">Copy the given @builder to a newly-allocated
 [struct@Malcontent.SessionLimitsBuilder] on the heap.
 
 This is safe to use with cleared, stack-allocated
 [struct@Malcontent.SessionLimitsBuilder]s.</doc>
-        <source-position filename="libmalcontent/session-limits.h" line="140"/>
+        <source-position filename="libmalcontent/session-limits.h" line="149"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libmalcontent/session-limits.c"
-               line="624">a copy of @builder</doc>
+               line="812">a copy of @builder</doc>
           <type name="SessionLimitsBuilder" c:type="MctSessionLimitsBuilder*"/>
         </return-value>
         <parameters>
           <instance-parameter name="builder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmalcontent/session-limits.c"
-                 line="616">a [struct@Malcontent.SessionLimitsBuilder]</doc>
+                 line="804">a [struct@Malcontent.SessionLimitsBuilder]</doc>
             <type name="SessionLimitsBuilder"
                   c:type="MctSessionLimitsBuilder*"/>
           </instance-parameter>
@@ -2631,16 +2717,16 @@ This is safe to use with cleared, stack-allocated
               version="0.5.0">
         <doc xml:space="preserve"
              filename="libmalcontent/session-limits.c"
-             line="676">Finish constructing an [struct@Malcontent.SessionLimits] with the given
+             line="867">Finish constructing an [struct@Malcontent.SessionLimits] with the given
 @builder, and return it.
 
 The [struct@Malcontent.SessionLimitsBuilder] will be cleared as if
 [method@Malcontent.SessionLimitsBuilder.clear] had been called.</doc>
-        <source-position filename="libmalcontent/session-limits.h" line="145"/>
+        <source-position filename="libmalcontent/session-limits.h" line="154"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libmalcontent/session-limits.c"
-               line="686">a newly constructed
+               line="877">a newly constructed
   [struct@Malcontent.SessionLimits]</doc>
           <type name="SessionLimits" c:type="MctSessionLimits*"/>
         </return-value>
@@ -2648,7 +2734,7 @@ The [struct@Malcontent.SessionLimitsBuilder] will be cleared as if
           <instance-parameter name="builder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmalcontent/session-limits.c"
-                 line="678">an initialised [struct@Malcontent.SessionLimitsBuilder]</doc>
+                 line="869">an initialised [struct@Malcontent.SessionLimitsBuilder]</doc>
             <type name="SessionLimitsBuilder"
                   c:type="MctSessionLimitsBuilder*"/>
           </instance-parameter>
@@ -2659,12 +2745,12 @@ The [struct@Malcontent.SessionLimitsBuilder] will be cleared as if
               version="0.5.0">
         <doc xml:space="preserve"
              filename="libmalcontent/session-limits.c"
-             line="655">Free an [struct@Malcontent.SessionLimitsBuilder] originally allocated using
+             line="846">Free an [struct@Malcontent.SessionLimitsBuilder] originally allocated using
 [ctor@Malcontent.SessionLimitsBuilder.new].
 
 This must not be called on stack-allocated builders initialised using
 [method@Malcontent.SessionLimitsBuilder.init].</doc>
-        <source-position filename="libmalcontent/session-limits.h" line="141"/>
+        <source-position filename="libmalcontent/session-limits.h" line="150"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2672,7 +2758,7 @@ This must not be called on stack-allocated builders initialised using
           <instance-parameter name="builder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmalcontent/session-limits.c"
-                 line="657">a heap-allocated [struct@Malcontent.SessionLimitsBuilder]</doc>
+                 line="848">a heap-allocated [struct@Malcontent.SessionLimitsBuilder]</doc>
             <type name="SessionLimitsBuilder"
                   c:type="MctSessionLimitsBuilder*"/>
           </instance-parameter>
@@ -2683,7 +2769,7 @@ This must not be called on stack-allocated builders initialised using
               version="0.5.0">
         <doc xml:space="preserve"
              filename="libmalcontent/session-limits.c"
-             line="534">Initialise the given @builder so it can be used to construct a new
+             line="722">Initialise the given @builder so it can be used to construct a new
 [struct@Malcontent.SessionLimits].
 
 @builder must have been allocated on the stack, and must not already be
@@ -2692,7 +2778,7 @@ initialised.
 Construct the [struct@Malcontent.SessionLimits] by calling methods on
 @builder, followed by [method@Malcontent.SessionLimitsBuilder.end]. To abort
 construction, use [method@Malcontent.SessionLimitsBuilder.clear].</doc>
-        <source-position filename="libmalcontent/session-limits.h" line="133"/>
+        <source-position filename="libmalcontent/session-limits.h" line="142"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2700,10 +2786,53 @@ construction, use [method@Malcontent.SessionLimitsBuilder.clear].</doc>
           <instance-parameter name="builder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmalcontent/session-limits.c"
-                 line="536">an uninitialised [struct@Malcontent.SessionLimitsBuilder]</doc>
+                 line="724">an uninitialised [struct@Malcontent.SessionLimitsBuilder]</doc>
             <type name="SessionLimitsBuilder"
                   c:type="MctSessionLimitsBuilder*"/>
           </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_active_extension"
+              c:identifier="mct_session_limits_builder_set_active_extension"
+              version="0.14.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/session-limits.c"
+             line="1051">Set the screen time extension in @builder to the given period.
+
+This is used for recording a screen time extension request which has been
+granted.
+
+If both @start_time_secs and @duration_secs are zero, the screen time
+extension will be cleared. @duration_secs must otherwise be non-zero.
+
+This will act on top of any session limits. If no session limits are set, any
+extension will be ignored.</doc>
+        <source-position filename="libmalcontent/session-limits.h" line="169"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="builder" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/session-limits.c"
+                 line="1053">an initialised [struct@Malcontent.SessionLimitsBuilder]</doc>
+            <type name="SessionLimitsBuilder"
+                  c:type="MctSessionLimitsBuilder*"/>
+          </instance-parameter>
+          <parameter name="start_time_secs" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/session-limits.c"
+                 line="1054">start time of the extension, in seconds since the Unix
+  epoch</doc>
+            <type name="guint64" c:type="uint64_t"/>
+          </parameter>
+          <parameter name="duration_secs" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/session-limits.c"
+                 line="1056">duration of the extension, in seconds; or zero if there is no
+  active extension</doc>
+            <type name="guint" c:type="unsigned int"/>
+          </parameter>
         </parameters>
       </method>
       <method name="set_daily_limit"
@@ -2711,13 +2840,13 @@ construction, use [method@Malcontent.SessionLimitsBuilder.clear].</doc>
               version="0.14.0">
         <doc xml:space="preserve"
              filename="libmalcontent/session-limits.c"
-             line="786">Set the session limits in @builder to be a daily limit, where the total
+             line="1018">Set the session limits in @builder to be a daily limit, where the total
 active session time for the user has a given limit each day.
 
 @daily_limit_secs must be at most `24 * 60 * 60`.
 
 This will act in addition to any other session limits.</doc>
-        <source-position filename="libmalcontent/session-limits.h" line="153"/>
+        <source-position filename="libmalcontent/session-limits.h" line="165"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2725,21 +2854,21 @@ This will act in addition to any other session limits.</doc>
           <instance-parameter name="builder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmalcontent/session-limits.c"
-                 line="788">an initialised [struct@Malcontent.SessionLimitsBuilder]</doc>
+                 line="1020">an initialised [struct@Malcontent.SessionLimitsBuilder]</doc>
             <type name="SessionLimitsBuilder"
                   c:type="MctSessionLimitsBuilder*"/>
           </instance-parameter>
           <parameter name="enforced" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmalcontent/session-limits.c"
-                 line="789">true if the limit type is to be enforced, false if the value is
+                 line="1021">true if the limit type is to be enforced, false if the value is
   just being stored for future use without being enforced</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="daily_limit_secs" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmalcontent/session-limits.c"
-                 line="791">maximum length for the user’s active session time each
+                 line="1023">maximum length for the user’s active session time each
   day, in seconds</doc>
             <type name="guint" c:type="unsigned int"/>
           </parameter>
@@ -2750,7 +2879,7 @@ This will act in addition to any other session limits.</doc>
               version="0.14.0">
         <doc xml:space="preserve"
              filename="libmalcontent/session-limits.c"
-             line="746">Set the session limits in @builder to be a daily schedule, where sessions are
+             line="978">Set the session limits in @builder to be a daily schedule, where sessions are
 allowed between @start_time_secs and @end_time_secs every day.
 
 @start_time_secs and @end_time_secs are given as offsets from the start of
@@ -2758,7 +2887,7 @@ the day, in seconds. @end_time_secs must be greater than @start_time_secs.
 @end_time_secs must be at most `24 * 60 * 60`.
 
 This will act in addition to any other session limits.</doc>
-        <source-position filename="libmalcontent/session-limits.h" line="149"/>
+        <source-position filename="libmalcontent/session-limits.h" line="161"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2766,30 +2895,59 @@ This will act in addition to any other session limits.</doc>
           <instance-parameter name="builder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmalcontent/session-limits.c"
-                 line="748">an initialised [struct@Malcontent.SessionLimitsBuilder]</doc>
+                 line="980">an initialised [struct@Malcontent.SessionLimitsBuilder]</doc>
             <type name="SessionLimitsBuilder"
                   c:type="MctSessionLimitsBuilder*"/>
           </instance-parameter>
           <parameter name="enforced" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmalcontent/session-limits.c"
-                 line="749">true if the limit type is to be enforced, false if the value is
+                 line="981">true if the limit type is to be enforced, false if the value is
   just being stored for future use without being enforced</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="start_time_secs" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmalcontent/session-limits.c"
-                 line="751">number of seconds since midnight when the user’s session
+                 line="983">number of seconds since midnight when the user’s session
   can first start</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="end_time_secs" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmalcontent/session-limits.c"
-                 line="753">number of seconds since midnight when the user’s session can
+                 line="985">number of seconds since midnight when the user’s session can
   last end</doc>
             <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_from_instance"
+              c:identifier="mct_session_limits_builder_set_from_instance"
+              version="0.14.0">
+        <doc xml:space="preserve"
+             filename="libmalcontent/session-limits.c"
+             line="921">Set all the options in @builder to copies of the options in @limits.
+
+Use this to set up a @builder as a clone of @limits, ready to have its
+options modified further.</doc>
+        <source-position filename="libmalcontent/session-limits.h" line="156"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="builder" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/session-limits.c"
+                 line="923">an initialised [struct@Malcontent.SessionLimitsBuilder]</doc>
+            <type name="SessionLimitsBuilder"
+                  c:type="MctSessionLimitsBuilder*"/>
+          </instance-parameter>
+          <parameter name="limits" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmalcontent/session-limits.c"
+                 line="924">a [struct@Malcontent.SessionLimits] to copy into the builder</doc>
+            <type name="SessionLimits" c:type="MctSessionLimits*"/>
           </parameter>
         </parameters>
       </method>
@@ -2798,8 +2956,8 @@ This will act in addition to any other session limits.</doc>
               version="0.5.0">
         <doc xml:space="preserve"
              filename="libmalcontent/session-limits.c"
-             line="727">Unset any session limits currently set in the @builder.</doc>
-        <source-position filename="libmalcontent/session-limits.h" line="147"/>
+             line="959">Unset any session limits currently set in the @builder.</doc>
+        <source-position filename="libmalcontent/session-limits.h" line="159"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2807,7 +2965,7 @@ This will act in addition to any other session limits.</doc>
           <instance-parameter name="builder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libmalcontent/session-limits.c"
-                 line="729">an initialised [struct@Malcontent.SessionLimitsBuilder]</doc>
+                 line="961">an initialised [struct@Malcontent.SessionLimitsBuilder]</doc>
             <type name="SessionLimitsBuilder"
                   c:type="MctSessionLimitsBuilder*"/>
           </instance-parameter>
@@ -4943,7 +5101,7 @@ be returned.</doc>
               throws="1">
       <doc xml:space="preserve"
            filename="libmalcontent/session-limits.c"
-           line="354">Deserialize a set of session limits previously serialized with
+           line="512">Deserialize a set of session limits previously serialized with
 [method@Malcontent.SessionLimits.serialize].
 
 This function guarantees to be able to deserialize any serialized form from
@@ -4951,24 +5109,24 @@ this version or older versions of libmalcontent.
 
 If deserialization fails, [error@Malcontent.ManagerError.INVALID_DATA] will
 be returned.</doc>
-      <source-position filename="libmalcontent/session-limits.h" line="77"/>
+      <source-position filename="libmalcontent/session-limits.h" line="82"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libmalcontent/session-limits.c"
-             line="369">deserialized session limits</doc>
+             line="527">deserialized session limits</doc>
         <type name="SessionLimits" c:type="MctSessionLimits*"/>
       </return-value>
       <parameters>
         <parameter name="variant" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libmalcontent/session-limits.c"
-               line="356">a serialized session limits variant</doc>
+               line="514">a serialized session limits variant</doc>
           <type name="GLib.Variant" c:type="GVariant*"/>
         </parameter>
         <parameter name="user_id" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libmalcontent/session-limits.c"
-               line="357">the ID of the user the session limits relate to</doc>
+               line="515">the ID of the user the session limits relate to</doc>
           <type name="uid_t" c:type="uid_t"/>
         </parameter>
       </parameters>

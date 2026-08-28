@@ -24,6 +24,7 @@ and/or use gtk-doc annotations.  -->
            c:symbol-prefix="window_action_menu"
            c:type="XfwWindowActionMenu"
            parent="Gtk.Menu"
+           final="1"
            glib:type-name="XfwWindowActionMenu"
            glib:get-type="xfw_window_action_menu_get_type"
            glib:type-struct="WindowActionMenuClass">
@@ -34,13 +35,13 @@ and/or use gtk-doc annotations.  -->
       <constructor name="new" c:identifier="xfw_window_action_menu_new">
         <doc xml:space="preserve"
              filename="libxfce4windowingui/xfw-window-action-menu.c"
-             line="594">Creates a new window action menu that acts on @window.</doc>
+             line="593">Creates a new window action menu that acts on @window.</doc>
         <source-position filename="libxfce4windowingui/xfw-window-action-menu.h"
                          line="33"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libxfce4windowingui/xfw-window-action-menu.c"
-               line="600">a new #XfwWindowActionMenu
+               line="599">a new #XfwWindowActionMenu
 instance, with a floating reference owned by the caller.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
@@ -48,7 +49,7 @@ instance, with a floating reference owned by the caller.</doc>
           <parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowingui/xfw-window-action-menu.c"
-                 line="596">an #XfwWindow.</doc>
+                 line="595">an #XfwWindow.</doc>
             <type name="Libxfce4windowing.Window" c:type="XfwWindow*"/>
           </parameter>
         </parameters>
@@ -83,6 +84,7 @@ instance, with a floating reference owned by the caller.</doc>
            c:symbol-prefix="window_list_menu"
            c:type="XfwWindowListMenu"
            parent="Gtk.Menu"
+           final="1"
            glib:type-name="XfwWindowListMenu"
            glib:get-type="xfw_window_list_menu_get_type"
            glib:type-struct="WindowListMenuClass">

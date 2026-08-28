@@ -5,12 +5,14 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <include name="Gio" version="2.0"/>
   <include name="Soup" version="3.0"/>
   <package name="gssdp-1.6"/>
   <c:include name="libgssdp/gssdp.h"/>
+  <doc:format name="unknown"/>
   <namespace name="GSSDP"
              version="1.6"
              shared-library="libgssdp-1.6.so.0"
@@ -34,7 +36,7 @@ and/or use gtk-doc annotations.  -->
            glib:type-struct="ClientClass">
       <doc xml:space="preserve"
            filename="libgssdp/gssdp-client.c"
-           line="87">A simple SSDP bus handler.
+           line="88">A simple SSDP bus handler.
 
 The [class@GSSDP.Client] will usually be used by the [class@GSSDP.ResourceGroup]
 for announcing or the [class@GSSDP.ResourceBrowser] for finding resources on the network.
@@ -46,11 +48,11 @@ belong t the same network device.</doc>
       <constructor name="new"
                    c:identifier="gssdp_client_new"
                    deprecated="1"
-                   deprecated-version="1.6."
+                   deprecated-version="1.6.0"
                    throws="1">
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
-             line="770">Creates a GSSDP client on @iface. GSSDPClient will pick the address it finds
+             line="823">Creates a GSSDP client on @iface. GSSDPClient will pick the address it finds
 suitable for using.
 
 Using this utility function, the created client will be using UDA 1.0 and
@@ -60,7 +62,7 @@ IPv4 only.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="libgssdp/gssdp-client.c"
-               line="784">A new #GSSDPClient object.</doc>
+               line="837">A new #GSSDPClient object.</doc>
           <type name="Client" c:type="GSSDPClient*"/>
         </return-value>
         <parameters>
@@ -70,7 +72,7 @@ IPv4 only.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="772">The name of the network interface, or %NULL for
+                 line="825">The name of the network interface, or %NULL for
 auto-detection.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
@@ -78,17 +80,17 @@ auto-detection.</doc>
       </constructor>
       <constructor name="new_for_address"
                    c:identifier="gssdp_client_new_for_address"
-                   version="1.6."
+                   version="1.6.0"
                    throws="1">
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
-             line="867">Creates a GSSDP client with address @addr. If none is specified, GSSDP
+             line="920">Creates a GSSDP client with address @addr. If none is specified, GSSDP
 will chose the address it deems most suitable.</doc>
         <source-position filename="libgssdp/gssdp-client.h" line="62"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="libgssdp/gssdp-client.c"
-               line="882">A new #GSSDPClient object or %NULL on error.</doc>
+               line="935">A new #GSSDPClient object or %NULL on error.</doc>
           <type name="Client" c:type="GSSDPClient*"/>
         </return-value>
         <parameters>
@@ -98,7 +100,7 @@ will chose the address it deems most suitable.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="869">an IP address or %NULL for auto-detection. If you do not
+                 line="922">an IP address or %NULL for auto-detection. If you do not
 care about the address, but want to specify an address family, use
 [ctor@Glib.InetAddress.new_any] with the appropriate family instead.</doc>
             <type name="Gio.InetAddress" c:type="GInetAddress*"/>
@@ -106,31 +108,31 @@ care about the address, but want to specify an address family, use
           <parameter name="port" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="872">The network port to use for M-SEARCH requests or 0 for
+                 line="925">The network port to use for M-SEARCH requests or 0 for
 random.</doc>
             <type name="guint16" c:type="guint16"/>
           </parameter>
           <parameter name="uda_version" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="874">The UDA version this client will adhere to</doc>
+                 line="927">The UDA version this client will adhere to</doc>
             <type name="UDAVersion" c:type="GSSDPUDAVersion"/>
           </parameter>
         </parameters>
       </constructor>
       <constructor name="new_full"
                    c:identifier="gssdp_client_new_full"
-                   version="1.6."
+                   version="1.6.0"
                    throws="1">
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
-             line="828">Creates a GSSDP client with address @addr. If none is specified, GSSDP
+             line="881">Creates a GSSDP client with address @addr. If none is specified, GSSDP
 will chose the address it deems most suitable.</doc>
         <source-position filename="libgssdp/gssdp-client.h" line="68"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="libgssdp/gssdp-client.c"
-               line="844">A new #GSSDPClient object or %NULL on error.</doc>
+               line="897">A new #GSSDPClient object or %NULL on error.</doc>
           <type name="Client" c:type="GSSDPClient*"/>
         </return-value>
         <parameters>
@@ -140,7 +142,7 @@ will chose the address it deems most suitable.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="830">the name of a network interface</doc>
+                 line="883">the name of a network interface</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="addr"
@@ -149,7 +151,7 @@ will chose the address it deems most suitable.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="831">an IP address or %NULL for auto-detection. If you do not
+                 line="884">an IP address or %NULL for auto-detection. If you do not
 care about the address, but want to specify an address family, use
 [ctor@Glib.InetAddress.new_any] with the appropriate family instead.</doc>
             <type name="Gio.InetAddress" c:type="GInetAddress*"/>
@@ -157,14 +159,14 @@ care about the address, but want to specify an address family, use
           <parameter name="port" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="834">The network port to use for M-SEARCH requests or 0 for
+                 line="887">The network port to use for M-SEARCH requests or 0 for
 random.</doc>
             <type name="guint16" c:type="guint16"/>
           </parameter>
           <parameter name="uda_version" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="836">The UDA version this client will adhere to</doc>
+                 line="889">The UDA version this client will adhere to</doc>
             <type name="UDAVersion" c:type="GSSDPUDAVersion"/>
           </parameter>
         </parameters>
@@ -172,11 +174,11 @@ random.</doc>
       <constructor name="new_with_port"
                    c:identifier="gssdp_client_new_with_port"
                    deprecated="1"
-                   deprecated-version="1.6."
+                   deprecated-version="1.6.0"
                    throws="1">
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
-             line="796">Creates a GSSDP client on @iface. GSSDPClient will pick the address it finds
+             line="849">Creates a GSSDP client on @iface. GSSDPClient will pick the address it finds
 suitable for using.
 
 Using this utility function, the created client will be using UDA 1.0 and IPv4 only.</doc>
@@ -185,7 +187,7 @@ Using this utility function, the created client will be using UDA 1.0 and IPv4 o
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="libgssdp/gssdp-client.c"
-               line="811">A new #GSSDPClient object or %NULL on error.</doc>
+               line="864">A new #GSSDPClient object or %NULL on error.</doc>
           <type name="Client" c:type="GSSDPClient*"/>
         </return-value>
         <parameters>
@@ -195,14 +197,14 @@ Using this utility function, the created client will be using UDA 1.0 and IPv4 o
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="798">The name of the network interface, or %NULL for
+                 line="851">The name of the network interface, or %NULL for
 auto-detection.</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="msearch_port" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="800">The network port to use for M-SEARCH requests or 0 for
+                 line="853">The network port to use for M-SEARCH requests or 0 for
 random.</doc>
             <type name="guint16" c:type="guint16"/>
           </parameter>
@@ -212,7 +214,7 @@ random.</doc>
               c:identifier="gssdp_client_add_cache_entry">
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
-             line="1007">Add @user_agent for @ip_address.
+             line="1060">Add @user_agent for @ip_address.
 
 Each [class@GSSDP.Client] maintains a mapping of addresses
 (MAC on systems that support it, IP addresses otherwise) to User Agents.
@@ -227,19 +229,19 @@ devices that do not set the User-Agent header in their SOAP requests.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="1009">A #GSSDPClient</doc>
+                 line="1062">A #GSSDPClient</doc>
             <type name="Client" c:type="GSSDPClient*"/>
           </instance-parameter>
           <parameter name="ip_address" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="1010">The host to add to the cache</doc>
+                 line="1063">The host to add to the cache</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="user_agent" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="1011">User agent ot the host to add</doc>
+                 line="1064">User agent ot the host to add</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -247,7 +249,7 @@ devices that do not set the User-Agent header in their SOAP requests.</doc>
       <method name="append_header" c:identifier="gssdp_client_append_header">
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
-             line="1148">Adds a header field to the messages sent by this @client. It is intended to
+             line="1201">Adds a header field to the messages sent by this @client. It is intended to
 be used by clients requiring vendor specific header fields.
 
 If there is an existing header with @name it will append another one.</doc>
@@ -259,13 +261,13 @@ If there is an existing header with @name it will append another one.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="1150">A #GSSDPClient</doc>
+                 line="1203">A #GSSDPClient</doc>
             <type name="Client" c:type="GSSDPClient*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="1151">Header name</doc>
+                 line="1204">Header name</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="value"
@@ -274,7 +276,7 @@ If there is an existing header with @name it will append another one.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="1152">Header value</doc>
+                 line="1205">Header value</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -284,25 +286,25 @@ If there is an existing header with @name it will append another one.</doc>
               version="1.2.4">
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
-             line="1381">Check if the peer at @address is reachable using this @client.</doc>
+             line="1434">Check if the peer at @address is reachable using this @client.</doc>
         <source-position filename="libgssdp/gssdp-client.h" line="145"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgssdp/gssdp-client.c"
-               line="1389">%TRUE if considered reachable, %FALSE otherwise.</doc>
+               line="1442">%TRUE if considered reachable, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="1383">A #GSSDPClient</doc>
+                 line="1436">A #GSSDPClient</doc>
             <type name="Client" c:type="GSSDPClient*"/>
           </instance-parameter>
           <parameter name="address" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="1384">A #GInetSocketAddress of the target. The port part of the address may be 0</doc>
+                 line="1437">A #GInetSocketAddress of the target. The port part of the address may be 0</doc>
             <type name="Gio.InetSocketAddress" c:type="GInetSocketAddress*"/>
           </parameter>
         </parameters>
@@ -310,7 +312,7 @@ If there is an existing header with @name it will append another one.</doc>
       <method name="clear_headers" c:identifier="gssdp_client_clear_headers">
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
-             line="1211">Removes all the headers for this @client.</doc>
+             line="1264">Removes all the headers for this @client.</doc>
         <source-position filename="libgssdp/gssdp-client.h" line="122"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -319,7 +321,7 @@ If there is an existing header with @name it will append another one.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="1213">A #GSSDPClient</doc>
+                 line="1266">A #GSSDPClient</doc>
             <type name="Client" c:type="GSSDPClient*"/>
           </instance-parameter>
         </parameters>
@@ -330,19 +332,19 @@ If there is an existing header with @name it will append another one.</doc>
         <attribute name="org.gtk.Method.get_property" value="active"/>
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
-             line="1101">Get the current state of the client. See [property@GSSDP.Client:active] for details.</doc>
+             line="1154">Get the current state of the client. See [property@GSSDP.Client:active] for details.</doc>
         <source-position filename="libgssdp/gssdp-client.h" line="95"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgssdp/gssdp-client.c"
-               line="1107">%TRUE if @client is active, %FALSE otherwise.</doc>
+               line="1160">%TRUE if @client is active, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="1103">A #GSSDPClient</doc>
+                 line="1156">A #GSSDPClient</doc>
             <type name="Client" c:type="GSSDPClient*"/>
           </instance-parameter>
         </parameters>
@@ -353,19 +355,19 @@ If there is an existing header with @name it will append another one.</doc>
         <attribute name="org.gtk.Method.get_property" value="address"/>
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
-             line="1241">The IP address this client works on.</doc>
+             line="1294">The IP address this client works on.</doc>
         <source-position filename="libgssdp/gssdp-client.h" line="98"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgssdp/gssdp-client.c"
-               line="1247">The #GInetAddress this client works on</doc>
+               line="1300">The #GInetAddress this client works on</doc>
           <type name="Gio.InetAddress" c:type="GInetAddress*"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="1243">A #GSSDPClient</doc>
+                 line="1296">A #GSSDPClient</doc>
             <type name="Client" c:type="GSSDPClient*"/>
           </instance-parameter>
         </parameters>
@@ -378,14 +380,14 @@ If there is an existing header with @name it will append another one.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgssdp/gssdp-client.c"
-               line="1295">Address mask of this client</doc>
+               line="1348">Address mask of this client</doc>
           <type name="Gio.InetAddressMask" c:type="GInetAddressMask*"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="1291">A #GSSDPClient</doc>
+                 line="1344">A #GSSDPClient</doc>
             <type name="Client" c:type="GSSDPClient*"/>
           </instance-parameter>
         </parameters>
@@ -396,7 +398,7 @@ If there is an existing header with @name it will append another one.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgssdp/gssdp-client.c"
-               line="1277">IP protocol version (%G_SOCKET_FAMILY_IPV4 or G_SOCKET_FAMILY_IPV6)
+               line="1330">IP protocol version (%G_SOCKET_FAMILY_IPV4 or G_SOCKET_FAMILY_IPV6)
 this client uses</doc>
           <type name="Gio.SocketFamily" c:type="GSocketFamily"/>
         </return-value>
@@ -404,7 +406,7 @@ this client uses</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="1275">A #GSSDPClient</doc>
+                 line="1328">A #GSSDPClient</doc>
             <type name="Client" c:type="GSSDPClient*"/>
           </instance-parameter>
         </parameters>
@@ -415,19 +417,19 @@ this client uses</doc>
         <attribute name="org.gtk.Method.get_property" value="host-ip"/>
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
-             line="959">Get the IP address we advertise ourselves as using.</doc>
+             line="1012">Get the IP address we advertise ourselves as using.</doc>
         <source-position filename="libgssdp/gssdp-client.h" line="85"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgssdp/gssdp-client.c"
-               line="965">The IP address. This string should not be freed.</doc>
+               line="1018">The IP address. This string should not be freed.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="961">A #GSSDPClient</doc>
+                 line="1014">A #GSSDPClient</doc>
             <type name="Client" c:type="GSSDPClient*"/>
           </instance-parameter>
         </parameters>
@@ -437,14 +439,14 @@ this client uses</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgssdp/gssdp-client.c"
-               line="1262">The interface index of this client</doc>
+               line="1315">The interface index of this client</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="1260">A #GSSDPClient</doc>
+                 line="1313">A #GSSDPClient</doc>
             <type name="Client" c:type="GSSDPClient*"/>
           </instance-parameter>
         </parameters>
@@ -455,19 +457,19 @@ this client uses</doc>
         <attribute name="org.gtk.Method.get_property" value="interface"/>
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
-             line="939">Get the name of the network interface associated to @client.</doc>
+             line="992">Get the name of the network interface associated to @client.</doc>
         <source-position filename="libgssdp/gssdp-client.h" line="82"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgssdp/gssdp-client.c"
-               line="945">The network interface name. This string should not be freed.</doc>
+               line="998">The network interface name. This string should not be freed.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="941">A #GSSDPClient</doc>
+                 line="994">A #GSSDPClient</doc>
             <type name="Client" c:type="GSSDPClient*"/>
           </instance-parameter>
         </parameters>
@@ -478,20 +480,20 @@ this client uses</doc>
         <attribute name="org.gtk.Method.get_property" value="network"/>
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
-             line="1081">Get the network identifier of the client. See [property@GSSDP.Client:network]
+             line="1134">Get the network identifier of the client. See [property@GSSDP.Client:network]
 for  details.</doc>
         <source-position filename="libgssdp/gssdp-client.h" line="92"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgssdp/gssdp-client.c"
-               line="1088">The network identification. This string should not be freed.</doc>
+               line="1141">The network identification. This string should not be freed.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="1083">A [class@GSSDP.Client]</doc>
+                 line="1136">A [class@GSSDP.Client]</doc>
             <type name="Client" c:type="GSSDPClient*"/>
           </instance-parameter>
         </parameters>
@@ -517,14 +519,37 @@ for  details.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgssdp/gssdp-client.c"
-               line="926">The server ID.</doc>
+               line="979">The server ID.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="924">A #GSSDPClient</doc>
+                 line="977">A #GSSDPClient</doc>
+            <type name="Client" c:type="GSSDPClient*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_tcp_socket"
+              c:identifier="gssdp_client_get_tcp_socket"
+              glib:get-property="tcp-socket"
+              version="1.6.5">
+        <doc xml:space="preserve"
+             filename="libgssdp/gssdp-client.c"
+             line="1472">Get the associated TCP socket.</doc>
+        <source-position filename="libgssdp/gssdp-client.h" line="149"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgssdp/gssdp-client.c"
+               line="1478">A bound TCP socket</doc>
+          <type name="Gio.Socket" c:type="GSocket*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgssdp/gssdp-client.c"
+                 line="1474">A #GSSDPClient</doc>
             <type name="Client" c:type="GSSDPClient*"/>
           </instance-parameter>
         </parameters>
@@ -537,14 +562,14 @@ for  details.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgssdp/gssdp-client.c"
-               line="1311">the UDA protocol version this client adheres to</doc>
+               line="1364">the UDA protocol version this client adheres to</doc>
           <type name="UDAVersion" c:type="GSSDPUDAVersion"/>
         </return-value>
         <parameters>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="1309">A #GSSDPClient</doc>
+                 line="1362">A #GSSDPClient</doc>
             <type name="Client" c:type="GSSDPClient*"/>
           </instance-parameter>
         </parameters>
@@ -553,12 +578,12 @@ for  details.</doc>
               c:identifier="gssdp_client_guess_user_agent">
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
-             line="1044">Try to get a User-Agent for @ip_address.</doc>
+             line="1097">Try to get a User-Agent for @ip_address.</doc>
         <source-position filename="libgssdp/gssdp-client.h" line="130"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgssdp/gssdp-client.c"
-               line="1051">The User-Agent cached for this IP, %NULL if none
+               line="1104">The User-Agent cached for this IP, %NULL if none
 is cached.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -566,13 +591,13 @@ is cached.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="1046">A #GSSDPClient</doc>
+                 line="1099">A #GSSDPClient</doc>
             <type name="Client" c:type="GSSDPClient*"/>
           </instance-parameter>
           <parameter name="ip_address" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="1047">IP address to guess the user-agent for</doc>
+                 line="1100">IP address to guess the user-agent for</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -580,7 +605,7 @@ is cached.</doc>
       <method name="remove_header" c:identifier="gssdp_client_remove_header">
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
-             line="1179">Removes @name from the list of headers. If there are multiple values for
+             line="1232">Removes @name from the list of headers. If there are multiple values for
 @name, they are all removed.</doc>
         <source-position filename="libgssdp/gssdp-client.h" line="118"/>
         <return-value transfer-ownership="none">
@@ -590,13 +615,13 @@ is cached.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="1181">A #GSSDPClient</doc>
+                 line="1234">A #GSSDPClient</doc>
             <type name="Client" c:type="GSSDPClient*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="1182">Header name</doc>
+                 line="1235">Header name</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -607,7 +632,7 @@ is cached.</doc>
         <attribute name="org.gtk.Method.set_property" value="boot-id"/>
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
-             line="1322">Will set the new boot-id for this SSDP client. Does nothing if the UDA
+             line="1375">Will set the new boot-id for this SSDP client. Does nothing if the UDA
 version used by the client is UDA 1.0
 
 The boot-id is used to signalize changes in the network configuration
@@ -620,13 +645,13 @@ for multi-homed hosts</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="1324">A #GSSDPClient</doc>
+                 line="1377">A #GSSDPClient</doc>
             <type name="Client" c:type="GSSDPClient*"/>
           </instance-parameter>
           <parameter name="boot_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="1325">The new boot-id for the client</doc>
+                 line="1378">The new boot-id for the client</doc>
             <type name="gint32" c:type="gint32"/>
           </parameter>
         </parameters>
@@ -637,7 +662,7 @@ for multi-homed hosts</doc>
         <attribute name="org.gtk.Method.set_property" value="config-id"/>
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
-             line="1354">The config-id is used to allow caching of the device or service description.
+             line="1407">The config-id is used to allow caching of the device or service description.
 It should be changed if that changes.</doc>
         <source-position filename="libgssdp/gssdp-client.h" line="141"/>
         <return-value transfer-ownership="none">
@@ -647,13 +672,13 @@ It should be changed if that changes.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="1356">A #GSSDPClient</doc>
+                 line="1409">A #GSSDPClient</doc>
             <type name="Client" c:type="GSSDPClient*"/>
           </instance-parameter>
           <parameter name="config_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="1357">The new config-id for the client</doc>
+                 line="1410">The new config-id for the client</doc>
             <type name="gint32" c:type="gint32"/>
           </parameter>
         </parameters>
@@ -662,7 +687,7 @@ It should be changed if that changes.</doc>
         <attribute name="org.gtk.Method.set_property" value="network"/>
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
-             line="983">Sets the network identification of @client to @network.</doc>
+             line="1036">Sets the network identification of @client to @network.</doc>
         <source-position filename="libgssdp/gssdp-client.h" line="88"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -671,13 +696,13 @@ It should be changed if that changes.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="985">A #GSSDPClient</doc>
+                 line="1038">A #GSSDPClient</doc>
             <type name="Client" c:type="GSSDPClient*"/>
           </instance-parameter>
           <parameter name="network" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="986">The string identifying the network</doc>
+                 line="1039">The string identifying the network</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -688,7 +713,7 @@ It should be changed if that changes.</doc>
         <attribute name="org.gtk.Method.set_property" value="server-id"/>
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
-             line="893">Sets the server ID of @client to @server_id. This string is used as the
+             line="946">Sets the server ID of @client to @server_id. This string is used as the
 "Server:" identification header for SSDP discovery and response packets
 and "User-Agent" header for searches.
 
@@ -702,13 +727,13 @@ defined in the UDA documents: OS/Version UPnP/Version GSSDP/Version.</doc>
           <instance-parameter name="client" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="895">A #GSSDPClient</doc>
+                 line="948">A #GSSDPClient</doc>
             <type name="Client" c:type="GSSDPClient*"/>
           </instance-parameter>
           <parameter name="server_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="896">The server ID</doc>
+                 line="949">The server ID</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -722,7 +747,7 @@ defined in the UDA documents: OS/Version UPnP/Version GSSDP/Version.</doc>
                    value="gssdp_client_get_active"/>
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
-             line="583">Whether this client is active or not (passive). When active
+             line="601">Whether this client is active or not (passive). When active
 (default), the client sends messages on the network, otherwise
 not. In most cases, you don't want to touch this property.</doc>
         <type name="gboolean" c:type="gboolean"/>
@@ -737,7 +762,7 @@ not. In most cases, you don't want to touch this property.</doc>
                    value="gssdp_client_get_address"/>
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
-             line="549">The network address this client is bound to.</doc>
+             line="567">The network address this client is bound to.</doc>
         <type name="Gio.InetAddress"/>
       </property>
       <property name="address-family"
@@ -750,7 +775,7 @@ not. In most cases, you don't want to touch this property.</doc>
                    value="gssdp_client_get_family"/>
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
-             line="661">The IP protocol address family this client works on. When specified
+             line="679">The IP protocol address family this client works on. When specified
 during construction without giving a concrete address, it will be
 used to determine the proper address.
 
@@ -758,6 +783,19 @@ If not specified, will contain the currrent address family after
 the call to [method@Glib.Initable.init]. Use %G_SOCKET_FAMILY_INVALID
 to specifiy using the default socket family (legacy IP)</doc>
         <type name="Gio.SocketFamily"/>
+      </property>
+      <property name="allocate-tcp-socket"
+                version="1.6.5"
+                writable="1"
+                construct="1"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="libgssdp/gssdp-client.c"
+             line="761">The whether to allocate a TCP socket. Mainly used by GUPnPContext
+to signalize that it can handle a pre-allocated socket. Will become
+non-configurable default-on in a future release.</doc>
+        <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="boot-id"
                 writable="1"
@@ -769,7 +807,7 @@ to specifiy using the default socket family (legacy IP)</doc>
                    value="gssdp_client_set_boot_id"/>
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
-             line="705">The value of the BOOTID.UPNP.ORG header
+             line="723">The value of the BOOTID.UPNP.ORG header
 
 Since 1.2.0</doc>
         <type name="gint" c:type="gint"/>
@@ -784,14 +822,14 @@ Since 1.2.0</doc>
                    value="gssdp_client_set_config_id"/>
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
-             line="724">The value of the CONFIGID.UPNP.ORG header
+             line="742">The value of the CONFIGID.UPNP.ORG header
 
 Since 1.2.0</doc>
         <type name="gint" c:type="gint"/>
       </property>
       <property name="host-ip"
                 deprecated="1"
-                deprecated-version="1.6."
+                deprecated-version="1.6.0"
                 writable="1"
                 construct-only="1"
                 transfer-ownership="none"
@@ -801,7 +839,7 @@ Since 1.2.0</doc>
                    value="gssdp_client_get_host_ip"/>
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
-             line="530">The IP address of the assoicated network interface.</doc>
+             line="548">The IP address of the assoicated network interface.</doc>
         <doc-deprecated xml:space="preserve">Use [property@GSSDP.Client:address] instead.</doc-deprecated>
         <type name="utf8" c:type="gchar*"/>
       </property>
@@ -813,7 +851,7 @@ Since 1.2.0</doc>
                    value="gssdp_client_get_address_mask"/>
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
-             line="566">The network mask of the assoicated network interface.</doc>
+             line="584">The network mask of the assoicated network interface.</doc>
         <type name="Gio.InetAddressMask"/>
       </property>
       <property name="interface"
@@ -826,7 +864,7 @@ Since 1.2.0</doc>
                    value="gssdp_client_get_interface"/>
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
-             line="491">The name of the network interface this client is associated with.
+             line="509">The name of the network interface this client is associated with.
 Set to NULL to autodetect.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
@@ -839,7 +877,7 @@ Set to NULL to autodetect.</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
-             line="620">UDP port to use for sending multicast M-SEARCH requests on the
+             line="638">UDP port to use for sending multicast M-SEARCH requests on the
 network. If not set (or set to 0) a random port will be used.
 This property can be only set during object construction.</doc>
         <doc-deprecated xml:space="preserve">Use [property@GSSDP.Client:port] instead</doc-deprecated>
@@ -855,7 +893,7 @@ This property can be only set during object construction.</doc>
                    value="gssdp_client_get_network"/>
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
-             line="509">The network this client is currently connected to. You could set this
+             line="527">The network this client is currently connected to. You could set this
 to anything you want to identify the network this client is
 associated with. If you are using #GUPnPContextManager and associated
 interface is a WiFi interface, this property is set to the ESSID of
@@ -872,7 +910,7 @@ default.</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
-             line="641">UDP port to use for sending multicast M-SEARCH requests on the
+             line="659">UDP port to use for sending multicast M-SEARCH requests on the
 network. If not set (or set to 0) a random port will be used.
 This property can be only set during object construction.</doc>
         <type name="guint" c:type="guint"/>
@@ -889,7 +927,7 @@ This property can be only set during object construction.</doc>
                    value="gssdp_client_set_server_id"/>
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
-             line="474">The SSDP server's identifier.</doc>
+             line="492">The SSDP server's identifier.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="socket-ttl"
@@ -899,10 +937,19 @@ This property can be only set during object construction.</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
-             line="601">Time-to-live value to use for all sockets created by this client.
+             line="619">Time-to-live value to use for all sockets created by this client.
 If not set (or set to 0) the value recommended by UPnP will be used.
 This property can only be set during object construction.</doc>
         <type name="guint" c:type="guint"/>
+      </property>
+      <property name="tcp-socket"
+                version="1.6.5"
+                transfer-ownership="none"
+                getter="get_tcp_socket">
+        <doc xml:space="preserve"
+             filename="libgssdp/gssdp-client.c"
+             line="780">The allocated TCP socket bound to the same port as [property@GSSDP.Client:port]</doc>
+        <type name="Gio.Socket"/>
       </property>
       <property name="uda-version"
                 version="1.2.0"
@@ -915,7 +962,7 @@ This property can only be set during object construction.</doc>
                    value="gssdp_client_get_uda_version"/>
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
-             line="686">The UPnP version the client adheres to.</doc>
+             line="704">The UPnP version the client adheres to.</doc>
         <type name="UDAVersion"/>
       </property>
       <field name="parent_instance">
@@ -927,7 +974,7 @@ This property can only be set during object construction.</doc>
                    stability="Private">
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-client.c"
-             line="743">Internal signal.</doc>
+             line="796">Internal signal.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -935,25 +982,25 @@ This property can only be set during object construction.</doc>
           <parameter name="from_ip" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="746">The IP address of the source.</doc>
+                 line="799">The IP address of the source.</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="from_port" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="747">The UDP port used by the sender.</doc>
+                 line="800">The UDP port used by the sender.</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="748">The #_GSSDPMessageType.</doc>
+                 line="801">The #_GSSDPMessageType.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="headers" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-client.c"
-                 line="749">Parsed #SoupMessageHeaders from the message.</doc>
+                 line="802">Parsed #SoupMessageHeaders from the message.</doc>
             <type name="Soup.MessageHeaders"/>
           </parameter>
         </parameters>
@@ -1158,13 +1205,13 @@ bus. There are several possible targets such as
         <attribute name="org.gtk.Method.get_property" value="active"/>
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-resource-browser.c"
-             line="641">Get whether the browser is currently active.</doc>
+             line="640">Get whether the browser is currently active.</doc>
         <source-position filename="libgssdp/gssdp-resource-browser.h"
                          line="83"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgssdp/gssdp-resource-browser.c"
-               line="647">%TRUE if @resource_browser is active.</doc>
+               line="646">%TRUE if @resource_browser is active.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -1172,7 +1219,7 @@ bus. There are several possible targets such as
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-resource-browser.c"
-                 line="643">A #GSSDPResourceBrowser</doc>
+                 line="642">A #GSSDPResourceBrowser</doc>
             <type name="ResourceBrowser" c:type="GSSDPResourceBrowser*"/>
           </instance-parameter>
         </parameters>
@@ -1208,13 +1255,13 @@ bus. There are several possible targets such as
         <attribute name="org.gtk.Method.get_property" value="mx"/>
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-resource-browser.c"
-             line="589">Get the current MX value.</doc>
+             line="588">Get the current MX value.</doc>
         <source-position filename="libgssdp/gssdp-resource-browser.h"
                          line="76"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgssdp/gssdp-resource-browser.c"
-               line="595">The used MX value.</doc>
+               line="594">The used MX value.</doc>
           <type name="gushort" c:type="gushort"/>
         </return-value>
         <parameters>
@@ -1222,7 +1269,7 @@ bus. There are several possible targets such as
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-resource-browser.c"
-                 line="591">A #GSSDPResourceBrowser</doc>
+                 line="590">A #GSSDPResourceBrowser</doc>
             <type name="ResourceBrowser" c:type="GSSDPResourceBrowser*"/>
           </instance-parameter>
         </parameters>
@@ -1233,13 +1280,13 @@ bus. There are several possible targets such as
         <attribute name="org.gtk.Method.get_property" value="target"/>
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-resource-browser.c"
-             line="545">Get the current browse target.</doc>
+             line="544">Get the current browse target.</doc>
         <source-position filename="libgssdp/gssdp-resource-browser.h"
                          line="69"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgssdp/gssdp-resource-browser.c"
-               line="551">The browser target.</doc>
+               line="550">The browser target.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
@@ -1247,7 +1294,7 @@ bus. There are several possible targets such as
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-resource-browser.c"
-                 line="547">A #GSSDPResourceBrowser</doc>
+                 line="546">A #GSSDPResourceBrowser</doc>
             <type name="ResourceBrowser" c:type="GSSDPResourceBrowser*"/>
           </instance-parameter>
         </parameters>
@@ -1255,14 +1302,14 @@ bus. There are several possible targets such as
       <method name="rescan" c:identifier="gssdp_resource_browser_rescan">
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-resource-browser.c"
-             line="661">Begins discovery if @resource_browser is active and no discovery is
+             line="660">Begins discovery if @resource_browser is active and no discovery is
 performed. Otherwise does nothing.</doc>
         <source-position filename="libgssdp/gssdp-resource-browser.h"
                          line="86"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgssdp/gssdp-resource-browser.c"
-               line="668">%TRUE if rescaning has been started.</doc>
+               line="667">%TRUE if rescaning has been started.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -1270,7 +1317,7 @@ performed. Otherwise does nothing.</doc>
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-resource-browser.c"
-                 line="663">A #GSSDPResourceBrowser</doc>
+                 line="662">A #GSSDPResourceBrowser</doc>
             <type name="ResourceBrowser" c:type="GSSDPResourceBrowser*"/>
           </instance-parameter>
         </parameters>
@@ -1281,7 +1328,7 @@ performed. Otherwise does nothing.</doc>
         <attribute name="org.gtk.Method.set_property" value="active"/>
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-resource-browser.c"
-             line="609">(De)activates @resource_browser.</doc>
+             line="608">(De)activates @resource_browser.</doc>
         <source-position filename="libgssdp/gssdp-resource-browser.h"
                          line="79"/>
         <return-value transfer-ownership="none">
@@ -1292,13 +1339,13 @@ performed. Otherwise does nothing.</doc>
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-resource-browser.c"
-                 line="611">A #GSSDPResourceBrowser</doc>
+                 line="610">A #GSSDPResourceBrowser</doc>
             <type name="ResourceBrowser" c:type="GSSDPResourceBrowser*"/>
           </instance-parameter>
           <parameter name="active" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-resource-browser.c"
-                 line="612">%TRUE to activate @resource_browser</doc>
+                 line="611">%TRUE to activate @resource_browser</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -1309,7 +1356,7 @@ performed. Otherwise does nothing.</doc>
         <attribute name="org.gtk.Method.set_property" value="mx"/>
         <doc xml:space="preserve"
              filename="libgssdp/gssdp-resource-browser.c"
-             line="564">Sets the used MX value of @resource_browser to @mx.</doc>
+             line="563">Sets the used MX value of @resource_browser to @mx.</doc>
         <source-position filename="libgssdp/gssdp-resource-browser.h"
                          line="72"/>
         <return-value transfer-ownership="none">
@@ -1320,13 +1367,13 @@ performed. Otherwise does nothing.</doc>
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-resource-browser.c"
-                 line="566">A #GSSDPResourceBrowser</doc>
+                 line="565">A #GSSDPResourceBrowser</doc>
             <type name="ResourceBrowser" c:type="GSSDPResourceBrowser*"/>
           </instance-parameter>
           <parameter name="mx" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgssdp/gssdp-resource-browser.c"
-                 line="567">The to be used MX value</doc>
+                 line="566">The to be used MX value</doc>
             <type name="gushort" c:type="gushort"/>
           </parameter>
         </parameters>

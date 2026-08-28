@@ -39,7 +39,7 @@ and/or use gtk-doc annotations.  -->
       </parameters>
     </function-macro>
     <constant name="DESKTOP_PLATFORM_VERSION"
-              value="44"
+              value="51"
               c:type="GNOME_DESKTOP_PLATFORM_VERSION">
       <source-position filename="libgnome-desktop/gnome-desktop-version.h"
                        line="25"/>
@@ -153,7 +153,7 @@ Usage of this function is threadsafe and does blocking I/O.</doc>
               glib:async-func="create_failed_thumbnail_async">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-             line="1514">Creates a failed thumbnail for the file so that we don't try
+             line="1522">Creates a failed thumbnail for the file so that we don't try
 to re-thumbnail the file later.
 
 Usage of this function is threadsafe and does blocking I/O.</doc>
@@ -162,27 +162,27 @@ Usage of this function is threadsafe and does blocking I/O.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-               line="1527">TRUE if everything went fine; FALSE if there was an error.</doc>
+               line="1535">TRUE if everything went fine; FALSE if there was an error.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1516">a #GnomeDesktopThumbnailFactory</doc>
+                 line="1524">a #GnomeDesktopThumbnailFactory</doc>
             <type name="DesktopThumbnailFactory"
                   c:type="GnomeDesktopThumbnailFactory*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1517">the uri of a file</doc>
+                 line="1525">the uri of a file</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="mtime" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1518">the modification time of the file</doc>
+                 line="1526">the modification time of the file</doc>
             <type name="time_t" c:type="time_t"/>
           </parameter>
           <parameter name="cancellable"
@@ -191,7 +191,7 @@ Usage of this function is threadsafe and does blocking I/O.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1519">a GCancellable object, or NULL</doc>
+                 line="1527">a GCancellable object, or NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -202,7 +202,7 @@ Usage of this function is threadsafe and does blocking I/O.</doc>
               glib:sync-func="create_failed_thumbnail">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-             line="1574">Asynchronous version of gnome_desktop_thumbnail_factory_create_failed_thumbnail()
+             line="1582">Asynchronous version of gnome_desktop_thumbnail_factory_create_failed_thumbnail()
 
 Since 43.0</doc>
         <source-position filename="libgnome-desktop/gnome-desktop-thumbnail.h"
@@ -214,20 +214,20 @@ Since 43.0</doc>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1576">a #GnomeDesktopThumbnailFactory</doc>
+                 line="1584">a #GnomeDesktopThumbnailFactory</doc>
             <type name="DesktopThumbnailFactory"
                   c:type="GnomeDesktopThumbnailFactory*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1577">the uri of a file</doc>
+                 line="1585">the uri of a file</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="original_mtime" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1578">the modification time of the original file</doc>
+                 line="1586">the modification time of the original file</doc>
             <type name="time_t" c:type="time_t"/>
           </parameter>
           <parameter name="cancellable"
@@ -236,7 +236,7 @@ Since 43.0</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1579">a Cancellable object</doc>
+                 line="1587">a Cancellable object</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -247,7 +247,7 @@ Since 43.0</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1580">a function that will be called when the task has ended</doc>
+                 line="1588">a function that will be called when the task has ended</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -256,7 +256,7 @@ Since 43.0</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1581">user data</doc>
+                 line="1589">user data</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -269,7 +269,7 @@ Since 43.0</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-               line="1617">TRUE if the operation was correct; FALSE if there was an error
+               line="1625">TRUE if the operation was correct; FALSE if there was an error
 
 Since 43.0</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -278,14 +278,14 @@ Since 43.0</doc>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1613">a #GnomeDesktopThumbnailFactory</doc>
+                 line="1621">a #GnomeDesktopThumbnailFactory</doc>
             <type name="DesktopThumbnailFactory"
                   c:type="GnomeDesktopThumbnailFactory*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1614">the result of the operation</doc>
+                 line="1622">the result of the operation</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -297,7 +297,7 @@ Since 43.0</doc>
               glib:async-func="generate_thumbnail_async">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-             line="1087">Tries to generate a thumbnail for the specified file. If it succeeds
+             line="1095">Tries to generate a thumbnail for the specified file. If it succeeds
 it returns a pixbuf that can be used as a thumbnail.
 
 Usage of this function is threadsafe and does blocking I/O.</doc>
@@ -306,27 +306,27 @@ Usage of this function is threadsafe and does blocking I/O.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-               line="1100">thumbnail pixbuf if thumbnailing succeeded, %NULL otherwise and error will be set</doc>
+               line="1108">thumbnail pixbuf if thumbnailing succeeded, %NULL otherwise and error will be set</doc>
           <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1089">a #GnomeDesktopThumbnailFactory</doc>
+                 line="1097">a #GnomeDesktopThumbnailFactory</doc>
             <type name="DesktopThumbnailFactory"
                   c:type="GnomeDesktopThumbnailFactory*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1090">the uri of a file</doc>
+                 line="1098">the uri of a file</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="mime_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1091">the mime type of the file</doc>
+                 line="1099">the mime type of the file</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="cancellable"
@@ -335,7 +335,7 @@ Usage of this function is threadsafe and does blocking I/O.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1092">a #GCancellable object or NULL</doc>
+                 line="1100">a #GCancellable object or NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -346,7 +346,7 @@ Usage of this function is threadsafe and does blocking I/O.</doc>
               glib:sync-func="generate_thumbnail">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-             line="1215">Asynchronous version of gnome_desktop_thumbnail_factory_generate_thumbnail()
+             line="1223">Asynchronous version of gnome_desktop_thumbnail_factory_generate_thumbnail()
 
 Since 43.0</doc>
         <source-position filename="libgnome-desktop/gnome-desktop-thumbnail.h"
@@ -358,20 +358,20 @@ Since 43.0</doc>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1217">a #GnomeDesktopThumbnailFactory</doc>
+                 line="1225">a #GnomeDesktopThumbnailFactory</doc>
             <type name="DesktopThumbnailFactory"
                   c:type="GnomeDesktopThumbnailFactory*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1218">the URI of a file</doc>
+                 line="1226">the URI of a file</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="mime_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1219">the MIME type of the file</doc>
+                 line="1227">the MIME type of the file</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="cancellable"
@@ -380,7 +380,7 @@ Since 43.0</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1220">a Cancellable object</doc>
+                 line="1228">a Cancellable object</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -391,7 +391,7 @@ Since 43.0</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1221">a function that will be called when the task has ended</doc>
+                 line="1229">a function that will be called when the task has ended</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -400,7 +400,7 @@ Since 43.0</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1222">user data</doc>
+                 line="1230">user data</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -413,7 +413,7 @@ Since 43.0</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-               line="1257">thumbnail pixbuf if thumbnailing succeeded, %NULL otherwise.
+               line="1265">thumbnail pixbuf if thumbnailing succeeded, %NULL otherwise.
 
 Since 43.0</doc>
           <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
@@ -422,14 +422,14 @@ Since 43.0</doc>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1253">a #GnomeDesktopThumbnailFactory</doc>
+                 line="1261">a #GnomeDesktopThumbnailFactory</doc>
             <type name="DesktopThumbnailFactory"
                   c:type="GnomeDesktopThumbnailFactory*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1254">the result of the operation</doc>
+                 line="1262">the result of the operation</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -519,7 +519,7 @@ Usage of this function is threadsafe and does blocking I/O.</doc>
               glib:async-func="save_thumbnail_async">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-             line="1373">Saves @thumbnail at the right place. If the save fails a
+             line="1381">Saves @thumbnail at the right place. If the save fails a
 failed thumbnail is written.
 
 Usage of this function is threadsafe and does blocking I/O.</doc>
@@ -528,33 +528,33 @@ Usage of this function is threadsafe and does blocking I/O.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-               line="1387">TRUE if everything went fine; FALSE if there was an error.</doc>
+               line="1395">TRUE if everything went fine; FALSE if there was an error.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1375">a #GnomeDesktopThumbnailFactory</doc>
+                 line="1383">a #GnomeDesktopThumbnailFactory</doc>
             <type name="DesktopThumbnailFactory"
                   c:type="GnomeDesktopThumbnailFactory*"/>
           </instance-parameter>
           <parameter name="thumbnail" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1376">the thumbnail as a pixbuf</doc>
+                 line="1384">the thumbnail as a pixbuf</doc>
             <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
           </parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1377">the uri of a file</doc>
+                 line="1385">the uri of a file</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="original_mtime" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1378">the modification time of the original file</doc>
+                 line="1386">the modification time of the original file</doc>
             <type name="time_t" c:type="time_t"/>
           </parameter>
           <parameter name="cancellable"
@@ -563,7 +563,7 @@ Usage of this function is threadsafe and does blocking I/O.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1379">a GCancellable object, or NULL</doc>
+                 line="1387">a GCancellable object, or NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -574,7 +574,7 @@ Usage of this function is threadsafe and does blocking I/O.</doc>
               glib:sync-func="save_thumbnail">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-             line="1452">Asynchronous version of gnome_desktop_thumbnail_factory_save_thumbnail()
+             line="1460">Asynchronous version of gnome_desktop_thumbnail_factory_save_thumbnail()
 
 Since 43.0</doc>
         <source-position filename="libgnome-desktop/gnome-desktop-thumbnail.h"
@@ -586,26 +586,26 @@ Since 43.0</doc>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1454">a #GnomeDesktopThumbnailFactory</doc>
+                 line="1462">a #GnomeDesktopThumbnailFactory</doc>
             <type name="DesktopThumbnailFactory"
                   c:type="GnomeDesktopThumbnailFactory*"/>
           </instance-parameter>
           <parameter name="thumbnail" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1455">the thumbnail as a pixbuf</doc>
+                 line="1463">the thumbnail as a pixbuf</doc>
             <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
           </parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1456">the uri of a file</doc>
+                 line="1464">the uri of a file</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="original_mtime" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1457">the modification time of the original file</doc>
+                 line="1465">the modification time of the original file</doc>
             <type name="time_t" c:type="time_t"/>
           </parameter>
           <parameter name="cancellable"
@@ -614,7 +614,7 @@ Since 43.0</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1458">a Cancellable object</doc>
+                 line="1466">a Cancellable object</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -625,7 +625,7 @@ Since 43.0</doc>
                      closure="5">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1459">a function that will be called when the task has ended</doc>
+                 line="1467">a function that will be called when the task has ended</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -634,7 +634,7 @@ Since 43.0</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1460">user data</doc>
+                 line="1468">user data</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -647,7 +647,7 @@ Since 43.0</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-               line="1497">TRUE if the operation was correct; FALSE if there was an error
+               line="1505">TRUE if the operation was correct; FALSE if there was an error
 
 Since 43.0</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -656,14 +656,14 @@ Since 43.0</doc>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1493">a #GnomeDesktopThumbnailFactory</doc>
+                 line="1501">a #GnomeDesktopThumbnailFactory</doc>
             <type name="DesktopThumbnailFactory"
                   c:type="GnomeDesktopThumbnailFactory*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1494">the result of the operation</doc>
+                 line="1502">the result of the operation</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -1764,33 +1764,33 @@ be modified.</doc>
               version="2.2">
       <doc xml:space="preserve"
            filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-           line="1652">Returns whether the thumbnail has the correct uri and mtime embedded in the
+           line="1660">Returns whether the thumbnail has the correct uri and mtime embedded in the
 png options. This function is threadsafe and does no blocking I/O.</doc>
       <source-position filename="libgnome-desktop/gnome-desktop-thumbnail.h"
                        line="136"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-             line="1661">TRUE if the thumbnail has the right @uri and @mtime</doc>
+             line="1669">TRUE if the thumbnail has the right @uri and @mtime</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="pixbuf" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-               line="1654">an loaded thumbnail #GdkPixbuf</doc>
+               line="1662">an loaded thumbnail #GdkPixbuf</doc>
           <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
         </parameter>
         <parameter name="uri" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-               line="1655">a uri</doc>
+               line="1663">a uri</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="mtime" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-               line="1656">the mtime</doc>
+               line="1664">the mtime</doc>
           <type name="time_t" c:type="time_t"/>
         </parameter>
       </parameters>
@@ -1800,27 +1800,27 @@ png options. This function is threadsafe and does no blocking I/O.</doc>
               version="2.2">
       <doc xml:space="preserve"
            filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-           line="1633">Returns the filename that a thumbnail of size @size for @uri would have.
+           line="1641">Returns the filename that a thumbnail of size @size for @uri would have.
 This function is threadsafe and does no blocking I/O.</doc>
       <source-position filename="libgnome-desktop/gnome-desktop-thumbnail.h"
                        line="139"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-             line="1641">an absolute filename</doc>
+             line="1649">an absolute filename</doc>
         <type name="utf8" c:type="char*"/>
       </return-value>
       <parameters>
         <parameter name="uri" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-               line="1635">an uri</doc>
+               line="1643">an uri</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="size" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-               line="1636">a thumbnail size</doc>
+               line="1644">a thumbnail size</doc>
           <type name="DesktopThumbnailSize"
                 c:type="GnomeDesktopThumbnailSize"/>
         </parameter>

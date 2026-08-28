@@ -52,15 +52,6 @@ and/or use gtk-doc annotations.  -->
         </parameter>
       </parameters>
     </function-macro>
-    <function-macro name="IS_WAYLAND_MONITOR"
-                    c:identifier="GDK_IS_WAYLAND_MONITOR"
-                    introspectable="0">
-      <source-position filename="gdk/wayland/gdkwaylandmonitor.h" line="34"/>
-      <parameters>
-        <parameter name="object">
-        </parameter>
-      </parameters>
-    </function-macro>
     <function-macro name="IS_WAYLAND_POPUP"
                     c:identifier="GDK_IS_WAYLAND_POPUP"
                     introspectable="0">
@@ -151,33 +142,6 @@ and/or use gtk-doc annotations.  -->
         </parameter>
       </parameters>
     </function-macro>
-    <function-macro name="WAYLAND_GL_CONTEXT"
-                    c:identifier="GDK_WAYLAND_GL_CONTEXT"
-                    introspectable="0">
-      <source-position filename="gdk/wayland/gdkwaylandglcontext.h" line="33"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="WAYLAND_IS_GL_CONTEXT"
-                    c:identifier="GDK_WAYLAND_IS_GL_CONTEXT"
-                    introspectable="0">
-      <source-position filename="gdk/wayland/gdkwaylandglcontext.h" line="34"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="WAYLAND_MONITOR"
-                    c:identifier="GDK_WAYLAND_MONITOR"
-                    introspectable="0">
-      <source-position filename="gdk/wayland/gdkwaylandmonitor.h" line="33"/>
-      <parameters>
-        <parameter name="object">
-        </parameter>
-      </parameters>
-    </function-macro>
     <function-macro name="WAYLAND_POPUP"
                     c:identifier="GDK_WAYLAND_POPUP"
                     introspectable="0">
@@ -235,7 +199,7 @@ provides access to Wayland objects such as the `wl_seat` with
               c:identifier="gdk_wayland_device_get_node_path">
         <doc xml:space="preserve"
              filename="gdk/wayland/gdkdevice-wayland.c"
-             line="706">Returns the `/dev/input/event*` path of this device.
+             line="616">Returns the `/dev/input/event*` path of this device.
 
 For `GdkDevice`s that possibly coalesce multiple hardware
 devices (eg. mouse, keyboard, touch,...), this function
@@ -247,7 +211,7 @@ This is most notably implemented for devices of type
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/wayland/gdkdevice-wayland.c"
-               line="719">the `/dev/input/event*`
+               line="629">the `/dev/input/event*`
   path of this device</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -255,7 +219,7 @@ This is most notably implemented for devices of type
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdkdevice-wayland.c"
-                 line="708">a `GdkDevice`</doc>
+                 line="618">a `GdkDevice`</doc>
             <type name="WaylandDevice" c:type="GdkDevice*"/>
           </instance-parameter>
         </parameters>
@@ -265,19 +229,19 @@ This is most notably implemented for devices of type
               introspectable="0">
         <doc xml:space="preserve"
              filename="gdk/wayland/gdkdevice-wayland.c"
-             line="620">Returns the Wayland `wl_keyboard` of a `GdkDevice`.</doc>
+             line="530">Returns the Wayland `wl_keyboard` of a `GdkDevice`.</doc>
         <source-position filename="gdk/wayland/gdkwaylanddevice.h" line="53"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/wayland/gdkdevice-wayland.c"
-               line="626">a Wayland `wl_keyboard`</doc>
+               line="536">a Wayland `wl_keyboard`</doc>
           <type name="gpointer" c:type="wl_keyboard*"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdkdevice-wayland.c"
-                 line="622">a `GdkDevice`</doc>
+                 line="532">a `GdkDevice`</doc>
             <type name="WaylandDevice" c:type="GdkDevice*"/>
           </instance-parameter>
         </parameters>
@@ -287,19 +251,19 @@ This is most notably implemented for devices of type
               introspectable="0">
         <doc xml:space="preserve"
              filename="gdk/wayland/gdkdevice-wayland.c"
-             line="601">Returns the Wayland `wl_pointer` of a `GdkDevice`.</doc>
+             line="511">Returns the Wayland `wl_pointer` of a `GdkDevice`.</doc>
         <source-position filename="gdk/wayland/gdkwaylanddevice.h" line="51"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/wayland/gdkdevice-wayland.c"
-               line="607">a Wayland `wl_pointer`</doc>
+               line="517">a Wayland `wl_pointer`</doc>
           <type name="gpointer" c:type="wl_pointer*"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdkdevice-wayland.c"
-                 line="603">a `GdkDevice`</doc>
+                 line="513">a `GdkDevice`</doc>
             <type name="WaylandDevice" c:type="GdkDevice*"/>
           </instance-parameter>
         </parameters>
@@ -309,19 +273,19 @@ This is most notably implemented for devices of type
               introspectable="0">
         <doc xml:space="preserve"
              filename="gdk/wayland/gdkdevice-wayland.c"
-             line="582">Returns the Wayland `wl_seat` of a `GdkDevice`.</doc>
+             line="492">Returns the Wayland `wl_seat` of a `GdkDevice`.</doc>
         <source-position filename="gdk/wayland/gdkwaylanddevice.h" line="49"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/wayland/gdkdevice-wayland.c"
-               line="588">a Wayland `wl_seat`</doc>
+               line="498">a Wayland `wl_seat`</doc>
           <type name="gpointer" c:type="wl_seat*"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdkdevice-wayland.c"
-                 line="584">a `GdkDevice`</doc>
+                 line="494">a `GdkDevice`</doc>
             <type name="WaylandDevice" c:type="GdkDevice*"/>
           </instance-parameter>
         </parameters>
@@ -331,19 +295,19 @@ This is most notably implemented for devices of type
               version="4.4">
         <doc xml:space="preserve"
              filename="gdk/wayland/gdkdevice-wayland.c"
-             line="639">Returns the `xkb_keymap` of a `GdkDevice`.</doc>
+             line="549">Returns the `xkb_keymap` of a `GdkDevice`.</doc>
         <source-position filename="gdk/wayland/gdkwaylanddevice.h" line="55"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/wayland/gdkdevice-wayland.c"
-               line="645">a `struct xkb_keymap`</doc>
+               line="555">a `struct xkb_keymap`</doc>
           <type name="gpointer" c:type="xkb_keymap*"/>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdkdevice-wayland.c"
-                 line="641">a `GdkDevice`</doc>
+                 line="551">a `GdkDevice`</doc>
             <type name="WaylandDevice" c:type="GdkDevice*"/>
           </instance-parameter>
         </parameters>
@@ -365,7 +329,7 @@ This is most notably implemented for devices of type
            glib:type-struct="WaylandDisplayClass">
       <doc xml:space="preserve"
            filename="gdk/wayland/gdkdisplay-wayland.c"
-           line="82">The Wayland implementation of `GdkDisplay`.
+           line="84">The Wayland implementation of `GdkDisplay`.
 
 Beyond the regular [class@Gdk.Display] API, the Wayland implementation
 provides access to Wayland objects such as the `wl_display` with
@@ -380,19 +344,19 @@ with [method@GdkWayland.WaylandDisplay.query_registry].</doc>
               version="4.4">
         <doc xml:space="preserve"
              filename="gdk/wayland/gdkglcontext-wayland.c"
-             line="162">Retrieves the EGL display connection object for the given GDK display.</doc>
+             line="165">Retrieves the EGL display connection object for the given GDK display.</doc>
         <source-position filename="gdk/wayland/gdkwaylanddisplay.h" line="66"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/wayland/gdkglcontext-wayland.c"
-               line="168">the EGL display</doc>
+               line="171">the EGL display</doc>
           <type name="gpointer" c:type="gpointer"/>
         </return-value>
         <parameters>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdkglcontext-wayland.c"
-                 line="164">a Wayland display</doc>
+                 line="167">a Wayland display</doc>
             <type name="WaylandDisplay" c:type="GdkDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -403,20 +367,20 @@ with [method@GdkWayland.WaylandDisplay.query_registry].</doc>
               deprecated-version="4.10.">
         <doc xml:space="preserve"
              filename="gdk/wayland/gdkdisplay-wayland.c"
-             line="1197">Gets the startup notification ID for a Wayland display, or `NULL`
+             line="1284">Gets the startup notification ID for a Wayland display, or `NULL`
 if no ID has been defined.</doc>
         <source-position filename="gdk/wayland/gdkwaylanddisplay.h" line="56"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/wayland/gdkdisplay-wayland.c"
-               line="1204">the startup notification ID for @display</doc>
+               line="1291">the startup notification ID for @display</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdkdisplay-wayland.c"
-                 line="1199">a display</doc>
+                 line="1286">a display</doc>
             <type name="WaylandDisplay" c:type="GdkDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -426,19 +390,19 @@ if no ID has been defined.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gdk/wayland/gdkdisplay-wayland.c"
-             line="1276">Returns the Wayland `wl_compositor` of a display.</doc>
+             line="1363">Returns the Wayland `wl_compositor` of a display.</doc>
         <source-position filename="gdk/wayland/gdkwaylanddisplay.h" line="50"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/wayland/gdkdisplay-wayland.c"
-               line="1282">a Wayland `wl_compositor`</doc>
+               line="1369">a Wayland `wl_compositor`</doc>
           <type name="gpointer" c:type="wl_compositor*"/>
         </return-value>
         <parameters>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdkdisplay-wayland.c"
-                 line="1278">a display</doc>
+                 line="1365">a display</doc>
             <type name="WaylandDisplay" c:type="GdkDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -448,19 +412,19 @@ if no ID has been defined.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gdk/wayland/gdkdisplay-wayland.c"
-             line="1260">Returns the Wayland `wl_display` of a display.</doc>
+             line="1347">Returns the Wayland `wl_display` of a display.</doc>
         <source-position filename="gdk/wayland/gdkwaylanddisplay.h" line="48"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/wayland/gdkdisplay-wayland.c"
-               line="1266">a Wayland `wl_display`</doc>
+               line="1353">a Wayland `wl_display`</doc>
           <type name="gpointer" c:type="wl_display*"/>
         </return-value>
         <parameters>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdkdisplay-wayland.c"
-                 line="1262">a display</doc>
+                 line="1349">a display</doc>
             <type name="WaylandDisplay" c:type="GdkDisplay*"/>
           </instance-parameter>
         </parameters>
@@ -469,26 +433,26 @@ if no ID has been defined.</doc>
               c:identifier="gdk_wayland_display_query_registry">
         <doc xml:space="preserve"
              filename="gdk/wayland/gdkdisplay-wayland.c"
-             line="1292">Returns true if the interface was found in the display
+             line="1379">Returns true if the interface was found in the display
 `wl_registry.global` handler.</doc>
         <source-position filename="gdk/wayland/gdkwaylanddisplay.h" line="62"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/wayland/gdkdisplay-wayland.c"
-               line="1300">true if the global is offered by the compositor</doc>
+               line="1387">true if the global is offered by the compositor</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdkdisplay-wayland.c"
-                 line="1294">a display</doc>
+                 line="1381">a display</doc>
             <type name="WaylandDisplay" c:type="GdkDisplay*"/>
           </instance-parameter>
           <parameter name="global" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdkdisplay-wayland.c"
-                 line="1295">global interface to query in the registry</doc>
+                 line="1382">global interface to query in the registry</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -499,7 +463,7 @@ if no ID has been defined.</doc>
               deprecated-version="4.16">
         <doc xml:space="preserve"
              filename="gdk/wayland/gdkdisplay-wayland.c"
-             line="1241">Sets the cursor theme for the given @display.</doc>
+             line="1328">Sets the cursor theme for the given @display.</doc>
         <doc-deprecated xml:space="preserve">Use the cursor-related properties of
   [GtkSettings](../gtk4/class.Settings.html) to set the cursor theme</doc-deprecated>
         <source-position filename="gdk/wayland/gdkwaylanddisplay.h" line="52"/>
@@ -510,19 +474,19 @@ if no ID has been defined.</doc>
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdkdisplay-wayland.c"
-                 line="1243">a display</doc>
+                 line="1330">a display</doc>
             <type name="WaylandDisplay" c:type="GdkDisplay*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdkdisplay-wayland.c"
-                 line="1244">the new cursor theme</doc>
+                 line="1331">the new cursor theme</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdkdisplay-wayland.c"
-                 line="1245">the size to use for cursors</doc>
+                 line="1332">the size to use for cursors</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -533,7 +497,7 @@ if no ID has been defined.</doc>
               deprecated-version="4.10.">
         <doc xml:space="preserve"
              filename="gdk/wayland/gdkdisplay-wayland.c"
-             line="1214">Sets the startup notification ID for a display.
+             line="1301">Sets the startup notification ID for a display.
 
 This is usually taken from the value of the `DESKTOP_STARTUP_ID`
 environment variable, but in some cases (such as the application not
@@ -551,13 +515,13 @@ complete (for example, when opening a window or when calling
           <instance-parameter name="display" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdkdisplay-wayland.c"
-                 line="1216">a display</doc>
+                 line="1303">a display</doc>
             <type name="WaylandDisplay" c:type="GdkDisplay*"/>
           </instance-parameter>
           <parameter name="startup_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdkdisplay-wayland.c"
-                 line="1217">the startup notification ID (must be valid utf8)</doc>
+                 line="1304">the startup notification ID (must be valid utf8)</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -580,14 +544,14 @@ complete (for example, when opening a window or when calling
       <doc xml:space="preserve"
            filename="gdk/wayland/gdkglcontext-wayland.c"
            line="41">The Wayland implementation of `GdkGLContext`.</doc>
-      <source-position filename="gdk/wayland/gdkwaylandglcontext.h" line="37"/>
+      <source-position filename="gdk/wayland/gdkwaylandglcontext.h" line="35"/>
     </class>
     <record name="WaylandGLContextClass"
             c:type="GdkWaylandGLContextClass"
             disguised="1"
             opaque="1"
             glib:is-gtype-struct-for="WaylandGLContext">
-      <source-position filename="gdk/wayland/gdkwaylandglcontext.h" line="37"/>
+      <source-position filename="gdk/wayland/gdkwaylandglcontext.h" line="35"/>
     </record>
     <class name="WaylandMonitor"
            c:symbol-prefix="wayland_monitor"
@@ -603,14 +567,14 @@ complete (for example, when opening a window or when calling
 Beyond the [class@Gdk.Monitor] API, the Wayland implementation
 offers access to the Wayland `wl_output` object with
 [method@GdkWayland.WaylandMonitor.get_wl_output].</doc>
-      <source-position filename="gdk/wayland/gdkwaylandmonitor.h" line="37"/>
+      <source-position filename="gdk/wayland/gdkwaylandmonitor.h" line="35"/>
       <method name="get_wl_output"
               c:identifier="gdk_wayland_monitor_get_wl_output"
               introspectable="0">
         <doc xml:space="preserve"
              filename="gdk/wayland/gdkmonitor-wayland.c"
              line="429">Returns the Wayland `wl_output` of a `GdkMonitor`.</doc>
-        <source-position filename="gdk/wayland/gdkwaylandmonitor.h" line="43"/>
+        <source-position filename="gdk/wayland/gdkwaylandmonitor.h" line="38"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/wayland/gdkmonitor-wayland.c"
@@ -632,7 +596,7 @@ offers access to the Wayland `wl_output` object with
             disguised="1"
             opaque="1"
             glib:is-gtype-struct-for="WaylandMonitor">
-      <source-position filename="gdk/wayland/gdkwaylandmonitor.h" line="37"/>
+      <source-position filename="gdk/wayland/gdkwaylandmonitor.h" line="35"/>
     </record>
     <class name="WaylandPopup"
            c:symbol-prefix="wayland_popup"
@@ -642,7 +606,7 @@ offers access to the Wayland `wl_output` object with
            glib:get-type="gdk_wayland_popup_get_type">
       <doc xml:space="preserve"
            filename="gdk/wayland/gdkpopup-wayland.c"
-           line="199">The Wayland implementation of `GdkPopup`.</doc>
+           line="206">The Wayland implementation of `GdkPopup`.</doc>
       <implements name="Gdk.Popup"/>
     </class>
     <class name="WaylandSeat"
@@ -665,19 +629,19 @@ provides access to the Wayland `wl_seat` object with
               introspectable="0">
         <doc xml:space="preserve"
              filename="gdk/wayland/gdkseat-wayland.c"
-             line="4660">Returns the Wayland `wl_seat` of a `GdkSeat`.</doc>
+             line="4511">Returns the Wayland `wl_seat` of a `GdkSeat`.</doc>
         <source-position filename="gdk/wayland/gdkwaylandseat.h" line="47"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/wayland/gdkseat-wayland.c"
-               line="4666">a Wayland `wl_seat`</doc>
+               line="4517">a Wayland `wl_seat`</doc>
           <type name="gpointer" c:type="wl_seat*"/>
         </return-value>
         <parameters>
           <instance-parameter name="seat" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdkseat-wayland.c"
-                 line="4662">a `GdkSeat`</doc>
+                 line="4513">a `GdkSeat`</doc>
             <type name="WaylandSeat" c:type="GdkSeat*"/>
           </instance-parameter>
         </parameters>
@@ -698,7 +662,7 @@ provides access to the Wayland `wl_seat` object with
            glib:get-type="gdk_wayland_surface_get_type">
       <doc xml:space="preserve"
            filename="gdk/wayland/gdksurface-wayland.c"
-           line="61">The Wayland implementation of `GdkSurface`.
+           line="64">The Wayland implementation of `GdkSurface`.
 
 Beyond the [class@Gdk.Surface] API, the Wayland implementation offers
 access to the Wayland `wl_surface` object with
@@ -708,7 +672,7 @@ access to the Wayland `wl_surface` object with
               version="4.18">
         <doc xml:space="preserve"
              filename="gdk/wayland/gdksurface-wayland.c"
-             line="431">Forces next commit.</doc>
+             line="417">Forces next commit.</doc>
         <source-position filename="gdk/wayland/gdkwaylandsurface.h" line="47"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -717,7 +681,7 @@ access to the Wayland `wl_surface` object with
           <instance-parameter name="surface" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdksurface-wayland.c"
-                 line="433">a `GdkSurface`</doc>
+                 line="419">a `GdkSurface`</doc>
             <type name="WaylandSurface" c:type="GdkSurface*"/>
           </instance-parameter>
         </parameters>
@@ -727,19 +691,19 @@ access to the Wayland `wl_surface` object with
               introspectable="0">
         <doc xml:space="preserve"
              filename="gdk/wayland/gdksurface-wayland.c"
-             line="1403">Returns the Wayland `wl_surface` of a `GdkSurface`.</doc>
+             line="1432">Returns the Wayland `wl_surface` of a `GdkSurface`.</doc>
         <source-position filename="gdk/wayland/gdkwaylandsurface.h" line="44"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gdk/wayland/gdksurface-wayland.c"
-               line="1409">a Wayland `wl_surface`</doc>
+               line="1438">a Wayland `wl_surface`</doc>
           <type name="gpointer" c:type="wl_surface*"/>
         </return-value>
         <parameters>
           <instance-parameter name="surface" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdksurface-wayland.c"
-                 line="1405">a `GdkSurface`</doc>
+                 line="1434">a `GdkSurface`</doc>
             <type name="WaylandSurface" c:type="GdkSurface*"/>
           </instance-parameter>
         </parameters>
@@ -753,7 +717,7 @@ access to the Wayland `wl_surface` object with
            glib:get-type="gdk_wayland_toplevel_get_type">
       <doc xml:space="preserve"
            filename="gdk/wayland/gdktoplevel-wayland.c"
-           line="71">The Wayland implementation of `GdkToplevel`.
+           line="73">The Wayland implementation of `GdkToplevel`.
 
 Beyond the [iface@Gdk.Toplevel] API, the Wayland implementation
 has API to set up cross-process parent-child relationships between
@@ -765,7 +729,7 @@ surfaces with [method@GdkWayland.WaylandToplevel.export_handle] and
               version="4.12">
         <doc xml:space="preserve"
              filename="gdk/wayland/gdktoplevel-wayland.c"
-             line="2697">Destroy a handle that was obtained with gdk_wayland_toplevel_export_handle().
+             line="2746">Destroy a handle that was obtained with gdk_wayland_toplevel_export_handle().
 
 Note that this API depends on an unstable Wayland protocol,
 and thus may require changes in the future.</doc>
@@ -778,13 +742,13 @@ and thus may require changes in the future.</doc>
           <instance-parameter name="toplevel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdktoplevel-wayland.c"
-                 line="2699">the `GdkToplevel` that was exported</doc>
+                 line="2748">the `GdkToplevel` that was exported</doc>
             <type name="WaylandToplevel" c:type="GdkToplevel*"/>
           </instance-parameter>
           <parameter name="handle" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdktoplevel-wayland.c"
-                 line="2700">the handle to drop</doc>
+                 line="2749">the handle to drop</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -793,7 +757,7 @@ and thus may require changes in the future.</doc>
               c:identifier="gdk_wayland_toplevel_export_handle">
         <doc xml:space="preserve"
              filename="gdk/wayland/gdktoplevel-wayland.c"
-             line="2603">Asynchronously obtains a handle for a surface that can be passed
+             line="2652">Asynchronously obtains a handle for a surface that can be passed
 to other processes.
 
 When the handle has been obtained, @callback will be called.
@@ -821,7 +785,7 @@ and thus may require changes in the future.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/wayland/gdktoplevel-wayland.c"
-               line="2634">%TRUE if the handle has been requested, %FALSE if
+               line="2683">%TRUE if the handle has been requested, %FALSE if
   an error occurred.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -829,7 +793,7 @@ and thus may require changes in the future.</doc>
           <instance-parameter name="toplevel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdktoplevel-wayland.c"
-                 line="2605">the `GdkToplevel` to obtain a handle for</doc>
+                 line="2654">the `GdkToplevel` to obtain a handle for</doc>
             <type name="WaylandToplevel" c:type="GdkToplevel*"/>
           </instance-parameter>
           <parameter name="callback"
@@ -839,7 +803,7 @@ and thus may require changes in the future.</doc>
                      destroy="2">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdktoplevel-wayland.c"
-                 line="2606">callback to call with the handle</doc>
+                 line="2655">callback to call with the handle</doc>
             <type name="WaylandToplevelExported"
                   c:type="GdkWaylandToplevelExported"/>
           </parameter>
@@ -849,7 +813,7 @@ and thus may require changes in the future.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdktoplevel-wayland.c"
-                 line="2607">user data for @callback</doc>
+                 line="2656">user data for @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="destroy_func"
@@ -857,7 +821,7 @@ and thus may require changes in the future.</doc>
                      scope="async">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdktoplevel-wayland.c"
-                 line="2608">destroy notify for @user_data</doc>
+                 line="2657">destroy notify for @user_data</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
         </parameters>
@@ -866,7 +830,7 @@ and thus may require changes in the future.</doc>
               c:identifier="gdk_wayland_toplevel_set_application_id">
         <doc xml:space="preserve"
              filename="gdk/wayland/gdktoplevel-wayland.c"
-             line="2476">Sets the application id on a `GdkToplevel`.</doc>
+             line="2525">Sets the application id on a `GdkToplevel`.</doc>
         <source-position filename="gdk/wayland/gdkwaylandtoplevel.h"
                          line="67"/>
         <return-value transfer-ownership="none">
@@ -876,13 +840,13 @@ and thus may require changes in the future.</doc>
           <instance-parameter name="toplevel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdktoplevel-wayland.c"
-                 line="2478">a `GdkToplevel`</doc>
+                 line="2527">a `GdkToplevel`</doc>
             <type name="WaylandToplevel" c:type="GdkToplevel*"/>
           </instance-parameter>
           <parameter name="application_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdktoplevel-wayland.c"
-                 line="2479">the application id for the @toplevel</doc>
+                 line="2528">the application id for the @toplevel</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -891,7 +855,7 @@ and thus may require changes in the future.</doc>
               c:identifier="gdk_wayland_toplevel_set_transient_for_exported">
         <doc xml:space="preserve"
              filename="gdk/wayland/gdktoplevel-wayland.c"
-             line="2745">Marks @toplevel as transient for the surface to which the given
+             line="2794">Marks @toplevel as transient for the surface to which the given
 @parent_handle_str refers.
 
 Typically, the handle will originate from a
@@ -904,7 +868,7 @@ and thus may require changes in the future.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/wayland/gdktoplevel-wayland.c"
-               line="2759">%TRUE if the surface has been marked as transient,
+               line="2808">%TRUE if the surface has been marked as transient,
   %FALSE if an error occurred.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -912,13 +876,13 @@ and thus may require changes in the future.</doc>
           <instance-parameter name="toplevel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdktoplevel-wayland.c"
-                 line="2747">the `GdkToplevel` to make as transient</doc>
+                 line="2796">the `GdkToplevel` to make as transient</doc>
             <type name="WaylandToplevel" c:type="GdkToplevel*"/>
           </instance-parameter>
           <parameter name="parent_handle_str" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdktoplevel-wayland.c"
-                 line="2748">an exported handle for a surface</doc>
+                 line="2797">an exported handle for a surface</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -929,7 +893,7 @@ and thus may require changes in the future.</doc>
               deprecated-version="4.12">
         <doc xml:space="preserve"
              filename="gdk/wayland/gdktoplevel-wayland.c"
-             line="2657">Destroys the handle that was obtained with
+             line="2706">Destroys the handle that was obtained with
 gdk_wayland_toplevel_export_handle().
 
 It is an error to call this function on a surface that
@@ -952,7 +916,7 @@ and thus may require changes in the future.</doc>
           <instance-parameter name="toplevel" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gdk/wayland/gdktoplevel-wayland.c"
-                 line="2659">the `GdkToplevel` to unexport</doc>
+                 line="2708">the `GdkToplevel` to unexport</doc>
             <type name="WaylandToplevel" c:type="GdkToplevel*"/>
           </instance-parameter>
         </parameters>
@@ -962,7 +926,7 @@ and thus may require changes in the future.</doc>
               c:type="GdkWaylandToplevelExported">
       <doc xml:space="preserve"
            filename="gdk/wayland/gdktoplevel-wayland.c"
-           line="2563">Callback that gets called when the handle for a surface has been
+           line="2612">Callback that gets called when the handle for a surface has been
 obtained from the Wayland compositor.
 
 This callback is used in [method@GdkWayland.WaylandToplevel.export_handle].
@@ -977,13 +941,13 @@ marking surfaces as transient for out-of-process surfaces.</doc>
         <parameter name="toplevel" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/wayland/gdktoplevel-wayland.c"
-               line="2565">the `GdkToplevel` that is exported</doc>
+               line="2614">the `GdkToplevel` that is exported</doc>
           <type name="WaylandToplevel" c:type="GdkToplevel*"/>
         </parameter>
         <parameter name="handle" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk/wayland/gdktoplevel-wayland.c"
-               line="2566">the handle</doc>
+               line="2615">the handle</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="user_data"
@@ -993,7 +957,7 @@ marking surfaces as transient for out-of-process surfaces.</doc>
                    closure="2">
           <doc xml:space="preserve"
                filename="gdk/wayland/gdktoplevel-wayland.c"
-               line="2567">user data that was passed to [method@GdkWayland.WaylandToplevel.export_handle]</doc>
+               line="2616">user data that was passed to [method@GdkWayland.WaylandToplevel.export_handle]</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
       </parameters>

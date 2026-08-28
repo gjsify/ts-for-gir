@@ -40,7 +40,9 @@ const beyondUnderscores = [];
 /** Invariant 2 violations: the fallback's input set is meant to be all-lowercase. */
 const fallbackUpperNamed = [];
 
-for (const file of readdirSync(dir).filter((f) => f.endsWith(".gir")).sort()) {
+for (const file of readdirSync(dir)
+  .filter((f) => f.endsWith(".gir"))
+  .sort()) {
   files++;
   const src = readFileSync(join(dir, file), "utf8");
   MEMBER.lastIndex = 0;
@@ -59,7 +61,8 @@ for (const file of readdirSync(dir).filter((f) => f.endsWith(".gir")).sort()) {
     if (hasUpper) upperNamed++;
     if (nick !== name.replace(/_/g, "-")) disagreeSubstitution++;
     if (nick !== name.toLowerCase().replace(/_/g, "-")) disagreeLowercased++;
-    if (nick.replace(/-/g, "_") !== name) beyondUnderscores.push(`${file}: name=${name} nick=${nick}`);
+    if (nick.replace(/-/g, "_") !== name)
+      beyondUnderscores.push(`${file}: name=${name} nick=${nick}`);
   }
 }
 
@@ -74,20 +77,33 @@ console.log(`  name.toLowerCase().replace(/_/g, "-")    ${disagreeLowercased}`);
 
 const report = (violations, invariant) => {
   if (violations.length === 0) return false;
-  console.error(`\ncheck-nick-derivation: ${invariant}\n  ${violations.length} violation(s), first 10:`);
+  console.error(
+    `\ncheck-nick-derivation: ${invariant}\n  ${violations.length} violation(s), first 10:`,
+  );
   for (const line of violations.slice(0, 10)) console.error(`    ${line}`);
   return true;
 };
 
 const broken =
   report(beyondUnderscores, "a nick differs from its member name by more than `_` vs `-`") ||
-  report(fallbackUpperNamed, "a member without `glib:nick` has an uppercase name, so the fallback's case matters");
+  report(
+    fallbackUpperNamed,
+    "a member without `glib:nick` has an uppercase name, so the fallback's case matters",
+  );
 
 if (broken) {
-  console.error("\nThe nick fallback in packages/lib/src/gir/enum-member.ts rests on these two invariants.");
-  console.error("Re-measure it and update the comment there before changing the corpus expectations.");
+  console.error(
+    "\nThe nick fallback in packages/lib/src/gir/enum-member.ts rests on these two invariants.",
+  );
+  console.error(
+    "Re-measure it and update the comment there before changing the corpus expectations.",
+  );
   process.exit(1);
 }
 
-console.log("\nboth invariants hold: a nick is its name with underscores substituted, and the fallback");
-console.log("never sees an uppercase name -- so the fallback may not change case, and does not need to.");
+console.log(
+  "\nboth invariants hold: a nick is its name with underscores substituted, and the fallback",
+);
+console.log(
+  "never sees an uppercase name -- so the fallback may not change case, and does not need to.",
+);

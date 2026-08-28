@@ -131,7 +131,7 @@ This collaborative approach helps us improve the quality of the type definitions
 
 | Example                                          | Description                              | Bundler |
 | ------------------------------------------------ | ---------------------------------------- | ------- |
-| [Virtual Interface Test](virtual-interface-test) | Comprehensive virtual interface examples | esbuild |
+| [Virtual Interface Test](virtual-interface-test) | Virtual interfaces, several shapes of them | esbuild |
 
 ## How to Run Examples
 
@@ -199,7 +199,7 @@ For more information on CLI options and type generation, see the [CLI documentat
 
 ## Contributing Examples
 
-Feel free to contribute new examples that showcase:
+New examples are welcome. Useful ones cover:
 - Different libraries from the GObject ecosystem
 - Different bundlers or build systems
 - Interesting UI patterns or application architectures

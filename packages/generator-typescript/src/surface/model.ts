@@ -324,9 +324,11 @@ function printPropType(
     }
     if (node instanceof TypeIdentifier) {
       const resolved = node.resolveIdentifier(module, config);
-      if (!resolved) throw new SurfaceError(`${where}: cannot resolve ${node.namespace}.${node.name}`);
+      if (!resolved)
+        throw new SurfaceError(`${where}: cannot resolve ${node.namespace}.${node.name}`);
       const owner = module.getInstalledImport(resolved.namespace);
-      if (!owner) throw new SurfaceError(`${where}: namespace ${resolved.namespace} is not installed`);
+      if (!owner)
+        throw new SurfaceError(`${where}: namespace ${resolved.namespace} is not installed`);
       const enumeration = owner.getEnum(resolved.name);
       if (enumeration) {
         // Flags stay `number` in both positions, mirroring the runtime: GObject
@@ -356,7 +358,15 @@ function printPropType(
   return { text: walk(type, 0), namespaces: [...namespaces], enums: [...enums.values()] };
 }
 
-/** First sentence, one line, `*​/`-safe — a hover blurb, not the manual. */
+/**
+ * First sentence, one line, safe to embed in a block comment — a hover blurb,
+ * not the manual.
+ *
+ * The replacement below inserts a ZERO-WIDTH SPACE between the `*` and the `/`,
+ * which is why it looks like a no-op replace. Without it a GIR doc containing a
+ * comment terminator closes the JSDoc it is being emitted into, and the rest of
+ * the declaration becomes code. It is invisible on screen, so leave it be.
+ */
 function blurb(doc: string | null | undefined, limit = 200): string | undefined {
   if (!doc) return undefined;
   const flat = doc.replace(/\s+/g, " ").trim();
@@ -422,7 +432,11 @@ function slotNameOf(method: string): string | null {
   return null;
 }
 
-function slotCandidatesOf(module: GirModule, config: OptionsGeneration, cls: IntrospectedClass): Map<string, string> {
+function slotCandidatesOf(
+  module: GirModule,
+  config: OptionsGeneration,
+  cls: IntrospectedClass,
+): Map<string, string> {
   const out = new Map<string, string>();
   const methods = [...cls.members].sort((a, b) => (a.name < b.name ? -1 : 1));
   for (const method of methods) {
@@ -464,7 +478,9 @@ function slotCandidatesOf(module: GirModule, config: OptionsGeneration, cls: Int
  * this printer always fully qualifies, so a foreign member renders identically to the way
  * its owner rendered it.
  */
-function computeOmissions(decls: ReadonlyMap<string, SurfaceDecl>): Map<string, Map<string, string[]>> {
+function computeOmissions(
+  decls: ReadonlyMap<string, SurfaceDecl>,
+): Map<string, Map<string, string[]>> {
   const resolved = new Map<string, Map<string, string>>();
   const resolving = new Set<string>();
 
@@ -531,7 +547,10 @@ function computeOmissions(decls: ReadonlyMap<string, SurfaceDecl>): Map<string, 
  * argument for a surface per namespace: `@girs/gcr-3/surface` would be a widget surface
  * with no widgets in it.
  */
-export function buildWidgetSurface(module: GirModule, config: OptionsGeneration): WidgetSurface | null {
+export function buildWidgetSurface(
+  module: GirModule,
+  config: OptionsGeneration,
+): WidgetSurface | null {
   const widgetClasses = concreteWidgetsOf(module);
   if (widgetClasses.length === 0) return null;
 
@@ -551,7 +570,9 @@ export function buildWidgetSurface(module: GirModule, config: OptionsGeneration)
       namespaceImports.set(ns, owner.importPath);
     }
     for (const enumeration of printed.enums) {
-      const owner = module.getInstalledImport(enumeration.reference.slice(0, enumeration.reference.indexOf(".")));
+      const owner = module.getInstalledImport(
+        enumeration.reference.slice(0, enumeration.reference.indexOf(".")),
+      );
       // A nick union is emitted ONCE, by the surface that owns the enum, and imported
       // from there — `AdwHeaderBarProps` reads `GtkPackTypeNick` out of
       // `@girs/gtk-4.0/surface`. Enums from namespaces with no widgets (Pango, Gdk)
@@ -683,18 +704,25 @@ export function buildWidgetSurface(module: GirModule, config: OptionsGeneration)
   const since = new Map<string, string>();
   for (const decl of withBases.values()) {
     if (!decl.emitted) continue;
-    for (const prop of decl.props) if (prop.since) since.set(`${decl.gtype}.${prop.girName}`, prop.since);
+    for (const prop of decl.props)
+      if (prop.since) since.set(`${decl.gtype}.${prop.girName}`, prop.since);
   }
 
   const provenanceParts = [`${module.packageName}`];
-  if (module.libraryVersion?.declaredByLibrary) provenanceParts.push(`library ${module.libraryVersion}`);
+  if (module.libraryVersion?.declaredByLibrary)
+    provenanceParts.push(`library ${module.libraryVersion}`);
   // Named, not counted: both lists are how a GTK or dependency release that changes the
   // shape of the base graph shows up in a diff rather than in a support question.
   if (dropped.length > 0) provenanceParts.push(`dropped empty base(s): ${dropped.join(" ")}`);
-  if (inlined.length > 0) provenanceParts.push(`inlined base(s) from a namespace with no surface: ${inlined.join(" ")}`);
+  if (inlined.length > 0)
+    provenanceParts.push(`inlined base(s) from a namespace with no surface: ${inlined.join(" ")}`);
   const unsettable = [...withBases.values()]
     .filter((decl) => decl.emitted)
-    .flatMap((decl) => decl.props.filter((prop) => acceptsNothing(prop.ts)).map((prop) => `${decl.key}.${prop.girName}`))
+    .flatMap((decl) =>
+      decl.props
+        .filter((prop) => acceptsNothing(prop.ts))
+        .map((prop) => `${decl.key}.${prop.girName}`),
+    )
     .sort();
   if (unsettable.length > 0) {
     provenanceParts.push(`prop(s) no TypeScript value satisfies: ${unsettable.join(" ")}`);

@@ -16,13 +16,17 @@
 
 import type { WidgetSurface } from "./model.ts";
 
-const record = (rows: readonly string[]): string => (rows.length === 0 ? "{}" : `{\n${rows.join("\n")}\n}`);
+const record = (rows: readonly string[]): string =>
+  rows.length === 0 ? "{}" : `{\n${rows.join("\n")}\n}`;
 
-const list = (items: readonly string[]): string => `[${items.map((item) => `'${item}'`).join(", ")}]`;
+const list = (items: readonly string[]): string =>
+  `[${items.map((item) => `'${item}'`).join(", ")}]`;
 
 export function emitSurfaceData(surface: WidgetSurface): string {
   const ownProps: string[] = [];
-  for (const decl of [...surface.declarations.values()].sort((a, b) => (a.gtype < b.gtype ? -1 : 1))) {
+  for (const decl of [...surface.declarations.values()].sort((a, b) =>
+    a.gtype < b.gtype ? -1 : 1,
+  )) {
     if (!decl.emitted || decl.props.length === 0) continue;
     ownProps.push(`    ${decl.gtype}: ${list(decl.props.map((prop) => prop.girName))},`);
   }

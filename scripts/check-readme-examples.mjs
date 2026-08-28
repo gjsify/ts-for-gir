@@ -56,8 +56,8 @@ export function claims(code) {
 // --- SELF-TEST FIRST: a check that cannot go red is worse than no check. -----
 
 const SELF = [
-  ["a claim is read", 'console.log(x)\n// 42 things\n', ["42 things"]],
-  ["prose above a call is not a claim", '// explains why\nconsole.log(x)\n', []],
+  ["a claim is read", "console.log(x)\n// 42 things\n", ["42 things"]],
+  ["prose above a call is not a claim", "// explains why\nconsole.log(x)\n", []],
   ["a bare comment with no call is not a claim", "// just a note\n", []],
   ["a multi-line claim keeps both lines", "console.log(x)\n// one\n// two\n", ["one", "two"]],
   ["an empty comment ends nothing but adds nothing", "console.log(x)\n//\n// real\n", ["real"]],
@@ -81,14 +81,18 @@ if (failures.length > 0) {
 const markdown = readFileSync(join(ROOT, README), "utf8");
 const blocks = tsBlocks(markdown, SECTION);
 if (blocks.length === 0) {
-  console.error(`check-readme-examples: no \`\`\`ts blocks under "${SECTION}" — did the section move?`);
+  console.error(
+    `check-readme-examples: no \`\`\`ts blocks under "${SECTION}" — did the section move?`,
+  );
   process.exit(1);
 }
 
 const source = blocks.join("\n");
 const expected = claims(source);
 if (expected.length === 0) {
-  console.error("check-readme-examples: the examples print nothing they claim — add `// output` lines.");
+  console.error(
+    "check-readme-examples: the examples print nothing they claim — add `// output` lines.",
+  );
   process.exit(1);
 }
 
@@ -108,7 +112,13 @@ try {
   });
 } catch (error) {
   console.error("check-readme-examples: the README examples did not run:");
-  console.error(String(error.stderr || error.message).trim().split("\n").slice(-12).join("\n"));
+  console.error(
+    String(error.stderr || error.message)
+      .trim()
+      .split("\n")
+      .slice(-12)
+      .join("\n"),
+  );
   process.exit(1);
 } finally {
   rmSync(file, { force: true });
@@ -116,7 +126,9 @@ try {
 
 const missing = expected.filter((claim) => !stdout.includes(claim));
 if (missing.length > 0) {
-  console.error("check-readme-examples: the examples ran, but printed something else than documented:");
+  console.error(
+    "check-readme-examples: the examples ran, but printed something else than documented:",
+  );
   for (const m of missing) console.error(`  - README claims: ${m}`);
   console.error("  actual output:");
   for (const line of stdout.trim().split("\n")) console.error(`    ${line}`);

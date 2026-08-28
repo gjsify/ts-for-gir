@@ -1,6 +1,6 @@
 # Language Server Validation Tests
 
-This package provides validation tests for TypeScript type generation in ts-for-gir, ensuring the generated type definitions work correctly with the TypeScript language server.
+These tests load generated type definitions into the TypeScript language server and ask it what it sees. A definition that compiles can still give the wrong hover, the wrong completion, or the wrong inferred type, and only the language server can tell you.
 
 ## Purpose
 
@@ -9,7 +9,7 @@ Tests the correct TypeScript type generation for GIR (GObject Introspection) bin
 - **GLib.Variant Types**: Testing variant unpacking methods and type inference
 - **Type Generation Issues**: Validating fixes for known problems from PRs
 - **Advanced Type Features**: Testing with different configuration options
-- **Real-world Usage Patterns**: Ensuring common patterns work as expected
+- **Real-world usage patterns.** The shapes people actually write, not the ones easiest to assert on
 
 ## Running Tests
 

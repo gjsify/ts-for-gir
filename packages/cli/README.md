@@ -22,7 +22,7 @@ CLI tool to generate TypeScript type definitions and HTML documentation for GObj
 
 ## Getting started
 
-### Install (GJS — no Node.js required)
+### Install (GJS, without Node.js)
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/gjsify/ts-for-gir/main/install.js -o /tmp/ts-for-gir-install.js
@@ -59,9 +59,9 @@ The GJS bundle (`ts-for-gir-gjs`) supports the full TypeScript /
 TypeDoc pipeline thanks to gjsify's runtime-relative `import.meta.url`
 rewrite. All non-interactive commands run natively on GJS:
 
-- `ts-for-gir generate` — `.d.ts` generation
-- `ts-for-gir json` — TypeDoc-backed JSON export
-- `ts-for-gir doc` — HTML documentation. TypeDoc's shiki highlighter
+- `ts-for-gir generate`: `.d.ts` generation
+- `ts-for-gir json`: TypeDoc-backed JSON export
+- `ts-for-gir doc`: HTML documentation. TypeDoc's shiki highlighter
   loads the [oniguruma](https://github.com/kkos/oniguruma) regex
   engine via `WebAssembly.compile(...)`. GJS 1.88 (SpiderMonkey 140)
   exposes the synchronous `WebAssembly.{Module,Instance}` constructors
@@ -72,7 +72,7 @@ rewrite. All non-interactive commands run natively on GJS:
   natively in the GJS bundle.
 - `ts-for-gir list` / `copy` / `analyze` / `self-update`
 
-The only command still gated on Node.js is `create` — its
+The only command still gated on Node.js is `create`. Its
 [`inquirer`](https://www.npmjs.com/package/inquirer)-based interactive
 prompt cannot run on GJS without a TTY-aware port. Use
 `npx @ts-for-gir/cli create ...` from a Node install for now.
@@ -373,10 +373,10 @@ Examples:
                                             Export unresolved type errors to file
 ```
 
-The `analyze` command helps debug type generation issues by providing powerful filtering and analysis capabilities for ts-for-gir report files.
+`analyze` reads a report file and narrows it down. A full run reports thousands of problems; this is how you get to the twelve that concern you.
 
 **Key Features:**
-- **Comprehensive Filtering**: Filter by severity, category, namespace, type name, or search text
+- **Filtering.** By severity, category, namespace, type name, or free text
 - **Multiple Output Formats**: Table, JSON, or CSV format for different use cases
 - **Statistical Analysis**: Show most problematic types, namespaces, and categories
 - **Export Capabilities**: Save filtered results for further analysis
@@ -531,7 +531,7 @@ ts-for-gir generate * --noAdvancedVariants=false
 ### widgetSurface
 
 Emits the GIR-derived widget **vocabulary** on an opt-in `@girs/<ns>/surface` subpath, for the
-namespaces that declare concrete descendants of `GtkWidget` — `Gtk-4.0`, `Adw-1`, `Gtk-3.0`,
+namespaces that declare concrete descendants of `GtkWidget`: `Gtk-4.0`, `Adw-1`, `Gtk-3.0`,
 `GtkSource`, `WebKit` and so on. Every other namespace emits nothing regardless of the flag, so
 this is not something a Gio-only project pays for. Requires `--package`.
 
@@ -551,13 +551,13 @@ type BoxSignals = Widgets['GtkBox']['signals'];
 
 Three things this is and `X.ConstructorProps` is not: **writable-only** (measured on Gtk-4.0,
 `ConstructorProps` offers 150 read-only properties across 68 classes as settable, and GTK's
-failure mode for writing one is exit 0), **optional**, and **keyed by the registered name** —
+failure mode for writing one is exit 0), **optional**, and **keyed by the registered name**,
 the dashed spelling `g_object_set()`, GtkBuilder XML and Blueprint all use.
 
 What it deliberately does **not** contain: tag spellings, `on<Signal>` handler prop names,
 `JSX.IntrinsicElements`, a Vue `GlobalComponents` interface, camelCase property keys. Those are
 framework dialect, every framework answers them differently, and a JSX namespace is a global
-declaration — a second library declaring one collides on every shared tag. Build your dialect on
+declaration. A second library declaring one collides on every shared tag. Build your dialect on
 these names instead.
 
 Beside the `.d.ts`, the same subpath exports the facts as runtime **data** (`OWN_PROPS`,

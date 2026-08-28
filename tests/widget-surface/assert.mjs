@@ -53,11 +53,20 @@ const must = [
   // The property axis: writable only, optional, keyed as GObject registered it.
   ["dashed property key", /'css-classes'\?: string\[\];/],
   ["plain property key stays unquoted", /\n\s+spacing\?: number;/],
-  ["interface property reaches the implementor", /orientation\?: GtkOrientationNick \| Mini\.Orientation;/],
+  [
+    "interface property reaches the implementor",
+    /orientation\?: GtkOrientationNick \| Mini\.Orientation;/,
+  ],
   ["array property keeps its element type", /'css-classes'\?: string\[\];/],
   ["construct-only union names the property", /GtkWidgetConstructOnly = 'css-name'/],
-  ["a declaration with no own construct-only props is `never`-rooted", /GtkOrientableConstructOnly = never/],
-  ["construct-only unions inherit", /GtkBoxConstructOnly = GtkWidgetConstructOnly \| GtkOrientableConstructOnly/],
+  [
+    "a declaration with no own construct-only props is `never`-rooted",
+    /GtkOrientableConstructOnly = never/,
+  ],
+  [
+    "construct-only unions inherit",
+    /GtkBoxConstructOnly = GtkWidgetConstructOnly \| GtkOrientableConstructOnly/,
+  ],
   // The nick axis: read from `glib:nick`, never derived from the member name.
   ["nick union from glib:nick", /GtkOrientationNick = 'horizontal' \| 'vertical' \| 'sideways';/],
   // Resolvable, inexpressible, and therefore emitted rather than refused — see the header.
@@ -79,7 +88,10 @@ const must = [
   // The own-namespace import is a sibling file, not a package self-reference.
   ["own namespace imported relatively", /import type Mini from '\.\/mini-1\.0\.js';/],
   // Runtime data is declared here and defined in the sibling `.js`.
-  ["runtime data declared", /export const OWN_PROPS: Readonly<Record<string, readonly string\[\]>>;/],
+  [
+    "runtime data declared",
+    /export const OWN_PROPS: Readonly<Record<string, readonly string\[\]>>;/,
+  ],
   ["since map declared", /export const SINCE: Readonly<Record<string, string>>;/],
   ["helper types", /export type WidgetGType = keyof Widgets;/],
 ];
@@ -111,8 +123,10 @@ const mustNot = [
 // run of this file failed on the word `GlobalComponents` inside its own prose.
 const code = types.replace(/\/\*[\s\S]*?\*\//g, "").replace(/^\s*\/\/.*$/gm, "");
 
-for (const [label, re] of must) if (!re.test(types)) fail(`missing from surface .d.ts: ${label} (${re})`);
-for (const [label, re] of mustNot) if (re.test(code)) fail(`must not appear in surface .d.ts: ${label} (${re})`);
+for (const [label, re] of must)
+  if (!re.test(types)) fail(`missing from surface .d.ts: ${label} (${re})`);
+for (const [label, re] of mustNot)
+  if (re.test(code)) fail(`must not appear in surface .d.ts: ${label} (${re})`);
 
 // ---------------------------------------------------------------- both halves agree
 
@@ -180,11 +194,16 @@ if (data.SLOT_CANDIDATES?.GtkBox?.child !== "set_child") {
 
 const pkg = JSON.parse(readFileSync(join(pkgDir, "package.json"), "utf8"));
 const surfaceExport = pkg.exports?.["./surface"];
-if (surfaceExport?.types !== "./mini-1.0-surface.d.ts" || surfaceExport?.import !== "./mini-1.0-surface.js") {
+if (
+  surfaceExport?.types !== "./mini-1.0-surface.d.ts" ||
+  surfaceExport?.import !== "./mini-1.0-surface.js"
+) {
   fail(`package.json exports["./surface"] is ${JSON.stringify(surfaceExport)}`);
 }
 // The generated tsconfig carries `//` comments, so it is JSONC rather than JSON.
-const tsconfig = JSON.parse(readFileSync(join(pkgDir, "tsconfig.json"), "utf8").replace(/^\s*\/\/.*$/gm, ""));
+const tsconfig = JSON.parse(
+  readFileSync(join(pkgDir, "tsconfig.json"), "utf8").replace(/^\s*\/\/.*$/gm, ""),
+);
 if (!tsconfig.include?.includes("./mini-1.0-surface.d.ts")) {
   // Without this the surface is never compiled, and a surface referencing a name the
   // main emitter did not emit is exactly what nothing else can catch.
@@ -212,7 +231,8 @@ if (!existsSync(offDir)) {
   const offPkg = JSON.parse(readFileSync(join(offDir, "package.json"), "utf8"));
   if (offPkg.exports?.["./surface"]) fail("widgetSurface off still wrote exports['./surface']");
   // …and the control has to be a real run of the same generator, not an empty directory.
-  if (!existsSync(join(offDir, "mini-1.0.d.ts"))) fail("the flag-off control emitted no module .d.ts");
+  if (!existsSync(join(offDir, "mini-1.0.d.ts")))
+    fail("the flag-off control emitted no module .d.ts");
 }
 
 // ------------------------------------------------- a base from a namespace with no surface
@@ -270,11 +290,15 @@ const cli = join(here, "..", "..", "packages", "cli", "bin", "ts-for-gir-dev");
 let brokenExit = 0;
 let brokenOutput = "";
 try {
-  brokenOutput = execFileSync(process.execPath, [cli, "generate", "--configName", ".ts-for-gir.broken.rc.js"], {
-    cwd: here,
-    encoding: "utf8",
-    stdio: ["ignore", "pipe", "pipe"],
-  });
+  brokenOutput = execFileSync(
+    process.execPath,
+    [cli, "generate", "--configName", ".ts-for-gir.broken.rc.js"],
+    {
+      cwd: here,
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "pipe"],
+    },
+  );
 } catch (error) {
   brokenExit = typeof error.status === "number" ? error.status : 1;
   brokenOutput = `${error.stdout ?? ""}${error.stderr ?? ""}`;

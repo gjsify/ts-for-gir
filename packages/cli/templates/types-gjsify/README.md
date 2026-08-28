@@ -1,6 +1,6 @@
 # __PROJECT_NAME__
 
-GJS + TypeScript starter, fully Node-free at runtime. Uses pre-generated [`@girs/*`](https://www.npmjs.com/org/girs) types and the [`gjsify` CLI](https://gjsify.github.io/gjsify/) for install, build, run, format and lint — no `npm`, no `node`, no `esbuild` ceremony.
+GJS + TypeScript starter, fully Node-free at runtime. Uses pre-generated [`@girs/*`](https://www.npmjs.com/org/girs) types and the [`gjsify` CLI](https://gjsify.github.io/gjsify/) for install, build, run, format and lint. No `npm`, no `node`, no `esbuild` setup.
 
 ## Setup
 

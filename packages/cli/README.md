@@ -373,10 +373,10 @@ Examples:
                                             Export unresolved type errors to file
 ```
 
-The `analyze` command helps debug type generation issues by providing powerful filtering and analysis capabilities for ts-for-gir report files.
+`analyze` reads a report file and narrows it down. A full run reports thousands of problems; this is how you get to the twelve that concern you.
 
 **Key Features:**
-- **Comprehensive Filtering**: Filter by severity, category, namespace, type name, or search text
+- **Filtering.** By severity, category, namespace, type name, or free text
 - **Multiple Output Formats**: Table, JSON, or CSV format for different use cases
 - **Statistical Analysis**: Show most problematic types, namespaces, and categories
 - **Export Capabilities**: Save filtered results for further analysis

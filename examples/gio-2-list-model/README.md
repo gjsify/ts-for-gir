@@ -84,5 +84,5 @@ Item type: [object GObject_GType]
 
 ## Related Examples
 
-- [`virtual-interface-test`](../virtual-interface-test/): More comprehensive virtual interface examples
+- [`virtual-interface-test`](../virtual-interface-test/): more virtual interface cases
 - [`gtk-4-list-store`](../gtk-4-list-store/): Using list models with GTK widgets 

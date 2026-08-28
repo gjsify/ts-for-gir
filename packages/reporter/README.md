@@ -5,16 +5,18 @@
 <img src="https://img.shields.io/npm/dw/@ts-for-gir/reporter" />
 </p>
 
-Comprehensive reporting system for the ts-for-gir project that provides structured problem tracking, statistics generation, and flexible output formatting with dependency injection pattern.
+A generation run turns up hundreds of small problems: a type that will not
+resolve, a name that collides with an inherited one, a namespace that is not
+where its dependency says it is. This package collects them.
 
-## Features
+Every problem carries a severity and a category, so a run of 700 namespaces can
+be read as "17 critical type_resolution issues in Gdaui" rather than as scroll.
+`ConsoleReporter` prints them; the same entries serialise to JSON for
+`ts-for-gir analyze` to filter later.
 
-- **🔧 Dependency Injection**: Abstract base class with configurable reporter implementations
-- **📊 Problem Tracking**: Structured tracking of type resolution issues, conflicts, and generation problems
-- **📈 Statistics**: Comprehensive statistics collection and reporting
-- **🎨 Flexible Output**: Multiple output formats (console, files) with colorized output
-- **🔍 Categorization**: Problems are categorized by severity and type for better analysis
-- **💾 Export Capabilities**: Export reports to JSON, text, or custom formats
+Reporters are passed in rather than reached for. `GirModule` takes one, which is
+how the generator writes to a console reporter, a file reporter, or a test
+double without knowing the difference.
 
 ## Installation
 
@@ -104,18 +106,18 @@ const consolidatedReport = service.generateConsolidatedReport();
 
 The reporter system categorizes problems into the following types:
 
-- **TYPE_RESOLUTION**: Issues with resolving types from GIR data
-- **TYPE_CONFLICT**: Conflicts between different type definitions
-- **GENERATION_ERROR**: Errors during TypeScript generation
-- **VALIDATION_WARNING**: Validation warnings for generated code
-- **DEPENDENCY_ISSUE**: Problems with dependency resolution
-- **DOCUMENTATION_MISSING**: Missing or incomplete documentation
+- `TYPE_RESOLUTION`: Issues with resolving types from GIR data
+- `TYPE_CONFLICT`: Conflicts between different type definitions
+- `GENERATION_ERROR`: Errors during TypeScript generation
+- `VALIDATION_WARNING`: Validation warnings for generated code
+- `DEPENDENCY_ISSUE`: Problems with dependency resolution
+- `DOCUMENTATION_MISSING`: Missing or incomplete documentation
 
 ## Problem Severities
 
-- **ERROR**: Critical issues that prevent successful generation
-- **WARNING**: Issues that may affect quality but don't block generation
-- **INFO**: Informational messages for debugging and analysis
+- `ERROR`: Critical issues that prevent successful generation
+- `WARNING`: Issues that may affect quality but don't block generation
+- `INFO`: Informational messages for debugging and analysis
 
 ## API Reference
 

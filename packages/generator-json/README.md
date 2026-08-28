@@ -119,7 +119,7 @@ The JSON output can be useful for:
 ## Integration
 
 The JSON generator integrates with the ts-for-gir ecosystem through:
-- **Reporter System**: Comprehensive logging and error reporting
+- **Reporter system**: logs and error reporting, shared with the rest of the toolchain
 - **Generator Interface**: Standard lifecycle methods (`start`, `generate`, `finish`)
 - **TypeDoc**: Programmatic usage of TypeDoc for JSON serialization with custom `SerializerComponent`
 - **Configuration**: Respects all standard ts-for-gir options and settings

@@ -6,11 +6,11 @@ meta-programming scenarios such as JSX runtimes.
 
 ## Key concepts
 
-* `$signals` — a **compile-time only** instance property that every
+* `$signals`, a **compile-time only** instance property that every
   `GObject.Object`-derived class now carries.  It exposes the
   `SignalSignatures` interface for that class and can be overridden in
   subclasses.
-* `GObject.SignalCallback<Emitter, Fn>` — helper that prepends the
+* `GObject.SignalCallback<Emitter, Fn>`, a helper that prepends the
   emitter (`this`) to the inline callback type.
 
 ## Direct usage

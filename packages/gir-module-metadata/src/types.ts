@@ -26,4 +26,20 @@ export interface GirModuleMetadata {
   iconFile?: string;
   /** Category for grouping on documentation homepage */
   category?: string;
+  /**
+   * Does this entry describe the library for EVERY version of its namespace?
+   *
+   * Off by default, because a namespace version can mean a different library:
+   * `Gtk-3.0` and `Gtk-4.0` carry separate entries and must not answer for one
+   * another. But Mutter's namespaces (`Meta`, `Clutter`, `Cogl`, `Mtk`) and
+   * GNOME Shell's (`St`, `Shell`) are versioned by an API number that changes
+   * every cycle while the library, its authors, licence and docs stay put —
+   * and GNOME 51 moved that number from 18 to 51 in one step. Pinning the
+   * metadata to one number meant the whole set silently lost its icon,
+   * category and upstream links on every release.
+   *
+   * At most one entry per namespace may set this; a second one is a load-time
+   * error, not a last-one-wins.
+   */
+  versionAgnostic?: boolean;
 }

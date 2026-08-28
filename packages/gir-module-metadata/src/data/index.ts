@@ -200,9 +200,35 @@ for (const entry of ALL_ENTRIES) {
   METADATA.set(entry.girId, entry);
 }
 
-/** Look up metadata by GIR namespace ID (e.g. "Gtk-4.0"). */
+/** Namespace of a GIR id: everything before the last `-`. `Gtk-4.0` -> `Gtk`. */
+const namespaceOf = (girId: string): string => {
+  const dash = girId.lastIndexOf("-");
+  return dash === -1 ? girId : girId.slice(0, dash);
+};
+
+/** Entries that answer for every version of their namespace — see `versionAgnostic`. */
+const BY_NAMESPACE = new Map<string, GirModuleMetadata>();
+for (const entry of ALL_ENTRIES) {
+  if (!entry.versionAgnostic) continue;
+  const ns = namespaceOf(entry.girId);
+  const existing = BY_NAMESPACE.get(ns);
+  if (existing) {
+    throw new Error(
+      `gir-module-metadata: ${existing.girId} and ${entry.girId} both claim every version of "${ns}". ` +
+        "At most one entry per namespace may set versionAgnostic.",
+    );
+  }
+  BY_NAMESPACE.set(ns, entry);
+}
+
+/**
+ * Look up metadata by GIR namespace ID (e.g. "Gtk-4.0").
+ *
+ * Exact match first; then, only for namespaces that opted in, the
+ * version-agnostic entry. See {@link GirModuleMetadata.versionAgnostic}.
+ */
 export function getModuleMetadata(girId: string): GirModuleMetadata | undefined {
-  return METADATA.get(girId);
+  return METADATA.get(girId) ?? BY_NAMESPACE.get(namespaceOf(girId));
 }
 
 /** Get all registered metadata entries. */

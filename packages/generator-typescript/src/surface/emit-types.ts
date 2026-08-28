@@ -31,7 +31,12 @@ const RUNTIME_DATA_DOC = `/**
  * belongs to the consumer and the DATA belongs here.
  */`;
 
-const jsdoc = (indent: string, doc: string | undefined, deprecated: boolean, since?: string): string => {
+const jsdoc = (
+  indent: string,
+  doc: string | undefined,
+  deprecated: boolean,
+  since?: string,
+): string => {
   const lines: string[] = [];
   if (doc) lines.push(doc);
   if (since) lines.push(`@since ${since}`);
@@ -42,7 +47,8 @@ const jsdoc = (indent: string, doc: string | undefined, deprecated: boolean, sin
 };
 
 /** A GObject property name is dashed, so every key needs quoting; be exact anyway. */
-const key = (name: string): string => (/^[A-Za-z_$][A-Za-z0-9_$]*$/.test(name) ? name : `'${name}'`);
+const key = (name: string): string =>
+  /^[A-Za-z_$][A-Za-z0-9_$]*$/.test(name) ? name : `'${name}'`;
 
 function renderBases(decl: SurfaceDecl, surface: WidgetSurface): string {
   if (decl.bases.length === 0) return "";
@@ -61,10 +67,13 @@ function renderDeclaration(decl: SurfaceDecl, surface: WidgetSurface): string {
   const body = decl.props
     .map(
       (prop) =>
-        jsdoc("    ", prop.doc, prop.deprecated, prop.since) + `    ${key(prop.girName)}?: ${prop.ts};\n`,
+        jsdoc("    ", prop.doc, prop.deprecated, prop.since) +
+        `    ${key(prop.girName)}?: ${prop.ts};\n`,
     )
     .join("");
-  const constructOnly = decl.props.filter((prop) => prop.constructOnly).map((prop) => `'${prop.girName}'`);
+  const constructOnly = decl.props
+    .filter((prop) => prop.constructOnly)
+    .map((prop) => `'${prop.girName}'`);
   const baseAliases = decl.bases
     .map((base) => surface.declarations.get(base))
     .filter((base): base is SurfaceDecl => base !== undefined)
@@ -80,7 +89,9 @@ function renderDeclaration(decl: SurfaceDecl, surface: WidgetSurface): string {
 
 function renderImports(surface: WidgetSurface): string[] {
   const lines: string[] = [];
-  for (const [ns, importPath] of [...surface.namespaceImports].sort(([a], [b]) => (a < b ? -1 : 1))) {
+  for (const [ns, importPath] of [...surface.namespaceImports].sort(([a], [b]) =>
+    a < b ? -1 : 1,
+  )) {
     // The own namespace is a SIBLING file, not a package self-reference: the
     // surface ships inside the package it describes.
     const from = ns === surface.namespace ? `./${surface.importName}.js` : importPath;
@@ -101,7 +112,8 @@ export function emitSurfaceTypes(surface: WidgetSurface): string {
   const nicks = [...surface.enums.values()]
     .sort((a, b) => (a.gtype < b.gtype ? -1 : 1))
     .map((entry) => {
-      const union = entry.nicks.length === 0 ? "never" : entry.nicks.map((nick) => `'${nick}'`).join(" | ");
+      const union =
+        entry.nicks.length === 0 ? "never" : entry.nicks.map((nick) => `'${nick}'`).join(" | ");
       return `export type ${nickAliasOf(entry.gtype)} = ${union};`;
     });
 

@@ -37,7 +37,7 @@
   ],
   "devDependencies": {
     "@ts-for-gir/tsconfig": "workspace:^",
-    "@types/node": "^25.6.2",
+    "@types/node": "^26.4.0",
     "typescript": "^6.0.3"
   },
   "dependencies": {
@@ -47,6 +47,6 @@
     "@ts-for-gir/gir-module-metadata": "workspace:^",
     "@ts-for-gir/lib": "workspace:^",
     "@ts-for-gir/reporter": "workspace:^",
-    "typedoc": "^0.28.19"
+    "typedoc": "^0.28.20"
   }
 }

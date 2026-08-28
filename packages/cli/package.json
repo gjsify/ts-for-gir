@@ -157,7 +157,7 @@
   },
   "devDependencies": {
     "@gi.ts/parser": "workspace:^",
-    "@gjsify/cli": "^0.30.0",
+    "@gjsify/cli": "^0.44.0",
     "@ts-for-gir/generator-base": "workspace:^",
     "@ts-for-gir/generator-html-doc": "workspace:^",
     "@ts-for-gir/generator-json": "workspace:^",
@@ -167,20 +167,20 @@
     "@ts-for-gir/tsconfig": "workspace:^",
     "@types/ejs": "^3.1.5",
     "@types/inquirer": "^9.0.10",
-    "@types/node": "^25.6.2",
+    "@types/node": "^26.4.0",
     "@types/yargs": "^17.0.35",
     "source-map-support": "^0.5.21",
     "typescript": "^6.0.3"
   },
   "dependencies": {
-    "@inquirer/prompts": "^8.5.2",
+    "@inquirer/prompts": "^8.7.0",
     "@ts-for-gir/templates": "workspace:^",
     "colorette": "^2.0.20",
-    "cosmiconfig": "^9.0.2",
+    "cosmiconfig": "^10.0.0",
     "ejs": "^6.0.1",
     "glob": "^13.0.6",
-    "inquirer": "^14.0.2",
-    "typedoc": "^0.28.19",
-    "yargs": "^18.0.0"
+    "inquirer": "^14.2.0",
+    "typedoc": "^0.28.20",
+    "yargs": "^18.1.0"
   }
 }

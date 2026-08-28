@@ -20,11 +20,11 @@
 
 ## Status: Not Yet Implemented
 
-This package currently serves as a placeholder and basic framework for implementing an HTML documentation generator based on GIR types. It does not contain actual functionality yet.
+This package is a placeholder. It has the shape an HTML documentation generator for GIR types would take, and none of the behaviour.
 
 ## Purpose
 
-The intended purpose of this package is to provide a way to generate HTML documentation from GObject introspection data, similar to how the `generator-typescript` package generates TypeScript definitions. When implemented, it would allow for generating human-readable API documentation websites.
+The plan is to generate HTML documentation from GObject introspection data, the way `generator-typescript` generates TypeScript definitions.
 
 ## Implementation
 

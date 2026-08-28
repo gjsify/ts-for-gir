@@ -526,6 +526,35 @@ key columns.</doc>
           </parameter>
         </parameters>
       </method>
+      <method name="set_codepage"
+              c:identifier="libmsi_database_set_codepage"
+              throws="1">
+        <doc xml:space="preserve"
+             filename="libmsi/libmsi-database.c"
+             line="2631">Set the string table codepage of the database. This controls
+how all table strings are encoded in the MSI file.</doc>
+        <source-position filename="include/libmsi-database.h" line="73"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libmsi/libmsi-database.c"
+               line="2640">%TRUE on success</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="db" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-database.c"
+                 line="2633">a %LibmsiDatabase</doc>
+            <type name="Database" c:type="LibmsiDatabase*"/>
+          </instance-parameter>
+          <parameter name="codepage" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libmsi/libmsi-database.c"
+                 line="2634">the codepage to set for the string table</doc>
+            <type name="guint" c:type="unsigned"/>
+          </parameter>
+        </parameters>
+      </method>
       <property name="flags"
                 writable="1"
                 construct-only="1"

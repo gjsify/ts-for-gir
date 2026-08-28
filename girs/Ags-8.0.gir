@@ -2249,25 +2249,25 @@ enable/disable as flags.</doc>
                 version="3.0.0">
         <doc xml:space="preserve"
              filename="lib/ags_buffer_util.c"
-             line="1400">Read a #AgsComplex quantity of @cbuffer.</doc>
+             line="1402">Read a #AgsComplex quantity of @cbuffer.</doc>
         <source-position filename="lib/ags_buffer_util.h" line="93"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1407">the #AgsComplex value</doc>
+               line="1409">the #AgsComplex value</doc>
           <type name="Complex" c:type="AgsComplex*"/>
         </return-value>
         <parameters>
           <parameter name="cbuffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1402">the character buffer</doc>
+                 line="1404">the character buffer</doc>
             <type name="guint8" c:type="guchar*"/>
           </parameter>
           <parameter name="byte_order" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1403">reverse order</doc>
+                 line="1405">reverse order</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -2277,25 +2277,25 @@ enable/disable as flags.</doc>
                 version="3.0.0">
         <doc xml:space="preserve"
              filename="lib/ags_buffer_util.c"
-             line="1351">Read a gdouble quantity of @cbuffer.</doc>
+             line="1353">Read a gdouble quantity of @cbuffer.</doc>
         <source-position filename="lib/ags_buffer_util.h" line="91"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1358">the gdouble value</doc>
+               line="1360">the gdouble value</doc>
           <type name="gdouble" c:type="gdouble"/>
         </return-value>
         <parameters>
           <parameter name="cbuffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1353">the character buffer</doc>
+                 line="1355">the character buffer</doc>
             <type name="guint8" c:type="guchar*"/>
           </parameter>
           <parameter name="byte_order" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1354">reverse order</doc>
+                 line="1356">reverse order</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -2305,25 +2305,25 @@ enable/disable as flags.</doc>
                 version="3.0.0">
         <doc xml:space="preserve"
              filename="lib/ags_buffer_util.c"
-             line="1310">Read a gfloat quantity of @cbuffer.</doc>
+             line="1312">Read a gfloat quantity of @cbuffer.</doc>
         <source-position filename="lib/ags_buffer_util.h" line="89"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1317">the gfloat value</doc>
+               line="1319">the gfloat value</doc>
           <type name="gfloat" c:type="gfloat"/>
         </return-value>
         <parameters>
           <parameter name="cbuffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1312">the character buffer</doc>
+                 line="1314">the character buffer</doc>
             <type name="guint8" c:type="guchar*"/>
           </parameter>
           <parameter name="byte_order" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1313">reverse order</doc>
+                 line="1315">reverse order</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -2333,25 +2333,25 @@ enable/disable as flags.</doc>
                 version="3.0.0">
         <doc xml:space="preserve"
              filename="lib/ags_buffer_util.c"
-             line="1156">Read a gint16 quantity of @cbuffer.</doc>
+             line="1158">Read a gint16 quantity of @cbuffer.</doc>
         <source-position filename="lib/ags_buffer_util.h" line="81"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1163">the gint16 value</doc>
+               line="1165">the gint16 value</doc>
           <type name="gint16" c:type="gint16"/>
         </return-value>
         <parameters>
           <parameter name="cbuffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1158">the character buffer</doc>
+                 line="1160">the character buffer</doc>
             <type name="guint8" c:type="guchar*"/>
           </parameter>
           <parameter name="byte_order" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1159">reverse order</doc>
+                 line="1161">reverse order</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -2361,25 +2361,25 @@ enable/disable as flags.</doc>
                 version="3.0.0">
         <doc xml:space="preserve"
              filename="lib/ags_buffer_util.c"
-             line="1190">Read a gint32 24 bit quantity of @cbuffer.</doc>
+             line="1192">Read a gint32 24 bit quantity of @cbuffer.</doc>
         <source-position filename="lib/ags_buffer_util.h" line="83"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1197">the gint32 value</doc>
+               line="1199">the gint32 value</doc>
           <type name="gint32" c:type="gint32"/>
         </return-value>
         <parameters>
           <parameter name="cbuffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1192">the character buffer</doc>
+                 line="1194">the character buffer</doc>
             <type name="guint8" c:type="guchar*"/>
           </parameter>
           <parameter name="byte_order" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1193">reverse order</doc>
+                 line="1195">reverse order</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -2389,25 +2389,25 @@ enable/disable as flags.</doc>
                 version="3.0.0">
         <doc xml:space="preserve"
              filename="lib/ags_buffer_util.c"
-             line="1226">Read a gint32 32 bit quantity of @cbuffer.</doc>
+             line="1228">Read a gint32 32 bit quantity of @cbuffer.</doc>
         <source-position filename="lib/ags_buffer_util.h" line="85"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1233">the gint32 value</doc>
+               line="1235">the gint32 value</doc>
           <type name="gint32" c:type="gint32"/>
         </return-value>
         <parameters>
           <parameter name="cbuffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1228">the character buffer</doc>
+                 line="1230">the character buffer</doc>
             <type name="guint8" c:type="guchar*"/>
           </parameter>
           <parameter name="byte_order" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1229">reverse order</doc>
+                 line="1231">reverse order</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -2417,25 +2417,25 @@ enable/disable as flags.</doc>
                 version="3.0.0">
         <doc xml:space="preserve"
              filename="lib/ags_buffer_util.c"
-             line="1264">Read a gint64 64 bit quantity of @cbuffer.</doc>
+             line="1266">Read a gint64 64 bit quantity of @cbuffer.</doc>
         <source-position filename="lib/ags_buffer_util.h" line="87"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1271">the gint64 value</doc>
+               line="1273">the gint64 value</doc>
           <type name="gint64" c:type="gint64"/>
         </return-value>
         <parameters>
           <parameter name="cbuffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1266">the character buffer</doc>
+                 line="1268">the character buffer</doc>
             <type name="guint8" c:type="guchar*"/>
           </parameter>
           <parameter name="byte_order" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1267">reverse order</doc>
+                 line="1269">reverse order</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -2445,25 +2445,25 @@ enable/disable as flags.</doc>
                 version="3.0.0">
         <doc xml:space="preserve"
              filename="lib/ags_buffer_util.c"
-             line="1129">Read a gint8 quantity of @cbuffer.</doc>
+             line="1131">Read a gint8 quantity of @cbuffer.</doc>
         <source-position filename="lib/ags_buffer_util.h" line="79"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1136">the gint8 value</doc>
+               line="1138">the gint8 value</doc>
           <type name="gint8" c:type="gint8"/>
         </return-value>
         <parameters>
           <parameter name="cbuffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1131">the character buffer</doc>
+                 line="1133">the character buffer</doc>
             <type name="guint8" c:type="guchar*"/>
           </parameter>
           <parameter name="byte_order" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1132">reverse order, ignored here</doc>
+                 line="1134">reverse order, ignored here</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -2473,7 +2473,7 @@ enable/disable as flags.</doc>
                 version="3.0.0">
         <doc xml:space="preserve"
              filename="lib/ags_buffer_util.c"
-             line="1714">Swap bytes in view of Little/Big-Endian.</doc>
+             line="1716">Swap bytes in view of Little/Big-Endian.</doc>
         <source-position filename="lib/ags_buffer_util.h" line="123"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2482,19 +2482,19 @@ enable/disable as flags.</doc>
           <parameter name="cbuffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1716">the buffer to swap</doc>
+                 line="1718">the buffer to swap</doc>
             <type name="guint8" c:type="guchar*"/>
           </parameter>
           <parameter name="word_size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1717">the word size</doc>
+                 line="1719">the word size</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="buffer_size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1718">the buffer size</doc>
+                 line="1720">the buffer size</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -2504,25 +2504,25 @@ enable/disable as flags.</doc>
                 version="3.0.0">
         <doc xml:space="preserve"
              filename="lib/ags_buffer_util.c"
-             line="1098">Unpack @cbuffer to a #AgsComplex buffer</doc>
+             line="1100">Unpack @cbuffer to a #AgsComplex buffer</doc>
         <source-position filename="lib/ags_buffer_util.h" line="75"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1105">the #AgsComplex buffer</doc>
+               line="1107">the #AgsComplex buffer</doc>
           <type name="Complex" c:type="AgsComplex*"/>
         </return-value>
         <parameters>
           <parameter name="cbuffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1100">the guchar buffer</doc>
+                 line="1102">the guchar buffer</doc>
             <type name="guint8" c:type="guchar*"/>
           </parameter>
           <parameter name="buffer_size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1101">the buffer size</doc>
+                 line="1103">the buffer size</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -2532,25 +2532,25 @@ enable/disable as flags.</doc>
                 version="3.0.0">
         <doc xml:space="preserve"
              filename="lib/ags_buffer_util.c"
-             line="1067">Unpack @cbuffer to a gdouble buffer</doc>
+             line="1069">Unpack @cbuffer to a gdouble buffer</doc>
         <source-position filename="lib/ags_buffer_util.h" line="73"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1074">the gdouble buffer</doc>
+               line="1076">the gdouble buffer</doc>
           <type name="gdouble" c:type="gdouble*"/>
         </return-value>
         <parameters>
           <parameter name="cbuffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1069">the guchar buffer</doc>
+                 line="1071">the guchar buffer</doc>
             <type name="guint8" c:type="guchar*"/>
           </parameter>
           <parameter name="buffer_size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1070">the buffer size</doc>
+                 line="1072">the buffer size</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -2560,25 +2560,25 @@ enable/disable as flags.</doc>
                 version="3.0.0">
         <doc xml:space="preserve"
              filename="lib/ags_buffer_util.c"
-             line="1036">Unpack @cbuffer to a gfloat buffer</doc>
+             line="1038">Unpack @cbuffer to a gfloat buffer</doc>
         <source-position filename="lib/ags_buffer_util.h" line="71"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1043">the gfloat buffer</doc>
+               line="1045">the gfloat buffer</doc>
           <type name="gfloat" c:type="gfloat*"/>
         </return-value>
         <parameters>
           <parameter name="cbuffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1038">the guchar buffer</doc>
+                 line="1040">the guchar buffer</doc>
             <type name="guint8" c:type="guchar*"/>
           </parameter>
           <parameter name="buffer_size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1039">the buffer size</doc>
+                 line="1041">the buffer size</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -2728,7 +2728,7 @@ enable/disable as flags.</doc>
                 version="3.0.0">
         <doc xml:space="preserve"
              filename="lib/ags_buffer_util.c"
-             line="1675">Write a #AgsComplex quantity to @cbuffer.</doc>
+             line="1677">Write a #AgsComplex quantity to @cbuffer.</doc>
         <source-position filename="lib/ags_buffer_util.h" line="118"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2737,19 +2737,19 @@ enable/disable as flags.</doc>
           <parameter name="cbuffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1677">the character buffer</doc>
+                 line="1679">the character buffer</doc>
             <type name="guint8" c:type="guchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1678">the #AgsComplex value</doc>
+                 line="1680">the #AgsComplex value</doc>
             <type name="Complex" c:type="AgsComplex*"/>
           </parameter>
           <parameter name="byte_order" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1679">reverse order</doc>
+                 line="1681">reverse order</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -2759,7 +2759,7 @@ enable/disable as flags.</doc>
                 version="3.0.0">
         <doc xml:space="preserve"
              filename="lib/ags_buffer_util.c"
-             line="1628">Write a gdouble quantity to @cbuffer.</doc>
+             line="1630">Write a gdouble quantity to @cbuffer.</doc>
         <source-position filename="lib/ags_buffer_util.h" line="115"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2768,19 +2768,19 @@ enable/disable as flags.</doc>
           <parameter name="cbuffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1630">the character buffer</doc>
+                 line="1632">the character buffer</doc>
             <type name="guint8" c:type="guchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1631">the gdouble value</doc>
+                 line="1633">the gdouble value</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="byte_order" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1632">reverse order</doc>
+                 line="1634">reverse order</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -2790,7 +2790,7 @@ enable/disable as flags.</doc>
                 version="3.0.0">
         <doc xml:space="preserve"
              filename="lib/ags_buffer_util.c"
-             line="1589">Write a gfloat quantity to @cbuffer.</doc>
+             line="1591">Write a gfloat quantity to @cbuffer.</doc>
         <source-position filename="lib/ags_buffer_util.h" line="112"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2799,19 +2799,19 @@ enable/disable as flags.</doc>
           <parameter name="cbuffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1591">the character buffer</doc>
+                 line="1593">the character buffer</doc>
             <type name="guint8" c:type="guchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1592">the gfloat value</doc>
+                 line="1594">the gfloat value</doc>
             <type name="gfloat" c:type="gfloat"/>
           </parameter>
           <parameter name="byte_order" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1593">reverse order</doc>
+                 line="1595">reverse order</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -2821,7 +2821,7 @@ enable/disable as flags.</doc>
                 version="3.0.0">
         <doc xml:space="preserve"
              filename="lib/ags_buffer_util.c"
-             line="1459">Write a gint16 quantity to @cbuffer.</doc>
+             line="1461">Write a gint16 quantity to @cbuffer.</doc>
         <source-position filename="lib/ags_buffer_util.h" line="100"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2830,19 +2830,19 @@ enable/disable as flags.</doc>
           <parameter name="cbuffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1461">the character buffer</doc>
+                 line="1463">the character buffer</doc>
             <type name="guint8" c:type="guchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1462">the gint16 value</doc>
+                 line="1464">the gint16 value</doc>
             <type name="gint16" c:type="gint16"/>
           </parameter>
           <parameter name="byte_order" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1463">reverse order</doc>
+                 line="1465">reverse order</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -2852,7 +2852,7 @@ enable/disable as flags.</doc>
                 version="3.0.0">
         <doc xml:space="preserve"
              filename="lib/ags_buffer_util.c"
-             line="1487">Write a gint32 quantity to @cbuffer.</doc>
+             line="1489">Write a gint32 quantity to @cbuffer.</doc>
         <source-position filename="lib/ags_buffer_util.h" line="103"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2861,19 +2861,19 @@ enable/disable as flags.</doc>
           <parameter name="cbuffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1489">the character buffer</doc>
+                 line="1491">the character buffer</doc>
             <type name="guint8" c:type="guchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1490">the gint32 value</doc>
+                 line="1492">the gint32 value</doc>
             <type name="gint32" c:type="gint32"/>
           </parameter>
           <parameter name="byte_order" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1491">reverse order</doc>
+                 line="1493">reverse order</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -2883,7 +2883,7 @@ enable/disable as flags.</doc>
                 version="3.0.0">
         <doc xml:space="preserve"
              filename="lib/ags_buffer_util.c"
-             line="1517">Write a gint32 quantity to @cbuffer.</doc>
+             line="1519">Write a gint32 quantity to @cbuffer.</doc>
         <source-position filename="lib/ags_buffer_util.h" line="106"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2892,19 +2892,19 @@ enable/disable as flags.</doc>
           <parameter name="cbuffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1519">the character buffer</doc>
+                 line="1521">the character buffer</doc>
             <type name="guint8" c:type="guchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1520">the gint32 value</doc>
+                 line="1522">the gint32 value</doc>
             <type name="gint32" c:type="gint32"/>
           </parameter>
           <parameter name="byte_order" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1521">reverse order</doc>
+                 line="1523">reverse order</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -2914,7 +2914,7 @@ enable/disable as flags.</doc>
                 version="3.0.0">
         <doc xml:space="preserve"
              filename="lib/ags_buffer_util.c"
-             line="1549">Write a gint64 quantity to @cbuffer.</doc>
+             line="1551">Write a gint64 quantity to @cbuffer.</doc>
         <source-position filename="lib/ags_buffer_util.h" line="109"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2923,19 +2923,19 @@ enable/disable as flags.</doc>
           <parameter name="cbuffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1551">the character buffer</doc>
+                 line="1553">the character buffer</doc>
             <type name="guint8" c:type="guchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1552">the gint64 value</doc>
+                 line="1554">the gint64 value</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
           <parameter name="byte_order" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1553">reverse order</doc>
+                 line="1555">reverse order</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -2945,7 +2945,7 @@ enable/disable as flags.</doc>
                 version="3.0.0">
         <doc xml:space="preserve"
              filename="lib/ags_buffer_util.c"
-             line="1437">Write a gint8 quantity to @cbuffer.</doc>
+             line="1439">Write a gint8 quantity to @cbuffer.</doc>
         <source-position filename="lib/ags_buffer_util.h" line="97"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2954,19 +2954,19 @@ enable/disable as flags.</doc>
           <parameter name="cbuffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1439">the character buffer</doc>
+                 line="1441">the character buffer</doc>
             <type name="guint8" c:type="guchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1440">the gint8 value</doc>
+                 line="1442">the gint8 value</doc>
             <type name="gint8" c:type="gint8"/>
           </parameter>
           <parameter name="byte_order" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="lib/ags_buffer_util.c"
-                 line="1441">reverse order</doc>
+                 line="1443">reverse order</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -6787,12 +6787,12 @@ enable/disable as flags.</doc>
       <constructor name="new" c:identifier="ags_config_new" version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="1006">Create a new instance of #AgsConfig.</doc>
+             line="1148">Create a new instance of #AgsConfig.</doc>
         <source-position filename="object/ags_config.h" line="95"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="object/ags_config.c"
-               line="1011">the new #AgsConfig.</doc>
+               line="1153">the new #AgsConfig.</doc>
           <type name="Config" c:type="AgsConfig*"/>
         </return-value>
       </constructor>
@@ -6801,43 +6801,43 @@ enable/disable as flags.</doc>
                 version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="981">Get config instance.</doc>
+             line="1123">Get config instance.</doc>
         <source-position filename="object/ags_config.h" line="94"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_config.c"
-               line="986">the config instance</doc>
+               line="1128">the config instance</doc>
           <type name="Config" c:type="AgsConfig*"/>
         </return-value>
       </function>
       <virtual-method name="get_value" invoker="get_value" version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="913">Retrieve config by @group and @key.</doc>
+             line="1055">Retrieve config by @group and @key.</doc>
         <source-position filename="object/ags_config.h" line="75"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="object/ags_config.c"
-               line="921">the property's value</doc>
+               line="1063">the property's value</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="config" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="915">the #AgsConfig</doc>
+                 line="1057">the #AgsConfig</doc>
             <type name="Config" c:type="AgsConfig*"/>
           </instance-parameter>
           <parameter name="group" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="916">the config group identifier</doc>
+                 line="1058">the config group identifier</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="917">the key of the property</doc>
+                 line="1059">the key of the property</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -6847,7 +6847,7 @@ enable/disable as flags.</doc>
                       version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="458">Load configuration from default values.</doc>
+             line="600">Load configuration from default values.</doc>
         <source-position filename="object/ags_config.h" line="72"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6856,7 +6856,7 @@ enable/disable as flags.</doc>
           <instance-parameter name="config" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="460">the #AgsConfig</doc>
+                 line="602">the #AgsConfig</doc>
             <type name="Config" c:type="AgsConfig*"/>
           </instance-parameter>
         </parameters>
@@ -6864,7 +6864,7 @@ enable/disable as flags.</doc>
       <virtual-method name="set_value" invoker="set_value" version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="862">Set config by @group and @key, applying @value.</doc>
+             line="1004">Set config by @group and @key, applying @value.</doc>
         <source-position filename="object/ags_config.h" line="74"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6873,25 +6873,25 @@ enable/disable as flags.</doc>
           <instance-parameter name="config" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="864">the #AgsConfig</doc>
+                 line="1006">the #AgsConfig</doc>
             <type name="Config" c:type="AgsConfig*"/>
           </instance-parameter>
           <parameter name="group" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="865">the config group identifier</doc>
+                 line="1007">the config group identifier</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="866">the key of the property</doc>
+                 line="1008">the key of the property</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="867">the value to set</doc>
+                 line="1009">the value to set</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -6899,7 +6899,7 @@ enable/disable as flags.</doc>
       <method name="clear" c:identifier="ags_config_clear" version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="942">Clears configuration.</doc>
+             line="1084">Clears configuration.</doc>
         <source-position filename="object/ags_config.h" line="92"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6908,7 +6908,7 @@ enable/disable as flags.</doc>
           <instance-parameter name="config" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="944">the #AgsConfig</doc>
+                 line="1086">the #AgsConfig</doc>
             <type name="Config" c:type="AgsConfig*"/>
           </instance-parameter>
         </parameters>
@@ -6918,31 +6918,31 @@ enable/disable as flags.</doc>
               version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="913">Retrieve config by @group and @key.</doc>
+             line="1055">Retrieve config by @group and @key.</doc>
         <source-position filename="object/ags_config.h" line="86"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="object/ags_config.c"
-               line="921">the property's value</doc>
+               line="1063">the property's value</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="config" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="915">the #AgsConfig</doc>
+                 line="1057">the #AgsConfig</doc>
             <type name="Config" c:type="AgsConfig*"/>
           </instance-parameter>
           <parameter name="group" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="916">the config group identifier</doc>
+                 line="1058">the config group identifier</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="917">the key of the property</doc>
+                 line="1059">the key of the property</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -6952,7 +6952,7 @@ enable/disable as flags.</doc>
               version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="458">Load configuration from default values.</doc>
+             line="600">Load configuration from default values.</doc>
         <source-position filename="object/ags_config.h" line="80"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6961,7 +6961,7 @@ enable/disable as flags.</doc>
           <instance-parameter name="config" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="460">the #AgsConfig</doc>
+                 line="602">the #AgsConfig</doc>
             <type name="Config" c:type="AgsConfig*"/>
           </instance-parameter>
         </parameters>
@@ -6971,7 +6971,7 @@ enable/disable as flags.</doc>
               version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="569">Read configuration in memory.</doc>
+             line="711">Read configuration in memory.</doc>
         <source-position filename="object/ags_config.h" line="82"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -6980,19 +6980,19 @@ enable/disable as flags.</doc>
           <instance-parameter name="config" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="571">the #AgsConfig</doc>
+                 line="713">the #AgsConfig</doc>
             <type name="Config" c:type="AgsConfig*"/>
           </instance-parameter>
           <parameter name="buffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="572">the data buffer</doc>
+                 line="714">the data buffer</doc>
             <type name="utf8" c:type="char*"/>
           </parameter>
           <parameter name="buffer_length" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="573">the size of the buffer</doc>
+                 line="715">the size of the buffer</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
         </parameters>
@@ -7002,7 +7002,7 @@ enable/disable as flags.</doc>
               version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="477">Load configuration from @filename.</doc>
+             line="619">Load configuration from @filename.</doc>
         <source-position filename="object/ags_config.h" line="81"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -7011,13 +7011,13 @@ enable/disable as flags.</doc>
           <instance-parameter name="config" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="479">the #AgsConfig</doc>
+                 line="621">the #AgsConfig</doc>
             <type name="Config" c:type="AgsConfig*"/>
           </instance-parameter>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="480">the configuration file</doc>
+                 line="622">the configuration file</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -7025,7 +7025,7 @@ enable/disable as flags.</doc>
       <method name="save" c:identifier="ags_config_save" version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="713">Save configuration.</doc>
+             line="855">Save configuration.</doc>
         <source-position filename="object/ags_config.h" line="90"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -7034,7 +7034,7 @@ enable/disable as flags.</doc>
           <instance-parameter name="config" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="715">the #AgsConfig</doc>
+                 line="857">the #AgsConfig</doc>
             <type name="Config" c:type="AgsConfig*"/>
           </instance-parameter>
         </parameters>
@@ -7044,7 +7044,7 @@ enable/disable as flags.</doc>
               version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="862">Set config by @group and @key, applying @value.</doc>
+             line="1004">Set config by @group and @key, applying @value.</doc>
         <source-position filename="object/ags_config.h" line="85"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -7053,25 +7053,25 @@ enable/disable as flags.</doc>
           <instance-parameter name="config" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="864">the #AgsConfig</doc>
+                 line="1006">the #AgsConfig</doc>
             <type name="Config" c:type="AgsConfig*"/>
           </instance-parameter>
           <parameter name="group" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="865">the config group identifier</doc>
+                 line="1007">the config group identifier</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="866">the key of the property</doc>
+                 line="1008">the key of the property</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="867">the value to set</doc>
+                 line="1009">the value to set</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -7079,7 +7079,7 @@ enable/disable as flags.</doc>
       <method name="to_data" c:identifier="ags_config_to_data" version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="661">Save configuration.</doc>
+             line="803">Save configuration.</doc>
         <source-position filename="object/ags_config.h" line="88"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -7088,19 +7088,19 @@ enable/disable as flags.</doc>
           <instance-parameter name="config" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="663">the #AgsConfig</doc>
+                 line="805">the #AgsConfig</doc>
             <type name="Config" c:type="AgsConfig*"/>
           </instance-parameter>
           <parameter name="buffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="664">the data buffer</doc>
+                 line="806">the data buffer</doc>
             <type name="utf8" c:type="char**"/>
           </parameter>
           <parameter name="buffer_length" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="665">the size of the buffer</doc>
+                 line="807">the size of the buffer</doc>
             <type name="gsize" c:type="gsize*"/>
           </parameter>
         </parameters>
@@ -7126,24 +7126,24 @@ enable/disable as flags.</doc>
       <glib:signal name="get-value" when="last" version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="183">The ::get-value signal notifies about value been getting.</doc>
+             line="193">The ::get-value signal notifies about value been getting.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="object/ags_config.c"
-               line="191">the value</doc>
+               line="201">the value</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <parameter name="group" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="186">the group to retrieve from</doc>
+                 line="196">the group to retrieve from</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="187">the key to get</doc>
+                 line="197">the key to get</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -7151,7 +7151,7 @@ enable/disable as flags.</doc>
       <glib:signal name="load-defaults" when="last" version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="145">The ::load-defaults signal notifies about loading defaults</doc>
+             line="155">The ::load-defaults signal notifies about loading defaults</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -7159,7 +7159,7 @@ enable/disable as flags.</doc>
       <glib:signal name="set-value" when="last" version="3.0.0">
         <doc xml:space="preserve"
              filename="object/ags_config.c"
-             line="162">The ::set-value signal notifies about value been setting.</doc>
+             line="172">The ::set-value signal notifies about value been setting.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -7167,19 +7167,19 @@ enable/disable as flags.</doc>
           <parameter name="group" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="165">the group to apply to</doc>
+                 line="175">the group to apply to</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="166">the key to set</doc>
+                 line="176">the key to set</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="167">the value to apply</doc>
+                 line="177">the value to apply</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -7202,7 +7202,7 @@ enable/disable as flags.</doc>
             <parameter name="config" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="object/ags_config.c"
-                   line="460">the #AgsConfig</doc>
+                   line="602">the #AgsConfig</doc>
               <type name="Config" c:type="AgsConfig*"/>
             </parameter>
           </parameters>
@@ -7218,25 +7218,25 @@ enable/disable as flags.</doc>
             <parameter name="config" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="object/ags_config.c"
-                   line="864">the #AgsConfig</doc>
+                   line="1006">the #AgsConfig</doc>
               <type name="Config" c:type="AgsConfig*"/>
             </parameter>
             <parameter name="group" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="object/ags_config.c"
-                   line="865">the config group identifier</doc>
+                   line="1007">the config group identifier</doc>
               <type name="utf8" c:type="gchar*"/>
             </parameter>
             <parameter name="key" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="object/ags_config.c"
-                   line="866">the key of the property</doc>
+                   line="1008">the key of the property</doc>
               <type name="utf8" c:type="gchar*"/>
             </parameter>
             <parameter name="value" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="object/ags_config.c"
-                   line="867">the value to set</doc>
+                   line="1009">the value to set</doc>
               <type name="utf8" c:type="gchar*"/>
             </parameter>
           </parameters>
@@ -7248,26 +7248,26 @@ enable/disable as flags.</doc>
           <return-value transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="object/ags_config.c"
-                 line="921">the property's value</doc>
+                 line="1063">the property's value</doc>
             <type name="utf8" c:type="gchar*"/>
           </return-value>
           <parameters>
             <parameter name="config" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="object/ags_config.c"
-                   line="915">the #AgsConfig</doc>
+                   line="1057">the #AgsConfig</doc>
               <type name="Config" c:type="AgsConfig*"/>
             </parameter>
             <parameter name="group" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="object/ags_config.c"
-                   line="916">the config group identifier</doc>
+                   line="1058">the config group identifier</doc>
               <type name="utf8" c:type="gchar*"/>
             </parameter>
             <parameter name="key" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="object/ags_config.c"
-                   line="917">the key of the property</doc>
+                   line="1059">the key of the property</doc>
               <type name="utf8" c:type="gchar*"/>
             </parameter>
           </parameters>
@@ -12874,6 +12874,30 @@ enable/disable as flags.</doc>
           </parameter>
         </parameters>
       </method>
+      <method name="get_csv_row_as_int64"
+              c:identifier="ags_file_util_get_csv_row_as_int64">
+        <source-position filename="file/ags_file_util.h" line="119"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_util" transfer-ownership="none">
+            <type name="FileUtil" c:type="AgsFileUtil*"/>
+          </instance-parameter>
+          <parameter name="str" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+          <parameter name="csv_separator" transfer-ownership="none">
+            <type name="gchar" c:type="gchar"/>
+          </parameter>
+          <parameter name="csv_row" transfer-ownership="none">
+            <type name="gint64" c:type="gint64*"/>
+          </parameter>
+          <parameter name="column_count" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
       <method name="get_double"
               c:identifier="ags_file_util_get_double"
               version="6.3.0">
@@ -13142,6 +13166,27 @@ enable/disable as flags.</doc>
                  filename="file/ags_file_util.c"
                  line="950">the value</doc>
             <type name="Complex" c:type="AgsComplex*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="put_csv_row_as_int64"
+              c:identifier="ags_file_util_put_csv_row_as_int64">
+        <source-position filename="file/ags_file_util.h" line="124"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="file_util" transfer-ownership="none">
+            <type name="FileUtil" c:type="AgsFileUtil*"/>
+          </instance-parameter>
+          <parameter name="csv_separator" transfer-ownership="none">
+            <type name="gchar" c:type="gchar"/>
+          </parameter>
+          <parameter name="csv_row" transfer-ownership="none">
+            <type name="gint64" c:type="gint64*"/>
+          </parameter>
+          <parameter name="column_count" transfer-ownership="none">
+            <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
       </method>
@@ -24977,31 +25022,31 @@ about a newly played buffer.</doc>
       <constructor name="new" c:identifier="ags_server_new" version="3.0.0">
         <doc xml:space="preserve"
              filename="server/ags_server.c"
-             line="1568">Instantiate #AgsServer.</doc>
+             line="1619">Instantiate #AgsServer.</doc>
         <source-position filename="server/ags_server.h" line="168"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="server/ags_server.c"
-               line="1573">a new #AgsServer</doc>
+               line="1624">a new #AgsServer</doc>
           <type name="Server" c:type="AgsServer*"/>
         </return-value>
       </constructor>
       <virtual-method name="listen" invoker="listen" version="3.0.0">
         <doc xml:space="preserve"
              filename="server/ags_server.c"
-             line="1320">Listen as  server.</doc>
+             line="1371">Listen as  server.</doc>
         <source-position filename="server/ags_server.h" line="129"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="server/ags_server.c"
-               line="1326">%TRUE as a new connection was initiated, otherwise %FALSE</doc>
+               line="1377">%TRUE as a new connection was initiated, otherwise %FALSE</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="server/ags_server.c"
-                 line="1322">the #AgsServer</doc>
+                 line="1373">the #AgsServer</doc>
             <type name="Server" c:type="AgsServer*"/>
           </instance-parameter>
         </parameters>
@@ -25009,7 +25054,7 @@ about a newly played buffer.</doc>
       <virtual-method name="start" invoker="start" version="3.0.0">
         <doc xml:space="preserve"
              filename="server/ags_server.c"
-             line="1152">Start the XMLRPC-C abyss server.</doc>
+             line="1154">Start the XMLRPC-C abyss server.</doc>
         <source-position filename="server/ags_server.h" line="126"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -25018,7 +25063,7 @@ about a newly played buffer.</doc>
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="server/ags_server.c"
-                 line="1154">the #AgsServer</doc>
+                 line="1156">the #AgsServer</doc>
             <type name="Server" c:type="AgsServer*"/>
           </instance-parameter>
         </parameters>
@@ -25026,7 +25071,7 @@ about a newly played buffer.</doc>
       <virtual-method name="stop" invoker="stop" version="3.0.0">
         <doc xml:space="preserve"
              filename="server/ags_server.c"
-             line="1220">Stop the XMLRPC-C abyss server.</doc>
+             line="1222">Stop the XMLRPC-C abyss server.</doc>
         <source-position filename="server/ags_server.h" line="127"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -25035,7 +25080,7 @@ about a newly played buffer.</doc>
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="server/ags_server.c"
-                 line="1222">the #AgsServer</doc>
+                 line="1224">the #AgsServer</doc>
             <type name="Server" c:type="AgsServer*"/>
           </instance-parameter>
         </parameters>
@@ -25068,19 +25113,19 @@ about a newly played buffer.</doc>
       <method name="listen" c:identifier="ags_server_listen" version="3.0.0">
         <doc xml:space="preserve"
              filename="server/ags_server.c"
-             line="1320">Listen as  server.</doc>
+             line="1371">Listen as  server.</doc>
         <source-position filename="server/ags_server.h" line="166"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="server/ags_server.c"
-               line="1326">%TRUE as a new connection was initiated, otherwise %FALSE</doc>
+               line="1377">%TRUE as a new connection was initiated, otherwise %FALSE</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="server/ags_server.c"
-                 line="1322">the #AgsServer</doc>
+                 line="1373">the #AgsServer</doc>
             <type name="Server" c:type="AgsServer*"/>
           </instance-parameter>
         </parameters>
@@ -25138,7 +25183,7 @@ about a newly played buffer.</doc>
       <method name="start" c:identifier="ags_server_start" version="3.0.0">
         <doc xml:space="preserve"
              filename="server/ags_server.c"
-             line="1152">Start the XMLRPC-C abyss server.</doc>
+             line="1154">Start the XMLRPC-C abyss server.</doc>
         <source-position filename="server/ags_server.h" line="163"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -25147,7 +25192,7 @@ about a newly played buffer.</doc>
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="server/ags_server.c"
-                 line="1154">the #AgsServer</doc>
+                 line="1156">the #AgsServer</doc>
             <type name="Server" c:type="AgsServer*"/>
           </instance-parameter>
         </parameters>
@@ -25155,7 +25200,7 @@ about a newly played buffer.</doc>
       <method name="stop" c:identifier="ags_server_stop" version="3.0.0">
         <doc xml:space="preserve"
              filename="server/ags_server.c"
-             line="1220">Stop the XMLRPC-C abyss server.</doc>
+             line="1222">Stop the XMLRPC-C abyss server.</doc>
         <source-position filename="server/ags_server.h" line="164"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -25164,7 +25209,7 @@ about a newly played buffer.</doc>
           <instance-parameter name="server" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="server/ags_server.c"
-                 line="1222">the #AgsServer</doc>
+                 line="1224">the #AgsServer</doc>
             <type name="Server" c:type="AgsServer*"/>
           </instance-parameter>
         </parameters>
@@ -25485,7 +25530,7 @@ about a newly played buffer.</doc>
             <parameter name="server" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="server/ags_server.c"
-                   line="1154">the #AgsServer</doc>
+                   line="1156">the #AgsServer</doc>
               <type name="Server" c:type="AgsServer*"/>
             </parameter>
           </parameters>
@@ -25501,7 +25546,7 @@ about a newly played buffer.</doc>
             <parameter name="server" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="server/ags_server.c"
-                   line="1222">the #AgsServer</doc>
+                   line="1224">the #AgsServer</doc>
               <type name="Server" c:type="AgsServer*"/>
             </parameter>
           </parameters>
@@ -25513,14 +25558,14 @@ about a newly played buffer.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="server/ags_server.c"
-                 line="1326">%TRUE as a new connection was initiated, otherwise %FALSE</doc>
+                 line="1377">%TRUE as a new connection was initiated, otherwise %FALSE</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
             <parameter name="server" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="server/ags_server.c"
-                   line="1322">the #AgsServer</doc>
+                   line="1373">the #AgsServer</doc>
               <type name="Server" c:type="AgsServer*"/>
             </parameter>
           </parameters>
@@ -30249,7 +30294,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="854">Get current playback attack.</doc>
-        <source-position filename="object/ags_soundcard.h" line="322"/>
+        <source-position filename="object/ags_soundcard.h" line="325"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -30337,7 +30382,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="832">Get current playback delay.</doc>
-        <source-position filename="object/ags_soundcard.h" line="321"/>
+        <source-position filename="object/ags_soundcard.h" line="324"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -30359,7 +30404,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="876">Get current playback note offset.</doc>
-        <source-position filename="object/ags_soundcard.h" line="324"/>
+        <source-position filename="object/ags_soundcard.h" line="327"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -30425,7 +30470,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="1201">Get loop parameters of @soundcard.</doc>
-        <source-position filename="object/ags_soundcard.h" line="359"/>
+        <source-position filename="object/ags_soundcard.h" line="362"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -30471,7 +30516,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="1227">Get current playback loop offset.</doc>
-        <source-position filename="object/ags_soundcard.h" line="363"/>
+        <source-position filename="object/ags_soundcard.h" line="366"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -30515,7 +30560,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="1056">Get current playback note 256th attack.</doc>
-        <source-position filename="object/ags_soundcard.h" line="341"/>
+        <source-position filename="object/ags_soundcard.h" line="344"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -30546,7 +30591,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="1082">Get current playback note 256th attack position within 16 times %AGS_SOUNDCARD_DEFAULT_PERIOD.</doc>
-        <source-position filename="object/ags_soundcard.h" line="345"/>
+        <source-position filename="object/ags_soundcard.h" line="348"/>
         <return-value transfer-ownership="none">
           <type name="guint" c:type="guint"/>
         </return-value>
@@ -30572,7 +30617,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="1012">Get note 256th attack of current 16th pulse.</doc>
-        <source-position filename="object/ags_soundcard.h" line="338"/>
+        <source-position filename="object/ags_soundcard.h" line="341"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -30594,7 +30639,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="1034">Get note 256th attack position of current 16th pulse.</doc>
-        <source-position filename="object/ags_soundcard.h" line="339"/>
+        <source-position filename="object/ags_soundcard.h" line="342"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -30616,7 +30661,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="1105">Get current playback note 256th attack position within 16 times %AGS_SOUNDCARD_DEFAULT_PERIOD.</doc>
-        <source-position filename="object/ags_soundcard.h" line="348"/>
+        <source-position filename="object/ags_soundcard.h" line="351"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -30649,7 +30694,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="986">Get current playback note 256th offset.</doc>
-        <source-position filename="object/ags_soundcard.h" line="334"/>
+        <source-position filename="object/ags_soundcard.h" line="337"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -30680,7 +30725,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="964">Get current playback note offset.</doc>
-        <source-position filename="object/ags_soundcard.h" line="332"/>
+        <source-position filename="object/ags_soundcard.h" line="335"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -30702,7 +30747,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="1153">Get current playback note offset.</doc>
-        <source-position filename="object/ags_soundcard.h" line="354"/>
+        <source-position filename="object/ags_soundcard.h" line="357"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -30801,7 +30846,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="920">Get start playback note offset.</doc>
-        <source-position filename="object/ags_soundcard.h" line="328"/>
+        <source-position filename="object/ags_soundcard.h" line="331"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -30823,7 +30868,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="1249">Get sub block count.</doc>
-        <source-position filename="object/ags_soundcard.h" line="365"/>
+        <source-position filename="object/ags_soundcard.h" line="368"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -31284,7 +31329,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="1175">Set loop parameters of @soundcard.</doc>
-        <source-position filename="object/ags_soundcard.h" line="356"/>
+        <source-position filename="object/ags_soundcard.h" line="359"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -31321,7 +31366,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="942">Set current playback note offset.</doc>
-        <source-position filename="object/ags_soundcard.h" line="330"/>
+        <source-position filename="object/ags_soundcard.h" line="333"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -31346,7 +31391,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="1131">Set current playback note offset.</doc>
-        <source-position filename="object/ags_soundcard.h" line="352"/>
+        <source-position filename="object/ags_soundcard.h" line="355"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -31414,7 +31459,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="898">Set start playback note offset.</doc>
-        <source-position filename="object/ags_soundcard.h" line="326"/>
+        <source-position filename="object/ags_soundcard.h" line="329"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -31473,7 +31518,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="1271">Trylock sub block.</doc>
-        <source-position filename="object/ags_soundcard.h" line="367"/>
+        <source-position filename="object/ags_soundcard.h" line="370"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="object/ags_soundcard.c"
@@ -31538,7 +31583,7 @@ symbol and exponent, otherwise %NULL returned and error is appropriately set.</d
         <doc xml:space="preserve"
              filename="object/ags_soundcard.c"
              line="1297">Unlock sub block.</doc>
-        <source-position filename="object/ags_soundcard.h" line="369"/>
+        <source-position filename="object/ags_soundcard.h" line="372"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -37458,7 +37503,7 @@ enable/disable as sync tic flags.</doc>
         <type name="GObject.Object" c:type="GObject"/>
       </field>
       <field name="flags">
-        <type name="guint" c:type="guint"/>
+        <type name="TimestampFlags" c:type="AgsTimestampFlags"/>
       </field>
       <field name="obj_mutex">
         <type name="GLib.RecMutex" c:type="GRecMutex"/>
@@ -40933,7 +40978,7 @@ and is responsible to set up signal handlers.</doc>
     <docsection name="ags_config">
       <doc xml:space="preserve"
            filename="object/ags_config.c"
-           line="63">#AgsConfig provides configuration to Advanced Gtk+ Sequencer.</doc>
+           line="73">#AgsConfig provides configuration to Advanced Gtk+ Sequencer.</doc>
     </docsection>
     <docsection name="ags_connectable">
       <doc xml:space="preserve"
@@ -41617,25 +41662,25 @@ server.</doc>
               version="3.0.0">
       <doc xml:space="preserve"
            filename="lib/ags_buffer_util.c"
-           line="1400">Read a #AgsComplex quantity of @cbuffer.</doc>
+           line="1402">Read a #AgsComplex quantity of @cbuffer.</doc>
       <source-position filename="lib/ags_buffer_util.h" line="93"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="lib/ags_buffer_util.c"
-             line="1407">the #AgsComplex value</doc>
+             line="1409">the #AgsComplex value</doc>
         <type name="Complex" c:type="AgsComplex*"/>
       </return-value>
       <parameters>
         <parameter name="cbuffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1402">the character buffer</doc>
+               line="1404">the character buffer</doc>
           <type name="guint8" c:type="guchar*"/>
         </parameter>
         <parameter name="byte_order" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1403">reverse order</doc>
+               line="1405">reverse order</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
       </parameters>
@@ -41646,25 +41691,25 @@ server.</doc>
               version="3.0.0">
       <doc xml:space="preserve"
            filename="lib/ags_buffer_util.c"
-           line="1351">Read a gdouble quantity of @cbuffer.</doc>
+           line="1353">Read a gdouble quantity of @cbuffer.</doc>
       <source-position filename="lib/ags_buffer_util.h" line="91"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="lib/ags_buffer_util.c"
-             line="1358">the gdouble value</doc>
+             line="1360">the gdouble value</doc>
         <type name="gdouble" c:type="gdouble"/>
       </return-value>
       <parameters>
         <parameter name="cbuffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1353">the character buffer</doc>
+               line="1355">the character buffer</doc>
           <type name="guint8" c:type="guchar*"/>
         </parameter>
         <parameter name="byte_order" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1354">reverse order</doc>
+               line="1356">reverse order</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
       </parameters>
@@ -41675,25 +41720,25 @@ server.</doc>
               version="3.0.0">
       <doc xml:space="preserve"
            filename="lib/ags_buffer_util.c"
-           line="1310">Read a gfloat quantity of @cbuffer.</doc>
+           line="1312">Read a gfloat quantity of @cbuffer.</doc>
       <source-position filename="lib/ags_buffer_util.h" line="89"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="lib/ags_buffer_util.c"
-             line="1317">the gfloat value</doc>
+             line="1319">the gfloat value</doc>
         <type name="gfloat" c:type="gfloat"/>
       </return-value>
       <parameters>
         <parameter name="cbuffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1312">the character buffer</doc>
+               line="1314">the character buffer</doc>
           <type name="guint8" c:type="guchar*"/>
         </parameter>
         <parameter name="byte_order" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1313">reverse order</doc>
+               line="1315">reverse order</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
       </parameters>
@@ -41704,25 +41749,25 @@ server.</doc>
               version="3.0.0">
       <doc xml:space="preserve"
            filename="lib/ags_buffer_util.c"
-           line="1156">Read a gint16 quantity of @cbuffer.</doc>
+           line="1158">Read a gint16 quantity of @cbuffer.</doc>
       <source-position filename="lib/ags_buffer_util.h" line="81"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="lib/ags_buffer_util.c"
-             line="1163">the gint16 value</doc>
+             line="1165">the gint16 value</doc>
         <type name="gint16" c:type="gint16"/>
       </return-value>
       <parameters>
         <parameter name="cbuffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1158">the character buffer</doc>
+               line="1160">the character buffer</doc>
           <type name="guint8" c:type="guchar*"/>
         </parameter>
         <parameter name="byte_order" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1159">reverse order</doc>
+               line="1161">reverse order</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
       </parameters>
@@ -41733,25 +41778,25 @@ server.</doc>
               version="3.0.0">
       <doc xml:space="preserve"
            filename="lib/ags_buffer_util.c"
-           line="1190">Read a gint32 24 bit quantity of @cbuffer.</doc>
+           line="1192">Read a gint32 24 bit quantity of @cbuffer.</doc>
       <source-position filename="lib/ags_buffer_util.h" line="83"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="lib/ags_buffer_util.c"
-             line="1197">the gint32 value</doc>
+             line="1199">the gint32 value</doc>
         <type name="gint32" c:type="gint32"/>
       </return-value>
       <parameters>
         <parameter name="cbuffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1192">the character buffer</doc>
+               line="1194">the character buffer</doc>
           <type name="guint8" c:type="guchar*"/>
         </parameter>
         <parameter name="byte_order" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1193">reverse order</doc>
+               line="1195">reverse order</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
       </parameters>
@@ -41762,25 +41807,25 @@ server.</doc>
               version="3.0.0">
       <doc xml:space="preserve"
            filename="lib/ags_buffer_util.c"
-           line="1226">Read a gint32 32 bit quantity of @cbuffer.</doc>
+           line="1228">Read a gint32 32 bit quantity of @cbuffer.</doc>
       <source-position filename="lib/ags_buffer_util.h" line="85"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="lib/ags_buffer_util.c"
-             line="1233">the gint32 value</doc>
+             line="1235">the gint32 value</doc>
         <type name="gint32" c:type="gint32"/>
       </return-value>
       <parameters>
         <parameter name="cbuffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1228">the character buffer</doc>
+               line="1230">the character buffer</doc>
           <type name="guint8" c:type="guchar*"/>
         </parameter>
         <parameter name="byte_order" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1229">reverse order</doc>
+               line="1231">reverse order</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
       </parameters>
@@ -41791,25 +41836,25 @@ server.</doc>
               version="3.0.0">
       <doc xml:space="preserve"
            filename="lib/ags_buffer_util.c"
-           line="1264">Read a gint64 64 bit quantity of @cbuffer.</doc>
+           line="1266">Read a gint64 64 bit quantity of @cbuffer.</doc>
       <source-position filename="lib/ags_buffer_util.h" line="87"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="lib/ags_buffer_util.c"
-             line="1271">the gint64 value</doc>
+             line="1273">the gint64 value</doc>
         <type name="gint64" c:type="gint64"/>
       </return-value>
       <parameters>
         <parameter name="cbuffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1266">the character buffer</doc>
+               line="1268">the character buffer</doc>
           <type name="guint8" c:type="guchar*"/>
         </parameter>
         <parameter name="byte_order" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1267">reverse order</doc>
+               line="1269">reverse order</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
       </parameters>
@@ -41820,25 +41865,25 @@ server.</doc>
               version="3.0.0">
       <doc xml:space="preserve"
            filename="lib/ags_buffer_util.c"
-           line="1129">Read a gint8 quantity of @cbuffer.</doc>
+           line="1131">Read a gint8 quantity of @cbuffer.</doc>
       <source-position filename="lib/ags_buffer_util.h" line="79"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="lib/ags_buffer_util.c"
-             line="1136">the gint8 value</doc>
+             line="1138">the gint8 value</doc>
         <type name="gint8" c:type="gint8"/>
       </return-value>
       <parameters>
         <parameter name="cbuffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1131">the character buffer</doc>
+               line="1133">the character buffer</doc>
           <type name="guint8" c:type="guchar*"/>
         </parameter>
         <parameter name="byte_order" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1132">reverse order, ignored here</doc>
+               line="1134">reverse order, ignored here</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
       </parameters>
@@ -41849,7 +41894,7 @@ server.</doc>
               version="3.0.0">
       <doc xml:space="preserve"
            filename="lib/ags_buffer_util.c"
-           line="1714">Swap bytes in view of Little/Big-Endian.</doc>
+           line="1716">Swap bytes in view of Little/Big-Endian.</doc>
       <source-position filename="lib/ags_buffer_util.h" line="123"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -41858,19 +41903,19 @@ server.</doc>
         <parameter name="cbuffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1716">the buffer to swap</doc>
+               line="1718">the buffer to swap</doc>
           <type name="guint8" c:type="guchar*"/>
         </parameter>
         <parameter name="word_size" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1717">the word size</doc>
+               line="1719">the word size</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
         <parameter name="buffer_size" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1718">the buffer size</doc>
+               line="1720">the buffer size</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
       </parameters>
@@ -41881,25 +41926,25 @@ server.</doc>
               version="3.0.0">
       <doc xml:space="preserve"
            filename="lib/ags_buffer_util.c"
-           line="1098">Unpack @cbuffer to a #AgsComplex buffer</doc>
+           line="1100">Unpack @cbuffer to a #AgsComplex buffer</doc>
       <source-position filename="lib/ags_buffer_util.h" line="75"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="lib/ags_buffer_util.c"
-             line="1105">the #AgsComplex buffer</doc>
+             line="1107">the #AgsComplex buffer</doc>
         <type name="Complex" c:type="AgsComplex*"/>
       </return-value>
       <parameters>
         <parameter name="cbuffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1100">the guchar buffer</doc>
+               line="1102">the guchar buffer</doc>
           <type name="guint8" c:type="guchar*"/>
         </parameter>
         <parameter name="buffer_size" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1101">the buffer size</doc>
+               line="1103">the buffer size</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
       </parameters>
@@ -41910,25 +41955,25 @@ server.</doc>
               version="3.0.0">
       <doc xml:space="preserve"
            filename="lib/ags_buffer_util.c"
-           line="1067">Unpack @cbuffer to a gdouble buffer</doc>
+           line="1069">Unpack @cbuffer to a gdouble buffer</doc>
       <source-position filename="lib/ags_buffer_util.h" line="73"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="lib/ags_buffer_util.c"
-             line="1074">the gdouble buffer</doc>
+             line="1076">the gdouble buffer</doc>
         <type name="gdouble" c:type="gdouble*"/>
       </return-value>
       <parameters>
         <parameter name="cbuffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1069">the guchar buffer</doc>
+               line="1071">the guchar buffer</doc>
           <type name="guint8" c:type="guchar*"/>
         </parameter>
         <parameter name="buffer_size" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1070">the buffer size</doc>
+               line="1072">the buffer size</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
       </parameters>
@@ -41939,25 +41984,25 @@ server.</doc>
               version="3.0.0">
       <doc xml:space="preserve"
            filename="lib/ags_buffer_util.c"
-           line="1036">Unpack @cbuffer to a gfloat buffer</doc>
+           line="1038">Unpack @cbuffer to a gfloat buffer</doc>
       <source-position filename="lib/ags_buffer_util.h" line="71"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="lib/ags_buffer_util.c"
-             line="1043">the gfloat buffer</doc>
+             line="1045">the gfloat buffer</doc>
         <type name="gfloat" c:type="gfloat*"/>
       </return-value>
       <parameters>
         <parameter name="cbuffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1038">the guchar buffer</doc>
+               line="1040">the guchar buffer</doc>
           <type name="guint8" c:type="guchar*"/>
         </parameter>
         <parameter name="buffer_size" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1039">the buffer size</doc>
+               line="1041">the buffer size</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
       </parameters>
@@ -42113,7 +42158,7 @@ server.</doc>
               version="3.0.0">
       <doc xml:space="preserve"
            filename="lib/ags_buffer_util.c"
-           line="1675">Write a #AgsComplex quantity to @cbuffer.</doc>
+           line="1677">Write a #AgsComplex quantity to @cbuffer.</doc>
       <source-position filename="lib/ags_buffer_util.h" line="118"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -42122,19 +42167,19 @@ server.</doc>
         <parameter name="cbuffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1677">the character buffer</doc>
+               line="1679">the character buffer</doc>
           <type name="guint8" c:type="guchar*"/>
         </parameter>
         <parameter name="value" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1678">the #AgsComplex value</doc>
+               line="1680">the #AgsComplex value</doc>
           <type name="Complex" c:type="AgsComplex*"/>
         </parameter>
         <parameter name="byte_order" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1679">reverse order</doc>
+               line="1681">reverse order</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
       </parameters>
@@ -42145,7 +42190,7 @@ server.</doc>
               version="3.0.0">
       <doc xml:space="preserve"
            filename="lib/ags_buffer_util.c"
-           line="1628">Write a gdouble quantity to @cbuffer.</doc>
+           line="1630">Write a gdouble quantity to @cbuffer.</doc>
       <source-position filename="lib/ags_buffer_util.h" line="115"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -42154,19 +42199,19 @@ server.</doc>
         <parameter name="cbuffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1630">the character buffer</doc>
+               line="1632">the character buffer</doc>
           <type name="guint8" c:type="guchar*"/>
         </parameter>
         <parameter name="value" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1631">the gdouble value</doc>
+               line="1633">the gdouble value</doc>
           <type name="gdouble" c:type="gdouble"/>
         </parameter>
         <parameter name="byte_order" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1632">reverse order</doc>
+               line="1634">reverse order</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
       </parameters>
@@ -42177,7 +42222,7 @@ server.</doc>
               version="3.0.0">
       <doc xml:space="preserve"
            filename="lib/ags_buffer_util.c"
-           line="1589">Write a gfloat quantity to @cbuffer.</doc>
+           line="1591">Write a gfloat quantity to @cbuffer.</doc>
       <source-position filename="lib/ags_buffer_util.h" line="112"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -42186,19 +42231,19 @@ server.</doc>
         <parameter name="cbuffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1591">the character buffer</doc>
+               line="1593">the character buffer</doc>
           <type name="guint8" c:type="guchar*"/>
         </parameter>
         <parameter name="value" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1592">the gfloat value</doc>
+               line="1594">the gfloat value</doc>
           <type name="gfloat" c:type="gfloat"/>
         </parameter>
         <parameter name="byte_order" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1593">reverse order</doc>
+               line="1595">reverse order</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
       </parameters>
@@ -42209,7 +42254,7 @@ server.</doc>
               version="3.0.0">
       <doc xml:space="preserve"
            filename="lib/ags_buffer_util.c"
-           line="1459">Write a gint16 quantity to @cbuffer.</doc>
+           line="1461">Write a gint16 quantity to @cbuffer.</doc>
       <source-position filename="lib/ags_buffer_util.h" line="100"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -42218,19 +42263,19 @@ server.</doc>
         <parameter name="cbuffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1461">the character buffer</doc>
+               line="1463">the character buffer</doc>
           <type name="guint8" c:type="guchar*"/>
         </parameter>
         <parameter name="value" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1462">the gint16 value</doc>
+               line="1464">the gint16 value</doc>
           <type name="gint16" c:type="gint16"/>
         </parameter>
         <parameter name="byte_order" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1463">reverse order</doc>
+               line="1465">reverse order</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
       </parameters>
@@ -42241,7 +42286,7 @@ server.</doc>
               version="3.0.0">
       <doc xml:space="preserve"
            filename="lib/ags_buffer_util.c"
-           line="1487">Write a gint32 quantity to @cbuffer.</doc>
+           line="1489">Write a gint32 quantity to @cbuffer.</doc>
       <source-position filename="lib/ags_buffer_util.h" line="103"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -42250,19 +42295,19 @@ server.</doc>
         <parameter name="cbuffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1489">the character buffer</doc>
+               line="1491">the character buffer</doc>
           <type name="guint8" c:type="guchar*"/>
         </parameter>
         <parameter name="value" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1490">the gint32 value</doc>
+               line="1492">the gint32 value</doc>
           <type name="gint32" c:type="gint32"/>
         </parameter>
         <parameter name="byte_order" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1491">reverse order</doc>
+               line="1493">reverse order</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
       </parameters>
@@ -42273,7 +42318,7 @@ server.</doc>
               version="3.0.0">
       <doc xml:space="preserve"
            filename="lib/ags_buffer_util.c"
-           line="1517">Write a gint32 quantity to @cbuffer.</doc>
+           line="1519">Write a gint32 quantity to @cbuffer.</doc>
       <source-position filename="lib/ags_buffer_util.h" line="106"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -42282,19 +42327,19 @@ server.</doc>
         <parameter name="cbuffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1519">the character buffer</doc>
+               line="1521">the character buffer</doc>
           <type name="guint8" c:type="guchar*"/>
         </parameter>
         <parameter name="value" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1520">the gint32 value</doc>
+               line="1522">the gint32 value</doc>
           <type name="gint32" c:type="gint32"/>
         </parameter>
         <parameter name="byte_order" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1521">reverse order</doc>
+               line="1523">reverse order</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
       </parameters>
@@ -42305,7 +42350,7 @@ server.</doc>
               version="3.0.0">
       <doc xml:space="preserve"
            filename="lib/ags_buffer_util.c"
-           line="1549">Write a gint64 quantity to @cbuffer.</doc>
+           line="1551">Write a gint64 quantity to @cbuffer.</doc>
       <source-position filename="lib/ags_buffer_util.h" line="109"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -42314,19 +42359,19 @@ server.</doc>
         <parameter name="cbuffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1551">the character buffer</doc>
+               line="1553">the character buffer</doc>
           <type name="guint8" c:type="guchar*"/>
         </parameter>
         <parameter name="value" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1552">the gint64 value</doc>
+               line="1554">the gint64 value</doc>
           <type name="gint64" c:type="gint64"/>
         </parameter>
         <parameter name="byte_order" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1553">reverse order</doc>
+               line="1555">reverse order</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
       </parameters>
@@ -42337,7 +42382,7 @@ server.</doc>
               version="3.0.0">
       <doc xml:space="preserve"
            filename="lib/ags_buffer_util.c"
-           line="1437">Write a gint8 quantity to @cbuffer.</doc>
+           line="1439">Write a gint8 quantity to @cbuffer.</doc>
       <source-position filename="lib/ags_buffer_util.h" line="97"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -42346,19 +42391,19 @@ server.</doc>
         <parameter name="cbuffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1439">the character buffer</doc>
+               line="1441">the character buffer</doc>
           <type name="guint8" c:type="guchar*"/>
         </parameter>
         <parameter name="value" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1440">the gint8 value</doc>
+               line="1442">the gint8 value</doc>
           <type name="gint8" c:type="gint8"/>
         </parameter>
         <parameter name="byte_order" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="lib/ags_buffer_util.c"
-               line="1441">reverse order</doc>
+               line="1443">reverse order</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
       </parameters>

@@ -72,7 +72,7 @@ to be taked care off by the callee.</doc>
       <constructor name="new" c:identifier="asc_compose_new">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="2323">Creates a new #AscCompose.</doc>
+             line="2329">Creates a new #AscCompose.</doc>
         <source-position filename="compose/asc-compose.h" line="121"/>
         <return-value transfer-ownership="full">
           <type name="Compose" c:type="AscCompose*"/>
@@ -82,7 +82,7 @@ to be taked care off by the callee.</doc>
               c:identifier="asc_compose_add_allowed_cid">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="189">Adds a component ID to the allowlist. If the list is not empty, only
+             line="191">Adds a component ID to the allowlist. If the list is not empty, only
 components in the list will be added to the metadata output.</doc>
         <source-position filename="compose/asc-compose.h" line="126"/>
         <return-value transfer-ownership="none">
@@ -92,13 +92,13 @@ components in the list will be added to the metadata output.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="191">an #AscCompose instance.</doc>
+                 line="193">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
           <parameter name="component_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="192">The component-id to whitelist</doc>
+                 line="194">The component-id to whitelist</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -107,7 +107,7 @@ components in the list will be added to the metadata output.</doc>
               c:identifier="asc_compose_add_custom_allowed">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="579">Add a key to the allowlist that is used to filter custom tag values.</doc>
+             line="581">Add a key to the allowlist that is used to filter custom tag values.</doc>
         <source-position filename="compose/asc-compose.h" line="164"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -116,13 +116,13 @@ components in the list will be added to the metadata output.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="581">an #AscCompose instance.</doc>
+                 line="583">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
           <parameter name="key_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="582">the custom key to add to the allowed list.</doc>
+                 line="584">the custom key to add to the allowed list.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -130,7 +130,7 @@ components in the list will be added to the metadata output.</doc>
       <method name="add_flags" c:identifier="asc_compose_add_flags">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="352">Add compose flags.</doc>
+             line="354">Add compose flags.</doc>
         <source-position filename="compose/asc-compose.h" line="142"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -139,13 +139,13 @@ components in the list will be added to the metadata output.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="354">an #AscCompose instance.</doc>
+                 line="356">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="355">The compose flags to add.</doc>
+                 line="357">The compose flags to add.</doc>
             <type name="ComposeFlags" c:type="AscComposeFlags"/>
           </parameter>
         </parameters>
@@ -153,7 +153,7 @@ components in the list will be added to the metadata output.</doc>
       <method name="add_unit" c:identifier="asc_compose_add_unit">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="166">Add an #AscUnit as data source for metadata processing.</doc>
+             line="168">Add an #AscUnit as data source for metadata processing.</doc>
         <source-position filename="compose/asc-compose.h" line="124"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -162,13 +162,13 @@ components in the list will be added to the metadata output.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="168">an #AscCompose instance.</doc>
+                 line="170">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
           <parameter name="unit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="169">The #AscUnit to add</doc>
+                 line="171">The #AscUnit to add</doc>
             <type name="Unit" c:type="AscUnit*"/>
           </parameter>
         </parameters>
@@ -177,12 +177,12 @@ components in the list will be added to the metadata output.</doc>
               c:identifier="asc_compose_fetch_components">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="719">Get the results components extracted in the last data processing run.</doc>
+             line="724">Get the results components extracted in the last data processing run.</doc>
         <source-position filename="compose/asc-compose.h" line="180"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="compose/asc-compose.c"
-               line="725">The components</doc>
+               line="730">The components</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="AppStream.Component"/>
           </array>
@@ -191,7 +191,7 @@ components in the list will be added to the metadata output.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="721">an #AscCompose instance.</doc>
+                 line="726">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
         </parameters>
@@ -200,7 +200,7 @@ components in the list will be added to the metadata output.</doc>
               c:identifier="asc_compose_finalize_result">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="2148">Perform final validation of generated data for the specified
+             line="2154">Perform final validation of generated data for the specified
 result container.</doc>
         <source-position filename="compose/asc-compose.h" line="186"/>
         <return-value transfer-ownership="none">
@@ -210,13 +210,13 @@ result container.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="2150">an #AscCompose instance.</doc>
+                 line="2156">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="2151">the #AscResult to finalize</doc>
+                 line="2157">the #AscResult to finalize</doc>
             <type name="Result" c:type="AscResult*"/>
           </parameter>
         </parameters>
@@ -225,7 +225,7 @@ result container.</doc>
               c:identifier="asc_compose_finalize_results">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="2129">Perform final validation of generated data.
+             line="2135">Perform final validation of generated data.
 Calling this function is not necessary, unless the final check was explicitly
 disabled using the %ASC_COMPOSE_FLAG_NO_FINAL_CHECK flag.</doc>
         <source-position filename="compose/asc-compose.h" line="185"/>
@@ -236,7 +236,7 @@ disabled using the %ASC_COMPOSE_FLAG_NO_FINAL_CHECK flag.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="2131">an #AscCompose instance.</doc>
+                 line="2137">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
         </parameters>
@@ -244,7 +244,7 @@ disabled using the %ASC_COMPOSE_FLAG_NO_FINAL_CHECK flag.</doc>
       <method name="get_cainfo" c:identifier="asc_compose_get_cainfo">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="413">Get the CA file used to verify peers with, or %NULL for default.</doc>
+             line="415">Get the CA file used to verify peers with, or %NULL for default.</doc>
         <source-position filename="compose/asc-compose.h" line="148"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
@@ -253,7 +253,7 @@ disabled using the %ASC_COMPOSE_FLAG_NO_FINAL_CHECK flag.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="415">an #AscCompose instance.</doc>
+                 line="417">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
         </parameters>
@@ -262,7 +262,7 @@ disabled using the %ASC_COMPOSE_FLAG_NO_FINAL_CHECK flag.</doc>
               c:identifier="asc_compose_get_data_result_dir">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="442">Get the data result directory.</doc>
+             line="444">Get the data result directory.</doc>
         <source-position filename="compose/asc-compose.h" line="151"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
@@ -271,7 +271,7 @@ disabled using the %ASC_COMPOSE_FLAG_NO_FINAL_CHECK flag.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="444">an #AscCompose instance.</doc>
+                 line="446">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
         </parameters>
@@ -279,7 +279,7 @@ disabled using the %ASC_COMPOSE_FLAG_NO_FINAL_CHECK flag.</doc>
       <method name="get_flags" c:identifier="asc_compose_get_flags">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="324">Get the flags controlling compose behavior.</doc>
+             line="326">Get the flags controlling compose behavior.</doc>
         <source-position filename="compose/asc-compose.h" line="140"/>
         <return-value transfer-ownership="none">
           <type name="ComposeFlags" c:type="AscComposeFlags"/>
@@ -288,7 +288,7 @@ disabled using the %ASC_COMPOSE_FLAG_NO_FINAL_CHECK flag.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="326">an #AscCompose instance.</doc>
+                 line="328">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
         </parameters>
@@ -296,7 +296,7 @@ disabled using the %ASC_COMPOSE_FLAG_NO_FINAL_CHECK flag.</doc>
       <method name="get_format" c:identifier="asc_compose_get_format">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="268">get the format type we are generating.</doc>
+             line="270">get the format type we are generating.</doc>
         <source-position filename="compose/asc-compose.h" line="134"/>
         <return-value transfer-ownership="none">
           <type name="AppStream.FormatKind" c:type="AsFormatKind"/>
@@ -305,7 +305,7 @@ disabled using the %ASC_COMPOSE_FLAG_NO_FINAL_CHECK flag.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="270">an #AscCompose instance.</doc>
+                 line="272">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
         </parameters>
@@ -314,7 +314,7 @@ disabled using the %ASC_COMPOSE_FLAG_NO_FINAL_CHECK flag.</doc>
               c:identifier="asc_compose_get_hints_result_dir">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="529">Get hints report output directory.</doc>
+             line="531">Get hints report output directory.</doc>
         <source-position filename="compose/asc-compose.h" line="160"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
@@ -323,7 +323,7 @@ disabled using the %ASC_COMPOSE_FLAG_NO_FINAL_CHECK flag.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="531">an #AscCompose instance.</doc>
+                 line="533">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
         </parameters>
@@ -332,20 +332,20 @@ disabled using the %ASC_COMPOSE_FLAG_NO_FINAL_CHECK flag.</doc>
               c:identifier="asc_compose_get_icon_policy">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="380">Get the policy for how icons should be distributed to
+             line="382">Get the policy for how icons should be distributed to
 any AppStream clients.</doc>
         <source-position filename="compose/asc-compose.h" line="145"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="compose/asc-compose.c"
-               line="387">an #AscIconPolicy</doc>
+               line="389">an #AscIconPolicy</doc>
           <type name="IconPolicy" c:type="AscIconPolicy*"/>
         </return-value>
         <parameters>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="382">an #AscCompose instance.</doc>
+                 line="384">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
         </parameters>
@@ -354,7 +354,7 @@ any AppStream clients.</doc>
               c:identifier="asc_compose_get_icons_result_dir">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="471">Get the icon result directory.</doc>
+             line="473">Get the icon result directory.</doc>
         <source-position filename="compose/asc-compose.h" line="154"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
@@ -363,7 +363,7 @@ any AppStream clients.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="473">an #AscCompose instance.</doc>
+                 line="475">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
         </parameters>
@@ -372,19 +372,19 @@ any AppStream clients.</doc>
               c:identifier="asc_compose_get_locale_unit">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="668">Get the unit we use for locale processing</doc>
+             line="670">Get the unit we use for locale processing</doc>
         <source-position filename="compose/asc-compose.h" line="176"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="compose/asc-compose.c"
-               line="674">The unit used for locale processing, or %NULL for default.</doc>
+               line="676">The unit used for locale processing, or %NULL for default.</doc>
           <type name="Unit" c:type="AscUnit*"/>
         </return-value>
         <parameters>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="670">an #AscCompose instance.</doc>
+                 line="672">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
         </parameters>
@@ -393,7 +393,7 @@ any AppStream clients.</doc>
               c:identifier="asc_compose_get_max_screenshot_size">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="594">Get the maximum size a screenshot video or image can have.
+             line="596">Get the maximum size a screenshot video or image can have.
 A size &lt; 0 may be returned for no limit, setting a limit of 0
 will disable screenshots.</doc>
         <source-position filename="compose/asc-compose.h" line="166"/>
@@ -404,7 +404,7 @@ will disable screenshots.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="596">an #AscCompose instance.</doc>
+                 line="598">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
         </parameters>
@@ -413,7 +413,7 @@ will disable screenshots.</doc>
               c:identifier="asc_compose_get_media_baseurl">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="295">Get the media base URL to be used for the generated data,
+             line="297">Get the media base URL to be used for the generated data,
 or %NULL if no media is cached.</doc>
         <source-position filename="compose/asc-compose.h" line="137"/>
         <return-value transfer-ownership="none">
@@ -423,7 +423,7 @@ or %NULL if no media is cached.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="297">an #AscCompose instance.</doc>
+                 line="299">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
         </parameters>
@@ -432,7 +432,7 @@ or %NULL if no media is cached.</doc>
               c:identifier="asc_compose_get_media_result_dir">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="500">Get the media result directory, that can be served on a webserver.</doc>
+             line="502">Get the media result directory, that can be served on a webserver.</doc>
         <source-position filename="compose/asc-compose.h" line="157"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
@@ -441,7 +441,7 @@ or %NULL if no media is cached.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="502">an #AscCompose instance.</doc>
+                 line="504">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
         </parameters>
@@ -449,7 +449,7 @@ or %NULL if no media is cached.</doc>
       <method name="get_origin" c:identifier="asc_compose_get_origin">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="238">Get the metadata origin field.</doc>
+             line="240">Get the metadata origin field.</doc>
         <source-position filename="compose/asc-compose.h" line="131"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
@@ -458,7 +458,7 @@ or %NULL if no media is cached.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="240">an #AscCompose instance.</doc>
+                 line="242">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
         </parameters>
@@ -466,7 +466,7 @@ or %NULL if no media is cached.</doc>
       <method name="get_prefix" c:identifier="asc_compose_get_prefix">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="205">Get the directory prefix used for processing.</doc>
+             line="207">Get the directory prefix used for processing.</doc>
         <source-position filename="compose/asc-compose.h" line="128"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
@@ -475,7 +475,7 @@ or %NULL if no media is cached.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="207">an #AscCompose instance.</doc>
+                 line="209">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
         </parameters>
@@ -483,12 +483,12 @@ or %NULL if no media is cached.</doc>
       <method name="get_results" c:identifier="asc_compose_get_results">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="704">Get the results of the last processing run.</doc>
+             line="709">Get the results of the last processing run.</doc>
         <source-position filename="compose/asc-compose.h" line="179"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="compose/asc-compose.c"
-               line="710">The results</doc>
+               line="715">The results</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="Result"/>
           </array>
@@ -497,7 +497,7 @@ or %NULL if no media is cached.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="706">an #AscCompose instance.</doc>
+                 line="711">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
         </parameters>
@@ -505,19 +505,19 @@ or %NULL if no media is cached.</doc>
       <method name="has_errors" c:identifier="asc_compose_has_errors">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="745">Check if the last run generated any errors (which will cause metadata to be ignored).</doc>
+             line="750">Check if the last run generated any errors (which will cause metadata to be ignored).</doc>
         <source-position filename="compose/asc-compose.h" line="181"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="compose/asc-compose.c"
-               line="751">%TRUE if we had errors.</doc>
+               line="756">%TRUE if we had errors.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="747">an #AscCompose instance.</doc>
+                 line="752">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
         </parameters>
@@ -526,7 +526,7 @@ or %NULL if no media is cached.</doc>
               c:identifier="asc_compose_remove_custom_allowed">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="558">Remove a key from the allowlist used to filter the `&lt;custom/&gt;` tag entries.</doc>
+             line="560">Remove a key from the allowlist used to filter the `&lt;custom/&gt;` tag entries.</doc>
         <source-position filename="compose/asc-compose.h" line="163"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -535,13 +535,13 @@ or %NULL if no media is cached.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="560">an #AscCompose instance.</doc>
+                 line="562">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
           <parameter name="key_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="561">the custom key to drop from the allowed list.</doc>
+                 line="563">the custom key to drop from the allowed list.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -549,7 +549,7 @@ or %NULL if no media is cached.</doc>
       <method name="remove_flags" c:identifier="asc_compose_remove_flags">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="366">Remove compose flags.</doc>
+             line="368">Remove compose flags.</doc>
         <source-position filename="compose/asc-compose.h" line="143"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -558,13 +558,13 @@ or %NULL if no media is cached.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="368">an #AscCompose instance.</doc>
+                 line="370">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="369">The compose flags to remove.</doc>
+                 line="371">The compose flags to remove.</doc>
             <type name="ComposeFlags" c:type="AscComposeFlags"/>
           </parameter>
         </parameters>
@@ -572,7 +572,7 @@ or %NULL if no media is cached.</doc>
       <method name="reset" c:identifier="asc_compose_reset">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="147">Reset the results, units and run-specific settings so the
+             line="149">Reset the results, units and run-specific settings so the
 instance can be reused for another metadata generation run.</doc>
         <source-position filename="compose/asc-compose.h" line="123"/>
         <return-value transfer-ownership="none">
@@ -582,7 +582,7 @@ instance can be reused for another metadata generation run.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="149">an #AscCompose instance.</doc>
+                 line="151">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
         </parameters>
@@ -590,13 +590,13 @@ instance can be reused for another metadata generation run.</doc>
       <method name="run" c:identifier="asc_compose_run" throws="1">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="2162">Process the registered units and generate catalog metadata from
+             line="2168">Process the registered units and generate catalog metadata from
 found components.</doc>
         <source-position filename="compose/asc-compose.h" line="183"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="compose/asc-compose.c"
-               line="2171">The results, or %NULL on error</doc>
+               line="2177">The results, or %NULL on error</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="Result"/>
           </array>
@@ -605,7 +605,7 @@ found components.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="2164">an #AscCompose instance.</doc>
+                 line="2170">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -614,7 +614,7 @@ found components.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="2165">a #GCancellable.</doc>
+                 line="2171">a #GCancellable.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -622,7 +622,7 @@ found components.</doc>
       <method name="set_cainfo" c:identifier="asc_compose_set_cainfo">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="426">Set a CA file holding one or more certificates to verify peers with
+             line="428">Set a CA file holding one or more certificates to verify peers with
 for download operations performed by this #AscCompose.</doc>
         <source-position filename="compose/asc-compose.h" line="149"/>
         <return-value transfer-ownership="none">
@@ -632,13 +632,13 @@ for download operations performed by this #AscCompose.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="428">an #AscCompose instance.</doc>
+                 line="430">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
           <parameter name="cainfo" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="429">a valid file path</doc>
+                 line="431">a valid file path</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -647,7 +647,7 @@ for download operations performed by this #AscCompose.</doc>
               c:identifier="asc_compose_set_check_metadata_early_func">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="625">Set an custom callback to be run when most of the metadata has been loaded,
+             line="627">Set an custom callback to be run when most of the metadata has been loaded,
 but no expensive operations (like downloads or icon rendering) have been done yet.
 This can be used to ignore unwanted components early on.
 
@@ -660,7 +660,7 @@ The callback function may be called from any thread, so it needs to ensure threa
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="627">an #AscCompose instance.</doc>
+                 line="629">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
           <parameter name="func"
@@ -669,7 +669,7 @@ The callback function may be called from any thread, so it needs to ensure threa
                      closure="1">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="628">the #AscCheckMetainfoLoadResultFn function to be called</doc>
+                 line="630">the #AscCheckMetainfoLoadResultFn function to be called</doc>
             <type name="CheckMetadataEarlyFn"
                   c:type="AscCheckMetadataEarlyFn"/>
           </parameter>
@@ -679,7 +679,7 @@ The callback function may be called from any thread, so it needs to ensure threa
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="629">user data for @func</doc>
+                 line="631">user data for @func</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -688,7 +688,7 @@ The callback function may be called from any thread, so it needs to ensure threa
               c:identifier="asc_compose_set_data_result_dir">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="455">Set an output location where generated metadata should be saved.
+             line="457">Set an output location where generated metadata should be saved.
 If this is set to %NULL, no metadata will be saved.</doc>
         <source-position filename="compose/asc-compose.h" line="152"/>
         <return-value transfer-ownership="none">
@@ -698,13 +698,13 @@ If this is set to %NULL, no metadata will be saved.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="457">an #AscCompose instance.</doc>
+                 line="459">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
           <parameter name="dir" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="458">the metadata save location.</doc>
+                 line="460">the metadata save location.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -714,7 +714,7 @@ If this is set to %NULL, no metadata will be saved.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="647">Set a custom desktop-entry field localization functions to be run for specialized
+             line="649">Set a custom desktop-entry field localization functions to be run for specialized
 desktop-entry localization schemes such as used in Ubuntu.
 
 The callback function may be called from any thread, so it needs to ensure thread safety on its own.</doc>
@@ -726,7 +726,7 @@ The callback function may be called from any thread, so it needs to ensure threa
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="649">an #AscCompose instance.</doc>
+                 line="651">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
           <parameter name="func"
@@ -735,7 +735,7 @@ The callback function may be called from any thread, so it needs to ensure threa
                      closure="1">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="650">the #AscTranslateDesktopTextFn function to be called</doc>
+                 line="652">the #AscTranslateDesktopTextFn function to be called</doc>
             <type name="TranslateDesktopTextFn"
                   c:type="AscTranslateDesktopTextFn"/>
           </parameter>
@@ -745,7 +745,7 @@ The callback function may be called from any thread, so it needs to ensure threa
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="651">user data for @func</doc>
+                 line="653">user data for @func</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -753,7 +753,7 @@ The callback function may be called from any thread, so it needs to ensure threa
       <method name="set_flags" c:identifier="asc_compose_set_flags">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="337">Set compose flags bitfield that controls the enabled features
+             line="339">Set compose flags bitfield that controls the enabled features
 for this #AscCompose.</doc>
         <source-position filename="compose/asc-compose.h" line="141"/>
         <return-value transfer-ownership="none">
@@ -763,13 +763,13 @@ for this #AscCompose.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="339">an #AscCompose instance.</doc>
+                 line="341">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="340">The compose flags bitfield.</doc>
+                 line="342">The compose flags bitfield.</doc>
             <type name="ComposeFlags" c:type="AscComposeFlags"/>
           </parameter>
         </parameters>
@@ -777,7 +777,7 @@ for this #AscCompose.</doc>
       <method name="set_format" c:identifier="asc_compose_set_format">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="281">Set the format kind of the catalog metadata that we should generate.</doc>
+             line="283">Set the format kind of the catalog metadata that we should generate.</doc>
         <source-position filename="compose/asc-compose.h" line="135"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -786,13 +786,13 @@ for this #AscCompose.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="283">an #AscCompose instance.</doc>
+                 line="285">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
           <parameter name="kind" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="284">The format, e.g. %AS_FORMAT_KIND_XML</doc>
+                 line="286">The format, e.g. %AS_FORMAT_KIND_XML</doc>
             <type name="AppStream.FormatKind" c:type="AsFormatKind"/>
           </parameter>
         </parameters>
@@ -801,7 +801,7 @@ for this #AscCompose.</doc>
               c:identifier="asc_compose_set_hints_result_dir">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="542">Set an output location for HTML reports of issues generated
+             line="544">Set an output location for HTML reports of issues generated
 during a compose run.</doc>
         <source-position filename="compose/asc-compose.h" line="161"/>
         <return-value transfer-ownership="none">
@@ -811,13 +811,13 @@ during a compose run.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="544">an #AscCompose instance.</doc>
+                 line="546">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
           <parameter name="dir" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="545">the hints data directory.</doc>
+                 line="547">the hints data directory.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -826,7 +826,7 @@ during a compose run.</doc>
               c:identifier="asc_compose_set_icon_policy">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="396">Set an icon policy object, overriding the existing one.</doc>
+             line="398">Set an icon policy object, overriding the existing one.</doc>
         <source-position filename="compose/asc-compose.h" line="146"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -835,13 +835,13 @@ during a compose run.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="398">an #AscCompose instance.</doc>
+                 line="400">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
           <parameter name="policy" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="399">an #AscIconPolicy instance</doc>
+                 line="401">an #AscIconPolicy instance</doc>
             <type name="IconPolicy" c:type="AscIconPolicy*"/>
           </parameter>
         </parameters>
@@ -850,7 +850,7 @@ during a compose run.</doc>
               c:identifier="asc_compose_set_icons_result_dir">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="484">Set an output location where plain icons for the processed metadata
+             line="486">Set an output location where plain icons for the processed metadata
 are stored.</doc>
         <source-position filename="compose/asc-compose.h" line="155"/>
         <return-value transfer-ownership="none">
@@ -860,13 +860,13 @@ are stored.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="486">an #AscCompose instance.</doc>
+                 line="488">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
           <parameter name="dir" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="487">the icon storage location.</doc>
+                 line="489">the icon storage location.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -875,10 +875,13 @@ are stored.</doc>
               c:identifier="asc_compose_set_locale_unit">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="683">Set a specific unit that is used for fetching locale information.
+             line="685">Set a specific unit that is used for fetching locale information.
 This may be useful in case a special language pack layout is used,
 but is generally not necessary to be set explicitly, as locale
-will be found in the unit where the metadata is by default.</doc>
+will be found in the unit where the metadata is by default.
+
+Do not forget to open the locale unit, before running compose
+actions with it!</doc>
         <source-position filename="compose/asc-compose.h" line="177"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -887,13 +890,13 @@ will be found in the unit where the metadata is by default.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="685">an #AscCompose instance.</doc>
+                 line="687">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
           <parameter name="locale_unit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="686">the unit used for locale processing.</doc>
+                 line="688">the unit used for locale processing.</doc>
             <type name="Unit" c:type="AscUnit*"/>
           </parameter>
         </parameters>
@@ -902,7 +905,7 @@ will be found in the unit where the metadata is by default.</doc>
               c:identifier="asc_compose_set_max_screenshot_size">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="609">Set the maximum size a screenshot video or image can have.
+             line="611">Set the maximum size a screenshot video or image can have.
 A size &lt; 0 may be set to allow unlimited sizes, setting a limit of 0
 will disable screenshot caching entirely.</doc>
         <source-position filename="compose/asc-compose.h" line="167"/>
@@ -913,13 +916,13 @@ will disable screenshot caching entirely.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="611">an #AscCompose instance.</doc>
+                 line="613">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
           <parameter name="size_bytes" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="612">maximum size of a screenshot image or video in bytes</doc>
+                 line="614">maximum size of a screenshot image or video in bytes</doc>
             <type name="gssize" c:type="gssize"/>
           </parameter>
         </parameters>
@@ -928,7 +931,7 @@ will disable screenshot caching entirely.</doc>
               c:identifier="asc_compose_set_media_baseurl">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="309">Set the media base URL for the generated metadata. Can be %NULL if no media
+             line="311">Set the media base URL for the generated metadata. Can be %NULL if no media
 should be cached and the original URLs should be kept.</doc>
         <source-position filename="compose/asc-compose.h" line="138"/>
         <return-value transfer-ownership="none">
@@ -938,7 +941,7 @@ should be cached and the original URLs should be kept.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="311">an #AscCompose instance.</doc>
+                 line="313">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
           <parameter name="url"
@@ -947,7 +950,7 @@ should be cached and the original URLs should be kept.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="312">the media base URL.</doc>
+                 line="314">the media base URL.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -956,7 +959,7 @@ should be cached and the original URLs should be kept.</doc>
               c:identifier="asc_compose_set_media_result_dir">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="513">Set an output location to store media (screenshots, icons, ...) that
+             line="515">Set an output location to store media (screenshots, icons, ...) that
 will be served on a webserver via the URL set as media baseurl.</doc>
         <source-position filename="compose/asc-compose.h" line="158"/>
         <return-value transfer-ownership="none">
@@ -966,13 +969,13 @@ will be served on a webserver via the URL set as media baseurl.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="515">an #AscCompose instance.</doc>
+                 line="517">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
           <parameter name="dir" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="516">the media storage location.</doc>
+                 line="518">the media storage location.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -980,7 +983,7 @@ will be served on a webserver via the URL set as media baseurl.</doc>
       <method name="set_origin" c:identifier="asc_compose_set_origin">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="251">Set the metadata origin field (e.g. "debian" or "flathub")</doc>
+             line="253">Set the metadata origin field (e.g. "debian" or "flathub")</doc>
         <source-position filename="compose/asc-compose.h" line="132"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -989,13 +992,13 @@ will be served on a webserver via the URL set as media baseurl.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="253">an #AscCompose instance.</doc>
+                 line="255">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
           <parameter name="origin" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="254">the origin.</doc>
+                 line="256">the origin.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1003,7 +1006,7 @@ will be served on a webserver via the URL set as media baseurl.</doc>
       <method name="set_prefix" c:identifier="asc_compose_set_prefix">
         <doc xml:space="preserve"
              filename="compose/asc-compose.c"
-             line="218">Set the directory prefix the to-be-processed units are using.</doc>
+             line="220">Set the directory prefix the to-be-processed units are using.</doc>
         <source-position filename="compose/asc-compose.h" line="129"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1012,13 +1015,13 @@ will be served on a webserver via the URL set as media baseurl.</doc>
           <instance-parameter name="compose" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="220">an #AscCompose instance.</doc>
+                 line="222">an #AscCompose instance.</doc>
             <type name="Compose" c:type="AscCompose*"/>
           </instance-parameter>
           <parameter name="prefix" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-compose.c"
-                 line="221">a directory prefix, e.g. "/usr"</doc>
+                 line="223">a directory prefix, e.g. "/usr"</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4145,8 +4148,8 @@ function for bindings.</doc>
               c:identifier="asc_build_component_global_id">
       <doc xml:space="preserve"
            filename="compose/asc-utils.c"
-           line="31">Builds a global component ID from a component-id
-and a (usually MD5) checksum generated from the component data.
+           line="35">Builds a global component ID from a component-id
+and a checksum (usually Blake3) generated from the component data.
 
 The global-id is used as a global, unique identifier for a component.
 (while the component-ID is local, e.g. for one source).
@@ -4154,19 +4157,22 @@ Its primary usecase is to identify a media directory on the filesystem which is
 associated with this component.</doc>
       <source-position filename="compose/asc-utils.h" line="31"/>
       <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="compose/asc-utils.c"
+             line="48">The new global ID. Free with %g_free.</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
       <parameters>
         <parameter name="component_id" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="compose/asc-utils.c"
-               line="33">an AppStream component ID.</doc>
+               line="37">an AppStream component ID.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="checksum" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="compose/asc-utils.c"
-               line="34">a MD5 hashsum as string generated from the component's combined metadata.</doc>
+               line="38">a checksum as string generated from the component's combined metadata.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -4181,12 +4187,43 @@ associated with this component.</doc>
         <type name="GLib.Quark" c:type="GQuark"/>
       </return-value>
     </function>
+    <function name="compute_content_checksum_for_data"
+              c:identifier="asc_compute_content_checksum_for_data">
+      <doc xml:space="preserve"
+           filename="compose/asc-utils.c"
+           line="93">Compute a checksum for the given content.
+
+The output of this function is intended to be used with %asc_build_component_global_id
+to form a unique global ID. The generated checksum is intended to be used as content-ID.
+Do not assume it is cryptographically secure or has a certain length!</doc>
+      <source-position filename="compose/asc-utils.h" line="32"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="compose/asc-utils.c"
+             line="104">The hash as hexadecimal string. Free with %g_free</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="data" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="compose/asc-utils.c"
+               line="95">The data to hash.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="length" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="compose/asc-utils.c"
+               line="96">Length of @data.</doc>
+          <type name="gsize" c:type="gsize"/>
+        </parameter>
+      </parameters>
+    </function>
     <function name="filename_from_url" c:identifier="asc_filename_from_url">
       <doc xml:space="preserve"
            filename="compose/asc-utils.c"
-           line="87">Generate a filename from a web-URL that can be used to store the
+           line="139">Generate a filename from a web-URL that can be used to store the
 file on disk after download.</doc>
-      <source-position filename="compose/asc-utils.h" line="33"/>
+      <source-position filename="compose/asc-utils.h" line="34"/>
       <return-value transfer-ownership="full">
         <type name="utf8" c:type="gchar*"/>
       </return-value>
@@ -4194,7 +4231,7 @@ file on disk after download.</doc>
         <parameter name="url" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="compose/asc-utils.c"
-               line="89">The URL to extract a filename from.</doc>
+               line="141">The URL to extract a filename from.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>

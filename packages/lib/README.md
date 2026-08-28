@@ -158,7 +158,7 @@ const gtk = await GirModule.load(await deps.get("Gtk", "4.0"), config, registry)
 gtk.parse(); // ← without this, `gtk.members` is empty
 
 console.log(gtk.namespace, gtk.version, String(gtk.libraryVersion));
-// Gtk 4.0 4.23.0
+// Gtk 4.0 4.23.3
 ```
 
 `deps.get()` returns a `Dependency` whose `.exists` is `false` when no GIR was found in
@@ -182,10 +182,10 @@ for (const member of gtk.members.values()) {
   }
 }
 console.log(`${classes.length} classes, ${enums.length} enums`);
-// 269 classes, 133 enums
+// 272 classes, 132 enums
 ```
 
-`IntrospectedError` extends `IntrospectedEnum`, so the 133 above includes the 9 error
+`IntrospectedError` extends `IntrospectedEnum`, so the 132 above includes the 9 error
 domains — which is usually what you want, and always worth knowing.
 
 #### Properties: `writable`, `constructOnly`, and both spellings

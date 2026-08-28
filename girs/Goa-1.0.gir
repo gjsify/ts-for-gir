@@ -9683,7 +9683,7 @@ linked against at application run time.</doc>
       </parameters>
     </function-macro>
     <constant name="MICRO_VERSION"
-              value="0"
+              value="1"
               c:type="GOA_MICRO_VERSION"
               version="3.8">
       <doc xml:space="preserve"

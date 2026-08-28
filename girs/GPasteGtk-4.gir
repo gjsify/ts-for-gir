@@ -15,12 +15,12 @@ and/or use gtk-doc annotations.  -->
   <doc:format name="unknown"/>
   <namespace name="GPasteGtk"
              version="4"
-             shared-library="libgpaste-gtk4.so.0"
+             shared-library="libgpaste-gtk4.so.1"
              c:identifier-prefixes="GPasteGtk"
              c:symbol-prefixes="g_paste_gtk">
     <callback name="BooleanCallback" c:type="GPasteGtkBooleanCallback">
       <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.h"
-                       line="21"/>
+                       line="18"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -36,7 +36,7 @@ and/or use gtk-doc annotations.  -->
     <callback name="ConfirmDialogCallback"
               c:type="GPasteGtkConfirmDialogCallback">
       <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-util.h"
-                       line="19"/>
+                       line="16"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -57,7 +57,7 @@ and/or use gtk-doc annotations.  -->
                     c:identifier="G_PASTE_GTK_DEFINE_TYPE"
                     introspectable="0">
       <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-macros.h"
-                       line="25"/>
+                       line="22"/>
       <parameters>
         <parameter name="TypeName">
         </parameter>
@@ -71,7 +71,7 @@ and/or use gtk-doc annotations.  -->
                     c:identifier="G_PASTE_GTK_DEFINE_TYPE_WITH_PRIVATE"
                     introspectable="0">
       <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-macros.h"
-                       line="28"/>
+                       line="25"/>
       <parameters>
         <parameter name="TypeName">
         </parameter>
@@ -85,7 +85,7 @@ and/or use gtk-doc annotations.  -->
                     c:identifier="G_PASTE_GTK_DERIVABLE_TYPE"
                     introspectable="0">
       <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-macros.h"
-                       line="22"/>
+                       line="19"/>
       <parameters>
         <parameter name="TypeName">
         </parameter>
@@ -101,7 +101,7 @@ and/or use gtk-doc annotations.  -->
                     c:identifier="G_PASTE_GTK_FINAL_TYPE"
                     introspectable="0">
       <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-macros.h"
-                       line="19"/>
+                       line="16"/>
       <parameters>
         <parameter name="TypeName">
         </parameter>
@@ -113,11 +113,117 @@ and/or use gtk-doc annotations.  -->
         </parameter>
       </parameters>
     </function-macro>
+    <constant name="GLOBAL_SHORTCUT_BUS_NAME"
+              value="org.freedesktop.portal.Desktop"
+              c:type="G_PASTE_GTK_GLOBAL_SHORTCUT_BUS_NAME">
+      <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-global-shortcut-client.h"
+                       line="14"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <class name="GlobalShortcutClient"
+           c:symbol-prefix="global_shortcut_client"
+           c:type="GPasteGtkGlobalShortcutClient"
+           parent="Gio.DBusProxy"
+           glib:type-name="GPasteGtkGlobalShortcutClient"
+           glib:get-type="g_paste_gtk_global_shortcut_client_get_type"
+           glib:type-struct="GlobalShortcutClientClass">
+      <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-global-shortcut-client.h"
+                       line="18"/>
+      <implements name="GPaste.KeybindingProvider"/>
+      <implements name="Gio.AsyncInitable"/>
+      <implements name="Gio.DBusInterface"/>
+      <implements name="Gio.Initable"/>
+      <constructor name="new_finish"
+                   c:identifier="g_paste_gtk_global_shortcut_client_new_finish"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-global-shortcut-client.c"
+             line="463">Create a new instance of #GPasteGtkGlobalShortcutClient</doc>
+        <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-global-shortcut-client.h"
+                         line="27"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-global-shortcut-client.c"
+               line="470">a newly allocated #GPasteGtkGlobalShortcutClient
+         free it with g_object_unref</doc>
+          <type name="GlobalShortcutClient"
+                c:type="GPasteGtkGlobalShortcutClient*"/>
+        </return-value>
+        <parameters>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-global-shortcut-client.c"
+                 line="465">A #GAsyncResult obtained from the #GAsyncReadyCallback function passed to the async ctor.</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_sync"
+                   c:identifier="g_paste_gtk_global_shortcut_client_new_sync"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-global-shortcut-client.c"
+             line="434">Create a new instance of #GPasteGtkGlobalShortcutClient</doc>
+        <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-global-shortcut-client.h"
+                         line="24"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-global-shortcut-client.c"
+               line="440">a newly allocated #GPasteGtkGlobalShortcutClient
+         free it with g_object_unref</doc>
+          <type name="GlobalShortcutClient"
+                c:type="GPasteGtkGlobalShortcutClient*"/>
+        </return-value>
+      </constructor>
+      <function name="new"
+                c:identifier="g_paste_gtk_global_shortcut_client_new"
+                glib:finish-func="new_finish">
+        <doc xml:space="preserve"
+             filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-global-shortcut-client.c"
+             line="449">Create a new instance of #GPasteGtkGlobalShortcutClient</doc>
+        <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-global-shortcut-client.h"
+                         line="25"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="1">
+            <doc xml:space="preserve"
+                 filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-global-shortcut-client.c"
+                 line="451">Callback function to invoke when the proxy is ready.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-global-shortcut-client.c"
+                 line="452">User data to pass to @callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </function>
+    </class>
+    <record name="GlobalShortcutClientClass"
+            c:type="GPasteGtkGlobalShortcutClientClass"
+            glib:is-gtype-struct-for="GlobalShortcutClient">
+      <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-global-shortcut-client.h"
+                       line="18"/>
+      <field name="parent_class">
+        <type name="Gio.DBusProxyClass" c:type="GDBusProxyClass"/>
+      </field>
+    </record>
     <function-macro name="INIT_APPLICATION"
                     c:identifier="G_PASTE_GTK_INIT_APPLICATION"
                     introspectable="0">
       <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-macros.h"
-                       line="31"/>
+                       line="28"/>
       <parameters>
         <parameter name="name">
         </parameter>
@@ -131,7 +237,7 @@ and/or use gtk-doc annotations.  -->
            glib:get-type="g_paste_gtk_preferences_behaviour_page_get_type"
            glib:type-struct="PreferencesBehaviourPageClass">
       <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-behaviour-page.h"
-                       line="19"/>
+                       line="16"/>
       <implements name="Gtk.Accessible"/>
       <implements name="Gtk.Buildable"/>
       <implements name="Gtk.ConstraintTarget"/>
@@ -139,13 +245,13 @@ and/or use gtk-doc annotations.  -->
                    c:identifier="g_paste_gtk_preferences_behaviour_page_new">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-behaviour-page.c"
-             line="98">Create a new instance of #GPasteGtkPreferencesBehaviourPage</doc>
+             line="92">Create a new instance of #GPasteGtkPreferencesBehaviourPage</doc>
         <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-behaviour-page.h"
-                         line="21"/>
+                         line="18"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-behaviour-page.c"
-               line="104">a newly allocated #GPasteGtkPreferencesBehaviourPage
+               line="98">a newly allocated #GPasteGtkPreferencesBehaviourPage
                      free it with g_object_unref</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
@@ -153,7 +259,7 @@ and/or use gtk-doc annotations.  -->
           <parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-behaviour-page.c"
-                 line="100">a #GPasteGtkPreferencesManager instance</doc>
+                 line="94">a #GPasteGtkPreferencesManager instance</doc>
             <type name="PreferencesManager"
                   c:type="GPasteGtkPreferencesManager*"/>
           </parameter>
@@ -164,7 +270,7 @@ and/or use gtk-doc annotations.  -->
             c:type="GPasteGtkPreferencesBehaviourPageClass"
             glib:is-gtype-struct-for="PreferencesBehaviourPage">
       <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-behaviour-page.h"
-                       line="19"/>
+                       line="16"/>
       <field name="parent_class">
         <type name="PreferencesPageClass"
               c:type="GPasteGtkPreferencesPageClass"/>
@@ -178,7 +284,7 @@ and/or use gtk-doc annotations.  -->
            glib:get-type="g_paste_gtk_preferences_dialog_get_type"
            glib:type-struct="PreferencesDialogClass">
       <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-dialog.h"
-                       line="19"/>
+                       line="16"/>
       <implements name="Gtk.Accessible"/>
       <implements name="Gtk.Buildable"/>
       <implements name="Gtk.ConstraintTarget"/>
@@ -187,13 +293,13 @@ and/or use gtk-doc annotations.  -->
                    c:identifier="g_paste_gtk_preferences_dialog_new">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-dialog.c"
-             line="50">Create a new instance of #GPasteGtkPreferencesDialog</doc>
+             line="49">Create a new instance of #GPasteGtkPreferencesDialog</doc>
         <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-dialog.h"
-                         line="21"/>
+                         line="18"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-dialog.c"
-               line="56">a newly allocated #GPasteGtkPreferencesDialog
+               line="55">a newly allocated #GPasteGtkPreferencesDialog
                      free it with g_object_unref</doc>
           <type name="Adw.Dialog" c:type="AdwDialog*"/>
         </return-value>
@@ -201,7 +307,7 @@ and/or use gtk-doc annotations.  -->
           <parameter name="gapp" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-dialog.c"
-                 line="52">a #GApplication instance</doc>
+                 line="51">a #GApplication instance</doc>
             <type name="Gio.Application" c:type="GApplication*"/>
           </parameter>
         </parameters>
@@ -211,7 +317,7 @@ and/or use gtk-doc annotations.  -->
             c:type="GPasteGtkPreferencesDialogClass"
             glib:is-gtype-struct-for="PreferencesDialog">
       <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-dialog.h"
-                       line="19"/>
+                       line="16"/>
       <field name="parent_class">
         <type name="Adw.PreferencesDialogClass"
               c:type="AdwPreferencesDialogClass"/>
@@ -225,20 +331,20 @@ and/or use gtk-doc annotations.  -->
            glib:get-type="g_paste_gtk_preferences_group_get_type"
            glib:type-struct="PreferencesGroupClass">
       <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.h"
-                       line="19"/>
+                       line="16"/>
       <implements name="Gtk.Accessible"/>
       <implements name="Gtk.Buildable"/>
       <implements name="Gtk.ConstraintTarget"/>
       <constructor name="new" c:identifier="g_paste_gtk_preferences_group_new">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.c"
-             line="277">Create a new instance of #GPasteGtkPreferencesGroup</doc>
+             line="268">Create a new instance of #GPasteGtkPreferencesGroup</doc>
         <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.h"
-                         line="51"/>
+                         line="48"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.c"
-               line="283">a newly allocated #GPasteGtkPreferencesGroup
+               line="274">a newly allocated #GPasteGtkPreferencesGroup
          free it with g_object_unref</doc>
           <type name="PreferencesGroup" c:type="GPasteGtkPreferencesGroup*"/>
         </return-value>
@@ -246,7 +352,7 @@ and/or use gtk-doc annotations.  -->
           <parameter name="title" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.c"
-                 line="279">The title of the preferences group</doc>
+                 line="270">The title of the preferences group</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -255,32 +361,32 @@ and/or use gtk-doc annotations.  -->
               c:identifier="g_paste_gtk_preferences_group_add_boolean_setting">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.c"
-             line="93">Add a new boolean settings to the current pane</doc>
+             line="90">Add a new boolean settings to the current pane</doc>
         <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.h"
-                         line="29"/>
+                         line="26"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.c"
-               line="104">the #GtkSwitch we just added</doc>
-          <type name="Gtk.Switch" c:type="GtkSwitch*"/>
+               line="101">the #AdwSwitchRow we just added</doc>
+          <type name="Adw.SwitchRow" c:type="AdwSwitchRow*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.c"
-                 line="95">a #GPasteGtkPreferencesGroup instance</doc>
+                 line="92">a #GPasteGtkPreferencesGroup instance</doc>
             <type name="PreferencesGroup" c:type="GPasteGtkPreferencesGroup*"/>
           </instance-parameter>
           <parameter name="label" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.c"
-                 line="96">the label to display</doc>
+                 line="93">the label to display</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.c"
-                 line="97">the deafault value</doc>
+                 line="94">the deafault value</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="on_value_changed"
@@ -288,7 +394,7 @@ and/or use gtk-doc annotations.  -->
                      scope="notified">
             <doc xml:space="preserve"
                  filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.c"
-                 line="98">the callback to call when the value changes</doc>
+                 line="95">the callback to call when the value changes</doc>
             <type name="BooleanCallback" c:type="GPasteGtkBooleanCallback"/>
           </parameter>
           <parameter name="on_reset"
@@ -296,13 +402,13 @@ and/or use gtk-doc annotations.  -->
                      scope="notified">
             <doc xml:space="preserve"
                  filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.c"
-                 line="99">the callback to call when the value is reset</doc>
+                 line="96">the callback to call when the value is reset</doc>
             <type name="ResetCallback" c:type="GPasteGtkResetCallback"/>
           </parameter>
           <parameter name="settings" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.c"
-                 line="100">a #GPasteSettings instance</doc>
+                 line="97">a #GPasteSettings instance</doc>
             <type name="GPaste.Settings" c:type="GPasteSettings*"/>
           </parameter>
         </parameters>
@@ -311,50 +417,50 @@ and/or use gtk-doc annotations.  -->
               c:identifier="g_paste_gtk_preferences_group_add_range_setting">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.c"
-             line="140">Add a new boolean settings to the current pane</doc>
+             line="139">Add a new range settings to the current pane</doc>
         <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.h"
-                         line="35"/>
+                         line="32"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.c"
-               line="154">the #GtkSpinButton we just added</doc>
-          <type name="Gtk.SpinButton" c:type="GtkSpinButton*"/>
+               line="153">the #AdwSpinRow we just added</doc>
+          <type name="Adw.SpinRow" c:type="AdwSpinRow*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.c"
-                 line="142">a #GPasteGtkPreferencesGroup instance</doc>
+                 line="141">a #GPasteGtkPreferencesGroup instance</doc>
             <type name="PreferencesGroup" c:type="GPasteGtkPreferencesGroup*"/>
           </instance-parameter>
           <parameter name="label" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.c"
-                 line="143">the label to display</doc>
+                 line="142">the label to display</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.c"
-                 line="144">the deafault value</doc>
+                 line="143">the deafault value</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="min" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.c"
-                 line="145">the minimal authorized value</doc>
+                 line="144">the minimal authorized value</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="max" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.c"
-                 line="146">the maximal authorized value</doc>
+                 line="145">the maximal authorized value</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="step" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.c"
-                 line="147">the step between proposed values</doc>
+                 line="146">the step between proposed values</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="on_value_changed"
@@ -362,7 +468,7 @@ and/or use gtk-doc annotations.  -->
                      scope="notified">
             <doc xml:space="preserve"
                  filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.c"
-                 line="148">the callback to call when the value changes</doc>
+                 line="147">the callback to call when the value changes</doc>
             <type name="RangeCallback" c:type="GPasteGtkRangeCallback"/>
           </parameter>
           <parameter name="on_reset"
@@ -370,13 +476,13 @@ and/or use gtk-doc annotations.  -->
                      scope="notified">
             <doc xml:space="preserve"
                  filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.c"
-                 line="149">the callback to call when the value is reset</doc>
+                 line="148">the callback to call when the value is reset</doc>
             <type name="ResetCallback" c:type="GPasteGtkResetCallback"/>
           </parameter>
           <parameter name="settings" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.c"
-                 line="150">a #GPasteSettings instance</doc>
+                 line="149">a #GPasteSettings instance</doc>
             <type name="GPaste.Settings" c:type="GPasteSettings*"/>
           </parameter>
         </parameters>
@@ -385,32 +491,32 @@ and/or use gtk-doc annotations.  -->
               c:identifier="g_paste_gtk_preferences_group_add_text_setting">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.c"
-             line="200">Add a new text settings to the current pane</doc>
+             line="194">Add a new text settings to the current pane</doc>
         <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.h"
-                         line="44"/>
+                         line="41"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.c"
-               line="211">the #GtkEntryBuffer from the #GtkEntry we just added</doc>
-          <type name="Gtk.EntryBuffer" c:type="GtkEntryBuffer*"/>
+               line="205">the #AdwEntryRow we just added</doc>
+          <type name="Adw.EntryRow" c:type="AdwEntryRow*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.c"
-                 line="202">a #GPasteGtkPreferencesGroup instance</doc>
+                 line="196">a #GPasteGtkPreferencesGroup instance</doc>
             <type name="PreferencesGroup" c:type="GPasteGtkPreferencesGroup*"/>
           </instance-parameter>
           <parameter name="label" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.c"
-                 line="203">the label to display</doc>
+                 line="197">the label to display</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.c"
-                 line="204">the deafault value</doc>
+                 line="198">the deafault value</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="on_value_changed"
@@ -418,7 +524,7 @@ and/or use gtk-doc annotations.  -->
                      scope="notified">
             <doc xml:space="preserve"
                  filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.c"
-                 line="205">the callback to call when the value changes</doc>
+                 line="199">the callback to call when the value changes</doc>
             <type name="TextCallback" c:type="GPasteGtkTextCallback"/>
           </parameter>
           <parameter name="on_reset"
@@ -426,13 +532,13 @@ and/or use gtk-doc annotations.  -->
                      scope="notified">
             <doc xml:space="preserve"
                  filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.c"
-                 line="206">the callback to call when the value is reset</doc>
+                 line="200">the callback to call when the value is reset</doc>
             <type name="ResetCallback" c:type="GPasteGtkResetCallback"/>
           </parameter>
           <parameter name="settings" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.c"
-                 line="207">a #GPasteSettings instance</doc>
+                 line="201">a #GPasteSettings instance</doc>
             <type name="GPaste.Settings" c:type="GPasteSettings*"/>
           </parameter>
         </parameters>
@@ -442,7 +548,7 @@ and/or use gtk-doc annotations.  -->
             c:type="GPasteGtkPreferencesGroupClass"
             glib:is-gtype-struct-for="PreferencesGroup">
       <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.h"
-                       line="19"/>
+                       line="16"/>
       <field name="parent_class">
         <type name="Adw.PreferencesGroupClass"
               c:type="AdwPreferencesGroupClass"/>
@@ -456,7 +562,7 @@ and/or use gtk-doc annotations.  -->
            glib:get-type="g_paste_gtk_preferences_history_settings_page_get_type"
            glib:type-struct="PreferencesHistorySettingsPageClass">
       <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-history-settings-page.h"
-                       line="19"/>
+                       line="16"/>
       <implements name="Gtk.Accessible"/>
       <implements name="Gtk.Buildable"/>
       <implements name="Gtk.ConstraintTarget"/>
@@ -464,13 +570,13 @@ and/or use gtk-doc annotations.  -->
                    c:identifier="g_paste_gtk_preferences_history_settings_page_new">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-history-settings-page.c"
-             line="79">Create a new instance of #GPasteGtkPreferencesHistorySettingsPage</doc>
+             line="76">Create a new instance of #GPasteGtkPreferencesHistorySettingsPage</doc>
         <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-history-settings-page.h"
-                         line="21"/>
+                         line="18"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-history-settings-page.c"
-               line="85">a newly allocated #GPasteGtkPreferencesHistorySettingsPage
+               line="82">a newly allocated #GPasteGtkPreferencesHistorySettingsPage
                      free it with g_object_unref</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
@@ -478,7 +584,7 @@ and/or use gtk-doc annotations.  -->
           <parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-history-settings-page.c"
-                 line="81">a #GPasteGtkPreferencesManager instance</doc>
+                 line="78">a #GPasteGtkPreferencesManager instance</doc>
             <type name="PreferencesManager"
                   c:type="GPasteGtkPreferencesManager*"/>
           </parameter>
@@ -489,7 +595,54 @@ and/or use gtk-doc annotations.  -->
             c:type="GPasteGtkPreferencesHistorySettingsPageClass"
             glib:is-gtype-struct-for="PreferencesHistorySettingsPage">
       <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-history-settings-page.h"
-                       line="19"/>
+                       line="16"/>
+      <field name="parent_class">
+        <type name="PreferencesPageClass"
+              c:type="GPasteGtkPreferencesPageClass"/>
+      </field>
+    </record>
+    <class name="PreferencesImagesPage"
+           c:symbol-prefix="preferences_images_page"
+           c:type="GPasteGtkPreferencesImagesPage"
+           parent="PreferencesPage"
+           glib:type-name="GPasteGtkPreferencesImagesPage"
+           glib:get-type="g_paste_gtk_preferences_images_page_get_type"
+           glib:type-struct="PreferencesImagesPageClass">
+      <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-images-page.h"
+                       line="16"/>
+      <implements name="Gtk.Accessible"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.ConstraintTarget"/>
+      <constructor name="new"
+                   c:identifier="g_paste_gtk_preferences_images_page_new">
+        <doc xml:space="preserve"
+             filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-images-page.c"
+             line="65">Create a new instance of #GPasteGtkPreferencesImagesPage</doc>
+        <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-images-page.h"
+                         line="18"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-images-page.c"
+               line="71">a newly allocated #GPasteGtkPreferencesImagesPage
+                     free it with g_object_unref</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-images-page.c"
+                 line="67">a #GPasteGtkPreferencesManager instance</doc>
+            <type name="PreferencesManager"
+                  c:type="GPasteGtkPreferencesManager*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+    </class>
+    <record name="PreferencesImagesPageClass"
+            c:type="GPasteGtkPreferencesImagesPageClass"
+            glib:is-gtype-struct-for="PreferencesImagesPage">
+      <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-images-page.h"
+                       line="16"/>
       <field name="parent_class">
         <type name="PreferencesPageClass"
               c:type="GPasteGtkPreferencesPageClass"/>
@@ -503,18 +656,18 @@ and/or use gtk-doc annotations.  -->
            glib:get-type="g_paste_gtk_preferences_manager_get_type"
            glib:type-struct="PreferencesManagerClass">
       <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-manager.h"
-                       line="19"/>
+                       line="16"/>
       <constructor name="new"
                    c:identifier="g_paste_gtk_preferences_manager_new">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-manager.c"
-             line="143">Create a new instance of #GPasteGtkPreferencesManager</doc>
+             line="129">Create a new instance of #GPasteGtkPreferencesManager</doc>
         <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-manager.h"
-                         line="29"/>
+                         line="26"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-manager.c"
-               line="148">a newly allocated #GPasteGtkPreferencesManager
+               line="134">a newly allocated #GPasteGtkPreferencesManager
                      free it with g_object_unref</doc>
           <type name="PreferencesManager"
                 c:type="GPasteGtkPreferencesManager*"/>
@@ -524,56 +677,7 @@ and/or use gtk-doc annotations.  -->
               c:identifier="g_paste_gtk_preferences_manager_deregister">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-manager.c"
-             line="68">Deregister the page from the manager</doc>
-        <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-manager.h"
-                         line="26"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-manager.c"
-                 line="70">a #GPasteGtkPreferencesManager instance</doc>
-            <type name="PreferencesManager"
-                  c:type="GPasteGtkPreferencesManager*"/>
-          </instance-parameter>
-          <parameter name="page" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-manager.c"
-                 line="71">a #GPasteGtkPreferencesPage instance</doc>
-            <type name="PreferencesPage" c:type="GPasteGtkPreferencesPage*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="get_settings"
-              c:identifier="g_paste_gtk_preferences_manager_get_settings">
-        <doc xml:space="preserve"
-             filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-manager.c"
-             line="32">Returns the #GPasteSettings instance manager by @self</doc>
-        <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-manager.h"
-                         line="21"/>
-        <return-value transfer-ownership="none" nullable="1">
-          <doc xml:space="preserve"
-               filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-manager.c"
-               line="38">the #GPasteSettings instance</doc>
-          <type name="GPaste.Settings" c:type="GPasteSettings*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-manager.c"
-                 line="34">a #GPasteGtkPreferencesManager instance</doc>
-            <type name="PreferencesManager"
-                  c:type="GPasteGtkPreferencesManager*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="register"
-              c:identifier="g_paste_gtk_preferences_manager_register">
-        <doc xml:space="preserve"
-             filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-manager.c"
-             line="49">Register the page in the manager to notify for settings changes</doc>
+             line="57">Deregister the page from the manager</doc>
         <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-manager.h"
                          line="23"/>
         <return-value transfer-ownership="none">
@@ -583,14 +687,63 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-manager.c"
-                 line="51">a #GPasteGtkPreferencesManager instance</doc>
+                 line="59">a #GPasteGtkPreferencesManager instance</doc>
             <type name="PreferencesManager"
                   c:type="GPasteGtkPreferencesManager*"/>
           </instance-parameter>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-manager.c"
-                 line="52">a #GPasteGtkPreferencesPage instance</doc>
+                 line="60">a #GPasteGtkPreferencesPage instance</doc>
+            <type name="PreferencesPage" c:type="GPasteGtkPreferencesPage*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_settings"
+              c:identifier="g_paste_gtk_preferences_manager_get_settings">
+        <doc xml:space="preserve"
+             filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-manager.c"
+             line="21">Returns the #GPasteSettings instance manager by @self</doc>
+        <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-manager.h"
+                         line="18"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-manager.c"
+               line="27">the #GPasteSettings instance</doc>
+          <type name="GPaste.Settings" c:type="GPasteSettings*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-manager.c"
+                 line="23">a #GPasteGtkPreferencesManager instance</doc>
+            <type name="PreferencesManager"
+                  c:type="GPasteGtkPreferencesManager*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="register"
+              c:identifier="g_paste_gtk_preferences_manager_register">
+        <doc xml:space="preserve"
+             filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-manager.c"
+             line="38">Register the page in the manager to notify for settings changes</doc>
+        <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-manager.h"
+                         line="20"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-manager.c"
+                 line="40">a #GPasteGtkPreferencesManager instance</doc>
+            <type name="PreferencesManager"
+                  c:type="GPasteGtkPreferencesManager*"/>
+          </instance-parameter>
+          <parameter name="page" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-manager.c"
+                 line="41">a #GPasteGtkPreferencesPage instance</doc>
             <type name="PreferencesPage" c:type="GPasteGtkPreferencesPage*"/>
           </parameter>
         </parameters>
@@ -600,7 +753,7 @@ and/or use gtk-doc annotations.  -->
             c:type="GPasteGtkPreferencesManagerClass"
             glib:is-gtype-struct-for="PreferencesManager">
       <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-manager.h"
-                       line="19"/>
+                       line="16"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -613,16 +766,16 @@ and/or use gtk-doc annotations.  -->
            glib:get-type="g_paste_gtk_preferences_page_get_type"
            glib:type-struct="PreferencesPageClass">
       <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-page.h"
-                       line="29"/>
+                       line="26"/>
       <implements name="Gtk.Accessible"/>
       <implements name="Gtk.Buildable"/>
       <implements name="Gtk.ConstraintTarget"/>
       <virtual-method name="setting_changed" invoker="setting_changed">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-page.c"
-             line="11">Apply changes related to the update of one setting</doc>
+             line="8">Apply changes related to the update of one setting</doc>
         <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-page.h"
-                         line="26"/>
+                         line="23"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -630,19 +783,19 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-page.c"
-                 line="13">a #GPasteGtkPreferencesPage instance</doc>
+                 line="10">a #GPasteGtkPreferencesPage instance</doc>
             <type name="PreferencesPage" c:type="GPasteGtkPreferencesPage*"/>
           </instance-parameter>
           <parameter name="settings" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-page.c"
-                 line="14">a #GPasteSettings instance</doc>
+                 line="11">a #GPasteSettings instance</doc>
             <type name="GPaste.Settings" c:type="GPasteSettings*"/>
           </parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-page.c"
-                 line="15">the settings key that just changed</doc>
+                 line="12">the settings key that just changed</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -651,9 +804,9 @@ and/or use gtk-doc annotations.  -->
               c:identifier="g_paste_gtk_preferences_page_setting_changed">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-page.c"
-             line="11">Apply changes related to the update of one setting</doc>
+             line="8">Apply changes related to the update of one setting</doc>
         <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-page.h"
-                         line="31"/>
+                         line="28"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -661,19 +814,19 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-page.c"
-                 line="13">a #GPasteGtkPreferencesPage instance</doc>
+                 line="10">a #GPasteGtkPreferencesPage instance</doc>
             <type name="PreferencesPage" c:type="GPasteGtkPreferencesPage*"/>
           </instance-parameter>
           <parameter name="settings" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-page.c"
-                 line="14">a #GPasteSettings instance</doc>
+                 line="11">a #GPasteSettings instance</doc>
             <type name="GPaste.Settings" c:type="GPasteSettings*"/>
           </parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-page.c"
-                 line="15">the settings key that just changed</doc>
+                 line="12">the settings key that just changed</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -686,7 +839,7 @@ and/or use gtk-doc annotations.  -->
             c:type="GPasteGtkPreferencesPageClass"
             glib:is-gtype-struct-for="PreferencesPage">
       <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-page.h"
-                       line="29"/>
+                       line="26"/>
       <field name="parent_class">
         <type name="Adw.PreferencesPageClass"
               c:type="AdwPreferencesPageClass"/>
@@ -694,7 +847,7 @@ and/or use gtk-doc annotations.  -->
       <field name="setting_changed">
         <callback name="setting_changed">
           <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-page.h"
-                           line="26"/>
+                           line="23"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -702,19 +855,19 @@ and/or use gtk-doc annotations.  -->
             <parameter name="self" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-page.c"
-                   line="13">a #GPasteGtkPreferencesPage instance</doc>
+                   line="10">a #GPasteGtkPreferencesPage instance</doc>
               <type name="PreferencesPage" c:type="GPasteGtkPreferencesPage*"/>
             </parameter>
             <parameter name="settings" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-page.c"
-                   line="14">a #GPasteSettings instance</doc>
+                   line="11">a #GPasteSettings instance</doc>
               <type name="GPaste.Settings" c:type="GPasteSettings*"/>
             </parameter>
             <parameter name="key" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-page.c"
-                   line="15">the settings key that just changed</doc>
+                   line="12">the settings key that just changed</doc>
               <type name="utf8" c:type="const gchar*"/>
             </parameter>
           </parameters>
@@ -729,7 +882,7 @@ and/or use gtk-doc annotations.  -->
            glib:get-type="g_paste_gtk_preferences_shortcuts_page_get_type"
            glib:type-struct="PreferencesShortcutsPageClass">
       <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-shortcuts-page.h"
-                       line="19"/>
+                       line="16"/>
       <implements name="Gtk.Accessible"/>
       <implements name="Gtk.Buildable"/>
       <implements name="Gtk.ConstraintTarget"/>
@@ -737,13 +890,13 @@ and/or use gtk-doc annotations.  -->
                    c:identifier="g_paste_gtk_preferences_shortcuts_page_new">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-shortcuts-page.c"
-             line="82">Create a new instance of #GPasteGtkPreferencesShortcutsPage</doc>
+             line="106">Create a new instance of #GPasteGtkPreferencesShortcutsPage</doc>
         <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-shortcuts-page.h"
-                         line="21"/>
+                         line="18"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-shortcuts-page.c"
-               line="88">a newly allocated #GPasteGtkPreferencesShortcutsPage
+               line="112">a newly allocated #GPasteGtkPreferencesShortcutsPage
                      free it with g_object_unref</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
@@ -751,7 +904,7 @@ and/or use gtk-doc annotations.  -->
           <parameter name="manager" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-shortcuts-page.c"
-                 line="84">a #GPasteGtkPreferencesManager instance</doc>
+                 line="108">a #GPasteGtkPreferencesManager instance</doc>
             <type name="PreferencesManager"
                   c:type="GPasteGtkPreferencesManager*"/>
           </parameter>
@@ -762,7 +915,7 @@ and/or use gtk-doc annotations.  -->
             c:type="GPasteGtkPreferencesShortcutsPageClass"
             glib:is-gtype-struct-for="PreferencesShortcutsPage">
       <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-shortcuts-page.h"
-                       line="19"/>
+                       line="16"/>
       <field name="parent_class">
         <type name="PreferencesPageClass"
               c:type="GPasteGtkPreferencesPageClass"/>
@@ -776,7 +929,7 @@ and/or use gtk-doc annotations.  -->
            glib:get-type="g_paste_gtk_preferences_widget_get_type"
            glib:type-struct="PreferencesWidgetClass">
       <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-widget.h"
-                       line="19"/>
+                       line="16"/>
       <implements name="Gtk.Accessible"/>
       <implements name="Gtk.Buildable"/>
       <implements name="Gtk.ConstraintTarget"/>
@@ -784,13 +937,13 @@ and/or use gtk-doc annotations.  -->
                    c:identifier="g_paste_gtk_preferences_widget_new">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-widget.c"
-             line="55">Create a new instance of #GPasteGtkPreferencesWidget</doc>
+             line="54">Create a new instance of #GPasteGtkPreferencesWidget</doc>
         <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-widget.h"
-                         line="21"/>
+                         line="18"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-widget.c"
-               line="60">a newly allocated #GPasteGtkPreferencesWidget
+               line="59">a newly allocated #GPasteGtkPreferencesWidget
                      free it with g_object_unref</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
@@ -800,14 +953,14 @@ and/or use gtk-doc annotations.  -->
             c:type="GPasteGtkPreferencesWidgetClass"
             glib:is-gtype-struct-for="PreferencesWidget">
       <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-widget.h"
-                       line="19"/>
+                       line="16"/>
       <field name="parent_class">
         <type name="Adw.BinClass" c:type="AdwBinClass"/>
       </field>
     </record>
     <callback name="RangeCallback" c:type="GPasteGtkRangeCallback">
       <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.h"
-                       line="23"/>
+                       line="20"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -822,7 +975,7 @@ and/or use gtk-doc annotations.  -->
     </callback>
     <callback name="ResetCallback" c:type="GPasteGtkResetCallback">
       <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.h"
-                       line="27"/>
+                       line="24"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -834,7 +987,7 @@ and/or use gtk-doc annotations.  -->
     </callback>
     <callback name="TextCallback" c:type="GPasteGtkTextCallback">
       <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-preferences-group.h"
-                       line="25"/>
+                       line="22"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -851,20 +1004,20 @@ and/or use gtk-doc annotations.  -->
               c:identifier="g_paste_gtk_util_compute_checksum">
       <doc xml:space="preserve"
            filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-util.c"
-           line="126">Compute the checksum of an image</doc>
+           line="58">Compute the checksum of an image</doc>
       <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-util.h"
-                       line="28"/>
+                       line="25"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-util.c"
-             line="132">the newly allocated checksum</doc>
+             line="64">the newly allocated checksum</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
       <parameters>
-        <parameter name="texture" transfer-ownership="none">
+        <parameter name="image" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-util.c"
-               line="128">the #GdkTexture to checksum</doc>
+               line="60">the #GdkTexture to checksum</doc>
           <type name="Gdk.Texture" c:type="GdkTexture*"/>
         </parameter>
       </parameters>
@@ -873,9 +1026,9 @@ and/or use gtk-doc annotations.  -->
               c:identifier="g_paste_gtk_util_confirm_dialog">
       <doc xml:space="preserve"
            filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-util.c"
-           line="96">Ask the user for confirmation</doc>
+           line="23">Ask the user for confirmation</doc>
       <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-util.h"
-                       line="22"/>
+                       line="19"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -886,16 +1039,19 @@ and/or use gtk-doc annotations.  -->
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-util.c"
-               line="98">the parent #GtkWindow</doc>
+               line="25">the parent #GtkWindow</doc>
           <type name="Gtk.Window" c:type="GtkWindow*"/>
         </parameter>
         <parameter name="action" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-util.c"
+               line="26">the label for the confirm button</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="msg" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-util.c"
-               line="99">the message to display</doc>
+               line="27">the message to display</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="on_confirmation"
@@ -904,7 +1060,7 @@ and/or use gtk-doc annotations.  -->
                    closure="4">
           <doc xml:space="preserve"
                filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-util.c"
-               line="100">handler to invoke when we get a confirmation</doc>
+               line="28">handler to invoke when we get a confirmation</doc>
           <type name="ConfirmDialogCallback"
                 c:type="GPasteGtkConfirmDialogCallback"/>
         </parameter>
@@ -920,9 +1076,9 @@ and/or use gtk-doc annotations.  -->
               c:identifier="g_paste_gtk_util_empty_history">
       <doc xml:space="preserve"
            filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-util.c"
-           line="175">Empty history after prompting user for confirmation</doc>
+           line="98">Empty history after prompting user for confirmation</doc>
       <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-util.h"
-                       line="30"/>
+                       line="27"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -933,25 +1089,25 @@ and/or use gtk-doc annotations.  -->
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-util.c"
-               line="177">the parent #GtkWindow</doc>
+               line="100">the parent #GtkWindow</doc>
           <type name="Gtk.Window" c:type="GtkWindow*"/>
         </parameter>
         <parameter name="client" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-util.c"
-               line="178">a #GPasteClient instance</doc>
+               line="101">a #GPasteClient instance</doc>
           <type name="GPaste.Client" c:type="GPasteClient*"/>
         </parameter>
         <parameter name="settings" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-util.c"
-               line="179">a #GPasteSettings instance</doc>
+               line="102">a #GPasteSettings instance</doc>
           <type name="GPaste.Settings" c:type="GPasteSettings*"/>
         </parameter>
         <parameter name="history" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-util.c"
-               line="180">the name of the history to empty</doc>
+               line="103">the name of the history to empty</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -960,9 +1116,9 @@ and/or use gtk-doc annotations.  -->
               c:identifier="g_paste_gtk_util_show_window">
       <doc xml:space="preserve"
            filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-util.c"
-           line="211">Present the application's window to user</doc>
+           line="133">Present the application's window to user</doc>
       <source-position filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-util.h"
-                       line="35"/>
+                       line="32"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -970,7 +1126,7 @@ and/or use gtk-doc annotations.  -->
         <parameter name="application" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libgpaste/gpaste-gtk4/gpaste-gtk-util.c"
-               line="213">a #GtkApplication</doc>
+               line="135">a #GtkApplication</doc>
           <type name="Gio.Application" c:type="GApplication*"/>
         </parameter>
       </parameters>

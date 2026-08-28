@@ -35,7 +35,7 @@ and/or use gtk-doc annotations.  -->
               version="4.19.3">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-application.c"
-             line="217">Fetches this application's class id. On X11 this should be the class name of
+             line="221">Fetches this application's class id. On X11 this should be the class name of
 the [WM_CLASS property](https://x.org/releases/X11R7.6/doc/xorg-docs/specs/ICCCM/icccm.html#wm_class_property).
 On Wayland, it's the [application ID](https://wayland.app/protocols/wlr-foreign-toplevel-management-unstable-v1#zwlr_foreign_toplevel_handle_v1:event:app_id),
 which should correspond to the basename of the application's desktop file.</doc>
@@ -44,7 +44,7 @@ which should correspond to the basename of the application's desktop file.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-application.c"
-               line="226">A UTF-8 formatted string,
+               line="230">A UTF-8 formatted string,
 owned by @app.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -52,7 +52,7 @@ owned by @app.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-application.c"
-                 line="219">an #XfwApplication.</doc>
+                 line="223">an #XfwApplication.</doc>
             <type name="Application" c:type="XfwApplication*"/>
           </instance-parameter>
         </parameters>
@@ -63,7 +63,7 @@ owned by @app.</doc>
               version="4.19.1">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-application.c"
-             line="294">Fetches @app's icon as a size-independent #GIcon.  If an icon cannot be
+             line="298">Fetches @app's icon as a size-independent #GIcon.  If an icon cannot be
 found, a #GIcon representing a fallback icon will be returned.  Whether or
 not the returned icon is a fallback icon can be determined using
 #xfw_application_icon_is_fallback().</doc>
@@ -72,14 +72,14 @@ not the returned icon is a fallback icon can be determined using
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-application.c"
-               line="303">a #GIcon, owned by @app.</doc>
+               line="307">a #GIcon, owned by @app.</doc>
           <type name="Gio.Icon" c:type="GIcon*"/>
         </return-value>
         <parameters>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-application.c"
-                 line="296">an #XfwApplication.</doc>
+                 line="300">an #XfwApplication.</doc>
             <type name="Application" c:type="XfwApplication*"/>
           </instance-parameter>
         </parameters>
@@ -87,7 +87,7 @@ not the returned icon is a fallback icon can be determined using
       <method name="get_icon" c:identifier="xfw_application_get_icon">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-application.c"
-             line="256">Fetches @app's icon.  If @app has no icon, a fallback icon may be
+             line="260">Fetches @app's icon.  If @app has no icon, a fallback icon may be
 returned.  Whether or not the returned icon is a fallback icon can be
 determined using #xfw_application_icon_is_fallback().</doc>
         <source-position filename="libxfce4windowing/xfw-application.h"
@@ -95,7 +95,7 @@ determined using #xfw_application_icon_is_fallback().</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-application.c"
-               line="266">a #GdkPixbuf, owned by @app,
+               line="270">a #GdkPixbuf, owned by @app,
 or %NULL if @app has no icon and a fallback cannot be rendered.</doc>
           <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
         </return-value>
@@ -103,19 +103,19 @@ or %NULL if @app has no icon and a fallback cannot be rendered.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-application.c"
-                 line="258">an #XfwApplication.</doc>
+                 line="262">an #XfwApplication.</doc>
             <type name="Application" c:type="XfwApplication*"/>
           </instance-parameter>
           <parameter name="size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-application.c"
-                 line="259">the desired icon size.</doc>
+                 line="263">the desired icon size.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="scale" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-application.c"
-                 line="260">the UI scale factor.</doc>
+                 line="264">the UI scale factor.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -123,13 +123,13 @@ or %NULL if @app has no icon and a fallback cannot be rendered.</doc>
       <method name="get_instance" c:identifier="xfw_application_get_instance">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-application.c"
-             line="384">Finds the #XfwApplicationInstance to which @window belongs.</doc>
+             line="388">Finds the #XfwApplicationInstance to which @window belongs.</doc>
         <source-position filename="libxfce4windowing/xfw-application.h"
                          line="52"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-application.c"
-               line="391">
+               line="395">
 The #XfwApplicationInstance to which @window belongs, or %NULL if @window
 does not belong to @app, or if listing instances is not supported on the
 windowing environment in use. The returned #XfwApplicationInstance is owned
@@ -140,13 +140,13 @@ by @app.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-application.c"
-                 line="386">an #XfwApplication.</doc>
+                 line="390">an #XfwApplication.</doc>
             <type name="Application" c:type="XfwApplication*"/>
           </instance-parameter>
           <parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-application.c"
-                 line="387">the application window you want to get the instance of.</doc>
+                 line="391">the application window you want to get the instance of.</doc>
             <type name="Window" c:type="XfwWindow*"/>
           </parameter>
         </parameters>
@@ -156,13 +156,13 @@ by @app.</doc>
               glib:get-property="instances">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-application.c"
-             line="365">Lists all instances of the application.</doc>
+             line="369">Lists all instances of the application.</doc>
         <source-position filename="libxfce4windowing/xfw-application.h"
                          line="51"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-application.c"
-               line="371">
+               line="375">
 The list of #XfwApplicationInstance of @app, or %NULL if listing instances is
 not supported on the windowing environment in use. The list and its contents
 are owned by @app.</doc>
@@ -174,7 +174,7 @@ are owned by @app.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-application.c"
-                 line="367">an #XfwApplication.</doc>
+                 line="371">an #XfwApplication.</doc>
             <type name="Application" c:type="XfwApplication*"/>
           </instance-parameter>
         </parameters>
@@ -184,13 +184,13 @@ are owned by @app.</doc>
               glib:get-property="name">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-application.c"
-             line="239">Fetches this application's human-readable name.</doc>
+             line="243">Fetches this application's human-readable name.</doc>
         <source-position filename="libxfce4windowing/xfw-application.h"
                          line="46"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-application.c"
-               line="245">A UTF-8 formatted string,
+               line="249">A UTF-8 formatted string,
 owned by @app.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -198,7 +198,7 @@ owned by @app.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-application.c"
-                 line="241">an #XfwApplication.</doc>
+                 line="245">an #XfwApplication.</doc>
             <type name="Application" c:type="XfwApplication*"/>
           </instance-parameter>
         </parameters>
@@ -208,13 +208,13 @@ owned by @app.</doc>
               glib:get-property="windows">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-application.c"
-             line="347">Lists all windows belonging to the application.</doc>
+             line="351">Lists all windows belonging to the application.</doc>
         <source-position filename="libxfce4windowing/xfw-application.h"
                          line="50"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-application.c"
-               line="353">
+               line="357">
 The list of #XfwWindow belonging to @app. The list and its contents are owned
 by @app.</doc>
           <type name="GLib.List" c:type="GList*">
@@ -225,7 +225,7 @@ by @app.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-application.c"
-                 line="349">an #XfwApplication.</doc>
+                 line="353">an #XfwApplication.</doc>
             <type name="Application" c:type="XfwApplication*"/>
           </instance-parameter>
         </parameters>
@@ -235,7 +235,7 @@ by @app.</doc>
               version="4.19.1">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-application.c"
-             line="322">Determines if @app does not have an icon, and thus a fallback icon
+             line="326">Determines if @app does not have an icon, and thus a fallback icon
 will be returned from #xfw_application_get_icon() and
 #xfw_application_get_gicon().</doc>
         <source-position filename="libxfce4windowing/xfw-application.h"
@@ -243,7 +243,7 @@ will be returned from #xfw_application_get_icon() and
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-application.c"
-               line="330">%TRUE or %FALSE, depending on if @app's icon uses a
+               line="334">%TRUE or %FALSE, depending on if @app's icon uses a
 fallback icon or not.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -251,7 +251,7 @@ fallback icon or not.</doc>
           <instance-parameter name="app" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-application.c"
-                 line="324">an #XfwApplication.</doc>
+                 line="328">an #XfwApplication.</doc>
             <type name="Application" c:type="XfwApplication*"/>
           </instance-parameter>
         </parameters>
@@ -332,20 +332,20 @@ fallback icon or not.</doc>
               version="4.19.1">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-application.c"
-             line="421">Fetches @instance's name, which can often be the same as the application name.</doc>
+             line="425">Fetches @instance's name, which can often be the same as the application name.</doc>
         <source-position filename="libxfce4windowing/xfw-application.h"
                          line="55"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-application.c"
-               line="427">A string owned by @instance.</doc>
+               line="431">A string owned by @instance.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="instance" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-application.c"
-                 line="423">an #XfwApplicationInstance.</doc>
+                 line="427">an #XfwApplicationInstance.</doc>
             <type name="ApplicationInstance" c:type="XfwApplicationInstance*"/>
           </instance-parameter>
         </parameters>
@@ -355,20 +355,20 @@ fallback icon or not.</doc>
               version="4.19.1">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-application.c"
-             line="405">Fetches @instance's PID.</doc>
+             line="409">Fetches @instance's PID.</doc>
         <source-position filename="libxfce4windowing/xfw-application.h"
                          line="54"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-application.c"
-               line="411">The process ID of @instance, or 0 if none is available.</doc>
+               line="415">The process ID of @instance, or 0 if none is available.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="instance" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-application.c"
-                 line="407">an #XfwApplicationInstance.</doc>
+                 line="411">an #XfwApplicationInstance.</doc>
             <type name="ApplicationInstance" c:type="XfwApplicationInstance*"/>
           </instance-parameter>
         </parameters>
@@ -378,13 +378,13 @@ fallback icon or not.</doc>
               version="4.19.1">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-application.c"
-             line="437">Lists all windows belonging to the application instance.</doc>
+             line="441">Lists all windows belonging to the application instance.</doc>
         <source-position filename="libxfce4windowing/xfw-application.h"
                          line="56"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-application.c"
-               line="443">
+               line="447">
 The list of #XfwWindow belonging to @instance. The list and its contents are owned
 by @instance.</doc>
           <type name="GLib.List" c:type="GList*">
@@ -395,7 +395,7 @@ by @instance.</doc>
           <instance-parameter name="instance" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-application.c"
-                 line="439">an #XfwApplicationInstance.</doc>
+                 line="443">an #XfwApplicationInstance.</doc>
             <type name="ApplicationInstance" c:type="XfwApplicationInstance*"/>
           </instance-parameter>
         </parameters>
@@ -526,7 +526,7 @@ that can be used by the C pre-processor.</doc>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="MICRO_VERSION"
-              value="4"
+              value="7"
               c:type="LIBXFCE4WINDOWING_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="libxfce4windowing/libxfce4windowing-config.h"
@@ -562,7 +562,7 @@ that can be used by the C pre-processor.</doc>
               version="4.19.4">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-monitor.c"
-             line="557">Returns the name of the physical connector this monitor is connected to.
+             line="604">Returns the name of the physical connector this monitor is connected to.
 
 This might be a string such as "eDP-1", "DP-3", or "HDMI-2".  Note that in
 environments where the monitor is "virtual", a synthetic connector name may
@@ -571,14 +571,14 @@ be returned.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-monitor.c"
-               line="567">A string owned by @monitor.</doc>
+               line="614">A string owned by @monitor.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="monitor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-monitor.c"
-                 line="559">a #XfwMonitor.</doc>
+                 line="606">a #XfwMonitor.</doc>
             <type name="Monitor" c:type="XfwMonitor*"/>
           </instance-parameter>
         </parameters>
@@ -589,22 +589,57 @@ be returned.</doc>
               version="4.19.4">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-monitor.c"
-             line="540">Returns a human-readable description of this monitor, suitable for
+             line="587">Returns a human-readable description of this monitor, suitable for
 displaying in a user interface.</doc>
         <source-position filename="libxfce4windowing/xfw-monitor.h" line="93"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-monitor.c"
-               line="547">A string owned by @monitor.</doc>
+               line="594">A string owned by @monitor.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="monitor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-monitor.c"
-                 line="542">a #XfwMonitor.</doc>
+                 line="589">a #XfwMonitor.</doc>
             <type name="Monitor" c:type="XfwMonitor*"/>
           </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_edid"
+              c:identifier="xfw_monitor_get_edid"
+              glib:get-property="edid"
+              version="4.20.7">
+        <doc xml:space="preserve"
+             filename="libxfce4windowing/xfw-monitor.c"
+             line="677">Returns the monitor's raw EDID number, if available.</doc>
+        <source-position filename="libxfce4windowing/xfw-monitor.h" line="98"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="libxfce4windowing/xfw-monitor.c"
+               line="685">A byte array owned by @monitor, or
+%NULL.  The number of bytes is returned in @len.</doc>
+          <type name="guint8" c:type="const unsigned char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="monitor" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libxfce4windowing/xfw-monitor.c"
+                 line="679">a #XfwMonitor.</doc>
+            <type name="Monitor" c:type="XfwMonitor*"/>
+          </instance-parameter>
+          <parameter name="len"
+                     direction="out"
+                     caller-allocates="1"
+                     transfer-ownership="none"
+                     nullable="1">
+            <doc xml:space="preserve"
+                 filename="libxfce4windowing/xfw-monitor.c"
+                 line="680">Location for the length (in bytes)
+                                         of the EDID data.</doc>
+            <type name="gsize" c:type="gsize*"/>
+          </parameter>
         </parameters>
       </method>
       <method name="get_fractional_scale"
@@ -613,20 +648,20 @@ displaying in a user interface.</doc>
               version="4.19.4">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-monitor.c"
-             line="662">Returns the monitor's scaling factor.</doc>
+             line="732">Returns the monitor's scaling factor.</doc>
         <source-position filename="libxfce4windowing/xfw-monitor.h"
-                         line="100"/>
+                         line="101"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-monitor.c"
-               line="668">A positive fractional scale.</doc>
+               line="738">A positive fractional scale.</doc>
           <type name="gdouble" c:type="gdouble"/>
         </return-value>
         <parameters>
           <instance-parameter name="monitor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-monitor.c"
-                 line="664">a #XfwMonitor.</doc>
+                 line="734">a #XfwMonitor.</doc>
             <type name="Monitor" c:type="XfwMonitor*"/>
           </instance-parameter>
         </parameters>
@@ -637,20 +672,20 @@ displaying in a user interface.</doc>
               version="4.19.4">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-monitor.c"
-             line="803">Returns the #GdkMonitor that corresponds to @monitor.</doc>
+             line="873">Returns the #GdkMonitor that corresponds to @monitor.</doc>
         <source-position filename="libxfce4windowing/xfw-monitor.h"
-                         line="115"/>
+                         line="116"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-monitor.c"
-               line="809">A #GdkMonitor.</doc>
+               line="879">A #GdkMonitor.</doc>
           <type name="Gdk.Monitor" c:type="GdkMonitor*"/>
         </return-value>
         <parameters>
           <instance-parameter name="monitor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-monitor.c"
-                 line="805">a #XfwMonitor.</doc>
+                 line="875">a #XfwMonitor.</doc>
             <type name="Monitor" c:type="XfwMonitor*"/>
           </instance-parameter>
         </parameters>
@@ -661,7 +696,7 @@ displaying in a user interface.</doc>
               version="4.19.4">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-monitor.c"
-             line="515">Retrieves an opaque identifier for this monitor.  The identifier can usually
+             line="562">Retrieves an opaque identifier for this monitor.  The identifier can usually
 be relied upon to uniquely identify this monitor (even if you have multiple
 identical monitors of the same make and model), assuming the monitor's
 hardware is set up properly.
@@ -675,14 +710,14 @@ unique.  Unfortunately, this library cannot determine when this is the case.</do
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-monitor.c"
-               line="530">A string owned by @monitor.</doc>
+               line="577">A string owned by @monitor.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="monitor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-monitor.c"
-                 line="517">a #XfwMonitor.</doc>
+                 line="564">a #XfwMonitor.</doc>
             <type name="Monitor" c:type="XfwMonitor*"/>
           </instance-parameter>
         </parameters>
@@ -693,10 +728,10 @@ unique.  Unfortunately, this library cannot determine when this is the case.</do
               version="4.19.4">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-monitor.c"
-             line="694">Retrieves the position and size of the monitor in logical application
+             line="764">Retrieves the position and size of the monitor in logical application
 pixels, which are affected by the monitor's fractional scale factor.</doc>
         <source-position filename="libxfce4windowing/xfw-monitor.h"
-                         line="103"/>
+                         line="104"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -704,7 +739,7 @@ pixels, which are affected by the monitor's fractional scale factor.</doc>
           <instance-parameter name="monitor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-monitor.c"
-                 line="696">a #XfwMonitor.</doc>
+                 line="766">a #XfwMonitor.</doc>
             <type name="Monitor" c:type="XfwMonitor*"/>
           </instance-parameter>
           <parameter name="logical_geometry"
@@ -713,7 +748,7 @@ pixels, which are affected by the monitor's fractional scale factor.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-monitor.c"
-                 line="697">a #GdkRectangle.</doc>
+                 line="767">a #GdkRectangle.</doc>
             <type name="Gdk.Rectangle" c:type="GdkRectangle*"/>
           </parameter>
         </parameters>
@@ -724,12 +759,12 @@ pixels, which are affected by the monitor's fractional scale factor.</doc>
               version="4.19.4">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-monitor.c"
-             line="577">Returns the monitor's manufacturer's name, if available.</doc>
+             line="624">Returns the monitor's manufacturer's name, if available.</doc>
         <source-position filename="libxfce4windowing/xfw-monitor.h" line="95"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-monitor.c"
-               line="583">A string owned by @monitor, or
+               line="630">A string owned by @monitor, or
 %NULL.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -737,7 +772,7 @@ pixels, which are affected by the monitor's fractional scale factor.</doc>
           <instance-parameter name="monitor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-monitor.c"
-                 line="579">a #XfwMonitor.</doc>
+                 line="626">a #XfwMonitor.</doc>
             <type name="Monitor" c:type="XfwMonitor*"/>
           </instance-parameter>
         </parameters>
@@ -748,12 +783,12 @@ pixels, which are affected by the monitor's fractional scale factor.</doc>
               version="4.19.4">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-monitor.c"
-             line="594">Returns the monitor's product model name, if available.</doc>
+             line="641">Returns the monitor's product model name, if available.</doc>
         <source-position filename="libxfce4windowing/xfw-monitor.h" line="96"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-monitor.c"
-               line="600">A string owned by @monitor, or
+               line="647">A string owned by @monitor, or
 %NULL.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -761,7 +796,7 @@ pixels, which are affected by the monitor's fractional scale factor.</doc>
           <instance-parameter name="monitor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-monitor.c"
-                 line="596">a #XfwMonitor.</doc>
+                 line="643">a #XfwMonitor.</doc>
             <type name="Monitor" c:type="XfwMonitor*"/>
           </instance-parameter>
         </parameters>
@@ -772,9 +807,9 @@ pixels, which are affected by the monitor's fractional scale factor.</doc>
               version="4.19.4">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-monitor.c"
-             line="678">Retrieves the position and size of the monitor in physical device pixels.</doc>
+             line="748">Retrieves the position and size of the monitor in physical device pixels.</doc>
         <source-position filename="libxfce4windowing/xfw-monitor.h"
-                         line="101"/>
+                         line="102"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -782,7 +817,7 @@ pixels, which are affected by the monitor's fractional scale factor.</doc>
           <instance-parameter name="monitor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-monitor.c"
-                 line="680">a #XfwMonitor.</doc>
+                 line="750">a #XfwMonitor.</doc>
             <type name="Monitor" c:type="XfwMonitor*"/>
           </instance-parameter>
           <parameter name="physical_geometry"
@@ -791,7 +826,7 @@ pixels, which are affected by the monitor's fractional scale factor.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-monitor.c"
-                 line="681">a #GdkRectangle.</doc>
+                 line="751">a #GdkRectangle.</doc>
             <type name="Gdk.Rectangle" c:type="GdkRectangle*"/>
           </parameter>
         </parameters>
@@ -801,9 +836,9 @@ pixels, which are affected by the monitor's fractional scale factor.</doc>
               version="4.19.4">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-monitor.c"
-             line="732">Retrieves the physical width and height of the monitor in millimeters.</doc>
+             line="802">Retrieves the physical width and height of the monitor in millimeters.</doc>
         <source-position filename="libxfce4windowing/xfw-monitor.h"
-                         line="107"/>
+                         line="108"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -811,7 +846,7 @@ pixels, which are affected by the monitor's fractional scale factor.</doc>
           <instance-parameter name="monitor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-monitor.c"
-                 line="734">a #XfwMonitor.</doc>
+                 line="804">a #XfwMonitor.</doc>
             <type name="Monitor" c:type="XfwMonitor*"/>
           </instance-parameter>
           <parameter name="width_mm"
@@ -821,7 +856,7 @@ pixels, which are affected by the monitor's fractional scale factor.</doc>
                      nullable="1">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-monitor.c"
-                 line="735">an unsigned integer.</doc>
+                 line="805">an unsigned integer.</doc>
             <type name="guint" c:type="guint*"/>
           </parameter>
           <parameter name="height_mm"
@@ -831,7 +866,7 @@ pixels, which are affected by the monitor's fractional scale factor.</doc>
                      nullable="1">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-monitor.c"
-                 line="736">an unsigned integer.</doc>
+                 line="806">an unsigned integer.</doc>
             <type name="guint" c:type="guint*"/>
           </parameter>
         </parameters>
@@ -842,19 +877,19 @@ pixels, which are affected by the monitor's fractional scale factor.</doc>
               version="4.19.4">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-monitor.c"
-             line="630">Returns the monitor's current refresh rate, in millihertz.</doc>
-        <source-position filename="libxfce4windowing/xfw-monitor.h" line="98"/>
+             line="700">Returns the monitor's current refresh rate, in millihertz.</doc>
+        <source-position filename="libxfce4windowing/xfw-monitor.h" line="99"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-monitor.c"
-               line="636">A non-negative integer in mHz.</doc>
+               line="706">A non-negative integer in mHz.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="monitor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-monitor.c"
-                 line="632">a #XfwMonitor.</doc>
+                 line="702">a #XfwMonitor.</doc>
             <type name="Monitor" c:type="XfwMonitor*"/>
           </instance-parameter>
         </parameters>
@@ -865,19 +900,20 @@ pixels, which are affected by the monitor's fractional scale factor.</doc>
               version="4.19.4">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-monitor.c"
-             line="646">Returns the monitor's scaling factor, as an integer.</doc>
-        <source-position filename="libxfce4windowing/xfw-monitor.h" line="99"/>
+             line="716">Returns the monitor's scaling factor, as an integer.</doc>
+        <source-position filename="libxfce4windowing/xfw-monitor.h"
+                         line="100"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-monitor.c"
-               line="652">A positive integer scale.</doc>
+               line="722">A positive integer scale.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="monitor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-monitor.c"
-                 line="648">a #XfwMonitor.</doc>
+                 line="718">a #XfwMonitor.</doc>
             <type name="Monitor" c:type="XfwMonitor*"/>
           </instance-parameter>
         </parameters>
@@ -888,14 +924,14 @@ pixels, which are affected by the monitor's fractional scale factor.</doc>
               version="4.19.4">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-monitor.c"
-             line="611">Returns the monitor's serial number, if available.  Note that some
+             line="658">Returns the monitor's serial number, if available.  Note that some
 manufacturers do not program their monitor's hardware with unique serial
 numbers.</doc>
         <source-position filename="libxfce4windowing/xfw-monitor.h" line="97"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-monitor.c"
-               line="619">A string owned by @monitor, or
+               line="666">A string owned by @monitor, or
 %NULL.</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
@@ -903,7 +939,7 @@ numbers.</doc>
           <instance-parameter name="monitor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-monitor.c"
-                 line="613">a #XfwMonitor.</doc>
+                 line="660">a #XfwMonitor.</doc>
             <type name="Monitor" c:type="XfwMonitor*"/>
           </instance-parameter>
         </parameters>
@@ -914,20 +950,20 @@ numbers.</doc>
               version="4.19.4">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-monitor.c"
-             line="754">Returns the subpixel ordering of @monitor.</doc>
+             line="824">Returns the subpixel ordering of @monitor.</doc>
         <source-position filename="libxfce4windowing/xfw-monitor.h"
-                         line="110"/>
+                         line="111"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-monitor.c"
-               line="760">A value from the #XfwMonitorSubpixel enum.</doc>
+               line="830">A value from the #XfwMonitorSubpixel enum.</doc>
           <type name="MonitorSubpixel" c:type="XfwMonitorSubpixel"/>
         </return-value>
         <parameters>
           <instance-parameter name="monitor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-monitor.c"
-                 line="756">a #XfwMonitor.</doc>
+                 line="826">a #XfwMonitor.</doc>
             <type name="Monitor" c:type="XfwMonitor*"/>
           </instance-parameter>
         </parameters>
@@ -938,20 +974,20 @@ numbers.</doc>
               version="4.19.4">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-monitor.c"
-             line="770">Returns the rotation and reflection transform set on @monitor.</doc>
+             line="840">Returns the rotation and reflection transform set on @monitor.</doc>
         <source-position filename="libxfce4windowing/xfw-monitor.h"
-                         line="111"/>
+                         line="112"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-monitor.c"
-               line="776">A value from the #XfwMonitorTransform enum.</doc>
+               line="846">A value from the #XfwMonitorTransform enum.</doc>
           <type name="MonitorTransform" c:type="XfwMonitorTransform"/>
         </return-value>
         <parameters>
           <instance-parameter name="monitor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-monitor.c"
-                 line="772">a #XfwMonitor.</doc>
+                 line="842">a #XfwMonitor.</doc>
             <type name="Monitor" c:type="XfwMonitor*"/>
           </instance-parameter>
         </parameters>
@@ -962,14 +998,14 @@ numbers.</doc>
               version="4.19.4">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-monitor.c"
-             line="711">Retrieves the workarea for @monitor, which may exclude regions of the screen
+             line="781">Retrieves the workarea for @monitor, which may exclude regions of the screen
 for windows such as panels or docks.
 
 The returned geometry is in logical application pixels, which are affected
 by the monitor's integer scale factor.  The origin is set to the top-left
 corner of the monitor.</doc>
         <source-position filename="libxfce4windowing/xfw-monitor.h"
-                         line="105"/>
+                         line="106"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -977,7 +1013,7 @@ corner of the monitor.</doc>
           <instance-parameter name="monitor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-monitor.c"
-                 line="713">a #XfwMonitor.</doc>
+                 line="783">a #XfwMonitor.</doc>
             <type name="Monitor" c:type="XfwMonitor*"/>
           </instance-parameter>
           <parameter name="workarea"
@@ -986,7 +1022,7 @@ corner of the monitor.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-monitor.c"
-                 line="714">a #GdkRectangle.</doc>
+                 line="784">a #GdkRectangle.</doc>
             <type name="Gdk.Rectangle" c:type="GdkRectangle*"/>
           </parameter>
         </parameters>
@@ -997,21 +1033,21 @@ corner of the monitor.</doc>
               version="4.19.4">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-monitor.c"
-             line="786">Returns whether or not @monitor has been designated as the primary
+             line="856">Returns whether or not @monitor has been designated as the primary
 monitor.</doc>
         <source-position filename="libxfce4windowing/xfw-monitor.h"
-                         line="113"/>
+                         line="114"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-monitor.c"
-               line="793">%TRUE or %FALSE.</doc>
+               line="863">%TRUE or %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="monitor" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-monitor.c"
-                 line="788">a #XfwMonitor.</doc>
+                 line="858">a #XfwMonitor.</doc>
             <type name="Monitor" c:type="XfwMonitor*"/>
           </instance-parameter>
         </parameters>
@@ -1023,7 +1059,7 @@ monitor.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-monitor.c"
-             line="159">Physical/virtual connector name.</doc>
+             line="165">Physical/virtual connector name.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="description"
@@ -1033,8 +1069,26 @@ monitor.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-monitor.c"
-             line="144">Human-readable description.</doc>
+             line="150">Human-readable description.</doc>
         <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="edid"
+                version="4.20.7"
+                transfer-ownership="none"
+                getter="get_edid">
+        <doc xml:space="preserve"
+             filename="libxfce4windowing/xfw-monitor.c"
+             line="225">Raw EDID bytes.</doc>
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
+      <property name="edid-len"
+                version="4.20.7"
+                transfer-ownership="none"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="libxfce4windowing/xfw-monitor.c"
+             line="239">Length of data in the @XfwMonitor:edid property.</doc>
+        <type name="guint64" c:type="guint64"/>
       </property>
       <property name="fractional-scale"
                 version="4.19.4"
@@ -1043,7 +1097,7 @@ monitor.</doc>
                 default-value="1.000000">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-monitor.c"
-             line="249">UI fractional scaling factor.</doc>
+             line="286">UI fractional scaling factor.</doc>
         <type name="gdouble" c:type="gdouble"/>
       </property>
       <property name="gdk-monitor"
@@ -1051,7 +1105,7 @@ monitor.</doc>
                 getter="get_gdk_monitor">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-monitor.c"
-             line="386">The #GdkMonitor corresponding to this monitor.
+             line="423">The #GdkMonitor corresponding to this monitor.
 
 Since 4.19.4</doc>
         <type name="Gdk.Monitor"/>
@@ -1062,7 +1116,7 @@ Since 4.19.4</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-monitor.c"
-             line="324">Physical height of the monitor in millimeters.</doc>
+             line="361">Physical height of the monitor in millimeters.</doc>
         <type name="guint" c:type="guint"/>
       </property>
       <property name="identifier"
@@ -1072,7 +1126,7 @@ Since 4.19.4</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-monitor.c"
-             line="130">Opaque, hopefully-unique monitor identifier.</doc>
+             line="136">Opaque, hopefully-unique monitor identifier.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="is-primary"
@@ -1082,7 +1136,7 @@ Since 4.19.4</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-monitor.c"
-             line="371">Whether or not this monitor is the primary monitor.</doc>
+             line="408">Whether or not this monitor is the primary monitor.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="logical-geometry"
@@ -1091,7 +1145,7 @@ Since 4.19.4</doc>
                 getter="get_logical_geometry">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-monitor.c"
-             line="279">Coordinates and size of the monitor in scaled logical pixels.</doc>
+             line="316">Coordinates and size of the monitor in scaled logical pixels.</doc>
         <type name="Gdk.Rectangle"/>
       </property>
       <property name="make"
@@ -1101,7 +1155,7 @@ Since 4.19.4</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-monitor.c"
-             line="174">Manufacturer name.</doc>
+             line="180">Manufacturer name.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="model"
@@ -1111,7 +1165,7 @@ Since 4.19.4</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-monitor.c"
-             line="189">Product model name.</doc>
+             line="195">Product model name.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="physical-geometry"
@@ -1120,7 +1174,7 @@ Since 4.19.4</doc>
                 getter="get_physical_geometry">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-monitor.c"
-             line="264">Coordinates and size of the monitor in physical device pixels.</doc>
+             line="301">Coordinates and size of the monitor in physical device pixels.</doc>
         <type name="Gdk.Rectangle"/>
       </property>
       <property name="refresh"
@@ -1130,7 +1184,7 @@ Since 4.19.4</doc>
                 default-value="60000">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-monitor.c"
-             line="219">Current refresh rate, in millihertz.</doc>
+             line="256">Current refresh rate, in millihertz.</doc>
         <type name="guint" c:type="guint"/>
       </property>
       <property name="scale"
@@ -1140,7 +1194,7 @@ Since 4.19.4</doc>
                 default-value="1">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-monitor.c"
-             line="234">UI scaling factor.</doc>
+             line="271">UI scaling factor.</doc>
         <type name="guint" c:type="guint"/>
       </property>
       <property name="serial"
@@ -1150,7 +1204,7 @@ Since 4.19.4</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-monitor.c"
-             line="204">Product serial number.</doc>
+             line="210">Product serial number.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="subpixel"
@@ -1160,7 +1214,7 @@ Since 4.19.4</doc>
                 default-value="XFW_MONITOR_SUBPIXEL_UNKNOWN">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-monitor.c"
-             line="339">Hardware subpixel layout.</doc>
+             line="376">Hardware subpixel layout.</doc>
         <type name="MonitorSubpixel"/>
       </property>
       <property name="transform"
@@ -1175,7 +1229,7 @@ Since 4.19.4</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-monitor.c"
-             line="309">Physical width of the monitor in millimeters.</doc>
+             line="346">Physical width of the monitor in millimeters.</doc>
         <type name="guint" c:type="guint"/>
       </property>
       <property name="workarea"
@@ -1354,12 +1408,12 @@ rotated counter-clockwise by 270 degrees.</doc>
       <function name="get_default" c:identifier="xfw_screen_get_default">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-screen.c"
-             line="613">Retrieves the #XfwScreen instance corresponding to the default #GdkScreen.</doc>
+             line="633">Retrieves the #XfwScreen instance corresponding to the default #GdkScreen.</doc>
         <source-position filename="libxfce4windowing/xfw-screen.h" line="36"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-screen.c"
-               line="618">an #XfwScreen instance, with
+               line="638">an #XfwScreen instance, with
 a reference owned by the caller.</doc>
           <type name="Screen" c:type="XfwScreen*"/>
         </return-value>
@@ -1385,6 +1439,35 @@ window is active on @screen.</doc>
                  line="480">an #XfwScreen.</doc>
             <type name="Screen" c:type="XfwScreen*"/>
           </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_monitor_from_gdk_monitor"
+              c:identifier="xfw_screen_get_monitor_from_gdk_monitor"
+              version="4.20.6">
+        <doc xml:space="preserve"
+             filename="libxfce4windowing/xfw-screen.c"
+             line="535">Attempts to find the #XfwMonitor corresponding to @monitor.</doc>
+        <source-position filename="libxfce4windowing/xfw-screen.h" line="48"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="libxfce4windowing/xfw-screen.c"
+               line="542">An #XfwMonitor, or %NULL if the
+corresponding #XfwMonitor could not be determined.</doc>
+          <type name="Monitor" c:type="XfwMonitor*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="screen" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libxfce4windowing/xfw-screen.c"
+                 line="537">an #XfwScreen.</doc>
+            <type name="Screen" c:type="XfwScreen*"/>
+          </instance-parameter>
+          <parameter name="monitor" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libxfce4windowing/xfw-screen.c"
+                 line="538">a #GdkMonitor.</doc>
+            <type name="Gdk.Monitor" c:type="GdkMonitor*"/>
+          </parameter>
         </parameters>
       </method>
       <method name="get_monitors"
@@ -1469,18 +1552,18 @@ However, if no monitors are connected, %NULL can still be returned.</doc>
       <method name="get_show_desktop"
               c:identifier="xfw_screen_get_show_desktop"
               glib:get-property="show-desktop">
-        <source-position filename="libxfce4windowing/xfw-screen.h" line="49"/>
+        <source-position filename="libxfce4windowing/xfw-screen.h" line="51"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-screen.c"
-               line="539">%TRUE if the desktop is shown, %FALSE otherwise.</doc>
+               line="559">%TRUE if the desktop is shown, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="screen" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-screen.c"
-                 line="537">an #XfwScreen.</doc>
+                 line="557">an #XfwScreen.</doc>
             <type name="Screen" c:type="XfwScreen*"/>
           </instance-parameter>
         </parameters>
@@ -1566,7 +1649,7 @@ instance.  This instance is a singleton and is owned by @screen.</doc>
               glib:set-property="show-desktop">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-screen.c"
-             line="547">Showing the desktop minimizes the windows not minimized at the time of the query.
+             line="567">Showing the desktop minimizes the windows not minimized at the time of the query.
 The reverse process unminimizes those same windows, if they have not already been
 unminimized or destroyed. The desktop show state can be tracked via
 #XfwScreen:show-desktop.
@@ -1575,7 +1658,7 @@ The state of the previously active window is always restored upon unminimization
 but there is no guarantee for the rest of the window stacking order on Wayland.
 
 A request to switch to the current state is silently ignored.</doc>
-        <source-position filename="libxfce4windowing/xfw-screen.h" line="50"/>
+        <source-position filename="libxfce4windowing/xfw-screen.h" line="52"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1583,13 +1666,13 @@ A request to switch to the current state is silently ignored.</doc>
           <instance-parameter name="screen" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-screen.c"
-                 line="549">an #XfwScreen.</doc>
+                 line="569">an #XfwScreen.</doc>
             <type name="Screen" c:type="XfwScreen*"/>
           </instance-parameter>
           <parameter name="show" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-screen.c"
-                 line="550">%TRUE to show the desktop, %FALSE to restore the previous state.</doc>
+                 line="570">%TRUE to show the desktop, %FALSE to restore the previous state.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -2571,7 +2654,7 @@ fallback icon or not.</doc>
               version="4.19.3">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-window-x11.c"
-             line="835">On X11, returns the platform-specific #Window handle to the underlying
+             line="837">On X11, returns the platform-specific #Window handle to the underlying
 window.
 
 It is an error to call this function if the application is not currently
@@ -2580,14 +2663,14 @@ running on X11.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-window-x11.c"
-               line="845">An X11 #Window handle.</doc>
+               line="847">An X11 #Window handle.</doc>
           <type name="xlib.Window" c:type="Window"/>
         </return-value>
         <parameters>
           <instance-parameter name="window" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-window-x11.c"
-                 line="837">A #XfwWindow</doc>
+                 line="839">A #XfwWindow</doc>
             <type name="Window" c:type="XfwWindow*"/>
           </instance-parameter>
         </parameters>
@@ -3183,7 +3266,7 @@ for an application running on XWayland, this will return #XFW_WINDOWING_X11.</do
       <method name="activate" c:identifier="xfw_workspace_activate" throws="1">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-workspace.c"
-             line="423">Attempts to set @workspace as the active workspace in its group.
+             line="438">Attempts to set @workspace as the active workspace in its group.
 
 On failure, @error (if provided) will be set to a description of the error
 that occurred.</doc>
@@ -3192,7 +3275,7 @@ that occurred.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-workspace.c"
-               line="433">%TRUE if workspace activation succeeded, %FALSE otherwise.  If
+               line="448">%TRUE if workspace activation succeeded, %FALSE otherwise.  If
 %FALSE, and @error is non-%NULL, an error will be returned that must be
 freed using #g_error_free().</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -3201,7 +3284,7 @@ freed using #g_error_free().</doc>
           <instance-parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-workspace.c"
-                 line="425">an #XfwWorkspace.</doc>
+                 line="440">an #XfwWorkspace.</doc>
             <type name="Workspace" c:type="XfwWorkspace*"/>
           </instance-parameter>
         </parameters>
@@ -3211,7 +3294,7 @@ freed using #g_error_free().</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-workspace.c"
-             line="467">Attempts to assign @workspace to @group.
+             line="482">Attempts to assign @workspace to @group.
 
 On failure, @error (if provided) will be set to a description of the error
 that occurred.</doc>
@@ -3220,7 +3303,7 @@ that occurred.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-workspace.c"
-               line="478">%TRUE if workspace assignment succeeded, %FALSE otherwise.
+               line="493">%TRUE if workspace assignment succeeded, %FALSE otherwise.
 If %FALSE, and @error is non-%NULL, an error will be returned that must be
 freed using g_error_free().</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -3229,13 +3312,13 @@ freed using g_error_free().</doc>
           <instance-parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-workspace.c"
-                 line="469">an #XfwWorkspace.</doc>
+                 line="484">an #XfwWorkspace.</doc>
             <type name="Workspace" c:type="XfwWorkspace*"/>
           </instance-parameter>
           <parameter name="group" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-workspace.c"
-                 line="470">an #XfwWorkspaceGroup.</doc>
+                 line="485">an #XfwWorkspaceGroup.</doc>
             <type name="WorkspaceGroup" c:type="XfwWorkspaceGroup*"/>
           </parameter>
         </parameters>
@@ -3245,7 +3328,7 @@ freed using g_error_free().</doc>
               glib:get-property="capabilities">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-workspace.c"
-             line="270">Fetches this workspace's capabilities bitfield.
+             line="285">Fetches this workspace's capabilities bitfield.
 
 The bitfield describes what operations are available on this workspace.</doc>
         <source-position filename="libxfce4windowing/xfw-workspace.h"
@@ -3253,7 +3336,7 @@ The bitfield describes what operations are available on this workspace.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-workspace.c"
-               line="278">a #XfwWorkspaceCapabilities bitfield.</doc>
+               line="293">a #XfwWorkspaceCapabilities bitfield.</doc>
           <type name="WorkspaceCapabilities"
                 c:type="XfwWorkspaceCapabilities"/>
         </return-value>
@@ -3261,15 +3344,17 @@ The bitfield describes what operations are available on this workspace.</doc>
           <instance-parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-workspace.c"
-                 line="272">an #XfwWorkspace.</doc>
+                 line="287">an #XfwWorkspace.</doc>
             <type name="Workspace" c:type="XfwWorkspace*"/>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_geometry" c:identifier="xfw_workspace_get_geometry">
+      <method name="get_geometry"
+              c:identifier="xfw_workspace_get_geometry"
+              glib:get-property="geometry">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-workspace.c"
-             line="403">Fetches the position and size of the workspace in screen coordinates.
+             line="418">Fetches the position and size of the workspace in screen coordinates.
 
 The values in the returned #GdkRectangle are owned by @workspace and should
 not be modified.</doc>
@@ -3278,7 +3363,7 @@ not be modified.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-workspace.c"
-               line="412">a #GdkRectangle, owned by
+               line="427">a #GdkRectangle, owned by
 @workspace.</doc>
           <type name="Gdk.Rectangle" c:type="GdkRectangle*"/>
         </return-value>
@@ -3286,7 +3371,7 @@ not be modified.</doc>
           <instance-parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-workspace.c"
-                 line="405">an #XfwWorkspace.</doc>
+                 line="420">an #XfwWorkspace.</doc>
             <type name="Workspace" c:type="XfwWorkspace*"/>
           </instance-parameter>
         </parameters>
@@ -3296,13 +3381,13 @@ not be modified.</doc>
               glib:get-property="id">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-workspace.c"
-             line="236">Fetches this workspace's opaque ID.</doc>
+             line="251">Fetches this workspace's opaque ID.</doc>
         <source-position filename="libxfce4windowing/xfw-workspace.h"
                          line="85"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-workspace.c"
-               line="242">A UTF-8 formatted string,
+               line="257">A UTF-8 formatted string,
 owned by @workspace.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -3310,7 +3395,7 @@ owned by @workspace.</doc>
           <instance-parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-workspace.c"
-                 line="238">an #XfwWorkspace.</doc>
+                 line="253">an #XfwWorkspace.</doc>
             <type name="Workspace" c:type="XfwWorkspace*"/>
           </instance-parameter>
         </parameters>
@@ -3320,7 +3405,7 @@ owned by @workspace.</doc>
               glib:get-property="layout-column">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-workspace.c"
-             line="364">Fetches the column this workspace belongs to in the workspace's group.
+             line="379">Fetches the column this workspace belongs to in the workspace's group.
 
 This information can be used to lay out workspaces in a grid in a pager
 UI, for example.</doc>
@@ -3329,14 +3414,14 @@ UI, for example.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-workspace.c"
-               line="373">a non-negative, 0-indexed integer.</doc>
+               line="388">a non-negative, 0-indexed integer.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-workspace.c"
-                 line="366">an #XfwWorkspace.</doc>
+                 line="381">an #XfwWorkspace.</doc>
             <type name="Workspace" c:type="XfwWorkspace*"/>
           </instance-parameter>
         </parameters>
@@ -3346,7 +3431,7 @@ UI, for example.</doc>
               glib:get-property="layout-row">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-workspace.c"
-             line="345">Fetches the row this workspace belongs to in the workspace's group.
+             line="360">Fetches the row this workspace belongs to in the workspace's group.
 
 This information can be used to lay out workspaces in a grid in a pager
 UI, for example.</doc>
@@ -3355,14 +3440,14 @@ UI, for example.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-workspace.c"
-               line="354">a non-negative, 0-indexed integer.</doc>
+               line="369">a non-negative, 0-indexed integer.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-workspace.c"
-                 line="347">an #XfwWorkspace.</doc>
+                 line="362">an #XfwWorkspace.</doc>
             <type name="Workspace" c:type="XfwWorkspace*"/>
           </instance-parameter>
         </parameters>
@@ -3372,13 +3457,13 @@ UI, for example.</doc>
               glib:get-property="name">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-workspace.c"
-             line="253">Fetches this workspace's human-readable name.</doc>
+             line="268">Fetches this workspace's human-readable name.</doc>
         <source-position filename="libxfce4windowing/xfw-workspace.h"
                          line="86"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-workspace.c"
-               line="259">A UTF-8 formatted string,
+               line="274">A UTF-8 formatted string,
 owned by @workspace.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -3386,7 +3471,7 @@ owned by @workspace.</doc>
           <instance-parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-workspace.c"
-                 line="255">an #XfwWorkspace.</doc>
+                 line="270">an #XfwWorkspace.</doc>
             <type name="Workspace" c:type="XfwWorkspace*"/>
           </instance-parameter>
         </parameters>
@@ -3394,7 +3479,7 @@ owned by @workspace.</doc>
       <method name="get_neighbor" c:identifier="xfw_workspace_get_neighbor">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-workspace.c"
-             line="383">Fetches the workspace that resides in @direction from the @workspace, if
+             line="398">Fetches the workspace that resides in @direction from the @workspace, if
 any.  If workspace is on the edge of the layout, and @direction points off
 the edge of the layout, will return %NULL.</doc>
         <source-position filename="libxfce4windowing/xfw-workspace.h"
@@ -3402,7 +3487,7 @@ the edge of the layout, will return %NULL.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-workspace.c"
-               line="392">a #XfwWorkspace, owned by
+               line="407">a #XfwWorkspace, owned by
 the parent @group, or %NULL if no workspace exists in @direction.</doc>
           <type name="Workspace" c:type="XfwWorkspace*"/>
         </return-value>
@@ -3410,13 +3495,13 @@ the parent @group, or %NULL if no workspace exists in @direction.</doc>
           <instance-parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-workspace.c"
-                 line="385">an #XfwWorkspace.</doc>
+                 line="400">an #XfwWorkspace.</doc>
             <type name="Workspace" c:type="XfwWorkspace*"/>
           </instance-parameter>
           <parameter name="direction" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-workspace.c"
-                 line="386">an #XfwDirection.</doc>
+                 line="401">an #XfwDirection.</doc>
             <type name="Direction" c:type="XfwDirection"/>
           </parameter>
         </parameters>
@@ -3426,7 +3511,7 @@ the parent @group, or %NULL if no workspace exists in @direction.</doc>
               glib:get-property="number">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-workspace.c"
-             line="304">Fetches the ordinal number of this workspace.
+             line="319">Fetches the ordinal number of this workspace.
 
 The number can be used to order workspaces in a UI representation.
 
@@ -3439,14 +3524,14 @@ advertises the workspaces.  This order may be stable, but may not be.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-workspace.c"
-               line="317">a non-negative, 0-indexed integer.</doc>
+               line="332">a non-negative, 0-indexed integer.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-workspace.c"
-                 line="306">an #XfwWorkspace.</doc>
+                 line="321">an #XfwWorkspace.</doc>
             <type name="Workspace" c:type="XfwWorkspace*"/>
           </instance-parameter>
         </parameters>
@@ -3456,20 +3541,20 @@ advertises the workspaces.  This order may be stable, but may not be.</doc>
               glib:get-property="state">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-workspace.c"
-             line="288">Fetches this workspace's state bitfield.</doc>
+             line="303">Fetches this workspace's state bitfield.</doc>
         <source-position filename="libxfce4windowing/xfw-workspace.h"
                          line="88"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-workspace.c"
-               line="294">a #XfwWorkspaceState bitfield.</doc>
+               line="309">a #XfwWorkspaceState bitfield.</doc>
           <type name="WorkspaceState" c:type="XfwWorkspaceState"/>
         </return-value>
         <parameters>
           <instance-parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-workspace.c"
-                 line="290">an #XfwWorkspace.</doc>
+                 line="305">an #XfwWorkspace.</doc>
             <type name="Workspace" c:type="XfwWorkspace*"/>
           </instance-parameter>
         </parameters>
@@ -3478,13 +3563,13 @@ advertises the workspaces.  This order may be stable, but may not be.</doc>
               c:identifier="xfw_workspace_get_workspace_group">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-workspace.c"
-             line="327">Fetches the group this workspace belongs to, if any.</doc>
+             line="342">Fetches the group this workspace belongs to, if any.</doc>
         <source-position filename="libxfce4windowing/xfw-workspace.h"
                          line="90"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-workspace.c"
-               line="333">a #XfwWorkspaceGroup
+               line="348">a #XfwWorkspaceGroup
 instance, owned by @workspace, or %NULL if the workspace is not a member of
 any groups.</doc>
           <type name="WorkspaceGroup" c:type="XfwWorkspaceGroup*"/>
@@ -3493,7 +3578,7 @@ any groups.</doc>
           <instance-parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-workspace.c"
-                 line="329">an #XfwWorkspace.</doc>
+                 line="344">an #XfwWorkspace.</doc>
             <type name="Workspace" c:type="XfwWorkspace*"/>
           </instance-parameter>
         </parameters>
@@ -3501,7 +3586,7 @@ any groups.</doc>
       <method name="remove" c:identifier="xfw_workspace_remove" throws="1">
         <doc xml:space="preserve"
              filename="libxfce4windowing/xfw-workspace.c"
-             line="445">Attempts to remove @workspace from its group.
+             line="460">Attempts to remove @workspace from its group.
 
 On failure, @error (if provided) will be set to a description of the error
 that occurred.</doc>
@@ -3510,7 +3595,7 @@ that occurred.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libxfce4windowing/xfw-workspace.c"
-               line="455">%TRUE if workspace removal succeeded, %FALSE otherwise.  If
+               line="470">%TRUE if workspace removal succeeded, %FALSE otherwise.  If
 %FALSE, and @error is non-%NULL, an error will be returned that must be
 freed using #g_error_free().</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -3519,7 +3604,7 @@ freed using #g_error_free().</doc>
           <instance-parameter name="workspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libxfce4windowing/xfw-workspace.c"
-                 line="447">an #XfwWorkspace.</doc>
+                 line="462">an #XfwWorkspace.</doc>
             <type name="Workspace" c:type="XfwWorkspace*"/>
           </instance-parameter>
         </parameters>
@@ -3534,6 +3619,16 @@ freed using #g_error_free().</doc>
              filename="libxfce4windowing/xfw-workspace.c"
              line="173">The #XfwWorkspaceCapabilities bitfield for this workspace.</doc>
         <type name="WorkspaceCapabilities"/>
+      </property>
+      <property name="geometry"
+                version="4.20.6"
+                transfer-ownership="none"
+                getter="get_geometry">
+        <doc xml:space="preserve"
+             filename="libxfce4windowing/xfw-workspace.c"
+             line="235">The position and size of the workspace on the desktop, in screen
+coordinates.</doc>
+        <type name="Gdk.Rectangle"/>
       </property>
       <property name="group" transfer-ownership="none">
         <doc xml:space="preserve"

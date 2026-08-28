@@ -666,13 +666,13 @@ This method is conceptually identical to gst_buffer_pool_set_active method.</doc
                    version="1.22">
         <doc xml:space="preserve"
              filename="gst-libs/gst/cuda/gstcudacontext.cpp"
-             line="511">Create #GstCudaContext with given device_id</doc>
+             line="529">Create #GstCudaContext with given device_id</doc>
         <source-position filename="gst-libs/gst/cuda/gstcudacontext.h"
                          line="75"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/cuda/gstcudacontext.cpp"
-               line="517">a new #GstCudaContext or %NULL on
+               line="535">a new #GstCudaContext or %NULL on
 failure</doc>
           <type name="CudaContext" c:type="GstCudaContext*"/>
         </return-value>
@@ -680,7 +680,7 @@ failure</doc>
           <parameter name="device_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/cuda/gstcudacontext.cpp"
-                 line="513">device-id for creating #GstCudaContext</doc>
+                 line="531">device-id for creating #GstCudaContext</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -690,7 +690,7 @@ failure</doc>
                    version="1.22">
         <doc xml:space="preserve"
              filename="gst-libs/gst/cuda/gstcudacontext.cpp"
-             line="654">Note: The caller is responsible for ensuring that the CUcontext and CUdevice
+             line="672">Note: The caller is responsible for ensuring that the CUcontext and CUdevice
 represented by @handle and @device stay alive while the returned
 #GstCudaContext is active.</doc>
         <source-position filename="gst-libs/gst/cuda/gstcudacontext.h"
@@ -698,14 +698,14 @@ represented by @handle and @device stay alive while the returned
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/cuda/gstcudacontext.cpp"
-               line="667">A newly created #GstCudaContext</doc>
+               line="685">A newly created #GstCudaContext</doc>
           <type name="CudaContext" c:type="GstCudaContext*"/>
         </return-value>
         <parameters>
           <parameter name="handler" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/cuda/gstcudacontext.cpp"
-                 line="656">A
+                 line="674">A
 [CUcontext](https://docs.nvidia.com/cuda/cuda-driver-api/group__CUDA__TYPES.html#group__CUDA__TYPES_1gf9f5bd81658f866613785b3a0bb7d7d9)
 to wrap</doc>
             <type name="CudaGst.context" c:type="CUcontext"/>
@@ -713,23 +713,47 @@ to wrap</doc>
           <parameter name="device" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/cuda/gstcudacontext.cpp"
-                 line="659">A
+                 line="677">A
 [CUDevice](https://docs.nvidia.com/cuda/cuda-driver-api/group__CUDA__TYPES.html#group__CUDA__TYPES_1gf9f5bd81658f866613785b3a0bb7d7d9)
 to wrap</doc>
             <type name="CudaGst.device" c:type="CUdevice"/>
           </parameter>
         </parameters>
       </constructor>
+      <function name="find_dxgi_adapter_luid"
+                c:identifier="gst_cuda_context_find_dxgi_adapter_luid"
+                version="1.28.2">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/cuda/gstcudacontext.cpp"
+             line="299">Finds the DXGI adapter LUID corresponding to the given CUDA device.
+This is useful for matching CUDA devices with Direct3D adapters on Windows.</doc>
+        <source-position filename="gst-libs/gst/cuda/gstcudacontext.h"
+                         line="97"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/cuda/gstcudacontext.cpp"
+               line="306">The DXGI adapter LUID or 0 if not found or on non-Windows platforms</doc>
+          <type name="gint64" c:type="gint64"/>
+        </return-value>
+        <parameters>
+          <parameter name="cuda_device" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/cuda/gstcudacontext.cpp"
+                 line="301">a CUDA device index</doc>
+            <type name="CudaGst.device" c:type="CUdevice"/>
+          </parameter>
+        </parameters>
+      </function>
       <function name="pop" c:identifier="gst_cuda_context_pop" version="1.22">
         <doc xml:space="preserve"
              filename="gst-libs/gst/cuda/gstcudacontext.cpp"
-             line="572">Pops the current CUDA context from CPU thread</doc>
+             line="590">Pops the current CUDA context from CPU thread</doc>
         <source-position filename="gst-libs/gst/cuda/gstcudacontext.h"
                          line="84"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/cuda/gstcudacontext.cpp"
-               line="577">%TRUE if @ctx was pushed without error.</doc>
+               line="595">%TRUE if @ctx was pushed without error.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -743,26 +767,26 @@ to wrap</doc>
               version="1.22">
         <doc xml:space="preserve"
              filename="gst-libs/gst/cuda/gstcudacontext.cpp"
-             line="626">Query whether @ctx can access any memory which belongs to @peer directly.</doc>
+             line="644">Query whether @ctx can access any memory which belongs to @peer directly.</doc>
         <source-position filename="gst-libs/gst/cuda/gstcudacontext.h"
                          line="93"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/cuda/gstcudacontext.cpp"
-               line="633">%TRUE if @ctx can access @peer directly</doc>
+               line="651">%TRUE if @ctx can access @peer directly</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="ctx" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/cuda/gstcudacontext.cpp"
-                 line="628">a #GstCudaContext</doc>
+                 line="646">a #GstCudaContext</doc>
             <type name="CudaContext" c:type="GstCudaContext*"/>
           </instance-parameter>
           <parameter name="peer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/cuda/gstcudacontext.cpp"
-                 line="629">a #GstCudaContext</doc>
+                 line="647">a #GstCudaContext</doc>
             <type name="CudaContext" c:type="GstCudaContext*"/>
           </parameter>
         </parameters>
@@ -772,21 +796,21 @@ to wrap</doc>
               version="1.22">
         <doc xml:space="preserve"
              filename="gst-libs/gst/cuda/gstcudacontext.cpp"
-             line="587">Get CUDA device context. Caller must not modify and/or destroy
+             line="605">Get CUDA device context. Caller must not modify and/or destroy
 returned device context.</doc>
         <source-position filename="gst-libs/gst/cuda/gstcudacontext.h"
                          line="87"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/cuda/gstcudacontext.cpp"
-               line="594">the `CUcontext` of @ctx</doc>
+               line="612">the `CUcontext` of @ctx</doc>
           <type name="gpointer" c:type="gpointer"/>
         </return-value>
         <parameters>
           <instance-parameter name="ctx" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/cuda/gstcudacontext.cpp"
-                 line="589">a #GstCudaContext</doc>
+                 line="607">a #GstCudaContext</doc>
             <type name="CudaContext" c:type="GstCudaContext*"/>
           </instance-parameter>
         </parameters>
@@ -796,20 +820,20 @@ returned device context.</doc>
               version="1.22">
         <doc xml:space="preserve"
              filename="gst-libs/gst/cuda/gstcudacontext.cpp"
-             line="607">Get required texture alignment by device</doc>
+             line="625">Get required texture alignment by device</doc>
         <source-position filename="gst-libs/gst/cuda/gstcudacontext.h"
                          line="90"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/cuda/gstcudacontext.cpp"
-               line="613">the `CUcontext` of @ctx</doc>
+               line="631">the `CUcontext` of @ctx</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="ctx" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/cuda/gstcudacontext.cpp"
-                 line="609">a #GstCudaContext</doc>
+                 line="627">a #GstCudaContext</doc>
             <type name="CudaContext" c:type="GstCudaContext*"/>
           </instance-parameter>
         </parameters>
@@ -817,7 +841,7 @@ returned device context.</doc>
       <method name="push" c:identifier="gst_cuda_context_push" version="1.22">
         <doc xml:space="preserve"
              filename="gst-libs/gst/cuda/gstcudacontext.cpp"
-             line="551">Pushes the given @ctx onto the CPU thread's stack of current contexts.
+             line="569">Pushes the given @ctx onto the CPU thread's stack of current contexts.
 The specified context becomes the CPU thread's current context,
 so all CUDA functions that operate on the current context are affected.</doc>
         <source-position filename="gst-libs/gst/cuda/gstcudacontext.h"
@@ -825,14 +849,14 @@ so all CUDA functions that operate on the current context are affected.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/cuda/gstcudacontext.cpp"
-               line="559">%TRUE if @ctx was pushed without error.</doc>
+               line="577">%TRUE if @ctx was pushed without error.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="ctx" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/cuda/gstcudacontext.cpp"
-                 line="553">a #GstCudaContext to push current thread</doc>
+                 line="571">a #GstCudaContext to push current thread</doc>
             <type name="CudaContext" c:type="GstCudaContext*"/>
           </instance-parameter>
         </parameters>
@@ -2539,12 +2563,12 @@ Retrieves the #GstCudaContext in @context and places the result in @cuda_ctx.</d
               version="1.22">
       <doc xml:space="preserve"
            filename="gst-libs/gst/cuda/gstcudaloader.cpp"
-           line="467">Loads the cuda library</doc>
+           line="469">Loads the cuda library</doc>
       <source-position filename="gst-libs/gst/cuda/gstcudaloader.h" line="28"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/cuda/gstcudaloader.cpp"
-             line="472">%TRUE if the libcuda could be loaded %FALSE otherwise</doc>
+             line="474">%TRUE if the libcuda could be loaded %FALSE otherwise</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
     </function>

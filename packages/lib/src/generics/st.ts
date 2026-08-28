@@ -1,5 +1,6 @@
 import type { IntrospectedNamespace } from "../gir/namespace.ts";
 import { GenericType, GenerifiedTypeIdentifier } from "../gir.ts";
+import { mutterApiVersionsFrom } from "../mutter-api-versions.ts";
 import type { StTemplateConfig } from "../types/generics-config.ts";
 
 function createStTemplate(version: string): StTemplateConfig {
@@ -188,20 +189,7 @@ function updatePropertyType(
 		});
 }
 
-// Version exports
+// Version exports. St-1.0 predates Mutter's API versioning and is kept
+// explicitly; everything from Clutter-10 onward follows MUTTER_API_VERSIONS.
 export const st1 = createStTemplate("1.0");
-export const st12 = createStTemplate("12");
-export const st13 = createStTemplate("13");
-/** St-14 was introduced with GNOME 46 */
-export const st14 = createStTemplate("14");
-/** St-15 was introduced with GNOME 47 */
-export const st15 = createStTemplate("15");
-/** St-16 was introduced with GNOME 48 */
-export const st16 = createStTemplate("16");
-/** St-17 was introduced with GNOME 49 */
-export const st17 = createStTemplate("17");
-/** St-18 was introduced with GNOME 50 */
-export const st18 = createStTemplate("18");
-// Possibly future versions, adjust if necessary
-export const st19 = createStTemplate("19");
-export const st20 = createStTemplate("20");
+export const stTemplates: StTemplateConfig[] = [st1, ...mutterApiVersionsFrom("12").map(createStTemplate)];

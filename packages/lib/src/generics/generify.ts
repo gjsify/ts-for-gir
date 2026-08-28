@@ -1,64 +1,18 @@
 import type { NSRegistry } from "../gir/registry.ts";
 import type { NamespaceDefinition } from "../types/generics-config.ts";
-import {
-	clutter10,
-	clutter11,
-	clutter12,
-	clutter13,
-	clutter14,
-	clutter15,
-	clutter16,
-	clutter17,
-	clutter18,
-	clutter19,
-	clutter20,
-} from "./clutter.ts";
+import { clutterTemplates } from "./clutter.ts";
 import gio from "./gio.ts";
 import glib from "./glib.ts";
 import gtk from "./gtk.ts";
-import { meta10, meta11, meta12, meta13, meta14, meta15, meta16, meta17, meta18, meta19, meta20 } from "./meta.ts";
-import { st1, st12, st13, st14, st15, st16, st17, st18, st19, st20 } from "./st.ts";
+import { metaTemplates } from "./meta.ts";
+import { stTemplates } from "./st.ts";
 import { GenericVisitor } from "./visitor.ts";
 
 // Core namespace definitions that are required
 const CORE_DEFINITIONS: NamespaceDefinition[] = [gio, glib];
 
 // Optional namespace definitions
-const OPTIONAL_DEFINITIONS: NamespaceDefinition[] = [
-	gtk,
-	clutter10,
-	clutter11,
-	clutter12,
-	clutter13,
-	clutter14,
-	clutter15,
-	clutter16,
-	clutter17,
-	clutter18,
-	clutter19,
-	clutter20,
-	st1,
-	st12,
-	st13,
-	st14,
-	st15,
-	st16,
-	st17,
-	st18,
-	st19,
-	st20,
-	meta10,
-	meta11,
-	meta12,
-	meta13,
-	meta14,
-	meta15,
-	meta16,
-	meta17,
-	meta18,
-	meta19,
-	meta20,
-];
+const OPTIONAL_DEFINITIONS: NamespaceDefinition[] = [gtk, ...clutterTemplates, ...stTemplates, ...metaTemplates];
 
 function createDefinitionProcessor(registry: NSRegistry, inferGenerics: boolean, required: boolean = true) {
 	return (definition: NamespaceDefinition) => {

@@ -14,7 +14,7 @@ and/or use gtk-doc annotations.  -->
   <doc:format name="unknown"/>
   <namespace name="GnomeDesktop"
              version="3.0"
-             shared-library="libgnome-desktop-3.so.20"
+             shared-library="libgnome-desktop-3.so.21"
              c:identifier-prefixes="Gnome"
              c:symbol-prefixes="gnome">
     <class name="BG"
@@ -650,7 +650,7 @@ window background between two #cairo_surface_ts.</doc>
              filename="libgnome-desktop/gnome-bg-slide-show.c"
              line="499">Returns the current slides progress.</doc>
         <source-position filename="libgnome-desktop/gnome-bg-slide-show.h"
-                         line="81"/>
+                         line="85"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -735,20 +735,20 @@ window background between two #cairo_surface_ts.</doc>
               glib:get-property="has-multiple-sizes">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-bg-slide-show.c"
-             line="816">gets whether or not the slide show has multiple sizes for different monitors</doc>
+             line="845">gets whether or not the slide show has multiple sizes for different monitors</doc>
         <source-position filename="libgnome-desktop/gnome-bg-slide-show.h"
-                         line="93"/>
+                         line="97"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-bg-slide-show.c"
-               line="822">%TRUE if multiple sizes</doc>
+               line="851">%TRUE if multiple sizes</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-bg-slide-show.c"
-                 line="818">a #GnomeBGSlideShow</doc>
+                 line="847">a #GnomeBGSlideShow</doc>
             <type name="BGSlideShow" c:type="GnomeBGSlideShow*"/>
           </instance-parameter>
         </parameters>
@@ -757,9 +757,9 @@ window background between two #cairo_surface_ts.</doc>
               c:identifier="gnome_bg_slide_show_get_num_slides">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-bg-slide-show.c"
-             line="830">Returns number of slides in slide show</doc>
+             line="859">Returns number of slides in slide show</doc>
         <source-position filename="libgnome-desktop/gnome-bg-slide-show.h"
-                         line="94"/>
+                         line="98"/>
         <return-value transfer-ownership="none">
           <type name="gint" c:type="int"/>
         </return-value>
@@ -767,7 +767,7 @@ window background between two #cairo_surface_ts.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-bg-slide-show.c"
-                 line="832">a #GnomeBGSlideShow</doc>
+                 line="861">a #GnomeBGSlideShow</doc>
             <type name="BGSlideShow" c:type="GnomeBGSlideShow*"/>
           </instance-parameter>
         </parameters>
@@ -777,7 +777,7 @@ window background between two #cairo_surface_ts.</doc>
              filename="libgnome-desktop/gnome-bg-slide-show.c"
              line="563">Retrieves slide by frame number</doc>
         <source-position filename="libgnome-desktop/gnome-bg-slide-show.h"
-                         line="71"/>
+                         line="75"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-bg-slide-show.c"
@@ -871,20 +871,20 @@ window background between two #cairo_surface_ts.</doc>
               glib:get-property="start-time">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-bg-slide-show.c"
-             line="788">gets the start time of the slide show</doc>
+             line="817">gets the start time of the slide show</doc>
         <source-position filename="libgnome-desktop/gnome-bg-slide-show.h"
-                         line="91"/>
+                         line="95"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-bg-slide-show.c"
-               line="794">a timestamp</doc>
+               line="823">a timestamp</doc>
           <type name="gdouble" c:type="double"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-bg-slide-show.c"
-                 line="790">a #GnomeBGSlideShow</doc>
+                 line="819">a #GnomeBGSlideShow</doc>
             <type name="BGSlideShow" c:type="GnomeBGSlideShow*"/>
           </instance-parameter>
         </parameters>
@@ -894,25 +894,28 @@ window background between two #cairo_surface_ts.</doc>
               glib:get-property="total-duration">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-bg-slide-show.c"
-             line="802">gets the total duration of the slide show</doc>
+             line="831">gets the total duration of the slide show</doc>
         <source-position filename="libgnome-desktop/gnome-bg-slide-show.h"
-                         line="92"/>
+                         line="96"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-bg-slide-show.c"
-               line="808">a timestamp</doc>
+               line="837">a timestamp</doc>
           <type name="gdouble" c:type="double"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-bg-slide-show.c"
-                 line="804">a #GnomeBGSlideShow</doc>
+                 line="833">a #GnomeBGSlideShow</doc>
             <type name="BGSlideShow" c:type="GnomeBGSlideShow*"/>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="load" c:identifier="gnome_bg_slide_show_load" throws="1">
+      <method name="load"
+              c:identifier="gnome_bg_slide_show_load"
+              throws="1"
+              glib:async-func="load_async">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-bg-slide-show.c"
              line="707">Tries to load the slide show.</doc>
@@ -933,10 +936,15 @@ window background between two #cairo_surface_ts.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="load_async" c:identifier="gnome_bg_slide_show_load_async">
+      <method name="load_async"
+              c:identifier="gnome_bg_slide_show_load_async"
+              glib:finish-func="load_finish"
+              glib:sync-func="load">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-bg-slide-show.c"
-             line="765">Tries to load the slide show asynchronously.</doc>
+             line="765">Tries to load the slide show asynchronously.
+
+Use gnome_bg_slide_show_load_finish() to get the result.</doc>
         <source-position filename="libgnome-desktop/gnome-bg-slide-show.h"
                          line="67"/>
         <return-value transfer-ownership="none">
@@ -977,6 +985,38 @@ window background between two #cairo_surface_ts.</doc>
                  filename="libgnome-desktop/gnome-bg-slide-show.c"
                  line="770">user data</doc>
             <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load_finish"
+              c:identifier="gnome_bg_slide_show_load_finish"
+              version="50."
+              throws="1">
+        <doc xml:space="preserve"
+             filename="libgnome-desktop/gnome-bg-slide-show.c"
+             line="793">Finish an asynchronous operation to load the slide show that was
+started with gnome_bg_slide_show_load_async().</doc>
+        <doc-version xml:space="preserve">alpha</doc-version>
+        <source-position filename="libgnome-desktop/gnome-bg-slide-show.h"
+                         line="71"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgnome-desktop/gnome-bg-slide-show.c"
+               line="802">%FALSE on error, %TRUE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgnome-desktop/gnome-bg-slide-show.c"
+                 line="795">a #GnomeBGSlideShow</doc>
+            <type name="BGSlideShow" c:type="GnomeBGSlideShow*"/>
+          </instance-parameter>
+          <parameter name="res" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgnome-desktop/gnome-bg-slide-show.c"
+                 line="796">A #GAsyncResult</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
       </method>
@@ -1146,7 +1186,7 @@ window background between two #cairo_surface_ts.</doc>
       </parameters>
     </function-macro>
     <constant name="DESKTOP_PLATFORM_VERSION"
-              value="44"
+              value="51"
               c:type="GNOME_DESKTOP_PLATFORM_VERSION">
       <source-position filename="libgnome-desktop/gnome-desktop-version.h"
                        line="25"/>
@@ -1260,7 +1300,7 @@ Usage of this function is threadsafe and does blocking I/O.</doc>
               glib:async-func="create_failed_thumbnail_async">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-             line="1514">Creates a failed thumbnail for the file so that we don't try
+             line="1522">Creates a failed thumbnail for the file so that we don't try
 to re-thumbnail the file later.
 
 Usage of this function is threadsafe and does blocking I/O.</doc>
@@ -1269,27 +1309,27 @@ Usage of this function is threadsafe and does blocking I/O.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-               line="1527">TRUE if everything went fine; FALSE if there was an error.</doc>
+               line="1535">TRUE if everything went fine; FALSE if there was an error.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1516">a #GnomeDesktopThumbnailFactory</doc>
+                 line="1524">a #GnomeDesktopThumbnailFactory</doc>
             <type name="DesktopThumbnailFactory"
                   c:type="GnomeDesktopThumbnailFactory*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1517">the uri of a file</doc>
+                 line="1525">the uri of a file</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="mtime" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1518">the modification time of the file</doc>
+                 line="1526">the modification time of the file</doc>
             <type name="time_t" c:type="time_t"/>
           </parameter>
           <parameter name="cancellable"
@@ -1298,7 +1338,7 @@ Usage of this function is threadsafe and does blocking I/O.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1519">a GCancellable object, or NULL</doc>
+                 line="1527">a GCancellable object, or NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -1309,7 +1349,7 @@ Usage of this function is threadsafe and does blocking I/O.</doc>
               glib:sync-func="create_failed_thumbnail">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-             line="1574">Asynchronous version of gnome_desktop_thumbnail_factory_create_failed_thumbnail()
+             line="1582">Asynchronous version of gnome_desktop_thumbnail_factory_create_failed_thumbnail()
 
 Since 43.0</doc>
         <source-position filename="libgnome-desktop/gnome-desktop-thumbnail.h"
@@ -1321,20 +1361,20 @@ Since 43.0</doc>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1576">a #GnomeDesktopThumbnailFactory</doc>
+                 line="1584">a #GnomeDesktopThumbnailFactory</doc>
             <type name="DesktopThumbnailFactory"
                   c:type="GnomeDesktopThumbnailFactory*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1577">the uri of a file</doc>
+                 line="1585">the uri of a file</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="original_mtime" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1578">the modification time of the original file</doc>
+                 line="1586">the modification time of the original file</doc>
             <type name="time_t" c:type="time_t"/>
           </parameter>
           <parameter name="cancellable"
@@ -1343,7 +1383,7 @@ Since 43.0</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1579">a Cancellable object</doc>
+                 line="1587">a Cancellable object</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -1354,7 +1394,7 @@ Since 43.0</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1580">a function that will be called when the task has ended</doc>
+                 line="1588">a function that will be called when the task has ended</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1363,7 +1403,7 @@ Since 43.0</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1581">user data</doc>
+                 line="1589">user data</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1376,7 +1416,7 @@ Since 43.0</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-               line="1617">TRUE if the operation was correct; FALSE if there was an error
+               line="1625">TRUE if the operation was correct; FALSE if there was an error
 
 Since 43.0</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -1385,14 +1425,14 @@ Since 43.0</doc>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1613">a #GnomeDesktopThumbnailFactory</doc>
+                 line="1621">a #GnomeDesktopThumbnailFactory</doc>
             <type name="DesktopThumbnailFactory"
                   c:type="GnomeDesktopThumbnailFactory*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1614">the result of the operation</doc>
+                 line="1622">the result of the operation</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -1404,7 +1444,7 @@ Since 43.0</doc>
               glib:async-func="generate_thumbnail_async">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-             line="1087">Tries to generate a thumbnail for the specified file. If it succeeds
+             line="1095">Tries to generate a thumbnail for the specified file. If it succeeds
 it returns a pixbuf that can be used as a thumbnail.
 
 Usage of this function is threadsafe and does blocking I/O.</doc>
@@ -1413,27 +1453,27 @@ Usage of this function is threadsafe and does blocking I/O.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-               line="1100">thumbnail pixbuf if thumbnailing succeeded, %NULL otherwise and error will be set</doc>
+               line="1108">thumbnail pixbuf if thumbnailing succeeded, %NULL otherwise and error will be set</doc>
           <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1089">a #GnomeDesktopThumbnailFactory</doc>
+                 line="1097">a #GnomeDesktopThumbnailFactory</doc>
             <type name="DesktopThumbnailFactory"
                   c:type="GnomeDesktopThumbnailFactory*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1090">the uri of a file</doc>
+                 line="1098">the uri of a file</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="mime_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1091">the mime type of the file</doc>
+                 line="1099">the mime type of the file</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1442,7 +1482,7 @@ Usage of this function is threadsafe and does blocking I/O.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1092">a #GCancellable object or NULL</doc>
+                 line="1100">a #GCancellable object or NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -1453,7 +1493,7 @@ Usage of this function is threadsafe and does blocking I/O.</doc>
               glib:sync-func="generate_thumbnail">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-             line="1215">Asynchronous version of gnome_desktop_thumbnail_factory_generate_thumbnail()
+             line="1223">Asynchronous version of gnome_desktop_thumbnail_factory_generate_thumbnail()
 
 Since 43.0</doc>
         <source-position filename="libgnome-desktop/gnome-desktop-thumbnail.h"
@@ -1465,20 +1505,20 @@ Since 43.0</doc>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1217">a #GnomeDesktopThumbnailFactory</doc>
+                 line="1225">a #GnomeDesktopThumbnailFactory</doc>
             <type name="DesktopThumbnailFactory"
                   c:type="GnomeDesktopThumbnailFactory*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1218">the URI of a file</doc>
+                 line="1226">the URI of a file</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="mime_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1219">the MIME type of the file</doc>
+                 line="1227">the MIME type of the file</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1487,7 +1527,7 @@ Since 43.0</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1220">a Cancellable object</doc>
+                 line="1228">a Cancellable object</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -1498,7 +1538,7 @@ Since 43.0</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1221">a function that will be called when the task has ended</doc>
+                 line="1229">a function that will be called when the task has ended</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1507,7 +1547,7 @@ Since 43.0</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1222">user data</doc>
+                 line="1230">user data</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1520,7 +1560,7 @@ Since 43.0</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-               line="1257">thumbnail pixbuf if thumbnailing succeeded, %NULL otherwise.
+               line="1265">thumbnail pixbuf if thumbnailing succeeded, %NULL otherwise.
 
 Since 43.0</doc>
           <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
@@ -1529,14 +1569,14 @@ Since 43.0</doc>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1253">a #GnomeDesktopThumbnailFactory</doc>
+                 line="1261">a #GnomeDesktopThumbnailFactory</doc>
             <type name="DesktopThumbnailFactory"
                   c:type="GnomeDesktopThumbnailFactory*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1254">the result of the operation</doc>
+                 line="1262">the result of the operation</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -1626,7 +1666,7 @@ Usage of this function is threadsafe and does blocking I/O.</doc>
               glib:async-func="save_thumbnail_async">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-             line="1373">Saves @thumbnail at the right place. If the save fails a
+             line="1381">Saves @thumbnail at the right place. If the save fails a
 failed thumbnail is written.
 
 Usage of this function is threadsafe and does blocking I/O.</doc>
@@ -1635,33 +1675,33 @@ Usage of this function is threadsafe and does blocking I/O.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-               line="1387">TRUE if everything went fine; FALSE if there was an error.</doc>
+               line="1395">TRUE if everything went fine; FALSE if there was an error.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1375">a #GnomeDesktopThumbnailFactory</doc>
+                 line="1383">a #GnomeDesktopThumbnailFactory</doc>
             <type name="DesktopThumbnailFactory"
                   c:type="GnomeDesktopThumbnailFactory*"/>
           </instance-parameter>
           <parameter name="thumbnail" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1376">the thumbnail as a pixbuf</doc>
+                 line="1384">the thumbnail as a pixbuf</doc>
             <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
           </parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1377">the uri of a file</doc>
+                 line="1385">the uri of a file</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="original_mtime" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1378">the modification time of the original file</doc>
+                 line="1386">the modification time of the original file</doc>
             <type name="time_t" c:type="time_t"/>
           </parameter>
           <parameter name="cancellable"
@@ -1670,7 +1710,7 @@ Usage of this function is threadsafe and does blocking I/O.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1379">a GCancellable object, or NULL</doc>
+                 line="1387">a GCancellable object, or NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -1681,7 +1721,7 @@ Usage of this function is threadsafe and does blocking I/O.</doc>
               glib:sync-func="save_thumbnail">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-             line="1452">Asynchronous version of gnome_desktop_thumbnail_factory_save_thumbnail()
+             line="1460">Asynchronous version of gnome_desktop_thumbnail_factory_save_thumbnail()
 
 Since 43.0</doc>
         <source-position filename="libgnome-desktop/gnome-desktop-thumbnail.h"
@@ -1693,26 +1733,26 @@ Since 43.0</doc>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1454">a #GnomeDesktopThumbnailFactory</doc>
+                 line="1462">a #GnomeDesktopThumbnailFactory</doc>
             <type name="DesktopThumbnailFactory"
                   c:type="GnomeDesktopThumbnailFactory*"/>
           </instance-parameter>
           <parameter name="thumbnail" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1455">the thumbnail as a pixbuf</doc>
+                 line="1463">the thumbnail as a pixbuf</doc>
             <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
           </parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1456">the uri of a file</doc>
+                 line="1464">the uri of a file</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="original_mtime" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1457">the modification time of the original file</doc>
+                 line="1465">the modification time of the original file</doc>
             <type name="time_t" c:type="time_t"/>
           </parameter>
           <parameter name="cancellable"
@@ -1721,7 +1761,7 @@ Since 43.0</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1458">a Cancellable object</doc>
+                 line="1466">a Cancellable object</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -1732,7 +1772,7 @@ Since 43.0</doc>
                      closure="5">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1459">a function that will be called when the task has ended</doc>
+                 line="1467">a function that will be called when the task has ended</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -1741,7 +1781,7 @@ Since 43.0</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1460">user data</doc>
+                 line="1468">user data</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1754,7 +1794,7 @@ Since 43.0</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-               line="1497">TRUE if the operation was correct; FALSE if there was an error
+               line="1505">TRUE if the operation was correct; FALSE if there was an error
 
 Since 43.0</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -1763,14 +1803,14 @@ Since 43.0</doc>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1493">a #GnomeDesktopThumbnailFactory</doc>
+                 line="1501">a #GnomeDesktopThumbnailFactory</doc>
             <type name="DesktopThumbnailFactory"
                   c:type="GnomeDesktopThumbnailFactory*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-                 line="1494">the result of the operation</doc>
+                 line="1502">the result of the operation</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -1921,64 +1961,6 @@ Since 43.0</doc>
       <source-position filename="libgnome-desktop/gnome-pnp-ids.h" line="32"/>
       <parameters>
         <parameter name="k">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_RR_CONFIG"
-                    c:identifier="GNOME_IS_RR_CONFIG"
-                    introspectable="0">
-      <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                       line="118"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_RR_CONFIG_CLASS"
-                    c:identifier="GNOME_IS_RR_CONFIG_CLASS"
-                    introspectable="0">
-      <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                       line="120"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_RR_OUTPUT_INFO"
-                    c:identifier="GNOME_IS_RR_OUTPUT_INFO"
-                    introspectable="0">
-      <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                       line="57"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_RR_OUTPUT_INFO_CLASS"
-                    c:identifier="GNOME_IS_RR_OUTPUT_INFO_CLASS"
-                    introspectable="0">
-      <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                       line="59"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_RR_SCREEN"
-                    c:identifier="GNOME_IS_RR_SCREEN"
-                    introspectable="0">
-      <source-position filename="libgnome-desktop/gnome-rr.h" line="103"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="IS_RR_SCREEN_CLASS"
-                    c:identifier="GNOME_IS_RR_SCREEN_CLASS"
-                    introspectable="0">
-      <source-position filename="libgnome-desktop/gnome-rr.h" line="105"/>
-      <parameters>
-        <parameter name="klass">
         </parameter>
       </parameters>
     </function-macro>
@@ -2350,2045 +2332,6 @@ or %NULL when not found.</doc>
             opaque="1">
       <source-position filename="libgnome-desktop/gnome-pnp-ids.h" line="36"/>
     </record>
-    <record name="RRCTM" c:type="GnomeRRCTM">
-      <source-position filename="libgnome-desktop/gnome-rr.h" line="81"/>
-      <field name="matrix" writable="1">
-        <array zero-terminated="0" fixed-size="9">
-          <type name="guint64" c:type="guint64"/>
-        </array>
-      </field>
-    </record>
-    <class name="RRConfig"
-           c:symbol-prefix="rr_config"
-           c:type="GnomeRRConfig"
-           parent="GObject.Object"
-           glib:type-name="GnomeRRConfig"
-           glib:get-type="gnome_rr_config_get_type"
-           glib:type-struct="RRConfigClass">
-      <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                       line="114"/>
-      <constructor name="new_current"
-                   c:identifier="gnome_rr_config_new_current"
-                   throws="1">
-        <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                         line="127"/>
-        <return-value transfer-ownership="full">
-          <type name="RRConfig" c:type="GnomeRRConfig*"/>
-        </return-value>
-        <parameters>
-          <parameter name="screen" transfer-ownership="none">
-            <type name="RRScreen" c:type="GnomeRRScreen*"/>
-          </parameter>
-        </parameters>
-      </constructor>
-      <method name="applicable"
-              c:identifier="gnome_rr_config_applicable"
-              throws="1">
-        <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                         line="145"/>
-        <return-value transfer-ownership="none">
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="configuration" transfer-ownership="none">
-            <type name="RRConfig" c:type="GnomeRRConfig*"/>
-          </instance-parameter>
-          <parameter name="screen" transfer-ownership="none">
-            <type name="RRScreen" c:type="GnomeRRScreen*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="apply" c:identifier="gnome_rr_config_apply" throws="1">
-        <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                         line="138"/>
-        <return-value transfer-ownership="none">
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="configuration" transfer-ownership="none">
-            <type name="RRConfig" c:type="GnomeRRConfig*"/>
-          </instance-parameter>
-          <parameter name="screen" transfer-ownership="none">
-            <type name="RRScreen" c:type="GnomeRRScreen*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="apply_persistent"
-              c:identifier="gnome_rr_config_apply_persistent"
-              throws="1">
-        <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                         line="141"/>
-        <return-value transfer-ownership="none">
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="configuration" transfer-ownership="none">
-            <type name="RRConfig" c:type="GnomeRRConfig*"/>
-          </instance-parameter>
-          <parameter name="screen" transfer-ownership="none">
-            <type name="RRScreen" c:type="GnomeRRScreen*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="ensure_primary"
-              c:identifier="gnome_rr_config_ensure_primary">
-        <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                         line="136"/>
-        <return-value transfer-ownership="none">
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="configuration" transfer-ownership="none">
-            <type name="RRConfig" c:type="GnomeRRConfig*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="equal" c:identifier="gnome_rr_config_equal">
-        <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                         line="133"/>
-        <return-value transfer-ownership="none">
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="config1" transfer-ownership="none">
-            <type name="RRConfig" c:type="GnomeRRConfig*"/>
-          </instance-parameter>
-          <parameter name="config2" transfer-ownership="none">
-            <type name="RRConfig" c:type="GnomeRRConfig*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="get_clone" c:identifier="gnome_rr_config_get_clone">
-        <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                         line="149"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="libgnome-desktop/gnome-rr-config.c"
-               line="674">whether at least two outputs are at (0, 0) offset and they
-have the same width/height.  Those outputs are of course connected and on
-(i.e. they have a CRTC assigned).</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="configuration" transfer-ownership="none">
-            <type name="RRConfig" c:type="GnomeRRConfig*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_outputs" c:identifier="gnome_rr_config_get_outputs">
-        <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                         line="151"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="libgnome-desktop/gnome-rr-config.c"
-               line="661">the output configuration for this #GnomeRRConfig</doc>
-          <array c:type="GnomeRROutputInfo**">
-            <type name="RROutputInfo"/>
-          </array>
-        </return-value>
-        <parameters>
-          <instance-parameter name="configuration" transfer-ownership="none">
-            <type name="RRConfig" c:type="GnomeRRConfig*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="load_current"
-              c:identifier="gnome_rr_config_load_current"
-              throws="1">
-        <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                         line="129"/>
-        <return-value transfer-ownership="none">
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <type name="RRConfig" c:type="GnomeRRConfig*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="match" c:identifier="gnome_rr_config_match">
-        <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                         line="131"/>
-        <return-value transfer-ownership="none">
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="config1" transfer-ownership="none">
-            <type name="RRConfig" c:type="GnomeRRConfig*"/>
-          </instance-parameter>
-          <parameter name="config2" transfer-ownership="none">
-            <type name="RRConfig" c:type="GnomeRRConfig*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="sanitize" c:identifier="gnome_rr_config_sanitize">
-        <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                         line="135"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="configuration" transfer-ownership="none">
-            <type name="RRConfig" c:type="GnomeRRConfig*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="set_clone" c:identifier="gnome_rr_config_set_clone">
-        <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                         line="150"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="configuration" transfer-ownership="none">
-            <type name="RRConfig" c:type="GnomeRRConfig*"/>
-          </instance-parameter>
-          <parameter name="clone" transfer-ownership="none">
-            <type name="gboolean" c:type="gboolean"/>
-          </parameter>
-        </parameters>
-      </method>
-      <property name="screen"
-                readable="0"
-                writable="1"
-                construct-only="1"
-                transfer-ownership="none">
-        <type name="RRScreen"/>
-      </property>
-      <field name="parent">
-        <type name="GObject.Object" c:type="GObject"/>
-      </field>
-      <field name="priv" readable="0" private="1">
-        <type name="RRConfigPrivate" c:type="GnomeRRConfigPrivate*"/>
-      </field>
-    </class>
-    <record name="RRConfigClass"
-            c:type="GnomeRRConfigClass"
-            glib:is-gtype-struct-for="RRConfig">
-      <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                       line="114"/>
-      <field name="parent_class">
-        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
-      </field>
-    </record>
-    <record name="RRConfigPrivate"
-            c:type="GnomeRRConfigPrivate"
-            disguised="1"
-            opaque="1">
-      <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                       line="101"/>
-    </record>
-    <record name="RRCrtc"
-            c:type="GnomeRRCrtc"
-            opaque="1"
-            glib:type-name="GnomeRRCrtc"
-            glib:get-type="gnome_rr_crtc_get_type"
-            c:symbol-prefix="rr_crtc">
-      <source-position filename="libgnome-desktop/gnome-rr.h" line="38"/>
-      <method name="can_drive_output"
-              c:identifier="gnome_rr_crtc_can_drive_output">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="207"/>
-        <return-value transfer-ownership="none">
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="crtc" transfer-ownership="none">
-            <type name="RRCrtc" c:type="GnomeRRCrtc*"/>
-          </instance-parameter>
-          <parameter name="output" transfer-ownership="none">
-            <type name="RROutput" c:type="GnomeRROutput*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="get_current_mode"
-              c:identifier="gnome_rr_crtc_get_current_mode">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="209"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="libgnome-desktop/gnome-rr.c"
-               line="1874">the current mode of this crtc</doc>
-          <type name="RRMode" c:type="GnomeRRMode*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="crtc" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgnome-desktop/gnome-rr.c"
-                 line="1873">a #GnomeRRCrtc</doc>
-            <type name="RRCrtc" c:type="GnomeRRCrtc*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_current_rotation"
-              c:identifier="gnome_rr_crtc_get_current_rotation">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="213"/>
-        <return-value transfer-ownership="none">
-          <type name="RRRotation" c:type="GnomeRRRotation"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="crtc" transfer-ownership="none">
-            <type name="RRCrtc" c:type="GnomeRRCrtc*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_gamma" c:identifier="gnome_rr_crtc_get_gamma">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="218"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="libgnome-desktop/gnome-rr.c"
-               line="2204">%TRUE for success</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="crtc" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgnome-desktop/gnome-rr.c"
-                 line="2198">a #GnomeRRCrtc</doc>
-            <type name="RRCrtc" c:type="GnomeRRCrtc*"/>
-          </instance-parameter>
-          <parameter name="size" transfer-ownership="none">
-            <type name="gint" c:type="int*"/>
-          </parameter>
-          <parameter name="red"
-                     direction="out"
-                     caller-allocates="0"
-                     transfer-ownership="full">
-            <doc xml:space="preserve"
-                 filename="libgnome-desktop/gnome-rr.c"
-                 line="2200">the minimum width</doc>
-            <type name="gushort" c:type="unsigned short**"/>
-          </parameter>
-          <parameter name="green"
-                     direction="out"
-                     caller-allocates="0"
-                     transfer-ownership="full">
-            <doc xml:space="preserve"
-                 filename="libgnome-desktop/gnome-rr.c"
-                 line="2201">the maximum width</doc>
-            <type name="gushort" c:type="unsigned short**"/>
-          </parameter>
-          <parameter name="blue"
-                     direction="out"
-                     caller-allocates="0"
-                     transfer-ownership="full">
-            <doc xml:space="preserve"
-                 filename="libgnome-desktop/gnome-rr.c"
-                 line="2202">the minimum height</doc>
-            <type name="gushort" c:type="unsigned short**"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="get_id" c:identifier="gnome_rr_crtc_get_id">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="205"/>
-        <return-value transfer-ownership="none">
-          <type name="guint32" c:type="guint32"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="crtc" transfer-ownership="none">
-            <type name="RRCrtc" c:type="GnomeRRCrtc*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_position" c:identifier="gnome_rr_crtc_get_position">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="210"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="crtc" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgnome-desktop/gnome-rr.c"
-                 line="1912">a #GnomeRRCrtc</doc>
-            <type name="RRCrtc" c:type="GnomeRRCrtc*"/>
-          </instance-parameter>
-          <parameter name="x"
-                     direction="out"
-                     caller-allocates="0"
-                     transfer-ownership="full"
-                     optional="1"
-                     allow-none="1">
-            <type name="gint" c:type="int*"/>
-          </parameter>
-          <parameter name="y"
-                     direction="out"
-                     caller-allocates="0"
-                     transfer-ownership="full"
-                     optional="1"
-                     allow-none="1">
-            <type name="gint" c:type="int*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="get_rotations" c:identifier="gnome_rr_crtc_get_rotations">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="214"/>
-        <return-value transfer-ownership="none">
-          <type name="RRRotation" c:type="GnomeRRRotation"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="crtc" transfer-ownership="none">
-            <type name="RRCrtc" c:type="GnomeRRCrtc*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="set_gamma" c:identifier="gnome_rr_crtc_set_gamma">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="223"/>
-        <return-value transfer-ownership="none">
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="crtc" transfer-ownership="none">
-            <type name="RRCrtc" c:type="GnomeRRCrtc*"/>
-          </instance-parameter>
-          <parameter name="size" transfer-ownership="none">
-            <type name="gint" c:type="int"/>
-          </parameter>
-          <parameter name="red" transfer-ownership="none">
-            <type name="gushort" c:type="unsigned short*"/>
-          </parameter>
-          <parameter name="green" transfer-ownership="none">
-            <type name="gushort" c:type="unsigned short*"/>
-          </parameter>
-          <parameter name="blue" transfer-ownership="none">
-            <type name="gushort" c:type="unsigned short*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="supports_rotation"
-              c:identifier="gnome_rr_crtc_supports_rotation">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="215"/>
-        <return-value transfer-ownership="none">
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="crtc" transfer-ownership="none">
-            <type name="RRCrtc" c:type="GnomeRRCrtc*"/>
-          </instance-parameter>
-          <parameter name="rotation" transfer-ownership="none">
-            <type name="RRRotation" c:type="GnomeRRRotation"/>
-          </parameter>
-        </parameters>
-      </method>
-    </record>
-    <enumeration name="RRDpmsMode" c:type="GnomeRRDpmsMode">
-      <source-position filename="libgnome-desktop/gnome-rr.h" line="72"/>
-      <member name="on" value="0" c:identifier="GNOME_RR_DPMS_ON">
-      </member>
-      <member name="standby" value="1" c:identifier="GNOME_RR_DPMS_STANDBY">
-      </member>
-      <member name="suspend" value="2" c:identifier="GNOME_RR_DPMS_SUSPEND">
-      </member>
-      <member name="off" value="3" c:identifier="GNOME_RR_DPMS_OFF">
-      </member>
-      <member name="unknown" value="4" c:identifier="GNOME_RR_DPMS_UNKNOWN">
-      </member>
-    </enumeration>
-    <enumeration name="RRDpmsModeType"
-                 glib:type-name="GnomeRRDpmsModeType"
-                 glib:get-type="gnome_rr_dpms_mode_get_type"
-                 c:type="GnomeRRDpmsModeType">
-      <member name="on"
-              value="0"
-              c:identifier="GNOME_RR_DPMS_ON"
-              glib:nick="on"
-              glib:name="GNOME_RR_DPMS_ON">
-      </member>
-      <member name="standby"
-              value="1"
-              c:identifier="GNOME_RR_DPMS_STANDBY"
-              glib:nick="standby"
-              glib:name="GNOME_RR_DPMS_STANDBY">
-      </member>
-      <member name="suspend"
-              value="2"
-              c:identifier="GNOME_RR_DPMS_SUSPEND"
-              glib:nick="suspend"
-              glib:name="GNOME_RR_DPMS_SUSPEND">
-      </member>
-      <member name="off"
-              value="3"
-              c:identifier="GNOME_RR_DPMS_OFF"
-              glib:nick="off"
-              glib:name="GNOME_RR_DPMS_OFF">
-      </member>
-      <member name="unknown"
-              value="4"
-              c:identifier="GNOME_RR_DPMS_UNKNOWN"
-              glib:nick="unknown"
-              glib:name="GNOME_RR_DPMS_UNKNOWN">
-      </member>
-    </enumeration>
-    <enumeration name="RRError"
-                 c:type="GnomeRRError"
-                 glib:error-domain="gnome-rr-error-quark">
-      <source-position filename="libgnome-desktop/gnome-rr.h" line="97"/>
-      <member name="unknown" value="0" c:identifier="GNOME_RR_ERROR_UNKNOWN">
-      </member>
-      <member name="no_randr_extension"
-              value="1"
-              c:identifier="GNOME_RR_ERROR_NO_RANDR_EXTENSION">
-      </member>
-      <member name="randr_error"
-              value="2"
-              c:identifier="GNOME_RR_ERROR_RANDR_ERROR">
-      </member>
-      <member name="bounds_error"
-              value="3"
-              c:identifier="GNOME_RR_ERROR_BOUNDS_ERROR">
-      </member>
-      <member name="crtc_assignment"
-              value="4"
-              c:identifier="GNOME_RR_ERROR_CRTC_ASSIGNMENT">
-      </member>
-      <member name="no_matching_config"
-              value="5"
-              c:identifier="GNOME_RR_ERROR_NO_MATCHING_CONFIG">
-      </member>
-      <member name="no_dpms_extension"
-              value="6"
-              c:identifier="GNOME_RR_ERROR_NO_DPMS_EXTENSION">
-      </member>
-    </enumeration>
-    <record name="RRMode"
-            c:type="GnomeRRMode"
-            opaque="1"
-            glib:type-name="GnomeRRMode"
-            glib:get-type="gnome_rr_mode_get_type"
-            c:symbol-prefix="rr_mode">
-      <source-position filename="libgnome-desktop/gnome-rr.h" line="39"/>
-      <method name="get_freq" c:identifier="gnome_rr_mode_get_freq">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="199"/>
-        <return-value transfer-ownership="none">
-          <type name="gint" c:type="int"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="mode" transfer-ownership="none">
-            <type name="RRMode" c:type="GnomeRRMode*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_freq_f" c:identifier="gnome_rr_mode_get_freq_f">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="200"/>
-        <return-value transfer-ownership="none">
-          <type name="gdouble" c:type="double"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="mode" transfer-ownership="none">
-            <type name="RRMode" c:type="GnomeRRMode*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_height" c:identifier="gnome_rr_mode_get_height">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="198"/>
-        <return-value transfer-ownership="none">
-          <type name="guint" c:type="guint"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="mode" transfer-ownership="none">
-            <type name="RRMode" c:type="GnomeRRMode*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_id" c:identifier="gnome_rr_mode_get_id">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="196"/>
-        <return-value transfer-ownership="none">
-          <type name="guint32" c:type="guint32"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="mode" transfer-ownership="none">
-            <type name="RRMode" c:type="GnomeRRMode*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_is_interlaced"
-              c:identifier="gnome_rr_mode_get_is_interlaced">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="202"/>
-        <return-value transfer-ownership="none">
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="mode" transfer-ownership="none">
-            <type name="RRMode" c:type="GnomeRRMode*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_is_tiled" c:identifier="gnome_rr_mode_get_is_tiled">
-        <doc xml:space="preserve"
-             filename="libgnome-desktop/gnome-rr.c"
-             line="2090">Returns TRUE if this mode is a tiled
-mode created for span a tiled monitor.</doc>
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="201"/>
-        <return-value transfer-ownership="none">
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="mode" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgnome-desktop/gnome-rr.c"
-                 line="2092">a #GnomeRRMode</doc>
-            <type name="RRMode" c:type="GnomeRRMode*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_width" c:identifier="gnome_rr_mode_get_width">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="197"/>
-        <return-value transfer-ownership="none">
-          <type name="guint" c:type="guint"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="mode" transfer-ownership="none">
-            <type name="RRMode" c:type="GnomeRRMode*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-    </record>
-    <record name="RROutput"
-            c:type="GnomeRROutput"
-            opaque="1"
-            glib:type-name="GnomeRROutput"
-            glib:get-type="gnome_rr_output_get_type"
-            c:symbol-prefix="rr_output">
-      <source-position filename="libgnome-desktop/gnome-rr.h" line="37"/>
-      <method name="can_clone" c:identifier="gnome_rr_output_can_clone">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="184"/>
-        <return-value transfer-ownership="none">
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="output" transfer-ownership="none">
-            <type name="RROutput" c:type="GnomeRROutput*"/>
-          </instance-parameter>
-          <parameter name="clone" transfer-ownership="none">
-            <type name="RROutput" c:type="GnomeRROutput*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="get_backlight"
-              c:identifier="gnome_rr_output_get_backlight">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="168"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="libgnome-desktop/gnome-rr.c"
-               line="1594">The currently set backlight brightness</doc>
-          <type name="gint" c:type="gint"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="output" transfer-ownership="none">
-            <type name="RROutput" c:type="GnomeRROutput*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_crtc" c:identifier="gnome_rr_output_get_crtc">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="179"/>
-        <return-value transfer-ownership="none">
-          <type name="RRCrtc" c:type="GnomeRRCrtc*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="output" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgnome-desktop/gnome-rr.c"
-                 line="1684">a #GnomeRROutput</doc>
-            <type name="RROutput" c:type="GnomeRROutput*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_current_mode"
-              c:identifier="gnome_rr_output_get_current_mode">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="178"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="libgnome-desktop/gnome-rr.c"
-               line="1733">the current mode of this output</doc>
-          <type name="RRMode" c:type="GnomeRRMode*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="output" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgnome-desktop/gnome-rr.c"
-                 line="1732">a #GnomeRROutput</doc>
-            <type name="RROutput" c:type="GnomeRROutput*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_display_name"
-              c:identifier="gnome_rr_output_get_display_name">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="157"/>
-        <return-value transfer-ownership="none">
-          <type name="utf8" c:type="const char*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="output" transfer-ownership="none">
-            <type name="RROutput" c:type="GnomeRROutput*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_edid_data"
-              c:identifier="gnome_rr_output_get_edid_data">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="158"/>
-        <return-value transfer-ownership="none">
-          <type name="guint8" c:type="const guint8*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="output" transfer-ownership="none">
-            <type name="RROutput" c:type="GnomeRROutput*"/>
-          </instance-parameter>
-          <parameter name="size" transfer-ownership="none">
-            <type name="gsize" c:type="gsize*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="get_id" c:identifier="gnome_rr_output_get_id">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="155"/>
-        <return-value transfer-ownership="none">
-          <type name="guint32" c:type="guint32"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="output" transfer-ownership="none">
-            <type name="RROutput" c:type="GnomeRROutput*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_ids_from_edid"
-              c:identifier="gnome_rr_output_get_ids_from_edid">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="160"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="output" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgnome-desktop/gnome-rr.c"
-                 line="1546">a #GnomeRROutput</doc>
-            <type name="RROutput" c:type="GnomeRROutput*"/>
-          </instance-parameter>
-          <parameter name="vendor"
-                     direction="out"
-                     caller-allocates="0"
-                     transfer-ownership="full"
-                     optional="1"
-                     allow-none="1">
-            <type name="utf8" c:type="char**"/>
-          </parameter>
-          <parameter name="product"
-                     direction="out"
-                     caller-allocates="0"
-                     transfer-ownership="full"
-                     optional="1"
-                     allow-none="1">
-            <type name="utf8" c:type="char**"/>
-          </parameter>
-          <parameter name="serial"
-                     direction="out"
-                     caller-allocates="0"
-                     transfer-ownership="full"
-                     optional="1"
-                     allow-none="1">
-            <type name="utf8" c:type="char**"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="get_is_primary"
-              c:identifier="gnome_rr_output_get_is_primary">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="190"/>
-        <return-value transfer-ownership="none">
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="output" transfer-ownership="none">
-            <type name="RROutput" c:type="GnomeRROutput*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_is_underscanning"
-              c:identifier="gnome_rr_output_get_is_underscanning">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="191"/>
-        <return-value transfer-ownership="none">
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="output" transfer-ownership="none">
-            <type name="RROutput" c:type="GnomeRROutput*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_min_backlight_step"
-              c:identifier="gnome_rr_output_get_min_backlight_step">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="169"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="libgnome-desktop/gnome-rr.c"
-               line="1607">The minimum backlight step available in percent</doc>
-          <type name="gint" c:type="gint"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="output" transfer-ownership="none">
-            <type name="RROutput" c:type="GnomeRROutput*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_name" c:identifier="gnome_rr_output_get_name">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="156"/>
-        <return-value transfer-ownership="none">
-          <type name="utf8" c:type="const char*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="output" transfer-ownership="none">
-            <type name="RROutput" c:type="GnomeRROutput*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_physical_size"
-              c:identifier="gnome_rr_output_get_physical_size">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="164"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="output" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgnome-desktop/gnome-rr.c"
-                 line="1566">a #GnomeRROutput</doc>
-            <type name="RROutput" c:type="GnomeRROutput*"/>
-          </instance-parameter>
-          <parameter name="width_mm"
-                     direction="out"
-                     caller-allocates="0"
-                     transfer-ownership="full"
-                     optional="1"
-                     allow-none="1">
-            <type name="gint" c:type="int*"/>
-          </parameter>
-          <parameter name="height_mm"
-                     direction="out"
-                     caller-allocates="0"
-                     transfer-ownership="full"
-                     optional="1"
-                     allow-none="1">
-            <type name="gint" c:type="int*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="get_position" c:identifier="gnome_rr_output_get_position">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="181"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="output" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgnome-desktop/gnome-rr.c"
-                 line="1762">a #GnomeRROutput</doc>
-            <type name="RROutput" c:type="GnomeRROutput*"/>
-          </instance-parameter>
-          <parameter name="x"
-                     direction="out"
-                     caller-allocates="0"
-                     transfer-ownership="full"
-                     optional="1"
-                     allow-none="1">
-            <type name="gint" c:type="int*"/>
-          </parameter>
-          <parameter name="y"
-                     direction="out"
-                     caller-allocates="0"
-                     transfer-ownership="full"
-                     optional="1"
-                     allow-none="1">
-            <type name="gint" c:type="int*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="get_possible_crtcs"
-              c:identifier="gnome_rr_output_get_possible_crtcs">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="177"/>
-        <return-value transfer-ownership="none">
-          <array c:type="GnomeRRCrtc**">
-            <type name="RRCrtc" c:type="GnomeRRCrtc*"/>
-          </array>
-        </return-value>
-        <parameters>
-          <instance-parameter name="output" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgnome-desktop/gnome-rr.c"
-                 line="1697">a #GnomeRROutput</doc>
-            <type name="RROutput" c:type="GnomeRROutput*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_preferred_mode"
-              c:identifier="gnome_rr_output_get_preferred_mode">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="187"/>
-        <return-value transfer-ownership="none">
-          <type name="RRMode" c:type="GnomeRRMode*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="output" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgnome-desktop/gnome-rr.c"
-                 line="1788">a #GnomeRROutput</doc>
-            <type name="RROutput" c:type="GnomeRROutput*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="is_builtin_display"
-              c:identifier="gnome_rr_output_is_builtin_display">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="180"/>
-        <return-value transfer-ownership="none">
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="output" transfer-ownership="none">
-            <type name="RROutput" c:type="GnomeRROutput*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="list_modes" c:identifier="gnome_rr_output_list_modes">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="186"/>
-        <return-value transfer-ownership="none">
-          <array c:type="GnomeRRMode**">
-            <type name="RRMode" c:type="GnomeRRMode*"/>
-          </array>
-        </return-value>
-        <parameters>
-          <instance-parameter name="output" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgnome-desktop/gnome-rr.c"
-                 line="1800">a #GnomeRROutput</doc>
-            <type name="RROutput" c:type="GnomeRROutput*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="set_backlight"
-              c:identifier="gnome_rr_output_set_backlight"
-              throws="1">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="170"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="libgnome-desktop/gnome-rr.c"
-               line="1621">%TRUE for success</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="output" transfer-ownership="none">
-            <type name="RROutput" c:type="GnomeRROutput*"/>
-          </instance-parameter>
-          <parameter name="value" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgnome-desktop/gnome-rr.c"
-                 line="1619">the absolute value which is 0 &gt;= this &lt;= 100</doc>
-            <type name="gint" c:type="gint"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="set_color_transform"
-              c:identifier="gnome_rr_output_set_color_transform"
-              throws="1">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="173"/>
-        <return-value transfer-ownership="none">
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="output" transfer-ownership="none">
-            <type name="RROutput" c:type="GnomeRROutput*"/>
-          </instance-parameter>
-          <parameter name="value" transfer-ownership="none">
-            <type name="RRCTM" c:type="GnomeRRCTM"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="supports_color_transform"
-              c:identifier="gnome_rr_output_supports_color_transform">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="193"/>
-        <return-value transfer-ownership="none">
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="output" transfer-ownership="none">
-            <type name="RROutput" c:type="const GnomeRROutput*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="supports_mode"
-              c:identifier="gnome_rr_output_supports_mode">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="188"/>
-        <return-value transfer-ownership="none">
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="output" transfer-ownership="none">
-            <type name="RROutput" c:type="GnomeRROutput*"/>
-          </instance-parameter>
-          <parameter name="mode" transfer-ownership="none">
-            <type name="RRMode" c:type="GnomeRRMode*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="supports_underscanning"
-              c:identifier="gnome_rr_output_supports_underscanning">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="192"/>
-        <return-value transfer-ownership="none">
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="output" transfer-ownership="none">
-            <type name="RROutput" c:type="GnomeRROutput*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-    </record>
-    <class name="RROutputInfo"
-           c:symbol-prefix="rr_output_info"
-           c:type="GnomeRROutputInfo"
-           parent="GObject.Object"
-           glib:type-name="GnomeRROutputInfo"
-           glib:get-type="gnome_rr_output_info_get_type"
-           glib:type-struct="RROutputInfoClass">
-      <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                       line="53"/>
-      <method name="get_aspect_ratio"
-              c:identifier="gnome_rr_output_info_get_aspect_ratio">
-        <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                         line="85"/>
-        <return-value transfer-ownership="none">
-          <type name="gdouble" c:type="double"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <type name="RROutputInfo" c:type="GnomeRROutputInfo*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_display_name"
-              c:identifier="gnome_rr_output_info_get_display_name">
-        <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                         line="86"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="libgnome-desktop/gnome-rr-output-info.c"
-               line="473">the display name of this output</doc>
-          <type name="utf8" c:type="char*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <type name="RROutputInfo" c:type="GnomeRROutputInfo*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_geometry"
-              c:identifier="gnome_rr_output_info_get_geometry">
-        <doc xml:space="preserve"
-             filename="libgnome-desktop/gnome-rr-output-info.c"
-             line="166">Get the geometry for the monitor connected to the specified output.
-If the monitor is a tiled monitor, it returns the geometry for the complete monitor.</doc>
-        <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                         line="71"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgnome-desktop/gnome-rr-output-info.c"
-                 line="168">a #GnomeRROutputInfo</doc>
-            <type name="RROutputInfo" c:type="GnomeRROutputInfo*"/>
-          </instance-parameter>
-          <parameter name="x"
-                     direction="out"
-                     caller-allocates="0"
-                     transfer-ownership="full"
-                     optional="1"
-                     allow-none="1">
-            <type name="gint" c:type="int*"/>
-          </parameter>
-          <parameter name="y"
-                     direction="out"
-                     caller-allocates="0"
-                     transfer-ownership="full"
-                     optional="1"
-                     allow-none="1">
-            <type name="gint" c:type="int*"/>
-          </parameter>
-          <parameter name="width"
-                     direction="out"
-                     caller-allocates="0"
-                     transfer-ownership="full"
-                     optional="1"
-                     allow-none="1">
-            <type name="gint" c:type="int*"/>
-          </parameter>
-          <parameter name="height"
-                     direction="out"
-                     caller-allocates="0"
-                     transfer-ownership="full"
-                     optional="1"
-                     allow-none="1">
-            <type name="gint" c:type="int*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="get_name" c:identifier="gnome_rr_output_info_get_name">
-        <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                         line="66"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="libgnome-desktop/gnome-rr-output-info.c"
-               line="72">the output name</doc>
-          <type name="utf8" c:type="char*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <type name="RROutputInfo" c:type="GnomeRROutputInfo*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_preferred_height"
-              c:identifier="gnome_rr_output_info_get_preferred_height">
-        <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                         line="92"/>
-        <return-value transfer-ownership="none">
-          <type name="gint" c:type="int"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <type name="RROutputInfo" c:type="GnomeRROutputInfo*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_preferred_width"
-              c:identifier="gnome_rr_output_info_get_preferred_width">
-        <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                         line="91"/>
-        <return-value transfer-ownership="none">
-          <type name="gint" c:type="int"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <type name="RROutputInfo" c:type="GnomeRROutputInfo*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_primary"
-              c:identifier="gnome_rr_output_info_get_primary">
-        <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                         line="88"/>
-        <return-value transfer-ownership="none">
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <type name="RROutputInfo" c:type="GnomeRROutputInfo*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_product"
-              c:identifier="gnome_rr_output_info_get_product">
-        <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                         line="83"/>
-        <return-value transfer-ownership="none">
-          <type name="utf8" c:type="const char*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <type name="RROutputInfo" c:type="GnomeRROutputInfo*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_refresh_rate"
-              c:identifier="gnome_rr_output_info_get_refresh_rate">
-        <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                         line="74"/>
-        <return-value transfer-ownership="none">
-          <type name="gint" c:type="int"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <type name="RROutputInfo" c:type="GnomeRROutputInfo*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_rotation"
-              c:identifier="gnome_rr_output_info_get_rotation">
-        <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                         line="77"/>
-        <return-value transfer-ownership="none">
-          <type name="RRRotation" c:type="GnomeRRRotation"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <type name="RROutputInfo" c:type="GnomeRROutputInfo*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_serial" c:identifier="gnome_rr_output_info_get_serial">
-        <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                         line="84"/>
-        <return-value transfer-ownership="none">
-          <type name="utf8" c:type="const char*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <type name="RROutputInfo" c:type="GnomeRROutputInfo*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_underscanning"
-              c:identifier="gnome_rr_output_info_get_underscanning">
-        <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                         line="94"/>
-        <return-value transfer-ownership="none">
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <type name="RROutputInfo" c:type="GnomeRROutputInfo*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_vendor" c:identifier="gnome_rr_output_info_get_vendor">
-        <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                         line="82"/>
-        <return-value transfer-ownership="none">
-          <type name="utf8" c:type="const char*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgnome-desktop/gnome-rr-output-info.c"
-                 line="437">a #GnomeRROutputInfo</doc>
-            <type name="RROutputInfo" c:type="GnomeRROutputInfo*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="is_active" c:identifier="gnome_rr_output_info_is_active">
-        <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                         line="68"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="libgnome-desktop/gnome-rr-output-info.c"
-               line="84">whether there is a CRTC assigned to this output (i.e. a signal is being sent to it)</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <type name="RROutputInfo" c:type="GnomeRROutputInfo*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="is_connected"
-              c:identifier="gnome_rr_output_info_is_connected">
-        <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                         line="81"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="libgnome-desktop/gnome-rr-output-info.c"
-               line="426">whether the output is physically connected to a monitor</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <type name="RROutputInfo" c:type="GnomeRROutputInfo*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="is_primary_tile"
-              c:identifier="gnome_rr_output_info_is_primary_tile">
-        <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                         line="97"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="libgnome-desktop/gnome-rr-output-info.c"
-               line="529">%TRUE if the specified output is connected to
-the primary tile of a monitor or to an untiled monitor,
-%FALSE if the output is connected to a secondary tile.</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgnome-desktop/gnome-rr-output-info.c"
-                 line="527">a #GnomeRROutputInfo</doc>
-            <type name="RROutputInfo" c:type="GnomeRROutputInfo*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="set_active" c:identifier="gnome_rr_output_info_set_active">
-        <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                         line="69"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <type name="RROutputInfo" c:type="GnomeRROutputInfo*"/>
-          </instance-parameter>
-          <parameter name="active" transfer-ownership="none">
-            <type name="gboolean" c:type="gboolean"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="set_geometry"
-              c:identifier="gnome_rr_output_info_set_geometry">
-        <doc xml:space="preserve"
-             filename="libgnome-desktop/gnome-rr-output-info.c"
-             line="281">Set the geometry for the monitor connected to the specified output.
-If the monitor is a tiled monitor, it sets the geometry for the complete monitor.</doc>
-        <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                         line="72"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgnome-desktop/gnome-rr-output-info.c"
-                 line="283">a #GnomeRROutputInfo</doc>
-            <type name="RROutputInfo" c:type="GnomeRROutputInfo*"/>
-          </instance-parameter>
-          <parameter name="x" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgnome-desktop/gnome-rr-output-info.c"
-                 line="284">x offset for monitor</doc>
-            <type name="gint" c:type="int"/>
-          </parameter>
-          <parameter name="y" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgnome-desktop/gnome-rr-output-info.c"
-                 line="285">y offset for monitor</doc>
-            <type name="gint" c:type="int"/>
-          </parameter>
-          <parameter name="width" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgnome-desktop/gnome-rr-output-info.c"
-                 line="286">monitor width</doc>
-            <type name="gint" c:type="int"/>
-          </parameter>
-          <parameter name="height" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgnome-desktop/gnome-rr-output-info.c"
-                 line="287">monitor height</doc>
-            <type name="gint" c:type="int"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="set_primary"
-              c:identifier="gnome_rr_output_info_set_primary">
-        <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                         line="89"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <type name="RROutputInfo" c:type="GnomeRROutputInfo*"/>
-          </instance-parameter>
-          <parameter name="primary" transfer-ownership="none">
-            <type name="gboolean" c:type="gboolean"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="set_refresh_rate"
-              c:identifier="gnome_rr_output_info_set_refresh_rate">
-        <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                         line="75"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <type name="RROutputInfo" c:type="GnomeRROutputInfo*"/>
-          </instance-parameter>
-          <parameter name="rate" transfer-ownership="none">
-            <type name="gint" c:type="int"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="set_rotation"
-              c:identifier="gnome_rr_output_info_set_rotation">
-        <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                         line="78"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <type name="RROutputInfo" c:type="GnomeRROutputInfo*"/>
-          </instance-parameter>
-          <parameter name="rotation" transfer-ownership="none">
-            <type name="RRRotation" c:type="GnomeRRRotation"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="set_underscanning"
-              c:identifier="gnome_rr_output_info_set_underscanning">
-        <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                         line="95"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <type name="RROutputInfo" c:type="GnomeRROutputInfo*"/>
-          </instance-parameter>
-          <parameter name="underscanning" transfer-ownership="none">
-            <type name="gboolean" c:type="gboolean"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="supports_rotation"
-              c:identifier="gnome_rr_output_info_supports_rotation">
-        <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                         line="79"/>
-        <return-value transfer-ownership="none">
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="self" transfer-ownership="none">
-            <type name="RROutputInfo" c:type="GnomeRROutputInfo*"/>
-          </instance-parameter>
-          <parameter name="rotation" transfer-ownership="none">
-            <type name="RRRotation" c:type="GnomeRRRotation"/>
-          </parameter>
-        </parameters>
-      </method>
-      <field name="parent">
-        <type name="GObject.Object" c:type="GObject"/>
-      </field>
-      <field name="priv" readable="0" private="1">
-        <type name="RROutputInfoPrivate" c:type="GnomeRROutputInfoPrivate*"/>
-      </field>
-    </class>
-    <record name="RROutputInfoClass"
-            c:type="GnomeRROutputInfoClass"
-            glib:is-gtype-struct-for="RROutputInfo">
-      <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                       line="53"/>
-      <field name="parent_class">
-        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
-      </field>
-    </record>
-    <record name="RROutputInfoPrivate"
-            c:type="GnomeRROutputInfoPrivate"
-            disguised="1"
-            opaque="1">
-      <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                       line="40"/>
-    </record>
-    <bitfield name="RRRotation" c:type="GnomeRRRotation">
-      <source-position filename="libgnome-desktop/gnome-rr.h" line="64"/>
-      <member name="rotation_next"
-              value="0"
-              c:identifier="GNOME_RR_ROTATION_NEXT">
-      </member>
-      <member name="rotation_0" value="1" c:identifier="GNOME_RR_ROTATION_0">
-      </member>
-      <member name="rotation_90" value="2" c:identifier="GNOME_RR_ROTATION_90">
-      </member>
-      <member name="rotation_180"
-              value="4"
-              c:identifier="GNOME_RR_ROTATION_180">
-      </member>
-      <member name="rotation_270"
-              value="8"
-              c:identifier="GNOME_RR_ROTATION_270">
-      </member>
-      <member name="reflect_x" value="16" c:identifier="GNOME_RR_REFLECT_X">
-      </member>
-      <member name="reflect_y" value="32" c:identifier="GNOME_RR_REFLECT_Y">
-      </member>
-    </bitfield>
-    <class name="RRScreen"
-           c:symbol-prefix="rr_screen"
-           c:type="GnomeRRScreen"
-           parent="GObject.Object"
-           glib:type-name="GnomeRRScreen"
-           glib:get-type="gnome_rr_screen_get_type"
-           glib:type-struct="RRScreenClass">
-      <source-position filename="libgnome-desktop/gnome-rr.h" line="53"/>
-      <implements name="Gio.AsyncInitable"/>
-      <implements name="Gio.Initable"/>
-      <constructor name="new" c:identifier="gnome_rr_screen_new" throws="1">
-        <doc xml:space="preserve"
-             filename="libgnome-desktop/gnome-rr.c"
-             line="996">Creates a unique #GnomeRRScreen instance for the specified @screen.</doc>
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="122"/>
-        <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="libgnome-desktop/gnome-rr.c"
-               line="1003">a unique #GnomeRRScreen instance, specific to the @screen, or NULL
-if this could not be created, for instance if the driver does not support
-Xrandr 1.2.  Each #GdkScreen thus has a single instance of #GnomeRRScreen.</doc>
-          <type name="RRScreen" c:type="GnomeRRScreen*"/>
-        </return-value>
-        <parameters>
-          <parameter name="screen" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgnome-desktop/gnome-rr.c"
-                 line="998">the #GdkScreen on which to operate</doc>
-            <type name="Gdk.Screen" c:type="GdkScreen*"/>
-          </parameter>
-        </parameters>
-      </constructor>
-      <constructor name="new_finish"
-                   c:identifier="gnome_rr_screen_new_finish"
-                   throws="1">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="127"/>
-        <return-value transfer-ownership="full">
-          <type name="RRScreen" c:type="GnomeRRScreen*"/>
-        </return-value>
-        <parameters>
-          <parameter name="result" transfer-ownership="none">
-            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
-          </parameter>
-        </parameters>
-      </constructor>
-      <function name="new_async"
-                c:identifier="gnome_rr_screen_new_async"
-                glib:finish-func="new_finish">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="124"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <parameter name="screen" transfer-ownership="none">
-            <type name="Gdk.Screen" c:type="GdkScreen*"/>
-          </parameter>
-          <parameter name="callback"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1"
-                     scope="async"
-                     closure="2">
-            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
-          </parameter>
-          <parameter name="user_data"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <type name="gpointer" c:type="gpointer"/>
-          </parameter>
-        </parameters>
-      </function>
-      <virtual-method name="changed">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="50"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="screen" transfer-ownership="none">
-            <type name="RRScreen" c:type="GnomeRRScreen*"/>
-          </instance-parameter>
-        </parameters>
-      </virtual-method>
-      <virtual-method name="output_connected">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="51"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="screen" transfer-ownership="none">
-            <type name="RRScreen" c:type="GnomeRRScreen*"/>
-          </instance-parameter>
-          <parameter name="output" transfer-ownership="none">
-            <type name="RROutput" c:type="GnomeRROutput*"/>
-          </parameter>
-        </parameters>
-      </virtual-method>
-      <virtual-method name="output_disconnected">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="52"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="screen" transfer-ownership="none">
-            <type name="RRScreen" c:type="GnomeRRScreen*"/>
-          </instance-parameter>
-          <parameter name="output" transfer-ownership="none">
-            <type name="RROutput" c:type="GnomeRROutput*"/>
-          </parameter>
-        </parameters>
-      </virtual-method>
-      <method name="get_crtc_by_id"
-              c:identifier="gnome_rr_screen_get_crtc_by_id">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="133"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="libgnome-desktop/gnome-rr.c"
-               line="1263">the CRTC identified by @id</doc>
-          <type name="RRCrtc" c:type="GnomeRRCrtc*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="screen" transfer-ownership="none">
-            <type name="RRScreen" c:type="GnomeRRScreen*"/>
-          </instance-parameter>
-          <parameter name="id" transfer-ownership="none">
-            <type name="guint32" c:type="guint32"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="get_dpms_mode"
-              c:identifier="gnome_rr_screen_get_dpms_mode"
-              glib:get-property="dpms-mode"
-              throws="1">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="147"/>
-        <return-value transfer-ownership="none">
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="screen" transfer-ownership="none">
-            <type name="RRScreen" c:type="GnomeRRScreen*"/>
-          </instance-parameter>
-          <parameter name="mode"
-                     direction="out"
-                     caller-allocates="0"
-                     transfer-ownership="full">
-            <doc xml:space="preserve"
-                 filename="libgnome-desktop/gnome-rr.c"
-                 line="1116">The current #GnomeRRDpmsMode of this screen</doc>
-            <type name="RRDpmsMode" c:type="GnomeRRDpmsMode*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="get_output_by_id"
-              c:identifier="gnome_rr_screen_get_output_by_id">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="137"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="libgnome-desktop/gnome-rr.c"
-               line="1289">the output identified by @id</doc>
-          <type name="RROutput" c:type="GnomeRROutput*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="screen" transfer-ownership="none">
-            <type name="RRScreen" c:type="GnomeRRScreen*"/>
-          </instance-parameter>
-          <parameter name="id" transfer-ownership="none">
-            <type name="guint32" c:type="guint32"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="get_output_by_name"
-              c:identifier="gnome_rr_screen_get_output_by_name">
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="139"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="libgnome-desktop/gnome-rr.c"
-               line="1660">the output identified by @name</doc>
-          <type name="RROutput" c:type="GnomeRROutput*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="screen" transfer-ownership="none">
-            <type name="RRScreen" c:type="GnomeRRScreen*"/>
-          </instance-parameter>
-          <parameter name="name" transfer-ownership="none">
-            <type name="utf8" c:type="const char*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="get_ranges" c:identifier="gnome_rr_screen_get_ranges">
-        <doc xml:space="preserve"
-             filename="libgnome-desktop/gnome-rr.c"
-             line="1056">Get the ranges of the screen</doc>
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="141"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="screen" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgnome-desktop/gnome-rr.c"
-                 line="1058">a #GnomeRRScreen</doc>
-            <type name="RRScreen" c:type="GnomeRRScreen*"/>
-          </instance-parameter>
-          <parameter name="min_width"
-                     direction="out"
-                     caller-allocates="0"
-                     transfer-ownership="full">
-            <doc xml:space="preserve"
-                 filename="libgnome-desktop/gnome-rr.c"
-                 line="1059">the minimum width</doc>
-            <type name="gint" c:type="int*"/>
-          </parameter>
-          <parameter name="max_width"
-                     direction="out"
-                     caller-allocates="0"
-                     transfer-ownership="full">
-            <doc xml:space="preserve"
-                 filename="libgnome-desktop/gnome-rr.c"
-                 line="1060">the maximum width</doc>
-            <type name="gint" c:type="int*"/>
-          </parameter>
-          <parameter name="min_height"
-                     direction="out"
-                     caller-allocates="0"
-                     transfer-ownership="full">
-            <doc xml:space="preserve"
-                 filename="libgnome-desktop/gnome-rr.c"
-                 line="1061">the minimum height</doc>
-            <type name="gint" c:type="int*"/>
-          </parameter>
-          <parameter name="max_height"
-                     direction="out"
-                     caller-allocates="0"
-                     transfer-ownership="full">
-            <doc xml:space="preserve"
-                 filename="libgnome-desktop/gnome-rr.c"
-                 line="1062">the maximum height</doc>
-            <type name="gint" c:type="int*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="list_clone_modes"
-              c:identifier="gnome_rr_screen_list_clone_modes">
-        <doc xml:space="preserve"
-             filename="libgnome-desktop/gnome-rr.c"
-             line="1212">List available XRandR clone modes</doc>
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="132"/>
-        <return-value transfer-ownership="none">
-          <array c:type="GnomeRRMode**">
-            <type name="RRMode" c:type="GnomeRRMode*"/>
-          </array>
-        </return-value>
-        <parameters>
-          <instance-parameter name="screen" transfer-ownership="none">
-            <type name="RRScreen" c:type="GnomeRRScreen*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="list_crtcs" c:identifier="gnome_rr_screen_list_crtcs">
-        <doc xml:space="preserve"
-             filename="libgnome-desktop/gnome-rr.c"
-             line="1228">List all CRTCs</doc>
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="130"/>
-        <return-value transfer-ownership="none">
-          <array c:type="GnomeRRCrtc**">
-            <type name="RRCrtc" c:type="GnomeRRCrtc*"/>
-          </array>
-        </return-value>
-        <parameters>
-          <instance-parameter name="screen" transfer-ownership="none">
-            <type name="RRScreen" c:type="GnomeRRScreen*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="list_modes" c:identifier="gnome_rr_screen_list_modes">
-        <doc xml:space="preserve"
-             filename="libgnome-desktop/gnome-rr.c"
-             line="1196">List available XRandR modes</doc>
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="131"/>
-        <return-value transfer-ownership="none">
-          <array c:type="GnomeRRMode**">
-            <type name="RRMode" c:type="GnomeRRMode*"/>
-          </array>
-        </return-value>
-        <parameters>
-          <instance-parameter name="screen" transfer-ownership="none">
-            <type name="RRScreen" c:type="GnomeRRScreen*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="list_outputs" c:identifier="gnome_rr_screen_list_outputs">
-        <doc xml:space="preserve"
-             filename="libgnome-desktop/gnome-rr.c"
-             line="1244">List all outputs</doc>
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="129"/>
-        <return-value transfer-ownership="none">
-          <array c:type="GnomeRROutput**">
-            <type name="RROutput" c:type="GnomeRROutput*"/>
-          </array>
-        </return-value>
-        <parameters>
-          <instance-parameter name="screen" transfer-ownership="none">
-            <type name="RRScreen" c:type="GnomeRRScreen*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="refresh" c:identifier="gnome_rr_screen_refresh" throws="1">
-        <doc xml:space="preserve"
-             filename="libgnome-desktop/gnome-rr.c"
-             line="1092">Refreshes the screen configuration, and calls the screen's callback if it
-exists and if the screen's configuration changed.</doc>
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="135"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="libgnome-desktop/gnome-rr.c"
-               line="1100">TRUE if the screen's configuration changed; otherwise, the
-function returns FALSE and a NULL error if the configuration didn't change,
-or FALSE and a non-NULL error if there was an error while refreshing the
-configuration.</doc>
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="screen" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgnome-desktop/gnome-rr.c"
-                 line="1094">a #GnomeRRScreen</doc>
-            <type name="RRScreen" c:type="GnomeRRScreen*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="set_dpms_mode"
-              c:identifier="gnome_rr_screen_set_dpms_mode"
-              glib:set-property="dpms-mode"
-              throws="1">
-        <doc xml:space="preserve"
-             filename="libgnome-desktop/gnome-rr.c"
-             line="1156">This method also disables the DPMS timeouts.</doc>
-        <source-position filename="libgnome-desktop/gnome-rr.h" line="150"/>
-        <return-value transfer-ownership="none">
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="screen" transfer-ownership="none">
-            <type name="RRScreen" c:type="GnomeRRScreen*"/>
-          </instance-parameter>
-          <parameter name="mode" transfer-ownership="none">
-            <type name="RRDpmsMode" c:type="GnomeRRDpmsMode"/>
-          </parameter>
-        </parameters>
-      </method>
-      <property name="dpms-mode"
-                writable="1"
-                transfer-ownership="none"
-                setter="set_dpms_mode"
-                getter="get_dpms_mode"
-                default-value="GNOME_RR_DPMS_UNKNOWN">
-        <type name="RRDpmsModeType"/>
-      </property>
-      <property name="gdk-screen"
-                writable="1"
-                construct-only="1"
-                transfer-ownership="none">
-        <type name="Gdk.Screen"/>
-      </property>
-      <field name="parent">
-        <type name="GObject.Object" c:type="GObject"/>
-      </field>
-      <field name="priv">
-        <type name="RRScreenPrivate" c:type="GnomeRRScreenPrivate*"/>
-      </field>
-      <glib:signal name="changed" when="first" no-recurse="1" no-hooks="1">
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-      </glib:signal>
-      <glib:signal name="output-connected"
-                   when="first"
-                   no-recurse="1"
-                   no-hooks="1">
-        <doc xml:space="preserve"
-             filename="libgnome-desktop/gnome-rr.c"
-             line="923">This signal is emitted when a display device is connected to a
-port, or a port is hotplugged with an active output. The latter
-can happen if a laptop is docked, and the dock provides a new
-active output.
-
-The @output value is not a #GObject. The returned @output value can
-only assume to be valid during the emission of the signal (i.e. within
-your signal handler only), as it may change later when the @screen
-is modified due to an event from the X server, or due to another
-place in the application modifying the @screen and the @output.
-Therefore, deal with changes to the @output right in your signal
-handler, instead of keeping the @output reference for an async or
-idle function.</doc>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <parameter name="output"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="libgnome-desktop/gnome-rr.c"
-                 line="926">the #GnomeRROutput that was connected</doc>
-            <type name="gpointer" c:type="gpointer"/>
-          </parameter>
-        </parameters>
-      </glib:signal>
-      <glib:signal name="output-disconnected"
-                   when="first"
-                   no-recurse="1"
-                   no-hooks="1">
-        <doc xml:space="preserve"
-             filename="libgnome-desktop/gnome-rr.c"
-             line="952">This signal is emitted when a display device is disconnected from
-a port, or a port output is hot-unplugged. The latter can happen
-if a laptop is undocked, and the dock provided the output.
-
-The @output value is not a #GObject. The returned @output value can
-only assume to be valid during the emission of the signal (i.e. within
-your signal handler only), as it may change later when the @screen
-is modified due to an event from the X server, or due to another
-place in the application modifying the @screen and the @output.
-Therefore, deal with changes to the @output right in your signal
-handler, instead of keeping the @output reference for an async or
-idle function.</doc>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <parameter name="output"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="libgnome-desktop/gnome-rr.c"
-                 line="955">the #GnomeRROutput that was disconnected</doc>
-            <type name="gpointer" c:type="gpointer"/>
-          </parameter>
-        </parameters>
-      </glib:signal>
-    </class>
-    <record name="RRScreenClass"
-            c:type="GnomeRRScreenClass"
-            glib:is-gtype-struct-for="RRScreen">
-      <source-position filename="libgnome-desktop/gnome-rr.h" line="53"/>
-      <field name="parent_class">
-        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
-      </field>
-      <field name="changed">
-        <callback name="changed">
-          <source-position filename="libgnome-desktop/gnome-rr.h" line="50"/>
-          <return-value transfer-ownership="none">
-            <type name="none" c:type="void"/>
-          </return-value>
-          <parameters>
-            <parameter name="screen" transfer-ownership="none">
-              <type name="RRScreen" c:type="GnomeRRScreen*"/>
-            </parameter>
-          </parameters>
-        </callback>
-      </field>
-      <field name="output_connected">
-        <callback name="output_connected">
-          <source-position filename="libgnome-desktop/gnome-rr.h" line="51"/>
-          <return-value transfer-ownership="none">
-            <type name="none" c:type="void"/>
-          </return-value>
-          <parameters>
-            <parameter name="screen" transfer-ownership="none">
-              <type name="RRScreen" c:type="GnomeRRScreen*"/>
-            </parameter>
-            <parameter name="output" transfer-ownership="none">
-              <type name="RROutput" c:type="GnomeRROutput*"/>
-            </parameter>
-          </parameters>
-        </callback>
-      </field>
-      <field name="output_disconnected">
-        <callback name="output_disconnected">
-          <source-position filename="libgnome-desktop/gnome-rr.h" line="52"/>
-          <return-value transfer-ownership="none">
-            <type name="none" c:type="void"/>
-          </return-value>
-          <parameters>
-            <parameter name="screen" transfer-ownership="none">
-              <type name="RRScreen" c:type="GnomeRRScreen*"/>
-            </parameter>
-            <parameter name="output" transfer-ownership="none">
-              <type name="RROutput" c:type="GnomeRROutput*"/>
-            </parameter>
-          </parameters>
-        </callback>
-      </field>
-    </record>
-    <record name="RRScreenPrivate"
-            c:type="GnomeRRScreenPrivate"
-            disguised="1"
-            opaque="1">
-      <source-position filename="libgnome-desktop/gnome-rr.h" line="36"/>
-    </record>
-    <function-macro name="RR_CONFIG"
-                    c:identifier="GNOME_RR_CONFIG"
-                    introspectable="0">
-      <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                       line="117"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="RR_CONFIG_CLASS"
-                    c:identifier="GNOME_RR_CONFIG_CLASS"
-                    introspectable="0">
-      <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                       line="119"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="RR_CONFIG_GET_CLASS"
-                    c:identifier="GNOME_RR_CONFIG_GET_CLASS"
-                    introspectable="0">
-      <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                       line="121"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <constant name="RR_CONNECTOR_TYPE_PANEL"
-              value="Panel"
-              c:type="GNOME_RR_CONNECTOR_TYPE_PANEL">
-      <source-position filename="libgnome-desktop/gnome-rr.h" line="99"/>
-      <type name="utf8" c:type="gchar*"/>
-    </constant>
-    <function-macro name="RR_OUTPUT_INFO"
-                    c:identifier="GNOME_RR_OUTPUT_INFO"
-                    introspectable="0">
-      <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                       line="56"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="RR_OUTPUT_INFO_CLASS"
-                    c:identifier="GNOME_RR_OUTPUT_INFO_CLASS"
-                    introspectable="0">
-      <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                       line="58"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="RR_OUTPUT_INFO_GET_CLASS"
-                    c:identifier="GNOME_RR_OUTPUT_INFO_GET_CLASS"
-                    introspectable="0">
-      <source-position filename="libgnome-desktop/gnome-rr-config.h"
-                       line="60"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="RR_SCREEN"
-                    c:identifier="GNOME_RR_SCREEN"
-                    introspectable="0">
-      <source-position filename="libgnome-desktop/gnome-rr.h" line="102"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="RR_SCREEN_CLASS"
-                    c:identifier="GNOME_RR_SCREEN_CLASS"
-                    introspectable="0">
-      <source-position filename="libgnome-desktop/gnome-rr.h" line="104"/>
-      <parameters>
-        <parameter name="klass">
-        </parameter>
-      </parameters>
-    </function-macro>
-    <function-macro name="RR_SCREEN_GET_CLASS"
-                    c:identifier="GNOME_RR_SCREEN_GET_CLASS"
-                    introspectable="0">
-      <source-position filename="libgnome-desktop/gnome-rr.h" line="106"/>
-      <parameters>
-        <parameter name="obj">
-        </parameter>
-      </parameters>
-    </function-macro>
     <function-macro name="WALL_CLOCK"
                     c:identifier="GNOME_WALL_CLOCK"
                     introspectable="0">
@@ -5004,33 +2947,33 @@ be modified.</doc>
               version="2.2">
       <doc xml:space="preserve"
            filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-           line="1652">Returns whether the thumbnail has the correct uri and mtime embedded in the
+           line="1660">Returns whether the thumbnail has the correct uri and mtime embedded in the
 png options. This function is threadsafe and does no blocking I/O.</doc>
       <source-position filename="libgnome-desktop/gnome-desktop-thumbnail.h"
                        line="136"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-             line="1661">TRUE if the thumbnail has the right @uri and @mtime</doc>
+             line="1669">TRUE if the thumbnail has the right @uri and @mtime</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="pixbuf" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-               line="1654">an loaded thumbnail #GdkPixbuf</doc>
+               line="1662">an loaded thumbnail #GdkPixbuf</doc>
           <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
         </parameter>
         <parameter name="uri" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-               line="1655">a uri</doc>
+               line="1663">a uri</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="mtime" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-               line="1656">the mtime</doc>
+               line="1664">the mtime</doc>
           <type name="time_t" c:type="time_t"/>
         </parameter>
       </parameters>
@@ -5040,27 +2983,27 @@ png options. This function is threadsafe and does no blocking I/O.</doc>
               version="2.2">
       <doc xml:space="preserve"
            filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-           line="1633">Returns the filename that a thumbnail of size @size for @uri would have.
+           line="1641">Returns the filename that a thumbnail of size @size for @uri would have.
 This function is threadsafe and does no blocking I/O.</doc>
       <source-position filename="libgnome-desktop/gnome-desktop-thumbnail.h"
                        line="139"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-             line="1641">an absolute filename</doc>
+             line="1649">an absolute filename</doc>
         <type name="utf8" c:type="char*"/>
       </return-value>
       <parameters>
         <parameter name="uri" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-               line="1635">an uri</doc>
+               line="1643">an uri</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="size" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgnome-desktop/gnome-desktop-thumbnail.c"
-               line="1636">a thumbnail size</doc>
+               line="1644">a thumbnail size</doc>
           <type name="DesktopThumbnailSize"
                 c:type="GnomeDesktopThumbnailSize"/>
         </parameter>
@@ -5530,18 +3473,6 @@ store the modifier, or %NULL</doc>
           <type name="utf8" c:type="char**"/>
         </parameter>
       </parameters>
-    </function>
-    <function name="rr_error_quark" c:identifier="gnome_rr_error_quark">
-      <doc xml:space="preserve"
-           filename="libgnome-desktop/gnome-rr.c"
-           line="170">Returns the #GQuark that will be used for #GError values returned by the
-GnomeRR API.</doc>
-      <return-value transfer-ownership="none">
-        <doc xml:space="preserve"
-             filename="libgnome-desktop/gnome-rr.c"
-             line="176">a #GQuark used to identify errors coming from the GnomeRR API.</doc>
-        <type name="GLib.Quark" c:type="GQuark"/>
-      </return-value>
     </function>
     <function name="start_systemd_scope"
               c:identifier="gnome_start_systemd_scope"

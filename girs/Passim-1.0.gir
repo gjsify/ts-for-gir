@@ -67,12 +67,12 @@ depending on the version of libpassim installed.</doc>
       <constructor name="new" c:identifier="passim_client_new" version="0.1.0">
         <doc xml:space="preserve"
              filename="libpassim/passim-client.c"
-             line="507">Creates a new client.</doc>
+             line="510">Creates a new client.</doc>
         <source-position filename="libpassim/passim-client.h" line="41"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libpassim/passim-client.c"
-               line="512">a new #PassimClient</doc>
+               line="515">a new #PassimClient</doc>
           <type name="Client" c:type="PassimClient*"/>
         </return-value>
       </constructor>
@@ -442,12 +442,12 @@ depending on the version of libpassim installed.</doc>
       <constructor name="new" c:identifier="passim_item_new" version="0.1.0">
         <doc xml:space="preserve"
              filename="libpassim/passim-item.c"
-             line="912">Creates a new item.</doc>
+             line="913">Creates a new item.</doc>
         <source-position filename="libpassim/passim-item.h" line="74"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libpassim/passim-item.c"
-               line="917">a new #PassimItem</doc>
+               line="918">a new #PassimItem</doc>
           <type name="Item" c:type="PassimItem*"/>
         </return-value>
       </constructor>
@@ -456,12 +456,12 @@ depending on the version of libpassim installed.</doc>
                 version="0.1.0">
         <doc xml:space="preserve"
              filename="libpassim/passim-item.c"
-             line="817">Converts a string to an enumerated item flag.</doc>
+             line="818">Converts a string to an enumerated item flag.</doc>
         <source-position filename="libpassim/passim-item.h" line="141"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libpassim/passim-item.c"
-               line="823">enumerated value</doc>
+               line="824">enumerated value</doc>
           <type name="ItemFlags" c:type="PassimItemFlags"/>
         </return-value>
         <parameters>
@@ -471,7 +471,7 @@ depending on the version of libpassim installed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libpassim/passim-item.c"
-                 line="819">a string, e.g. `next-reboot`</doc>
+                 line="820">a string, e.g. `next-reboot`</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -481,19 +481,19 @@ depending on the version of libpassim installed.</doc>
                 version="0.1.0">
         <doc xml:space="preserve"
              filename="libpassim/passim-item.c"
-             line="795">Converts an enumerated item flag to a string.</doc>
+             line="796">Converts an enumerated item flag to a string.</doc>
         <source-position filename="libpassim/passim-item.h" line="139"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libpassim/passim-item.c"
-               line="801">identifier string</doc>
+               line="802">identifier string</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <parameter name="item_flag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpassim/passim-item.c"
-                 line="797">item flags, e.g. %PASSIM_ITEM_FLAG_NEXT_REBOOT</doc>
+                 line="798">item flags, e.g. %PASSIM_ITEM_FLAG_NEXT_REBOOT</doc>
             <type name="ItemFlags" c:type="PassimItemFlags"/>
           </parameter>
         </parameters>
@@ -503,19 +503,19 @@ depending on the version of libpassim installed.</doc>
                 version="0.1.0">
         <doc xml:space="preserve"
              filename="libpassim/passim-item.c"
-             line="618">Creates a new item using serialized data.</doc>
+             line="615">Creates a new item using serialized data.</doc>
         <source-position filename="libpassim/passim-item.h" line="147"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libpassim/passim-item.c"
-               line="624">a new #PassimItem, or %NULL if @value was invalid</doc>
+               line="621">a new #PassimItem, or %NULL if @value was invalid</doc>
           <type name="Item" c:type="PassimItem*"/>
         </return-value>
         <parameters>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpassim/passim-item.c"
-                 line="620">the serialized data</doc>
+                 line="617">the serialized data</doc>
             <type name="GLib.Variant" c:type="GVariant*"/>
           </parameter>
         </parameters>
@@ -525,7 +525,7 @@ depending on the version of libpassim installed.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libpassim/passim-item.c"
-             line="734">Adds a specific item flag to the item.</doc>
+             line="735">Adds a specific item flag to the item.</doc>
         <source-position filename="libpassim/passim-item.h" line="132"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -534,13 +534,13 @@ depending on the version of libpassim installed.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpassim/passim-item.c"
-                 line="736">a #PassimItem</doc>
+                 line="737">a #PassimItem</doc>
             <type name="Item" c:type="PassimItem*"/>
           </instance-parameter>
           <parameter name="flag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpassim/passim-item.c"
-                 line="737">the #PassimItemFlags</doc>
+                 line="738">the #PassimItemFlags</doc>
             <type name="ItemFlags" c:type="PassimItemFlags"/>
           </parameter>
         </parameters>
@@ -638,19 +638,19 @@ depending on the version of libpassim installed.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libpassim/passim-item.c"
-             line="453">Gets the creation time of the file.</doc>
+             line="450">Gets the creation time of the file.</doc>
         <source-position filename="libpassim/passim-item.h" line="121"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libpassim/passim-item.c"
-               line="459">the creation time, or %NULL if unset</doc>
+               line="456">the creation time, or %NULL if unset</doc>
           <type name="GLib.DateTime" c:type="GDateTime*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpassim/passim-item.c"
-                 line="455">a #PassimItem</doc>
+                 line="452">a #PassimItem</doc>
             <type name="Item" c:type="PassimItem*"/>
           </instance-parameter>
         </parameters>
@@ -682,19 +682,19 @@ depending on the version of libpassim installed.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libpassim/passim-item.c"
-             line="667">Gets the item flags.</doc>
+             line="664">Gets the item flags.</doc>
         <source-position filename="libpassim/passim-item.h" line="126"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libpassim/passim-item.c"
-               line="673">item flags, or 0 if unset</doc>
+               line="670">item flags, or 0 if unset</doc>
           <type name="guint64" c:type="guint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpassim/passim-item.c"
-                 line="669">a #PassimItem</doc>
+                 line="666">a #PassimItem</doc>
             <type name="Item" c:type="PassimItem*"/>
           </instance-parameter>
         </parameters>
@@ -704,19 +704,19 @@ depending on the version of libpassim installed.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libpassim/passim-item.c"
-             line="685">Gets the item flags.</doc>
+             line="682">Gets the item flags.</doc>
         <source-position filename="libpassim/passim-item.h" line="128"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libpassim/passim-item.c"
-               line="691">string</doc>
+               line="688">string</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpassim/passim-item.c"
-                 line="687">a #PassimItem</doc>
+                 line="684">a #PassimItem</doc>
             <type name="Item" c:type="PassimItem*"/>
           </instance-parameter>
         </parameters>
@@ -836,19 +836,19 @@ depending on the version of libpassim installed.</doc>
               version="0.1.5">
         <doc xml:space="preserve"
              filename="libpassim/passim-item.c"
-             line="415">Gets the input stream for the item.</doc>
+             line="412">Gets the input stream for the item.</doc>
         <source-position filename="libpassim/passim-item.h" line="117"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libpassim/passim-item.c"
-               line="421">a #GInputStream, or %NULL if unset</doc>
+               line="418">a #GInputStream, or %NULL if unset</doc>
           <type name="Gio.InputStream" c:type="GInputStream*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpassim/passim-item.c"
-                 line="417">a #PassimItem</doc>
+                 line="414">a #PassimItem</doc>
             <type name="Item" c:type="PassimItem*"/>
           </instance-parameter>
         </parameters>
@@ -858,25 +858,25 @@ depending on the version of libpassim installed.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libpassim/passim-item.c"
-             line="776">Finds if the item has a specific item flag.</doc>
+             line="777">Finds if the item has a specific item flag.</doc>
         <source-position filename="libpassim/passim-item.h" line="136"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libpassim/passim-item.c"
-               line="783">%TRUE if the flag is set</doc>
+               line="784">%TRUE if the flag is set</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpassim/passim-item.c"
-                 line="778">a #PassimItem</doc>
+                 line="779">a #PassimItem</doc>
             <type name="Item" c:type="PassimItem*"/>
           </instance-parameter>
           <parameter name="flag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpassim/passim-item.c"
-                 line="779">a item flag</doc>
+                 line="780">a item flag</doc>
             <type name="ItemFlags" c:type="PassimItemFlags"/>
           </parameter>
         </parameters>
@@ -887,7 +887,7 @@ depending on the version of libpassim installed.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libpassim/passim-item.c"
-             line="506">Loads the item from a file on disk.</doc>
+             line="503">Loads the item from a file on disk.</doc>
         <source-position filename="libpassim/passim-item.h" line="144"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -896,13 +896,13 @@ depending on the version of libpassim installed.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpassim/passim-item.c"
-                 line="508">a #PassimItem</doc>
+                 line="505">a #PassimItem</doc>
             <type name="Item" c:type="PassimItem*"/>
           </instance-parameter>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpassim/passim-item.c"
-                 line="509">a filename with full path</doc>
+                 line="506">a filename with full path</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -912,7 +912,7 @@ depending on the version of libpassim installed.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libpassim/passim-item.c"
-             line="755">Removes a specific item flag from the item.</doc>
+             line="756">Removes a specific item flag from the item.</doc>
         <source-position filename="libpassim/passim-item.h" line="134"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -921,13 +921,13 @@ depending on the version of libpassim installed.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpassim/passim-item.c"
-                 line="757">a #PassimItem</doc>
+                 line="758">a #PassimItem</doc>
             <type name="Item" c:type="PassimItem*"/>
           </instance-parameter>
           <parameter name="flag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpassim/passim-item.c"
-                 line="758">a item flag</doc>
+                 line="759">a item flag</doc>
             <type name="ItemFlags" c:type="PassimItemFlags"/>
           </parameter>
         </parameters>
@@ -1025,7 +1025,7 @@ binary running as root under certain conditions.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libpassim/passim-item.c"
-             line="471">Sets the creation time of the file.</doc>
+             line="468">Sets the creation time of the file.</doc>
         <source-position filename="libpassim/passim-item.h" line="123"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1034,7 +1034,7 @@ binary running as root under certain conditions.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpassim/passim-item.c"
-                 line="473">a #PassimItem</doc>
+                 line="470">a #PassimItem</doc>
             <type name="Item" c:type="PassimItem*"/>
           </instance-parameter>
           <parameter name="ctime"
@@ -1043,7 +1043,7 @@ binary running as root under certain conditions.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libpassim/passim-item.c"
-                 line="474">a #GDateTime</doc>
+                 line="471">a #GDateTime</doc>
             <type name="GLib.DateTime" c:type="GDateTime*"/>
           </parameter>
         </parameters>
@@ -1081,7 +1081,7 @@ binary running as root under certain conditions.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libpassim/passim-item.c"
-             line="715">Sets the item flags.</doc>
+             line="716">Sets the item flags.</doc>
         <source-position filename="libpassim/passim-item.h" line="130"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1090,13 +1090,13 @@ binary running as root under certain conditions.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpassim/passim-item.c"
-                 line="717">a #PassimItem</doc>
+                 line="718">a #PassimItem</doc>
             <type name="Item" c:type="PassimItem*"/>
           </instance-parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpassim/passim-item.c"
-                 line="718">item flags, e.g. %PASSIM_ITEM_FLAG_NEXT_REBOOT</doc>
+                 line="719">item flags, e.g. %PASSIM_ITEM_FLAG_NEXT_REBOOT</doc>
             <type name="guint64" c:type="guint64"/>
           </parameter>
         </parameters>
@@ -1234,7 +1234,7 @@ binary running as root under certain conditions.</doc>
               version="0.1.5">
         <doc xml:space="preserve"
              filename="libpassim/passim-item.c"
-             line="433">Sets the input stream stream for the item.
+             line="430">Sets the input stream stream for the item.
 
 NOTE: This *MUST* be a #GUnixInputStream, or subclass thereof.</doc>
         <source-position filename="libpassim/passim-item.h" line="119"/>
@@ -1245,7 +1245,7 @@ NOTE: This *MUST* be a #GUnixInputStream, or subclass thereof.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpassim/passim-item.c"
-                 line="435">a #PassimItem</doc>
+                 line="432">a #PassimItem</doc>
             <type name="Item" c:type="PassimItem*"/>
           </instance-parameter>
           <parameter name="stream"
@@ -1254,7 +1254,7 @@ NOTE: This *MUST* be a #GUnixInputStream, or subclass thereof.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libpassim/passim-item.c"
-                 line="436">a #GInputStream</doc>
+                 line="433">a #GInputStream</doc>
             <type name="Gio.InputStream" c:type="GInputStream*"/>
           </parameter>
         </parameters>
@@ -1264,19 +1264,19 @@ NOTE: This *MUST* be a #GUnixInputStream, or subclass thereof.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libpassim/passim-item.c"
-             line="839">Builds a text representation of the object.</doc>
+             line="840">Builds a text representation of the object.</doc>
         <source-position filename="libpassim/passim-item.h" line="76"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libpassim/passim-item.c"
-               line="845">text, or %NULL for invalid</doc>
+               line="846">text, or %NULL for invalid</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpassim/passim-item.c"
-                 line="841">a #PassimItem</doc>
+                 line="842">a #PassimItem</doc>
             <type name="Item" c:type="PassimItem*"/>
           </instance-parameter>
         </parameters>
@@ -1286,19 +1286,19 @@ NOTE: This *MUST* be a #GUnixInputStream, or subclass thereof.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libpassim/passim-item.c"
-             line="553">Serialize the item data.</doc>
+             line="550">Serialize the item data.</doc>
         <source-position filename="libpassim/passim-item.h" line="149"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libpassim/passim-item.c"
-               line="559">the serialized data, or %NULL for error</doc>
+               line="556">the serialized data, or %NULL for error</doc>
           <type name="GLib.Variant" c:type="GVariant*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libpassim/passim-item.c"
-                 line="555">a #PassimItem</doc>
+                 line="552">a #PassimItem</doc>
             <type name="Item" c:type="PassimItem*"/>
           </instance-parameter>
         </parameters>
@@ -1378,7 +1378,7 @@ NOTE: This *MUST* be a #GUnixInputStream, or subclass thereof.</doc>
       <source-position filename="libpassim/passim-version.h" line="21"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="10" c:type="PASSIM_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="12" c:type="PASSIM_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="libpassim/passim-version.h"
            line="30">The compile-time micro version</doc>

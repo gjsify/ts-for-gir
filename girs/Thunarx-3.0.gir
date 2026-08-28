@@ -1469,7 +1469,7 @@ list and decreases the reference count on the
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="MICRO_VERSION" value="7" c:type="THUNARX_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="9" c:type="THUNARX_MICRO_VERSION">
       <source-position filename="thunarx-config.h" line="34"/>
       <type name="gint" c:type="gint"/>
     </constant>

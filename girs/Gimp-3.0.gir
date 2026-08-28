@@ -10,6 +10,7 @@ and/or use gtk-doc annotations.  -->
   <include name="Babl" version="0.1"/>
   <include name="GExiv2" version="0.10"/>
   <include name="GLib" version="2.0"/>
+  <include name="GLibUnix" version="2.0"/>
   <include name="GObject" version="2.0"/>
   <include name="GdkPixbuf" version="2.0"/>
   <include name="Gegl" version="0.4"/>
@@ -8308,16 +8309,16 @@ valid. This function is mostly for internal usage.</doc>
       <function name="name" c:identifier="gimp_display_name">
         <doc xml:space="preserve"
              filename="libgimp/gimp.c"
-             line="942">Returns the display to be used for plug-in windows.
+             line="959">Returns the display to be used for plug-in windows.
 
 This is a constant value given at plug-in configuration time.
 Will return %NULL if GIMP has been started with no GUI, either
 via "--no-interface" flag, or a console build.</doc>
-        <source-position filename="libgimp/gimp.h" line="203"/>
+        <source-position filename="libgimp/gimp.h" line="201"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimp/gimp.c"
-               line="951">the display name</doc>
+               line="968">the display name</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
       </function>
@@ -19345,7 +19346,7 @@ the size of the bottommost layer.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libgimp/gimpimagemetadata-save.c"
-             line="677">Filters the @metadata retrieved from the image with
+             line="693">Filters the @metadata retrieved from the image with
 [method@Gimp.Image.metadata_save_prepare], taking into account the
 passed @flags.
 
@@ -19364,7 +19365,7 @@ processing.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgimp/gimpimagemetadata-save.c"
-               line="702">Filtered metadata or %NULL in case of failure.
+               line="718">Filtered metadata or %NULL in case of failure.
          Use [GObject.Object.unref] when returned metadata are no
          longer needed</doc>
           <type name="Metadata" c:type="GimpMetadata*"/>
@@ -19373,31 +19374,31 @@ processing.</doc>
           <instance-parameter name="image" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpimagemetadata-save.c"
-                 line="679">The actually saved image</doc>
+                 line="695">The actually saved image</doc>
             <type name="Image" c:type="GimpImage*"/>
           </instance-parameter>
           <parameter name="mime_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpimagemetadata-save.c"
-                 line="680">The saved file's mime-type</doc>
+                 line="696">The saved file's mime-type</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="metadata" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpimagemetadata-save.c"
-                 line="681">The metadata to export</doc>
+                 line="697">The metadata to export</doc>
             <type name="Metadata" c:type="GimpMetadata*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpimagemetadata-save.c"
-                 line="682">Flags to specify what of the metadata to save</doc>
+                 line="698">Flags to specify what of the metadata to save</doc>
             <type name="MetadataSaveFlags" c:type="GimpMetadataSaveFlags"/>
           </parameter>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpimagemetadata-save.c"
-                 line="683">The file @image was saved to or NULL if file was not saved yet</doc>
+                 line="699">The file @image was saved to or NULL if file was not saved yet</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
         </parameters>
@@ -26560,7 +26561,7 @@ than this value.</doc>
       <source-position filename="libgimpbase/gimplimits.h" line="78"/>
       <type name="gdouble" c:type="gdouble"/>
     </constant>
-    <constant name="MICRO_VERSION" value="0" c:type="GIMP_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="4" c:type="GIMP_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="libgimpbase/gimpversion.h"
            line="38">The micro GIMP version number.</doc>
@@ -27533,12 +27534,12 @@ nice human-readable string please use g_format_size().</doc>
       <constructor name="new" c:identifier="gimp_metadata_new" version="2.10">
         <doc xml:space="preserve"
              filename="libgimpbase/gimpmetadata.c"
-             line="513">Creates a new #GimpMetadata instance.</doc>
+             line="512">Creates a new #GimpMetadata instance.</doc>
         <source-position filename="libgimpbase/gimpmetadata.h" line="105"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgimpbase/gimpmetadata.c"
-               line="518">The new #GimpMetadata.</doc>
+               line="517">The new #GimpMetadata.</doc>
           <type name="Metadata" c:type="GimpMetadata*"/>
         </return-value>
       </constructor>
@@ -27547,20 +27548,20 @@ nice human-readable string please use g_format_size().</doc>
                 version="2.10">
         <doc xml:space="preserve"
              filename="libgimpbase/gimpmetadata.c"
-             line="801">Deserializes a string of XML that has been created by
+             line="800">Deserializes a string of XML that has been created by
 gimp_metadata_serialize().</doc>
         <source-position filename="libgimpbase/gimpmetadata.h" line="108"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgimpbase/gimpmetadata.c"
-               line="808">The new #GimpMetadata.</doc>
+               line="807">The new #GimpMetadata.</doc>
           <type name="Metadata" c:type="GimpMetadata*"/>
         </return-value>
         <parameters>
           <parameter name="metadata_xml" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpmetadata.c"
-                 line="803">A string of serialized metadata XML.</doc>
+                 line="802">A string of serialized metadata XML.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -27584,25 +27585,25 @@ gimp_metadata_serialize().</doc>
                 version="2.10">
         <doc xml:space="preserve"
              filename="libgimpbase/gimpmetadata.c"
-             line="1966">Returns whether @tag is supported in a file of type @mime_type.</doc>
+             line="1965">Returns whether @tag is supported in a file of type @mime_type.</doc>
         <source-position filename="libgimpbase/gimpmetadata.h" line="156"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimpbase/gimpmetadata.c"
-               line="1973">%TRUE if the @tag supported with @mime_type, %FALSE otherwise.</doc>
+               line="1972">%TRUE if the @tag supported with @mime_type, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="tag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpmetadata.c"
-                 line="1968">A metadata tag name</doc>
+                 line="1967">A metadata tag name</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="mime_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpmetadata.c"
-                 line="1969">A mime type</doc>
+                 line="1968">A mime type</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -27613,19 +27614,19 @@ gimp_metadata_serialize().</doc>
                 throws="1">
         <doc xml:space="preserve"
              filename="libgimpbase/gimpmetadata.c"
-             line="1196">Loads #GimpMetadata from @file.</doc>
+             line="1195">Loads #GimpMetadata from @file.</doc>
         <source-position filename="libgimpbase/gimpmetadata.h" line="115"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgimpbase/gimpmetadata.c"
-               line="1203">The loaded #GimpMetadata.</doc>
+               line="1202">The loaded #GimpMetadata.</doc>
           <type name="Metadata" c:type="GimpMetadata*"/>
         </return-value>
         <parameters>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpmetadata.c"
-                 line="1198">The #GFile to load the metadata from</doc>
+                 line="1197">The #GFile to load the metadata from</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
         </parameters>
@@ -27650,12 +27651,12 @@ gimp_metadata_serialize().</doc>
               version="2.10">
         <doc xml:space="preserve"
              filename="libgimpbase/gimpmetadata.c"
-             line="544">Duplicates a #GimpMetadata instance.</doc>
+             line="543">Duplicates a #GimpMetadata instance.</doc>
         <source-position filename="libgimpbase/gimpmetadata.h" line="106"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgimpbase/gimpmetadata.c"
-               line="550">
+               line="549">
               The new #GimpMetadata, or %NULL if @metadata is %NULL.</doc>
           <type name="Metadata" c:type="GimpMetadata*"/>
         </return-value>
@@ -27663,7 +27664,7 @@ gimp_metadata_serialize().</doc>
           <instance-parameter name="metadata" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpmetadata.c"
-                 line="546">The object to duplicate, or %NULL.</doc>
+                 line="545">The object to duplicate, or %NULL.</doc>
             <type name="Metadata" c:type="GimpMetadata*"/>
           </instance-parameter>
         </parameters>
@@ -27673,21 +27674,21 @@ gimp_metadata_serialize().</doc>
               version="2.10">
         <doc xml:space="preserve"
              filename="libgimpbase/gimpmetadata.c"
-             line="1781">Returns values based on Exif.Photo.ColorSpace, Xmp.exif.ColorSpace,
+             line="1780">Returns values based on Exif.Photo.ColorSpace, Xmp.exif.ColorSpace,
 Exif.Iop.InteroperabilityIndex, Exif.Nikon3.ColorSpace,
 Exif.Canon.ColorSpace of @metadata.</doc>
         <source-position filename="libgimpbase/gimpmetadata.h" line="152"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimpbase/gimpmetadata.c"
-               line="1789">The colorspace specified by above tags.</doc>
+               line="1788">The colorspace specified by above tags.</doc>
           <type name="MetadataColorspace" c:type="GimpMetadataColorspace"/>
         </return-value>
         <parameters>
           <instance-parameter name="metadata" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpmetadata.c"
-                 line="1783">A #GimpMetadata instance.</doc>
+                 line="1782">A #GimpMetadata instance.</doc>
             <type name="Metadata" c:type="GimpMetadata*"/>
           </instance-parameter>
         </parameters>
@@ -27697,20 +27698,20 @@ Exif.Canon.ColorSpace of @metadata.</doc>
               version="2.10">
         <doc xml:space="preserve"
              filename="libgimpbase/gimpmetadata.c"
-             line="1551">Returns values based on Exif.Image.XResolution,
+             line="1550">Returns values based on Exif.Image.XResolution,
 Exif.Image.YResolution and Exif.Image.ResolutionUnit of @metadata.</doc>
         <source-position filename="libgimpbase/gimpmetadata.h" line="140"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimpbase/gimpmetadata.c"
-               line="1561">%TRUE on success, %FALSE otherwise.</doc>
+               line="1560">%TRUE on success, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="metadata" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpmetadata.c"
-                 line="1553">A #GimpMetadata instance.</doc>
+                 line="1552">A #GimpMetadata instance.</doc>
             <type name="Metadata" c:type="GimpMetadata*"/>
           </instance-parameter>
           <parameter name="xres"
@@ -27721,7 +27722,7 @@ Exif.Image.YResolution and Exif.Image.ResolutionUnit of @metadata.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpmetadata.c"
-                 line="1554">Return location for the X Resolution, in ppi</doc>
+                 line="1553">Return location for the X Resolution, in ppi</doc>
             <type name="gdouble" c:type="gdouble*"/>
           </parameter>
           <parameter name="yres"
@@ -27732,7 +27733,7 @@ Exif.Image.YResolution and Exif.Image.ResolutionUnit of @metadata.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpmetadata.c"
-                 line="1555">Return location for the Y Resolution, in ppi</doc>
+                 line="1554">Return location for the Y Resolution, in ppi</doc>
             <type name="gdouble" c:type="gdouble*"/>
           </parameter>
           <parameter name="unit"
@@ -27743,7 +27744,7 @@ Exif.Image.YResolution and Exif.Image.ResolutionUnit of @metadata.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpmetadata.c"
-                 line="1556">Return location for the unit unit</doc>
+                 line="1555">Return location for the unit unit</doc>
             <type name="Unit" c:type="GimpUnit**"/>
           </parameter>
         </parameters>
@@ -27754,25 +27755,25 @@ Exif.Image.YResolution and Exif.Image.ResolutionUnit of @metadata.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libgimpbase/gimpmetadata.c"
-             line="1249">Saves @metadata to @file.</doc>
+             line="1248">Saves @metadata to @file.</doc>
         <source-position filename="libgimpbase/gimpmetadata.h" line="117"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimpbase/gimpmetadata.c"
-               line="1257">%TRUE on success, %FALSE otherwise.</doc>
+               line="1256">%TRUE on success, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="metadata" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpmetadata.c"
-                 line="1251">A #GimpMetadata instance.</doc>
+                 line="1250">A #GimpMetadata instance.</doc>
             <type name="Metadata" c:type="GimpMetadata*"/>
           </instance-parameter>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpmetadata.c"
-                 line="1252">The file to save the metadata to</doc>
+                 line="1251">The file to save the metadata to</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
         </parameters>
@@ -27782,20 +27783,20 @@ Exif.Image.YResolution and Exif.Image.ResolutionUnit of @metadata.</doc>
               version="2.10">
         <doc xml:space="preserve"
              filename="libgimpbase/gimpmetadata.c"
-             line="1010">Serializes @metadata into an XML string that can later be deserialized
+             line="1009">Serializes @metadata into an XML string that can later be deserialized
 using gimp_metadata_deserialize().</doc>
         <source-position filename="libgimpbase/gimpmetadata.h" line="109"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgimpbase/gimpmetadata.c"
-               line="1017">The serialized XML string.</doc>
+               line="1016">The serialized XML string.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="metadata" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpmetadata.c"
-                 line="1012">A #GimpMetadata instance.</doc>
+                 line="1011">A #GimpMetadata instance.</doc>
             <type name="Metadata" c:type="GimpMetadata*"/>
           </instance-parameter>
         </parameters>
@@ -27805,7 +27806,7 @@ using gimp_metadata_deserialize().</doc>
               version="2.10">
         <doc xml:space="preserve"
              filename="libgimpbase/gimpmetadata.c"
-             line="1528">Sets Exif.Image.BitsPerSample on @metadata.</doc>
+             line="1527">Sets Exif.Image.BitsPerSample on @metadata.</doc>
         <source-position filename="libgimpbase/gimpmetadata.h" line="137"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -27814,13 +27815,13 @@ using gimp_metadata_deserialize().</doc>
           <instance-parameter name="metadata" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpmetadata.c"
-                 line="1530">A #GimpMetadata instance.</doc>
+                 line="1529">A #GimpMetadata instance.</doc>
             <type name="Metadata" c:type="GimpMetadata*"/>
           </instance-parameter>
           <parameter name="bits_per_sample" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpmetadata.c"
-                 line="1531">Bits per pixel, per component</doc>
+                 line="1530">Bits per pixel, per component</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -27830,7 +27831,7 @@ using gimp_metadata_deserialize().</doc>
               version="2.10">
         <doc xml:space="preserve"
              filename="libgimpbase/gimpmetadata.c"
-             line="1892">Sets Exif.Photo.ColorSpace, Xmp.exif.ColorSpace,
+             line="1891">Sets Exif.Photo.ColorSpace, Xmp.exif.ColorSpace,
 Exif.Iop.InteroperabilityIndex, Exif.Nikon3.ColorSpace,
 Exif.Canon.ColorSpace of @metadata.</doc>
         <source-position filename="libgimpbase/gimpmetadata.h" line="153"/>
@@ -27841,13 +27842,13 @@ Exif.Canon.ColorSpace of @metadata.</doc>
           <instance-parameter name="metadata" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpmetadata.c"
-                 line="1894">A #GimpMetadata instance.</doc>
+                 line="1893">A #GimpMetadata instance.</doc>
             <type name="Metadata" c:type="GimpMetadata*"/>
           </instance-parameter>
           <parameter name="colorspace" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpmetadata.c"
-                 line="1895">The color space.</doc>
+                 line="1894">The color space.</doc>
             <type name="MetadataColorspace" c:type="GimpMetadataColorspace"/>
           </parameter>
         </parameters>
@@ -27857,7 +27858,7 @@ Exif.Canon.ColorSpace of @metadata.</doc>
               version="3.0">
         <doc xml:space="preserve"
              filename="libgimpbase/gimpmetadata.c"
-             line="1689">Sets `Iptc.Application2.DateCreated`, `Iptc.Application2.TimeCreated`,
+             line="1688">Sets `Iptc.Application2.DateCreated`, `Iptc.Application2.TimeCreated`,
 `Exif.Image.DateTime`, `Exif.Image.DateTimeOriginal`,
 `Exif.Photo.DateTimeOriginal`, `Exif.Photo.DateTimeDigitized`,
 `Exif.Photo.OffsetTime`, `Exif.Photo.OffsetTimeOriginal`,
@@ -27871,13 +27872,13 @@ Exif.Canon.ColorSpace of @metadata.</doc>
           <instance-parameter name="metadata" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpmetadata.c"
-                 line="1691">A #GimpMetadata instance.</doc>
+                 line="1690">A #GimpMetadata instance.</doc>
             <type name="Metadata" c:type="GimpMetadata*"/>
           </instance-parameter>
           <parameter name="datetime" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpmetadata.c"
-                 line="1692">A #GDateTime value</doc>
+                 line="1691">A #GDateTime value</doc>
             <type name="GLib.DateTime" c:type="GDateTime*"/>
           </parameter>
         </parameters>
@@ -27888,25 +27889,25 @@ Exif.Canon.ColorSpace of @metadata.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libgimpbase/gimpmetadata.c"
-             line="1295">Sets the tags from a piece of Exif data on @metadata.</doc>
+             line="1294">Sets the tags from a piece of Exif data on @metadata.</doc>
         <source-position filename="libgimpbase/gimpmetadata.h" line="121"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimpbase/gimpmetadata.c"
-               line="1304">%TRUE on success, %FALSE otherwise.</doc>
+               line="1303">%TRUE on success, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="metadata" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpmetadata.c"
-                 line="1297">A #GimpMetadata instance.</doc>
+                 line="1296">A #GimpMetadata instance.</doc>
             <type name="Metadata" c:type="GimpMetadata*"/>
           </instance-parameter>
           <parameter name="exif_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpmetadata.c"
-                 line="1298">The blob of Exif data to set</doc>
+                 line="1297">The blob of Exif data to set</doc>
             <array length="1" zero-terminated="0" c:type="const guchar*">
               <type name="guint8" c:type="guchar"/>
             </array>
@@ -27914,7 +27915,7 @@ Exif.Canon.ColorSpace of @metadata.</doc>
           <parameter name="exif_data_length" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpmetadata.c"
-                 line="1299">Length of @exif_data, in bytes</doc>
+                 line="1298">Length of @exif_data, in bytes</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -27925,25 +27926,25 @@ Exif.Canon.ColorSpace of @metadata.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libgimpbase/gimpmetadata.c"
-             line="1388">Sets the tags from a piece of IPTC data on @metadata.</doc>
+             line="1387">Sets the tags from a piece of IPTC data on @metadata.</doc>
         <source-position filename="libgimpbase/gimpmetadata.h" line="125"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimpbase/gimpmetadata.c"
-               line="1397">%TRUE on success, %FALSE otherwise.</doc>
+               line="1396">%TRUE on success, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="metadata" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpmetadata.c"
-                 line="1390">A #GimpMetadata instance.</doc>
+                 line="1389">A #GimpMetadata instance.</doc>
             <type name="Metadata" c:type="GimpMetadata*"/>
           </instance-parameter>
           <parameter name="iptc_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpmetadata.c"
-                 line="1391">The blob of Iptc data to set</doc>
+                 line="1390">The blob of Iptc data to set</doc>
             <array length="1" zero-terminated="0" c:type="const guchar*">
               <type name="guint8" c:type="guchar"/>
             </array>
@@ -27951,7 +27952,7 @@ Exif.Canon.ColorSpace of @metadata.</doc>
           <parameter name="iptc_data_length" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpmetadata.c"
-                 line="1392">Length of @iptc_data, in bytes</doc>
+                 line="1391">Length of @iptc_data, in bytes</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -27962,25 +27963,25 @@ Exif.Canon.ColorSpace of @metadata.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libgimpbase/gimpmetadata.c"
-             line="1436">Sets the tags from a piece of XMP data on @metadata.</doc>
+             line="1435">Sets the tags from a piece of XMP data on @metadata.</doc>
         <source-position filename="libgimpbase/gimpmetadata.h" line="129"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimpbase/gimpmetadata.c"
-               line="1445">%TRUE on success, %FALSE otherwise.</doc>
+               line="1444">%TRUE on success, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="metadata" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpmetadata.c"
-                 line="1438">A #GimpMetadata instance.</doc>
+                 line="1437">A #GimpMetadata instance.</doc>
             <type name="Metadata" c:type="GimpMetadata*"/>
           </instance-parameter>
           <parameter name="xmp_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpmetadata.c"
-                 line="1439">The blob of XMP data to set</doc>
+                 line="1438">The blob of XMP data to set</doc>
             <array length="1" zero-terminated="0" c:type="const guchar*">
               <type name="guint8" c:type="guchar"/>
             </array>
@@ -27988,7 +27989,7 @@ Exif.Canon.ColorSpace of @metadata.</doc>
           <parameter name="xmp_data_length" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpmetadata.c"
-                 line="1440">Length of @xmp_data, in bytes</doc>
+                 line="1439">Length of @xmp_data, in bytes</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -27998,7 +27999,7 @@ Exif.Canon.ColorSpace of @metadata.</doc>
               version="2.10">
         <doc xml:space="preserve"
              filename="libgimpbase/gimpmetadata.c"
-             line="1484">Sets Exif.Image.ImageWidth and Exif.Image.ImageLength on @metadata.
+             line="1483">Sets Exif.Image.ImageWidth and Exif.Image.ImageLength on @metadata.
 If already present, also sets Exif.Photo.PixelXDimension and
 Exif.Photo.PixelYDimension.</doc>
         <source-position filename="libgimpbase/gimpmetadata.h" line="134"/>
@@ -28009,19 +28010,19 @@ Exif.Photo.PixelYDimension.</doc>
           <instance-parameter name="metadata" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpmetadata.c"
-                 line="1486">A #GimpMetadata instance.</doc>
+                 line="1485">A #GimpMetadata instance.</doc>
             <type name="Metadata" c:type="GimpMetadata*"/>
           </instance-parameter>
           <parameter name="width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpmetadata.c"
-                 line="1487">Width in pixels</doc>
+                 line="1486">Width in pixels</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="height" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpmetadata.c"
-                 line="1488">Height in pixels</doc>
+                 line="1487">Height in pixels</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -28031,7 +28032,7 @@ Exif.Photo.PixelYDimension.</doc>
               version="2.10">
         <doc xml:space="preserve"
              filename="libgimpbase/gimpmetadata.c"
-             line="1633">Sets Exif.Image.XResolution, Exif.Image.YResolution and
+             line="1632">Sets Exif.Image.XResolution, Exif.Image.YResolution and
 Exif.Image.ResolutionUnit of @metadata.</doc>
         <source-position filename="libgimpbase/gimpmetadata.h" line="144"/>
         <return-value transfer-ownership="none">
@@ -28041,25 +28042,25 @@ Exif.Image.ResolutionUnit of @metadata.</doc>
           <instance-parameter name="metadata" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpmetadata.c"
-                 line="1635">A #GimpMetadata instance.</doc>
+                 line="1634">A #GimpMetadata instance.</doc>
             <type name="Metadata" c:type="GimpMetadata*"/>
           </instance-parameter>
           <parameter name="xres" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpmetadata.c"
-                 line="1636">The image's X Resolution, in ppi</doc>
+                 line="1635">The image's X Resolution, in ppi</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="yres" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpmetadata.c"
-                 line="1637">The image's Y Resolution, in ppi</doc>
+                 line="1636">The image's Y Resolution, in ppi</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="unit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpmetadata.c"
-                 line="1638">The image's unit</doc>
+                 line="1637">The image's unit</doc>
             <type name="Unit" c:type="GimpUnit*"/>
           </parameter>
         </parameters>
@@ -30998,7 +30999,7 @@ method.</doc>
       <function name="free" c:identifier="gimp_path_free">
         <doc xml:space="preserve"
              filename="libgimpbase/gimpenv.c"
-             line="1174">This function frees the memory allocated for the list and the strings
+             line="1242">This function frees the memory allocated for the list and the strings
 it contains.</doc>
         <source-position filename="libgimpbase/gimpenv.h" line="76"/>
         <return-value transfer-ownership="none">
@@ -31008,7 +31009,7 @@ it contains.</doc>
           <parameter name="path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpenv.c"
-                 line="1176">
+                 line="1244">
        A list of directories as returned by gimp_path_parse().</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="filename"/>
@@ -31047,19 +31048,19 @@ or %NULL otherwise.</doc>
                 c:identifier="gimp_path_get_user_writable_dir">
         <doc xml:space="preserve"
              filename="libgimpbase/gimpenv.c"
-             line="1188">Note that you have to g_free() the returned string.</doc>
+             line="1256">Note that you have to g_free() the returned string.</doc>
         <source-position filename="libgimpbase/gimpenv.h" line="78"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgimpbase/gimpenv.c"
-               line="1195">The first directory in @path where the user has write permission.</doc>
+               line="1263">The first directory in @path where the user has write permission.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <parameter name="path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpenv.c"
-                 line="1190">
+                 line="1258">
        A list of directories as returned by gimp_path_parse().</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="filename"/>
@@ -31072,7 +31073,7 @@ or %NULL otherwise.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgimpbase/gimpenv.c"
-               line="1059">
+               line="1127">
             A #GList of all directories in @path.</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="filename"/>
@@ -31082,19 +31083,19 @@ or %NULL otherwise.</doc>
           <parameter name="path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpenv.c"
-                 line="1053">A list of directories separated by #G_SEARCHPATH_SEPARATOR.</doc>
+                 line="1121">A list of directories separated by #G_SEARCHPATH_SEPARATOR.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="max_paths" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpenv.c"
-                 line="1054">The maximum number of directories to return.</doc>
+                 line="1122">The maximum number of directories to return.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="check" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpenv.c"
-                 line="1055">%TRUE if you want the directories to be checked.</doc>
+                 line="1123">%TRUE if you want the directories to be checked.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="check_failed"
@@ -31103,7 +31104,7 @@ or %NULL otherwise.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpenv.c"
-                 line="1056">
+                 line="1124">
                   Returns a #GList of path elements for which the check failed.</doc>
             <type name="GLib.List" c:type="GList**">
               <type name="filename"/>
@@ -31116,7 +31117,7 @@ or %NULL otherwise.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgimpbase/gimpenv.c"
-               line="1143">
+               line="1211">
          A searchpath string separated by #G_SEARCHPATH_SEPARATOR.</doc>
           <type name="filename" c:type="gchar*"/>
         </return-value>
@@ -31124,7 +31125,7 @@ or %NULL otherwise.</doc>
           <parameter name="path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpenv.c"
-                 line="1140">
+                 line="1208">
        A list of directories as returned by gimp_path_parse().</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="filename"/>
@@ -32401,7 +32402,7 @@ process exits, so the plug-in can perform whatever cleanup necessary.</doc>
       <function name="directory" c:identifier="gimp_plug_in_directory">
         <doc xml:space="preserve"
              filename="libgimpbase/gimpenv.c"
-             line="646">Returns the default top directory for GIMP plug-ins and modules. If
+             line="705">Returns the default top directory for GIMP plug-ins and modules. If
 the environment variable GIMP3_PLUGINDIR exists, that is used.  It
 should be an absolute pathname. Otherwise, on Unix the compile-time
 defined directory is used. On Windows, the installation directory
@@ -32421,7 +32422,7 @@ UTF-8.)</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimpbase/gimpenv.c"
-               line="666">The top directory for GIMP plug_ins and modules.</doc>
+               line="725">The top directory for GIMP plug_ins and modules.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
       </function>
@@ -32431,7 +32432,7 @@ UTF-8.)</doc>
                 introspectable="0">
         <doc xml:space="preserve"
              filename="libgimpbase/gimpenv.c"
-             line="946">Returns a #GFile in the plug-in directory, or the plug-in directory
+             line="1014">Returns a #GFile in the plug-in directory, or the plug-in directory
 itself if @first_element is %NULL.
 
 See also: gimp_plug_in_directory().</doc>
@@ -32439,7 +32440,7 @@ See also: gimp_plug_in_directory().</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgimpbase/gimpenv.c"
-               line="960">
+               line="1028">
          a new @GFile for the path, Free with g_object_unref().</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </return-value>
@@ -32447,14 +32448,14 @@ See also: gimp_plug_in_directory().</doc>
           <parameter name="first_element" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpenv.c"
-                 line="948">the first element of a path to a file in the
+                 line="1016">the first element of a path to a file in the
                 plug-in directory, or %NULL.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimpbase/gimpenv.c"
-                 line="950">a %NULL terminated list of the remaining elements of the path
+                 line="1018">a %NULL terminated list of the remaining elements of the path
       to the file.</doc>
             <varargs/>
           </parameter>
@@ -33457,7 +33458,7 @@ created by other plug-ins (see [class@PDB]).</doc>
       <constructor name="new" c:identifier="gimp_procedure_new" version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpprocedure.c"
-             line="605">Creates a new procedure named @name which will call @run_func when
+             line="627">Creates a new procedure named @name which will call @run_func when
 invoked.
 
 The @name parameter is mandatory and should be unique, or it will
@@ -33494,26 +33495,26 @@ plug-in.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgimp/gimpprocedure.c"
-               line="648">a new #GimpProcedure.</doc>
+               line="670">a new #GimpProcedure.</doc>
           <type name="Procedure" c:type="GimpProcedure*"/>
         </return-value>
         <parameters>
           <parameter name="plug_in" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="607">a #GimpPlugIn.</doc>
+                 line="629">a #GimpPlugIn.</doc>
             <type name="PlugIn" c:type="GimpPlugIn*"/>
           </parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="608">the new procedure's name.</doc>
+                 line="630">the new procedure's name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="proc_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="609">the new procedure's #GimpPDBProcType.</doc>
+                 line="631">the new procedure's #GimpPDBProcType.</doc>
             <type name="PDBProcType" c:type="GimpPDBProcType"/>
           </parameter>
           <parameter name="run_func"
@@ -33523,7 +33524,7 @@ plug-in.</doc>
                      destroy="5">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="610">the run function for the new procedure.</doc>
+                 line="632">the run function for the new procedure.</doc>
             <type name="RunFunc" c:type="GimpRunFunc"/>
           </parameter>
           <parameter name="run_data"
@@ -33532,7 +33533,7 @@ plug-in.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="611">user data passed to @run_func.</doc>
+                 line="633">user data passed to @run_func.</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
           <parameter name="run_data_destroy"
@@ -33542,7 +33543,7 @@ plug-in.</doc>
                      scope="async">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="612">free function for @run_data, or %NULL.</doc>
+                 line="634">free function for @run_data, or %NULL.</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
         </parameters>
@@ -37564,7 +37565,7 @@ plug-in.</doc>
               version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpprocedure.c"
-             line="924">Adds a menu path to the procedure. Only procedures which have a menu
+             line="946">Adds a menu path to the procedure. Only procedures which have a menu
 label can add a menu path.
 
 Menu paths are untranslated paths to known menus and submenus with the
@@ -37601,13 +37602,13 @@ section. Order is not assured relatively to other plug-ins.</doc>
           <instance-parameter name="procedure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="926">A #GimpProcedure.</doc>
+                 line="948">A #GimpProcedure.</doc>
             <type name="Procedure" c:type="GimpProcedure*"/>
           </instance-parameter>
           <parameter name="menu_path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="927">The @procedure's additional menu path.</doc>
+                 line="949">The @procedure's additional menu path.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -39738,20 +39739,20 @@ section. Order is not assured relatively to other plug-ins.</doc>
               version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpprocedure.c"
-             line="2209">Create a #GimpConfig with properties that match @procedure's arguments, to be
+             line="2235">Create a #GimpConfig with properties that match @procedure's arguments, to be
 used in [method@Procedure.run_config] method.</doc>
         <source-position filename="libgimp/gimpprocedure.h" line="213"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgimp/gimpprocedure.c"
-               line="2216">The new #GimpConfig.</doc>
+               line="2242">The new #GimpConfig.</doc>
           <type name="ProcedureConfig" c:type="GimpProcedureConfig*"/>
         </return-value>
         <parameters>
           <instance-parameter name="procedure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="2211">A #GimpProcedure</doc>
+                 line="2237">A #GimpProcedure</doc>
             <type name="Procedure" c:type="GimpProcedure*"/>
           </instance-parameter>
         </parameters>
@@ -39761,12 +39762,12 @@ used in [method@Procedure.run_config] method.</doc>
               version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpprocedure.c"
-             line="1550">Searches the @procedure's arguments for a #GParamSpec called @name.</doc>
+             line="1576">Searches the @procedure's arguments for a #GParamSpec called @name.</doc>
         <source-position filename="libgimp/gimpprocedure.h" line="177"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimp/gimpprocedure.c"
-               line="1557">The @procedure's argument with @name if it
+               line="1583">The @procedure's argument with @name if it
          exists, or %NULL otherwise.</doc>
           <type name="GObject.ParamSpec" c:type="GParamSpec*"/>
         </return-value>
@@ -39774,13 +39775,13 @@ used in [method@Procedure.run_config] method.</doc>
           <instance-parameter name="procedure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1552">A #GimpProcedure</doc>
+                 line="1578">A #GimpProcedure</doc>
             <type name="Procedure" c:type="GimpProcedure*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1553">An argument name</doc>
+                 line="1579">An argument name</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -39790,13 +39791,13 @@ used in [method@Procedure.run_config] method.</doc>
               version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpprocedure.c"
-             line="1581">Searches the @procedure's auxiliary arguments for a #GParamSpec
+             line="1607">Searches the @procedure's auxiliary arguments for a #GParamSpec
 called @name.</doc>
         <source-position filename="libgimp/gimpprocedure.h" line="179"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimp/gimpprocedure.c"
-               line="1589">The @procedure's auxiliary argument with
+               line="1615">The @procedure's auxiliary argument with
          @name if it exists, or %NULL otherwise.</doc>
           <type name="GObject.ParamSpec" c:type="GParamSpec*"/>
         </return-value>
@@ -39804,13 +39805,13 @@ called @name.</doc>
           <instance-parameter name="procedure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1583">A #GimpProcedure</doc>
+                 line="1609">A #GimpProcedure</doc>
             <type name="Procedure" c:type="GimpProcedure*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1584">An auxiliary argument name</doc>
+                 line="1610">An auxiliary argument name</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -39820,13 +39821,13 @@ called @name.</doc>
               version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpprocedure.c"
-             line="1613">Searches the @procedure's return values for a #GParamSpec called
+             line="1639">Searches the @procedure's return values for a #GParamSpec called
 @name.</doc>
         <source-position filename="libgimp/gimpprocedure.h" line="181"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimp/gimpprocedure.c"
-               line="1621">The @procedure's return values with @name
+               line="1647">The @procedure's return values with @name
          if it exists, or %NULL otherwise.</doc>
           <type name="GObject.ParamSpec" c:type="GParamSpec*"/>
         </return-value>
@@ -39834,13 +39835,13 @@ called @name.</doc>
           <instance-parameter name="procedure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1615">A #GimpProcedure</doc>
+                 line="1641">A #GimpProcedure</doc>
             <type name="Procedure" c:type="GimpProcedure*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1616">A return value name</doc>
+                 line="1642">A return value name</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -39852,7 +39853,7 @@ called @name.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimp/gimpprocedure.c"
-               line="1775">The #GimpArgumentSync value set with
+               line="1801">The #GimpArgumentSync value set with
          gimp_procedure_set_argument_sync():</doc>
           <type name="ArgumentSync" c:type="GimpArgumentSync"/>
         </return-value>
@@ -39860,13 +39861,13 @@ called @name.</doc>
           <instance-parameter name="procedure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1772">a #GimpProcedure</doc>
+                 line="1798">a #GimpProcedure</doc>
             <type name="Procedure" c:type="GimpProcedure*"/>
           </instance-parameter>
           <parameter name="arg_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1773">the name of one of @procedure's arguments or auxiliary arguments</doc>
+                 line="1799">the name of one of @procedure's arguments or auxiliary arguments</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -39875,56 +39876,6 @@ called @name.</doc>
               c:identifier="gimp_procedure_get_arguments"
               version="3.0">
         <source-position filename="libgimp/gimpprocedure.h" line="184"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="libgimp/gimpprocedure.c"
-               line="1650">An array
-         of @GParamSpec in the order they were added in.</doc>
-          <array length="0" zero-terminated="0" c:type="GParamSpec**">
-            <type name="GObject.ParamSpec" c:type="GParamSpec*"/>
-          </array>
-        </return-value>
-        <parameters>
-          <instance-parameter name="procedure" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgimp/gimpprocedure.c"
-                 line="1647">A #GimpProcedure.</doc>
-            <type name="Procedure" c:type="GimpProcedure*"/>
-          </instance-parameter>
-          <parameter name="n_arguments"
-                     direction="out"
-                     caller-allocates="0"
-                     transfer-ownership="full">
-            <doc xml:space="preserve"
-                 filename="libgimp/gimpprocedure.c"
-                 line="1648">Returns the number of arguments.</doc>
-            <type name="gint" c:type="gint*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="get_authors"
-              c:identifier="gimp_procedure_get_authors"
-              version="3.0">
-        <source-position filename="libgimp/gimpprocedure.h" line="173"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="libgimp/gimpprocedure.c"
-               line="1329">The procedure's authors given in [method@Procedure.set_attribution].</doc>
-          <type name="utf8" c:type="const gchar*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="procedure" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgimp/gimpprocedure.c"
-                 line="1327">A #GimpProcedure.</doc>
-            <type name="Procedure" c:type="GimpProcedure*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_aux_arguments"
-              c:identifier="gimp_procedure_get_aux_arguments"
-              version="3.0">
-        <source-position filename="libgimp/gimpprocedure.h" line="186"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimp/gimpprocedure.c"
@@ -39947,331 +39898,34 @@ called @name.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1674">Returns the number of auxiliary arguments.</doc>
+                 line="1674">Returns the number of arguments.</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
         </parameters>
       </method>
-      <method name="get_blurb"
-              c:identifier="gimp_procedure_get_blurb"
+      <method name="get_authors"
+              c:identifier="gimp_procedure_get_authors"
               version="3.0">
-        <source-position filename="libgimp/gimpprocedure.h" line="165"/>
+        <source-position filename="libgimp/gimpprocedure.h" line="173"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimp/gimpprocedure.c"
-               line="1224">The procedure's blurb given in
-[method@Procedure.set_documentation].</doc>
+               line="1355">The procedure's authors given in [method@Procedure.set_attribution].</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="procedure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1222">A #GimpProcedure.</doc>
+                 line="1353">A #GimpProcedure.</doc>
             <type name="Procedure" c:type="GimpProcedure*"/>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_copyright"
-              c:identifier="gimp_procedure_get_copyright"
+      <method name="get_aux_arguments"
+              c:identifier="gimp_procedure_get_aux_arguments"
               version="3.0">
-        <source-position filename="libgimp/gimpprocedure.h" line="174"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="libgimp/gimpprocedure.c"
-               line="1350">The procedure's copyright given in
-[method@Procedure.set_attribution].</doc>
-          <type name="utf8" c:type="const gchar*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="procedure" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgimp/gimpprocedure.c"
-                 line="1348">A #GimpProcedure.</doc>
-            <type name="Procedure" c:type="GimpProcedure*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_date"
-              c:identifier="gimp_procedure_get_date"
-              version="3.0">
-        <source-position filename="libgimp/gimpprocedure.h" line="175"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="libgimp/gimpprocedure.c"
-               line="1372">The procedure's date given in [method@Procedure.set_attribution].</doc>
-          <type name="utf8" c:type="const gchar*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="procedure" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgimp/gimpprocedure.c"
-                 line="1370">A #GimpProcedure.</doc>
-            <type name="Procedure" c:type="GimpProcedure*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_help"
-              c:identifier="gimp_procedure_get_help"
-              version="3.0">
-        <source-position filename="libgimp/gimpprocedure.h" line="166"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="libgimp/gimpprocedure.c"
-               line="1246">The procedure's help text given in
-[method@Procedure.set_documentation].</doc>
-          <type name="utf8" c:type="const gchar*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="procedure" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgimp/gimpprocedure.c"
-                 line="1244">A #GimpProcedure.</doc>
-            <type name="Procedure" c:type="GimpProcedure*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_help_id"
-              c:identifier="gimp_procedure_get_help_id"
-              version="3.0">
-        <source-position filename="libgimp/gimpprocedure.h" line="167"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="libgimp/gimpprocedure.c"
-               line="1268">The procedure's help ID given in
-[method@Procedure.set_documentation].</doc>
-          <type name="utf8" c:type="const gchar*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="procedure" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgimp/gimpprocedure.c"
-                 line="1266">A #GimpProcedure.</doc>
-            <type name="Procedure" c:type="GimpProcedure*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_icon_file"
-              c:identifier="gimp_procedure_get_icon_file"
-              version="3.0">
-        <doc xml:space="preserve"
-             filename="libgimp/gimpprocedure.c"
-             line="1114">Gets the file of the icon if one was set for @procedure.</doc>
-        <source-position filename="libgimp/gimpprocedure.h" line="158"/>
-        <return-value transfer-ownership="none" nullable="1">
-          <doc xml:space="preserve"
-               filename="libgimp/gimpprocedure.c"
-               line="1120">the icon #GFile or %NULL if no
-         file was set.</doc>
-          <type name="Gio.File" c:type="GFile*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="procedure" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgimp/gimpprocedure.c"
-                 line="1116">a #GimpProcedure.</doc>
-            <type name="Procedure" c:type="GimpProcedure*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_icon_name"
-              c:identifier="gimp_procedure_get_icon_name"
-              version="3.0">
-        <doc xml:space="preserve"
-             filename="libgimp/gimpprocedure.c"
-             line="1088">Gets the name of the icon if one was set for @procedure.</doc>
-        <source-position filename="libgimp/gimpprocedure.h" line="157"/>
-        <return-value transfer-ownership="none" nullable="1">
-          <doc xml:space="preserve"
-               filename="libgimp/gimpprocedure.c"
-               line="1094">the icon name or %NULL if no icon name was set.</doc>
-          <type name="utf8" c:type="const gchar*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="procedure" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgimp/gimpprocedure.c"
-                 line="1090">a #GimpProcedure.</doc>
-            <type name="Procedure" c:type="GimpProcedure*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_icon_pixbuf"
-              c:identifier="gimp_procedure_get_icon_pixbuf"
-              version="3.0">
-        <doc xml:space="preserve"
-             filename="libgimp/gimpprocedure.c"
-             line="1141">Gets the #GdkPixbuf of the icon if an icon was set this way for
-@procedure.</doc>
-        <source-position filename="libgimp/gimpprocedure.h" line="159"/>
-        <return-value transfer-ownership="none" nullable="1">
-          <doc xml:space="preserve"
-               filename="libgimp/gimpprocedure.c"
-               line="1148">the icon pixbuf or %NULL if no
-         icon name was set.</doc>
-          <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="procedure" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgimp/gimpprocedure.c"
-                 line="1143">a #GimpProcedure.</doc>
-            <type name="Procedure" c:type="GimpProcedure*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_icon_type"
-              c:identifier="gimp_procedure_get_icon_type"
-              version="3.0">
-        <doc xml:space="preserve"
-             filename="libgimp/gimpprocedure.c"
-             line="1064">Gets the type of data set as @procedure's icon. Depending on the
-result, you can call the relevant specific function, such as
-[method@Procedure.get_icon_name].</doc>
-        <source-position filename="libgimp/gimpprocedure.h" line="156"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="libgimp/gimpprocedure.c"
-               line="1072">the #GimpIconType of @procedure's icon.</doc>
-          <type name="IconType" c:type="GimpIconType"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="procedure" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgimp/gimpprocedure.c"
-                 line="1066">a #GimpProcedure.</doc>
-            <type name="Procedure" c:type="GimpProcedure*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_image_types"
-              c:identifier="gimp_procedure_get_image_types"
-              version="3.0">
-        <doc xml:space="preserve"
-             filename="libgimp/gimpprocedure.c"
-             line="776">This function retrieves the list of image types the procedure can
-operate on. See gimp_procedure_set_image_types().</doc>
-        <source-position filename="libgimp/gimpprocedure.h" line="134"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="libgimp/gimpprocedure.c"
-               line="783">The image types.</doc>
-          <type name="utf8" c:type="const gchar*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="procedure" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgimp/gimpprocedure.c"
-                 line="778">A #GimpProcedure.</doc>
-            <type name="Procedure" c:type="GimpProcedure*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_menu_label"
-              c:identifier="gimp_procedure_get_menu_label"
-              version="3.0">
-        <source-position filename="libgimp/gimpprocedure.h" line="143"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="libgimp/gimpprocedure.c"
-               line="907">The procedure's menu label given in
-         gimp_procedure_set_menu_label().</doc>
-          <type name="utf8" c:type="const gchar*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="procedure" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgimp/gimpprocedure.c"
-                 line="905">A #GimpProcedure.</doc>
-            <type name="Procedure" c:type="GimpProcedure*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_menu_paths"
-              c:identifier="gimp_procedure_get_menu_paths"
-              version="3.0">
-        <source-position filename="libgimp/gimpprocedure.h" line="147"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="libgimp/gimpprocedure.c"
-               line="985">the @procedure's
-         menu paths as added with gimp_procedure_add_menu_path().</doc>
-          <type name="GLib.List" c:type="GList*">
-            <type name="utf8"/>
-          </type>
-        </return-value>
-        <parameters>
-          <instance-parameter name="procedure" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgimp/gimpprocedure.c"
-                 line="983">A #GimpProcedure.</doc>
-            <type name="Procedure" c:type="GimpProcedure*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_name"
-              c:identifier="gimp_procedure_get_name"
-              glib:get-property="name"
-              version="3.0">
-        <source-position filename="libgimp/gimpprocedure.h" line="129"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="libgimp/gimpprocedure.c"
-               line="706">The procedure's name given in [ctor@Procedure.new].</doc>
-          <type name="utf8" c:type="const gchar*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="procedure" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgimp/gimpprocedure.c"
-                 line="704">A #GimpProcedure.</doc>
-            <type name="Procedure" c:type="GimpProcedure*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_plug_in"
-              c:identifier="gimp_procedure_get_plug_in"
-              glib:get-property="plug-in"
-              version="3.0">
-        <source-position filename="libgimp/gimpprocedure.h" line="128"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="libgimp/gimpprocedure.c"
-               line="686">The #GimpPlugIn given in [ctor@Procedure.new].</doc>
-          <type name="PlugIn" c:type="GimpPlugIn*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="procedure" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgimp/gimpprocedure.c"
-                 line="684">A #GimpProcedure.</doc>
-            <type name="Procedure" c:type="GimpProcedure*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_proc_type"
-              c:identifier="gimp_procedure_get_proc_type"
-              version="3.0">
-        <source-position filename="libgimp/gimpprocedure.h" line="130"/>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve"
-               filename="libgimp/gimpprocedure.c"
-               line="726">The procedure's type given in [ctor@Procedure.new].</doc>
-          <type name="PDBProcType" c:type="GimpPDBProcType"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="procedure" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgimp/gimpprocedure.c"
-                 line="724">A #GimpProcedure.</doc>
-            <type name="Procedure" c:type="GimpProcedure*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_return_values"
-              c:identifier="gimp_procedure_get_return_values"
-              version="3.0">
-        <source-position filename="libgimp/gimpprocedure.h" line="188"/>
+        <source-position filename="libgimp/gimpprocedure.h" line="186"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimp/gimpprocedure.c"
@@ -40288,13 +39942,360 @@ operate on. See gimp_procedure_set_image_types().</doc>
                  line="1699">A #GimpProcedure.</doc>
             <type name="Procedure" c:type="GimpProcedure*"/>
           </instance-parameter>
+          <parameter name="n_arguments"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libgimp/gimpprocedure.c"
+                 line="1700">Returns the number of auxiliary arguments.</doc>
+            <type name="gint" c:type="gint*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_blurb"
+              c:identifier="gimp_procedure_get_blurb"
+              version="3.0">
+        <source-position filename="libgimp/gimpprocedure.h" line="165"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgimp/gimpprocedure.c"
+               line="1250">The procedure's blurb given in
+[method@Procedure.set_documentation].</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="procedure" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgimp/gimpprocedure.c"
+                 line="1248">A #GimpProcedure.</doc>
+            <type name="Procedure" c:type="GimpProcedure*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_copyright"
+              c:identifier="gimp_procedure_get_copyright"
+              version="3.0">
+        <source-position filename="libgimp/gimpprocedure.h" line="174"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgimp/gimpprocedure.c"
+               line="1376">The procedure's copyright given in
+[method@Procedure.set_attribution].</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="procedure" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgimp/gimpprocedure.c"
+                 line="1374">A #GimpProcedure.</doc>
+            <type name="Procedure" c:type="GimpProcedure*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_date"
+              c:identifier="gimp_procedure_get_date"
+              version="3.0">
+        <source-position filename="libgimp/gimpprocedure.h" line="175"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgimp/gimpprocedure.c"
+               line="1398">The procedure's date given in [method@Procedure.set_attribution].</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="procedure" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgimp/gimpprocedure.c"
+                 line="1396">A #GimpProcedure.</doc>
+            <type name="Procedure" c:type="GimpProcedure*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_help"
+              c:identifier="gimp_procedure_get_help"
+              version="3.0">
+        <source-position filename="libgimp/gimpprocedure.h" line="166"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgimp/gimpprocedure.c"
+               line="1272">The procedure's help text given in
+[method@Procedure.set_documentation].</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="procedure" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgimp/gimpprocedure.c"
+                 line="1270">A #GimpProcedure.</doc>
+            <type name="Procedure" c:type="GimpProcedure*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_help_id"
+              c:identifier="gimp_procedure_get_help_id"
+              version="3.0">
+        <source-position filename="libgimp/gimpprocedure.h" line="167"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgimp/gimpprocedure.c"
+               line="1294">The procedure's help ID given in
+[method@Procedure.set_documentation].</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="procedure" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgimp/gimpprocedure.c"
+                 line="1292">A #GimpProcedure.</doc>
+            <type name="Procedure" c:type="GimpProcedure*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_icon_file"
+              c:identifier="gimp_procedure_get_icon_file"
+              version="3.0">
+        <doc xml:space="preserve"
+             filename="libgimp/gimpprocedure.c"
+             line="1140">Gets the file of the icon if one was set for @procedure.</doc>
+        <source-position filename="libgimp/gimpprocedure.h" line="158"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="libgimp/gimpprocedure.c"
+               line="1146">the icon #GFile or %NULL if no
+         file was set.</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="procedure" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgimp/gimpprocedure.c"
+                 line="1142">a #GimpProcedure.</doc>
+            <type name="Procedure" c:type="GimpProcedure*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_icon_name"
+              c:identifier="gimp_procedure_get_icon_name"
+              version="3.0">
+        <doc xml:space="preserve"
+             filename="libgimp/gimpprocedure.c"
+             line="1114">Gets the name of the icon if one was set for @procedure.</doc>
+        <source-position filename="libgimp/gimpprocedure.h" line="157"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="libgimp/gimpprocedure.c"
+               line="1120">the icon name or %NULL if no icon name was set.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="procedure" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgimp/gimpprocedure.c"
+                 line="1116">a #GimpProcedure.</doc>
+            <type name="Procedure" c:type="GimpProcedure*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_icon_pixbuf"
+              c:identifier="gimp_procedure_get_icon_pixbuf"
+              version="3.0">
+        <doc xml:space="preserve"
+             filename="libgimp/gimpprocedure.c"
+             line="1167">Gets the #GdkPixbuf of the icon if an icon was set this way for
+@procedure.</doc>
+        <source-position filename="libgimp/gimpprocedure.h" line="159"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="libgimp/gimpprocedure.c"
+               line="1174">the icon pixbuf or %NULL if no
+         icon name was set.</doc>
+          <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="procedure" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgimp/gimpprocedure.c"
+                 line="1169">a #GimpProcedure.</doc>
+            <type name="Procedure" c:type="GimpProcedure*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_icon_type"
+              c:identifier="gimp_procedure_get_icon_type"
+              version="3.0">
+        <doc xml:space="preserve"
+             filename="libgimp/gimpprocedure.c"
+             line="1090">Gets the type of data set as @procedure's icon. Depending on the
+result, you can call the relevant specific function, such as
+[method@Procedure.get_icon_name].</doc>
+        <source-position filename="libgimp/gimpprocedure.h" line="156"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgimp/gimpprocedure.c"
+               line="1098">the #GimpIconType of @procedure's icon.</doc>
+          <type name="IconType" c:type="GimpIconType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="procedure" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgimp/gimpprocedure.c"
+                 line="1092">a #GimpProcedure.</doc>
+            <type name="Procedure" c:type="GimpProcedure*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_image_types"
+              c:identifier="gimp_procedure_get_image_types"
+              version="3.0">
+        <doc xml:space="preserve"
+             filename="libgimp/gimpprocedure.c"
+             line="798">This function retrieves the list of image types the procedure can
+operate on. See gimp_procedure_set_image_types().</doc>
+        <source-position filename="libgimp/gimpprocedure.h" line="134"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgimp/gimpprocedure.c"
+               line="805">The image types.</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="procedure" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgimp/gimpprocedure.c"
+                 line="800">A #GimpProcedure.</doc>
+            <type name="Procedure" c:type="GimpProcedure*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_menu_label"
+              c:identifier="gimp_procedure_get_menu_label"
+              version="3.0">
+        <source-position filename="libgimp/gimpprocedure.h" line="143"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgimp/gimpprocedure.c"
+               line="929">The procedure's menu label given in
+         gimp_procedure_set_menu_label().</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="procedure" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgimp/gimpprocedure.c"
+                 line="927">A #GimpProcedure.</doc>
+            <type name="Procedure" c:type="GimpProcedure*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_menu_paths"
+              c:identifier="gimp_procedure_get_menu_paths"
+              version="3.0">
+        <source-position filename="libgimp/gimpprocedure.h" line="147"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgimp/gimpprocedure.c"
+               line="1011">the @procedure's
+         menu paths as added with gimp_procedure_add_menu_path().</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="utf8"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="procedure" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgimp/gimpprocedure.c"
+                 line="1009">A #GimpProcedure.</doc>
+            <type name="Procedure" c:type="GimpProcedure*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name"
+              c:identifier="gimp_procedure_get_name"
+              glib:get-property="name"
+              version="3.0">
+        <source-position filename="libgimp/gimpprocedure.h" line="129"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgimp/gimpprocedure.c"
+               line="728">The procedure's name given in [ctor@Procedure.new].</doc>
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="procedure" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgimp/gimpprocedure.c"
+                 line="726">A #GimpProcedure.</doc>
+            <type name="Procedure" c:type="GimpProcedure*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_plug_in"
+              c:identifier="gimp_procedure_get_plug_in"
+              glib:get-property="plug-in"
+              version="3.0">
+        <source-position filename="libgimp/gimpprocedure.h" line="128"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgimp/gimpprocedure.c"
+               line="708">The #GimpPlugIn given in [ctor@Procedure.new].</doc>
+          <type name="PlugIn" c:type="GimpPlugIn*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="procedure" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgimp/gimpprocedure.c"
+                 line="706">A #GimpProcedure.</doc>
+            <type name="Procedure" c:type="GimpProcedure*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_proc_type"
+              c:identifier="gimp_procedure_get_proc_type"
+              version="3.0">
+        <source-position filename="libgimp/gimpprocedure.h" line="130"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgimp/gimpprocedure.c"
+               line="748">The procedure's type given in [ctor@Procedure.new].</doc>
+          <type name="PDBProcType" c:type="GimpPDBProcType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="procedure" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgimp/gimpprocedure.c"
+                 line="746">A #GimpProcedure.</doc>
+            <type name="Procedure" c:type="GimpProcedure*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_return_values"
+              c:identifier="gimp_procedure_get_return_values"
+              version="3.0">
+        <source-position filename="libgimp/gimpprocedure.h" line="188"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgimp/gimpprocedure.c"
+               line="1728">An array
+         of @GParamSpec in the order they were added in.</doc>
+          <array length="0" zero-terminated="0" c:type="GParamSpec**">
+            <type name="GObject.ParamSpec" c:type="GParamSpec*"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="procedure" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgimp/gimpprocedure.c"
+                 line="1725">A #GimpProcedure.</doc>
+            <type name="Procedure" c:type="GimpProcedure*"/>
+          </instance-parameter>
           <parameter name="n_return_values"
                      direction="out"
                      caller-allocates="0"
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1700">Returns the number of return values.</doc>
+                 line="1726">Returns the number of return values.</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
         </parameters>
@@ -40306,7 +40307,7 @@ operate on. See gimp_procedure_set_image_types().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimp/gimpprocedure.c"
-               line="853">The procedure's sensitivity mask given in
+               line="875">The procedure's sensitivity mask given in
          [method@Procedure.set_sensitivity_mask].</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
@@ -40314,7 +40315,7 @@ operate on. See gimp_procedure_set_image_types().</doc>
           <instance-parameter name="procedure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="851">A #GimpProcedure.</doc>
+                 line="873">A #GimpProcedure.</doc>
             <type name="Procedure" c:type="GimpProcedure*"/>
           </instance-parameter>
         </parameters>
@@ -40324,21 +40325,21 @@ operate on. See gimp_procedure_set_image_types().</doc>
               version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpprocedure.c"
-             line="2235">Provide the information if @procedure is an internal procedure. Only
+             line="2261">Provide the information if @procedure is an internal procedure. Only
 a procedure looked up in the [class@Gimp.PDB] can be internal.
 Procedures created by a plug-in in particular are never internal.</doc>
         <source-position filename="libgimp/gimpprocedure.h" line="215"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimp/gimpprocedure.c"
-               line="2243">Whether @procedure is an internal procedure or not.</doc>
+               line="2269">Whether @procedure is an internal procedure or not.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="procedure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="2237">A #GimpProcedure</doc>
+                 line="2263">A #GimpProcedure</doc>
             <type name="Procedure" c:type="GimpProcedure*"/>
           </instance-parameter>
         </parameters>
@@ -40348,12 +40349,12 @@ Procedures created by a plug-in in particular are never internal.</doc>
               version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpprocedure.c"
-             line="1809">Format the expected return values from procedures.</doc>
+             line="1835">Format the expected return values from procedures.</doc>
         <source-position filename="libgimp/gimpprocedure.h" line="197"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgimp/gimpprocedure.c"
-               line="1820">the expected #GimpValueArray as could be returned
+               line="1846">the expected #GimpValueArray as could be returned
 by a [callback@RunFunc].</doc>
           <type name="ValueArray" c:type="GimpValueArray*"/>
         </return-value>
@@ -40361,13 +40362,13 @@ by a [callback@RunFunc].</doc>
           <instance-parameter name="procedure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1811">the procedure.</doc>
+                 line="1837">the procedure.</doc>
             <type name="Procedure" c:type="GimpProcedure*"/>
           </instance-parameter>
           <parameter name="status" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1812">the success status of the procedure run.</doc>
+                 line="1838">the success status of the procedure run.</doc>
             <type name="PDBStatusType" c:type="GimpPDBStatusType"/>
           </parameter>
           <parameter name="error"
@@ -40376,7 +40377,7 @@ by a [callback@RunFunc].</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1813">
+                 line="1839">
             an optional #GError. This parameter should be set if
             @status is either #GIMP_PDB_EXECUTION_ERROR or
             #GIMP_PDB_CALLING_ERROR.</doc>
@@ -40389,7 +40390,7 @@ by a [callback@RunFunc].</doc>
               version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpprocedure.c"
-             line="2172">Notify the main GIMP application that the persistent procedure has
+             line="2198">Notify the main GIMP application that the persistent procedure has
 been properly initialized and is ready to run.
 
 This function _must_ be called from every procedure's [callback@RunFunc]
@@ -40408,7 +40409,7 @@ See also: [ctor@Procedure.new].</doc>
           <instance-parameter name="procedure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="2174">A #GimpProcedure</doc>
+                 line="2200">A #GimpProcedure</doc>
             <type name="Procedure" c:type="GimpProcedure*"/>
           </instance-parameter>
         </parameters>
@@ -40420,7 +40421,7 @@ See also: [ctor@Procedure.new].</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="libgimp/gimpprocedure.c"
-             line="1890">Runs the procedure named @procedure_name with arguments given as
+             line="1916">Runs the procedure named @procedure_name with arguments given as
 list of `(name, value)` pairs, terminated by %NULL.
 
 The order of arguments does not matter and if any argument is missing, its
@@ -40430,27 +40431,27 @@ type as registered for @procedure_name.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgimp/gimpprocedure.c"
-               line="1905">the return values for the procedure call.</doc>
+               line="1931">the return values for the procedure call.</doc>
           <type name="ValueArray" c:type="GimpValueArray*"/>
         </return-value>
         <parameters>
           <instance-parameter name="procedure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1892">the [class@Gimp.Procedure] to run.</doc>
+                 line="1918">the [class@Gimp.Procedure] to run.</doc>
             <type name="Procedure" c:type="GimpProcedure*"/>
           </instance-parameter>
           <parameter name="first_arg_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1893">the name of an argument of @procedure or %NULL to
+                 line="1919">the name of an argument of @procedure or %NULL to
                  run @procedure with default arguments.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1895">the value of @first_arg_name and any more argument
+                 line="1921">the value of @first_arg_name and any more argument
                  names and values as needed.</doc>
             <varargs/>
           </parameter>
@@ -40462,7 +40463,7 @@ type as registered for @procedure_name.</doc>
               version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpprocedure.c"
-             line="1998">Runs @procedure, calling the run_func given in [ctor@Procedure.new].
+             line="2024">Runs @procedure, calling the run_func given in [ctor@Procedure.new].
 
 Create @config at default values with
 [method@Gimp.Procedure.create_config] then set any argument you wish
@@ -40473,14 +40474,14 @@ If @config is %NULL, the default arguments of @procedure will be used.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgimp/gimpprocedure.c"
-               line="2011">The @procedure's return values.</doc>
+               line="2037">The @procedure's return values.</doc>
           <type name="ValueArray" c:type="GimpValueArray*"/>
         </return-value>
         <parameters>
           <instance-parameter name="procedure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="2000">the [class@Gimp.Procedure] to run.</doc>
+                 line="2026">the [class@Gimp.Procedure] to run.</doc>
             <type name="Procedure" c:type="GimpProcedure*"/>
           </instance-parameter>
           <parameter name="config"
@@ -40489,7 +40490,7 @@ If @config is %NULL, the default arguments of @procedure will be used.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="2001">the @procedure's arguments.</doc>
+                 line="2027">the @procedure's arguments.</doc>
             <type name="ProcedureConfig" c:type="GimpProcedureConfig*"/>
           </parameter>
         </parameters>
@@ -40500,26 +40501,26 @@ If @config is %NULL, the default arguments of @procedure will be used.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="libgimp/gimpprocedure.c"
-             line="1928">Runs @procedure with arguments names and values, given in the order as passed
+             line="1954">Runs @procedure with arguments names and values, given in the order as passed
 to [method@Procedure.run].</doc>
         <source-position filename="libgimp/gimpprocedure.h" line="204"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgimp/gimpprocedure.c"
-               line="1939">the return values for the procedure call.</doc>
+               line="1965">the return values for the procedure call.</doc>
           <type name="ValueArray" c:type="GimpValueArray*"/>
         </return-value>
         <parameters>
           <instance-parameter name="procedure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1930">the [class@Gimp.Procedure] to run.</doc>
+                 line="1956">the [class@Gimp.Procedure] to run.</doc>
             <type name="Procedure" c:type="GimpProcedure*"/>
           </instance-parameter>
           <parameter name="first_arg_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1931">the name of an argument of @procedure or %NULL to
+                 line="1957">the name of an argument of @procedure or %NULL to
                  run @procedure with default arguments.
 @args            the value of @first_arg_name and any more argument
                  names and values as needed.</doc>
@@ -40535,7 +40536,7 @@ to [method@Procedure.run].</doc>
               version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpprocedure.c"
-             line="1723">When the procedure's run() function exits, a #GimpProcedure's arguments
+             line="1749">When the procedure's run() function exits, a #GimpProcedure's arguments
 or auxiliary arguments can be automatically synced with a #GimpParasite of
 the #GimpImage the procedure is running on.
 
@@ -40552,19 +40553,19 @@ example the "gimp-comment" parasite in file save procedures.</doc>
           <instance-parameter name="procedure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1725">a #GimpProcedure.</doc>
+                 line="1751">a #GimpProcedure.</doc>
             <type name="Procedure" c:type="GimpProcedure*"/>
           </instance-parameter>
           <parameter name="arg_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1726">the name of one of @procedure's arguments or auxiliary arguments.</doc>
+                 line="1752">the name of one of @procedure's arguments or auxiliary arguments.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="sync" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1727">how to sync the argument or auxiliary argument.</doc>
+                 line="1753">how to sync the argument or auxiliary argument.</doc>
             <type name="ArgumentSync" c:type="GimpArgumentSync"/>
           </parameter>
         </parameters>
@@ -40574,7 +40575,7 @@ example the "gimp-comment" parasite in file save procedures.</doc>
               version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpprocedure.c"
-             line="1286">Sets various attribution strings on @procedure.</doc>
+             line="1312">Sets various attribution strings on @procedure.</doc>
         <source-position filename="libgimp/gimpprocedure.h" line="169"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -40583,25 +40584,25 @@ example the "gimp-comment" parasite in file save procedures.</doc>
           <instance-parameter name="procedure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1288">A #GimpProcedure.</doc>
+                 line="1314">A #GimpProcedure.</doc>
             <type name="Procedure" c:type="GimpProcedure*"/>
           </instance-parameter>
           <parameter name="authors" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1289">The @procedure's author(s).</doc>
+                 line="1315">The @procedure's author(s).</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="copyright" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1290">The @procedure's copyright.</doc>
+                 line="1316">The @procedure's copyright.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="date" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1291">The @procedure's date (written or published).</doc>
+                 line="1317">The @procedure's date (written or published).</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -40611,7 +40612,7 @@ example the "gimp-comment" parasite in file save procedures.</doc>
               version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpprocedure.c"
-             line="1169">Sets various documentation strings on @procedure:
+             line="1195">Sets various documentation strings on @procedure:
 
 * @blurb is used for instance as the @procedure's tooltip when represented in
   the UI such as a menu entry.
@@ -40632,13 +40633,13 @@ internationalized.</doc>
           <instance-parameter name="procedure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1171">A #GimpProcedure.</doc>
+                 line="1197">A #GimpProcedure.</doc>
             <type name="Procedure" c:type="GimpProcedure*"/>
           </instance-parameter>
           <parameter name="blurb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1172">The @procedure's blurb.</doc>
+                 line="1198">The @procedure's blurb.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="help"
@@ -40647,7 +40648,7 @@ internationalized.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1173">The @procedure's help text.</doc>
+                 line="1199">The @procedure's help text.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="help_id"
@@ -40656,7 +40657,7 @@ internationalized.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1174">The @procedure's help ID.</doc>
+                 line="1200">The @procedure's help ID.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -40666,7 +40667,7 @@ internationalized.</doc>
               version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpprocedure.c"
-             line="1043">Sets the icon for @procedure to the contents of an image file.</doc>
+             line="1069">Sets the icon for @procedure to the contents of an image file.</doc>
         <source-position filename="libgimp/gimpprocedure.h" line="151"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -40675,7 +40676,7 @@ internationalized.</doc>
           <instance-parameter name="procedure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1045">a #GimpProcedure.</doc>
+                 line="1071">a #GimpProcedure.</doc>
             <type name="Procedure" c:type="GimpProcedure*"/>
           </instance-parameter>
           <parameter name="file"
@@ -40684,7 +40685,7 @@ internationalized.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1046">a #GFile pointing to an image file.</doc>
+                 line="1072">a #GFile pointing to an image file.</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
         </parameters>
@@ -40694,7 +40695,7 @@ internationalized.</doc>
               version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpprocedure.c"
-             line="1002">Sets the icon for @procedure to the icon referenced by @icon_name.</doc>
+             line="1028">Sets the icon for @procedure to the icon referenced by @icon_name.</doc>
         <source-position filename="libgimp/gimpprocedure.h" line="149"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -40703,7 +40704,7 @@ internationalized.</doc>
           <instance-parameter name="procedure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1004">a #GimpProcedure.</doc>
+                 line="1030">a #GimpProcedure.</doc>
             <type name="Procedure" c:type="GimpProcedure*"/>
           </instance-parameter>
           <parameter name="icon_name"
@@ -40712,7 +40713,7 @@ internationalized.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1005">an icon name.</doc>
+                 line="1031">an icon name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -40722,7 +40723,7 @@ internationalized.</doc>
               version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpprocedure.c"
-             line="1022">Sets the icon for @procedure to @pixbuf.</doc>
+             line="1048">Sets the icon for @procedure to @pixbuf.</doc>
         <source-position filename="libgimp/gimpprocedure.h" line="153"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -40731,7 +40732,7 @@ internationalized.</doc>
           <instance-parameter name="procedure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1024">a #GimpProcedure.</doc>
+                 line="1050">a #GimpProcedure.</doc>
             <type name="Procedure" c:type="GimpProcedure*"/>
           </instance-parameter>
           <parameter name="pixbuf"
@@ -40740,7 +40741,7 @@ internationalized.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="1025">a #GdkPixbuf.</doc>
+                 line="1051">a #GdkPixbuf.</doc>
             <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
           </parameter>
         </parameters>
@@ -40750,7 +40751,7 @@ internationalized.</doc>
               version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpprocedure.c"
-             line="743">This is a comma separated list of image types, or actually drawable
+             line="765">This is a comma separated list of image types, or actually drawable
 types, that this procedure can deal with. Wildcards are possible
 here, so you could say "RGB\*" instead of "RGB, RGBA" or "\*" for all
 image types.
@@ -40765,13 +40766,13 @@ with alpha.</doc>
           <instance-parameter name="procedure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="745">A #GimpProcedure.</doc>
+                 line="767">A #GimpProcedure.</doc>
             <type name="Procedure" c:type="GimpProcedure*"/>
           </instance-parameter>
           <parameter name="image_types" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="746">The image types this procedure can operate on.</doc>
+                 line="768">The image types this procedure can operate on.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -40781,7 +40782,7 @@ with alpha.</doc>
               version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpprocedure.c"
-             line="870">Sets the label to use for the @procedure's menu entry, The
+             line="892">Sets the label to use for the @procedure's menu entry, The
 location(s) where to register in the menu hierarchy is chosen using
 gimp_procedure_add_menu_path().
 
@@ -40795,13 +40796,13 @@ localized strings to GIMP if your plug-in is internationalized.</doc>
           <instance-parameter name="procedure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="872">A #GimpProcedure.</doc>
+                 line="894">A #GimpProcedure.</doc>
             <type name="Procedure" c:type="GimpProcedure*"/>
           </instance-parameter>
           <parameter name="menu_label" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="873">The @procedure's menu label.</doc>
+                 line="895">The @procedure's menu label.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -40811,7 +40812,7 @@ localized strings to GIMP if your plug-in is internationalized.</doc>
               version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpprocedure.c"
-             line="799">Sets the cases when @procedure is supposed to be sensitive or not.
+             line="821">Sets the cases when @procedure is supposed to be sensitive or not.
 
 Note that it will be used by the core to determine whether to show a
 procedure as sensitive (hence forbid running it otherwise), yet it
@@ -40836,13 +40837,13 @@ GIMP_PROCEDURE_SENSITIVE_DRAWABLES` are equivalent.</doc>
           <instance-parameter name="procedure" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="801">A #GimpProcedure.</doc>
+                 line="823">A #GimpProcedure.</doc>
             <type name="Procedure" c:type="GimpProcedure*"/>
           </instance-parameter>
           <parameter name="sensitivity_mask" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpprocedure.c"
-                 line="802">A binary mask of [flags@Gimp.ProcedureSensitivityMask].</doc>
+                 line="824">A binary mask of [flags@Gimp.ProcedureSensitivityMask].</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -42088,7 +42089,7 @@ when its properties are updated.</doc>
                 version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpresource.c"
-             line="302">Returns a #GimpResource representing @resource_id. Since #GimpResource is an
+             line="327">Returns a #GimpResource representing @resource_id. Since #GimpResource is an
 abstract class, the real object type will actually be the proper
 subclass.
 
@@ -42096,11 +42097,11 @@ Note: in most use cases, you should not need to retrieve a
 #GimpResource by its ID, which is mostly internal data and not
 reusable across sessions. Use the appropriate functions for your use
 case instead.</doc>
-        <source-position filename="libgimp/gimpresource.h" line="53"/>
+        <source-position filename="libgimp/gimpresource.h" line="55"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="libgimp/gimpresource.c"
-               line="315">a #GimpResource for @resource_id or
+               line="340">a #GimpResource for @resource_id or
          %NULL if @resource_id does not represent a valid resource.
          The object belongs to libgimp and you must not modify
          or unref it.</doc>
@@ -42110,7 +42111,7 @@ case instead.</doc>
           <parameter name="resource_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpresource.c"
-                 line="304">The resource id.</doc>
+                 line="329">The resource id.</doc>
             <type name="gint32" c:type="gint32"/>
           </parameter>
         </parameters>
@@ -42120,26 +42121,26 @@ case instead.</doc>
                 version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpresource.c"
-             line="335">Returns the resource with the given @resource_type and
+             line="360">Returns the resource with the given @resource_type and
 @resource_name.</doc>
-        <source-position filename="libgimp/gimpresource.h" line="54"/>
+        <source-position filename="libgimp/gimpresource.h" line="56"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="libgimp/gimpresource.c"
-               line="343">The resource.</doc>
+               line="368">The resource.</doc>
           <type name="Resource" c:type="GimpResource*"/>
         </return-value>
         <parameters>
           <parameter name="resource_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpresource.c"
-                 line="337">The #GType of the resource.</doc>
+                 line="362">The #GType of the resource.</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
           <parameter name="resource_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpresource.c"
-                 line="338">The name of the resource.</doc>
+                 line="363">The name of the resource.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -42149,21 +42150,21 @@ case instead.</doc>
                 version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpresource_pdb.c"
-             line="169">Returns whether the resource ID is a brush.
+             line="207">Returns whether the resource ID is a brush.
 
 This procedure returns TRUE if the specified resource ID is a brush.</doc>
-        <source-position filename="libgimp/gimpresource_pdb.h" line="42"/>
+        <source-position filename="libgimp/gimpresource_pdb.h" line="43"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimp/gimpresource_pdb.c"
-               line="177">TRUE if the resource ID is a brush, FALSE otherwise.</doc>
+               line="215">TRUE if the resource ID is a brush, FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="resource_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpresource_pdb.c"
-                 line="171">The resource ID.</doc>
+                 line="209">The resource ID.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -42173,21 +42174,21 @@ This procedure returns TRUE if the specified resource ID is a brush.</doc>
                 version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpresource_pdb.c"
-             line="316">Returns whether the resource ID is a font.
+             line="354">Returns whether the resource ID is a font.
 
 This procedure returns TRUE if the specified resource ID is a font.</doc>
-        <source-position filename="libgimp/gimpresource_pdb.h" line="46"/>
+        <source-position filename="libgimp/gimpresource_pdb.h" line="47"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimp/gimpresource_pdb.c"
-               line="324">TRUE if the resource ID is a font, FALSE otherwise.</doc>
+               line="362">TRUE if the resource ID is a font, FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="resource_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpresource_pdb.c"
-                 line="318">The resource ID.</doc>
+                 line="356">The resource ID.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -42197,22 +42198,22 @@ This procedure returns TRUE if the specified resource ID is a font.</doc>
                 version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpresource_pdb.c"
-             line="242">Returns whether the resource ID is a gradient.
+             line="280">Returns whether the resource ID is a gradient.
 
 This procedure returns TRUE if the specified resource ID is a
 gradient.</doc>
-        <source-position filename="libgimp/gimpresource_pdb.h" line="44"/>
+        <source-position filename="libgimp/gimpresource_pdb.h" line="45"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimp/gimpresource_pdb.c"
-               line="251">TRUE if the resource ID is a gradient, FALSE otherwise.</doc>
+               line="289">TRUE if the resource ID is a gradient, FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="resource_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpresource_pdb.c"
-                 line="244">The resource ID.</doc>
+                 line="282">The resource ID.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -42222,22 +42223,22 @@ gradient.</doc>
                 version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpresource_pdb.c"
-             line="279">Returns whether the resource ID is a palette.
+             line="317">Returns whether the resource ID is a palette.
 
 This procedure returns TRUE if the specified resource ID is a
 palette.</doc>
-        <source-position filename="libgimp/gimpresource_pdb.h" line="45"/>
+        <source-position filename="libgimp/gimpresource_pdb.h" line="46"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimp/gimpresource_pdb.c"
-               line="288">TRUE if the resource ID is a palette, FALSE otherwise.</doc>
+               line="326">TRUE if the resource ID is a palette, FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="resource_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpresource_pdb.c"
-                 line="281">The resource ID.</doc>
+                 line="319">The resource ID.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -42247,22 +42248,22 @@ palette.</doc>
                 version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpresource_pdb.c"
-             line="205">Returns whether the resource ID is a pattern.
+             line="243">Returns whether the resource ID is a pattern.
 
 This procedure returns TRUE if the specified resource ID is a
 pattern.</doc>
-        <source-position filename="libgimp/gimpresource_pdb.h" line="43"/>
+        <source-position filename="libgimp/gimpresource_pdb.h" line="44"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimp/gimpresource_pdb.c"
-               line="214">TRUE if the resource ID is a pattern, FALSE otherwise.</doc>
+               line="252">TRUE if the resource ID is a pattern, FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="resource_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpresource_pdb.c"
-                 line="207">The resource ID.</doc>
+                 line="245">The resource ID.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -42272,7 +42273,7 @@ pattern.</doc>
                 version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpresource_pdb.c"
-             line="128">Returns TRUE if the resource ID is valid.
+             line="166">Returns TRUE if the resource ID is valid.
 
 This procedure checks if the given resource ID is valid and refers
 to an existing resource.
@@ -42280,18 +42281,18 @@ to an existing resource.
 *Note*: in most use cases, you should not use this function. If you
 got a [class@Gimp.Resource] from the API, you should trust it is
 valid. This function is mostly for internal usage.</doc>
-        <source-position filename="libgimp/gimpresource_pdb.h" line="41"/>
+        <source-position filename="libgimp/gimpresource_pdb.h" line="42"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimp/gimpresource_pdb.c"
-               line="141">Whether the resource ID is valid.</doc>
+               line="179">Whether the resource ID is valid.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="resource_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpresource_pdb.c"
-                 line="130">The resource ID to check.</doc>
+                 line="168">The resource ID to check.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -42299,23 +42300,23 @@ valid. This function is mostly for internal usage.</doc>
       <method name="delete" c:identifier="gimp_resource_delete" version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpresource_pdb.c"
-             line="556">Deletes a resource.
+             line="594">Deletes a resource.
 
 Deletes a resource. Returns an error if the resource is not
 deletable. Deletes the resource's data. You should not use the
 resource afterwards.</doc>
-        <source-position filename="libgimp/gimpresource_pdb.h" line="55"/>
+        <source-position filename="libgimp/gimpresource_pdb.h" line="56"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimp/gimpresource_pdb.c"
-               line="566">TRUE on success.</doc>
+               line="604">TRUE on success.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="resource" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpresource_pdb.c"
-                 line="558">The resource.</doc>
+                 line="596">The resource.</doc>
             <type name="Resource" c:type="GimpResource*"/>
           </instance-parameter>
         </parameters>
@@ -42325,21 +42326,21 @@ resource afterwards.</doc>
               version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpresource_pdb.c"
-             line="480">Duplicates a resource.
+             line="518">Duplicates a resource.
 
 Returns a copy having a different, unique ID.</doc>
-        <source-position filename="libgimp/gimpresource_pdb.h" line="52"/>
+        <source-position filename="libgimp/gimpresource_pdb.h" line="53"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimp/gimpresource_pdb.c"
-               line="488">A copy of the resource.</doc>
+               line="526">A copy of the resource.</doc>
           <type name="Resource" c:type="GimpResource*"/>
         </return-value>
         <parameters>
           <instance-parameter name="resource" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpresource_pdb.c"
-                 line="482">The resource.</doc>
+                 line="520">The resource.</doc>
             <type name="Resource" c:type="GimpResource*"/>
           </instance-parameter>
         </parameters>
@@ -42350,20 +42351,20 @@ Returns a copy having a different, unique ID.</doc>
               version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpresource.c"
-             line="276">Note: in most use cases, you should not need a resource's ID which is
+             line="301">Note: in most use cases, you should not need a resource's ID which is
 mostly internal data and not reusable across sessions.</doc>
-        <source-position filename="libgimp/gimpresource.h" line="52"/>
+        <source-position filename="libgimp/gimpresource.h" line="54"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimp/gimpresource.c"
-               line="283">the resource ID.</doc>
+               line="308">the resource ID.</doc>
           <type name="gint32" c:type="gint32"/>
         </return-value>
         <parameters>
           <instance-parameter name="resource" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpresource.c"
-                 line="278">The resource.</doc>
+                 line="303">The resource.</doc>
             <type name="Resource" c:type="GimpResource*"/>
           </instance-parameter>
         </parameters>
@@ -42373,14 +42374,14 @@ mostly internal data and not reusable across sessions.</doc>
               version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpresource_pdb.c"
-             line="352">Returns the resource's name.
+             line="390">Returns the resource's name.
 
 This procedure returns the resource's name.</doc>
-        <source-position filename="libgimp/gimpresource_pdb.h" line="47"/>
+        <source-position filename="libgimp/gimpresource_pdb.h" line="48"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libgimp/gimpresource_pdb.c"
-               line="360">The resource's name.
+               line="398">The resource's name.
          The returned value must be freed with g_free().</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -42388,7 +42389,7 @@ This procedure returns the resource's name.</doc>
           <instance-parameter name="resource" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpresource_pdb.c"
-                 line="354">The resource.</doc>
+                 line="392">The resource.</doc>
             <type name="Resource" c:type="GimpResource*"/>
           </instance-parameter>
         </parameters>
@@ -42398,21 +42399,21 @@ This procedure returns the resource's name.</doc>
               version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpresource.c"
-             line="378">Returns whether the resource is a brush.
+             line="403">Returns whether the resource is a brush.
 
 This procedure returns TRUE if the specified resource is a brush.</doc>
-        <source-position filename="libgimp/gimpresource.h" line="58"/>
+        <source-position filename="libgimp/gimpresource.h" line="60"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimp/gimpresource.c"
-               line="386">TRUE if the resource is a brush, FALSE otherwise.</doc>
+               line="411">TRUE if the resource is a brush, FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="resource" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpresource.c"
-                 line="380">The resource.</doc>
+                 line="405">The resource.</doc>
             <type name="Resource" c:type="GimpResource*"/>
           </instance-parameter>
         </parameters>
@@ -42422,21 +42423,21 @@ This procedure returns TRUE if the specified resource is a brush.</doc>
               version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpresource_pdb.c"
-             line="444">Whether the resource can be edited.
+             line="482">Whether the resource can be edited.
 
 Returns TRUE if you have permission to change the resource.</doc>
-        <source-position filename="libgimp/gimpresource_pdb.h" line="51"/>
+        <source-position filename="libgimp/gimpresource_pdb.h" line="52"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimp/gimpresource_pdb.c"
-               line="452">TRUE if the resource can be edited.</doc>
+               line="490">TRUE if the resource can be edited.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="resource" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpresource_pdb.c"
-                 line="446">The resource.</doc>
+                 line="484">The resource.</doc>
             <type name="Resource" c:type="GimpResource*"/>
           </instance-parameter>
         </parameters>
@@ -42446,21 +42447,21 @@ Returns TRUE if you have permission to change the resource.</doc>
               version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpresource.c"
-             line="450">Returns whether the resource is a font.
+             line="475">Returns whether the resource is a font.
 
 This procedure returns TRUE if the specified resource is a font.</doc>
-        <source-position filename="libgimp/gimpresource.h" line="62"/>
+        <source-position filename="libgimp/gimpresource.h" line="64"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimp/gimpresource.c"
-               line="458">TRUE if the resource is a font, FALSE otherwise.</doc>
+               line="483">TRUE if the resource is a font, FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="resource" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpresource.c"
-                 line="452">The resource.</doc>
+                 line="477">The resource.</doc>
             <type name="Resource" c:type="GimpResource*"/>
           </instance-parameter>
         </parameters>
@@ -42470,21 +42471,21 @@ This procedure returns TRUE if the specified resource is a font.</doc>
               version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpresource.c"
-             line="414">Returns whether the resource is a gradient.
+             line="439">Returns whether the resource is a gradient.
 
 This procedure returns TRUE if the specified resource is a gradient.</doc>
-        <source-position filename="libgimp/gimpresource.h" line="60"/>
+        <source-position filename="libgimp/gimpresource.h" line="62"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimp/gimpresource.c"
-               line="422">TRUE if the resource is a gradient, FALSE otherwise.</doc>
+               line="447">TRUE if the resource is a gradient, FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="resource" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpresource.c"
-                 line="416">The resource.</doc>
+                 line="441">The resource.</doc>
             <type name="Resource" c:type="GimpResource*"/>
           </instance-parameter>
         </parameters>
@@ -42494,21 +42495,21 @@ This procedure returns TRUE if the specified resource is a gradient.</doc>
               version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpresource.c"
-             line="432">Returns whether the resource is a palette.
+             line="457">Returns whether the resource is a palette.
 
 This procedure returns TRUE if the specified resource is a palette.</doc>
-        <source-position filename="libgimp/gimpresource.h" line="61"/>
+        <source-position filename="libgimp/gimpresource.h" line="63"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimp/gimpresource.c"
-               line="440">TRUE if the resource is a palette, FALSE otherwise.</doc>
+               line="465">TRUE if the resource is a palette, FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="resource" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpresource.c"
-                 line="434">The resource.</doc>
+                 line="459">The resource.</doc>
             <type name="Resource" c:type="GimpResource*"/>
           </instance-parameter>
         </parameters>
@@ -42518,21 +42519,21 @@ This procedure returns TRUE if the specified resource is a palette.</doc>
               version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpresource.c"
-             line="396">Returns whether the resource is a pattern.
+             line="421">Returns whether the resource is a pattern.
 
 This procedure returns TRUE if the specified resource is a pattern.</doc>
-        <source-position filename="libgimp/gimpresource.h" line="59"/>
+        <source-position filename="libgimp/gimpresource.h" line="61"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimp/gimpresource.c"
-               line="404">TRUE if the resource is a pattern, FALSE otherwise.</doc>
+               line="429">TRUE if the resource is a pattern, FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="resource" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpresource.c"
-                 line="398">The resource.</doc>
+                 line="423">The resource.</doc>
             <type name="Resource" c:type="GimpResource*"/>
           </instance-parameter>
         </parameters>
@@ -42542,22 +42543,22 @@ This procedure returns TRUE if the specified resource is a pattern.</doc>
               version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpresource.c"
-             line="359">Returns TRUE if the resource is valid.
+             line="384">Returns TRUE if the resource is valid.
 
 This procedure checks if the given resource is valid and refers to an
 existing resource.</doc>
-        <source-position filename="libgimp/gimpresource.h" line="57"/>
+        <source-position filename="libgimp/gimpresource.h" line="59"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimp/gimpresource.c"
-               line="368">Whether the resource is valid.</doc>
+               line="393">Whether the resource is valid.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="resource" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpresource.c"
-                 line="361">The resource to check.</doc>
+                 line="386">The resource to check.</doc>
             <type name="Resource" c:type="GimpResource*"/>
           </instance-parameter>
         </parameters>
@@ -42565,29 +42566,29 @@ existing resource.</doc>
       <method name="rename" c:identifier="gimp_resource_rename" version="3.0">
         <doc xml:space="preserve"
              filename="libgimp/gimpresource_pdb.c"
-             line="516">Renames a resource. When the name is in use, renames to a unique
+             line="554">Renames a resource. When the name is in use, renames to a unique
 name.
 
 Renames a resource. When the proposed name is already used, GIMP
 generates a unique name.</doc>
-        <source-position filename="libgimp/gimpresource_pdb.h" line="53"/>
+        <source-position filename="libgimp/gimpresource_pdb.h" line="54"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimp/gimpresource_pdb.c"
-               line="527">TRUE on success.</doc>
+               line="565">TRUE on success.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="resource" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpresource_pdb.c"
-                 line="518">The resource.</doc>
+                 line="556">The resource.</doc>
             <type name="Resource" c:type="GimpResource*"/>
           </instance-parameter>
           <parameter name="new_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libgimp/gimpresource_pdb.c"
-                 line="519">The proposed new name of the resource.</doc>
+                 line="557">The proposed new name of the resource.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -48619,7 +48620,7 @@ from one session to another.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="VERSION" value="3.2.0" c:type="GIMP_VERSION">
+    <constant name="VERSION" value="3.2.4" c:type="GIMP_VERSION">
       <doc xml:space="preserve"
            filename="libgimpbase/gimpversion.h"
            line="45">The GIMP version as a string.</doc>
@@ -52055,7 +52056,7 @@ buffers.</doc>
               version="2.10.10">
       <doc xml:space="preserve"
            filename="libgimpbase/gimpenv.c"
-           line="687">Returns the default top directory for GIMP cached files. If the
+           line="746">Returns the default top directory for GIMP cached files. If the
 environment variable GIMP3_CACHEDIR exists, that is used.  It
 should be an absolute pathname.  Otherwise, a subdirectory of the
 directory returned by g_get_user_cache_dir() is used.
@@ -52074,7 +52075,7 @@ UTF-8.).</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgimpbase/gimpenv.c"
-             line="708">The default top directory for GIMP cached files.</doc>
+             line="767">The default top directory for GIMP cached files.</doc>
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
     </function>
@@ -52263,15 +52264,15 @@ not either '-', 'a-z', 'A-Z' or '0-9' will be replaced by a '-'.</doc>
               version="3.0">
       <doc xml:space="preserve"
            filename="libgimp/gimp.c"
-           line="874">Returns the first checkerboard custom color that can
+           line="891">Returns the first checkerboard custom color that can
 be used in previews.
 
 This is a constant value given at plug-in configuration time.</doc>
-      <source-position filename="libgimp/gimp.h" line="199"/>
+      <source-position filename="libgimp/gimp.h" line="197"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgimp/gimp.c"
-             line="882">the _check_custom_color1 value</doc>
+             line="899">the _check_custom_color1 value</doc>
         <type name="Gegl.Color" c:type="const GeglColor*"/>
       </return-value>
     </function>
@@ -52280,43 +52281,43 @@ This is a constant value given at plug-in configuration time.</doc>
               version="3.0">
       <doc xml:space="preserve"
            filename="libgimp/gimp.c"
-           line="892">Returns the second checkerboard custom color that can
+           line="909">Returns the second checkerboard custom color that can
 be used in previews.
-
-This is a constant value given at plug-in configuration time.</doc>
-      <source-position filename="libgimp/gimp.h" line="200"/>
-      <return-value transfer-ownership="none">
-        <doc xml:space="preserve"
-             filename="libgimp/gimp.c"
-             line="900">the _check_custom_color2 value</doc>
-        <type name="Gegl.Color" c:type="const GeglColor*"/>
-      </return-value>
-    </function>
-    <function name="check_size" c:identifier="gimp_check_size" version="2.2">
-      <doc xml:space="preserve"
-           filename="libgimp/gimp.c"
-           line="840">Returns the size of the checkerboard to be used in previews.
-
-This is a constant value given at plug-in configuration time.</doc>
-      <source-position filename="libgimp/gimp.h" line="197"/>
-      <return-value transfer-ownership="none">
-        <doc xml:space="preserve"
-             filename="libgimp/gimp.c"
-             line="847">the check_size value</doc>
-        <type name="CheckSize" c:type="GimpCheckSize"/>
-      </return-value>
-    </function>
-    <function name="check_type" c:identifier="gimp_check_type" version="2.2">
-      <doc xml:space="preserve"
-           filename="libgimp/gimp.c"
-           line="857">Returns the type of the checkerboard to be used in previews.
 
 This is a constant value given at plug-in configuration time.</doc>
       <source-position filename="libgimp/gimp.h" line="198"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgimp/gimp.c"
-             line="864">the check_type value</doc>
+             line="917">the _check_custom_color2 value</doc>
+        <type name="Gegl.Color" c:type="const GeglColor*"/>
+      </return-value>
+    </function>
+    <function name="check_size" c:identifier="gimp_check_size" version="2.2">
+      <doc xml:space="preserve"
+           filename="libgimp/gimp.c"
+           line="857">Returns the size of the checkerboard to be used in previews.
+
+This is a constant value given at plug-in configuration time.</doc>
+      <source-position filename="libgimp/gimp.h" line="195"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="libgimp/gimp.c"
+             line="864">the check_size value</doc>
+        <type name="CheckSize" c:type="GimpCheckSize"/>
+      </return-value>
+    </function>
+    <function name="check_type" c:identifier="gimp_check_type" version="2.2">
+      <doc xml:space="preserve"
+           filename="libgimp/gimp.c"
+           line="874">Returns the type of the checkerboard to be used in previews.
+
+This is a constant value given at plug-in configuration time.</doc>
+      <source-position filename="libgimp/gimp.h" line="196"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="libgimp/gimp.c"
+             line="881">the check_type value</doc>
         <type name="CheckType" c:type="GimpCheckType"/>
       </return-value>
     </function>
@@ -56109,7 +56110,7 @@ been activated then the dialogs default values will be used.</doc>
     <function name="data_directory" c:identifier="gimp_data_directory">
       <doc xml:space="preserve"
            filename="libgimpbase/gimpenv.c"
-           line="529">Returns the default top directory for GIMP data. If the environment
+           line="588">Returns the default top directory for GIMP data. If the environment
 variable GIMP3_DATADIR exists, that is used.  It should be an
 absolute pathname.  Otherwise, on Unix the compile-time defined
 directory is used. On Windows, the installation directory as
@@ -56129,7 +56130,7 @@ UTF-8.)</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgimpbase/gimpenv.c"
-             line="549">The top directory for GIMP data.</doc>
+             line="608">The top directory for GIMP data.</doc>
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
     </function>
@@ -56139,7 +56140,7 @@ UTF-8.)</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="libgimpbase/gimpenv.c"
-           line="853">Returns a #GFile in the data directory, or the data directory
+           line="921">Returns a #GFile in the data directory, or the data directory
 itself if @first_element is %NULL.
 
 See also: gimp_data_directory().</doc>
@@ -56147,7 +56148,7 @@ See also: gimp_data_directory().</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libgimpbase/gimpenv.c"
-             line="867">
+             line="935">
          a new @GFile for the path, Free with g_object_unref().</doc>
         <type name="Gio.File" c:type="GFile*"/>
       </return-value>
@@ -56155,14 +56156,14 @@ See also: gimp_data_directory().</doc>
         <parameter name="first_element" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimpbase/gimpenv.c"
-               line="855">the first element of a path to a file in the
+               line="923">the first element of a path to a file in the
                 data directory, or %NULL.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="..." transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimpbase/gimpenv.c"
-               line="857">a %NULL terminated list of the remaining elements of the path
+               line="925">a %NULL terminated list of the remaining elements of the path
       to the file.</doc>
           <varargs/>
         </parameter>
@@ -56213,15 +56214,15 @@ point, and should not be used in production.</doc>
     <function name="default_display" c:identifier="gimp_default_display">
       <doc xml:space="preserve"
            filename="libgimp/gimp.c"
-           line="910">Returns the default display ID. This corresponds to the display the
+           line="927">Returns the default display ID. This corresponds to the display the
 running procedure's menu entry was invoked from.
 
 This is a constant value given at plug-in configuration time.</doc>
-      <source-position filename="libgimp/gimp.h" line="201"/>
+      <source-position filename="libgimp/gimp.h" line="199"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgimp/gimp.c"
-             line="918">the default display ID
+             line="935">the default display ID
          The object belongs to libgimp and you should not free it.</doc>
         <type name="Display" c:type="GimpDisplay*"/>
       </return-value>
@@ -56257,7 +56258,7 @@ no parasite was named like this).</doc>
     <function name="directory" c:identifier="gimp_directory">
       <doc xml:space="preserve"
            filename="libgimpbase/gimpenv.c"
-           line="201">Returns the user-specific GIMP settings directory. If the
+           line="235">Returns the user-specific GIMP settings directory. If the
 environment variable GIMP3_DIRECTORY exists, it is used. If it is
 an absolute path, it is used as is.  If it is a relative path, it
 is taken to be a subdirectory of the home directory. If it is a
@@ -56293,7 +56294,7 @@ UTF-8.)</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgimpbase/gimpenv.c"
-             line="237">The user-specific GIMP settings directory.</doc>
+             line="271">The user-specific GIMP settings directory.</doc>
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
     </function>
@@ -56303,7 +56304,7 @@ UTF-8.)</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="libgimpbase/gimpenv.c"
-           line="791">Returns a #GFile in the user's GIMP directory, or the GIMP
+           line="859">Returns a #GFile in the user's GIMP directory, or the GIMP
 directory itself if @first_element is %NULL.
 
 See also: gimp_directory().</doc>
@@ -56311,7 +56312,7 @@ See also: gimp_directory().</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libgimpbase/gimpenv.c"
-             line="805">
+             line="873">
          a new @GFile for the path, Free with g_object_unref().</doc>
         <type name="Gio.File" c:type="GFile*"/>
       </return-value>
@@ -56319,14 +56320,14 @@ See also: gimp_directory().</doc>
         <parameter name="first_element" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimpbase/gimpenv.c"
-               line="793">the first element of a path to a file in the
+               line="861">the first element of a path to a file in the
                 user's GIMP directory, or %NULL.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="..." transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimpbase/gimpenv.c"
-               line="795">a %NULL terminated list of the remaining elements of the path
+               line="863">a %NULL terminated list of the remaining elements of the path
       to the file.</doc>
           <varargs/>
         </parameter>
@@ -57439,13 +57440,13 @@ freed using g_free() when it is not needed any longer.</doc>
               version="2.10.4">
       <doc xml:space="preserve"
            filename="libgimp/gimp.c"
-           line="702">Returns whether file plug-ins should default to exporting the
+           line="719">Returns whether file plug-ins should default to exporting the
 image's color profile.</doc>
-      <source-position filename="libgimp/gimp.h" line="189"/>
+      <source-position filename="libgimp/gimp.h" line="187"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgimp/gimp.c"
-             line="708">TRUE if preferences are set to export the color profile.</doc>
+             line="725">TRUE if preferences are set to export the color profile.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
     </function>
@@ -57454,13 +57455,13 @@ image's color profile.</doc>
               version="3.0">
       <doc xml:space="preserve"
            filename="libgimp/gimp.c"
-           line="718">Returns whether file plug-ins should default to exporting the
+           line="735">Returns whether file plug-ins should default to exporting the
 image's comment.</doc>
-      <source-position filename="libgimp/gimp.h" line="190"/>
+      <source-position filename="libgimp/gimp.h" line="188"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgimp/gimp.c"
-             line="724">TRUE if preferences are set to export the comment.</doc>
+             line="741">TRUE if preferences are set to export the comment.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
     </function>
@@ -57469,14 +57470,14 @@ image's comment.</doc>
               version="2.10">
       <doc xml:space="preserve"
            filename="libgimp/gimp.c"
-           line="734">Returns whether file plug-ins should default to exporting Exif
+           line="751">Returns whether file plug-ins should default to exporting Exif
 metadata, according preferences (original settings is %FALSE since
 metadata can contain sensitive information).</doc>
-      <source-position filename="libgimp/gimp.h" line="191"/>
+      <source-position filename="libgimp/gimp.h" line="189"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgimp/gimp.c"
-             line="741">TRUE if preferences are set to export Exif.</doc>
+             line="758">TRUE if preferences are set to export Exif.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
     </function>
@@ -57485,14 +57486,14 @@ metadata can contain sensitive information).</doc>
               version="2.10">
       <doc xml:space="preserve"
            filename="libgimp/gimp.c"
-           line="768">Returns whether file plug-ins should default to exporting IPTC
+           line="785">Returns whether file plug-ins should default to exporting IPTC
 metadata, according preferences (original settings is %FALSE since
 metadata can contain sensitive information).</doc>
-      <source-position filename="libgimp/gimp.h" line="193"/>
+      <source-position filename="libgimp/gimp.h" line="191"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgimp/gimp.c"
-             line="775">TRUE if preferences are set to export IPTC.</doc>
+             line="792">TRUE if preferences are set to export IPTC.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
     </function>
@@ -57501,27 +57502,27 @@ metadata can contain sensitive information).</doc>
               version="3.0">
       <doc xml:space="preserve"
            filename="libgimp/gimp.c"
-           line="785">Returns whether file plug-ins should default to exporting the
+           line="802">Returns whether file plug-ins should default to exporting the
 image's comment.</doc>
-      <source-position filename="libgimp/gimp.h" line="194"/>
+      <source-position filename="libgimp/gimp.h" line="192"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgimp/gimp.c"
-             line="791">TRUE if preferences are set to export the thumbnail.</doc>
+             line="808">TRUE if preferences are set to export the thumbnail.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
     </function>
     <function name="export_xmp" c:identifier="gimp_export_xmp" version="2.10">
       <doc xml:space="preserve"
            filename="libgimp/gimp.c"
-           line="751">Returns whether file plug-ins should default to exporting XMP
+           line="768">Returns whether file plug-ins should default to exporting XMP
 metadata, according preferences (original settings is %FALSE since
 metadata can contain sensitive information).</doc>
-      <source-position filename="libgimp/gimp.h" line="192"/>
+      <source-position filename="libgimp/gimp.h" line="190"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgimp/gimp.c"
-             line="758">TRUE if preferences are set to export XMP.</doc>
+             line="775">TRUE if preferences are set to export XMP.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
     </function>
@@ -58510,14 +58511,14 @@ reasonable.</doc>
               version="3.0">
       <doc xml:space="preserve"
            filename="libgimp/gimp.c"
-           line="823">Returns the number of threads set explicitly by the user in the
+           line="840">Returns the number of threads set explicitly by the user in the
 preferences. This information can be used by plug-ins wishing to
 follow user settings for multi-threaded implementations.</doc>
-      <source-position filename="libgimp/gimp.h" line="196"/>
+      <source-position filename="libgimp/gimp.h" line="194"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgimp/gimp.c"
-             line="830">the preferred number of threads to use.</doc>
+             line="847">the preferred number of threads to use.</doc>
         <type name="gint" c:type="gint"/>
       </return-value>
     </function>
@@ -58568,38 +58569,38 @@ Returns a list of all currently attached global parasites.</doc>
     <function name="get_pdb" c:identifier="gimp_get_pdb" version="3.0">
       <doc xml:space="preserve"
            filename="libgimp/gimp.c"
-           line="616">This function returns the plug-in's #GimpPDB instance, which is a
+           line="631">This function returns the plug-in's #GimpPDB instance, which is a
 singleton that can exist exactly once per running plug-in.</doc>
       <source-position filename="libgimp/gimp.h" line="177"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="libgimp/gimp.c"
-             line="622">The plug-in's #GimpPDB singleton.</doc>
+             line="637">The plug-in's #GimpPDB singleton.</doc>
         <type name="PDB" c:type="GimpPDB*"/>
       </return-value>
     </function>
     <function name="get_plug_in" c:identifier="gimp_get_plug_in" version="3.0">
       <doc xml:space="preserve"
            filename="libgimp/gimp.c"
-           line="600">This function returns the plug-in's #GimpPlugIn instance, which is
+           line="615">This function returns the plug-in's #GimpPlugIn instance, which is
 a a singleton that can exist exactly once per running plug-in.</doc>
       <source-position filename="libgimp/gimp.h" line="173"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="libgimp/gimp.c"
-             line="606">The plug-in's #GimpPlugIn singleton.</doc>
+             line="621">The plug-in's #GimpPlugIn singleton.</doc>
         <type name="PlugIn" c:type="GimpPlugIn*"/>
       </return-value>
     </function>
     <function name="get_progname" c:identifier="gimp_get_progname">
       <doc xml:space="preserve"
            filename="libgimp/gimp.c"
-           line="1010">Returns the plug-in's executable name.</doc>
-      <source-position filename="libgimp/gimp.h" line="208"/>
+           line="1027">Returns the plug-in's executable name.</doc>
+      <source-position filename="libgimp/gimp.h" line="206"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgimp/gimp.c"
-             line="1015">the executable name</doc>
+             line="1032">the executable name</doc>
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
     </function>
@@ -59305,14 +59306,14 @@ the help domain of the main GIMP installation is used.</doc>
               version="2.10.4">
       <doc xml:space="preserve"
            filename="libgimp/gimp.c"
-           line="993">Returns the directory of the current icon theme.
+           line="1010">Returns the directory of the current icon theme.
 
 This is a constant value given at plug-in configuration time.</doc>
-      <source-position filename="libgimp/gimp.h" line="206"/>
+      <source-position filename="libgimp/gimp.h" line="204"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgimp/gimp.c"
-             line="1000">the icon theme directory</doc>
+             line="1017">the icon theme directory</doc>
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
     </function>
@@ -59417,7 +59418,7 @@ Sets the selected image in a image selection dialog.</doc>
               version="2.8">
       <doc xml:space="preserve"
            filename="libgimpbase/gimpenv.c"
-           line="398">Returns the top installation directory of GIMP. On Unix the
+           line="432">Returns the top installation directory of GIMP. On Unix the
 compile-time defined installation prefix is used. On Windows, the
 installation directory as deduced from the executable's full
 filename is used. On OSX we ask [NSBundle mainBundle] for the
@@ -59434,7 +59435,7 @@ UTF-8.)</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgimpbase/gimpenv.c"
-             line="417">The toplevel installation directory of GIMP.</doc>
+             line="451">The toplevel installation directory of GIMP.</doc>
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
     </function>
@@ -59444,7 +59445,7 @@ UTF-8.)</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="libgimpbase/gimpenv.c"
-           line="822">Returns a #GFile in the installation directory, or the installation
+           line="890">Returns a #GFile in the installation directory, or the installation
 directory itself if @first_element is %NULL.
 
 See also: gimp_installation_directory().</doc>
@@ -59452,7 +59453,7 @@ See also: gimp_installation_directory().</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libgimpbase/gimpenv.c"
-             line="836">
+             line="904">
          a new @GFile for the path, Free with g_object_unref().</doc>
         <type name="Gio.File" c:type="GFile*"/>
       </return-value>
@@ -59460,14 +59461,14 @@ See also: gimp_installation_directory().</doc>
         <parameter name="first_element" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimpbase/gimpenv.c"
-               line="824">the first element of a path to a file in the
+               line="892">the first element of a path to a file in the
                 top installation directory, or %NULL.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="..." transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimpbase/gimpenv.c"
-               line="826">a %NULL terminated list of the remaining elements of the path
+               line="894">a %NULL terminated list of the remaining elements of the path
       to the file.</doc>
           <varargs/>
         </parameter>
@@ -59692,7 +59693,7 @@ This procedure returns the list of images currently open in GIMP.</doc>
     <function name="locale_directory" c:identifier="gimp_locale_directory">
       <doc xml:space="preserve"
            filename="libgimpbase/gimpenv.c"
-           line="570">Returns the top directory for GIMP locale files. If the environment
+           line="629">Returns the top directory for GIMP locale files. If the environment
 variable GIMP3_LOCALEDIR exists, that is used.  It should be an
 absolute pathname.  Otherwise, on Unix the compile-time defined
 directory is used. On Windows, the installation directory as deduced
@@ -59710,7 +59711,7 @@ UTF-16 and passed to the wbindtextdomain() function from libintl.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgimpbase/gimpenv.c"
-             line="588">The top directory for GIMP locale files.</doc>
+             line="647">The top directory for GIMP locale files.</doc>
         <type name="filename" c:type="const gchar*"/>
       </return-value>
     </function>
@@ -59720,7 +59721,7 @@ UTF-16 and passed to the wbindtextdomain() function from libintl.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="libgimpbase/gimpenv.c"
-           line="884">Returns a #GFile in the locale directory, or the locale directory
+           line="952">Returns a #GFile in the locale directory, or the locale directory
 itself if @first_element is %NULL.
 
 See also: gimp_locale_directory().</doc>
@@ -59728,7 +59729,7 @@ See also: gimp_locale_directory().</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libgimpbase/gimpenv.c"
-             line="898">
+             line="966">
          a new @GFile for the path, Free with g_object_unref().</doc>
         <type name="Gio.File" c:type="GFile*"/>
       </return-value>
@@ -59736,14 +59737,14 @@ See also: gimp_locale_directory().</doc>
         <parameter name="first_element" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimpbase/gimpenv.c"
-               line="886">the first element of a path to a file in the
+               line="954">the first element of a path to a file in the
                 locale directory, or %NULL.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="..." transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimpbase/gimpenv.c"
-               line="888">a %NULL terminated list of the remaining elements of the path
+               line="956">a %NULL terminated list of the remaining elements of the path
       to the file.</doc>
           <varargs/>
         </parameter>
@@ -59863,14 +59864,14 @@ was started.</doc>
     <function name="monitor_number" c:identifier="gimp_monitor_number">
       <doc xml:space="preserve"
            filename="libgimp/gimp.c"
-           line="959">Returns the monitor number to be used for plug-in windows.
+           line="976">Returns the monitor number to be used for plug-in windows.
 
 This is a constant value given at plug-in configuration time.</doc>
-      <source-position filename="libgimp/gimp.h" line="204"/>
+      <source-position filename="libgimp/gimp.h" line="202"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgimp/gimp.c"
-             line="966">the monitor number</doc>
+             line="983">the monitor number</doc>
         <type name="gint" c:type="gint"/>
       </return-value>
     </function>
@@ -62836,7 +62837,7 @@ is none.</doc>
               deprecated-version="3.2">
       <doc xml:space="preserve"
            filename="libgimpbase/gimpparasiteio.c"
-           line="192">Do not use this function. It is deprecated and will be removed
+           line="199">Do not use this function. It is deprecated and will be removed
 eventually.</doc>
       <doc-deprecated xml:space="preserve">Only for core use.</doc-deprecated>
       <source-position filename="libgimpbase/gimpparasiteio.h" line="83"/>
@@ -62855,7 +62856,7 @@ eventually.</doc>
               deprecated-version="3.2">
       <doc xml:space="preserve"
            filename="libgimpbase/gimpparasiteio.c"
-           line="227">Do not use this function. It is deprecated and will be removed
+           line="234">Do not use this function. It is deprecated and will be removed
 eventually.</doc>
       <doc-deprecated xml:space="preserve">Only for core use.</doc-deprecated>
       <source-position filename="libgimpbase/gimpparasiteio.h" line="87"/>
@@ -63197,12 +63198,20 @@ and can focus on computing relevant progression steps.</doc>
         </parameter>
       </parameters>
     </function>
-    <function name="quit" c:identifier="gimp_quit">
+    <function name="quit" c:identifier="gimp_quit" deprecated="1">
       <doc xml:space="preserve"
            filename="libgimp/gimp.c"
-           line="635">Forcefully causes the GIMP library to exit and close down its
-connection to main gimp application. This function never returns.</doc>
-      <source-position filename="libgimp/gimp.h" line="182"/>
+           line="650">Forcefully causes the GIMP library to exit and close down its
+connection to main gimp application. This function never returns.
+
+It is highly unadvised to use this function since the plug-in will
+not properly return. If you need to return from a plug-in in error,
+gracefully return with [method@Procedure.new_return_values] setting
+[enum@Gimp.PDBStatusType.EXECUTION_ERROR] as a status and with a well
+written [struct@GLib.Error] message to display.</doc>
+      <doc-deprecated xml:space="preserve">there are no alternatives. Quit your plug-ins cleanly
+            instead.</doc-deprecated>
+      <source-position filename="libgimp/gimp.h" line="180"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -63494,20 +63503,46 @@ function.</doc>
         </parameter>
       </parameters>
     </function>
+    <function name="resources_loaded"
+              c:identifier="gimp_resources_loaded"
+              version="3.2.4">
+      <doc xml:space="preserve"
+           filename="libgimp/gimpresource.c"
+           line="279">Returns whether the resource with the given @resource_type were
+loaded.
+
+In particular, it would return FALSE if GIMP was started with
+`--no-data` (or `--no-fonts` for fonts).</doc>
+      <source-position filename="libgimp/gimpresource.h" line="52"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="libgimp/gimpresource.c"
+             line="289">Whether resources of @resource_type were loaded.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="resource_type" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgimp/gimpresource.c"
+               line="281">The #GType of the resource.</doc>
+          <type name="GType" c:type="GType"/>
+        </parameter>
+      </parameters>
+    </function>
     <function name="show_help_button"
               c:identifier="gimp_show_help_button"
               version="2.2">
       <doc xml:space="preserve"
            filename="libgimp/gimp.c"
-           line="684">Returns whether or not GimpDialog should automatically add a help
+           line="701">Returns whether or not GimpDialog should automatically add a help
 button if help_func and help_id are given.
 
 This is a constant value given at plug-in configuration time.</doc>
-      <source-position filename="libgimp/gimp.h" line="188"/>
+      <source-position filename="libgimp/gimp.h" line="186"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgimp/gimp.c"
-             line="692">the show_help_button boolean</doc>
+             line="709">the show_help_button boolean</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
     </function>
@@ -63738,7 +63773,7 @@ rid of the mnemonic (see bug 157561).</doc>
     <function name="sysconf_directory" c:identifier="gimp_sysconf_directory">
       <doc xml:space="preserve"
            filename="libgimpbase/gimpenv.c"
-           line="608">Returns the top directory for GIMP config files. If the environment
+           line="667">Returns the top directory for GIMP config files. If the environment
 variable GIMP3_SYSCONFDIR exists, that is used.  It should be an
 absolute pathname.  Otherwise, on Unix the compile-time defined
 directory is used. On Windows, the installation directory as deduced
@@ -63755,7 +63790,7 @@ UTF-8.).</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgimpbase/gimpenv.c"
-             line="625">The top directory for GIMP config files.</doc>
+             line="684">The top directory for GIMP config files.</doc>
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
     </function>
@@ -63765,7 +63800,7 @@ UTF-8.).</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="libgimpbase/gimpenv.c"
-           line="915">Returns a #GFile in the sysconf directory, or the sysconf directory
+           line="983">Returns a #GFile in the sysconf directory, or the sysconf directory
 itself if @first_element is %NULL.
 
 See also: gimp_sysconf_directory().</doc>
@@ -63773,7 +63808,7 @@ See also: gimp_sysconf_directory().</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="libgimpbase/gimpenv.c"
-             line="929">
+             line="997">
          a new @GFile for the path, Free with g_object_unref().</doc>
         <type name="Gio.File" c:type="GFile*"/>
       </return-value>
@@ -63781,14 +63816,14 @@ See also: gimp_sysconf_directory().</doc>
         <parameter name="first_element" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimpbase/gimpenv.c"
-               line="917">the first element of a path to a file in the
+               line="985">the first element of a path to a file in the
                 sysconf directory, or %NULL.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="..." transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libgimpbase/gimpenv.c"
-               line="919">a %NULL terminated list of the remaining elements of the path
+               line="987">a %NULL terminated list of the remaining elements of the path
       to the file.</doc>
           <varargs/>
         </parameter>
@@ -63799,10 +63834,10 @@ See also: gimp_sysconf_directory().</doc>
               version="2.10.10">
       <doc xml:space="preserve"
            filename="libgimpbase/gimpenv.c"
-           line="729">Returns the default top directory for GIMP temporary files. If the
-environment variable GIMP3_TEMPDIR exists, that is used.  It
-should be an absolute pathname.  Otherwise, a subdirectory of the
-directory returned by g_get_tmp_dir() is used.
+           line="788">Returns the default top directory for GIMP temporary files. If the
+environment variable `GIMP3_TEMPDIR` exists, that is used. It
+should be an absolute pathname. Otherwise, a subdirectory of the
+directory returned by [func@GLib.get_tmp_dir] is used.
 
 In config files such as gimprc, the string ${gimp_temp_dir} expands
 to this directory.
@@ -63812,13 +63847,15 @@ be overridden by the user in the preferences dialog.
 
 The returned string is owned by GIMP and must not be modified or
 freed. The returned string is in the encoding used for filenames by
-GLib, which isn't necessarily UTF-8. (On Windows it always is
-UTF-8.).</doc>
+GLib, which isn't necessarily UTF-8 (On Windows it always is UTF-8.).
+
+The returned directory path might already exists, or it might not. It
+is your responsibility to make sure it does before using it.</doc>
       <source-position filename="libgimpbase/gimpenv.h" line="56"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgimpbase/gimpenv.c"
-             line="750">The default top directory for GIMP temporary files.</doc>
+             line="811">The default top directory for GIMP temporary files.</doc>
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
     </function>
@@ -64016,28 +64053,28 @@ resolution of the image you are taking into account.</doc>
     <function name="tile_height" c:identifier="gimp_tile_height">
       <doc xml:space="preserve"
            filename="libgimp/gimp.c"
-           line="669">Returns the tile height GIMP is using.
+           line="686">Returns the tile height GIMP is using.
 
 This is a constant value given at plug-in configuration time.</doc>
-      <source-position filename="libgimp/gimp.h" line="187"/>
+      <source-position filename="libgimp/gimp.h" line="185"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgimp/gimp.c"
-             line="676">the tile_height</doc>
+             line="693">the tile_height</doc>
         <type name="guint" c:type="guint"/>
       </return-value>
     </function>
     <function name="tile_width" c:identifier="gimp_tile_width">
       <doc xml:space="preserve"
            filename="libgimp/gimp.c"
-           line="654">Returns the tile width GIMP is using.
+           line="671">Returns the tile width GIMP is using.
 
 This is a constant value given at plug-in configuration time.</doc>
-      <source-position filename="libgimp/gimp.h" line="186"/>
+      <source-position filename="libgimp/gimp.h" line="184"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgimp/gimp.c"
-             line="661">the tile_width</doc>
+             line="678">the tile_width</doc>
         <type name="guint" c:type="guint"/>
       </return-value>
     </function>
@@ -64221,7 +64258,7 @@ names.</doc>
               version="3.1">
       <doc xml:space="preserve"
            filename="libgimp/gimp.c"
-           line="801">Returns whether file plug-ins should update the
+           line="818">Returns whether file plug-ins should update the
 image's metadata.
 
 Note that metadata that reflects the image characteristics
@@ -64229,27 +64266,27 @@ will still be updated even if this is set to FALSE. This only
 concerns metadata changes that are nonessential, like setting
 GIMP in Exif.Image.Software, synchronizing the comment with its
 equivalent metadata tags, etc.</doc>
-      <source-position filename="libgimp/gimp.h" line="195"/>
+      <source-position filename="libgimp/gimp.h" line="193"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgimp/gimp.c"
-             line="813">TRUE if preferences are set to update the metadata.</doc>
+             line="830">TRUE if preferences are set to update the metadata.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
     </function>
     <function name="user_time" c:identifier="gimp_user_time" version="2.6">
       <doc xml:space="preserve"
            filename="libgimp/gimp.c"
-           line="974">Returns the timestamp of the user interaction that should be set on
+           line="991">Returns the timestamp of the user interaction that should be set on
 the plug-in window. This is handled transparently, plug-in authors
 do not have to care about it.
 
 This is a constant value given at plug-in configuration time.</doc>
-      <source-position filename="libgimp/gimp.h" line="205"/>
+      <source-position filename="libgimp/gimp.h" line="203"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgimp/gimp.c"
-             line="983">timestamp for plug-in window</doc>
+             line="1000">timestamp for plug-in window</doc>
         <type name="guint32" c:type="guint32"/>
       </return-value>
     </function>
@@ -64965,14 +65002,14 @@ GIMP.</doc>
     <function name="wm_class" c:identifier="gimp_wm_class">
       <doc xml:space="preserve"
            filename="libgimp/gimp.c"
-           line="927">Returns the window manager class to be used for plug-in windows.
+           line="944">Returns the window manager class to be used for plug-in windows.
 
 This is a constant value given at plug-in configuration time.</doc>
-      <source-position filename="libgimp/gimp.h" line="202"/>
+      <source-position filename="libgimp/gimp.h" line="200"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="libgimp/gimp.c"
-             line="934">the window manager class</doc>
+             line="951">the window manager class</doc>
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
     </function>

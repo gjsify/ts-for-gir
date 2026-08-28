@@ -301,7 +301,7 @@ and/or use gtk-doc annotations.  -->
       <constructor name="new" c:identifier="osm_gps_map_new">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="3204">Returns a new #OsmGpsMap object, defaults to showing data from
+             line="3222">Returns a new #OsmGpsMap object, defaults to showing data from
 &lt;ulink url="http://www.openstreetmap.org"&gt;&lt;citetitle&gt;OpenStreetMap&lt;/citetitle&gt;&lt;/ulink&gt;
 
 See the properties description for more information about construction
@@ -310,7 +310,7 @@ parameters than could be passed to g_object_new()</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="osm-gps-map-widget.c"
-               line="3213">a newly created #OsmGpsMap object.</doc>
+               line="3231">a newly created #OsmGpsMap object.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
       </constructor>
@@ -318,7 +318,7 @@ parameters than could be passed to g_object_new()</doc>
                 c:identifier="osm_gps_map_get_default_cache_directory">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="3265">Returns (transfer full): the default cache directory for the library, that is the base
+             line="3283">Returns (transfer full): the default cache directory for the library, that is the base
 directory to which the full cache path is appended. If
 #OsmGpsMap:tile-cache-base is omitted from the constructor then this value
 is used.</doc>
@@ -332,19 +332,19 @@ is used.</doc>
                 version="1.2.0">
         <doc xml:space="preserve"
              filename="osm-gps-map-source.h"
-             line="56">Get copyright information for the source</doc>
-        <source-position filename="osm-gps-map-source.h" line="65"/>
+             line="57">Get copyright information for the source</doc>
+        <source-position filename="osm-gps-map-source.h" line="66"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="osm-gps-map-source.h"
-               line="62">Source copyright information</doc>
+               line="63">Source copyright information</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <parameter name="source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-source.h"
-                 line="58">a #OsmGpsMapSource_t source id</doc>
+                 line="59">a #OsmGpsMapSource_t source id</doc>
             <type name="MapSource_t" c:type="OsmGpsMapSource_t"/>
           </parameter>
         </parameters>
@@ -354,19 +354,19 @@ is used.</doc>
                 version="0.7.0">
         <doc xml:space="preserve"
              filename="osm-gps-map-source.h"
-             line="46">Get friendly name for source</doc>
-        <source-position filename="osm-gps-map-source.h" line="55"/>
+             line="47">Get friendly name for source</doc>
+        <source-position filename="osm-gps-map-source.h" line="56"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="osm-gps-map-source.h"
-               line="52">Nice printable source name</doc>
+               line="53">Nice printable source name</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <parameter name="source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-source.h"
-                 line="48">a #OsmGpsMapSource_t source id</doc>
+                 line="49">a #OsmGpsMapSource_t source id</doc>
             <type name="MapSource_t" c:type="OsmGpsMapSource_t"/>
           </parameter>
         </parameters>
@@ -376,19 +376,19 @@ is used.</doc>
                 version="0.7.0">
         <doc xml:space="preserve"
              filename="osm-gps-map-source.h"
-             line="76">Get tile image format for the source</doc>
-        <source-position filename="osm-gps-map-source.h" line="85"/>
+             line="77">Get tile image format for the source</doc>
+        <source-position filename="osm-gps-map-source.h" line="86"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="osm-gps-map-source.h"
-               line="82">source tile image format</doc>
+               line="83">source tile image format</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <parameter name="source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-source.h"
-                 line="78">a #OsmGpsMapSource_t source id</doc>
+                 line="79">a #OsmGpsMapSource_t source id</doc>
             <type name="MapSource_t" c:type="OsmGpsMapSource_t"/>
           </parameter>
         </parameters>
@@ -398,19 +398,19 @@ is used.</doc>
                 version="0.7.0">
         <doc xml:space="preserve"
              filename="osm-gps-map-source.h"
-             line="96">Get maximum zoom level for the source</doc>
-        <source-position filename="osm-gps-map-source.h" line="105"/>
+             line="97">Get maximum zoom level for the source</doc>
+        <source-position filename="osm-gps-map-source.h" line="106"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="osm-gps-map-source.h"
-               line="102">source maximum zoom level</doc>
+               line="103">source maximum zoom level</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <parameter name="source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-source.h"
-                 line="98">a #OsmGpsMapSource_t source id</doc>
+                 line="99">a #OsmGpsMapSource_t source id</doc>
             <type name="MapSource_t" c:type="OsmGpsMapSource_t"/>
           </parameter>
         </parameters>
@@ -420,19 +420,19 @@ is used.</doc>
                 version="0.7.0">
         <doc xml:space="preserve"
              filename="osm-gps-map-source.h"
-             line="86">Get minimum zoom level for the source</doc>
-        <source-position filename="osm-gps-map-source.h" line="95"/>
+             line="87">Get minimum zoom level for the source</doc>
+        <source-position filename="osm-gps-map-source.h" line="96"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="osm-gps-map-source.h"
-               line="92">source minimum zoom level</doc>
+               line="93">source minimum zoom level</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <parameter name="source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-source.h"
-                 line="88">a #OsmGpsMapSource_t source id</doc>
+                 line="89">a #OsmGpsMapSource_t source id</doc>
             <type name="MapSource_t" c:type="OsmGpsMapSource_t"/>
           </parameter>
         </parameters>
@@ -442,19 +442,19 @@ is used.</doc>
                 version="0.7.0">
         <doc xml:space="preserve"
              filename="osm-gps-map-source.h"
-             line="66">Get repository URI address for the source</doc>
-        <source-position filename="osm-gps-map-source.h" line="75"/>
+             line="67">Get repository URI address for the source</doc>
+        <source-position filename="osm-gps-map-source.h" line="76"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="osm-gps-map-source.h"
-               line="72">Source repo URI</doc>
+               line="73">Source repo URI</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <parameter name="source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-source.h"
-                 line="68">a #OsmGpsMapSource_t source id</doc>
+                 line="69">a #OsmGpsMapSource_t source id</doc>
             <type name="MapSource_t" c:type="OsmGpsMapSource_t"/>
           </parameter>
         </parameters>
@@ -464,19 +464,19 @@ is used.</doc>
                 version="0.7.0">
         <doc xml:space="preserve"
              filename="osm-gps-map-source.h"
-             line="106">Check whether source is considered valid</doc>
-        <source-position filename="osm-gps-map-source.h" line="115"/>
+             line="107">Check whether source is considered valid</doc>
+        <source-position filename="osm-gps-map-source.h" line="116"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="osm-gps-map-source.h"
-               line="112">Validity of the source (whether repo uri is not null)</doc>
+               line="113">Validity of the source (whether repo uri is not null)</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="source" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-source.h"
-                 line="108">a #OsmGpsMapSource_t source id</doc>
+                 line="109">a #OsmGpsMapSource_t source id</doc>
             <type name="MapSource_t" c:type="OsmGpsMapSource_t"/>
           </parameter>
         </parameters>
@@ -500,7 +500,7 @@ is used.</doc>
               version="0.7.0">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="3733">Convert the given location on the globe to the corresponding
+             line="3751">Convert the given location on the globe to the corresponding
 pixel locations on the map.</doc>
         <source-position filename="osm-gps-map-widget.h" line="117"/>
         <return-value transfer-ownership="none">
@@ -510,13 +510,13 @@ pixel locations on the map.</doc>
           <instance-parameter name="map" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3735">a #OsmGpsMap widget</doc>
+                 line="3753">a #OsmGpsMap widget</doc>
             <type name="Map" c:type="OsmGpsMap*"/>
           </instance-parameter>
           <parameter name="pt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3736">location</doc>
+                 line="3754">location</doc>
             <type name="MapPoint" c:type="OsmGpsMapPoint*"/>
           </parameter>
           <parameter name="pixel_x"
@@ -525,7 +525,7 @@ pixel locations on the map.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3737">pixel location on map, x axis</doc>
+                 line="3755">pixel location on map, x axis</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
           <parameter name="pixel_y"
@@ -534,7 +534,7 @@ pixel locations on the map.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3738">pixel location on map, y axis</doc>
+                 line="3756">pixel location on map, y axis</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
         </parameters>
@@ -544,7 +544,7 @@ pixel locations on the map.</doc>
               version="0.7.0">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="3704">Convert the given pixel location on the map into corresponding
+             line="3722">Convert the given pixel location on the map into corresponding
 location on the globe</doc>
         <source-position filename="osm-gps-map-widget.h" line="116"/>
         <return-value transfer-ownership="none">
@@ -554,19 +554,19 @@ location on the globe</doc>
           <instance-parameter name="map" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3706">a #OsmGpsMap widget</doc>
+                 line="3724">a #OsmGpsMap widget</doc>
             <type name="Map" c:type="OsmGpsMap*"/>
           </instance-parameter>
           <parameter name="pixel_x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3707">pixel location on map, x axis</doc>
+                 line="3725">pixel location on map, x axis</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="pixel_y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3708">pixel location on map, y axis</doc>
+                 line="3726">pixel location on map, y axis</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="pt"
@@ -575,7 +575,7 @@ location on the globe</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3709">location</doc>
+                 line="3727">location</doc>
             <type name="MapPoint" c:type="OsmGpsMapPoint*"/>
           </parameter>
         </parameters>
@@ -585,8 +585,8 @@ location on the globe</doc>
               version="0.7.0">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="2995">Cancels all tiles currently being downloaded. Typically used if you wish to
-cacel a large number of tiles queued using osm_gps_map_download_maps()</doc>
+             line="3013">Cancels all tiles currently being downloaded. Typically used if you wish to
+cancel a large number of tiles queued using osm_gps_map_download_maps()</doc>
         <source-position filename="osm-gps-map-widget.h" line="86"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -595,7 +595,7 @@ cacel a large number of tiles queued using osm_gps_map_download_maps()</doc>
           <instance-parameter name="map" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="2997">a #OsmGpsMap widget</doc>
+                 line="3015">a #OsmGpsMap widget</doc>
             <type name="Map" c:type="OsmGpsMap*"/>
           </instance-parameter>
         </parameters>
@@ -603,7 +603,7 @@ cacel a large number of tiles queued using osm_gps_map_download_maps()</doc>
       <method name="download_maps" c:identifier="osm_gps_map_download_maps">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="2926">Downloads all tiles over the supplied zoom range in the rectangular
+             line="2944">Downloads all tiles over the supplied zoom range in the rectangular
 region specified by pt1 (north west corner) to pt2 (south east corner)</doc>
         <source-position filename="osm-gps-map-widget.h" line="85"/>
         <return-value transfer-ownership="none">
@@ -613,31 +613,31 @@ region specified by pt1 (north west corner) to pt2 (south east corner)</doc>
           <instance-parameter name="map" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="2928">a #OsmGpsMap widget</doc>
+                 line="2946">a #OsmGpsMap widget</doc>
             <type name="Map" c:type="OsmGpsMap*"/>
           </instance-parameter>
           <parameter name="pt1" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="2929">nort west corner</doc>
+                 line="2947">nort west corner</doc>
             <type name="MapPoint" c:type="OsmGpsMapPoint*"/>
           </parameter>
           <parameter name="pt2" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="2930">south east corner</doc>
+                 line="2948">south east corner</doc>
             <type name="MapPoint" c:type="OsmGpsMapPoint*"/>
           </parameter>
           <parameter name="zoom_start" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="2931">start of zoom range</doc>
+                 line="2949">start of zoom range</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="zoom_end" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="2932">end of zoom range</doc>
+                 line="2950">end of zoom range</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -645,7 +645,7 @@ region specified by pt1 (north west corner) to pt2 (south east corner)</doc>
       <method name="get_bbox" c:identifier="osm_gps_map_get_bbox">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="3011">Returns the geographic locations of the bounding box describing the contents
+             line="3029">Returns the geographic locations of the bounding box describing the contents
 of the current window, i.e the top left and bottom right corners.</doc>
         <source-position filename="osm-gps-map-widget.h" line="87"/>
         <return-value transfer-ownership="none">
@@ -655,7 +655,7 @@ of the current window, i.e the top left and bottom right corners.</doc>
           <instance-parameter name="map" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3013">a #OsmGpsMap widget</doc>
+                 line="3031">a #OsmGpsMap widget</doc>
             <type name="Map" c:type="OsmGpsMap*"/>
           </instance-parameter>
           <parameter name="pt1"
@@ -664,7 +664,7 @@ of the current window, i.e the top left and bottom right corners.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3014">point to be filled with the top left location</doc>
+                 line="3032">point to be filled with the top left location</doc>
             <type name="MapPoint" c:type="OsmGpsMapPoint*"/>
           </parameter>
           <parameter name="pt2"
@@ -673,7 +673,7 @@ of the current window, i.e the top left and bottom right corners.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3015">point to be filled with the bottom right location</doc>
+                 line="3033">point to be filled with the bottom right location</doc>
             <type name="MapPoint" c:type="OsmGpsMapPoint*"/>
           </parameter>
         </parameters>
@@ -683,7 +683,7 @@ of the current window, i.e the top left and bottom right corners.</doc>
               version="0.7.0">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="3764">A convenience function for getting the geographic location of events,
+             line="3782">A convenience function for getting the geographic location of events,
 such as mouse clicks, on the map
 
 Free returned point with g_free</doc>
@@ -691,20 +691,20 @@ Free returned point with g_free</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="osm-gps-map-widget.c"
-               line="3774">The point on the globe corresponding to the click</doc>
+               line="3792">The point on the globe corresponding to the click</doc>
           <type name="MapPoint" c:type="OsmGpsMapPoint*"/>
         </return-value>
         <parameters>
           <instance-parameter name="map" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3766">a #OsmGpsMap widget</doc>
+                 line="3784">a #OsmGpsMap widget</doc>
             <type name="Map" c:type="OsmGpsMap*"/>
           </instance-parameter>
           <parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3767">A #GtkEventButton that occured on the map</doc>
+                 line="3785">A #GtkEventButton that occured on the map</doc>
             <type name="Gdk.EventButton" c:type="GdkEventButton*"/>
           </parameter>
         </parameters>
@@ -712,19 +712,19 @@ Free returned point with g_free</doc>
       <method name="get_scale" c:identifier="osm_gps_map_get_scale">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="3245">Get the scale of the map at the center, in meters/pixel.</doc>
+             line="3263">Get the scale of the map at the center, in meters/pixel.</doc>
         <source-position filename="osm-gps-map-widget.h" line="96"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="osm-gps-map-widget.c"
-               line="3251">the scale of the map at the center, in meters/pixel.</doc>
+               line="3269">the scale of the map at the center, in meters/pixel.</doc>
           <type name="gfloat" c:type="float"/>
         </return-value>
         <parameters>
           <instance-parameter name="map" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3247">a #OsmGpsMap widget</doc>
+                 line="3265">a #OsmGpsMap widget</doc>
             <type name="Map" c:type="OsmGpsMap*"/>
           </instance-parameter>
         </parameters>
@@ -734,7 +734,7 @@ Free returned point with g_free</doc>
               version="0.7.0">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="3457">Set current GPS point to given lat/lon point with given heading.
+             line="3475">Set current GPS point to given lat/lon point with given heading.
 If record-trip-history is set, add point to trip history</doc>
         <source-position filename="osm-gps-map-widget.h" line="104"/>
         <return-value transfer-ownership="none">
@@ -744,25 +744,25 @@ If record-trip-history is set, add point to trip history</doc>
           <instance-parameter name="map" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3459">a #OsmGpsMap widget</doc>
+                 line="3477">a #OsmGpsMap widget</doc>
             <type name="Map" c:type="OsmGpsMap*"/>
           </instance-parameter>
           <parameter name="latitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3460">latitude in degrees</doc>
+                 line="3478">latitude in degrees</doc>
             <type name="gfloat" c:type="float"/>
           </parameter>
           <parameter name="longitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3461">longitude in degrees</doc>
+                 line="3479">longitude in degrees</doc>
             <type name="gfloat" c:type="float"/>
           </parameter>
           <parameter name="heading" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3462">GPS degrees or #OSM_GPS_MAP_INVALID to disable showing heading</doc>
+                 line="3480">GPS degrees or #OSM_GPS_MAP_INVALID to disable showing heading</doc>
             <type name="gfloat" c:type="float"/>
           </parameter>
         </parameters>
@@ -772,7 +772,7 @@ If record-trip-history is set, add point to trip history</doc>
               version="0.7.0">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="3414">Clear GPS track history</doc>
+             line="3432">Clear GPS track history</doc>
         <source-position filename="osm-gps-map-widget.h" line="105"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -781,7 +781,7 @@ If record-trip-history is set, add point to trip history</doc>
           <instance-parameter name="map" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3416">a #OsmGpsMap widget</doc>
+                 line="3434">a #OsmGpsMap widget</doc>
             <type name="Map" c:type="OsmGpsMap*"/>
           </instance-parameter>
         </parameters>
@@ -791,12 +791,12 @@ If record-trip-history is set, add point to trip history</doc>
               version="0.7.0">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="3439">Get internal GPS track history</doc>
+             line="3457">Get internal GPS track history</doc>
         <source-position filename="osm-gps-map-widget.h" line="106"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="osm-gps-map-widget.c"
-               line="3445">The #OsmGpsMapTrack of the internal GPS track,
+               line="3463">The #OsmGpsMapTrack of the internal GPS track,
 i.e. that which is modified when calling osm_gps_map_gps_add(). You must
 not free this.</doc>
           <type name="MapTrack" c:type="OsmGpsMapTrack*"/>
@@ -805,7 +805,7 @@ not free this.</doc>
           <instance-parameter name="map" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3441">a #OsmGpsMap widget</doc>
+                 line="3459">a #OsmGpsMap widget</doc>
             <type name="Map" c:type="OsmGpsMap*"/>
           </instance-parameter>
         </parameters>
@@ -815,162 +815,12 @@ not free this.</doc>
               version="0.7.0">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="3495">Creates @OsmGpsMapImage with given params and adds it to map images</doc>
+             line="3513">Creates @OsmGpsMapImage with given params and adds it to map images</doc>
         <source-position filename="osm-gps-map-widget.h" line="107"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="osm-gps-map-widget.c"
-               line="3504">A #OsmGpsMapImage representing the added pixbuf</doc>
-          <type name="MapImage" c:type="OsmGpsMapImage*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="map" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="osm-gps-map-widget.c"
-                 line="3497">a #OsmGpsMap widget</doc>
-            <type name="Map" c:type="OsmGpsMap*"/>
-          </instance-parameter>
-          <parameter name="latitude" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="osm-gps-map-widget.c"
-                 line="3498">latitude in degrees</doc>
-            <type name="gfloat" c:type="float"/>
-          </parameter>
-          <parameter name="longitude" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="osm-gps-map-widget.c"
-                 line="3499">longitude in degrees</doc>
-            <type name="gfloat" c:type="float"/>
-          </parameter>
-          <parameter name="image" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="osm-gps-map-widget.c"
-                 line="3500">Image pixbuf</doc>
-            <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="image_add_with_alignment"
-              c:identifier="osm_gps_map_image_add_with_alignment"
-              version="0.7.0">
-        <doc xml:space="preserve"
-             filename="osm-gps-map-widget.c"
-             line="3538">Creates @OsmGpsMapImage with given params and adds it to map images</doc>
-        <source-position filename="osm-gps-map-widget.h" line="109"/>
-        <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="osm-gps-map-widget.c"
-               line="3549">A #OsmGpsMapImage representing the added pixbuf</doc>
-          <type name="MapImage" c:type="OsmGpsMapImage*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="map" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="osm-gps-map-widget.c"
-                 line="3540">a #OsmGpsMap widget</doc>
-            <type name="Map" c:type="OsmGpsMap*"/>
-          </instance-parameter>
-          <parameter name="latitude" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="osm-gps-map-widget.c"
-                 line="3541">latitude in degrees</doc>
-            <type name="gfloat" c:type="float"/>
-          </parameter>
-          <parameter name="longitude" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="osm-gps-map-widget.c"
-                 line="3542">longitude in degrees</doc>
-            <type name="gfloat" c:type="float"/>
-          </parameter>
-          <parameter name="image" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="osm-gps-map-widget.c"
-                 line="3543">Image pixbuf</doc>
-            <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
-          </parameter>
-          <parameter name="xalign" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="osm-gps-map-widget.c"
-                 line="3544">x-align of image</doc>
-            <type name="gfloat" c:type="float"/>
-          </parameter>
-          <parameter name="yalign" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="osm-gps-map-widget.c"
-                 line="3545">y-align of image</doc>
-            <type name="gfloat" c:type="float"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="image_add_with_alignment_z"
-              c:identifier="osm_gps_map_image_add_with_alignment_z"
-              version="0.7.4">
-        <doc xml:space="preserve"
-             filename="osm-gps-map-widget.c"
-             line="3567">Creates @OsmGpsMapImage with given params and adds it to map images</doc>
-        <source-position filename="osm-gps-map-widget.h" line="110"/>
-        <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="osm-gps-map-widget.c"
-               line="3579">A #OsmGpsMapImage representing the added pixbuf</doc>
-          <type name="MapImage" c:type="OsmGpsMapImage*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="map" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="osm-gps-map-widget.c"
-                 line="3569">a #OsmGpsMap widget</doc>
-            <type name="Map" c:type="OsmGpsMap*"/>
-          </instance-parameter>
-          <parameter name="latitude" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="osm-gps-map-widget.c"
-                 line="3570">latitude in degrees</doc>
-            <type name="gfloat" c:type="float"/>
-          </parameter>
-          <parameter name="longitude" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="osm-gps-map-widget.c"
-                 line="3571">longitude in degrees</doc>
-            <type name="gfloat" c:type="float"/>
-          </parameter>
-          <parameter name="image" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="osm-gps-map-widget.c"
-                 line="3572">Image pixbuf</doc>
-            <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
-          </parameter>
-          <parameter name="xalign" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="osm-gps-map-widget.c"
-                 line="3573">x-align of image</doc>
-            <type name="gfloat" c:type="float"/>
-          </parameter>
-          <parameter name="yalign" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="osm-gps-map-widget.c"
-                 line="3574">y-align of image</doc>
-            <type name="gfloat" c:type="float"/>
-          </parameter>
-          <parameter name="zorder" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="osm-gps-map-widget.c"
-                 line="3575">z-order of image</doc>
-            <type name="gint" c:type="gint"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="image_add_z"
-              c:identifier="osm_gps_map_image_add_z"
-              version="0.7.4">
-        <doc xml:space="preserve"
-             filename="osm-gps-map-widget.c"
-             line="3513">Creates @OsmGpsMapImage with given params and adds it to map images</doc>
-        <source-position filename="osm-gps-map-widget.h" line="108"/>
-        <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="osm-gps-map-widget.c"
-               line="3523">A #OsmGpsMapImage representing the added pixbuf</doc>
+               line="3522">A #OsmGpsMapImage representing the added pixbuf</doc>
           <type name="MapImage" c:type="OsmGpsMapImage*"/>
         </return-value>
         <parameters>
@@ -998,10 +848,160 @@ not free this.</doc>
                  line="3518">Image pixbuf</doc>
             <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
           </parameter>
+        </parameters>
+      </method>
+      <method name="image_add_with_alignment"
+              c:identifier="osm_gps_map_image_add_with_alignment"
+              version="0.7.0">
+        <doc xml:space="preserve"
+             filename="osm-gps-map-widget.c"
+             line="3556">Creates @OsmGpsMapImage with given params and adds it to map images</doc>
+        <source-position filename="osm-gps-map-widget.h" line="109"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="osm-gps-map-widget.c"
+               line="3567">A #OsmGpsMapImage representing the added pixbuf</doc>
+          <type name="MapImage" c:type="OsmGpsMapImage*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="map" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="osm-gps-map-widget.c"
+                 line="3558">a #OsmGpsMap widget</doc>
+            <type name="Map" c:type="OsmGpsMap*"/>
+          </instance-parameter>
+          <parameter name="latitude" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="osm-gps-map-widget.c"
+                 line="3559">latitude in degrees</doc>
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="longitude" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="osm-gps-map-widget.c"
+                 line="3560">longitude in degrees</doc>
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="image" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="osm-gps-map-widget.c"
+                 line="3561">Image pixbuf</doc>
+            <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
+          </parameter>
+          <parameter name="xalign" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="osm-gps-map-widget.c"
+                 line="3562">x-align of image</doc>
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="yalign" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="osm-gps-map-widget.c"
+                 line="3563">y-align of image</doc>
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="image_add_with_alignment_z"
+              c:identifier="osm_gps_map_image_add_with_alignment_z"
+              version="0.7.4">
+        <doc xml:space="preserve"
+             filename="osm-gps-map-widget.c"
+             line="3585">Creates @OsmGpsMapImage with given params and adds it to map images</doc>
+        <source-position filename="osm-gps-map-widget.h" line="110"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="osm-gps-map-widget.c"
+               line="3597">A #OsmGpsMapImage representing the added pixbuf</doc>
+          <type name="MapImage" c:type="OsmGpsMapImage*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="map" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="osm-gps-map-widget.c"
+                 line="3587">a #OsmGpsMap widget</doc>
+            <type name="Map" c:type="OsmGpsMap*"/>
+          </instance-parameter>
+          <parameter name="latitude" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="osm-gps-map-widget.c"
+                 line="3588">latitude in degrees</doc>
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="longitude" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="osm-gps-map-widget.c"
+                 line="3589">longitude in degrees</doc>
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="image" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="osm-gps-map-widget.c"
+                 line="3590">Image pixbuf</doc>
+            <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
+          </parameter>
+          <parameter name="xalign" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="osm-gps-map-widget.c"
+                 line="3591">x-align of image</doc>
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="yalign" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="osm-gps-map-widget.c"
+                 line="3592">y-align of image</doc>
+            <type name="gfloat" c:type="float"/>
+          </parameter>
           <parameter name="zorder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3519">z-order of image</doc>
+                 line="3593">z-order of image</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="image_add_z"
+              c:identifier="osm_gps_map_image_add_z"
+              version="0.7.4">
+        <doc xml:space="preserve"
+             filename="osm-gps-map-widget.c"
+             line="3531">Creates @OsmGpsMapImage with given params and adds it to map images</doc>
+        <source-position filename="osm-gps-map-widget.h" line="108"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="osm-gps-map-widget.c"
+               line="3541">A #OsmGpsMapImage representing the added pixbuf</doc>
+          <type name="MapImage" c:type="OsmGpsMapImage*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="map" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="osm-gps-map-widget.c"
+                 line="3533">a #OsmGpsMap widget</doc>
+            <type name="Map" c:type="OsmGpsMap*"/>
+          </instance-parameter>
+          <parameter name="latitude" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="osm-gps-map-widget.c"
+                 line="3534">latitude in degrees</doc>
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="longitude" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="osm-gps-map-widget.c"
+                 line="3535">longitude in degrees</doc>
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+          <parameter name="image" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="osm-gps-map-widget.c"
+                 line="3536">Image pixbuf</doc>
+            <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
+          </parameter>
+          <parameter name="zorder" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="osm-gps-map-widget.c"
+                 line="3537">z-order of image</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -1011,25 +1011,25 @@ not free this.</doc>
               version="0.7.0">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="3604">Remove image from list of images</doc>
+             line="3622">Remove image from list of images</doc>
         <source-position filename="osm-gps-map-widget.h" line="111"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="osm-gps-map-widget.c"
-               line="3611">true if image was on list of images</doc>
+               line="3629">true if image was on list of images</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="map" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3606">a #OsmGpsMap widget</doc>
+                 line="3624">a #OsmGpsMap widget</doc>
             <type name="Map" c:type="OsmGpsMap*"/>
           </instance-parameter>
           <parameter name="image" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3607">a @OsmGpsMapImage to remove</doc>
+                 line="3625">a @OsmGpsMapImage to remove</doc>
             <type name="MapImage" c:type="OsmGpsMapImage*"/>
           </parameter>
         </parameters>
@@ -1039,7 +1039,7 @@ not free this.</doc>
               version="0.7.0">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="3628">Remove all images from map</doc>
+             line="3646">Remove all images from map</doc>
         <source-position filename="osm-gps-map-widget.h" line="112"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1048,7 +1048,7 @@ not free this.</doc>
           <instance-parameter name="map" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3630">a #OsmGpsMap widget</doc>
+                 line="3648">a #OsmGpsMap widget</doc>
             <type name="Map" c:type="OsmGpsMap*"/>
           </instance-parameter>
         </parameters>
@@ -1058,7 +1058,7 @@ not free this.</doc>
               version="0.7.0">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="3645">Add layer to map</doc>
+             line="3663">Add layer to map</doc>
         <source-position filename="osm-gps-map-widget.h" line="113"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1067,13 +1067,13 @@ not free this.</doc>
           <instance-parameter name="map" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3647">a #OsmGpsMap widget</doc>
+                 line="3665">a #OsmGpsMap widget</doc>
             <type name="Map" c:type="OsmGpsMap*"/>
           </instance-parameter>
           <parameter name="layer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3648">a #OsmGpsMapLayer object</doc>
+                 line="3666">a #OsmGpsMapLayer object</doc>
             <type name="MapLayer" c:type="OsmGpsMapLayer*"/>
           </parameter>
         </parameters>
@@ -1083,25 +1083,25 @@ not free this.</doc>
               version="0.7.0">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="3664">Remove layer from map</doc>
+             line="3682">Remove layer from map</doc>
         <source-position filename="osm-gps-map-widget.h" line="114"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="osm-gps-map-widget.c"
-               line="3671">whether layer was found and removed</doc>
+               line="3689">whether layer was found and removed</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="map" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3666">a #OsmGpsMap widget</doc>
+                 line="3684">a #OsmGpsMap widget</doc>
             <type name="Map" c:type="OsmGpsMap*"/>
           </instance-parameter>
           <parameter name="layer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3667">a #OsmGpsMapLayer object</doc>
+                 line="3685">a #OsmGpsMapLayer object</doc>
             <type name="MapLayer" c:type="OsmGpsMapLayer*"/>
           </parameter>
         </parameters>
@@ -1111,7 +1111,7 @@ not free this.</doc>
               version="0.7.0">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="3687">Remove all layers from map</doc>
+             line="3705">Remove all layers from map</doc>
         <source-position filename="osm-gps-map-widget.h" line="115"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1120,7 +1120,7 @@ not free this.</doc>
           <instance-parameter name="map" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3689">a #OsmGpsMap widget</doc>
+                 line="3707">a #OsmGpsMap widget</doc>
             <type name="Map" c:type="OsmGpsMap*"/>
           </instance-parameter>
         </parameters>
@@ -1191,7 +1191,7 @@ not free this.</doc>
       <method name="scroll" c:identifier="osm_gps_map_scroll">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="3221">Scrolls the map by @dx, @dy pixels (positive north, east)</doc>
+             line="3239">Scrolls the map by @dx, @dy pixels (positive north, east)</doc>
         <source-position filename="osm-gps-map-widget.h" line="95"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1200,19 +1200,19 @@ not free this.</doc>
           <instance-parameter name="map" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3223">a #OsmGpsMap widget</doc>
+                 line="3241">a #OsmGpsMap widget</doc>
             <type name="Map" c:type="OsmGpsMap*"/>
           </instance-parameter>
           <parameter name="dx" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3224">pixels to scroll in NS (positive: scroll nort, negative: scroll south)</doc>
+                 line="3242">pixels to scroll in NS (positive: scroll nort, negative: scroll south)</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="dy" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3225">pixels to scroll in EW (positive: scroll east, negative: scroll west)</doc>
+                 line="3243">pixels to scroll in EW (positive: scroll east, negative: scroll west)</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -1220,7 +1220,7 @@ not free this.</doc>
       <method name="set_center" c:identifier="osm_gps_map_set_center">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="3074">Set map center, does not change zoom level</doc>
+             line="3092">Set map center, does not change zoom level</doc>
         <source-position filename="osm-gps-map-widget.h" line="90"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1229,19 +1229,19 @@ not free this.</doc>
           <instance-parameter name="map" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3076">a #OsmGpsMap widget</doc>
+                 line="3094">a #OsmGpsMap widget</doc>
             <type name="Map" c:type="OsmGpsMap*"/>
           </instance-parameter>
           <parameter name="latitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3077">latitude in degrees</doc>
+                 line="3095">latitude in degrees</doc>
             <type name="gfloat" c:type="float"/>
           </parameter>
           <parameter name="longitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3078">longitude in degrees</doc>
+                 line="3096">longitude in degrees</doc>
             <type name="gfloat" c:type="float"/>
           </parameter>
         </parameters>
@@ -1251,7 +1251,7 @@ not free this.</doc>
               version="0.7.0">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="3057">Set map center and desired zoom level</doc>
+             line="3075">Set map center and desired zoom level</doc>
         <source-position filename="osm-gps-map-widget.h" line="89"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1260,25 +1260,25 @@ not free this.</doc>
           <instance-parameter name="map" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3059">a #OsmGpsMap widget</doc>
+                 line="3077">a #OsmGpsMap widget</doc>
             <type name="Map" c:type="OsmGpsMap*"/>
           </instance-parameter>
           <parameter name="latitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3060">latitude in degrees</doc>
+                 line="3078">latitude in degrees</doc>
             <type name="gfloat" c:type="float"/>
           </parameter>
           <parameter name="longitude" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3061">longitude in degrees</doc>
+                 line="3079">longitude in degrees</doc>
             <type name="gfloat" c:type="float"/>
           </parameter>
           <parameter name="zoom" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3062">desired zoom level</doc>
+                 line="3080">desired zoom level</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -1287,7 +1287,7 @@ not free this.</doc>
               c:identifier="osm_gps_map_set_keyboard_shortcut">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="3283">Associates a keyboard shortcut with the supplied @keyval
+             line="3301">Associates a keyboard shortcut with the supplied @keyval
 (as returned by #gdk_keyval_from_name or simiar). The action given in @key
 will be triggered when the corresponding @keyval is pressed. By default
 no keyboard shortcuts are associated.</doc>
@@ -1299,19 +1299,19 @@ no keyboard shortcuts are associated.</doc>
           <instance-parameter name="map" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3285">a #OsmGpsMap widget</doc>
+                 line="3303">a #OsmGpsMap widget</doc>
             <type name="Map" c:type="OsmGpsMap*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3286">a #OsmGpsMapKey_t</doc>
+                 line="3304">a #OsmGpsMapKey_t</doc>
             <type name="MapKey_t" c:type="OsmGpsMapKey_t"/>
           </parameter>
           <parameter name="keyval" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3287">a keyval to bind</doc>
+                 line="3305">a keyval to bind</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -1319,25 +1319,25 @@ no keyboard shortcuts are associated.</doc>
       <method name="set_zoom" c:identifier="osm_gps_map_set_zoom">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="3133">Set map zoom to the desired zoom level</doc>
+             line="3151">Set map zoom to the desired zoom level</doc>
         <source-position filename="osm-gps-map-widget.h" line="91"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="osm-gps-map-widget.c"
-               line="3140">zoom level</doc>
+               line="3158">zoom level</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="map" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3135">a #OsmGpsMap widget</doc>
+                 line="3153">a #OsmGpsMap widget</doc>
             <type name="Map" c:type="OsmGpsMap*"/>
           </instance-parameter>
           <parameter name="zoom" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3136">Desired zoom level</doc>
+                 line="3154">Desired zoom level</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -1346,7 +1346,7 @@ no keyboard shortcuts are associated.</doc>
               c:identifier="osm_gps_map_set_zoom_offset">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="3110">Set tile zoom offset</doc>
+             line="3128">Set tile zoom offset</doc>
         <source-position filename="osm-gps-map-widget.h" line="92"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1355,13 +1355,13 @@ no keyboard shortcuts are associated.</doc>
           <instance-parameter name="map" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3112">a #OsmGpsMap widget</doc>
+                 line="3130">a #OsmGpsMap widget</doc>
             <type name="Map" c:type="OsmGpsMap*"/>
           </instance-parameter>
           <parameter name="zoom_offset" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3113">tile zoom offset</doc>
+                 line="3131">tile zoom offset</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -1371,7 +1371,7 @@ no keyboard shortcuts are associated.</doc>
               version="0.7.0">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="3305">Add a track to map</doc>
+             line="3323">Add a track to map</doc>
         <source-position filename="osm-gps-map-widget.h" line="98"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1380,13 +1380,13 @@ no keyboard shortcuts are associated.</doc>
           <instance-parameter name="map" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3307">a #OsmGpsMap widget</doc>
+                 line="3325">a #OsmGpsMap widget</doc>
             <type name="Map" c:type="OsmGpsMap*"/>
           </instance-parameter>
           <parameter name="track" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3308">a @OsmGpsMapTrack object</doc>
+                 line="3326">a @OsmGpsMapTrack object</doc>
             <type name="MapTrack" c:type="OsmGpsMapTrack*"/>
           </parameter>
         </parameters>
@@ -1396,7 +1396,7 @@ no keyboard shortcuts are associated.</doc>
               version="0.7.0">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="3349">Remove given track from map</doc>
+             line="3367">Remove given track from map</doc>
         <source-position filename="osm-gps-map-widget.h" line="100"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -1405,13 +1405,13 @@ no keyboard shortcuts are associated.</doc>
           <instance-parameter name="map" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3351">a #OsmGpsMap widget</doc>
+                 line="3369">a #OsmGpsMap widget</doc>
             <type name="Map" c:type="OsmGpsMap*"/>
           </instance-parameter>
           <parameter name="track" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3352">a #OsmGpsMapTrack object</doc>
+                 line="3370">a #OsmGpsMapTrack object</doc>
             <type name="MapTrack" c:type="OsmGpsMapTrack*"/>
           </parameter>
         </parameters>
@@ -1421,7 +1421,7 @@ no keyboard shortcuts are associated.</doc>
               version="0.7.0">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="3332">Remove all tracks</doc>
+             line="3350">Remove all tracks</doc>
         <source-position filename="osm-gps-map-widget.h" line="99"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1430,7 +1430,7 @@ no keyboard shortcuts are associated.</doc>
           <instance-parameter name="map" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3334">a #OsmGpsMap widget</doc>
+                 line="3352">a #OsmGpsMap widget</doc>
             <type name="Map" c:type="OsmGpsMap*"/>
           </instance-parameter>
         </parameters>
@@ -1440,7 +1440,7 @@ no keyboard shortcuts are associated.</doc>
               version="1.1.0">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="3035">Zoom and center the map so that both points fit inside the window.</doc>
+             line="3053">Zoom and center the map so that both points fit inside the window.</doc>
         <source-position filename="osm-gps-map-widget.h" line="88"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1449,31 +1449,31 @@ no keyboard shortcuts are associated.</doc>
           <instance-parameter name="map" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3037">a #OsmGpsMap widget</doc>
+                 line="3055">a #OsmGpsMap widget</doc>
             <type name="Map" c:type="OsmGpsMap*"/>
           </instance-parameter>
           <parameter name="latitude1" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3038">latitude of 1st point in degrees</doc>
+                 line="3056">latitude of 1st point in degrees</doc>
             <type name="gfloat" c:type="float"/>
           </parameter>
           <parameter name="latitude2" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3039">latitude of 2nd point in degrees</doc>
+                 line="3057">latitude of 2nd point in degrees</doc>
             <type name="gfloat" c:type="float"/>
           </parameter>
           <parameter name="longitude1" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3040">longtitude of 1st point in degrees</doc>
+                 line="3058">longtitude of 1st point in degrees</doc>
             <type name="gfloat" c:type="float"/>
           </parameter>
           <parameter name="longitude2" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3041">longtitude of 2nd point in degrees</doc>
+                 line="3059">longtitude of 2nd point in degrees</doc>
             <type name="gfloat" c:type="float"/>
           </parameter>
         </parameters>
@@ -1481,19 +1481,19 @@ no keyboard shortcuts are associated.</doc>
       <method name="zoom_in" c:identifier="osm_gps_map_zoom_in">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="3172">Zoom in by 1 step</doc>
+             line="3190">Zoom in by 1 step</doc>
         <source-position filename="osm-gps-map-widget.h" line="93"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="osm-gps-map-widget.c"
-               line="3178">zoom level</doc>
+               line="3196">zoom level</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="map" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3174">a #OsmGpsMap widget</doc>
+                 line="3192">a #OsmGpsMap widget</doc>
             <type name="Map" c:type="OsmGpsMap*"/>
           </instance-parameter>
         </parameters>
@@ -1501,19 +1501,19 @@ no keyboard shortcuts are associated.</doc>
       <method name="zoom_out" c:identifier="osm_gps_map_zoom_out">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="3188">Zoom out by 1 step</doc>
+             line="3206">Zoom out by 1 step</doc>
         <source-position filename="osm-gps-map-widget.h" line="94"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="osm-gps-map-widget.c"
-               line="3194">zoom level</doc>
+               line="3212">zoom level</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="map" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-widget.c"
-                 line="3190">a #OsmGpsMap widget</doc>
+                 line="3208">a #OsmGpsMap widget</doc>
             <type name="Map" c:type="OsmGpsMap*"/>
           </instance-parameter>
         </parameters>
@@ -1591,7 +1591,7 @@ no keyboard shortcuts are associated.</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="2867">A #OsmGpsMapSource_t representing the tile repository to use
+             line="2885">A #OsmGpsMapSource_t representing the tile repository to use
 
 &lt;note&gt;
 &lt;para&gt;
@@ -1651,7 +1651,7 @@ of setting #OsmGpsMap:repo-uri.
                 default-value="https://tile.openstreetmap.org/#Z/#X/#Y.png">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="2591">A URI string which defines the location and format to fetch tiles
+             line="2609">A URI string which defines the location and format to fetch tiles
 for the map. The string is of the format
 "http://tile.openstreetmap.org/&amp;num;Z/&amp;num;X/&amp;num;Y.png". Characters
 that begin with &amp;num; are treated as tokens and replaced according to
@@ -1720,7 +1720,7 @@ explicitly support.
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="2568">Controls whether the current gps point is shown on the map. Note that
+             line="2586">Controls whether the current gps point is shown on the map. Note that
 for derived classes that implement the draw_gps_point vfunc, if this
 property is %FALSE</doc>
         <type name="gboolean" c:type="gboolean"/>
@@ -1739,7 +1739,7 @@ property is %FALSE</doc>
                 default-value="auto://">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="2687">Either a full path or one of the special format URIs
+             line="2705">Either a full path or one of the special format URIs
 #OSM_GPS_MAP_CACHE_DISABLED, #OSM_GPS_MAP_CACHE_AUTO,
 #OSM_GPS_MAP_CACHE_FRIENDLY. Also see #OsmGpsMap:tile-cache-base for a
 full understanding.
@@ -1760,7 +1760,7 @@ Any other string is interpreted as a local path, i.e. /path/to/cache</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="2711">The base directory of the tile cache when you have constructed
+             line="2729">The base directory of the tile cache when you have constructed
 the map with #OsmGpsMap:tile-cache set to #OSM_GPS_MAP_CACHE_AUTO or
 #OSM_GPS_MAP_CACHE_FRIENDLY
 
@@ -1785,7 +1785,7 @@ osm_gps_map_get_default_cache_directory()</doc>
                 default-value="0">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="2821">The number of tiles currently waiting to download. Connect to
+             line="2839">The number of tiles currently waiting to download. Connect to
 ::notify::tiles-queued if you want to be informed when this changes</doc>
         <type name="gint" c:type="gint"/>
       </property>
@@ -1797,7 +1797,7 @@ osm_gps_map_get_default_cache_directory()</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="2671">The default user-agent for downloading tiles from the #OsmGpsMap:map-source
+             line="2689">The default user-agent for downloading tiles from the #OsmGpsMap:map-source
 is "libosmgpsmap/VERSION". The value of #OsmGpsMap:user-agent will be
 appended to it.</doc>
         <type name="utf8" c:type="gchar*"/>
@@ -1809,7 +1809,7 @@ appended to it.</doc>
                 default-value="3">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="2735">The map zoom level. Connect to ::notify::zoom if you want to be informed
+             line="2753">The map zoom level. Connect to ::notify::zoom if you want to be informed
 when this changes.</doc>
         <type name="gint" c:type="gint"/>
       </property>
@@ -1822,7 +1822,7 @@ when this changes.</doc>
       <glib:signal name="changed" when="first">
         <doc xml:space="preserve"
              filename="osm-gps-map-widget.c"
-             line="2908">The #OsmGpsMap::changed signal is emitted any time the map zoom or map center
+             line="2926">The #OsmGpsMap::changed signal is emitted any time the map zoom or map center
 is chaged (such as by dragging or zooming).
 
 &lt;note&gt;
@@ -2441,12 +2441,12 @@ to ::notify::zoom
       <constructor name="new" c:identifier="osm_gps_map_osd_new">
         <doc xml:space="preserve"
              filename="osm-gps-map-osd.c"
-             line="616">Creates a new instance of #OsmGpsMapOsd.</doc>
+             line="613">Creates a new instance of #OsmGpsMapOsd.</doc>
         <source-position filename="osm-gps-map-osd.h" line="55"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="osm-gps-map-osd.c"
-               line="621">the newly created #OsmGpsMapOsd instance</doc>
+               line="618">the newly created #OsmGpsMapOsd instance</doc>
           <type name="MapOsd" c:type="OsmGpsMapOsd*"/>
         </return-value>
       </constructor>
@@ -2457,7 +2457,7 @@ to ::notify::zoom
                 default-value="30">
         <doc xml:space="preserve"
              filename="osm-gps-map-osd.c"
-             line="360">The dpad radius property.</doc>
+             line="359">The dpad radius property.</doc>
         <type name="guint" c:type="guint"/>
       </property>
       <property name="osd-x"
@@ -2467,7 +2467,7 @@ to ::notify::zoom
                 default-value="10">
         <doc xml:space="preserve"
              filename="osm-gps-map-osd.c"
-             line="332">The osd x property.</doc>
+             line="331">The osd x property.</doc>
         <type name="gint" c:type="gint"/>
       </property>
       <property name="osd-y"
@@ -2477,7 +2477,7 @@ to ::notify::zoom
                 default-value="10">
         <doc xml:space="preserve"
              filename="osm-gps-map-osd.c"
-             line="346">The osd y property.</doc>
+             line="345">The osd y property.</doc>
         <type name="gint" c:type="gint"/>
       </property>
       <property name="show-coordinates"
@@ -2487,7 +2487,7 @@ to ::notify::zoom
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="osm-gps-map-osd.c"
-             line="386">The show coordinates of map centre property.</doc>
+             line="385">The show coordinates of map centre property.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="show-copyright"
@@ -2498,7 +2498,7 @@ to ::notify::zoom
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="osm-gps-map-osd.c"
-             line="458">The show copyright property.</doc>
+             line="457">The show copyright property.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="show-crosshair"
@@ -2508,7 +2508,7 @@ to ::notify::zoom
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="osm-gps-map-osd.c"
-             line="398">The show crosshair at map centre property.</doc>
+             line="397">The show crosshair at map centre property.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="show-dpad"
@@ -2518,7 +2518,7 @@ to ::notify::zoom
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="osm-gps-map-osd.c"
-             line="410">The show dpad for map navigation property.</doc>
+             line="409">The show dpad for map navigation property.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="show-gps-in-dpad"
@@ -2528,7 +2528,7 @@ to ::notify::zoom
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="osm-gps-map-osd.c"
-             line="434">The show gps indicator in middle of dpad property.</doc>
+             line="433">The show gps indicator in middle of dpad property.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="show-gps-in-zoom"
@@ -2538,7 +2538,7 @@ to ::notify::zoom
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="osm-gps-map-osd.c"
-             line="446">The show gps indicator in middle of zoom control property.</doc>
+             line="445">The show gps indicator in middle of zoom control property.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="show-scale"
@@ -2548,7 +2548,7 @@ to ::notify::zoom
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="osm-gps-map-osd.c"
-             line="374">The show scale on the map property.</doc>
+             line="373">The show scale on the map property.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="show-zoom"
@@ -2558,7 +2558,7 @@ to ::notify::zoom
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="osm-gps-map-osd.c"
-             line="422">The show zoom control for map navigation property.</doc>
+             line="421">The show zoom control for map navigation property.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <field name="parent">
@@ -3061,7 +3061,7 @@ to ::notify::zoom
       <source-position filename="osm-gps-map-widget.h" line="42"/>
     </record>
     <enumeration name="MapSource_t" c:type="OsmGpsMapSource_t">
-      <source-position filename="osm-gps-map-source.h" line="44"/>
+      <source-position filename="osm-gps-map-source.h" line="45"/>
       <member name="null" value="0" c:identifier="OSM_GPS_MAP_SOURCE_NULL">
       </member>
       <member name="openstreetmap"
@@ -3084,39 +3084,43 @@ to ::notify::zoom
               value="5"
               c:identifier="OSM_GPS_MAP_SOURCE_OPENCYCLEMAP">
       </member>
-      <member name="osm_public_transport"
+      <member name="opentopomap"
               value="6"
+              c:identifier="OSM_GPS_MAP_SOURCE_OPENTOPOMAP">
+      </member>
+      <member name="osm_public_transport"
+              value="7"
               c:identifier="OSM_GPS_MAP_SOURCE_OSM_PUBLIC_TRANSPORT">
       </member>
       <member name="google_street"
-              value="7"
+              value="8"
               c:identifier="OSM_GPS_MAP_SOURCE_GOOGLE_STREET">
       </member>
       <member name="google_satellite"
-              value="8"
+              value="9"
               c:identifier="OSM_GPS_MAP_SOURCE_GOOGLE_SATELLITE">
       </member>
       <member name="google_hybrid"
-              value="9"
+              value="10"
               c:identifier="OSM_GPS_MAP_SOURCE_GOOGLE_HYBRID">
       </member>
       <member name="virtual_earth_street"
-              value="10"
+              value="11"
               c:identifier="OSM_GPS_MAP_SOURCE_VIRTUAL_EARTH_STREET">
       </member>
       <member name="virtual_earth_satellite"
-              value="11"
+              value="12"
               c:identifier="OSM_GPS_MAP_SOURCE_VIRTUAL_EARTH_SATELLITE">
       </member>
       <member name="virtual_earth_hybrid"
-              value="12"
+              value="13"
               c:identifier="OSM_GPS_MAP_SOURCE_VIRTUAL_EARTH_HYBRID">
       </member>
       <member name="osmc_trails"
-              value="13"
+              value="14"
               c:identifier="OSM_GPS_MAP_SOURCE_OSMC_TRAILS">
       </member>
-      <member name="last" value="14" c:identifier="OSM_GPS_MAP_SOURCE_LAST">
+      <member name="last" value="15" c:identifier="OSM_GPS_MAP_SOURCE_LAST">
       </member>
     </enumeration>
     <class name="MapTrack"
@@ -3141,9 +3145,9 @@ to ::notify::zoom
           <type name="MapTrack" c:type="OsmGpsMapTrack*"/>
         </return-value>
       </constructor>
-      <function name="add_point"
-                c:identifier="osm_gps_map_track_add_point"
-                version="0.7.0">
+      <method name="add_point"
+              c:identifier="osm_gps_map_track_add_point"
+              version="0.7.0">
         <doc xml:space="preserve"
              filename="osm-gps-map-track.h"
              line="73">Add a point to track</doc>
@@ -3152,15 +3156,12 @@ to ::notify::zoom
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <parameter name="track"
-                     direction="inout"
-                     caller-allocates="0"
-                     transfer-ownership="full">
+          <instance-parameter name="track" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-track.h"
                  line="75">a #OsmGpsMapTrack</doc>
             <type name="MapTrack" c:type="OsmGpsMapTrack*"/>
-          </parameter>
+          </instance-parameter>
           <parameter name="point" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-track.h"
@@ -3168,7 +3169,7 @@ to ::notify::zoom
             <type name="MapPoint" c:type="const OsmGpsMapPoint*"/>
           </parameter>
         </parameters>
-      </function>
+      </method>
       <method name="get_color"
               c:identifier="osm_gps_map_track_get_color"
               glib:get-property="color"
@@ -3426,7 +3427,7 @@ to ::notify::zoom
       <glib:signal name="point-added" when="first">
         <doc xml:space="preserve"
              filename="osm-gps-map-track.c"
-             line="229">The #OsmGpsMapTrack::point-added signal is emitted whenever a #OsmGpsMapPoint
+             line="227">The #OsmGpsMapTrack::point-added signal is emitted whenever a #OsmGpsMapPoint
 is added to the #OsmGpsMapTrack.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3435,7 +3436,7 @@ is added to the #OsmGpsMapTrack.</doc>
           <parameter name="arg1" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="osm-gps-map-track.c"
-                 line="232">The added #OsmGpsMapPoint</doc>
+                 line="230">The added #OsmGpsMapPoint</doc>
             <type name="MapPoint"/>
           </parameter>
         </parameters>

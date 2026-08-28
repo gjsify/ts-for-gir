@@ -153,7 +153,7 @@ GExiv2 log levels</doc>
       <source-position filename="gexiv2/gexiv2-version.h" line="14"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="0" c:type="GEXIV2_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="2" c:type="GEXIV2_MICRO_VERSION">
       <source-position filename="gexiv2/gexiv2-version.h" line="16"/>
       <type name="gint" c:type="gint"/>
     </constant>

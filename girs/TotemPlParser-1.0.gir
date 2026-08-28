@@ -5,9 +5,11 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <include name="Gio" version="2.0"/>
+  <doc:format name="unknown"/>
   <namespace name="TotemPlParser"
              version="1.0"
              shared-library="libtotem-plparser.so.18"
@@ -429,7 +431,7 @@ used when saving the state of an on-going playlist.</doc>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="PARSER_VERSION_MICRO"
-              value="6"
+              value="7"
               c:type="TOTEM_PL_PARSER_VERSION_MICRO">
       <source-position filename="plparse/totem-pl-parser-features.h"
                        line="30"/>
@@ -632,6 +634,10 @@ denoting the duration in seconds.</doc>
         </parameters>
       </function>
       <virtual-method name="entry_parsed">
+        <doc xml:space="preserve"
+             filename="plparse/totem-pl-parser.h"
+             line="303">the generic signal handler for the #TotemPlParser::entry-parsed signal,
+which can be overridden by inheriting classes</doc>
         <source-position filename="plparse/totem-pl-parser.h" line="316"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -652,6 +658,10 @@ denoting the duration in seconds.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="playlist_ended">
+        <doc xml:space="preserve"
+             filename="plparse/totem-pl-parser.h"
+             line="307">the generic signal handler for the #TotemPlParser::playlist-ended signal,
+which can be overridden by inheriting classes</doc>
         <source-position filename="plparse/totem-pl-parser.h" line="322"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -666,6 +676,10 @@ denoting the duration in seconds.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="playlist_started">
+        <doc xml:space="preserve"
+             filename="plparse/totem-pl-parser.h"
+             line="305">the generic signal handler for the #TotemPlParser::playlist-started signal,
+which can be overridden by inheriting classes</doc>
         <source-position filename="plparse/totem-pl-parser.h" line="319"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -761,7 +775,9 @@ any URI using that scheme is ignored during playlist parsing.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="parse" c:identifier="totem_pl_parser_parse">
+      <method name="parse"
+              c:identifier="totem_pl_parser_parse"
+              glib:async-func="parse_async">
         <doc xml:space="preserve"
              filename="plparse/totem-pl-parser.c"
              line="2431">Parses a playlist given by the absolute URI @uri. This method is
@@ -798,7 +814,10 @@ end of the playlist on parse failure</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="parse_async" c:identifier="totem_pl_parser_parse_async">
+      <method name="parse_async"
+              c:identifier="totem_pl_parser_parse_async"
+              glib:finish-func="parse_finish"
+              glib:sync-func="parse">
         <doc xml:space="preserve"
              filename="plparse/totem-pl-parser.c"
              line="2368">Starts asynchronous parsing of a playlist given by the absolute URI @uri. @parser and @uri are both reffed/copied
@@ -1014,7 +1033,10 @@ end of the playlist on parse failure</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="save" c:identifier="totem_pl_parser_save" throws="1">
+      <method name="save"
+              c:identifier="totem_pl_parser_save"
+              throws="1"
+              glib:async-func="save_async">
         <doc xml:space="preserve"
              filename="plparse/totem-pl-parser.c"
              line="1215">Writes the playlist held by @parser and @playlist out to the path
@@ -1074,7 +1096,10 @@ a code from #GConvertError will be returned.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="save_async" c:identifier="totem_pl_parser_save_async">
+      <method name="save_async"
+              c:identifier="totem_pl_parser_save_async"
+              glib:finish-func="save_finish"
+              glib:sync-func="save">
         <doc xml:space="preserve"
              filename="plparse/totem-pl-parser.c"
              line="1275">Starts asynchronous version of totem_pl_parser_save(). For more details
@@ -1313,6 +1338,10 @@ started.</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="entry_parsed">
+        <doc xml:space="preserve"
+             filename="plparse/totem-pl-parser.h"
+             line="303">the generic signal handler for the #TotemPlParser::entry-parsed signal,
+which can be overridden by inheriting classes</doc>
         <callback name="entry_parsed">
           <source-position filename="plparse/totem-pl-parser.h" line="316"/>
           <return-value transfer-ownership="none">
@@ -1335,6 +1364,10 @@ started.</doc>
         </callback>
       </field>
       <field name="playlist_started">
+        <doc xml:space="preserve"
+             filename="plparse/totem-pl-parser.h"
+             line="305">the generic signal handler for the #TotemPlParser::playlist-started signal,
+which can be overridden by inheriting classes</doc>
         <callback name="playlist_started">
           <source-position filename="plparse/totem-pl-parser.h" line="319"/>
           <return-value transfer-ownership="none">
@@ -1357,6 +1390,10 @@ started.</doc>
         </callback>
       </field>
       <field name="playlist_ended">
+        <doc xml:space="preserve"
+             filename="plparse/totem-pl-parser.h"
+             line="307">the generic signal handler for the #TotemPlParser::playlist-ended signal,
+which can be overridden by inheriting classes</doc>
         <callback name="playlist_ended">
           <source-position filename="plparse/totem-pl-parser.h" line="322"/>
           <return-value transfer-ownership="none">

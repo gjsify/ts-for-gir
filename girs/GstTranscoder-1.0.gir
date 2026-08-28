@@ -5,11 +5,13 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <include name="Gst" version="1.0"/>
   <include name="GstPbutils" version="1.0"/>
   <package name="gstreamer-transcoder-1.0"/>
+  <doc:format name="unknown"/>
   <namespace name="GstTranscoder"
              version="1.0"
              shared-library="libgsttranscoder-1.0.so.0"
@@ -30,26 +32,26 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/transcoder/gsttranscoder.c"
-               line="890">a new #GstTranscoder instance</doc>
+               line="889">a new #GstTranscoder instance</doc>
           <type name="Transcoder" c:type="GstTranscoder*"/>
         </return-value>
         <parameters>
           <parameter name="source_uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="884">The URI of the media stream to transcode</doc>
+                 line="883">The URI of the media stream to transcode</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="dest_uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="885">The URI of the destination of the transcoded stream</doc>
+                 line="884">The URI of the destination of the transcoded stream</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="encoding_profile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="886">The serialized #GstEncodingProfile defining the output
+                 line="885">The serialized #GstEncodingProfile defining the output
 format. Have a look at the #GstEncodingProfile documentation to find more
 about the serialization format.</doc>
             <type name="utf8" c:type="const gchar*"/>
@@ -62,26 +64,26 @@ about the serialization format.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/transcoder/gsttranscoder.c"
-               line="917">a new #GstTranscoder instance</doc>
+               line="916">a new #GstTranscoder instance</doc>
           <type name="Transcoder" c:type="GstTranscoder*"/>
         </return-value>
         <parameters>
           <parameter name="source_uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="911">The URI of the media stream to transcode</doc>
+                 line="910">The URI of the media stream to transcode</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="dest_uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="912">The URI of the destination of the transcoded stream</doc>
+                 line="911">The URI of the destination of the transcoded stream</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="profile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="913">The #GstEncodingProfile defining the output format
+                 line="912">The #GstEncodingProfile defining the output format
 have a look at the #GstEncodingProfile documentation to find more
 about the serialization format.</doc>
             <type name="GstPbutils.EncodingProfile"
@@ -97,14 +99,14 @@ about the serialization format.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/transcoder/gsttranscoder.c"
-               line="1392">A #gboolean indicating whether the passes message represents a #GstTranscoder message or not.</doc>
+               line="1391">A #gboolean indicating whether the passes message represents a #GstTranscoder message or not.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="1390">A #GstMessage</doc>
+                 line="1389">A #GstMessage</doc>
             <type name="Gst.Message" c:type="GstMessage*"/>
           </parameter>
         </parameters>
@@ -117,7 +119,7 @@ about the serialization format.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/transcoder/gsttranscoder.c"
-               line="1209">%TRUE if the transcoder tries to avoid reencoding streams where
+               line="1208">%TRUE if the transcoder tries to avoid reencoding streams where
 reencoding is not strictly needed, %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -125,7 +127,7 @@ reencoding is not strictly needed, %FALSE otherwise.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="1207">The #GstTranscoder to check whether reencoding is avoided or not.</doc>
+                 line="1206">The #GstTranscoder to check whether reencoding is avoided or not.</doc>
             <type name="Transcoder" c:type="GstTranscoder*"/>
           </instance-parameter>
         </parameters>
@@ -135,13 +137,13 @@ reencoding is not strictly needed, %FALSE otherwise.</doc>
               glib:get-property="dest-uri">
         <doc xml:space="preserve"
              filename="gst-libs/gst/transcoder/gsttranscoder.c"
-             line="1126">Gets the URI of the destination of the transcoded stream.</doc>
+             line="1125">Gets the URI of the destination of the transcoded stream.</doc>
         <source-position filename="gst-libs/gst/transcoder/gsttranscoder.h"
                          line="146"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/transcoder/gsttranscoder.c"
-               line="1132">a string containing the URI of the
+               line="1131">a string containing the URI of the
 destination of the transcoded stream. g_free() after usage.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -149,7 +151,7 @@ destination of the transcoded stream. g_free() after usage.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="1128">#GstTranscoder instance</doc>
+                 line="1127">#GstTranscoder instance</doc>
             <type name="Transcoder" c:type="GstTranscoder*"/>
           </instance-parameter>
         </parameters>
@@ -159,13 +161,13 @@ destination of the transcoded stream. g_free() after usage.</doc>
               glib:get-property="duration">
         <doc xml:space="preserve"
              filename="gst-libs/gst/transcoder/gsttranscoder.c"
-             line="1166">Retrieves the duration of the media stream that self represents.</doc>
+             line="1165">Retrieves the duration of the media stream that self represents.</doc>
         <source-position filename="gst-libs/gst/transcoder/gsttranscoder.h"
                          line="155"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/transcoder/gsttranscoder.c"
-               line="1172">the duration of the transcoding media stream, in
+               line="1171">the duration of the transcoding media stream, in
 nanoseconds.</doc>
           <type name="Gst.ClockTime" c:type="GstClockTime"/>
         </return-value>
@@ -173,7 +175,7 @@ nanoseconds.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="1168">#GstTranscoder instance</doc>
+                 line="1167">#GstTranscoder instance</doc>
             <type name="Transcoder" c:type="GstTranscoder*"/>
           </instance-parameter>
         </parameters>
@@ -183,7 +185,7 @@ nanoseconds.</doc>
               version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/transcoder/gsttranscoder.c"
-             line="1259">GstTranscoder API exposes a #GstBus instance which purpose is to provide data
+             line="1258">GstTranscoder API exposes a #GstBus instance which purpose is to provide data
 structures representing transcoder-internal events in form of #GstMessage-s of
 type GST_MESSAGE_APPLICATION.
 
@@ -200,14 +202,14 @@ fill memory. To avoid that, the bus has to be set "flushing".</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/transcoder/gsttranscoder.c"
-               line="1276">The transcoder message bus instance</doc>
+               line="1275">The transcoder message bus instance</doc>
           <type name="Gst.Bus" c:type="GstBus*"/>
         </return-value>
         <parameters>
           <instance-parameter name="transcoder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="1261">#GstTranscoder instance</doc>
+                 line="1260">#GstTranscoder instance</doc>
             <type name="Transcoder" c:type="GstTranscoder*"/>
           </instance-parameter>
         </parameters>
@@ -220,14 +222,14 @@ fill memory. To avoid that, the bus has to be set "flushing".</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/transcoder/gsttranscoder.c"
-               line="1191">The internal uritranscodebin instance</doc>
+               line="1190">The internal uritranscodebin instance</doc>
           <type name="Gst.Element" c:type="GstElement*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="1189">#GstTranscoder instance</doc>
+                 line="1188">#GstTranscoder instance</doc>
             <type name="Transcoder" c:type="GstTranscoder*"/>
           </instance-parameter>
         </parameters>
@@ -240,7 +242,7 @@ fill memory. To avoid that, the bus has to be set "flushing".</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/transcoder/gsttranscoder.c"
-               line="1151">the absolute position time, in nanoseconds, of the
+               line="1150">the absolute position time, in nanoseconds, of the
 transcoding stream.</doc>
           <type name="Gst.ClockTime" c:type="GstClockTime"/>
         </return-value>
@@ -248,7 +250,7 @@ transcoding stream.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="1149">#GstTranscoder instance</doc>
+                 line="1148">#GstTranscoder instance</doc>
             <type name="Transcoder" c:type="GstTranscoder*"/>
           </instance-parameter>
         </parameters>
@@ -261,14 +263,14 @@ transcoding stream.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/transcoder/gsttranscoder.c"
-               line="1094">current position update interval in milliseconds</doc>
+               line="1093">current position update interval in milliseconds</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="1092">#GstTranscoder instance</doc>
+                 line="1091">#GstTranscoder instance</doc>
             <type name="Transcoder" c:type="GstTranscoder*"/>
           </instance-parameter>
         </parameters>
@@ -278,7 +280,7 @@ transcoding stream.</doc>
               version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/transcoder/gsttranscoder.c"
-             line="1315">Gets the #GstTranscoderSignalAdapter attached to @self if it is attached to
+             line="1314">Gets the #GstTranscoderSignalAdapter attached to @self if it is attached to
 the right #GMainContext. If no #GstTranscoderSignalAdapter has been created
 yet, it will be created and returned, other calls will return that same
 adapter until it is destroyed, at which point, a new one can be attached the
@@ -288,7 +290,7 @@ same way.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/transcoder/gsttranscoder.c"
-               line="1328">The #GstTranscoderSignalAdapter to
+               line="1327">The #GstTranscoderSignalAdapter to
 connect signal handlers to.</doc>
           <type name="TranscoderSignalAdapter"
                 c:type="GstTranscoderSignalAdapter*"/>
@@ -297,7 +299,7 @@ connect signal handlers to.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="1317">#GstTranscoder instance to emit signals for.</doc>
+                 line="1316">#GstTranscoder instance to emit signals for.</doc>
             <type name="Transcoder" c:type="GstTranscoder*"/>
           </instance-parameter>
           <parameter name="context"
@@ -306,7 +308,7 @@ connect signal handlers to.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="1318">A #GMainContext on which the main-loop will process
+                 line="1317">A #GMainContext on which the main-loop will process
                       transcoder bus messages on. Can be NULL (thread-default
                       context will be used then).</doc>
             <type name="GLib.MainContext" c:type="GMainContext*"/>
@@ -317,13 +319,13 @@ connect signal handlers to.</doc>
               c:identifier="gst_transcoder_get_source_uri">
         <doc xml:space="preserve"
              filename="gst-libs/gst/transcoder/gsttranscoder.c"
-             line="1105">Gets the URI of the currently-transcoding stream.</doc>
+             line="1104">Gets the URI of the currently-transcoding stream.</doc>
         <source-position filename="gst-libs/gst/transcoder/gsttranscoder.h"
                          line="143"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/transcoder/gsttranscoder.c"
-               line="1111">a string containing the URI of the
+               line="1110">a string containing the URI of the
 source stream. g_free() after usage.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -331,7 +333,7 @@ source stream. g_free() after usage.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="1107">#GstTranscoder instance</doc>
+                 line="1106">#GstTranscoder instance</doc>
             <type name="Transcoder" c:type="GstTranscoder*"/>
           </instance-parameter>
         </parameters>
@@ -341,14 +343,14 @@ source stream. g_free() after usage.</doc>
               version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/transcoder/gsttranscoder.c"
-             line="1288">Gets the #GstTranscoderSignalAdapter attached to @self to emit signals from
+             line="1287">Gets the #GstTranscoderSignalAdapter attached to @self to emit signals from
 its thread of emission.</doc>
         <source-position filename="gst-libs/gst/transcoder/gsttranscoder.h"
                          line="174"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/transcoder/gsttranscoder.c"
-               line="1296">The #GstTranscoderSignalAdapter to connect signal
+               line="1295">The #GstTranscoderSignalAdapter to connect signal
 handlers to.</doc>
           <type name="TranscoderSignalAdapter"
                 c:type="GstTranscoderSignalAdapter*"/>
@@ -357,7 +359,7 @@ handlers to.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="1290">#GstTranscoder instance to emit signals synchronously
+                 line="1289">#GstTranscoder instance to emit signals synchronously
 for.</doc>
             <type name="Transcoder" c:type="GstTranscoder*"/>
           </instance-parameter>
@@ -366,7 +368,7 @@ for.</doc>
       <method name="run" c:identifier="gst_transcoder_run" throws="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/transcoder/gsttranscoder.c"
-             line="961">Run the transcoder task synchonously. You can connect
+             line="960">Run the transcoder task synchonously. You can connect
 to the 'position' signal to get information about the
 progress of the transcoding.</doc>
         <source-position filename="gst-libs/gst/transcoder/gsttranscoder.h"
@@ -378,7 +380,7 @@ progress of the transcoding.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="963">The GstTranscoder to run</doc>
+                 line="962">The GstTranscoder to run</doc>
             <type name="Transcoder" c:type="GstTranscoder*"/>
           </instance-parameter>
         </parameters>
@@ -386,7 +388,7 @@ progress of the transcoding.</doc>
       <method name="run_async" c:identifier="gst_transcoder_run_async">
         <doc xml:space="preserve"
              filename="gst-libs/gst/transcoder/gsttranscoder.c"
-             line="1003">Run the transcoder task asynchronously. You should connect
+             line="1002">Run the transcoder task asynchronously. You should connect
 to the 'done' signal to be notified about when the
 transcoding is done, and to the 'error' signal to be
 notified about any error.</doc>
@@ -399,7 +401,7 @@ notified about any error.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="1005">The GstTranscoder to run</doc>
+                 line="1004">The GstTranscoder to run</doc>
             <type name="Transcoder" c:type="GstTranscoder*"/>
           </instance-parameter>
         </parameters>
@@ -416,13 +418,13 @@ notified about any error.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="1226">The #GstTranscoder to set whether reencoding should be avoided or not.</doc>
+                 line="1225">The #GstTranscoder to set whether reencoding should be avoided or not.</doc>
             <type name="Transcoder" c:type="GstTranscoder*"/>
           </instance-parameter>
           <parameter name="avoid_reencoding" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="1227">%TRUE if the transcoder should try to avoid reencoding
+                 line="1226">%TRUE if the transcoder should try to avoid reencoding
 streams where * reencoding is not strictly needed, %FALSE otherwise.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
@@ -431,7 +433,7 @@ streams where * reencoding is not strictly needed, %FALSE otherwise.</doc>
       <method name="set_cpu_usage" c:identifier="gst_transcoder_set_cpu_usage">
         <doc xml:space="preserve"
              filename="gst-libs/gst/transcoder/gsttranscoder.c"
-             line="124">Sets @cpu_usage as target percentage CPU usage of the process running the
+             line="123">Sets @cpu_usage as target percentage CPU usage of the process running the
 transcoding task. It will modulate the transcoding speed to reach that target
 usage.</doc>
         <source-position filename="gst-libs/gst/transcoder/gsttranscoder.h"
@@ -443,13 +445,13 @@ usage.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="126">The GstTranscoder to limit CPU usage on.</doc>
+                 line="125">The GstTranscoder to limit CPU usage on.</doc>
             <type name="Transcoder" c:type="GstTranscoder*"/>
           </instance-parameter>
           <parameter name="cpu_usage" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="127">The percentage of the CPU the process running the transcoder
+                 line="126">The percentage of the CPU the process running the transcoder
 should try to use. It takes into account the number of cores available.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
@@ -460,7 +462,7 @@ should try to use. It takes into account the number of cores available.</doc>
               glib:set-property="position-update-interval">
         <doc xml:space="preserve"
              filename="gst-libs/gst/transcoder/gsttranscoder.c"
-             line="1068">Set interval in milliseconds between two position-updated signals.
+             line="1067">Set interval in milliseconds between two position-updated signals.
 Pass 0 to stop updating the position.</doc>
         <source-position filename="gst-libs/gst/transcoder/gsttranscoder.h"
                          line="139"/>
@@ -471,13 +473,13 @@ Pass 0 to stop updating the position.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="1070">#GstTranscoder instance</doc>
+                 line="1069">#GstTranscoder instance</doc>
             <type name="Transcoder" c:type="GstTranscoder*"/>
           </instance-parameter>
           <parameter name="interval" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="1071">interval in ms</doc>
+                 line="1070">interval in ms</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -490,7 +492,7 @@ Pass 0 to stop updating the position.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="gst-libs/gst/transcoder/gsttranscoder.c"
-             line="209">See #encodebin:avoid-reencoding</doc>
+             line="208">See #encodebin:avoid-reencoding</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="dest-uri"
@@ -566,20 +568,20 @@ Pass 0 to stop updating the position.</doc>
       <function name="get_name" c:identifier="gst_transcoder_error_get_name">
         <doc xml:space="preserve"
              filename="gst-libs/gst/transcoder/gsttranscoder.c"
-             line="1239">Gets a string representing the given error.</doc>
+             line="1238">Gets a string representing the given error.</doc>
         <source-position filename="gst-libs/gst/transcoder/gsttranscoder.h"
                          line="29"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/transcoder/gsttranscoder.c"
-               line="1245">a string with the given error.</doc>
+               line="1244">a string with the given error.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <parameter name="error" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="1241">a #GstTranscoderError</doc>
+                 line="1240">a #GstTranscoderError</doc>
             <type name="TranscoderError" c:type="GstTranscoderError"/>
           </parameter>
         </parameters>
@@ -659,7 +661,7 @@ See also #gst_transcoder_get_message_bus()</doc>
                 version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/transcoder/gsttranscoder.c"
-             line="1358">Returns (transfer none): The message name</doc>
+             line="1357">Returns (transfer none): The message name</doc>
         <source-position filename="gst-libs/gst/transcoder/gsttranscoder.h"
                          line="84"/>
         <return-value transfer-ownership="none">
@@ -669,7 +671,7 @@ See also #gst_transcoder_get_message_bus()</doc>
           <parameter name="message" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="1360">a #GstTranscoderMessage</doc>
+                 line="1359">a #GstTranscoderMessage</doc>
             <type name="TranscoderMessage" c:type="GstTranscoderMessage"/>
           </parameter>
         </parameters>
@@ -679,7 +681,7 @@ See also #gst_transcoder_get_message_bus()</doc>
                 version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/transcoder/gsttranscoder.c"
-             line="1409">Parse the given duration @msg and extract the corresponding #GstClockTime</doc>
+             line="1408">Parse the given duration @msg and extract the corresponding #GstClockTime</doc>
         <source-position filename="gst-libs/gst/transcoder/gsttranscoder.h"
                          line="90"/>
         <return-value transfer-ownership="none">
@@ -689,7 +691,7 @@ See also #gst_transcoder_get_message_bus()</doc>
           <parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="1411">A #GstMessage</doc>
+                 line="1410">A #GstMessage</doc>
             <type name="Gst.Message" c:type="GstMessage*"/>
           </parameter>
           <parameter name="duration"
@@ -698,7 +700,7 @@ See also #gst_transcoder_get_message_bus()</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="1412">the resulting duration</doc>
+                 line="1411">the resulting duration</doc>
             <type name="Gst.ClockTime" c:type="GstClockTime*"/>
           </parameter>
         </parameters>
@@ -708,7 +710,7 @@ See also #gst_transcoder_get_message_bus()</doc>
                 version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/transcoder/gsttranscoder.c"
-             line="1460">Parse the given error @msg and extract the corresponding #GError</doc>
+             line="1459">Parse the given error @msg and extract the corresponding #GError</doc>
         <source-position filename="gst-libs/gst/transcoder/gsttranscoder.h"
                          line="96"/>
         <return-value transfer-ownership="none">
@@ -718,19 +720,19 @@ See also #gst_transcoder_get_message_bus()</doc>
           <parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="1462">A #GstMessage</doc>
+                 line="1461">A #GstMessage</doc>
             <type name="Gst.Message" c:type="GstMessage*"/>
           </parameter>
           <parameter name="error"
                      direction="out"
-                     caller-allocates="1"
+                     caller-allocates="0"
                      transfer-ownership="full"
                      optional="1"
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="1463">the resulting error</doc>
-            <type name="GLib.Error" c:type="GError*"/>
+                 line="1462">the resulting error</doc>
+            <type name="GLib.Error" c:type="GError**"/>
           </parameter>
           <parameter name="details"
                      direction="out"
@@ -738,7 +740,7 @@ See also #gst_transcoder_get_message_bus()</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="1464">(transfer full): A GstStructure containing extra details about the error</doc>
+                 line="1463">(transfer full): A GstStructure containing extra details about the error</doc>
             <type name="Gst.Structure" c:type="GstStructure**"/>
           </parameter>
         </parameters>
@@ -748,7 +750,7 @@ See also #gst_transcoder_get_message_bus()</doc>
                 version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/transcoder/gsttranscoder.c"
-             line="1426">Parse the given position @msg and extract the corresponding #GstClockTime</doc>
+             line="1425">Parse the given position @msg and extract the corresponding #GstClockTime</doc>
         <source-position filename="gst-libs/gst/transcoder/gsttranscoder.h"
                          line="87"/>
         <return-value transfer-ownership="none">
@@ -758,7 +760,7 @@ See also #gst_transcoder_get_message_bus()</doc>
           <parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="1428">A #GstMessage</doc>
+                 line="1427">A #GstMessage</doc>
             <type name="Gst.Message" c:type="GstMessage*"/>
           </parameter>
           <parameter name="position"
@@ -767,7 +769,7 @@ See also #gst_transcoder_get_message_bus()</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="1429">the resulting position</doc>
+                 line="1428">the resulting position</doc>
             <type name="Gst.ClockTime" c:type="GstClockTime*"/>
           </parameter>
         </parameters>
@@ -777,7 +779,7 @@ See also #gst_transcoder_get_message_bus()</doc>
                 version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/transcoder/gsttranscoder.c"
-             line="1443">Parse the given state @msg and extract the corresponding #GstTranscoderState</doc>
+             line="1442">Parse the given state @msg and extract the corresponding #GstTranscoderState</doc>
         <source-position filename="gst-libs/gst/transcoder/gsttranscoder.h"
                          line="93"/>
         <return-value transfer-ownership="none">
@@ -787,7 +789,7 @@ See also #gst_transcoder_get_message_bus()</doc>
           <parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="1445">A #GstMessage</doc>
+                 line="1444">A #GstMessage</doc>
             <type name="Gst.Message" c:type="GstMessage*"/>
           </parameter>
           <parameter name="state"
@@ -796,7 +798,7 @@ See also #gst_transcoder_get_message_bus()</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="1446">the resulting state</doc>
+                 line="1445">the resulting state</doc>
             <type name="TranscoderState" c:type="GstTranscoderState*"/>
           </parameter>
         </parameters>
@@ -806,7 +808,7 @@ See also #gst_transcoder_get_message_bus()</doc>
                 version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/transcoder/gsttranscoder.c"
-             line="1480">Parse the given error @msg and extract the corresponding #GError warning</doc>
+             line="1479">Parse the given error @msg and extract the corresponding #GError warning</doc>
         <source-position filename="gst-libs/gst/transcoder/gsttranscoder.h"
                          line="99"/>
         <return-value transfer-ownership="none">
@@ -816,19 +818,19 @@ See also #gst_transcoder_get_message_bus()</doc>
           <parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="1482">A #GstMessage</doc>
+                 line="1481">A #GstMessage</doc>
             <type name="Gst.Message" c:type="GstMessage*"/>
           </parameter>
           <parameter name="error"
                      direction="out"
-                     caller-allocates="1"
+                     caller-allocates="0"
                      transfer-ownership="full"
                      optional="1"
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="1483">the resulting warning</doc>
-            <type name="GLib.Error" c:type="GError*"/>
+                 line="1482">the resulting warning</doc>
+            <type name="GLib.Error" c:type="GError**"/>
           </parameter>
           <parameter name="details"
                      direction="out"
@@ -836,7 +838,7 @@ See also #gst_transcoder_get_message_bus()</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="1484">(transfer full): A GstStructure containing extra details about the warning</doc>
+                 line="1483">(transfer full): A GstStructure containing extra details about the warning</doc>
             <type name="Gst.Structure" c:type="GstStructure**"/>
           </parameter>
         </parameters>
@@ -864,14 +866,14 @@ See also #gst_transcoder_get_message_bus()</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/transcoder/gsttranscoder-signal-adapter.c"
-               line="334">The #GstTranscoder @self is tracking</doc>
+               line="336">The #GstTranscoder @self is tracking</doc>
           <type name="Transcoder" c:type="GstTranscoder*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder-signal-adapter.c"
-                 line="332">The #GstTranscoderSignalAdapter</doc>
+                 line="334">The #GstTranscoderSignalAdapter</doc>
             <type name="TranscoderSignalAdapter"
                   c:type="GstTranscoderSignalAdapter*"/>
           </instance-parameter>
@@ -883,7 +885,7 @@ See also #gst_transcoder_get_message_bus()</doc>
                 getter="get_transcoder">
         <doc xml:space="preserve"
              filename="gst-libs/gst/transcoder/gsttranscoder-signal-adapter.c"
-             line="314">The #GstTranscoder tracked by the adapter.</doc>
+             line="316">The #GstTranscoder tracked by the adapter.</doc>
         <type name="Transcoder"/>
       </property>
       <glib:signal name="done" when="last" no-recurse="1" no-hooks="1">
@@ -1008,20 +1010,20 @@ stream.</doc>
                 version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/transcoder/gsttranscoder.c"
-             line="1500">Gets a string representing the given state.</doc>
+             line="1499">Gets a string representing the given state.</doc>
         <source-position filename="gst-libs/gst/transcoder/gsttranscoder.h"
                          line="51"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/transcoder/gsttranscoder.c"
-               line="1506">a string with the name of the state.</doc>
+               line="1505">a string with the name of the state.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <parameter name="state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/transcoder/gsttranscoder.c"
-                 line="1502">a #GstTranscoderState</doc>
+                 line="1501">a #GstTranscoderState</doc>
             <type name="TranscoderState" c:type="GstTranscoderState"/>
           </parameter>
         </parameters>
@@ -1032,20 +1034,20 @@ stream.</doc>
               moved-to="TranscoderError.get_name">
       <doc xml:space="preserve"
            filename="gst-libs/gst/transcoder/gsttranscoder.c"
-           line="1239">Gets a string representing the given error.</doc>
+           line="1238">Gets a string representing the given error.</doc>
       <source-position filename="gst-libs/gst/transcoder/gsttranscoder.h"
                        line="29"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/transcoder/gsttranscoder.c"
-             line="1245">a string with the given error.</doc>
+             line="1244">a string with the given error.</doc>
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
       <parameters>
         <parameter name="error" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/transcoder/gsttranscoder.c"
-               line="1241">a #GstTranscoderError</doc>
+               line="1240">a #GstTranscoderError</doc>
           <type name="TranscoderError" c:type="GstTranscoderError"/>
         </parameter>
       </parameters>
@@ -1063,7 +1065,7 @@ stream.</doc>
               version="1.20">
       <doc xml:space="preserve"
            filename="gst-libs/gst/transcoder/gsttranscoder.c"
-           line="1358">Returns (transfer none): The message name</doc>
+           line="1357">Returns (transfer none): The message name</doc>
       <source-position filename="gst-libs/gst/transcoder/gsttranscoder.h"
                        line="84"/>
       <return-value transfer-ownership="none">
@@ -1073,7 +1075,7 @@ stream.</doc>
         <parameter name="message" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/transcoder/gsttranscoder.c"
-               line="1360">a #GstTranscoderMessage</doc>
+               line="1359">a #GstTranscoderMessage</doc>
           <type name="TranscoderMessage" c:type="GstTranscoderMessage"/>
         </parameter>
       </parameters>
@@ -1084,7 +1086,7 @@ stream.</doc>
               version="1.20">
       <doc xml:space="preserve"
            filename="gst-libs/gst/transcoder/gsttranscoder.c"
-           line="1409">Parse the given duration @msg and extract the corresponding #GstClockTime</doc>
+           line="1408">Parse the given duration @msg and extract the corresponding #GstClockTime</doc>
       <source-position filename="gst-libs/gst/transcoder/gsttranscoder.h"
                        line="90"/>
       <return-value transfer-ownership="none">
@@ -1094,7 +1096,7 @@ stream.</doc>
         <parameter name="msg" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/transcoder/gsttranscoder.c"
-               line="1411">A #GstMessage</doc>
+               line="1410">A #GstMessage</doc>
           <type name="Gst.Message" c:type="GstMessage*"/>
         </parameter>
         <parameter name="duration"
@@ -1103,7 +1105,7 @@ stream.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/transcoder/gsttranscoder.c"
-               line="1412">the resulting duration</doc>
+               line="1411">the resulting duration</doc>
           <type name="Gst.ClockTime" c:type="GstClockTime*"/>
         </parameter>
       </parameters>
@@ -1114,7 +1116,7 @@ stream.</doc>
               version="1.20">
       <doc xml:space="preserve"
            filename="gst-libs/gst/transcoder/gsttranscoder.c"
-           line="1460">Parse the given error @msg and extract the corresponding #GError</doc>
+           line="1459">Parse the given error @msg and extract the corresponding #GError</doc>
       <source-position filename="gst-libs/gst/transcoder/gsttranscoder.h"
                        line="96"/>
       <return-value transfer-ownership="none">
@@ -1124,19 +1126,19 @@ stream.</doc>
         <parameter name="msg" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/transcoder/gsttranscoder.c"
-               line="1462">A #GstMessage</doc>
+               line="1461">A #GstMessage</doc>
           <type name="Gst.Message" c:type="GstMessage*"/>
         </parameter>
         <parameter name="error"
                    direction="out"
-                   caller-allocates="1"
+                   caller-allocates="0"
                    transfer-ownership="full"
                    optional="1"
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/transcoder/gsttranscoder.c"
-               line="1463">the resulting error</doc>
-          <type name="GLib.Error" c:type="GError*"/>
+               line="1462">the resulting error</doc>
+          <type name="GLib.Error" c:type="GError**"/>
         </parameter>
         <parameter name="details"
                    direction="out"
@@ -1144,7 +1146,7 @@ stream.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/transcoder/gsttranscoder.c"
-               line="1464">(transfer full): A GstStructure containing extra details about the error</doc>
+               line="1463">(transfer full): A GstStructure containing extra details about the error</doc>
           <type name="Gst.Structure" c:type="GstStructure**"/>
         </parameter>
       </parameters>
@@ -1155,7 +1157,7 @@ stream.</doc>
               version="1.20">
       <doc xml:space="preserve"
            filename="gst-libs/gst/transcoder/gsttranscoder.c"
-           line="1426">Parse the given position @msg and extract the corresponding #GstClockTime</doc>
+           line="1425">Parse the given position @msg and extract the corresponding #GstClockTime</doc>
       <source-position filename="gst-libs/gst/transcoder/gsttranscoder.h"
                        line="87"/>
       <return-value transfer-ownership="none">
@@ -1165,7 +1167,7 @@ stream.</doc>
         <parameter name="msg" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/transcoder/gsttranscoder.c"
-               line="1428">A #GstMessage</doc>
+               line="1427">A #GstMessage</doc>
           <type name="Gst.Message" c:type="GstMessage*"/>
         </parameter>
         <parameter name="position"
@@ -1174,7 +1176,7 @@ stream.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/transcoder/gsttranscoder.c"
-               line="1429">the resulting position</doc>
+               line="1428">the resulting position</doc>
           <type name="Gst.ClockTime" c:type="GstClockTime*"/>
         </parameter>
       </parameters>
@@ -1185,7 +1187,7 @@ stream.</doc>
               version="1.20">
       <doc xml:space="preserve"
            filename="gst-libs/gst/transcoder/gsttranscoder.c"
-           line="1443">Parse the given state @msg and extract the corresponding #GstTranscoderState</doc>
+           line="1442">Parse the given state @msg and extract the corresponding #GstTranscoderState</doc>
       <source-position filename="gst-libs/gst/transcoder/gsttranscoder.h"
                        line="93"/>
       <return-value transfer-ownership="none">
@@ -1195,7 +1197,7 @@ stream.</doc>
         <parameter name="msg" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/transcoder/gsttranscoder.c"
-               line="1445">A #GstMessage</doc>
+               line="1444">A #GstMessage</doc>
           <type name="Gst.Message" c:type="GstMessage*"/>
         </parameter>
         <parameter name="state"
@@ -1204,7 +1206,7 @@ stream.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/transcoder/gsttranscoder.c"
-               line="1446">the resulting state</doc>
+               line="1445">the resulting state</doc>
           <type name="TranscoderState" c:type="GstTranscoderState*"/>
         </parameter>
       </parameters>
@@ -1215,7 +1217,7 @@ stream.</doc>
               version="1.20">
       <doc xml:space="preserve"
            filename="gst-libs/gst/transcoder/gsttranscoder.c"
-           line="1480">Parse the given error @msg and extract the corresponding #GError warning</doc>
+           line="1479">Parse the given error @msg and extract the corresponding #GError warning</doc>
       <source-position filename="gst-libs/gst/transcoder/gsttranscoder.h"
                        line="99"/>
       <return-value transfer-ownership="none">
@@ -1225,19 +1227,19 @@ stream.</doc>
         <parameter name="msg" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/transcoder/gsttranscoder.c"
-               line="1482">A #GstMessage</doc>
+               line="1481">A #GstMessage</doc>
           <type name="Gst.Message" c:type="GstMessage*"/>
         </parameter>
         <parameter name="error"
                    direction="out"
-                   caller-allocates="1"
+                   caller-allocates="0"
                    transfer-ownership="full"
                    optional="1"
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/transcoder/gsttranscoder.c"
-               line="1483">the resulting warning</doc>
-          <type name="GLib.Error" c:type="GError*"/>
+               line="1482">the resulting warning</doc>
+          <type name="GLib.Error" c:type="GError**"/>
         </parameter>
         <parameter name="details"
                    direction="out"
@@ -1245,7 +1247,7 @@ stream.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/transcoder/gsttranscoder.c"
-               line="1484">(transfer full): A GstStructure containing extra details about the warning</doc>
+               line="1483">(transfer full): A GstStructure containing extra details about the warning</doc>
           <type name="Gst.Structure" c:type="GstStructure**"/>
         </parameter>
       </parameters>
@@ -1256,20 +1258,20 @@ stream.</doc>
               version="1.20">
       <doc xml:space="preserve"
            filename="gst-libs/gst/transcoder/gsttranscoder.c"
-           line="1500">Gets a string representing the given state.</doc>
+           line="1499">Gets a string representing the given state.</doc>
       <source-position filename="gst-libs/gst/transcoder/gsttranscoder.h"
                        line="51"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/transcoder/gsttranscoder.c"
-             line="1506">a string with the name of the state.</doc>
+             line="1505">a string with the name of the state.</doc>
         <type name="utf8" c:type="const gchar*"/>
       </return-value>
       <parameters>
         <parameter name="state" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/transcoder/gsttranscoder.c"
-               line="1502">a #GstTranscoderState</doc>
+               line="1501">a #GstTranscoderState</doc>
           <type name="TranscoderState" c:type="GstTranscoderState"/>
         </parameter>
       </parameters>

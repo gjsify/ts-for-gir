@@ -1,0 +1,1262 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gio" version="2.0"/>
+  <include name="Gtk" version="4.0"/>
+  <package name="gnome_cmd"/>
+  <c:include name="libgcmd.h"/>
+  <doc:format name="unknown"/>
+  <namespace name="GnomeCmd"
+             version="1.0"
+             shared-library="libgcmd.so"
+             c:identifier-prefixes="GnomeCmd"
+             c:symbol-prefixes="gnome_cmd">
+    <interface name="Configurable"
+               c:symbol-prefix="configurable"
+               c:type="GnomeCmdConfigurable"
+               glib:type-name="GnomeCmdConfigurable"
+               glib:get-type="gnome_cmd_configurable_get_type"
+               glib:type-struct="ConfigurableInterface">
+      <source-position filename="libgcmd/gnome-cmd-configurable.h" line="27"/>
+      <virtual-method name="configure" invoker="configure">
+        <source-position filename="libgcmd/gnome-cmd-configurable.h"
+                         line="26"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="cfg" transfer-ownership="none">
+            <type name="Configurable" c:type="GnomeCmdConfigurable*"/>
+          </instance-parameter>
+          <parameter name="parent_window" transfer-ownership="none">
+            <type name="Gtk.Window" c:type="GtkWindow*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="configure" c:identifier="gnome_cmd_configurable_configure">
+        <source-position filename="libgcmd/gnome-cmd-configurable.h"
+                         line="29"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="cfg" transfer-ownership="none">
+            <type name="Configurable" c:type="GnomeCmdConfigurable*"/>
+          </instance-parameter>
+          <parameter name="parent_window" transfer-ownership="none">
+            <type name="Gtk.Window" c:type="GtkWindow*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="ConfigurableInterface"
+            c:type="GnomeCmdConfigurableInterface"
+            glib:is-gtype-struct-for="Configurable">
+      <source-position filename="libgcmd/gnome-cmd-configurable.h" line="27"/>
+      <field name="g_iface">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="configure">
+        <callback name="configure">
+          <source-position filename="libgcmd/gnome-cmd-configurable.h"
+                           line="26"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="cfg" transfer-ownership="none">
+              <type name="Configurable" c:type="GnomeCmdConfigurable*"/>
+            </parameter>
+            <parameter name="parent_window" transfer-ownership="none">
+              <type name="Gtk.Window" c:type="GtkWindow*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <interface name="FileActions"
+               c:symbol-prefix="file_actions"
+               c:type="GnomeCmdFileActions"
+               glib:type-name="GnomeCmdFileActions"
+               glib:get-type="gnome_cmd_file_actions_get_type"
+               glib:type-struct="FileActionsInterface">
+      <source-position filename="libgcmd/gnome-cmd-file-actions.h" line="36"/>
+      <virtual-method name="create_main_menu" invoker="create_main_menu">
+        <doc xml:space="preserve"
+             filename="libgcmd/gnome-cmd-file-actions.h"
+             line="38">Creates a menu model to be shown in an application's main menu.</doc>
+        <source-position filename="libgcmd/gnome-cmd-file-actions.h"
+                         line="28"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgcmd/gnome-cmd-file-actions.h"
+               line="43">a menu model</doc>
+          <type name="Gio.MenuModel" c:type="GMenuModel*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="fa" transfer-ownership="none">
+            <type name="FileActions" c:type="GnomeCmdFileActions*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="create_popup_menu_items"
+                      invoker="create_popup_menu_items">
+        <doc xml:space="preserve"
+             filename="libgcmd/gnome-cmd-file-actions.h"
+             line="47">Creates a menu model to be shown in a context popup menu</doc>
+        <source-position filename="libgcmd/gnome-cmd-file-actions.h"
+                         line="29"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgcmd/gnome-cmd-file-actions.h"
+               line="53">a menu model</doc>
+          <type name="Gio.MenuModel" c:type="GMenuModel*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="fa" transfer-ownership="none">
+            <type name="FileActions" c:type="GnomeCmdFileActions*"/>
+          </instance-parameter>
+          <parameter name="state" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-file-actions.h"
+                 line="49">current state of both application's panels</doc>
+            <type name="State" c:type="GnomeCmdState*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="execute" invoker="execute">
+        <doc xml:space="preserve"
+             filename="libgcmd/gnome-cmd-file-actions.h"
+             line="57">Executes a custom action defined by a plug-in</doc>
+        <source-position filename="libgcmd/gnome-cmd-file-actions.h"
+                         line="31"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="fa" transfer-ownership="none">
+            <type name="FileActions" c:type="GnomeCmdFileActions*"/>
+          </instance-parameter>
+          <parameter name="action" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-file-actions.h"
+                 line="59">name of the action</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="parameter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-file-actions.h"
+                 line="60">parameter of the action</doc>
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+          <parameter name="parent_window" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-file-actions.h"
+                 line="61">a window, plug-in may use as a parent (`transient-for`)</doc>
+            <type name="Gtk.Window" c:type="GtkWindow*"/>
+          </parameter>
+          <parameter name="state" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-file-actions.h"
+                 line="62">current state of both application's panels</doc>
+            <type name="State" c:type="GnomeCmdState*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="create_main_menu"
+              c:identifier="gnome_cmd_file_actions_create_main_menu">
+        <doc xml:space="preserve"
+             filename="libgcmd/gnome-cmd-file-actions.h"
+             line="38">Creates a menu model to be shown in an application's main menu.</doc>
+        <source-position filename="libgcmd/gnome-cmd-file-actions.h"
+                         line="45"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgcmd/gnome-cmd-file-actions.h"
+               line="43">a menu model</doc>
+          <type name="Gio.MenuModel" c:type="GMenuModel*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="fa" transfer-ownership="none">
+            <type name="FileActions" c:type="GnomeCmdFileActions*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="create_popup_menu_items"
+              c:identifier="gnome_cmd_file_actions_create_popup_menu_items">
+        <doc xml:space="preserve"
+             filename="libgcmd/gnome-cmd-file-actions.h"
+             line="47">Creates a menu model to be shown in a context popup menu</doc>
+        <source-position filename="libgcmd/gnome-cmd-file-actions.h"
+                         line="55"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgcmd/gnome-cmd-file-actions.h"
+               line="53">a menu model</doc>
+          <type name="Gio.MenuModel" c:type="GMenuModel*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="fa" transfer-ownership="none">
+            <type name="FileActions" c:type="GnomeCmdFileActions*"/>
+          </instance-parameter>
+          <parameter name="state" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-file-actions.h"
+                 line="49">current state of both application's panels</doc>
+            <type name="State" c:type="GnomeCmdState*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="execute" c:identifier="gnome_cmd_file_actions_execute">
+        <doc xml:space="preserve"
+             filename="libgcmd/gnome-cmd-file-actions.h"
+             line="57">Executes a custom action defined by a plug-in</doc>
+        <source-position filename="libgcmd/gnome-cmd-file-actions.h"
+                         line="66"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="fa" transfer-ownership="none">
+            <type name="FileActions" c:type="GnomeCmdFileActions*"/>
+          </instance-parameter>
+          <parameter name="action" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-file-actions.h"
+                 line="59">name of the action</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="parameter" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-file-actions.h"
+                 line="60">parameter of the action</doc>
+            <type name="GLib.Variant" c:type="GVariant*"/>
+          </parameter>
+          <parameter name="parent_window" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-file-actions.h"
+                 line="61">a window, plug-in may use as a parent (`transient-for`)</doc>
+            <type name="Gtk.Window" c:type="GtkWindow*"/>
+          </parameter>
+          <parameter name="state" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-file-actions.h"
+                 line="62">current state of both application's panels</doc>
+            <type name="State" c:type="GnomeCmdState*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="FileActionsInterface"
+            c:type="GnomeCmdFileActionsInterface"
+            glib:is-gtype-struct-for="FileActions">
+      <source-position filename="libgcmd/gnome-cmd-file-actions.h" line="36"/>
+      <field name="g_iface">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="create_main_menu">
+        <callback name="create_main_menu">
+          <source-position filename="libgcmd/gnome-cmd-file-actions.h"
+                           line="28"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-file-actions.h"
+                 line="43">a menu model</doc>
+            <type name="Gio.MenuModel" c:type="GMenuModel*"/>
+          </return-value>
+          <parameters>
+            <parameter name="fa" transfer-ownership="none">
+              <type name="FileActions" c:type="GnomeCmdFileActions*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="create_popup_menu_items">
+        <callback name="create_popup_menu_items">
+          <source-position filename="libgcmd/gnome-cmd-file-actions.h"
+                           line="29"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-file-actions.h"
+                 line="53">a menu model</doc>
+            <type name="Gio.MenuModel" c:type="GMenuModel*"/>
+          </return-value>
+          <parameters>
+            <parameter name="fa" transfer-ownership="none">
+              <type name="FileActions" c:type="GnomeCmdFileActions*"/>
+            </parameter>
+            <parameter name="state" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libgcmd/gnome-cmd-file-actions.h"
+                   line="49">current state of both application's panels</doc>
+              <type name="State" c:type="GnomeCmdState*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="execute">
+        <callback name="execute">
+          <source-position filename="libgcmd/gnome-cmd-file-actions.h"
+                           line="31"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="fa" transfer-ownership="none">
+              <type name="FileActions" c:type="GnomeCmdFileActions*"/>
+            </parameter>
+            <parameter name="action" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libgcmd/gnome-cmd-file-actions.h"
+                   line="59">name of the action</doc>
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+            <parameter name="parameter" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libgcmd/gnome-cmd-file-actions.h"
+                   line="60">parameter of the action</doc>
+              <type name="GLib.Variant" c:type="GVariant*"/>
+            </parameter>
+            <parameter name="parent_window" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libgcmd/gnome-cmd-file-actions.h"
+                   line="61">a window, plug-in may use as a parent (`transient-for`)</doc>
+              <type name="Gtk.Window" c:type="GtkWindow*"/>
+            </parameter>
+            <parameter name="state" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libgcmd/gnome-cmd-file-actions.h"
+                   line="62">current state of both application's panels</doc>
+              <type name="State" c:type="GnomeCmdState*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <interface name="FileDescriptor"
+               c:symbol-prefix="file_descriptor"
+               c:type="GnomeCmdFileDescriptor"
+               glib:type-name="GnomeCmdFileDescriptor"
+               glib:get-type="gnome_cmd_file_descriptor_get_type"
+               glib:type-struct="FileDescriptorInterface">
+      <source-position filename="libgcmd/gnome-cmd-file-descriptor.h"
+                       line="28"/>
+      <virtual-method name="get_file" invoker="get_file">
+        <source-position filename="libgcmd/gnome-cmd-file-descriptor.h"
+                         line="26"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgcmd/gnome-cmd-file-descriptor.h"
+               line="33">the file</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="fd" transfer-ownership="none">
+            <type name="FileDescriptor" c:type="GnomeCmdFileDescriptor*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_file_info" invoker="get_file_info">
+        <source-position filename="libgcmd/gnome-cmd-file-descriptor.h"
+                         line="27"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgcmd/gnome-cmd-file-descriptor.h"
+               line="40">the file info</doc>
+          <type name="Gio.FileInfo" c:type="GFileInfo*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="fd" transfer-ownership="none">
+            <type name="FileDescriptor" c:type="GnomeCmdFileDescriptor*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_file"
+              c:identifier="gnome_cmd_file_descriptor_get_file">
+        <source-position filename="libgcmd/gnome-cmd-file-descriptor.h"
+                         line="35"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgcmd/gnome-cmd-file-descriptor.h"
+               line="33">the file</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="fd" transfer-ownership="none">
+            <type name="FileDescriptor" c:type="GnomeCmdFileDescriptor*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_file_info"
+              c:identifier="gnome_cmd_file_descriptor_get_file_info">
+        <source-position filename="libgcmd/gnome-cmd-file-descriptor.h"
+                         line="42"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgcmd/gnome-cmd-file-descriptor.h"
+               line="40">the file info</doc>
+          <type name="Gio.FileInfo" c:type="GFileInfo*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="fd" transfer-ownership="none">
+            <type name="FileDescriptor" c:type="GnomeCmdFileDescriptor*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </interface>
+    <record name="FileDescriptorInterface"
+            c:type="GnomeCmdFileDescriptorInterface"
+            glib:is-gtype-struct-for="FileDescriptor">
+      <source-position filename="libgcmd/gnome-cmd-file-descriptor.h"
+                       line="28"/>
+      <field name="g_iface">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="get_file">
+        <callback name="get_file">
+          <source-position filename="libgcmd/gnome-cmd-file-descriptor.h"
+                           line="26"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-file-descriptor.h"
+                 line="33">the file</doc>
+            <type name="Gio.File" c:type="GFile*"/>
+          </return-value>
+          <parameters>
+            <parameter name="fd" transfer-ownership="none">
+              <type name="FileDescriptor" c:type="GnomeCmdFileDescriptor*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_file_info">
+        <callback name="get_file_info">
+          <source-position filename="libgcmd/gnome-cmd-file-descriptor.h"
+                           line="27"/>
+          <return-value transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-file-descriptor.h"
+                 line="40">the file info</doc>
+            <type name="Gio.FileInfo" c:type="GFileInfo*"/>
+          </return-value>
+          <parameters>
+            <parameter name="fd" transfer-ownership="none">
+              <type name="FileDescriptor" c:type="GnomeCmdFileDescriptor*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <interface name="FileMetadataExtractor"
+               c:symbol-prefix="file_metadata_extractor"
+               c:type="GnomeCmdFileMetadataExtractor"
+               glib:type-name="GnomeCmdFileMetadataExtractor"
+               glib:get-type="gnome_cmd_file_metadata_extractor_get_type"
+               glib:type-struct="FileMetadataExtractorInterface">
+      <source-position filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                       line="40"/>
+      <virtual-method name="class_name" invoker="class_name">
+        <doc xml:space="preserve"
+             filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+             line="70">Returns a human readable, localized name of a tag class.</doc>
+        <source-position filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                         line="33"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+               line="76">a name of a class</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="fme" transfer-ownership="none">
+            <type name="FileMetadataExtractor"
+                  c:type="GnomeCmdFileMetadataExtractor*"/>
+          </instance-parameter>
+          <parameter name="cls" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                 line="72">a tag class</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="extract_metadata" invoker="extract_metadata">
+        <doc xml:space="preserve"
+             filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+             line="90">Extracts tags from a file described by a @fd file descriptor.
+A callback @add will be called for every extracted tag and its value.</doc>
+        <source-position filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                         line="36"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="fme" transfer-ownership="none">
+            <type name="FileMetadataExtractor"
+                  c:type="GnomeCmdFileMetadataExtractor*"/>
+          </instance-parameter>
+          <parameter name="fd" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                 line="92">a file descriptor</doc>
+            <type name="FileDescriptor" c:type="GnomeCmdFileDescriptor*"/>
+          </parameter>
+          <parameter name="add"
+                     transfer-ownership="none"
+                     scope="call"
+                     closure="2">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                 line="93">a callback</doc>
+            <type name="FileMetadataExtractorAddTag"
+                  c:type="GnomeCmdFileMetadataExtractorAddTag"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     closure="2">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                 line="94">a user data to be passed to @add callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="summary_tags" invoker="summary_tags">
+        <doc xml:space="preserve"
+             filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+             line="51">Returns a subset of tags to be shown in a "summary"</doc>
+        <source-position filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                         line="32"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+               line="56">a list of tags</doc>
+          <array c:type="GStrv">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="fme" transfer-ownership="none">
+            <type name="FileMetadataExtractor"
+                  c:type="GnomeCmdFileMetadataExtractor*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="supported_tags" invoker="supported_tags">
+        <doc xml:space="preserve"
+             filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+             line="42">Returns a list of tags, the plug-in may potentially extract from files.</doc>
+        <source-position filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                         line="31"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+               line="47">a list of tags</doc>
+          <array c:type="GStrv">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="fme" transfer-ownership="none">
+            <type name="FileMetadataExtractor"
+                  c:type="GnomeCmdFileMetadataExtractor*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="tag_description" invoker="tag_description">
+        <doc xml:space="preserve"
+             filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+             line="80">Returns a localized description of a tag.</doc>
+        <source-position filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                         line="35"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+               line="86">a description of a tag</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="fme" transfer-ownership="none">
+            <type name="FileMetadataExtractor"
+                  c:type="GnomeCmdFileMetadataExtractor*"/>
+          </instance-parameter>
+          <parameter name="tag" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                 line="82">a tag</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="tag_name" invoker="tag_name">
+        <doc xml:space="preserve"
+             filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+             line="60">Returns a human readable, localized name of a tag.</doc>
+        <source-position filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                         line="34"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+               line="66">a name of a tag</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="fme" transfer-ownership="none">
+            <type name="FileMetadataExtractor"
+                  c:type="GnomeCmdFileMetadataExtractor*"/>
+          </instance-parameter>
+          <parameter name="tag" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                 line="62">a tag</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="class_name"
+              c:identifier="gnome_cmd_file_metadata_extractor_class_name">
+        <doc xml:space="preserve"
+             filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+             line="70">Returns a human readable, localized name of a tag class.</doc>
+        <source-position filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                         line="78"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+               line="76">a name of a class</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="fme" transfer-ownership="none">
+            <type name="FileMetadataExtractor"
+                  c:type="GnomeCmdFileMetadataExtractor*"/>
+          </instance-parameter>
+          <parameter name="cls" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                 line="72">a tag class</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="extract_metadata"
+              c:identifier="gnome_cmd_file_metadata_extractor_extract_metadata">
+        <doc xml:space="preserve"
+             filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+             line="90">Extracts tags from a file described by a @fd file descriptor.
+A callback @add will be called for every extracted tag and its value.</doc>
+        <source-position filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                         line="99"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="fme" transfer-ownership="none">
+            <type name="FileMetadataExtractor"
+                  c:type="GnomeCmdFileMetadataExtractor*"/>
+          </instance-parameter>
+          <parameter name="fd" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                 line="92">a file descriptor</doc>
+            <type name="FileDescriptor" c:type="GnomeCmdFileDescriptor*"/>
+          </parameter>
+          <parameter name="add"
+                     transfer-ownership="none"
+                     scope="call"
+                     closure="2">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                 line="93">a callback</doc>
+            <type name="FileMetadataExtractorAddTag"
+                  c:type="GnomeCmdFileMetadataExtractorAddTag"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                 line="94">a user data to be passed to @add callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="summary_tags"
+              c:identifier="gnome_cmd_file_metadata_extractor_summary_tags">
+        <doc xml:space="preserve"
+             filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+             line="51">Returns a subset of tags to be shown in a "summary"</doc>
+        <source-position filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                         line="58"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+               line="56">a list of tags</doc>
+          <array c:type="GStrv">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="fme" transfer-ownership="none">
+            <type name="FileMetadataExtractor"
+                  c:type="GnomeCmdFileMetadataExtractor*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="supported_tags"
+              c:identifier="gnome_cmd_file_metadata_extractor_supported_tags">
+        <doc xml:space="preserve"
+             filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+             line="42">Returns a list of tags, the plug-in may potentially extract from files.</doc>
+        <source-position filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                         line="49"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+               line="47">a list of tags</doc>
+          <array c:type="GStrv">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="fme" transfer-ownership="none">
+            <type name="FileMetadataExtractor"
+                  c:type="GnomeCmdFileMetadataExtractor*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="tag_description"
+              c:identifier="gnome_cmd_file_metadata_extractor_tag_description">
+        <doc xml:space="preserve"
+             filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+             line="80">Returns a localized description of a tag.</doc>
+        <source-position filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                         line="88"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+               line="86">a description of a tag</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="fme" transfer-ownership="none">
+            <type name="FileMetadataExtractor"
+                  c:type="GnomeCmdFileMetadataExtractor*"/>
+          </instance-parameter>
+          <parameter name="tag" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                 line="82">a tag</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="tag_name"
+              c:identifier="gnome_cmd_file_metadata_extractor_tag_name">
+        <doc xml:space="preserve"
+             filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+             line="60">Returns a human readable, localized name of a tag.</doc>
+        <source-position filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                         line="68"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+               line="66">a name of a tag</doc>
+          <type name="utf8" c:type="gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="fme" transfer-ownership="none">
+            <type name="FileMetadataExtractor"
+                  c:type="GnomeCmdFileMetadataExtractor*"/>
+          </instance-parameter>
+          <parameter name="tag" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                 line="62">a tag</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </interface>
+    <callback name="FileMetadataExtractorAddTag"
+              c:type="GnomeCmdFileMetadataExtractorAddTag">
+      <source-position filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                       line="25"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="tag" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="value" transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="2">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <record name="FileMetadataExtractorInterface"
+            c:type="GnomeCmdFileMetadataExtractorInterface"
+            glib:is-gtype-struct-for="FileMetadataExtractor">
+      <source-position filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                       line="40"/>
+      <field name="g_iface">
+        <type name="GObject.TypeInterface" c:type="GTypeInterface"/>
+      </field>
+      <field name="supported_tags">
+        <callback name="supported_tags">
+          <source-position filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                           line="31"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                 line="47">a list of tags</doc>
+            <array c:type="GStrv">
+              <type name="utf8"/>
+            </array>
+          </return-value>
+          <parameters>
+            <parameter name="fme" transfer-ownership="none">
+              <type name="FileMetadataExtractor"
+                    c:type="GnomeCmdFileMetadataExtractor*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="summary_tags">
+        <callback name="summary_tags">
+          <source-position filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                           line="32"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                 line="56">a list of tags</doc>
+            <array c:type="GStrv">
+              <type name="utf8"/>
+            </array>
+          </return-value>
+          <parameters>
+            <parameter name="fme" transfer-ownership="none">
+              <type name="FileMetadataExtractor"
+                    c:type="GnomeCmdFileMetadataExtractor*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="class_name">
+        <callback name="class_name">
+          <source-position filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                           line="33"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                 line="76">a name of a class</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </return-value>
+          <parameters>
+            <parameter name="fme" transfer-ownership="none">
+              <type name="FileMetadataExtractor"
+                    c:type="GnomeCmdFileMetadataExtractor*"/>
+            </parameter>
+            <parameter name="cls" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                   line="72">a tag class</doc>
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="tag_name">
+        <callback name="tag_name">
+          <source-position filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                           line="34"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                 line="66">a name of a tag</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </return-value>
+          <parameters>
+            <parameter name="fme" transfer-ownership="none">
+              <type name="FileMetadataExtractor"
+                    c:type="GnomeCmdFileMetadataExtractor*"/>
+            </parameter>
+            <parameter name="tag" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                   line="62">a tag</doc>
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="tag_description">
+        <callback name="tag_description">
+          <source-position filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                           line="35"/>
+          <return-value transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                 line="86">a description of a tag</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </return-value>
+          <parameters>
+            <parameter name="fme" transfer-ownership="none">
+              <type name="FileMetadataExtractor"
+                    c:type="GnomeCmdFileMetadataExtractor*"/>
+            </parameter>
+            <parameter name="tag" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                   line="82">a tag</doc>
+              <type name="utf8" c:type="const gchar*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="extract_metadata">
+        <callback name="extract_metadata">
+          <source-position filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                           line="36"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="fme" transfer-ownership="none">
+              <type name="FileMetadataExtractor"
+                    c:type="GnomeCmdFileMetadataExtractor*"/>
+            </parameter>
+            <parameter name="fd" transfer-ownership="none">
+              <doc xml:space="preserve"
+                   filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                   line="92">a file descriptor</doc>
+              <type name="FileDescriptor" c:type="GnomeCmdFileDescriptor*"/>
+            </parameter>
+            <parameter name="add"
+                       transfer-ownership="none"
+                       scope="call"
+                       closure="3">
+              <doc xml:space="preserve"
+                   filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                   line="93">a callback</doc>
+              <type name="FileMetadataExtractorAddTag"
+                    c:type="GnomeCmdFileMetadataExtractorAddTag"/>
+            </parameter>
+            <parameter name="user_data"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1"
+                       closure="3">
+              <doc xml:space="preserve"
+                   filename="libgcmd/gnome-cmd-file-metadata-extractor.h"
+                   line="94">a user data to be passed to @add callback</doc>
+              <type name="gpointer" c:type="gpointer"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <constant name="PLUGIN_SYSTEM_CURRENT_VERSION"
+              value="1"
+              c:type="GNOME_CMD_PLUGIN_SYSTEM_CURRENT_VERSION">
+      <source-position filename="libgcmd/gnome-cmd-plugin-info.h" line="19"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <record name="PluginInfo" c:type="GnomeCmdPluginInfo">
+      <source-position filename="libgcmd/gnome-cmd-plugin-info.h" line="37"/>
+      <field name="plugin_system_version" writable="1">
+        <type name="gint" c:type="gint"/>
+      </field>
+      <field name="name" writable="1">
+        <type name="utf8" c:type="const gchar*"/>
+      </field>
+      <field name="version" writable="1">
+        <type name="utf8" c:type="const gchar*"/>
+      </field>
+      <field name="copyright" writable="1">
+        <type name="utf8" c:type="const gchar*"/>
+      </field>
+      <field name="comments" writable="1">
+        <type name="utf8" c:type="const gchar*"/>
+      </field>
+      <field name="authors" writable="1">
+        <type name="utf8" c:type="gchar**"/>
+      </field>
+      <field name="documenters" writable="1">
+        <type name="utf8" c:type="gchar**"/>
+      </field>
+      <field name="translator" writable="1">
+        <type name="utf8" c:type="const gchar*"/>
+      </field>
+      <field name="webpage" writable="1">
+        <type name="utf8" c:type="const gchar*"/>
+      </field>
+    </record>
+    <callback name="PluginInfoFunc"
+              c:type="GnomeCmdPluginInfoFunc"
+              introspectable="0">
+      <source-position filename="libgcmd/gnome-cmd-plugin-info.h" line="43"/>
+      <return-value>
+        <type name="PluginInfo" c:type="GnomeCmdPluginInfo*"/>
+      </return-value>
+    </callback>
+    <class name="State"
+           c:symbol-prefix="state"
+           c:type="GnomeCmdState"
+           parent="GObject.Object"
+           glib:type-name="GnomeCmdState"
+           glib:get-type="gnome_cmd_state_get_type"
+           glib:type-struct="StateClass">
+      <source-position filename="libgcmd/gnome-cmd-state.h" line="22"/>
+      <constructor name="new" c:identifier="gnome_cmd_state_new">
+        <source-position filename="libgcmd/gnome-cmd-state.h" line="24"/>
+        <return-value transfer-ownership="full">
+          <type name="State" c:type="GnomeCmdState*"/>
+        </return-value>
+      </constructor>
+      <method name="get_active_dir"
+              c:identifier="gnome_cmd_state_get_active_dir">
+        <source-position filename="libgcmd/gnome-cmd-state.h" line="31"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgcmd/gnome-cmd-state.h"
+               line="29">a file descriptor of an active directory</doc>
+          <type name="FileDescriptor" c:type="GnomeCmdFileDescriptor*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="state" transfer-ownership="none">
+            <type name="State" c:type="GnomeCmdState*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_active_dir_files"
+              c:identifier="gnome_cmd_state_get_active_dir_files">
+        <source-position filename="libgcmd/gnome-cmd-state.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgcmd/gnome-cmd-state.h"
+               line="55">a list of file descriptors in an active directory</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="FileDescriptor"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="state" transfer-ownership="none">
+            <type name="State" c:type="GnomeCmdState*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_active_dir_selected_files"
+              c:identifier="gnome_cmd_state_get_active_dir_selected_files">
+        <source-position filename="libgcmd/gnome-cmd-state.h" line="83"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgcmd/gnome-cmd-state.h"
+               line="81">a list of selected file descriptors in an active directory</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="FileDescriptor"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="state" transfer-ownership="none">
+            <type name="State" c:type="GnomeCmdState*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_inactive_dir"
+              c:identifier="gnome_cmd_state_get_inactive_dir">
+        <source-position filename="libgcmd/gnome-cmd-state.h" line="44"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgcmd/gnome-cmd-state.h"
+               line="42">a file descriptor of an inactive directory</doc>
+          <type name="FileDescriptor" c:type="GnomeCmdFileDescriptor*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="state" transfer-ownership="none">
+            <type name="State" c:type="GnomeCmdState*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_inactive_dir_files"
+              c:identifier="gnome_cmd_state_get_inactive_dir_files">
+        <source-position filename="libgcmd/gnome-cmd-state.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgcmd/gnome-cmd-state.h"
+               line="68">a list of file descriptors in an inactive directory</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="FileDescriptor"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="state" transfer-ownership="none">
+            <type name="State" c:type="GnomeCmdState*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_inactive_dir_selected_files"
+              c:identifier="gnome_cmd_state_get_inactive_dir_selected_files">
+        <source-position filename="libgcmd/gnome-cmd-state.h" line="96"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libgcmd/gnome-cmd-state.h"
+               line="94">a list of selected file descriptors in an inactive directory</doc>
+          <type name="GLib.List" c:type="GList*">
+            <type name="FileDescriptor"/>
+          </type>
+        </return-value>
+        <parameters>
+          <instance-parameter name="state" transfer-ownership="none">
+            <type name="State" c:type="GnomeCmdState*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_active_dir"
+              c:identifier="gnome_cmd_state_set_active_dir">
+        <source-position filename="libgcmd/gnome-cmd-state.h" line="37"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="state" transfer-ownership="none">
+            <type name="State" c:type="GnomeCmdState*"/>
+          </instance-parameter>
+          <parameter name="active_dir" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-state.h"
+                 line="35">a file descriptor</doc>
+            <type name="FileDescriptor" c:type="GnomeCmdFileDescriptor*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_active_dir_files"
+              c:identifier="gnome_cmd_state_set_active_dir_files">
+        <source-position filename="libgcmd/gnome-cmd-state.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="state" transfer-ownership="none">
+            <type name="State" c:type="GnomeCmdState*"/>
+          </instance-parameter>
+          <parameter name="active_dir_files" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-state.h"
+                 line="61">a list of file descriptors</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="FileDescriptor"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_active_dir_selected_files"
+              c:identifier="gnome_cmd_state_set_active_dir_selected_files">
+        <source-position filename="libgcmd/gnome-cmd-state.h" line="89"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="state" transfer-ownership="none">
+            <type name="State" c:type="GnomeCmdState*"/>
+          </instance-parameter>
+          <parameter name="active_dir_selected_files"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-state.h"
+                 line="87">a list of file descriptors</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="FileDescriptor"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_inactive_dir"
+              c:identifier="gnome_cmd_state_set_inactive_dir">
+        <source-position filename="libgcmd/gnome-cmd-state.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="state" transfer-ownership="none">
+            <type name="State" c:type="GnomeCmdState*"/>
+          </instance-parameter>
+          <parameter name="inactive_dir" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-state.h"
+                 line="48">a file descriptor</doc>
+            <type name="FileDescriptor" c:type="GnomeCmdFileDescriptor*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_inactive_dir_files"
+              c:identifier="gnome_cmd_state_set_inactive_dir_files">
+        <source-position filename="libgcmd/gnome-cmd-state.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="state" transfer-ownership="none">
+            <type name="State" c:type="GnomeCmdState*"/>
+          </instance-parameter>
+          <parameter name="inactive_dir_files" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-state.h"
+                 line="74">a list of file descriptors</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="FileDescriptor"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_inactive_dir_selected_files"
+              c:identifier="gnome_cmd_state_set_inactive_dir_selected_files">
+        <source-position filename="libgcmd/gnome-cmd-state.h" line="102"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="state" transfer-ownership="none">
+            <type name="State" c:type="GnomeCmdState*"/>
+          </instance-parameter>
+          <parameter name="inactive_dir_selected_files"
+                     transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgcmd/gnome-cmd-state.h"
+                 line="100">a list of file descriptors</doc>
+            <type name="GLib.List" c:type="GList*">
+              <type name="FileDescriptor"/>
+            </type>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="StateClass"
+            c:type="GnomeCmdStateClass"
+            glib:is-gtype-struct-for="State">
+      <source-position filename="libgcmd/gnome-cmd-state.h" line="22"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+  </namespace>
+</repository>

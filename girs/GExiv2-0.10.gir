@@ -230,7 +230,7 @@ the images are displayed or stored.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="MICRO_VERSION" value="6" c:type="GEXIV2_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="7" c:type="GEXIV2_MICRO_VERSION">
       <source-position filename="gexiv2/gexiv2-version.h" line="16"/>
       <type name="gint" c:type="gint"/>
     </constant>

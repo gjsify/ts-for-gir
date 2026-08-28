@@ -1,0 +1,1360 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Adw" version="1"/>
+  <include name="Gio" version="2.0"/>
+  <include name="Gtk" version="4.0"/>
+  <package name="pms-1.0"/>
+  <c:include name="libpms.h"/>
+  <doc:format name="gi-docgen"/>
+  <namespace name="Pms"
+             version="1.0"
+             shared-library="libpms-1.0.so.0"
+             c:identifier-prefixes="Ms"
+             c:symbol-prefixes="ms">
+    <class name="LanguageChooser"
+           c:symbol-prefix="language_chooser"
+           c:type="MsLanguageChooser"
+           parent="Adw.Dialog"
+           glib:type-name="MsLanguageChooser"
+           glib:get-type="ms_language_chooser_get_type"
+           glib:type-struct="LanguageChooserClass">
+      <source-position filename="libpms/lang/ms-language-chooser.h" line="33"/>
+      <implements name="Gtk.Accessible"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.ConstraintTarget"/>
+      <implements name="Gtk.ShortcutManager"/>
+      <constructor name="new" c:identifier="ms_language_chooser_new">
+        <source-position filename="libpms/lang/ms-language-chooser.h"
+                         line="36"/>
+        <return-value transfer-ownership="none">
+          <type name="LanguageChooser" c:type="MsLanguageChooser*"/>
+        </return-value>
+      </constructor>
+      <method name="clear_filter"
+              c:identifier="ms_language_chooser_clear_filter">
+        <source-position filename="libpms/lang/ms-language-chooser.h"
+                         line="38"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="chooser" transfer-ownership="none">
+            <type name="LanguageChooser" c:type="MsLanguageChooser*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_language"
+              c:identifier="ms_language_chooser_get_language">
+        <source-position filename="libpms/lang/ms-language-chooser.h"
+                         line="40"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="chooser" transfer-ownership="none">
+            <type name="LanguageChooser" c:type="MsLanguageChooser*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_language"
+              c:identifier="ms_language_chooser_set_language">
+        <source-position filename="libpms/lang/ms-language-chooser.h"
+                         line="42"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="chooser" transfer-ownership="none">
+            <type name="LanguageChooser" c:type="MsLanguageChooser*"/>
+          </instance-parameter>
+          <parameter name="language" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <glib:signal name="language-selected" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="LanguageChooserClass"
+            c:type="MsLanguageChooserClass"
+            glib:is-gtype-struct-for="LanguageChooser">
+      <source-position filename="libpms/lang/ms-language-chooser.h" line="33"/>
+      <field name="parent_class">
+        <type name="Adw.DialogClass" c:type="AdwDialogClass"/>
+      </field>
+    </record>
+    <class name="OsUpdate"
+           c:symbol-prefix="os_update"
+           c:type="MsOsUpdate"
+           parent="GObject.Object"
+           glib:type-name="MsOsUpdate"
+           glib:get-type="ms_os_update_get_type"
+           glib:type-struct="OsUpdateClass">
+      <doc xml:space="preserve"
+           filename="libpms/ms-os-update.c"
+           line="17">An os update.</doc>
+      <source-position filename="libpms/ms-os-update.h" line="38"/>
+      <method name="get_progress"
+              c:identifier="ms_os_update_get_progress"
+              glib:get-property="progress">
+        <source-position filename="libpms/ms-os-update.h" line="45"/>
+        <return-value transfer-ownership="none">
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OsUpdate" c:type="MsOsUpdate*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_state"
+              c:identifier="ms_os_update_get_state"
+              glib:get-property="state">
+        <source-position filename="libpms/ms-os-update.h" line="43"/>
+        <return-value transfer-ownership="none">
+          <type name="OsUpdateState" c:type="MsOsUpdateState"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OsUpdate" c:type="MsOsUpdate*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_version"
+              c:identifier="ms_os_update_get_version"
+              glib:get-property="version">
+        <source-position filename="libpms/ms-os-update.h" line="41"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OsUpdate" c:type="MsOsUpdate*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="progress"
+                transfer-ownership="none"
+                getter="get_progress"
+                default-value="0">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="state"
+                transfer-ownership="none"
+                getter="get_state"
+                default-value="MS_OS_UPDATE_STATE_UNKNOWN">
+        <type name="OsUpdateState"/>
+      </property>
+      <property name="version"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_version"
+                default-value="NULL">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="OsUpdateClass"
+            c:type="MsOsUpdateClass"
+            glib:is-gtype-struct-for="OsUpdate">
+      <source-position filename="libpms/ms-os-update.h" line="38"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="_ms_reserved1" introspectable="0">
+        <callback name="_ms_reserved1">
+          <source-position filename="libpms/ms-os-update.h" line="30"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_ms_reserved2" introspectable="0">
+        <callback name="_ms_reserved2">
+          <source-position filename="libpms/ms-os-update.h" line="31"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_ms_reserved3" introspectable="0">
+        <callback name="_ms_reserved3">
+          <source-position filename="libpms/ms-os-update.h" line="32"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_ms_reserved4" introspectable="0">
+        <callback name="_ms_reserved4">
+          <source-position filename="libpms/ms-os-update.h" line="33"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_ms_reserved5" introspectable="0">
+        <callback name="_ms_reserved5">
+          <source-position filename="libpms/ms-os-update.h" line="34"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_ms_reserved6" introspectable="0">
+        <callback name="_ms_reserved6">
+          <source-position filename="libpms/ms-os-update.h" line="35"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_ms_reserved7" introspectable="0">
+        <callback name="_ms_reserved7">
+          <source-position filename="libpms/ms-os-update.h" line="36"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_ms_reserved8" introspectable="0">
+        <callback name="_ms_reserved8">
+          <source-position filename="libpms/ms-os-update.h" line="37"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <enumeration name="OsUpdateFlags" c:type="MsOsUpdateFlags">
+      <source-position filename="libpms/ms-os-updater.h" line="24"/>
+      <member name="os_update_flag_none"
+              value="0"
+              c:identifier="MS_OS_UPDATE_FLAG_NONE">
+      </member>
+    </enumeration>
+    <enumeration name="OsUpdateState"
+                 glib:type-name="MsOsUpdateState"
+                 glib:get-type="ms_os_update_state_get_type"
+                 c:type="MsOsUpdateState">
+      <member name="failed"
+              value="-1"
+              c:identifier="MS_OS_UPDATE_STATE_FAILED"
+              glib:nick="failed"
+              glib:name="MS_OS_UPDATE_STATE_FAILED">
+      </member>
+      <member name="unknown"
+              value="0"
+              c:identifier="MS_OS_UPDATE_STATE_UNKNOWN"
+              glib:nick="unknown"
+              glib:name="MS_OS_UPDATE_STATE_UNKNOWN">
+      </member>
+      <member name="ready"
+              value="1"
+              c:identifier="MS_OS_UPDATE_STATE_READY"
+              glib:nick="ready"
+              glib:name="MS_OS_UPDATE_STATE_READY">
+      </member>
+      <member name="fetching"
+              value="2"
+              c:identifier="MS_OS_UPDATE_STATE_FETCHING"
+              glib:nick="fetching"
+              glib:name="MS_OS_UPDATE_STATE_FETCHING">
+      </member>
+      <member name="fetched"
+              value="3"
+              c:identifier="MS_OS_UPDATE_STATE_FETCHED"
+              glib:nick="fetched"
+              glib:name="MS_OS_UPDATE_STATE_FETCHED">
+      </member>
+      <member name="installing"
+              value="4"
+              c:identifier="MS_OS_UPDATE_STATE_INSTALLING"
+              glib:nick="installing"
+              glib:name="MS_OS_UPDATE_STATE_INSTALLING">
+      </member>
+      <member name="installed"
+              value="5"
+              c:identifier="MS_OS_UPDATE_STATE_INSTALLED"
+              glib:nick="installed"
+              glib:name="MS_OS_UPDATE_STATE_INSTALLED">
+      </member>
+    </enumeration>
+    <class name="OsUpdater"
+           c:symbol-prefix="os_updater"
+           c:type="MsOsUpdater"
+           parent="GObject.Object"
+           glib:type-name="MsOsUpdater"
+           glib:get-type="ms_os_updater_get_type"
+           glib:type-struct="OsUpdaterClass">
+      <doc xml:space="preserve"
+           filename="libpms/ms-os-updater.c"
+           line="16">Class performing OS updates</doc>
+      <source-position filename="libpms/ms-os-updater.h" line="78"/>
+      <virtual-method name="cancel_fetch_update"
+                      invoker="cancel_fetch_update"
+                      glib:finish-func="cancel_fetch_update_finish">
+        <source-position filename="libpms/ms-os-updater.h" line="39"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OsUpdater" c:type="MsOsUpdater*"/>
+          </instance-parameter>
+          <parameter name="update" transfer-ownership="none">
+            <type name="OsUpdate" c:type="MsOsUpdate*"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <type name="OsUpdateFlags" c:type="MsOsUpdateFlags"/>
+          </parameter>
+          <parameter name="cancel"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="4">
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="userdata"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="cancel_fetch_update_finish"
+                      invoker="cancel_fetch_update_finish"
+                      throws="1">
+        <source-position filename="libpms/ms-os-updater.h" line="45"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OsUpdater" c:type="MsOsUpdater*"/>
+          </instance-parameter>
+          <parameter name="res" transfer-ownership="none">
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="cancel_install_update"
+                      invoker="cancel_install_update"
+                      glib:finish-func="cancel_install_update_finish">
+        <source-position filename="libpms/ms-os-updater.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OsUpdater" c:type="MsOsUpdater*"/>
+          </instance-parameter>
+          <parameter name="update" transfer-ownership="none">
+            <type name="OsUpdate" c:type="MsOsUpdate*"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <type name="OsUpdateFlags" c:type="MsOsUpdateFlags"/>
+          </parameter>
+          <parameter name="cancel"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="4">
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="userdata"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="cancel_install_update_finish"
+                      invoker="cancel_install_update_finish"
+                      throws="1">
+        <source-position filename="libpms/ms-os-updater.h" line="65"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OsUpdater" c:type="MsOsUpdater*"/>
+          </instance-parameter>
+          <parameter name="res" transfer-ownership="none">
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="fetch_update"
+                      invoker="fetch_update"
+                      glib:finish-func="fetch_update_finish">
+        <source-position filename="libpms/ms-os-updater.h" line="29"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OsUpdater" c:type="MsOsUpdater*"/>
+          </instance-parameter>
+          <parameter name="update" transfer-ownership="none">
+            <type name="OsUpdate" c:type="MsOsUpdate*"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <type name="OsUpdateFlags" c:type="MsOsUpdateFlags"/>
+          </parameter>
+          <parameter name="cancel"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="4">
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="userdata"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="fetch_update_finish"
+                      invoker="fetch_update_finish"
+                      throws="1">
+        <source-position filename="libpms/ms-os-updater.h" line="35"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OsUpdater" c:type="MsOsUpdater*"/>
+          </instance-parameter>
+          <parameter name="res" transfer-ownership="none">
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="install_update"
+                      invoker="install_update"
+                      glib:finish-func="install_update_finish">
+        <source-position filename="libpms/ms-os-updater.h" line="49"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OsUpdater" c:type="MsOsUpdater*"/>
+          </instance-parameter>
+          <parameter name="update" transfer-ownership="none">
+            <type name="OsUpdate" c:type="MsOsUpdate*"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <type name="OsUpdateFlags" c:type="MsOsUpdateFlags"/>
+          </parameter>
+          <parameter name="cancel"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="4">
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="userdata"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="install_update_finish"
+                      invoker="install_update_finish"
+                      throws="1">
+        <source-position filename="libpms/ms-os-updater.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OsUpdater" c:type="MsOsUpdater*"/>
+          </instance-parameter>
+          <parameter name="res" transfer-ownership="none">
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="cancel_fetch_update"
+              c:identifier="ms_os_updater_cancel_fetch_update"
+              glib:finish-func="cancel_fetch_update_finish">
+        <source-position filename="libpms/ms-os-updater.h" line="99"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OsUpdater" c:type="MsOsUpdater*"/>
+          </instance-parameter>
+          <parameter name="update" transfer-ownership="none">
+            <type name="OsUpdate" c:type="MsOsUpdate*"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <type name="OsUpdateFlags" c:type="MsOsUpdateFlags"/>
+          </parameter>
+          <parameter name="cancel"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="4">
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="userdata"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="cancel_fetch_update_finish"
+              c:identifier="ms_os_updater_cancel_fetch_update_finish"
+              throws="1">
+        <source-position filename="libpms/ms-os-updater.h" line="106"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OsUpdater" c:type="MsOsUpdater*"/>
+          </instance-parameter>
+          <parameter name="res" transfer-ownership="none">
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="cancel_install_update"
+              c:identifier="ms_os_updater_cancel_install_update"
+              glib:finish-func="cancel_install_update_finish">
+        <source-position filename="libpms/ms-os-updater.h" line="121"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OsUpdater" c:type="MsOsUpdater*"/>
+          </instance-parameter>
+          <parameter name="update" transfer-ownership="none">
+            <type name="OsUpdate" c:type="MsOsUpdate*"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <type name="OsUpdateFlags" c:type="MsOsUpdateFlags"/>
+          </parameter>
+          <parameter name="cancel"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="4">
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="userdata"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="cancel_install_update_finish"
+              c:identifier="ms_os_updater_cancel_install_update_finish"
+              throws="1">
+        <source-position filename="libpms/ms-os-updater.h" line="128"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OsUpdater" c:type="MsOsUpdater*"/>
+          </instance-parameter>
+          <parameter name="res" transfer-ownership="none">
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="fetch_update"
+              c:identifier="ms_os_updater_fetch_update"
+              glib:finish-func="fetch_update_finish">
+        <source-position filename="libpms/ms-os-updater.h" line="88"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OsUpdater" c:type="MsOsUpdater*"/>
+          </instance-parameter>
+          <parameter name="update" transfer-ownership="none">
+            <type name="OsUpdate" c:type="MsOsUpdate*"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <type name="OsUpdateFlags" c:type="MsOsUpdateFlags"/>
+          </parameter>
+          <parameter name="cancel"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="4">
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="userdata"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="fetch_update_finish"
+              c:identifier="ms_os_updater_fetch_update_finish"
+              throws="1">
+        <source-position filename="libpms/ms-os-updater.h" line="95"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OsUpdater" c:type="MsOsUpdater*"/>
+          </instance-parameter>
+          <parameter name="res" transfer-ownership="none">
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_latest_update"
+              c:identifier="ms_os_updater_get_latest_update"
+              glib:get-property="latest-update">
+        <doc xml:space="preserve"
+             filename="libpms/ms-os-updater.c"
+             line="229">Get the latest update. This update, when applied would update the system
+to the most recent version.</doc>
+        <source-position filename="libpms/ms-os-updater.h" line="85"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libpms/ms-os-updater.c"
+               line="236">the update</doc>
+          <type name="OsUpdate" c:type="MsOsUpdate*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpms/ms-os-updater.c"
+                 line="231">The updater</doc>
+            <type name="OsUpdater" c:type="MsOsUpdater*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_ready"
+              c:identifier="ms_os_updater_get_ready"
+              glib:get-property="ready">
+        <source-position filename="libpms/ms-os-updater.h" line="83"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OsUpdater" c:type="MsOsUpdater*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_supported"
+              c:identifier="ms_os_updater_get_supported"
+              glib:get-property="supported">
+        <source-position filename="libpms/ms-os-updater.h" line="81"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OsUpdater" c:type="MsOsUpdater*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="install_update"
+              c:identifier="ms_os_updater_install_update"
+              glib:finish-func="install_update_finish">
+        <source-position filename="libpms/ms-os-updater.h" line="110"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OsUpdater" c:type="MsOsUpdater*"/>
+          </instance-parameter>
+          <parameter name="update" transfer-ownership="none">
+            <type name="OsUpdate" c:type="MsOsUpdate*"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <type name="OsUpdateFlags" c:type="MsOsUpdateFlags"/>
+          </parameter>
+          <parameter name="cancel"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="4">
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="userdata"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="install_update_finish"
+              c:identifier="ms_os_updater_install_update_finish"
+              throws="1">
+        <source-position filename="libpms/ms-os-updater.h" line="117"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OsUpdater" c:type="MsOsUpdater*"/>
+          </instance-parameter>
+          <parameter name="res" transfer-ownership="none">
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="latest-update"
+                transfer-ownership="none"
+                getter="get_latest_update">
+        <doc xml:space="preserve"
+             filename="libpms/ms-os-updater.c"
+             line="141">The latest update to install</doc>
+        <type name="OsUpdate"/>
+      </property>
+      <property name="ready"
+                transfer-ownership="none"
+                getter="get_ready"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="libpms/ms-os-updater.c"
+             line="132">Whether the updater is done checking for updates</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="supported"
+                transfer-ownership="none"
+                getter="get_supported"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="libpms/ms-os-updater.c"
+             line="123">Whether the system supports this service.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="OsUpdaterClass"
+            c:type="MsOsUpdaterClass"
+            glib:is-gtype-struct-for="OsUpdater">
+      <source-position filename="libpms/ms-os-updater.h" line="78"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="fetch_update">
+        <callback name="fetch_update">
+          <source-position filename="libpms/ms-os-updater.h" line="29"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="OsUpdater" c:type="MsOsUpdater*"/>
+            </parameter>
+            <parameter name="update" transfer-ownership="none">
+              <type name="OsUpdate" c:type="MsOsUpdate*"/>
+            </parameter>
+            <parameter name="flags" transfer-ownership="none">
+              <type name="OsUpdateFlags" c:type="MsOsUpdateFlags"/>
+            </parameter>
+            <parameter name="cancel"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1">
+              <type name="Gio.Cancellable" c:type="GCancellable*"/>
+            </parameter>
+            <parameter name="callback"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1"
+                       scope="async"
+                       closure="5">
+              <type name="Gio.AsyncReadyCallback"
+                    c:type="GAsyncReadyCallback"/>
+            </parameter>
+            <parameter name="userdata"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1">
+              <type name="gpointer" c:type="gpointer"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="fetch_update_finish">
+        <callback name="fetch_update_finish" throws="1">
+          <source-position filename="libpms/ms-os-updater.h" line="35"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="OsUpdater" c:type="MsOsUpdater*"/>
+            </parameter>
+            <parameter name="res" transfer-ownership="none">
+              <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="cancel_fetch_update">
+        <callback name="cancel_fetch_update">
+          <source-position filename="libpms/ms-os-updater.h" line="39"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="OsUpdater" c:type="MsOsUpdater*"/>
+            </parameter>
+            <parameter name="update" transfer-ownership="none">
+              <type name="OsUpdate" c:type="MsOsUpdate*"/>
+            </parameter>
+            <parameter name="flags" transfer-ownership="none">
+              <type name="OsUpdateFlags" c:type="MsOsUpdateFlags"/>
+            </parameter>
+            <parameter name="cancel"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1">
+              <type name="Gio.Cancellable" c:type="GCancellable*"/>
+            </parameter>
+            <parameter name="callback"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1"
+                       scope="async"
+                       closure="5">
+              <type name="Gio.AsyncReadyCallback"
+                    c:type="GAsyncReadyCallback"/>
+            </parameter>
+            <parameter name="userdata"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1">
+              <type name="gpointer" c:type="gpointer"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="cancel_fetch_update_finish">
+        <callback name="cancel_fetch_update_finish" throws="1">
+          <source-position filename="libpms/ms-os-updater.h" line="45"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="OsUpdater" c:type="MsOsUpdater*"/>
+            </parameter>
+            <parameter name="res" transfer-ownership="none">
+              <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="install_update">
+        <callback name="install_update">
+          <source-position filename="libpms/ms-os-updater.h" line="49"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="OsUpdater" c:type="MsOsUpdater*"/>
+            </parameter>
+            <parameter name="update" transfer-ownership="none">
+              <type name="OsUpdate" c:type="MsOsUpdate*"/>
+            </parameter>
+            <parameter name="flags" transfer-ownership="none">
+              <type name="OsUpdateFlags" c:type="MsOsUpdateFlags"/>
+            </parameter>
+            <parameter name="cancel"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1">
+              <type name="Gio.Cancellable" c:type="GCancellable*"/>
+            </parameter>
+            <parameter name="callback"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1"
+                       scope="async"
+                       closure="5">
+              <type name="Gio.AsyncReadyCallback"
+                    c:type="GAsyncReadyCallback"/>
+            </parameter>
+            <parameter name="userdata"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1">
+              <type name="gpointer" c:type="gpointer"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="install_update_finish">
+        <callback name="install_update_finish" throws="1">
+          <source-position filename="libpms/ms-os-updater.h" line="55"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="OsUpdater" c:type="MsOsUpdater*"/>
+            </parameter>
+            <parameter name="res" transfer-ownership="none">
+              <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="cancel_install_update">
+        <callback name="cancel_install_update">
+          <source-position filename="libpms/ms-os-updater.h" line="59"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="OsUpdater" c:type="MsOsUpdater*"/>
+            </parameter>
+            <parameter name="update" transfer-ownership="none">
+              <type name="OsUpdate" c:type="MsOsUpdate*"/>
+            </parameter>
+            <parameter name="flags" transfer-ownership="none">
+              <type name="OsUpdateFlags" c:type="MsOsUpdateFlags"/>
+            </parameter>
+            <parameter name="cancel"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1">
+              <type name="Gio.Cancellable" c:type="GCancellable*"/>
+            </parameter>
+            <parameter name="callback"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1"
+                       scope="async"
+                       closure="5">
+              <type name="Gio.AsyncReadyCallback"
+                    c:type="GAsyncReadyCallback"/>
+            </parameter>
+            <parameter name="userdata"
+                       transfer-ownership="none"
+                       nullable="1"
+                       allow-none="1">
+              <type name="gpointer" c:type="gpointer"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="cancel_install_update_finish">
+        <callback name="cancel_install_update_finish" throws="1">
+          <source-position filename="libpms/ms-os-updater.h" line="65"/>
+          <return-value transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="OsUpdater" c:type="MsOsUpdater*"/>
+            </parameter>
+            <parameter name="res" transfer-ownership="none">
+              <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="_ms_reserved1" introspectable="0">
+        <callback name="_ms_reserved1">
+          <source-position filename="libpms/ms-os-updater.h" line="70"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_ms_reserved2" introspectable="0">
+        <callback name="_ms_reserved2">
+          <source-position filename="libpms/ms-os-updater.h" line="71"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_ms_reserved3" introspectable="0">
+        <callback name="_ms_reserved3">
+          <source-position filename="libpms/ms-os-updater.h" line="72"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_ms_reserved4" introspectable="0">
+        <callback name="_ms_reserved4">
+          <source-position filename="libpms/ms-os-updater.h" line="73"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_ms_reserved5" introspectable="0">
+        <callback name="_ms_reserved5">
+          <source-position filename="libpms/ms-os-updater.h" line="74"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_ms_reserved6" introspectable="0">
+        <callback name="_ms_reserved6">
+          <source-position filename="libpms/ms-os-updater.h" line="75"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_ms_reserved7" introspectable="0">
+        <callback name="_ms_reserved7">
+          <source-position filename="libpms/ms-os-updater.h" line="76"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_ms_reserved8" introspectable="0">
+        <callback name="_ms_reserved8">
+          <source-position filename="libpms/ms-os-updater.h" line="77"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <class name="OskLayoutPrefs"
+           c:symbol-prefix="osk_layout_prefs"
+           c:type="MsOskLayoutPrefs"
+           parent="Adw.PreferencesGroup"
+           glib:type-name="MsOskLayoutPrefs"
+           glib:get-type="ms_osk_layout_prefs_get_type"
+           glib:type-struct="OskLayoutPrefsClass">
+      <doc xml:space="preserve"
+           filename="libpms/ms-osk-layout-prefs.c"
+           line="28">A preferences group managing OSK layouts.
+
+Layouts added via this dialog are automatically added to the list
+of input sources available to the user.</doc>
+      <source-position filename="libpms/ms-osk-layout-prefs.h" line="21"/>
+      <implements name="Gtk.Accessible"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.ConstraintTarget"/>
+      <constructor name="new" c:identifier="ms_osk_layout_prefs_new">
+        <source-position filename="libpms/ms-osk-layout-prefs.h" line="25"/>
+        <return-value transfer-ownership="none">
+          <type name="OskLayoutPrefs" c:type="MsOskLayoutPrefs*"/>
+        </return-value>
+      </constructor>
+      <method name="add_for_locale"
+              c:identifier="ms_osk_layout_prefs_add_for_locale">
+        <doc xml:space="preserve"
+             filename="libpms/ms-osk-layout-prefs.c"
+             line="682">Add a layout based on the given information to the currently active
+layouts.</doc>
+        <source-position filename="libpms/ms-osk-layout-prefs.h" line="38"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libpms/ms-osk-layout-prefs.c"
+               line="691">`TRUE` if a layout was added or the layout is already present.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpms/ms-osk-layout-prefs.c"
+                 line="684">The OSK layout prefs</doc>
+            <type name="OskLayoutPrefs" c:type="MsOskLayoutPrefs*"/>
+          </instance-parameter>
+          <parameter name="locale" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpms/ms-osk-layout-prefs.c"
+                 line="685">The locale to add a layout for</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="flavor"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libpms/ms-osk-layout-prefs.c"
+                 line="686">A flavor if s.th. like dvorak or colemak is preferred</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load_osk_layouts"
+              c:identifier="ms_osk_layout_prefs_load_osk_layouts">
+        <doc xml:space="preserve"
+             filename="libpms/ms-osk-layout-prefs.c"
+             line="587">Load the layouts the currently running OSK can handle. This is a
+blocking sync call. See [MsOskLayouts.load_osk_layouts_async] for
+an async version.</doc>
+        <source-position filename="libpms/ms-osk-layout-prefs.h" line="27"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpms/ms-osk-layout-prefs.c"
+                 line="589">The OSK layout prefs</doc>
+            <type name="OskLayoutPrefs" c:type="MsOskLayoutPrefs*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="load_osk_layouts_async"
+              c:identifier="ms_osk_layout_prefs_load_osk_layouts_async"
+              glib:finish-func="load_osk_layouts_finish">
+        <doc xml:space="preserve"
+             filename="libpms/ms-osk-layout-prefs.c"
+             line="646">Load the layouts the currently running OSK can handle. This is an async call.
+Use `ms_osk_layout_prefs_load_osk_layouts_async` to retrieve the result.</doc>
+        <source-position filename="libpms/ms-osk-layout-prefs.h" line="29"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libpms/ms-osk-layout-prefs.c"
+                 line="648">The OSK layout prefs</doc>
+            <type name="OskLayoutPrefs" c:type="MsOskLayoutPrefs*"/>
+          </instance-parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="2">
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="load_osk_layouts_finish"
+              c:identifier="ms_osk_layout_prefs_load_osk_layouts_finish"
+              throws="1">
+        <source-position filename="libpms/ms-osk-layout-prefs.h" line="34"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="OskLayoutPrefs" c:type="MsOskLayoutPrefs*"/>
+          </instance-parameter>
+          <parameter name="res" transfer-ownership="none">
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="OskLayoutPrefsClass"
+            c:type="MsOskLayoutPrefsClass"
+            glib:is-gtype-struct-for="OskLayoutPrefs">
+      <source-position filename="libpms/ms-osk-layout-prefs.h" line="21"/>
+      <field name="parent_class">
+        <type name="Adw.PreferencesGroupClass"
+              c:type="AdwPreferencesGroupClass"/>
+      </field>
+    </record>
+    <function name="get_default_os_updater_sync"
+              c:identifier="ms_get_default_os_updater_sync">
+      <doc xml:space="preserve"
+           filename="libpms/ms-main.c"
+           line="37">Get the default os updater. Check it's `supported` property to figure out
+if it is actually usable</doc>
+      <source-position filename="libpms/ms-main.h" line="23"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="libpms/ms-main.c"
+             line="43">The updater</doc>
+        <type name="OsUpdater" c:type="MsOsUpdater*"/>
+      </return-value>
+    </function>
+    <function name="init" c:identifier="ms_init">
+      <doc xml:space="preserve"
+           filename="libpms/ms-main.c"
+           line="19">Initialise the library.</doc>
+      <source-position filename="libpms/ms-main.h" line="20"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+    <function name="lang_get_country_from_locale"
+              c:identifier="ms_lang_get_country_from_locale">
+      <doc xml:space="preserve"
+           filename="libpms/ms-lang.c"
+           line="37">Gets the country description for @locale. If @translation is
+provided the returned string is translated accordingly.
+
+This just wraps gnome_get_country_from_locale().</doc>
+      <source-position filename="libpms/ms-lang.h" line="22"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="libpms/ms-lang.c"
+             line="47">the country description. Caller
+takes ownership.</doc>
+        <type name="utf8" c:type="char*"/>
+      </return-value>
+      <parameters>
+        <parameter name="locale" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libpms/ms-lang.c"
+               line="39">a locale string</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="translation"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="libpms/ms-lang.c"
+               line="40">a locale string</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="lang_get_language_from_locale"
+              c:identifier="ms_lang_get_language_from_locale">
+      <doc xml:space="preserve"
+           filename="libpms/ms-lang.c"
+           line="18">Gets the language description for @locale. If @translation is
+provided the returned string is translated accordingly.
+
+This just wraps gnome_get_language_from_locale().</doc>
+      <source-position filename="libpms/ms-lang.h" line="19"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="libpms/ms-lang.c"
+             line="28">the language description. Caller
+takes ownership.</doc>
+        <type name="utf8" c:type="char*"/>
+      </return-value>
+      <parameters>
+        <parameter name="locale" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libpms/ms-lang.c"
+               line="20">a locale string</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+        <parameter name="translation"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <doc xml:space="preserve"
+               filename="libpms/ms-lang.c"
+               line="21">a locale string</doc>
+          <type name="utf8" c:type="const char*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

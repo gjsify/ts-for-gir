@@ -1,13 +1,22 @@
 import type { IntrospectedNamespace } from "../gir/namespace.ts";
 import type { NSRegistry } from "../gir/registry.ts";
 import { makeUnion, NullType, TypeIdentifier } from "../gir.ts";
+import { mutterApiVersionsFrom } from "../mutter-api-versions.ts";
 
 const shellTemplate = (version: string) => ({
 	namespace: "Shell",
 	version,
 	modifier(namespace: IntrospectedNamespace, _registry: NSRegistry) {
-		// Get the GLSLEffect class which contains the add_glsl_snippet method
-		const GLSLEffect = namespace.assertClass("GLSLEffect");
+		// `getClass`, not `assertClass`: this is a targeted fixup for ONE method
+		// on ONE class, and the class is not guaranteed to be there. GNOME 51
+		// dropped `Shell.GLSLEffect` outright, so asserting it aborted the whole
+		// generation the moment Shell-51 entered the version list — an OPTIONAL
+		// injection (registered with `$_`) that made a missing class fatal.
+		// Nothing to widen is not an error; it is the injection having no work.
+		const GLSLEffect = namespace.getClass("GLSLEffect");
+		if (!GLSLEffect) {
+			return;
+		}
 
 		// Find the add_glsl_snippet method
 		const addGlslSnippet = GLSLEffect.members.find((m) => m.name === "add_glsl_snippet");
@@ -37,16 +46,7 @@ const shellTemplate = (version: string) => ({
 	},
 });
 
-/** Shell 14 was introduced with GNOME 46 */
-export const shell14 = shellTemplate("14");
-/** Shell 15 was introduced with GNOME 47 */
-export const shell15 = shellTemplate("15");
-/** Shell 16 was introduced with GNOME 48 */
-export const shell16 = shellTemplate("16");
-/** Shell 17 was introduced with GNOME 49 */
-export const shell17 = shellTemplate("17");
-/** Shell 18 was introduced with GNOME 50 */
-export const shell18 = shellTemplate("18");
-// Possibly future versions, adjust if necessary
-export const shell19 = shellTemplate("19");
-export const shell20 = shellTemplate("20");
+// Version exports — one injection per known Mutter API version from 14 on.
+// Older Shell GIRs have no `GLSLEffect`, which the modifier asserts. See
+// MUTTER_API_VERSIONS for why the list of cycles lives in one shared place.
+export const shellTemplates = mutterApiVersionsFrom("14").map(shellTemplate);

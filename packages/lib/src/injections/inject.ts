@@ -6,7 +6,7 @@ import gio from "./gio.ts";
 import glib from "./glib.ts";
 import gobject from "./gobject.ts";
 import gtk4 from "./gtk4.ts";
-import { shell14, shell15, shell16, shell17, shell18, shell19, shell20 } from "./shell.ts";
+import { shellTemplates } from "./shell.ts";
 import tracker1 from "./tracker1.ts";
 
 export type NamespaceInjection = (namespace: IntrospectedNamespace, registry: NSRegistry) => void;
@@ -39,11 +39,7 @@ export function inject(registry: NSRegistry) {
 	$_(gee08);
 	$_(gee1);
 	$_(gtk4);
-	$_(shell14);
-	$_(shell15);
-	$_(shell16);
-	$_(shell17);
-	$_(shell18);
-	$_(shell19);
-	$_(shell20);
+	for (const shell of shellTemplates) {
+		$_(shell);
+	}
 }

@@ -1222,20 +1222,20 @@ identified by @id is stored</doc>
               version="1.24">
         <doc xml:space="preserve"
              filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-             line="292">Retrieve location confidence level.</doc>
+             line="297">Retrieve location confidence level.</doc>
         <source-position filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.h"
                          line="61"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-               line="299">TRUE on success, otherwise FALSE.</doc>
+               line="304">TRUE on success, otherwise FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="instance" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="294">instance</doc>
+                 line="299">instance</doc>
             <type name="ODMtd" c:type="const GstAnalyticsODMtd*"/>
           </instance-parameter>
           <parameter name="loc_conf_lvl"
@@ -1244,7 +1244,7 @@ identified by @id is stored</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="295">Confidence on object location</doc>
+                 line="300">Confidence on object location</doc>
             <type name="gfloat" c:type="gfloat*"/>
           </parameter>
         </parameters>
@@ -1254,20 +1254,20 @@ identified by @id is stored</doc>
               version="1.24">
         <doc xml:space="preserve"
              filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-             line="168">Retrieve location and location confidence level.</doc>
+             line="173">Retrieve location and location confidence level.</doc>
         <source-position filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.h"
                          line="52"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-               line="180">TRUE on success, otherwise FALSE.</doc>
+               line="185">TRUE on success, otherwise FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="instance" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="170">instance</doc>
+                 line="175">instance</doc>
             <type name="ODMtd" c:type="const GstAnalyticsODMtd*"/>
           </instance-parameter>
           <parameter name="x"
@@ -1276,7 +1276,7 @@ identified by @id is stored</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="171">x component of upper-left corner of the object location</doc>
+                 line="176">x component of upper-left corner of the object location</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
           <parameter name="y"
@@ -1285,7 +1285,7 @@ identified by @id is stored</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="172">y component of upper-left corner of the object location</doc>
+                 line="177">y component of upper-left corner of the object location</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
           <parameter name="w"
@@ -1294,7 +1294,7 @@ identified by @id is stored</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="173">bounding box width of the object location</doc>
+                 line="178">bounding box width of the object location</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
           <parameter name="h"
@@ -1303,7 +1303,7 @@ identified by @id is stored</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="174">bounding box height of the object location</doc>
+                 line="179">bounding box height of the object location</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
           <parameter name="loc_conf_lvl"
@@ -1314,7 +1314,7 @@ identified by @id is stored</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="175">Confidence on object location</doc>
+                 line="180">Confidence on object location</doc>
             <type name="gfloat" c:type="gfloat*"/>
           </parameter>
         </parameters>
@@ -1324,20 +1324,20 @@ identified by @id is stored</doc>
               version="1.24">
         <doc xml:space="preserve"
              filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-             line="319">Quark of the class of object associated with this location.</doc>
+             line="324">Quark of the class of object associated with this location.</doc>
         <source-position filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.h"
                          line="65"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-               line="325">Quark different from on success and 0 on failure.</doc>
+               line="330">Quark different from on success and 0 on failure.</doc>
           <type name="GLib.Quark" c:type="GQuark"/>
         </return-value>
         <parameters>
           <instance-parameter name="handle" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="321">Instance handle</doc>
+                 line="326">Instance handle</doc>
             <type name="ODMtd" c:type="const GstAnalyticsODMtd*"/>
           </instance-parameter>
         </parameters>
@@ -1347,20 +1347,20 @@ identified by @id is stored</doc>
               version="1.26">
         <doc xml:space="preserve"
              filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-             line="250">Retrieve oriented location and location confidence level.</doc>
+             line="255">Retrieve oriented location and location confidence level.</doc>
         <source-position filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.h"
                          line="56"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-               line="265">TRUE on success, otherwise FALSE.</doc>
+               line="270">TRUE on success, otherwise FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="instance" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="252">instance</doc>
+                 line="257">instance</doc>
             <type name="ODMtd" c:type="const GstAnalyticsODMtd*"/>
           </instance-parameter>
           <parameter name="x"
@@ -1369,7 +1369,7 @@ identified by @id is stored</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="253">x component of upper-left corner of the object location (pre-rotation)</doc>
+                 line="258">x component of upper-left corner of the object location (pre-rotation)</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
           <parameter name="y"
@@ -1378,7 +1378,7 @@ identified by @id is stored</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="254">y component of upper-left corner of the object location (pre-rotation)</doc>
+                 line="259">y component of upper-left corner of the object location (pre-rotation)</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
           <parameter name="w"
@@ -1387,7 +1387,7 @@ identified by @id is stored</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="255">bounding box width of the object location</doc>
+                 line="260">bounding box width of the object location</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
           <parameter name="h"
@@ -1396,7 +1396,7 @@ identified by @id is stored</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="256">bounding box height of the object location</doc>
+                 line="261">bounding box height of the object location</doc>
             <type name="gint" c:type="gint*"/>
           </parameter>
           <parameter name="r"
@@ -1405,7 +1405,7 @@ identified by @id is stored</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="257">Rotation of the bounding box in radians &lt;0, 2xPI&gt;
+                 line="262">Rotation of the bounding box in radians &lt;0, 2xPI&gt;
    with respect to the bounding box center
    (the rotation value is a clock-wise angle)</doc>
             <type name="gfloat" c:type="gfloat*"/>
@@ -1418,7 +1418,7 @@ identified by @id is stored</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="260">Confidence on object location</doc>
+                 line="265">Confidence on object location</doc>
             <type name="gfloat" c:type="gfloat*"/>
           </parameter>
         </parameters>
@@ -1428,13 +1428,13 @@ identified by @id is stored</doc>
                 version="1.24">
         <doc xml:space="preserve"
              filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-             line="153">Get an id that represent object-detection metadata type</doc>
+             line="158">Get an id that represent object-detection metadata type</doc>
         <source-position filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.h"
                          line="49"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-               line="158">Opaque id of the #GstAnalyticsMtd type</doc>
+               line="163">Opaque id of the #GstAnalyticsMtd type</doc>
           <type name="MtdType" c:type="GstAnalyticsMtdType"/>
         </return-value>
       </function>
@@ -1609,50 +1609,50 @@ new struct sub-classing GstAnalyticsRelatableMtd.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-               line="351">Added successfully</doc>
+               line="356">Added successfully</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="instance" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="341">Instance of #GstAnalyticsRelationMeta where to add classification instance</doc>
+                 line="346">Instance of #GstAnalyticsRelationMeta where to add classification instance</doc>
             <type name="RelationMeta" c:type="GstAnalyticsRelationMeta*"/>
           </instance-parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="342">Quark of the object type</doc>
+                 line="347">Quark of the object type</doc>
             <type name="GLib.Quark" c:type="GQuark"/>
           </parameter>
           <parameter name="x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="343">x component of bounding box upper-left corner</doc>
+                 line="348">x component of bounding box upper-left corner</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="344">y component of bounding box upper-left corner</doc>
+                 line="349">y component of bounding box upper-left corner</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="w" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="345">bounding box width</doc>
+                 line="350">bounding box width</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="346">bounding box height</doc>
+                 line="351">bounding box height</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="loc_conf_lvl" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="347">confidence level on the object location</doc>
+                 line="352">confidence level on the object location</doc>
             <type name="gfloat" c:type="gfloat"/>
           </parameter>
           <parameter name="od_mtd"
@@ -1662,7 +1662,7 @@ new struct sub-classing GstAnalyticsRelatableMtd.</doc>
                      nullable="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="348">Handle updated with newly added object detection
+                 line="353">Handle updated with newly added object detection
    meta. Add an object-detetion metadata to @instance.</doc>
             <type name="ODMtd" c:type="GstAnalyticsODMtd*"/>
           </parameter>
@@ -1722,50 +1722,50 @@ new struct sub-classing GstAnalyticsRelatableMtd.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-               line="391">Added successfully</doc>
+               line="396">Added successfully</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="instance" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="378">Instance of #GstAnalyticsRelationMeta where to add classification instance</doc>
+                 line="383">Instance of #GstAnalyticsRelationMeta where to add classification instance</doc>
             <type name="RelationMeta" c:type="GstAnalyticsRelationMeta*"/>
           </instance-parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="379">Quark of the object type</doc>
+                 line="384">Quark of the object type</doc>
             <type name="GLib.Quark" c:type="GQuark"/>
           </parameter>
           <parameter name="x" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="380">x component of bounding box upper-left corner (pre-rotation)</doc>
+                 line="385">x component of bounding box upper-left corner (pre-rotation)</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="y" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="381">y component of bounding box upper-left corner (pre-rotation)</doc>
+                 line="386">y component of bounding box upper-left corner (pre-rotation)</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="w" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="382">bounding box width</doc>
+                 line="387">bounding box width</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="h" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="383">bounding box height</doc>
+                 line="388">bounding box height</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="r" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="384">bounding box rotation in radians &lt;0, 2xPI&gt;
+                 line="389">bounding box rotation in radians &lt;0, 2xPI&gt;
    with respect to the bounding box center
    (the rotation value is a clock-wise angle)</doc>
             <type name="gfloat" c:type="gfloat"/>
@@ -1773,7 +1773,7 @@ new struct sub-classing GstAnalyticsRelatableMtd.</doc>
           <parameter name="loc_conf_lvl" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="387">confidence level on the object location</doc>
+                 line="392">confidence level on the object location</doc>
             <type name="gfloat" c:type="gfloat"/>
           </parameter>
           <parameter name="od_mtd"
@@ -1783,7 +1783,7 @@ new struct sub-classing GstAnalyticsRelatableMtd.</doc>
                      nullable="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="388">Handle updated with newly added object detection
+                 line="393">Handle updated with newly added object detection
    meta. Add an object-detetion metadata to @instance.</doc>
             <type name="ODMtd" c:type="GstAnalyticsODMtd*"/>
           </parameter>
@@ -2287,27 +2287,27 @@ otherwise this method return FALSE and @rlt is invalid.</doc>
               version="1.24">
         <doc xml:space="preserve"
              filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-             line="416">Fill @rlt if a analytics-meta with id == @an_meta_id exist in @meta instance,
+             line="421">Fill @rlt if a analytics-meta with id == @an_meta_id exist in @meta instance,
 otherwise this method return FALSE and @rlt is invalid.</doc>
         <source-position filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.h"
                          line="80"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-               line="426">TRUE if successful.</doc>
+               line="431">TRUE if successful.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="418">Instance of #GstAnalyticsRelationMeta</doc>
+                 line="423">Instance of #GstAnalyticsRelationMeta</doc>
             <type name="RelationMeta" c:type="GstAnalyticsRelationMeta*"/>
           </instance-parameter>
           <parameter name="an_meta_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="419">Id of #GstAnalyticsODMtd instance to retrieve</doc>
+                 line="424">Id of #GstAnalyticsODMtd instance to retrieve</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="rlt"
@@ -2316,7 +2316,7 @@ otherwise this method return FALSE and @rlt is invalid.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-                 line="420">Will be filled with relatable
+                 line="425">Will be filled with relatable
    meta</doc>
             <type name="ODMtd" c:type="GstAnalyticsODMtd*"/>
           </parameter>
@@ -2365,27 +2365,27 @@ Ids (@an_meta_first_id and @an_meta_second_id) must be from a call to
               version="1.26">
         <doc xml:space="preserve"
              filename="gst-libs/gst/analytics/gstanalyticssegmentationmtd.c"
-             line="492">Fill @rlt if a analytics-meta with id == @an_meta_id exist in @meta instance,
+             line="498">Fill @rlt if a analytics-meta with id == @an_meta_id exist in @meta instance,
 otherwise this method return FALSE and @rlt is invalid.</doc>
         <source-position filename="gst-libs/gst/analytics/gstanalyticssegmentationmtd.h"
                          line="98"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/analytics/gstanalyticssegmentationmtd.c"
-               line="502">TRUE if successful.</doc>
+               line="508">TRUE if successful.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticssegmentationmtd.c"
-                 line="494">Instance of #GstAnalyticsRelationMeta</doc>
+                 line="500">Instance of #GstAnalyticsRelationMeta</doc>
             <type name="RelationMeta" c:type="GstAnalyticsRelationMeta*"/>
           </instance-parameter>
           <parameter name="an_meta_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticssegmentationmtd.c"
-                 line="495">Id of #GstAnalyticsSegmentationMtd instance to retrieve</doc>
+                 line="501">Id of #GstAnalyticsSegmentationMtd instance to retrieve</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="rlt"
@@ -2394,7 +2394,7 @@ otherwise this method return FALSE and @rlt is invalid.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticssegmentationmtd.c"
-                 line="496">Will be filled with relatable
+                 line="502">Will be filled with relatable
    meta</doc>
             <type name="SegmentationMtd"
                   c:type="GstAnalyticsSegmentationMtd*"/>
@@ -4374,13 +4374,13 @@ when no longer needed.</doc>
               version="1.24">
       <doc xml:space="preserve"
            filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-           line="153">Get an id that represent object-detection metadata type</doc>
+           line="158">Get an id that represent object-detection metadata type</doc>
       <source-position filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.h"
                        line="49"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/analytics/gstanalyticsobjectdetectionmtd.c"
-             line="158">Opaque id of the #GstAnalyticsMtd type</doc>
+             line="163">Opaque id of the #GstAnalyticsMtd type</doc>
         <type name="MtdType" c:type="GstAnalyticsMtdType"/>
       </return-value>
     </function>

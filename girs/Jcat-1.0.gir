@@ -29,25 +29,25 @@ and/or use gtk-doc annotations.  -->
       <constructor name="new" c:identifier="jcat_blob_new" version="0.1.0">
         <doc xml:space="preserve"
              filename="libjcat/jcat-blob.c"
-             line="487">Creates a new blob.</doc>
+             line="532">Creates a new blob.</doc>
         <source-position filename="libjcat/jcat-blob.h" line="92"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libjcat/jcat-blob.c"
-               line="494">a #JcatBlob</doc>
+               line="539">a #JcatBlob</doc>
           <type name="Blob" c:type="JcatBlob*"/>
         </return-value>
         <parameters>
           <parameter name="kind" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-blob.c"
-                 line="489">#JcatBlobKind, e.g. %JCAT_BLOB_KIND_SHA256</doc>
+                 line="534">#JcatBlobKind, e.g. %JCAT_BLOB_KIND_SHA256</doc>
             <type name="BlobKind" c:type="JcatBlobKind"/>
           </parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-blob.c"
-                 line="490">#GBytes</doc>
+                 line="535">#GBytes</doc>
             <type name="GLib.Bytes" c:type="GBytes*"/>
           </parameter>
         </parameters>
@@ -57,31 +57,31 @@ and/or use gtk-doc annotations.  -->
                    version="0.1.0">
         <doc xml:space="preserve"
              filename="libjcat/jcat-blob.c"
-             line="426">Creates a new blob.</doc>
+             line="471">Creates a new blob.</doc>
         <source-position filename="libjcat/jcat-blob.h" line="94"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libjcat/jcat-blob.c"
-               line="434">a #JcatBlob</doc>
+               line="479">a #JcatBlob</doc>
           <type name="Blob" c:type="JcatBlob*"/>
         </return-value>
         <parameters>
           <parameter name="kind" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-blob.c"
-                 line="428">#JcatBlobKind, e.g. %JCAT_BLOB_KIND_SHA256</doc>
+                 line="473">#JcatBlobKind, e.g. %JCAT_BLOB_KIND_SHA256</doc>
             <type name="BlobKind" c:type="JcatBlobKind"/>
           </parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-blob.c"
-                 line="429">#GBytes</doc>
+                 line="474">#GBytes</doc>
             <type name="GLib.Bytes" c:type="GBytes*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-blob.c"
-                 line="430">#JcatBlobFlags</doc>
+                 line="475">#JcatBlobFlags</doc>
             <type name="BlobFlags" c:type="JcatBlobFlags"/>
           </parameter>
         </parameters>
@@ -91,25 +91,25 @@ and/or use gtk-doc annotations.  -->
                    version="0.1.0">
         <doc xml:space="preserve"
              filename="libjcat/jcat-blob.c"
-             line="504">Creates a new ASCII blob.</doc>
+             line="549">Creates a new ASCII blob.</doc>
         <source-position filename="libjcat/jcat-blob.h" line="96"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libjcat/jcat-blob.c"
-               line="511">a #JcatBlob</doc>
+               line="556">a #JcatBlob</doc>
           <type name="Blob" c:type="JcatBlob*"/>
         </return-value>
         <parameters>
           <parameter name="kind" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-blob.c"
-                 line="506">#JcatBlobKind, e.g. %JCAT_BLOB_KIND_SHA256</doc>
+                 line="551">#JcatBlobKind, e.g. %JCAT_BLOB_KIND_SHA256</doc>
             <type name="BlobKind" c:type="JcatBlobKind"/>
           </parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-blob.c"
-                 line="507">ASCII data</doc>
+                 line="552">ASCII data</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -185,19 +185,19 @@ and/or use gtk-doc annotations.  -->
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libjcat/jcat-blob.c"
-             line="329">Gets the optional AppStream ID for the blob.</doc>
+             line="374">Gets the optional AppStream ID for the blob.</doc>
         <source-position filename="libjcat/jcat-blob.h" line="114"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libjcat/jcat-blob.c"
-               line="335">a string, or %NULL if not set</doc>
+               line="380">a string, or %NULL if not set</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-blob.c"
-                 line="331">#JcatBlob</doc>
+                 line="376">#JcatBlob</doc>
             <type name="Blob" c:type="JcatBlob*"/>
           </instance-parameter>
         </parameters>
@@ -207,19 +207,19 @@ and/or use gtk-doc annotations.  -->
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libjcat/jcat-blob.c"
-             line="365">Gets the data stored in the blob, typically in binary (unprintable) form.</doc>
+             line="410">Gets the data stored in the blob, typically in binary (unprintable) form.</doc>
         <source-position filename="libjcat/jcat-blob.h" line="100"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libjcat/jcat-blob.c"
-               line="371">a #GBytes, or %NULL if the filename was not found</doc>
+               line="416">a #GBytes, or %NULL if the filename was not found</doc>
           <type name="GLib.Bytes" c:type="GBytes*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-blob.c"
-                 line="367">#JcatBlob</doc>
+                 line="412">#JcatBlob</doc>
             <type name="Blob" c:type="JcatBlob*"/>
           </instance-parameter>
         </parameters>
@@ -229,19 +229,19 @@ and/or use gtk-doc annotations.  -->
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libjcat/jcat-blob.c"
-             line="383">Gets the data stored in the blob, in human readable form.</doc>
+             line="428">Gets the data stored in the blob, in human readable form.</doc>
         <source-position filename="libjcat/jcat-blob.h" line="102"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libjcat/jcat-blob.c"
-               line="389">base64 encoded version of data</doc>
+               line="434">base64 encoded version of data</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-blob.c"
-                 line="385">#JcatBlob</doc>
+                 line="430">#JcatBlob</doc>
             <type name="Blob" c:type="JcatBlob*"/>
           </instance-parameter>
         </parameters>
@@ -251,19 +251,19 @@ and/or use gtk-doc annotations.  -->
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libjcat/jcat-blob.c"
-             line="408">gets the blob kind</doc>
+             line="453">gets the blob kind</doc>
         <source-position filename="libjcat/jcat-blob.h" line="104"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libjcat/jcat-blob.c"
-               line="414">#JcatBlobKind, e.g. %JCAT_BLOB_KIND_SHA256</doc>
+               line="459">#JcatBlobKind, e.g. %JCAT_BLOB_KIND_SHA256</doc>
           <type name="BlobKind" c:type="JcatBlobKind"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-blob.c"
-                 line="410">#JcatBlob</doc>
+                 line="455">#JcatBlob</doc>
             <type name="Blob" c:type="JcatBlob*"/>
           </instance-parameter>
         </parameters>
@@ -273,19 +273,19 @@ and/or use gtk-doc annotations.  -->
               version="0.2.0">
         <doc xml:space="preserve"
              filename="libjcat/jcat-blob.c"
-             line="452">Gets the blob target.</doc>
+             line="497">Gets the blob target.</doc>
         <source-position filename="libjcat/jcat-blob.h" line="106"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libjcat/jcat-blob.c"
-               line="458">#JcatBlobKind, e.g. %JCAT_BLOB_KIND_SHA256</doc>
+               line="503">#JcatBlobKind, e.g. %JCAT_BLOB_KIND_SHA256</doc>
           <type name="BlobKind" c:type="JcatBlobKind"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-blob.c"
-                 line="454">#JcatBlob</doc>
+                 line="499">#JcatBlob</doc>
             <type name="Blob" c:type="JcatBlob*"/>
           </instance-parameter>
         </parameters>
@@ -295,19 +295,19 @@ and/or use gtk-doc annotations.  -->
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libjcat/jcat-blob.c"
-             line="294">Gets the creation timestamp for the blob.</doc>
+             line="339">Gets the creation timestamp for the blob.</doc>
         <source-position filename="libjcat/jcat-blob.h" line="110"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libjcat/jcat-blob.c"
-               line="300">UTC UNIX time, or 0 if unset</doc>
+               line="345">UTC UNIX time, or 0 if unset</doc>
           <type name="gint64" c:type="gint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-blob.c"
-                 line="296">#JcatBlob</doc>
+                 line="341">#JcatBlob</doc>
             <type name="Blob" c:type="JcatBlob*"/>
           </instance-parameter>
         </parameters>
@@ -317,7 +317,7 @@ and/or use gtk-doc annotations.  -->
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libjcat/jcat-blob.c"
-             line="347">Sets an optional AppStream ID on the blob.</doc>
+             line="392">Sets an optional AppStream ID on the blob.</doc>
         <source-position filename="libjcat/jcat-blob.h" line="116"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -326,7 +326,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-blob.c"
-                 line="349">#JcatBlob</doc>
+                 line="394">#JcatBlob</doc>
             <type name="Blob" c:type="JcatBlob*"/>
           </instance-parameter>
           <parameter name="appstream_id"
@@ -335,7 +335,7 @@ and/or use gtk-doc annotations.  -->
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-blob.c"
-                 line="350">string</doc>
+                 line="395">string</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -345,7 +345,7 @@ and/or use gtk-doc annotations.  -->
               version="0.2.0">
         <doc xml:space="preserve"
              filename="libjcat/jcat-blob.c"
-             line="470">Sets the blob target.</doc>
+             line="515">Sets the blob target.</doc>
         <source-position filename="libjcat/jcat-blob.h" line="108"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -354,13 +354,13 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-blob.c"
-                 line="472">#JcatBlob</doc>
+                 line="517">#JcatBlob</doc>
             <type name="Blob" c:type="JcatBlob*"/>
           </instance-parameter>
           <parameter name="target" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-blob.c"
-                 line="473">a #JcatBlobKind, e.g. %JCAT_BLOB_KIND_SHA256</doc>
+                 line="518">a #JcatBlobKind, e.g. %JCAT_BLOB_KIND_SHA256</doc>
             <type name="BlobKind" c:type="JcatBlobKind"/>
           </parameter>
         </parameters>
@@ -370,7 +370,7 @@ and/or use gtk-doc annotations.  -->
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libjcat/jcat-blob.c"
-             line="312">Sets the creation timestamp for the blob.</doc>
+             line="357">Sets the creation timestamp for the blob.</doc>
         <source-position filename="libjcat/jcat-blob.h" line="112"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -379,13 +379,13 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-blob.c"
-                 line="314">#JcatBlob</doc>
+                 line="359">#JcatBlob</doc>
             <type name="Blob" c:type="JcatBlob*"/>
           </instance-parameter>
           <parameter name="timestamp" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-blob.c"
-                 line="315">UTC timestamp</doc>
+                 line="360">UTC timestamp</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
         </parameters>
@@ -395,19 +395,19 @@ and/or use gtk-doc annotations.  -->
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libjcat/jcat-blob.c"
-             line="201">Converts the #JcatBlob to a string.</doc>
+             line="203">Converts the #JcatBlob to a string.</doc>
         <source-position filename="libjcat/jcat-blob.h" line="98"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libjcat/jcat-blob.c"
-               line="207">string</doc>
+               line="209">string</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-blob.c"
-                 line="203">#JcatBlob</doc>
+                 line="205">#JcatBlob</doc>
             <type name="Blob" c:type="JcatBlob*"/>
           </instance-parameter>
         </parameters>
@@ -951,12 +951,12 @@ major.minor.micro.</doc>
       <constructor name="new" c:identifier="jcat_context_new" version="0.1.0">
         <doc xml:space="preserve"
              filename="libjcat/jcat-context.c"
-             line="571">Creates a new context.</doc>
+             line="589">Creates a new context.</doc>
         <source-position filename="libjcat/jcat-context.h" line="25"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libjcat/jcat-context.c"
-               line="576">a #JcatContext</doc>
+               line="594">a #JcatContext</doc>
           <type name="Context" c:type="JcatContext*"/>
         </return-value>
       </constructor>
@@ -1234,13 +1234,13 @@ failed</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libjcat/jcat-context.c"
-             line="427">Verifies a #JcatItem using the target to an item. At least one `verify=CHECKSUM` (e.g. SHA256)
+             line="436">Verifies a #JcatItem using the target to an item. At least one `verify=CHECKSUM` (e.g. SHA256)
 must exist and all checksum types that do exist must verify correctly.</doc>
         <source-position filename="libjcat/jcat-context.h" line="49"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="libjcat/jcat-context.c"
-               line="438">results, or %NULL for failed</doc>
+               line="447">results, or %NULL for failed</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="Result"/>
           </array>
@@ -1249,25 +1249,25 @@ must exist and all checksum types that do exist must verify correctly.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-context.c"
-                 line="429">#JcatContext</doc>
+                 line="438">#JcatContext</doc>
             <type name="Context" c:type="JcatContext*"/>
           </instance-parameter>
           <parameter name="item_target" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-context.c"
-                 line="430">#JcatItem containing checksums of the data</doc>
+                 line="439">#JcatItem containing checksums of the data</doc>
             <type name="Item" c:type="JcatItem*"/>
           </parameter>
           <parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-context.c"
-                 line="431">#JcatItem</doc>
+                 line="440">#JcatItem</doc>
             <type name="Item" c:type="JcatItem*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-context.c"
-                 line="432">#JcatVerifyFlags, e.g. %JCAT_VERIFY_FLAG_REQUIRE_SIGNATURE</doc>
+                 line="441">#JcatVerifyFlags, e.g. %JCAT_VERIFY_FLAG_REQUIRE_SIGNATURE</doc>
             <type name="VerifyFlags" c:type="JcatVerifyFlags"/>
           </parameter>
         </parameters>
@@ -2027,12 +2027,12 @@ must exist and all checksum types that do exist must verify correctly.</doc>
       <constructor name="new" c:identifier="jcat_file_new" version="0.1.0">
         <doc xml:space="preserve"
              filename="libjcat/jcat-file.c"
-             line="512">Creates a new file.</doc>
+             line="544">Creates a new file.</doc>
         <source-position filename="libjcat/jcat-file.h" line="24"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libjcat/jcat-file.c"
-               line="517">a #JcatFile</doc>
+               line="549">a #JcatFile</doc>
           <type name="File" c:type="JcatFile*"/>
         </return-value>
       </constructor>
@@ -2041,7 +2041,7 @@ must exist and all checksum types that do exist must verify correctly.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libjcat/jcat-file.c"
-             line="458">Adds an item to a file.</doc>
+             line="490">Adds an item to a file.</doc>
         <source-position filename="libjcat/jcat-file.h" line="63"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2050,13 +2050,13 @@ must exist and all checksum types that do exist must verify correctly.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-file.c"
-                 line="460">#JcatFile</doc>
+                 line="492">#JcatFile</doc>
             <type name="File" c:type="JcatFile*"/>
           </instance-parameter>
           <parameter name="item" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-file.c"
-                 line="461">#JcatItem</doc>
+                 line="493">#JcatItem</doc>
             <type name="Item" c:type="JcatItem*"/>
           </parameter>
         </parameters>
@@ -2067,31 +2067,31 @@ must exist and all checksum types that do exist must verify correctly.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libjcat/jcat-file.c"
-             line="325">Exports a Jcat file to a compressed file.</doc>
+             line="334">Exports a Jcat file to a compressed file.</doc>
         <source-position filename="libjcat/jcat-file.h" line="49"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libjcat/jcat-file.c"
-               line="335">%TRUE for success</doc>
+               line="344">%TRUE for success</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-file.c"
-                 line="327">#JcatFile</doc>
+                 line="336">#JcatFile</doc>
             <type name="File" c:type="JcatFile*"/>
           </instance-parameter>
           <parameter name="gfile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-file.c"
-                 line="328">#gfile</doc>
+                 line="337">#gfile</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-file.c"
-                 line="329">a #JcatExportFlags, typically %JCAT_EXPORT_FLAG_NONE</doc>
+                 line="338">a #JcatExportFlags, typically %JCAT_EXPORT_FLAG_NONE</doc>
             <type name="ExportFlags" c:type="JcatExportFlags"/>
           </parameter>
           <parameter name="cancellable"
@@ -2100,7 +2100,7 @@ must exist and all checksum types that do exist must verify correctly.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-file.c"
-                 line="330">#GCancellable, or %NULL</doc>
+                 line="339">#GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -2111,25 +2111,25 @@ must exist and all checksum types that do exist must verify correctly.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libjcat/jcat-file.c"
-             line="252">Exports a Jcat file to raw JSON.</doc>
+             line="261">Exports a Jcat file to raw JSON.</doc>
         <source-position filename="libjcat/jcat-file.h" line="55"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libjcat/jcat-file.c"
-               line="260">JSON output, or %NULL for error</doc>
+               line="269">JSON output, or %NULL for error</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-file.c"
-                 line="254">#JcatFile</doc>
+                 line="263">#JcatFile</doc>
             <type name="File" c:type="JcatFile*"/>
           </instance-parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-file.c"
-                 line="255">a #JcatExportFlags, typically %JCAT_EXPORT_FLAG_NONE</doc>
+                 line="264">a #JcatExportFlags, typically %JCAT_EXPORT_FLAG_NONE</doc>
             <type name="ExportFlags" c:type="JcatExportFlags"/>
           </parameter>
         </parameters>
@@ -2140,31 +2140,31 @@ must exist and all checksum types that do exist must verify correctly.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libjcat/jcat-file.c"
-             line="282">Exports a Jcat file to a compressed stream.</doc>
+             line="291">Exports a Jcat file to a compressed stream.</doc>
         <source-position filename="libjcat/jcat-file.h" line="43"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libjcat/jcat-file.c"
-               line="292">%TRUE for success</doc>
+               line="301">%TRUE for success</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-file.c"
-                 line="284">#JcatFile</doc>
+                 line="293">#JcatFile</doc>
             <type name="File" c:type="JcatFile*"/>
           </instance-parameter>
           <parameter name="ostream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-file.c"
-                 line="285">#GOutputStream</doc>
+                 line="294">#GOutputStream</doc>
             <type name="Gio.OutputStream" c:type="GOutputStream*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-file.c"
-                 line="286">a #JcatExportFlags, typically %JCAT_EXPORT_FLAG_NONE</doc>
+                 line="295">a #JcatExportFlags, typically %JCAT_EXPORT_FLAG_NONE</doc>
             <type name="ExportFlags" c:type="JcatExportFlags"/>
           </parameter>
           <parameter name="cancellable"
@@ -2173,7 +2173,7 @@ must exist and all checksum types that do exist must verify correctly.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-file.c"
-                 line="287">#GCancellable, or %NULL</doc>
+                 line="296">#GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -2184,25 +2184,25 @@ must exist and all checksum types that do exist must verify correctly.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libjcat/jcat-file.c"
-             line="377">Finds the item with the specified ID, falling back to the ID alias if set.</doc>
+             line="386">Finds the item with the specified ID, falling back to the ID alias if set.</doc>
         <source-position filename="libjcat/jcat-file.h" line="59"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libjcat/jcat-file.c"
-               line="385">a #JcatItem, or %NULL if the filename was not found</doc>
+               line="394">a #JcatItem, or %NULL if the filename was not found</doc>
           <type name="Item" c:type="JcatItem*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-file.c"
-                 line="379">#JcatFile</doc>
+                 line="388">#JcatFile</doc>
             <type name="File" c:type="JcatFile*"/>
           </instance-parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-file.c"
-                 line="380">An ID, typically a filename basename</doc>
+                 line="389">An ID, typically a filename basename</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -2213,20 +2213,20 @@ must exist and all checksum types that do exist must verify correctly.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libjcat/jcat-file.c"
-             line="421">Finds the default item. If more than one #JcatItem exists this function will
+             line="453">Finds the default item. If more than one #JcatItem exists this function will
 return with an error.</doc>
         <source-position filename="libjcat/jcat-file.h" line="61"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libjcat/jcat-file.c"
-               line="429">a #JcatItem, or %NULL if no default exists</doc>
+               line="461">a #JcatItem, or %NULL if no default exists</doc>
           <type name="Item" c:type="JcatItem*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-file.c"
-                 line="423">#JcatFile</doc>
+                 line="455">#JcatFile</doc>
             <type name="File" c:type="JcatFile*"/>
           </instance-parameter>
         </parameters>
@@ -2236,12 +2236,12 @@ return with an error.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libjcat/jcat-file.c"
-             line="359">Returns all the items in the file.</doc>
+             line="368">Returns all the items in the file.</doc>
         <source-position filename="libjcat/jcat-file.h" line="57"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="libjcat/jcat-file.c"
-               line="365">all the items in the file</doc>
+               line="374">all the items in the file</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="Item"/>
           </array>
@@ -2250,7 +2250,7 @@ return with an error.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-file.c"
-                 line="361">#JcatFile</doc>
+                 line="370">#JcatFile</doc>
             <type name="File" c:type="JcatFile*"/>
           </instance-parameter>
         </parameters>
@@ -2260,19 +2260,19 @@ return with an error.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libjcat/jcat-file.c"
-             line="476">Returns the major version number of the Jcat specification</doc>
+             line="508">Returns the major version number of the Jcat specification</doc>
         <source-position filename="libjcat/jcat-file.h" line="65"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libjcat/jcat-file.c"
-               line="482">integer</doc>
+               line="514">integer</doc>
           <type name="guint32" c:type="guint32"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-file.c"
-                 line="478">#JcatFile</doc>
+                 line="510">#JcatFile</doc>
             <type name="File" c:type="JcatFile*"/>
           </instance-parameter>
         </parameters>
@@ -2282,19 +2282,19 @@ return with an error.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libjcat/jcat-file.c"
-             line="494">Returns the minor version number of the Jcat specification</doc>
+             line="526">Returns the minor version number of the Jcat specification</doc>
         <source-position filename="libjcat/jcat-file.h" line="67"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libjcat/jcat-file.c"
-               line="500">integer</doc>
+               line="532">integer</doc>
           <type name="guint32" c:type="guint32"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-file.c"
-                 line="496">#JcatFile</doc>
+                 line="528">#JcatFile</doc>
             <type name="File" c:type="JcatFile*"/>
           </instance-parameter>
         </parameters>
@@ -2305,31 +2305,31 @@ return with an error.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libjcat/jcat-file.c"
-             line="219">Imports a compressed Jcat file from an input stream.</doc>
+             line="228">Imports a compressed Jcat file from an input stream.</doc>
         <source-position filename="libjcat/jcat-file.h" line="34"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libjcat/jcat-file.c"
-               line="229">%TRUE for success</doc>
+               line="238">%TRUE for success</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-file.c"
-                 line="221">#JcatFile</doc>
+                 line="230">#JcatFile</doc>
             <type name="File" c:type="JcatFile*"/>
           </instance-parameter>
           <parameter name="gfile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-file.c"
-                 line="222">#gfile</doc>
+                 line="231">#gfile</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-file.c"
-                 line="223">#JcatImportFlags, typically %JCAT_IMPORT_FLAG_NONE</doc>
+                 line="232">#JcatImportFlags, typically %JCAT_IMPORT_FLAG_NONE</doc>
             <type name="ImportFlags" c:type="JcatImportFlags"/>
           </parameter>
           <parameter name="cancellable"
@@ -2338,7 +2338,7 @@ return with an error.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-file.c"
-                 line="224">#GCancellable, or %NULL</doc>
+                 line="233">#GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -2349,31 +2349,31 @@ return with an error.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libjcat/jcat-file.c"
-             line="156">Imports a Jcat file from raw JSON.</doc>
+             line="165">Imports a Jcat file from raw JSON.</doc>
         <source-position filename="libjcat/jcat-file.h" line="40"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libjcat/jcat-file.c"
-               line="165">%TRUE for success</doc>
+               line="174">%TRUE for success</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-file.c"
-                 line="158">#JcatFile</doc>
+                 line="167">#JcatFile</doc>
             <type name="File" c:type="JcatFile*"/>
           </instance-parameter>
           <parameter name="json" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-file.c"
-                 line="159">JSON data</doc>
+                 line="168">JSON data</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-file.c"
-                 line="160">#JcatImportFlags, typically %JCAT_IMPORT_FLAG_NONE</doc>
+                 line="169">#JcatImportFlags, typically %JCAT_IMPORT_FLAG_NONE</doc>
             <type name="ImportFlags" c:type="JcatImportFlags"/>
           </parameter>
         </parameters>
@@ -2384,31 +2384,31 @@ return with an error.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libjcat/jcat-file.c"
-             line="181">Imports a compressed Jcat file from a file.</doc>
+             line="190">Imports a compressed Jcat file from a file.</doc>
         <source-position filename="libjcat/jcat-file.h" line="28"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libjcat/jcat-file.c"
-               line="191">%TRUE for success</doc>
+               line="200">%TRUE for success</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-file.c"
-                 line="183">#JcatFile</doc>
+                 line="192">#JcatFile</doc>
             <type name="File" c:type="JcatFile*"/>
           </instance-parameter>
           <parameter name="istream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-file.c"
-                 line="184">#GInputStream</doc>
+                 line="193">#GInputStream</doc>
             <type name="Gio.InputStream" c:type="GInputStream*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-file.c"
-                 line="185">#JcatImportFlags, typically %JCAT_IMPORT_FLAG_NONE</doc>
+                 line="194">#JcatImportFlags, typically %JCAT_IMPORT_FLAG_NONE</doc>
             <type name="ImportFlags" c:type="JcatImportFlags"/>
           </parameter>
           <parameter name="cancellable"
@@ -2417,7 +2417,7 @@ return with an error.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-file.c"
-                 line="186">#GCancellable, or %NULL</doc>
+                 line="195">#GCancellable, or %NULL</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -2483,19 +2483,19 @@ return with an error.</doc>
       <constructor name="new" c:identifier="jcat_item_new" version="0.1.0">
         <doc xml:space="preserve"
              filename="libjcat/jcat-item.c"
-             line="403">Creates a new item.</doc>
+             line="426">Creates a new item.</doc>
         <source-position filename="libjcat/jcat-item.h" line="23"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libjcat/jcat-item.c"
-               line="409">a #JcatItem</doc>
+               line="432">a #JcatItem</doc>
           <type name="Item" c:type="JcatItem*"/>
         </return-value>
         <parameters>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-item.c"
-                 line="405">An item ID, typically a file basename</doc>
+                 line="428">An item ID, typically a file basename</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -2505,7 +2505,7 @@ return with an error.</doc>
               version="0.1.1">
         <doc xml:space="preserve"
              filename="libjcat/jcat-item.c"
-             line="314">Adds an item alias ID. Alias IDs are matched when using functions such as
+             line="336">Adds an item alias ID. Alias IDs are matched when using functions such as
 jcat_file_get_item_by_id().</doc>
         <source-position filename="libjcat/jcat-item.h" line="37"/>
         <return-value transfer-ownership="none">
@@ -2515,13 +2515,13 @@ jcat_file_get_item_by_id().</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-item.c"
-                 line="316">#JcatItem</doc>
+                 line="338">#JcatItem</doc>
             <type name="Item" c:type="JcatItem*"/>
           </instance-parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-item.c"
-                 line="317">An item ID alias, typically a file basename</doc>
+                 line="339">An item ID alias, typically a file basename</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -2531,7 +2531,7 @@ jcat_file_get_item_by_id().</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libjcat/jcat-item.c"
-             line="275">Adds a new blob to the item.</doc>
+             line="297">Adds a new blob to the item.</doc>
         <source-position filename="libjcat/jcat-item.h" line="33"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2540,13 +2540,13 @@ jcat_file_get_item_by_id().</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-item.c"
-                 line="277">#JcatItem</doc>
+                 line="299">#JcatItem</doc>
             <type name="Item" c:type="JcatItem*"/>
           </instance-parameter>
           <parameter name="blob" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-item.c"
-                 line="278">#JcatBlob</doc>
+                 line="300">#JcatBlob</doc>
             <type name="Blob" c:type="JcatBlob*"/>
           </parameter>
         </parameters>
@@ -2556,12 +2556,12 @@ jcat_file_get_item_by_id().</doc>
               version="0.1.1">
         <doc xml:space="preserve"
              filename="libjcat/jcat-item.c"
-             line="360">Gets the list of alias IDs.</doc>
+             line="383">Gets the list of alias IDs.</doc>
         <source-position filename="libjcat/jcat-item.h" line="41"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="libjcat/jcat-item.c"
-               line="366">array</doc>
+               line="389">array</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="utf8"/>
           </array>
@@ -2570,7 +2570,7 @@ jcat_file_get_item_by_id().</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-item.c"
-                 line="362">#JcatItem</doc>
+                 line="385">#JcatItem</doc>
             <type name="Item" c:type="JcatItem*"/>
           </instance-parameter>
         </parameters>
@@ -2581,25 +2581,25 @@ jcat_file_get_item_by_id().</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="libjcat/jcat-item.c"
-             line="235">Gets the item blobs by a specific kind.</doc>
+             line="257">Gets the item blobs by a specific kind.</doc>
         <source-position filename="libjcat/jcat-item.h" line="31"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libjcat/jcat-item.c"
-               line="243">a blob, or %NULL</doc>
+               line="265">a blob, or %NULL</doc>
           <type name="Blob" c:type="JcatBlob*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-item.c"
-                 line="237">#JcatItem</doc>
+                 line="259">#JcatItem</doc>
             <type name="Item" c:type="JcatItem*"/>
           </instance-parameter>
           <parameter name="kind" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-item.c"
-                 line="238">#JcatBlobKind, e.g. %JCAT_BLOB_KIND_SHA256</doc>
+                 line="260">#JcatBlobKind, e.g. %JCAT_BLOB_KIND_SHA256</doc>
             <type name="BlobKind" c:type="JcatBlobKind"/>
           </parameter>
         </parameters>
@@ -2609,12 +2609,12 @@ jcat_file_get_item_by_id().</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libjcat/jcat-item.c"
-             line="189">Gets all the blobs for this item.</doc>
+             line="211">Gets all the blobs for this item.</doc>
         <source-position filename="libjcat/jcat-item.h" line="27"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="libjcat/jcat-item.c"
-               line="195">blobs</doc>
+               line="217">blobs</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="Blob"/>
           </array>
@@ -2623,7 +2623,7 @@ jcat_file_get_item_by_id().</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-item.c"
-                 line="191">#JcatItem</doc>
+                 line="213">#JcatItem</doc>
             <type name="Item" c:type="JcatItem*"/>
           </instance-parameter>
         </parameters>
@@ -2633,12 +2633,12 @@ jcat_file_get_item_by_id().</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libjcat/jcat-item.c"
-             line="207">Gets the item blobs by a specific kind.</doc>
+             line="229">Gets the item blobs by a specific kind.</doc>
         <source-position filename="libjcat/jcat-item.h" line="29"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="libjcat/jcat-item.c"
-               line="214">blobs</doc>
+               line="236">blobs</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="Blob"/>
           </array>
@@ -2647,13 +2647,13 @@ jcat_file_get_item_by_id().</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-item.c"
-                 line="209">#JcatItem</doc>
+                 line="231">#JcatItem</doc>
             <type name="Item" c:type="JcatItem*"/>
           </instance-parameter>
           <parameter name="kind" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-item.c"
-                 line="210">#JcatBlobKind, e.g. %JCAT_BLOB_KIND_SHA256</doc>
+                 line="232">#JcatBlobKind, e.g. %JCAT_BLOB_KIND_SHA256</doc>
             <type name="BlobKind" c:type="JcatBlobKind"/>
           </parameter>
         </parameters>
@@ -2661,19 +2661,19 @@ jcat_file_get_item_by_id().</doc>
       <method name="get_id" c:identifier="jcat_item_get_id" version="0.1.0">
         <doc xml:space="preserve"
              filename="libjcat/jcat-item.c"
-             line="296">Returns the item ID.</doc>
+             line="318">Returns the item ID.</doc>
         <source-position filename="libjcat/jcat-item.h" line="35"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libjcat/jcat-item.c"
-               line="302">string</doc>
+               line="324">string</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-item.c"
-                 line="298">#JcatItem</doc>
+                 line="320">#JcatItem</doc>
             <type name="Item" c:type="JcatItem*"/>
           </instance-parameter>
         </parameters>
@@ -2683,21 +2683,21 @@ jcat_file_get_item_by_id().</doc>
               version="0.2.0">
         <doc xml:space="preserve"
              filename="libjcat/jcat-item.c"
-             line="378">Finds out if any of the blobs are targeting an internal checksum.
+             line="401">Finds out if any of the blobs are targeting an internal checksum.
 If this returns with success then the caller might be able to use functions like
 jcat_context_verify_target() supplying some target checksums.</doc>
         <source-position filename="libjcat/jcat-item.h" line="43"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="libjcat/jcat-item.c"
-               line="386">%TRUE on success</doc>
+               line="409">%TRUE on success</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-item.c"
-                 line="380">#JcatItem</doc>
+                 line="403">#JcatItem</doc>
             <type name="Item" c:type="JcatItem*"/>
           </instance-parameter>
         </parameters>
@@ -2707,7 +2707,7 @@ jcat_context_verify_target() supplying some target checksums.</doc>
               version="0.1.1">
         <doc xml:space="preserve"
              filename="libjcat/jcat-item.c"
-             line="337">Removes an item alias ID.</doc>
+             line="360">Removes an item alias ID.</doc>
         <source-position filename="libjcat/jcat-item.h" line="39"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2716,13 +2716,13 @@ jcat_context_verify_target() supplying some target checksums.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-item.c"
-                 line="339">#JcatItem</doc>
+                 line="362">#JcatItem</doc>
             <type name="Item" c:type="JcatItem*"/>
           </instance-parameter>
           <parameter name="id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-item.c"
-                 line="340">An item ID alias, typically a file basename</doc>
+                 line="363">An item ID alias, typically a file basename</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -2777,7 +2777,7 @@ jcat_context_verify_target() supplying some target checksums.</doc>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="MICRO_VERSION"
-              value="5"
+              value="6"
               c:type="JCAT_MICRO_VERSION"
               version="0.1.0">
       <doc xml:space="preserve"
@@ -2899,19 +2899,19 @@ jcat_context_verify_target() supplying some target checksums.</doc>
               version="0.1.0">
         <doc xml:space="preserve"
              filename="libjcat/jcat-result.c"
-             line="133">Converts the #JcatResult to a string.</doc>
+             line="135">Converts the #JcatResult to a string.</doc>
         <source-position filename="libjcat/jcat-result.h" line="16"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libjcat/jcat-result.c"
-               line="139">string</doc>
+               line="141">string</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libjcat/jcat-result.c"
-                 line="135">#JcatResult</doc>
+                 line="137">#JcatResult</doc>
             <type name="Result" c:type="JcatResult*"/>
           </instance-parameter>
         </parameters>

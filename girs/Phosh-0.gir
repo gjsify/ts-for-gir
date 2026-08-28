@@ -2578,7 +2578,7 @@ See phosh_dbus_screenshot_proxy_new_for_bus_sync() for the synchronous, blocking
            glib:type-struct="LayerSurfaceClass">
       <doc xml:space="preserve"
            filename="src/layersurface.c"
-           line="18">A #GtkWindow rendered as a LayerSurface by the compositor
+           line="19">A #GtkWindow rendered as a LayerSurface by the compositor
 
 #PhoshLayerSurface allows to use a Wayland surface backed by the
 layer-shell protocol as #GtkWindow. This allows to render e.g. panels and
@@ -2604,22 +2604,34 @@ backgrounds using GTK.</doc>
                 writable="1"
                 transfer-ownership="none"
                 default-value="0">
+        <doc xml:space="preserve"
+             filename="src/layersurface.c"
+             line="482">The edges to anchor the surface to</doc>
         <type name="guint" c:type="guint"/>
       </property>
       <property name="configured-height"
                 transfer-ownership="none"
                 default-value="0">
+        <doc xml:space="preserve"
+             filename="src/layersurface.c"
+             line="584">The height of the layer surface set by the compositor</doc>
         <type name="guint" c:type="guint"/>
       </property>
       <property name="configured-width"
                 transfer-ownership="none"
                 default-value="0">
+        <doc xml:space="preserve"
+             filename="src/layersurface.c"
+             line="575">The width of the layer surface set by the compositor</doc>
         <type name="guint" c:type="guint"/>
       </property>
       <property name="exclusive-zone"
                 writable="1"
                 transfer-ownership="none"
                 default-value="0">
+        <doc xml:space="preserve"
+             filename="src/layersurface.c"
+             line="512">The area that is not occluded with other surfaces</doc>
         <type name="gint" c:type="gint"/>
       </property>
       <property name="height"
@@ -2632,6 +2644,9 @@ backgrounds using GTK.</doc>
                 writable="1"
                 transfer-ownership="none"
                 default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="src/layersurface.c"
+             line="503">Whether the surface interacts with the keyboard</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="layer"
@@ -2639,36 +2654,57 @@ backgrounds using GTK.</doc>
                 construct="1"
                 transfer-ownership="none"
                 default-value="0">
+        <doc xml:space="preserve"
+             filename="src/layersurface.c"
+             line="491">The layer the surface should be attached to</doc>
         <type name="guint" c:type="guint"/>
       </property>
       <property name="layer-shell" writable="1" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="src/layersurface.c"
+             line="466">The layer shell wayland global</doc>
         <type name="gpointer" c:type="gpointer"/>
       </property>
       <property name="margin-bottom"
                 writable="1"
                 transfer-ownership="none"
                 default-value="0">
+        <doc xml:space="preserve"
+             filename="src/layersurface.c"
+             line="548">Distance away from the bottom anchor point</doc>
         <type name="gint" c:type="gint"/>
       </property>
       <property name="margin-left"
                 writable="1"
                 transfer-ownership="none"
                 default-value="0">
+        <doc xml:space="preserve"
+             filename="src/layersurface.c"
+             line="521">"Distance away from the left anchor point</doc>
         <type name="gint" c:type="gint"/>
       </property>
       <property name="margin-right"
                 writable="1"
                 transfer-ownership="none"
                 default-value="0">
+        <doc xml:space="preserve"
+             filename="src/layersurface.c"
+             line="530">Distance away from the right anchor point</doc>
         <type name="gint" c:type="gint"/>
       </property>
       <property name="margin-top"
                 writable="1"
                 transfer-ownership="none"
                 default-value="0">
+        <doc xml:space="preserve"
+             filename="src/layersurface.c"
+             line="539">Distance away from the top anchor point</doc>
         <type name="gint" c:type="gint"/>
       </property>
       <property name="namespace" writable="1" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="src/layersurface.c"
+             line="593">Namespace of the layer surface</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="width"
@@ -2678,6 +2714,9 @@ backgrounds using GTK.</doc>
         <type name="guint" c:type="guint"/>
       </property>
       <property name="wl-output" writable="1" transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="src/layersurface.c"
+             line="474">The wl_output associated with this surface</doc>
         <type name="gpointer" c:type="gpointer"/>
       </property>
       <field name="parent_instance">
@@ -2686,7 +2725,7 @@ backgrounds using GTK.</doc>
       <glib:signal name="configured" when="last">
         <doc xml:space="preserve"
              filename="src/layersurface.c"
-             line="611">This signal is emitted once we received the configure event from the
+             line="605">This signal is emitted once we received the configure event from the
 compositor.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3921,7 +3960,7 @@ taking screenshots.</doc>
            glib:type-struct="ShellClass">
       <doc xml:space="preserve"
            filename="src/shell.c"
-           line="113">The shell singleton
+           line="114">The shell singleton
 
 #PhoshShell is responsible for instantiating the GUI
 parts of the shell#PhoshTopPanel, #PhoshHome,… and the managers that
@@ -3939,12 +3978,12 @@ and coordinates between them.</doc>
       <function name="get_default" c:identifier="phosh_shell_get_default">
         <doc xml:space="preserve"
              filename="src/shell.c"
-             line="2401">Get the shell singleton</doc>
+             line="2411">Get the shell singleton</doc>
         <source-position filename="src/shell.h" line="41"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/shell.c"
-               line="2406">The shell singleton</doc>
+               line="2416">The shell singleton</doc>
           <type name="Shell" c:type="PhoshShell*"/>
         </return-value>
       </function>
@@ -3980,14 +4019,14 @@ and coordinates between them.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/shell.c"
-               line="2655">%TRUE if the shell is currently locked, otherwise %FALSE.</doc>
+               line="2665">%TRUE if the shell is currently locked, otherwise %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell.c"
-                 line="2653">The #PhoshShell singleton</doc>
+                 line="2663">The #PhoshShell singleton</doc>
             <type name="Shell" c:type="PhoshShell*"/>
           </instance-parameter>
         </parameters>
@@ -3996,19 +4035,19 @@ and coordinates between them.</doc>
               c:identifier="phosh_shell_get_lockscreen_manager">
         <doc xml:space="preserve"
              filename="src/shell.c"
-             line="1797">Get the lockscreen manager</doc>
+             line="1807">Get the lockscreen manager</doc>
         <source-position filename="src/shell.h" line="54"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/shell.c"
-               line="1803">The lockscreen manager</doc>
+               line="1813">The lockscreen manager</doc>
           <type name="LockscreenManager" c:type="PhoshLockscreenManager*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell.c"
-                 line="1799">The shell singleton</doc>
+                 line="1809">The shell singleton</doc>
             <type name="Shell" c:type="PhoshShell*"/>
           </instance-parameter>
         </parameters>
@@ -4029,19 +4068,19 @@ and coordinates between them.</doc>
               c:identifier="phosh_shell_get_screenshot_manager">
         <doc xml:space="preserve"
              filename="src/shell.c"
-             line="1917">Get the screenshot manager</doc>
+             line="1927">Get the screenshot manager</doc>
         <source-position filename="src/shell.h" line="55"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/shell.c"
-               line="1923">The screenshot manager</doc>
+               line="1933">The screenshot manager</doc>
           <type name="ScreenshotManager" c:type="PhoshScreenshotManager*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell.c"
-                 line="1919">The shell singleton</doc>
+                 line="1929">The shell singleton</doc>
             <type name="Shell" c:type="PhoshShell*"/>
           </instance-parameter>
         </parameters>
@@ -4050,7 +4089,7 @@ and coordinates between them.</doc>
               c:identifier="phosh_shell_get_usable_area">
         <doc xml:space="preserve"
              filename="src/shell.c"
-             line="2301">Gives the usable area in pixels usable by a client on the primary
+             line="2311">Gives the usable area in pixels usable by a client on the primary
 display.</doc>
         <source-position filename="src/shell.h" line="45"/>
         <return-value transfer-ownership="none">
@@ -4060,7 +4099,7 @@ display.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell.c"
-                 line="2303">The shell</doc>
+                 line="2313">The shell</doc>
             <type name="Shell" c:type="PhoshShell*"/>
           </instance-parameter>
           <parameter name="x"
@@ -4070,7 +4109,7 @@ display.</doc>
                      nullable="1">
             <doc xml:space="preserve"
                  filename="src/shell.c"
-                 line="2304">The x coordinate where client usable area starts</doc>
+                 line="2314">The x coordinate where client usable area starts</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
           <parameter name="y"
@@ -4080,7 +4119,7 @@ display.</doc>
                      nullable="1">
             <doc xml:space="preserve"
                  filename="src/shell.c"
-                 line="2305">The y coordinate where client usable area starts</doc>
+                 line="2315">The y coordinate where client usable area starts</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
           <parameter name="width"
@@ -4090,7 +4129,7 @@ display.</doc>
                      nullable="1">
             <doc xml:space="preserve"
                  filename="src/shell.c"
-                 line="2306">The width of the client usable area</doc>
+                 line="2316">The width of the client usable area</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
           <parameter name="height"
@@ -4100,7 +4139,7 @@ display.</doc>
                      nullable="1">
             <doc xml:space="preserve"
                  filename="src/shell.c"
-                 line="2307">The height of the client usable area</doc>
+                 line="2317">The height of the client usable area</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
         </parameters>
@@ -4108,7 +4147,7 @@ display.</doc>
       <method name="set_default" c:identifier="phosh_shell_set_default">
         <doc xml:space="preserve"
              filename="src/shell.c"
-             line="2384">Set the PhoshShell singleton that is returned by `phosh_shell_get_default()`</doc>
+             line="2394">Set the PhoshShell singleton that is returned by `phosh_shell_get_default()`</doc>
         <source-position filename="src/shell.h" line="40"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4117,7 +4156,7 @@ display.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/shell.c"
-                 line="2386">The shell to use</doc>
+                 line="2396">The shell to use</doc>
             <type name="Shell" c:type="PhoshShell*"/>
           </instance-parameter>
         </parameters>
@@ -4128,7 +4167,7 @@ display.</doc>
                 transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/shell.c"
-             line="1353">The built in monitor. This is a hardware property and hence can
+             line="1352">The built in monitor. This is a hardware property and hence can
 only be read. It can be %NULL when not present or disabled.</doc>
         <type/>
       </property>
@@ -4138,7 +4177,7 @@ only be read. It can be %NULL when not present or disabled.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="src/shell.c"
-             line="1342">Whether the device is currently docked. This mirrors the property
+             line="1341">Whether the device is currently docked. This mirrors the property
 from #PhoshDockedManager for easier access.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
@@ -4149,14 +4188,14 @@ from #PhoshDockedManager for easier access.</doc>
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="src/shell.c"
-             line="1332">Whether the screen is currently locked. This mirrors the property
+             line="1331">Whether the screen is currently locked. This mirrors the property
 from #PhoshLockscreenManager for easier access.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="log-domains" writable="1" transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/shell.c"
-             line="1397">The current log domains</doc>
+             line="1396">The current log domains</doc>
         <array>
           <type name="utf8"/>
         </array>
@@ -4167,7 +4206,7 @@ from #PhoshLockscreenManager for easier access.</doc>
                 default-value="TRUE">
         <doc xml:space="preserve"
              filename="src/shell.c"
-             line="1388">Whether to display the `PhoshHome` (overview and home bar)</doc>
+             line="1387">Whether to display the `PhoshHome` (overview and home bar)</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="primary-monitor"
@@ -4177,7 +4216,7 @@ from #PhoshLockscreenManager for easier access.</doc>
                 transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/shell.c"
-             line="1365">The primary monitor that has the panels, lock screen etc.</doc>
+             line="1364">The primary monitor that has the panels, lock screen etc.</doc>
         <type/>
       </property>
       <property name="shell-state"
@@ -4187,7 +4226,7 @@ from #PhoshLockscreenManager for easier access.</doc>
                 default-value="PHOSH_STATE_NONE">
         <doc xml:space="preserve"
              filename="src/shell.c"
-             line="1376">The state of the shell (locked, modal dialog shown, …)</doc>
+             line="1375">The state of the shell (locked, modal dialog shown, …)</doc>
         <type/>
       </property>
       <field name="parent_instance">
@@ -4196,7 +4235,7 @@ from #PhoshLockscreenManager for easier access.</doc>
       <glib:signal name="ready" when="last" version="0.11.0">
         <doc xml:space="preserve"
              filename="src/shell.c"
-             line="1410">The ready signal is emitted once when the shell finished starting
+             line="1409">The ready signal is emitted once when the shell finished starting
 up.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -4340,19 +4379,19 @@ recommended (but not required) that derived classes implement a
               glib:get-property="extra-widget">
         <doc xml:space="preserve"
              filename="src/status-icon.c"
-             line="441">Get the extra widget or %NULL if there's no extra widget</doc>
+             line="460">Get the extra widget or %NULL if there's no extra widget</doc>
         <source-position filename="src/status-icon.h" line="47"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/status-icon.c"
-               line="447">The extra widget</doc>
+               line="466">The extra widget</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/status-icon.c"
-                 line="443">A status icon</doc>
+                 line="462">A status icon</doc>
             <type name="StatusIcon" c:type="PhoshStatusIcon*"/>
           </instance-parameter>
         </parameters>
@@ -4377,20 +4416,20 @@ recommended (but not required) that derived classes implement a
               deprecated-version="0.47">
         <doc xml:space="preserve"
              filename="src/status-icon.c"
-             line="365">Return the size of status-icon.</doc>
+             line="384">Return the size of status-icon.</doc>
         <doc-deprecated xml:space="preserve">Use [method@Phosh.StatusIcon.get_pixel_size].</doc-deprecated>
         <source-position filename="src/status-icon.h" line="41"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/status-icon.c"
-               line="371">The size of status-icon.</doc>
+               line="390">The size of status-icon.</doc>
           <type name="Gtk.IconSize" c:type="GtkIconSize"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/status-icon.c"
-                 line="367">The status-icon</doc>
+                 line="386">The status-icon</doc>
             <type name="StatusIcon" c:type="PhoshStatusIcon*"/>
           </instance-parameter>
         </parameters>
@@ -4414,6 +4453,19 @@ recommended (but not required) that derived classes implement a
         <source-position filename="src/status-icon.h" line="43"/>
         <return-value transfer-ownership="none">
           <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="StatusIcon" c:type="PhoshStatusIcon*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_priority"
+              c:identifier="phosh_status_icon_get_priority"
+              glib:get-property="priority">
+        <source-position filename="src/status-icon.h" line="51"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
@@ -4460,7 +4512,7 @@ recommended (but not required) that derived classes implement a
               deprecated-version="0.47">
         <doc xml:space="preserve"
              filename="src/status-icon.c"
-             line="310">Set the size of status-icon.</doc>
+             line="329">Set the size of status-icon.</doc>
         <doc-deprecated xml:space="preserve">Use [method@Phosh.StatusIcon.set_pixel_size].</doc-deprecated>
         <source-position filename="src/status-icon.h" line="40"/>
         <return-value transfer-ownership="none">
@@ -4470,13 +4522,13 @@ recommended (but not required) that derived classes implement a
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/status-icon.c"
-                 line="312">The status-icon</doc>
+                 line="331">The status-icon</doc>
             <type name="StatusIcon" c:type="PhoshStatusIcon*"/>
           </instance-parameter>
           <parameter name="size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/status-icon.c"
-                 line="313">The size of icon</doc>
+                 line="332">The size of icon</doc>
             <type name="Gtk.IconSize" c:type="GtkIconSize"/>
           </parameter>
         </parameters>
@@ -4513,6 +4565,22 @@ recommended (but not required) that derived classes implement a
           </parameter>
         </parameters>
       </method>
+      <method name="set_priority"
+              c:identifier="phosh_status_icon_set_priority"
+              glib:set-property="priority">
+        <source-position filename="src/status-icon.h" line="50"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="StatusIcon" c:type="PhoshStatusIcon*"/>
+          </instance-parameter>
+          <parameter name="priority" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
       <property name="extra-widget"
                 writable="1"
                 transfer-ownership="none"
@@ -4520,7 +4588,7 @@ recommended (but not required) that derived classes implement a
                 getter="get_extra_widget">
         <doc xml:space="preserve"
              filename="src/status-icon.c"
-             line="224">An extra widget to display. This is used for extra information when
+             line="232">An extra widget to display. This is used for extra information when
 used in PhoshTopPanel. When used in [type@QuickSetting] this
 is not needed.</doc>
         <type name="Gtk.Widget"/>
@@ -4533,7 +4601,7 @@ is not needed.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="src/status-icon.c"
-             line="196">The name of the icon to display in the widget</doc>
+             line="204">The name of the icon to display in the widget</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="icon-size"
@@ -4544,7 +4612,7 @@ is not needed.</doc>
                 default-value="GTK_ICON_SIZE_LARGE_TOOLBAR">
         <doc xml:space="preserve"
              filename="src/status-icon.c"
-             line="205">The size of the icon to display in the widget</doc>
+             line="213">The size of the icon to display in the widget</doc>
         <type name="Gtk.IconSize"/>
       </property>
       <property name="info"
@@ -4555,7 +4623,7 @@ is not needed.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="src/status-icon.c"
-             line="235">Textual information to display. Think of it as the [type@StatusIcon]'s
+             line="243">Textual information to display. Think of it as the [type@StatusIcon]'s
 label.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
@@ -4567,8 +4635,20 @@ label.</doc>
                 default-value="24">
         <doc xml:space="preserve"
              filename="src/status-icon.c"
-             line="215">The size of the icon to display in the widget</doc>
+             line="223">The size of the icon to display in the widget</doc>
         <type name="guint" c:type="guint"/>
+      </property>
+      <property name="priority"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_priority"
+                getter="get_priority"
+                default-value="10">
+        <doc xml:space="preserve"
+             filename="src/status-icon.c"
+             line="253">The priority of icon. Higher priority icons are more likely to be shown when displayed in
+space-constrained places.</doc>
+        <type name="gint" c:type="gint"/>
       </property>
       <field name="parent_instance">
         <type name="Gtk.Bin" c:type="GtkBin"/>

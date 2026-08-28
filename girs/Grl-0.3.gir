@@ -5,11 +5,13 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GModule" version="2.0"/>
   <include name="GObject" version="2.0"/>
   <include name="Gio" version="2.0"/>
   <c:include name="grilo.h"/>
+  <doc:format name="unknown"/>
   <namespace name="Grl"
              version="0.3"
              shared-library="libgrilo-0.3.so.0"
@@ -4448,7 +4450,7 @@ where the user play the media.</doc>
                line="3651">whether the flash was used.
 
 See
-http://library.gnome.org/devel/ontology/unstable/nmm-classes.html#nmm-Flash</doc>
+https://gnome.pages.gitlab.gnome.org/tracker/nmm-ontology.html#nmm:Flash</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
@@ -6371,7 +6373,7 @@ set other age certificates.</doc>
              filename="src/data/grl-media.c"
              line="2067">Set the flash_used of the media
 See
-http://library.gnome.org/devel/ontology/unstable/nmm-classes.html#nmm-Flash</doc>
+https://gnome.pages.gitlab.gnome.org/tracker/nmm-ontology.html#nmm:Flash</doc>
         <source-position filename="src/data/grl-media.h" line="233"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -7727,7 +7729,7 @@ operation done with @options.</doc>
               version="0.2.0">
         <doc xml:space="preserve"
              filename="src/grl-operation-options.c"
-             line="886">Stores the limits of the range in the filter for @key in @min_value and
+             line="892">Stores the limits of the range in the filter for @key in @min_value and
 @max_value. If some of the values has no limit, it will set a %NULL.</doc>
         <source-position filename="src/grl-operation-options.h" line="148"/>
         <return-value transfer-ownership="none">
@@ -7737,13 +7739,13 @@ operation done with @options.</doc>
           <instance-parameter name="options" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/grl-operation-options.c"
-                 line="888">a #GrlOperationOptions instance</doc>
+                 line="894">a #GrlOperationOptions instance</doc>
             <type name="OperationOptions" c:type="GrlOperationOptions*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/grl-operation-options.c"
-                 line="889">a #GrlKeyID</doc>
+                 line="895">a #GrlKeyID</doc>
             <type name="KeyID" c:type="GrlKeyID"/>
           </parameter>
           <parameter name="min_value"
@@ -7754,7 +7756,7 @@ operation done with @options.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/grl-operation-options.c"
-                 line="890">the minimum value for the range</doc>
+                 line="896">the minimum value for the range</doc>
             <type name="GObject.Value" c:type="GValue**"/>
           </parameter>
           <parameter name="max_value"
@@ -7765,7 +7767,7 @@ operation done with @options.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/grl-operation-options.c"
-                 line="891">the maximum value for the range</doc>
+                 line="897">the maximum value for the range</doc>
             <type name="GObject.Value" c:type="GValue**"/>
           </parameter>
         </parameters>
@@ -7783,7 +7785,7 @@ operation done with @options.</doc>
           <instance-parameter name="options" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/grl-operation-options.c"
-                 line="927">a #GrlOperationOptions instance</doc>
+                 line="933">a #GrlOperationOptions instance</doc>
             <type name="OperationOptions" c:type="GrlOperationOptions*"/>
           </instance-parameter>
         </parameters>
@@ -8038,7 +8040,7 @@ the inherent capabilities of @options.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="src/grl-operation-options.c"
-             line="763">Set filter as "min1 &lt;= k1 &lt;= max1 AND min2 &lt;= k2 &lt;= max2 AND ..."
+             line="769">Set filter as "min1 &lt;= k1 &lt;= max1 AND min2 &lt;= k2 &lt;= max2 AND ..."
 
 For non numeric types, the range can be open if some of the minX, maxX
 values are %NULL. Leaving NULL for numeric types leads to underifned
@@ -8057,20 +8059,20 @@ behavior.
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/grl-operation-options.c"
-               line="784">%TRUE on success</doc>
+               line="790">%TRUE on success</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="options" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/grl-operation-options.c"
-                 line="765">a #GrlOperationOptions instance</doc>
+                 line="771">a #GrlOperationOptions instance</doc>
             <type name="OperationOptions" c:type="GrlOperationOptions*"/>
           </instance-parameter>
           <parameter name="..." transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/grl-operation-options.c"
-                 line="766">triplets of #GrlKeyID, minvalue, maxvalue</doc>
+                 line="772">triplets of #GrlKeyID, minvalue, maxvalue</doc>
             <varargs/>
           </parameter>
         </parameters>
@@ -10814,6 +10816,9 @@ registered as a strying-type key. Old value is freed and the new one is set.</do
            glib:type-struct="SourceClass">
       <source-position filename="src/grl-source.h" line="495"/>
       <virtual-method name="browse">
+        <doc xml:space="preserve"
+             filename="src/grl-source.h"
+             line="434">browse through a list of media</doc>
         <source-position filename="src/grl-source.h" line="473"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -10828,6 +10833,9 @@ registered as a strying-type key. Old value is freed and the new one is set.</do
         </parameters>
       </virtual-method>
       <virtual-method name="cancel">
+        <doc xml:space="preserve"
+             filename="src/grl-source.h"
+             line="441">cancel the current operation</doc>
         <source-position filename="src/grl-source.h" line="485"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -10918,6 +10926,10 @@ This function is synchronous and should not block.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="media_from_uri">
+        <doc xml:space="preserve"
+             filename="src/grl-source.h"
+             line="432">Creates a #GrlMedia instance representing the media
+exposed by a certain URI.</doc>
         <source-position filename="src/grl-source.h" line="470"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -10983,6 +10995,9 @@ the content.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="query">
+        <doc xml:space="preserve"
+             filename="src/grl-source.h"
+             line="436">query for a specific media</doc>
         <source-position filename="src/grl-source.h" line="477"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -10997,6 +11012,9 @@ the content.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="remove">
+        <doc xml:space="preserve"
+             filename="src/grl-source.h"
+             line="437">remove a media from a container</doc>
         <source-position filename="src/grl-source.h" line="479"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11011,6 +11029,9 @@ the content.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="resolve">
+        <doc xml:space="preserve"
+             filename="src/grl-source.h"
+             line="428">resolve the metadata of a given transfer object</doc>
         <source-position filename="src/grl-source.h" line="462"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11025,6 +11046,9 @@ the content.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="search">
+        <doc xml:space="preserve"
+             filename="src/grl-source.h"
+             line="435">search for media</doc>
         <source-position filename="src/grl-source.h" line="475"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11063,6 +11087,9 @@ to fetch them.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="store">
+        <doc xml:space="preserve"
+             filename="src/grl-source.h"
+             line="438">store a media in a container</doc>
         <source-position filename="src/grl-source.h" line="481"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11077,6 +11104,10 @@ to fetch them.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="store_metadata">
+        <doc xml:space="preserve"
+             filename="src/grl-source.h"
+             line="439">update metadata values for a given object in a
+permanent fashion</doc>
         <source-position filename="src/grl-source.h" line="483"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11117,6 +11148,9 @@ source can fetch and store.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="supported_operations">
+        <doc xml:space="preserve"
+             filename="src/grl-source.h"
+             line="423">the operations that can be called</doc>
         <source-position filename="src/grl-source.h" line="452"/>
         <return-value transfer-ownership="none">
           <type name="SupportedOps" c:type="GrlSupportedOps"/>
@@ -12973,6 +13007,9 @@ element functionality.</doc>
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="supported_operations">
+        <doc xml:space="preserve"
+             filename="src/grl-source.h"
+             line="423">the operations that can be called</doc>
         <callback name="supported_operations">
           <source-position filename="src/grl-source.h" line="452"/>
           <return-value transfer-ownership="none">
@@ -12986,6 +13023,9 @@ element functionality.</doc>
         </callback>
       </field>
       <field name="supported_keys">
+        <doc xml:space="preserve"
+             filename="src/grl-source.h"
+             line="424">the list of keys that can be handled</doc>
         <callback name="supported_keys">
           <source-position filename="src/grl-source.h" line="454"/>
           <return-value transfer-ownership="none">
@@ -13007,6 +13047,9 @@ element functionality.</doc>
         </callback>
       </field>
       <field name="slow_keys">
+        <doc xml:space="preserve"
+             filename="src/grl-source.h"
+             line="425">the list of slow keys that can be fetched</doc>
         <callback name="slow_keys">
           <source-position filename="src/grl-source.h" line="456"/>
           <return-value transfer-ownership="none">
@@ -13028,6 +13071,9 @@ element functionality.</doc>
         </callback>
       </field>
       <field name="writable_keys">
+        <doc xml:space="preserve"
+             filename="src/grl-source.h"
+             line="426">the list of keys which value can be written</doc>
         <callback name="writable_keys">
           <source-position filename="src/grl-source.h" line="458"/>
           <return-value transfer-ownership="none">
@@ -13050,6 +13096,9 @@ a #GList with the keys</doc>
         </callback>
       </field>
       <field name="get_caps">
+        <doc xml:space="preserve"
+             filename="src/grl-source.h"
+             line="427">the capabilities that @source supports for @operation</doc>
         <callback name="get_caps">
           <source-position filename="src/grl-source.h" line="460"/>
           <return-value transfer-ownership="none">
@@ -13076,6 +13125,9 @@ several operations, only one should be provided here.</doc>
         </callback>
       </field>
       <field name="resolve">
+        <doc xml:space="preserve"
+             filename="src/grl-source.h"
+             line="428">resolve the metadata of a given transfer object</doc>
         <callback name="resolve">
           <source-position filename="src/grl-source.h" line="462"/>
           <return-value transfer-ownership="none">
@@ -13092,6 +13144,9 @@ several operations, only one should be provided here.</doc>
         </callback>
       </field>
       <field name="may_resolve">
+        <doc xml:space="preserve"
+             filename="src/grl-source.h"
+             line="429">return FALSE if it can be known without blocking that @key_id</doc>
         <callback name="may_resolve">
           <source-position filename="src/grl-source.h" line="464"/>
           <return-value transfer-ownership="none">
@@ -13132,6 +13187,10 @@ several operations, only one should be provided here.</doc>
         </callback>
       </field>
       <field name="test_media_from_uri">
+        <doc xml:space="preserve"
+             filename="src/grl-source.h"
+             line="430">tests if this source can create #GrlMedia
+instances from a given URI.</doc>
         <callback name="test_media_from_uri">
           <source-position filename="src/grl-source.h" line="467"/>
           <return-value transfer-ownership="none">
@@ -13159,6 +13218,10 @@ This method is synchronous.</doc>
         </callback>
       </field>
       <field name="media_from_uri">
+        <doc xml:space="preserve"
+             filename="src/grl-source.h"
+             line="432">Creates a #GrlMedia instance representing the media
+exposed by a certain URI.</doc>
         <callback name="media_from_uri">
           <source-position filename="src/grl-source.h" line="470"/>
           <return-value transfer-ownership="none">
@@ -13176,6 +13239,9 @@ This method is synchronous.</doc>
         </callback>
       </field>
       <field name="browse">
+        <doc xml:space="preserve"
+             filename="src/grl-source.h"
+             line="434">browse through a list of media</doc>
         <callback name="browse">
           <source-position filename="src/grl-source.h" line="473"/>
           <return-value transfer-ownership="none">
@@ -13192,6 +13258,9 @@ This method is synchronous.</doc>
         </callback>
       </field>
       <field name="search">
+        <doc xml:space="preserve"
+             filename="src/grl-source.h"
+             line="435">search for media</doc>
         <callback name="search">
           <source-position filename="src/grl-source.h" line="475"/>
           <return-value transfer-ownership="none">
@@ -13208,6 +13277,9 @@ This method is synchronous.</doc>
         </callback>
       </field>
       <field name="query">
+        <doc xml:space="preserve"
+             filename="src/grl-source.h"
+             line="436">query for a specific media</doc>
         <callback name="query">
           <source-position filename="src/grl-source.h" line="477"/>
           <return-value transfer-ownership="none">
@@ -13224,6 +13296,9 @@ This method is synchronous.</doc>
         </callback>
       </field>
       <field name="remove">
+        <doc xml:space="preserve"
+             filename="src/grl-source.h"
+             line="437">remove a media from a container</doc>
         <callback name="remove">
           <source-position filename="src/grl-source.h" line="479"/>
           <return-value transfer-ownership="none">
@@ -13240,6 +13315,9 @@ This method is synchronous.</doc>
         </callback>
       </field>
       <field name="store">
+        <doc xml:space="preserve"
+             filename="src/grl-source.h"
+             line="438">store a media in a container</doc>
         <callback name="store">
           <source-position filename="src/grl-source.h" line="481"/>
           <return-value transfer-ownership="none">
@@ -13256,6 +13334,10 @@ This method is synchronous.</doc>
         </callback>
       </field>
       <field name="store_metadata">
+        <doc xml:space="preserve"
+             filename="src/grl-source.h"
+             line="439">update metadata values for a given object in a
+permanent fashion</doc>
         <callback name="store_metadata">
           <source-position filename="src/grl-source.h" line="483"/>
           <return-value transfer-ownership="none">
@@ -13273,6 +13355,9 @@ This method is synchronous.</doc>
         </callback>
       </field>
       <field name="cancel">
+        <doc xml:space="preserve"
+             filename="src/grl-source.h"
+             line="441">cancel the current operation</doc>
         <callback name="cancel">
           <source-position filename="src/grl-source.h" line="485"/>
           <return-value transfer-ownership="none">
@@ -13289,6 +13374,9 @@ This method is synchronous.</doc>
         </callback>
       </field>
       <field name="notify_change_start">
+        <doc xml:space="preserve"
+             filename="src/grl-source.h"
+             line="442">start emitting signals about changes in content</doc>
         <callback name="notify_change_start" throws="1">
           <source-position filename="src/grl-source.h" line="487"/>
           <return-value transfer-ownership="none">
@@ -13308,6 +13396,9 @@ This method is synchronous.</doc>
         </callback>
       </field>
       <field name="notify_change_stop">
+        <doc xml:space="preserve"
+             filename="src/grl-source.h"
+             line="443">stop emitting signals about changes in content</doc>
         <callback name="notify_change_stop" throws="1">
           <source-position filename="src/grl-source.h" line="490"/>
           <return-value transfer-ownership="none">
@@ -14184,7 +14275,7 @@ representing a media resource.</doc>
     <function name="deinit" c:identifier="grl_deinit" version="0.2.8">
       <doc xml:space="preserve"
            filename="src/grilo.c"
-           line="173">Deinitializes the Grilo library.
+           line="172">Deinitializes the Grilo library.
 
 Call this function after finalizing using Grilo, in order to free and clean
 up all the resources created.</doc>
@@ -14420,7 +14511,7 @@ databases and store them in the #GrlMedia.</doc>
               version="0.1.6">
       <doc xml:space="preserve"
            filename="src/grilo.c"
-           line="198">Returns a #GOptionGroup with Grilo's argument specifications.
+           line="197">Returns a #GOptionGroup with Grilo's argument specifications.
 
 This function is useful if you want to integrate Grilo with other
 libraries that use the GOption commandline parser
@@ -14429,7 +14520,7 @@ libraries that use the GOption commandline parser
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/grilo.c"
-             line="207">a pointer to Grilo's option group. Should be dereferenced
+             line="206">a pointer to Grilo's option group. Should be dereferenced
 after use.</doc>
         <type name="GLib.OptionGroup" c:type="GOptionGroup*"/>
       </return-value>

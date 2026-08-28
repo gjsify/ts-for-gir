@@ -19,7 +19,7 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="ACTION_INFO_CENTRAL_STORE"
                     c:identifier="AMTK_ACTION_INFO_CENTRAL_STORE"
                     introspectable="0">
-      <source-position filename="amtk/amtk-action-info-central-store.h"
+      <source-position filename="amtk/actions-menus-toolbars/amtk-action-info-central-store.h"
                        line="18"/>
       <parameters>
         <parameter name="obj">
@@ -29,7 +29,7 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="ACTION_INFO_CENTRAL_STORE_CLASS"
                     c:identifier="AMTK_ACTION_INFO_CENTRAL_STORE_CLASS"
                     introspectable="0">
-      <source-position filename="amtk/amtk-action-info-central-store.h"
+      <source-position filename="amtk/actions-menus-toolbars/amtk-action-info-central-store.h"
                        line="19"/>
       <parameters>
         <parameter name="klass">
@@ -39,7 +39,7 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="ACTION_INFO_CENTRAL_STORE_GET_CLASS"
                     c:identifier="AMTK_ACTION_INFO_CENTRAL_STORE_GET_CLASS"
                     introspectable="0">
-      <source-position filename="amtk/amtk-action-info-central-store.h"
+      <source-position filename="amtk/actions-menus-toolbars/amtk-action-info-central-store.h"
                        line="22"/>
       <parameters>
         <parameter name="obj">
@@ -49,7 +49,8 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="ACTION_INFO_STORE"
                     c:identifier="AMTK_ACTION_INFO_STORE"
                     introspectable="0">
-      <source-position filename="amtk/amtk-action-info-store.h" line="18"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-action-info-store.h"
+                       line="18"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -58,7 +59,8 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="ACTION_INFO_STORE_CLASS"
                     c:identifier="AMTK_ACTION_INFO_STORE_CLASS"
                     introspectable="0">
-      <source-position filename="amtk/amtk-action-info-store.h" line="19"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-action-info-store.h"
+                       line="19"/>
       <parameters>
         <parameter name="klass">
         </parameter>
@@ -67,7 +69,8 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="ACTION_INFO_STORE_GET_CLASS"
                     c:identifier="AMTK_ACTION_INFO_STORE_GET_CLASS"
                     introspectable="0">
-      <source-position filename="amtk/amtk-action-info-store.h" line="22"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-action-info-store.h"
+                       line="22"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -76,7 +79,8 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="APPLICATION_WINDOW"
                     c:identifier="AMTK_APPLICATION_WINDOW"
                     introspectable="0">
-      <source-position filename="amtk/amtk-application-window.h" line="17"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-application-window.h"
+                       line="17"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -85,7 +89,8 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="APPLICATION_WINDOW_CLASS"
                     c:identifier="AMTK_APPLICATION_WINDOW_CLASS"
                     introspectable="0">
-      <source-position filename="amtk/amtk-application-window.h" line="18"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-application-window.h"
+                       line="18"/>
       <parameters>
         <parameter name="klass">
         </parameter>
@@ -94,7 +99,8 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="APPLICATION_WINDOW_GET_CLASS"
                     c:identifier="AMTK_APPLICATION_WINDOW_GET_CLASS"
                     introspectable="0">
-      <source-position filename="amtk/amtk-application-window.h" line="21"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-application-window.h"
+                       line="21"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -106,14 +112,16 @@ and/or use gtk-doc annotations.  -->
             glib:type-name="AmtkActionInfo"
             glib:get-type="amtk_action_info_get_type"
             c:symbol-prefix="action_info">
-      <source-position filename="amtk/amtk-action-info.h" line="19"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-action-info.h"
+                       line="19"/>
       <constructor name="new"
                    c:identifier="amtk_action_info_new"
                    version="2.0">
-        <source-position filename="amtk/amtk-action-info.h" line="57"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-action-info.h"
+                         line="57"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="amtk/amtk-action-info.c"
+               filename="amtk/actions-menus-toolbars/amtk-action-info.c"
                line="65">a new #AmtkActionInfo.</doc>
           <type name="ActionInfo" c:type="AmtkActionInfo*"/>
         </return-value>
@@ -122,22 +130,23 @@ and/or use gtk-doc annotations.  -->
                    c:identifier="amtk_action_info_new_from_entry"
                    version="2.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-action-info.c"
+             filename="amtk/actions-menus-toolbars/amtk-action-info.c"
              line="80">Creates a new #AmtkActionInfo from an #AmtkActionInfoEntry.
 
 If @translation_domain is not %NULL, g_dgettext() is used to translate the
 @label and @tooltip before setting them to the #AmtkActionInfo.</doc>
-        <source-position filename="amtk/amtk-action-info.h" line="60"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-action-info.h"
+                         line="60"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="amtk/amtk-action-info.c"
+               filename="amtk/actions-menus-toolbars/amtk-action-info.c"
                line="90">a new #AmtkActionInfo.</doc>
           <type name="ActionInfo" c:type="AmtkActionInfo*"/>
         </return-value>
         <parameters>
           <parameter name="info_entry" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-action-info.c"
+                 filename="amtk/actions-menus-toolbars/amtk-action-info.c"
                  line="82">an #AmtkActionInfoEntry.</doc>
             <type name="ActionInfoEntry" c:type="const AmtkActionInfoEntry*"/>
           </parameter>
@@ -146,17 +155,18 @@ If @translation_domain is not %NULL, g_dgettext() is used to translate the
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-action-info.c"
+                 filename="amtk/actions-menus-toolbars/amtk-action-info.c"
                  line="83">a gettext domain, or %NULL.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </constructor>
       <method name="copy" c:identifier="amtk_action_info_copy" version="2.0">
-        <source-position filename="amtk/amtk-action-info.h" line="70"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-action-info.h"
+                         line="70"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="amtk/amtk-action-info.c"
+               filename="amtk/actions-menus-toolbars/amtk-action-info.c"
                line="171">a copy of @info. The copy will have a reference
 count of one.</doc>
           <type name="ActionInfo" c:type="AmtkActionInfo*"/>
@@ -164,7 +174,7 @@ count of one.</doc>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-action-info.c"
+                 filename="amtk/actions-menus-toolbars/amtk-action-info.c"
                  line="169">an #AmtkActionInfo.</doc>
             <type name="ActionInfo" c:type="const AmtkActionInfo*"/>
           </instance-parameter>
@@ -174,14 +184,15 @@ count of one.</doc>
               c:identifier="amtk_action_info_get_accels"
               version="2.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-action-info.c"
+             filename="amtk/actions-menus-toolbars/amtk-action-info.c"
              line="333">Returns the accelerators. This function never returns %NULL, it always
 returns a %NULL-terminated array, to be suitable for
 gtk_application_set_accels_for_action().</doc>
-        <source-position filename="amtk/amtk-action-info.h" line="101"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-action-info.h"
+                         line="101"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-action-info.c"
+               filename="amtk/actions-menus-toolbars/amtk-action-info.c"
                line="341">a %NULL-terminated array
 of accelerators in the format understood by gtk_accelerator_parse().</doc>
           <array c:type="const gchar* const*">
@@ -191,7 +202,7 @@ of accelerators in the format understood by gtk_accelerator_parse().</doc>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-action-info.c"
+                 filename="amtk/actions-menus-toolbars/amtk-action-info.c"
                  line="335">an #AmtkActionInfo.</doc>
             <type name="ActionInfo" c:type="const AmtkActionInfo*"/>
           </instance-parameter>
@@ -200,10 +211,11 @@ of accelerators in the format understood by gtk_accelerator_parse().</doc>
       <method name="get_action_name"
               c:identifier="amtk_action_info_get_action_name"
               version="2.0">
-        <source-position filename="amtk/amtk-action-info.h" line="73"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-action-info.h"
+                         line="73"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
-               filename="amtk/amtk-action-info.c"
+               filename="amtk/actions-menus-toolbars/amtk-action-info.c"
                line="198">the action name, or %NULL. Example: `"win.save"`. Can be
 a detailed action name, see g_action_parse_detailed_name().</doc>
           <type name="utf8" c:type="const gchar*"/>
@@ -211,7 +223,7 @@ a detailed action name, see g_action_parse_detailed_name().</doc>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-action-info.c"
+                 filename="amtk/actions-menus-toolbars/amtk-action-info.c"
                  line="196">an #AmtkActionInfo.</doc>
             <type name="ActionInfo" c:type="const AmtkActionInfo*"/>
           </instance-parameter>
@@ -220,17 +232,18 @@ a detailed action name, see g_action_parse_detailed_name().</doc>
       <method name="get_icon_name"
               c:identifier="amtk_action_info_get_icon_name"
               version="2.0">
-        <source-position filename="amtk/amtk-action-info.h" line="80"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-action-info.h"
+                         line="80"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
-               filename="amtk/amtk-action-info.c"
+               filename="amtk/actions-menus-toolbars/amtk-action-info.c"
                line="235">the icon name, or %NULL.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-action-info.c"
+                 filename="amtk/actions-menus-toolbars/amtk-action-info.c"
                  line="233">an #AmtkActionInfo.</doc>
             <type name="ActionInfo" c:type="const AmtkActionInfo*"/>
           </instance-parameter>
@@ -240,20 +253,21 @@ a detailed action name, see g_action_parse_detailed_name().</doc>
               c:identifier="amtk_action_info_get_label"
               version="2.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-action-info.c"
+             filename="amtk/actions-menus-toolbars/amtk-action-info.c"
              line="263">Gets the label. The label has normally a mnemonic. To remove the mnemonic,
 there is the amtk_utils_remove_mnemonic() function.</doc>
-        <source-position filename="amtk/amtk-action-info.h" line="87"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-action-info.h"
+                         line="87"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
-               filename="amtk/amtk-action-info.c"
+               filename="amtk/actions-menus-toolbars/amtk-action-info.c"
                line="270">the label (i.e. a short description), or %NULL.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-action-info.c"
+                 filename="amtk/actions-menus-toolbars/amtk-action-info.c"
                  line="265">an #AmtkActionInfo.</doc>
             <type name="ActionInfo" c:type="const AmtkActionInfo*"/>
           </instance-parameter>
@@ -262,17 +276,18 @@ there is the amtk_utils_remove_mnemonic() function.</doc>
       <method name="get_tooltip"
               c:identifier="amtk_action_info_get_tooltip"
               version="2.0">
-        <source-position filename="amtk/amtk-action-info.h" line="94"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-action-info.h"
+                         line="94"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
-               filename="amtk/amtk-action-info.c"
+               filename="amtk/actions-menus-toolbars/amtk-action-info.c"
                line="305">the tooltip (i.e. a long description), or %NULL.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-action-info.c"
+                 filename="amtk/actions-menus-toolbars/amtk-action-info.c"
                  line="303">an #AmtkActionInfo.</doc>
             <type name="ActionInfo" c:type="const AmtkActionInfo*"/>
           </instance-parameter>
@@ -282,20 +297,21 @@ there is the amtk_utils_remove_mnemonic() function.</doc>
               c:identifier="amtk_action_info_has_been_used"
               version="3.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-action-info.c"
+             filename="amtk/actions-menus-toolbars/amtk-action-info.c"
              line="396">Returns whether @info has been used (for example by an #AmtkFactory
 function). See also amtk_action_info_store_check_all_used().</doc>
-        <source-position filename="amtk/amtk-action-info.h" line="111"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-action-info.h"
+                         line="111"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-action-info.c"
+               filename="amtk/actions-menus-toolbars/amtk-action-info.c"
                line="403">whether @info has been used.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-action-info.c"
+                 filename="amtk/actions-menus-toolbars/amtk-action-info.c"
                  line="398">an #AmtkActionInfo.</doc>
             <type name="ActionInfo" c:type="const AmtkActionInfo*"/>
           </instance-parameter>
@@ -305,17 +321,18 @@ function). See also amtk_action_info_store_check_all_used().</doc>
               c:identifier="amtk_action_info_mark_as_used"
               version="3.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-action-info.c"
+             filename="amtk/actions-menus-toolbars/amtk-action-info.c"
              line="379">Mark @info as used. An #AmtkFactory function that uses an #AmtkActionInfo
 should call this function. See amtk_action_info_store_check_all_used().</doc>
-        <source-position filename="amtk/amtk-action-info.h" line="108"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-action-info.h"
+                         line="108"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-action-info.c"
+                 filename="amtk/actions-menus-toolbars/amtk-action-info.c"
                  line="381">an #AmtkActionInfo.</doc>
             <type name="ActionInfo" c:type="AmtkActionInfo*"/>
           </instance-parameter>
@@ -323,19 +340,20 @@ should call this function. See amtk_action_info_store_check_all_used().</doc>
       </method>
       <method name="ref" c:identifier="amtk_action_info_ref" version="2.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-action-info.c"
+             filename="amtk/actions-menus-toolbars/amtk-action-info.c"
              line="126">Increments the reference count of @info by one.</doc>
-        <source-position filename="amtk/amtk-action-info.h" line="64"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-action-info.h"
+                         line="64"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="amtk/amtk-action-info.c"
+               filename="amtk/actions-menus-toolbars/amtk-action-info.c"
                line="132">the passed in @info.</doc>
           <type name="ActionInfo" c:type="AmtkActionInfo*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-action-info.c"
+                 filename="amtk/actions-menus-toolbars/amtk-action-info.c"
                  line="128">an #AmtkActionInfo.</doc>
             <type name="ActionInfo" c:type="AmtkActionInfo*"/>
           </instance-parameter>
@@ -345,25 +363,26 @@ should call this function. See amtk_action_info_store_check_all_used().</doc>
               c:identifier="amtk_action_info_set_accels"
               version="2.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-action-info.c"
+             filename="amtk/actions-menus-toolbars/amtk-action-info.c"
              line="355">A function similar to gtk_application_set_accels_for_action().
 
 @accels must not be %NULL, it must be a %NULL-terminated array, to be
 consistent with gtk_application_set_accels_for_action().</doc>
-        <source-position filename="amtk/amtk-action-info.h" line="104"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-action-info.h"
+                         line="104"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-action-info.c"
+                 filename="amtk/actions-menus-toolbars/amtk-action-info.c"
                  line="357">an #AmtkActionInfo.</doc>
             <type name="ActionInfo" c:type="AmtkActionInfo*"/>
           </instance-parameter>
           <parameter name="accels" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-action-info.c"
+                 filename="amtk/actions-menus-toolbars/amtk-action-info.c"
                  line="358">a %NULL-terminated array of accelerators
 in the format understood by gtk_accelerator_parse().</doc>
             <array c:type="const gchar* const*">
@@ -376,23 +395,24 @@ in the format understood by gtk_accelerator_parse().</doc>
               c:identifier="amtk_action_info_set_action_name"
               version="2.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-action-info.c"
+             filename="amtk/actions-menus-toolbars/amtk-action-info.c"
              line="210">Sets the action name, for example `"win.save"`. Can be a detailed action
 name, see g_action_parse_detailed_name().</doc>
-        <source-position filename="amtk/amtk-action-info.h" line="76"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-action-info.h"
+                         line="76"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-action-info.c"
+                 filename="amtk/actions-menus-toolbars/amtk-action-info.c"
                  line="212">an #AmtkActionInfo.</doc>
             <type name="ActionInfo" c:type="AmtkActionInfo*"/>
           </instance-parameter>
           <parameter name="action_name" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-action-info.c"
+                 filename="amtk/actions-menus-toolbars/amtk-action-info.c"
                  line="213">the action name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -401,14 +421,15 @@ name, see g_action_parse_detailed_name().</doc>
       <method name="set_icon_name"
               c:identifier="amtk_action_info_set_icon_name"
               version="2.0">
-        <source-position filename="amtk/amtk-action-info.h" line="83"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-action-info.h"
+                         line="83"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-action-info.c"
+                 filename="amtk/actions-menus-toolbars/amtk-action-info.c"
                  line="248">an #AmtkActionInfo.</doc>
             <type name="ActionInfo" c:type="AmtkActionInfo*"/>
           </instance-parameter>
@@ -417,7 +438,7 @@ name, see g_action_parse_detailed_name().</doc>
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-action-info.c"
+                 filename="amtk/actions-menus-toolbars/amtk-action-info.c"
                  line="249">the icon name, or %NULL.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -427,17 +448,18 @@ name, see g_action_parse_detailed_name().</doc>
               c:identifier="amtk_action_info_set_label"
               version="2.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-action-info.c"
+             filename="amtk/actions-menus-toolbars/amtk-action-info.c"
              line="281">Sets the label with a mnemonic. To know how to encode the mnemonic, see the
 documentation of gtk_label_new_with_mnemonic().</doc>
-        <source-position filename="amtk/amtk-action-info.h" line="90"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-action-info.h"
+                         line="90"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-action-info.c"
+                 filename="amtk/actions-menus-toolbars/amtk-action-info.c"
                  line="283">an #AmtkActionInfo.</doc>
             <type name="ActionInfo" c:type="AmtkActionInfo*"/>
           </instance-parameter>
@@ -446,7 +468,7 @@ documentation of gtk_label_new_with_mnemonic().</doc>
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-action-info.c"
+                 filename="amtk/actions-menus-toolbars/amtk-action-info.c"
                  line="284">the label (i.e. a short description), or %NULL.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -455,14 +477,15 @@ documentation of gtk_label_new_with_mnemonic().</doc>
       <method name="set_tooltip"
               c:identifier="amtk_action_info_set_tooltip"
               version="2.0">
-        <source-position filename="amtk/amtk-action-info.h" line="97"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-action-info.h"
+                         line="97"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-action-info.c"
+                 filename="amtk/actions-menus-toolbars/amtk-action-info.c"
                  line="318">an #AmtkActionInfo.</doc>
             <type name="ActionInfo" c:type="AmtkActionInfo*"/>
           </instance-parameter>
@@ -471,7 +494,7 @@ documentation of gtk_label_new_with_mnemonic().</doc>
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-action-info.c"
+                 filename="amtk/actions-menus-toolbars/amtk-action-info.c"
                  line="319">the tooltip (i.e. a long description), or %NULL.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -479,17 +502,18 @@ documentation of gtk_label_new_with_mnemonic().</doc>
       </method>
       <method name="unref" c:identifier="amtk_action_info_unref" version="2.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-action-info.c"
+             filename="amtk/actions-menus-toolbars/amtk-action-info.c"
              line="145">Decrements the reference count of @info by one. If the reference count drops
 to 0, @info is freed.</doc>
-        <source-position filename="amtk/amtk-action-info.h" line="67"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-action-info.h"
+                         line="67"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-action-info.c"
+                 filename="amtk/actions-menus-toolbars/amtk-action-info.c"
                  line="147">an #AmtkActionInfo.</doc>
             <type name="ActionInfo" c:type="AmtkActionInfo*"/>
           </instance-parameter>
@@ -503,16 +527,16 @@ to 0, @info is freed.</doc>
            glib:type-name="AmtkActionInfoCentralStore"
            glib:get-type="amtk_action_info_central_store_get_type"
            glib:type-struct="ActionInfoCentralStoreClass">
-      <source-position filename="amtk/amtk-action-info-central-store.h"
+      <source-position filename="amtk/actions-menus-toolbars/amtk-action-info-central-store.h"
                        line="40"/>
       <function name="get_singleton"
                 c:identifier="amtk_action_info_central_store_get_singleton"
                 version="3.0">
-        <source-position filename="amtk/amtk-action-info-central-store.h"
+        <source-position filename="amtk/actions-menus-toolbars/amtk-action-info-central-store.h"
                          line="47"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-action-info-central-store.c"
+               filename="amtk/actions-menus-toolbars/amtk-action-info-central-store.c"
                line="86">the #AmtkActionInfoCentralStore singleton instance.</doc>
           <type name="ActionInfoCentralStore"
                 c:type="AmtkActionInfoCentralStore*"/>
@@ -521,25 +545,25 @@ to 0, @info is freed.</doc>
       <method name="lookup"
               c:identifier="amtk_action_info_central_store_lookup"
               version="2.0">
-        <source-position filename="amtk/amtk-action-info-central-store.h"
+        <source-position filename="amtk/actions-menus-toolbars/amtk-action-info-central-store.h"
                          line="50"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-action-info-central-store.c"
+               filename="amtk/actions-menus-toolbars/amtk-action-info-central-store.c"
                line="144">the found #AmtkActionInfo, or %NULL.</doc>
           <type name="ActionInfo" c:type="AmtkActionInfo*"/>
         </return-value>
         <parameters>
           <instance-parameter name="central_store" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-action-info-central-store.c"
+                 filename="amtk/actions-menus-toolbars/amtk-action-info-central-store.c"
                  line="141">the #AmtkActionInfoCentralStore.</doc>
             <type name="ActionInfoCentralStore"
                   c:type="AmtkActionInfoCentralStore*"/>
           </instance-parameter>
           <parameter name="action_name" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-action-info-central-store.c"
+                 filename="amtk/actions-menus-toolbars/amtk-action-info-central-store.c"
                  line="142">an action name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -556,7 +580,7 @@ to 0, @info is freed.</doc>
     <record name="ActionInfoCentralStoreClass"
             c:type="AmtkActionInfoCentralStoreClass"
             glib:is-gtype-struct-for="ActionInfoCentralStore">
-      <source-position filename="amtk/amtk-action-info-central-store.h"
+      <source-position filename="amtk/actions-menus-toolbars/amtk-action-info-central-store.h"
                        line="40"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
@@ -571,48 +595,49 @@ to 0, @info is freed.</doc>
             c:type="AmtkActionInfoCentralStorePrivate"
             disguised="1"
             opaque="1">
-      <source-position filename="amtk/amtk-action-info-central-store.h"
+      <source-position filename="amtk/actions-menus-toolbars/amtk-action-info-central-store.h"
                        line="26"/>
     </record>
     <record name="ActionInfoEntry" c:type="AmtkActionInfoEntry" version="2.0">
       <doc xml:space="preserve"
-           filename="amtk/amtk-action-info.h"
+           filename="amtk/actions-menus-toolbars/amtk-action-info.h"
            line="22">This struct defines a set of information for a single action. It is for use
 with amtk_action_info_store_add_entries().
 
 Like #GActionEntry, it is permissible to use an incomplete initialiser in
 order to leave some of the later values as %NULL. Additional optional fields
 may be added in the future.</doc>
-      <source-position filename="amtk/amtk-action-info.h" line="51"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-action-info.h"
+                       line="51"/>
       <field name="action_name" writable="1">
         <doc xml:space="preserve"
-             filename="amtk/amtk-action-info.h"
+             filename="amtk/actions-menus-toolbars/amtk-action-info.h"
              line="24">the action name. Can be a detailed action name, see
   g_action_parse_detailed_name().</doc>
         <type name="utf8" c:type="const gchar*"/>
       </field>
       <field name="icon_name" writable="1">
         <doc xml:space="preserve"
-             filename="amtk/amtk-action-info.h"
+             filename="amtk/actions-menus-toolbars/amtk-action-info.h"
              line="26">the icon name, or %NULL.</doc>
         <type name="utf8" c:type="const gchar*"/>
       </field>
       <field name="label" writable="1">
         <doc xml:space="preserve"
-             filename="amtk/amtk-action-info.h"
+             filename="amtk/actions-menus-toolbars/amtk-action-info.h"
              line="27">the label (i.e. a short description) with a mnemonic, or %NULL.</doc>
         <type name="utf8" c:type="const gchar*"/>
       </field>
       <field name="accel" writable="1">
         <doc xml:space="preserve"
-             filename="amtk/amtk-action-info.h"
+             filename="amtk/actions-menus-toolbars/amtk-action-info.h"
              line="28">the accelerator, in the format understood by gtk_accelerator_parse().
   Or %NULL.</doc>
         <type name="utf8" c:type="const gchar*"/>
       </field>
       <field name="tooltip" writable="1">
         <doc xml:space="preserve"
-             filename="amtk/amtk-action-info.h"
+             filename="amtk/actions-menus-toolbars/amtk-action-info.h"
              line="30">the tooltip (i.e. a long description), or %NULL.</doc>
         <type name="utf8" c:type="const gchar*"/>
       </field>
@@ -629,14 +654,16 @@ may be added in the future.</doc>
            glib:type-name="AmtkActionInfoStore"
            glib:get-type="amtk_action_info_store_get_type"
            glib:type-struct="ActionInfoStoreClass">
-      <source-position filename="amtk/amtk-action-info-store.h" line="40"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-action-info-store.h"
+                       line="40"/>
       <constructor name="new"
                    c:identifier="amtk_action_info_store_new"
                    version="3.0">
-        <source-position filename="amtk/amtk-action-info-store.h" line="46"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-action-info-store.h"
+                         line="46"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="amtk/amtk-action-info-store.c"
+               filename="amtk/actions-menus-toolbars/amtk-action-info-store.c"
                line="78">a new #AmtkActionInfoStore.</doc>
           <type name="ActionInfoStore" c:type="AmtkActionInfoStore*"/>
         </return-value>
@@ -645,25 +672,26 @@ may be added in the future.</doc>
               c:identifier="amtk_action_info_store_add"
               version="2.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-action-info-store.c"
+             filename="amtk/actions-menus-toolbars/amtk-action-info-store.c"
              line="87">Inserts @info into @store and into the #AmtkActionInfoCentralStore. Both the
 @store and central store must &lt;emphasis&gt;not&lt;/emphasis&gt; already contain an
 #AmtkActionInfo with the same action name. The stores take their own
 reference on @info.</doc>
-        <source-position filename="amtk/amtk-action-info-store.h" line="49"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-action-info-store.h"
+                         line="49"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="store" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-action-info-store.c"
+                 filename="amtk/actions-menus-toolbars/amtk-action-info-store.c"
                  line="89">an #AmtkActionInfoStore.</doc>
             <type name="ActionInfoStore" c:type="AmtkActionInfoStore*"/>
           </instance-parameter>
           <parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-action-info-store.c"
+                 filename="amtk/actions-menus-toolbars/amtk-action-info-store.c"
                  line="90">an #AmtkActionInfo.</doc>
             <type name="ActionInfo" c:type="AmtkActionInfo*"/>
           </parameter>
@@ -673,27 +701,28 @@ reference on @info.</doc>
               c:identifier="amtk_action_info_store_add_entries"
               version="2.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-action-info-store.c"
+             filename="amtk/actions-menus-toolbars/amtk-action-info-store.c"
              line="129">Calls amtk_action_info_store_add() for each entry.
 
 If @translation_domain is not %NULL, g_dgettext() is used to translate the
 @label and @tooltip of each entry before setting them to the #AmtkActionInfo.
 
 An API similar to g_action_map_add_action_entries().</doc>
-        <source-position filename="amtk/amtk-action-info-store.h" line="53"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-action-info-store.h"
+                         line="53"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="store" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-action-info-store.c"
+                 filename="amtk/actions-menus-toolbars/amtk-action-info-store.c"
                  line="131">an #AmtkActionInfoStore.</doc>
             <type name="ActionInfoStore" c:type="AmtkActionInfoStore*"/>
           </instance-parameter>
           <parameter name="entries" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-action-info-store.c"
+                 filename="amtk/actions-menus-toolbars/amtk-action-info-store.c"
                  line="132">a
 pointer to the first item in an array of #AmtkActionInfoEntry structs.</doc>
             <array length="1"
@@ -704,7 +733,7 @@ pointer to the first item in an array of #AmtkActionInfoEntry structs.</doc>
           </parameter>
           <parameter name="n_entries" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-action-info-store.c"
+                 filename="amtk/actions-menus-toolbars/amtk-action-info-store.c"
                  line="134">the length of @entries, or -1 if @entries is %NULL-terminated.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
@@ -713,7 +742,7 @@ pointer to the first item in an array of #AmtkActionInfoEntry structs.</doc>
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-action-info-store.c"
+                 filename="amtk/actions-menus-toolbars/amtk-action-info-store.c"
                  line="135">a gettext domain, or %NULL.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -723,7 +752,7 @@ pointer to the first item in an array of #AmtkActionInfoEntry structs.</doc>
               c:identifier="amtk_action_info_store_check_all_used"
               version="2.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-action-info-store.c"
+             filename="amtk/actions-menus-toolbars/amtk-action-info-store.c"
              line="257">Checks for each #AmtkActionInfo of @store that it has been used (see
 amtk_action_info_has_been_used()). If an #AmtkActionInfo has not been used, a
 warning is printed and might indicate dead code.
@@ -731,14 +760,15 @@ warning is printed and might indicate dead code.
 You probably want to call this function on the application store after
 creating the menu and toolbar. But it can also be useful for a store provided
 by a library, to easily see which actions are not used by the application.</doc>
-        <source-position filename="amtk/amtk-action-info-store.h" line="67"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-action-info-store.h"
+                         line="67"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="store" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-action-info-store.c"
+                 filename="amtk/actions-menus-toolbars/amtk-action-info-store.c"
                  line="259">an #AmtkActionInfoStore.</doc>
             <type name="ActionInfoStore" c:type="AmtkActionInfoStore*"/>
           </instance-parameter>
@@ -747,23 +777,24 @@ by a library, to easily see which actions are not used by the application.</doc>
       <method name="lookup"
               c:identifier="amtk_action_info_store_lookup"
               version="2.0">
-        <source-position filename="amtk/amtk-action-info-store.h" line="59"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-action-info-store.h"
+                         line="59"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-action-info-store.c"
+               filename="amtk/actions-menus-toolbars/amtk-action-info-store.c"
                line="173">the found #AmtkActionInfo, or %NULL.</doc>
           <type name="ActionInfo" c:type="AmtkActionInfo*"/>
         </return-value>
         <parameters>
           <instance-parameter name="store" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-action-info-store.c"
+                 filename="amtk/actions-menus-toolbars/amtk-action-info-store.c"
                  line="170">an #AmtkActionInfoStore.</doc>
             <type name="ActionInfoStore" c:type="AmtkActionInfoStore*"/>
           </instance-parameter>
           <parameter name="action_name" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-action-info-store.c"
+                 filename="amtk/actions-menus-toolbars/amtk-action-info-store.c"
                  line="171">an action name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -773,7 +804,7 @@ by a library, to easily see which actions are not used by the application.</doc>
               c:identifier="amtk_action_info_store_set_all_accels_to_app"
               version="5.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-action-info-store.c"
+             filename="amtk/actions-menus-toolbars/amtk-action-info-store.c"
              line="200">Calls gtk_application_set_accels_for_action() for all #AmtkActionInfo's part
 of @store with the accelerators returned by amtk_action_info_get_accels().
 This function does *not* call amtk_action_info_mark_as_used(), because if it
@@ -796,20 +827,21 @@ created directly with #AmtkFactory on application startup, but are created
 later, on demand. For example to create a #GtkShortcutsWindow with
 #AmtkFactory, containing information about actions that are not added to any
 menu or toolbar.</doc>
-        <source-position filename="amtk/amtk-action-info-store.h" line="63"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-action-info-store.h"
+                         line="63"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="store" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-action-info-store.c"
+                 filename="amtk/actions-menus-toolbars/amtk-action-info-store.c"
                  line="202">an #AmtkActionInfoStore.</doc>
             <type name="ActionInfoStore" c:type="AmtkActionInfoStore*"/>
           </instance-parameter>
           <parameter name="application" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-action-info-store.c"
+                 filename="amtk/actions-menus-toolbars/amtk-action-info-store.c"
                  line="203">a #GtkApplication.</doc>
             <type name="Gtk.Application" c:type="GtkApplication*"/>
           </parameter>
@@ -826,7 +858,8 @@ menu or toolbar.</doc>
     <record name="ActionInfoStoreClass"
             c:type="AmtkActionInfoStoreClass"
             glib:is-gtype-struct-for="ActionInfoStore">
-      <source-position filename="amtk/amtk-action-info-store.h" line="40"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-action-info-store.h"
+                       line="40"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -840,7 +873,8 @@ menu or toolbar.</doc>
             c:type="AmtkActionInfoStorePrivate"
             disguised="1"
             opaque="1">
-      <source-position filename="amtk/amtk-action-info-store.h" line="26"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-action-info-store.h"
+                       line="26"/>
     </record>
     <class name="ApplicationWindow"
            c:symbol-prefix="application_window"
@@ -849,12 +883,13 @@ menu or toolbar.</doc>
            glib:type-name="AmtkApplicationWindow"
            glib:get-type="amtk_application_window_get_type"
            glib:type-struct="ApplicationWindowClass">
-      <source-position filename="amtk/amtk-application-window.h" line="39"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-application-window.h"
+                       line="39"/>
       <function name="create_open_recent_menu_base"
                 c:identifier="amtk_application_window_create_open_recent_menu_base"
                 version="5.6">
         <doc xml:space="preserve"
-             filename="amtk/amtk-application-window.c"
+             filename="amtk/actions-menus-toolbars/amtk-application-window.c"
              line="524">Creates the base of a simple and generic #GtkRecentChooserMenu.
 
 The #GtkRecentChooser is configured to show files only recently used with the
@@ -862,10 +897,11 @@ current application, as returned by g_get_application_name(). If recent files
 are added to the default #GtkRecentManager with
 gtk_recent_manager_add_item(), the files will normally show up in the
 #GtkRecentChooserMenu.</doc>
-        <source-position filename="amtk/amtk-application-window.h" line="67"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-application-window.h"
+                         line="67"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-application-window.c"
+               filename="amtk/actions-menus-toolbars/amtk-application-window.c"
                line="535">a new #GtkRecentChooserMenu.</doc>
           <type name="Gtk.RecentChooserMenu" c:type="GtkRecentChooserMenu*"/>
         </return-value>
@@ -874,20 +910,21 @@ gtk_recent_manager_add_item(), the files will normally show up in the
                 c:identifier="amtk_application_window_get_from_gtk_application_window"
                 version="2.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-application-window.c"
+             filename="amtk/actions-menus-toolbars/amtk-application-window.c"
              line="176">Returns the #AmtkApplicationWindow of @gtk_window. The returned object is
 guaranteed to be the same for the lifetime of @gtk_window.</doc>
-        <source-position filename="amtk/amtk-application-window.h" line="45"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-application-window.h"
+                         line="45"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-application-window.c"
+               filename="amtk/actions-menus-toolbars/amtk-application-window.c"
                line="183">the #AmtkApplicationWindow of @gtk_window.</doc>
           <type name="ApplicationWindow" c:type="AmtkApplicationWindow*"/>
         </return-value>
         <parameters>
           <parameter name="gtk_window" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-application-window.c"
+                 filename="amtk/actions-menus-toolbars/amtk-application-window.c"
                  line="178">a #GtkApplicationWindow.</doc>
             <type name="Gtk.ApplicationWindow" c:type="GtkApplicationWindow*"/>
           </parameter>
@@ -897,7 +934,7 @@ guaranteed to be the same for the lifetime of @gtk_window.</doc>
               c:identifier="amtk_application_window_connect_menu_to_statusbar"
               version="2.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-application-window.c"
+             filename="amtk/actions-menus-toolbars/amtk-application-window.c"
              line="447">Connects to the #AmtkMenuShell::menu-item-selected and
 #AmtkMenuShell::menu-item-deselected signals of @menu_shell to push/pop the
 long description of #GtkMenuItem's to the #AmtkApplicationWindow:statusbar.
@@ -905,20 +942,21 @@ long description of #GtkMenuItem's to the #AmtkApplicationWindow:statusbar.
 The long description is retrieved with amtk_menu_item_get_long_description().
 So amtk_menu_item_set_long_description() must have been called, which is the
 case if the #GtkMenuItem has been created with #AmtkFactory.</doc>
-        <source-position filename="amtk/amtk-application-window.h" line="58"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-application-window.h"
+                         line="58"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="amtk_window" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-application-window.c"
+                 filename="amtk/actions-menus-toolbars/amtk-application-window.c"
                  line="449">an #AmtkApplicationWindow.</doc>
             <type name="ApplicationWindow" c:type="AmtkApplicationWindow*"/>
           </instance-parameter>
           <parameter name="menu_shell" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-application-window.c"
+                 filename="amtk/actions-menus-toolbars/amtk-application-window.c"
                  line="450">a #GtkMenuShell.</doc>
             <type name="Gtk.MenuShell" c:type="GtkMenuShell*"/>
           </parameter>
@@ -928,27 +966,28 @@ case if the #GtkMenuItem has been created with #AmtkFactory.</doc>
               c:identifier="amtk_application_window_connect_recent_chooser_menu_to_statusbar"
               version="2.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-application-window.c"
+             filename="amtk/actions-menus-toolbars/amtk-application-window.c"
              line="492">An alternative to gtk_recent_chooser_set_show_tips(). Shows the full path in
 the #AmtkApplicationWindow:statusbar when a #GtkMenuItem of @menu is
 selected.
 
 The full path is retrieved with
 amtk_utils_recent_chooser_menu_get_item_uri().</doc>
-        <source-position filename="amtk/amtk-application-window.h" line="62"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-application-window.h"
+                         line="62"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="amtk_window" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-application-window.c"
+                 filename="amtk/actions-menus-toolbars/amtk-application-window.c"
                  line="494">an #AmtkApplicationWindow.</doc>
             <type name="ApplicationWindow" c:type="AmtkApplicationWindow*"/>
           </instance-parameter>
           <parameter name="menu" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-application-window.c"
+                 filename="amtk/actions-menus-toolbars/amtk-application-window.c"
                  line="495">a #GtkRecentChooserMenu.</doc>
             <type name="Gtk.RecentChooserMenu" c:type="GtkRecentChooserMenu*"/>
           </parameter>
@@ -958,7 +997,7 @@ amtk_utils_recent_chooser_menu_get_item_uri().</doc>
               c:identifier="amtk_application_window_create_open_recent_menu"
               version="3.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-application-window.c"
+             filename="amtk/actions-menus-toolbars/amtk-application-window.c"
              line="577">This function creates a #GtkRecentChooserMenu with
 amtk_application_window_create_open_recent_menu_base(), and setup these
 additional things:
@@ -969,17 +1008,18 @@ additional things:
 - When the #GtkRecentChooser::item-activated signal is emitted,
   g_application_open() is called (with an empty hint), so the #GApplication
   must have the %G_APPLICATION_HANDLES_OPEN flag set.</doc>
-        <source-position filename="amtk/amtk-application-window.h" line="70"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-application-window.h"
+                         line="70"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-application-window.c"
+               filename="amtk/actions-menus-toolbars/amtk-application-window.c"
                line="592">a new #GtkRecentChooserMenu.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="amtk_window" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-application-window.c"
+                 filename="amtk/actions-menus-toolbars/amtk-application-window.c"
                  line="579">an #AmtkApplicationWindow.</doc>
             <type name="ApplicationWindow" c:type="AmtkApplicationWindow*"/>
           </instance-parameter>
@@ -989,21 +1029,22 @@ additional things:
               c:identifier="amtk_application_window_create_open_recent_menu_item"
               version="2.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-application-window.c"
+             filename="amtk/actions-menus-toolbars/amtk-application-window.c"
              line="615">Creates a #GtkMenuItem with a simple and generic #GtkRecentChooserMenu as
 submenu. The #GtkRecentChooserMenu is created with
 amtk_application_window_create_open_recent_menu().</doc>
-        <source-position filename="amtk/amtk-application-window.h" line="73"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-application-window.h"
+                         line="73"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-application-window.c"
+               filename="amtk/actions-menus-toolbars/amtk-application-window.c"
                line="623">a new #GtkMenuItem.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="amtk_window" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-application-window.c"
+                 filename="amtk/actions-menus-toolbars/amtk-application-window.c"
                  line="617">an #AmtkApplicationWindow.</doc>
             <type name="ApplicationWindow" c:type="AmtkApplicationWindow*"/>
           </instance-parameter>
@@ -1013,17 +1054,18 @@ amtk_application_window_create_open_recent_menu().</doc>
               c:identifier="amtk_application_window_get_application_window"
               glib:get-property="application-window"
               version="2.0">
-        <source-position filename="amtk/amtk-application-window.h" line="48"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-application-window.h"
+                         line="48"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-application-window.c"
+               filename="amtk/actions-menus-toolbars/amtk-application-window.c"
                line="215">the #GtkApplicationWindow of @amtk_window.</doc>
           <type name="Gtk.ApplicationWindow" c:type="GtkApplicationWindow*"/>
         </return-value>
         <parameters>
           <instance-parameter name="amtk_window" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-application-window.c"
+                 filename="amtk/actions-menus-toolbars/amtk-application-window.c"
                  line="213">an #AmtkApplicationWindow.</doc>
             <type name="ApplicationWindow" c:type="AmtkApplicationWindow*"/>
           </instance-parameter>
@@ -1033,17 +1075,18 @@ amtk_application_window_create_open_recent_menu().</doc>
               c:identifier="amtk_application_window_get_statusbar"
               glib:get-property="statusbar"
               version="2.0">
-        <source-position filename="amtk/amtk-application-window.h" line="51"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-application-window.h"
+                         line="51"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
-               filename="amtk/amtk-application-window.c"
+               filename="amtk/actions-menus-toolbars/amtk-application-window.c"
                line="230">the #AmtkApplicationWindow:statusbar.</doc>
           <type name="Gtk.Statusbar" c:type="GtkStatusbar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="amtk_window" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-application-window.c"
+                 filename="amtk/actions-menus-toolbars/amtk-application-window.c"
                  line="228">an #AmtkApplicationWindow.</doc>
             <type name="ApplicationWindow" c:type="AmtkApplicationWindow*"/>
           </instance-parameter>
@@ -1054,16 +1097,17 @@ amtk_application_window_create_open_recent_menu().</doc>
               glib:set-property="statusbar"
               version="2.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-application-window.c"
+             filename="amtk/actions-menus-toolbars/amtk-application-window.c"
              line="241">Sets the #AmtkApplicationWindow:statusbar property.</doc>
-        <source-position filename="amtk/amtk-application-window.h" line="54"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-application-window.h"
+                         line="54"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="amtk_window" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-application-window.c"
+                 filename="amtk/actions-menus-toolbars/amtk-application-window.c"
                  line="243">an #AmtkApplicationWindow.</doc>
             <type name="ApplicationWindow" c:type="AmtkApplicationWindow*"/>
           </instance-parameter>
@@ -1072,7 +1116,7 @@ amtk_application_window_create_open_recent_menu().</doc>
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-application-window.c"
+                 filename="amtk/actions-menus-toolbars/amtk-application-window.c"
                  line="244">a #GtkStatusbar, or %NULL.</doc>
             <type name="Gtk.Statusbar" c:type="GtkStatusbar*"/>
           </parameter>
@@ -1085,7 +1129,7 @@ amtk_application_window_create_open_recent_menu().</doc>
                 transfer-ownership="none"
                 getter="get_application_window">
         <doc xml:space="preserve"
-             filename="amtk/amtk-application-window.c"
+             filename="amtk/actions-menus-toolbars/amtk-application-window.c"
              line="136">The #GtkApplicationWindow.</doc>
         <type name="Gtk.ApplicationWindow"/>
       </property>
@@ -1096,7 +1140,7 @@ amtk_application_window_create_open_recent_menu().</doc>
                 setter="set_statusbar"
                 getter="get_statusbar">
         <doc xml:space="preserve"
-             filename="amtk/amtk-application-window.c"
+             filename="amtk/actions-menus-toolbars/amtk-application-window.c"
              line="152">The #GtkStatusbar. %NULL by default.</doc>
         <type name="Gtk.Statusbar"/>
       </property>
@@ -1111,7 +1155,8 @@ amtk_application_window_create_open_recent_menu().</doc>
     <record name="ApplicationWindowClass"
             c:type="AmtkApplicationWindowClass"
             glib:is-gtype-struct-for="ApplicationWindow">
-      <source-position filename="amtk/amtk-application-window.h" line="39"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-application-window.h"
+                       line="39"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -1125,12 +1170,14 @@ amtk_application_window_create_open_recent_menu().</doc>
             c:type="AmtkApplicationWindowPrivate"
             disguised="1"
             opaque="1">
-      <source-position filename="amtk/amtk-application-window.h" line="25"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-application-window.h"
+                       line="25"/>
     </record>
     <function-macro name="FACTORY"
                     c:identifier="AMTK_FACTORY"
                     introspectable="0">
-      <source-position filename="amtk/amtk-factory.h" line="18"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-factory.h"
+                       line="18"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -1139,7 +1186,8 @@ amtk_application_window_create_open_recent_menu().</doc>
     <function-macro name="FACTORY_CLASS"
                     c:identifier="AMTK_FACTORY_CLASS"
                     introspectable="0">
-      <source-position filename="amtk/amtk-factory.h" line="19"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-factory.h"
+                       line="19"/>
       <parameters>
         <parameter name="klass">
         </parameter>
@@ -1148,7 +1196,8 @@ amtk_application_window_create_open_recent_menu().</doc>
     <function-macro name="FACTORY_GET_CLASS"
                     c:identifier="AMTK_FACTORY_GET_CLASS"
                     introspectable="0">
-      <source-position filename="amtk/amtk-factory.h" line="22"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-factory.h"
+                       line="22"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -1161,16 +1210,18 @@ amtk_application_window_create_open_recent_menu().</doc>
            glib:type-name="AmtkFactory"
            glib:get-type="amtk_factory_get_type"
            glib:type-struct="FactoryClass">
-      <source-position filename="amtk/amtk-factory.h" line="40"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-factory.h"
+                       line="40"/>
       <constructor name="new" c:identifier="amtk_factory_new" version="3.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-factory.c"
+             filename="amtk/actions-menus-toolbars/amtk-factory.c"
              line="302">Creates a new #AmtkFactory object. Associating a #GtkApplication is optional,
 if it is %NULL gtk_application_set_accels_for_action() won't be called.</doc>
-        <source-position filename="amtk/amtk-factory.h" line="79"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-factory.h"
+                         line="79"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="amtk/amtk-factory.c"
+               filename="amtk/actions-menus-toolbars/amtk-factory.c"
                line="309">a new #AmtkFactory.</doc>
           <type name="Factory" c:type="AmtkFactory*"/>
         </return-value>
@@ -1180,7 +1231,7 @@ if it is %NULL gtk_application_set_accels_for_action() won't be called.</doc>
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="304">a #GtkApplication, or %NULL.</doc>
             <type name="Gtk.Application" c:type="GtkApplication*"/>
           </parameter>
@@ -1190,13 +1241,14 @@ if it is %NULL gtk_application_set_accels_for_action() won't be called.</doc>
                    c:identifier="amtk_factory_new_with_default_application"
                    version="3.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-factory.c"
+             filename="amtk/actions-menus-toolbars/amtk-factory.c"
              line="322">Calls amtk_factory_new() with g_application_get_default() (it must be a
 #GtkApplication).</doc>
-        <source-position filename="amtk/amtk-factory.h" line="82"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-factory.h"
+                         line="82"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="amtk/amtk-factory.c"
+               filename="amtk/actions-menus-toolbars/amtk-factory.c"
                line="328">a new #AmtkFactory with the default #GtkApplication.</doc>
           <type name="Factory" c:type="AmtkFactory*"/>
         </return-value>
@@ -1205,29 +1257,30 @@ if it is %NULL gtk_application_set_accels_for_action() won't be called.</doc>
               c:identifier="amtk_factory_create_check_menu_item"
               version="3.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-factory.c"
+             filename="amtk/actions-menus-toolbars/amtk-factory.c"
              line="613">Creates a new #GtkCheckMenuItem for @action_name with the
 #AmtkFactory:default-flags.
 
 See the documentation of amtk_factory_create_check_menu_item_full() for more
 information.</doc>
-        <source-position filename="amtk/amtk-factory.h" line="104"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-factory.h"
+                         line="104"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-factory.c"
+               filename="amtk/actions-menus-toolbars/amtk-factory.c"
                line="624">a new #GtkCheckMenuItem for @action_name.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="615">an #AmtkFactory.</doc>
             <type name="Factory" c:type="AmtkFactory*"/>
           </instance-parameter>
           <parameter name="action_name" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="616">an action name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -1237,7 +1290,7 @@ information.</doc>
               c:identifier="amtk_factory_create_check_menu_item_full"
               version="3.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-factory.c"
+             filename="amtk/actions-menus-toolbars/amtk-factory.c"
              line="639">This function ignores the #AmtkFactory:default-flags property and takes the
 @flags argument instead.
 
@@ -1246,29 +1299,30 @@ would be possible with amtk_menu_item_set_icon_name().
 
 If the action controls a boolean property, think about using
 #GPropertyAction.</doc>
-        <source-position filename="amtk/amtk-factory.h" line="108"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-factory.h"
+                         line="108"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-factory.c"
+               filename="amtk/actions-menus-toolbars/amtk-factory.c"
                line="654">a new #GtkCheckMenuItem for @action_name.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="641">an #AmtkFactory.</doc>
             <type name="Factory" c:type="AmtkFactory*"/>
           </instance-parameter>
           <parameter name="action_name" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="642">an action name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="643">#AmtkFactoryFlags.</doc>
             <type name="FactoryFlags" c:type="AmtkFactoryFlags"/>
           </parameter>
@@ -1278,26 +1332,27 @@ If the action controls a boolean property, think about using
               c:identifier="amtk_factory_create_gmenu_item"
               version="5.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-factory.c"
+             filename="amtk/actions-menus-toolbars/amtk-factory.c"
              line="758">Calls amtk_factory_create_gmenu_item_full() with the
 #AmtkFactory:default-flags.</doc>
-        <source-position filename="amtk/amtk-factory.h" line="124"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-factory.h"
+                         line="124"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="amtk/amtk-factory.c"
+               filename="amtk/actions-menus-toolbars/amtk-factory.c"
                line="766">a new #GMenuItem for @action_name.</doc>
           <type name="Gio.MenuItem" c:type="GMenuItem*"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="760">an #AmtkFactory.</doc>
             <type name="Factory" c:type="AmtkFactory*"/>
           </instance-parameter>
           <parameter name="action_name" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="761">an action name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -1307,35 +1362,36 @@ If the action controls a boolean property, think about using
               c:identifier="amtk_factory_create_gmenu_item_full"
               version="5.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-factory.c"
+             filename="amtk/actions-menus-toolbars/amtk-factory.c"
              line="781">This function ignores the #AmtkFactory:default-flags property and takes the
 @flags argument instead.
 
 Creates a new #GMenuItem for @action_name. It ignores the tooltip, i.e. the
 return value of amtk_action_info_get_tooltip().</doc>
-        <source-position filename="amtk/amtk-factory.h" line="128"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-factory.h"
+                         line="128"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="amtk/amtk-factory.c"
+               filename="amtk/actions-menus-toolbars/amtk-factory.c"
                line="793">a new #GMenuItem for @action_name.</doc>
           <type name="Gio.MenuItem" c:type="GMenuItem*"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="783">an #AmtkFactory.</doc>
             <type name="Factory" c:type="AmtkFactory*"/>
           </instance-parameter>
           <parameter name="action_name" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="784">an action name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="785">#AmtkFactoryFlags.</doc>
             <type name="FactoryFlags" c:type="AmtkFactoryFlags"/>
           </parameter>
@@ -1345,26 +1401,27 @@ return value of amtk_action_info_get_tooltip().</doc>
               c:identifier="amtk_factory_create_menu_item"
               version="3.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-factory.c"
+             filename="amtk/actions-menus-toolbars/amtk-factory.c"
              line="541">Creates a new #GtkMenuItem for @action_name with the
 #AmtkFactory:default-flags.</doc>
-        <source-position filename="amtk/amtk-factory.h" line="95"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-factory.h"
+                         line="95"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-factory.c"
+               filename="amtk/actions-menus-toolbars/amtk-factory.c"
                line="549">a new #GtkMenuItem for @action_name.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="543">an #AmtkFactory.</doc>
             <type name="Factory" c:type="AmtkFactory*"/>
           </instance-parameter>
           <parameter name="action_name" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="544">an action name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -1374,32 +1431,33 @@ return value of amtk_action_info_get_tooltip().</doc>
               c:identifier="amtk_factory_create_menu_item_full"
               version="3.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-factory.c"
+             filename="amtk/actions-menus-toolbars/amtk-factory.c"
              line="564">This function ignores the #AmtkFactory:default-flags property and takes the
 @flags argument instead.</doc>
-        <source-position filename="amtk/amtk-factory.h" line="99"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-factory.h"
+                         line="99"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-factory.c"
+               filename="amtk/actions-menus-toolbars/amtk-factory.c"
                line="573">a new #GtkMenuItem for @action_name.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="566">an #AmtkFactory.</doc>
             <type name="Factory" c:type="AmtkFactory*"/>
           </instance-parameter>
           <parameter name="action_name" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="567">an action name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="568">#AmtkFactoryFlags.</doc>
             <type name="FactoryFlags" c:type="AmtkFactoryFlags"/>
           </parameter>
@@ -1409,29 +1467,30 @@ return value of amtk_action_info_get_tooltip().</doc>
               c:identifier="amtk_factory_create_menu_tool_button"
               version="3.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-factory.c"
+             filename="amtk/actions-menus-toolbars/amtk-factory.c"
              line="899">Creates a new #GtkMenuToolButton for @action_name with the
 #AmtkFactory:default-flags.
 
 See the documentation of amtk_factory_create_menu_tool_button_full() for more
 information.</doc>
-        <source-position filename="amtk/amtk-factory.h" line="142"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-factory.h"
+                         line="142"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-factory.c"
+               filename="amtk/actions-menus-toolbars/amtk-factory.c"
                line="910">a new #GtkMenuToolButton for @action_name.</doc>
           <type name="Gtk.MenuToolButton" c:type="GtkMenuToolButton*"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="901">an #AmtkFactory.</doc>
             <type name="Factory" c:type="AmtkFactory*"/>
           </instance-parameter>
           <parameter name="action_name" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="902">an action name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -1441,35 +1500,36 @@ information.</doc>
               c:identifier="amtk_factory_create_menu_tool_button_full"
               version="3.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-factory.c"
+             filename="amtk/actions-menus-toolbars/amtk-factory.c"
              line="925">This function ignores the #AmtkFactory:default-flags property and takes the
 @flags argument instead.
 
 After calling this function, you need to use the #GtkMenuToolButton API to
 set the menu and also possibly set a tooltip to the arrow.</doc>
-        <source-position filename="amtk/amtk-factory.h" line="146"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-factory.h"
+                         line="146"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-factory.c"
+               filename="amtk/actions-menus-toolbars/amtk-factory.c"
                line="937">a new #GtkMenuToolButton for @action_name.</doc>
           <type name="Gtk.MenuToolButton" c:type="GtkMenuToolButton*"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="927">an #AmtkFactory.</doc>
             <type name="Factory" c:type="AmtkFactory*"/>
           </instance-parameter>
           <parameter name="action_name" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="928">an action name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="929">#AmtkFactoryFlags.</doc>
             <type name="FactoryFlags" c:type="AmtkFactoryFlags"/>
           </parameter>
@@ -1479,26 +1539,27 @@ set the menu and also possibly set a tooltip to the arrow.</doc>
               c:identifier="amtk_factory_create_shortcut"
               version="5.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-factory.c"
+             filename="amtk/actions-menus-toolbars/amtk-factory.c"
              line="962">Calls amtk_factory_create_shortcut_full() with the
 #AmtkFactory:default-flags.</doc>
-        <source-position filename="amtk/amtk-factory.h" line="151"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-factory.h"
+                         line="151"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-factory.c"
+               filename="amtk/actions-menus-toolbars/amtk-factory.c"
                line="970">a new #GtkShortcutsShortcut for @action_name.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="964">an #AmtkFactory.</doc>
             <type name="Factory" c:type="AmtkFactory*"/>
           </instance-parameter>
           <parameter name="action_name" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="965">an action name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -1508,7 +1569,7 @@ set the menu and also possibly set a tooltip to the arrow.</doc>
               c:identifier="amtk_factory_create_shortcut_full"
               version="5.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-factory.c"
+             filename="amtk/actions-menus-toolbars/amtk-factory.c"
              line="985">This function ignores the #AmtkFactory:default-flags property and takes the
 @flags argument instead.
 
@@ -1530,29 +1591,30 @@ the #GtkApplication).
 
 So depending on whether you want to show only the first accelerator or all
 accelerators, you need to set @flags appropriately.</doc>
-        <source-position filename="amtk/amtk-factory.h" line="155"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-factory.h"
+                         line="155"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-factory.c"
+               filename="amtk/actions-menus-toolbars/amtk-factory.c"
                line="1013">a new #GtkShortcutsShortcut for @action_name.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="987">an #AmtkFactory.</doc>
             <type name="Factory" c:type="AmtkFactory*"/>
           </instance-parameter>
           <parameter name="action_name" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="988">an action name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="989">#AmtkFactoryFlags.</doc>
             <type name="FactoryFlags" c:type="AmtkFactoryFlags"/>
           </parameter>
@@ -1562,26 +1624,27 @@ accelerators, you need to set @flags appropriately.</doc>
               c:identifier="amtk_factory_create_simple_menu"
               version="5.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-factory.c"
+             filename="amtk/actions-menus-toolbars/amtk-factory.c"
              line="679">Calls amtk_factory_create_simple_menu_full() with the
 #AmtkFactory:default-flags.</doc>
-        <source-position filename="amtk/amtk-factory.h" line="113"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-factory.h"
+                         line="113"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-factory.c"
+               filename="amtk/actions-menus-toolbars/amtk-factory.c"
                line="689">a new simple #GtkMenu for @entries.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="681">an #AmtkFactory.</doc>
             <type name="Factory" c:type="AmtkFactory*"/>
           </instance-parameter>
           <parameter name="entries" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="682">a
   pointer to the first item in an array of #AmtkActionInfoEntry structs.</doc>
             <array length="1"
@@ -1592,7 +1655,7 @@ accelerators, you need to set @flags appropriately.</doc>
           </parameter>
           <parameter name="n_entries" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="684">the length of @entries, or -1 if @entries is %NULL-terminated.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
@@ -1602,7 +1665,7 @@ accelerators, you need to set @flags appropriately.</doc>
               c:identifier="amtk_factory_create_simple_menu_full"
               version="5.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-factory.c"
+             filename="amtk/actions-menus-toolbars/amtk-factory.c"
              line="707">This function ignores the #AmtkFactory:default-flags property and takes the
 @flags argument instead.
 
@@ -1615,23 +1678,24 @@ This function:
 
 So this function is useful only if the #GtkMenu contains only simple
 #GtkMenuItem's, not #GtkCheckMenuItem's nor #GtkRadioMenuItem's.</doc>
-        <source-position filename="amtk/amtk-factory.h" line="118"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-factory.h"
+                         line="118"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-factory.c"
+               filename="amtk/actions-menus-toolbars/amtk-factory.c"
                line="728">a new simple #GtkMenu for @entries.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="709">an #AmtkFactory.</doc>
             <type name="Factory" c:type="AmtkFactory*"/>
           </instance-parameter>
           <parameter name="entries" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="710">a
   pointer to the first item in an array of #AmtkActionInfoEntry structs.</doc>
             <array length="1"
@@ -1642,13 +1706,13 @@ So this function is useful only if the #GtkMenu contains only simple
           </parameter>
           <parameter name="n_entries" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="712">the length of @entries, or -1 if @entries is %NULL-terminated.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="713">#AmtkFactoryFlags.</doc>
             <type name="FactoryFlags" c:type="AmtkFactoryFlags"/>
           </parameter>
@@ -1658,26 +1722,27 @@ So this function is useful only if the #GtkMenu contains only simple
               c:identifier="amtk_factory_create_tool_button"
               version="3.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-factory.c"
+             filename="amtk/actions-menus-toolbars/amtk-factory.c"
              line="842">Creates a new #GtkToolButton for @action_name with the
 #AmtkFactory:default-flags.</doc>
-        <source-position filename="amtk/amtk-factory.h" line="133"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-factory.h"
+                         line="133"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-factory.c"
+               filename="amtk/actions-menus-toolbars/amtk-factory.c"
                line="850">a new #GtkToolButton for @action_name.</doc>
           <type name="Gtk.ToolItem" c:type="GtkToolItem*"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="844">an #AmtkFactory.</doc>
             <type name="Factory" c:type="AmtkFactory*"/>
           </instance-parameter>
           <parameter name="action_name" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="845">an action name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -1687,32 +1752,33 @@ So this function is useful only if the #GtkMenu contains only simple
               c:identifier="amtk_factory_create_tool_button_full"
               version="3.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-factory.c"
+             filename="amtk/actions-menus-toolbars/amtk-factory.c"
              line="865">This function ignores the #AmtkFactory:default-flags property and takes the
 @flags argument instead.</doc>
-        <source-position filename="amtk/amtk-factory.h" line="137"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-factory.h"
+                         line="137"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-factory.c"
+               filename="amtk/actions-menus-toolbars/amtk-factory.c"
                line="874">a new #GtkToolButton for @action_name.</doc>
           <type name="Gtk.ToolItem" c:type="GtkToolItem*"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="867">an #AmtkFactory.</doc>
             <type name="Factory" c:type="AmtkFactory*"/>
           </instance-parameter>
           <parameter name="action_name" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="868">an action name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="869">#AmtkFactoryFlags.</doc>
             <type name="FactoryFlags" c:type="AmtkFactoryFlags"/>
           </parameter>
@@ -1722,17 +1788,18 @@ So this function is useful only if the #GtkMenu contains only simple
               c:identifier="amtk_factory_get_application"
               glib:get-property="application"
               version="3.0">
-        <source-position filename="amtk/amtk-factory.h" line="85"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-factory.h"
+                         line="85"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
-               filename="amtk/amtk-factory.c"
+               filename="amtk/actions-menus-toolbars/amtk-factory.c"
                line="341">the #AmtkFactory:application.</doc>
           <type name="Gtk.Application" c:type="GtkApplication*"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="339">an #AmtkFactory.</doc>
             <type name="Factory" c:type="AmtkFactory*"/>
           </instance-parameter>
@@ -1742,17 +1809,18 @@ So this function is useful only if the #GtkMenu contains only simple
               c:identifier="amtk_factory_get_default_flags"
               glib:get-property="default-flags"
               version="3.0">
-        <source-position filename="amtk/amtk-factory.h" line="88"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-factory.h"
+                         line="88"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-factory.c"
+               filename="amtk/actions-menus-toolbars/amtk-factory.c"
                line="356">the #AmtkFactory:default-flags.</doc>
           <type name="FactoryFlags" c:type="AmtkFactoryFlags"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="354">an #AmtkFactory.</doc>
             <type name="Factory" c:type="AmtkFactory*"/>
           </instance-parameter>
@@ -1763,22 +1831,23 @@ So this function is useful only if the #GtkMenu contains only simple
               glib:set-property="default-flags"
               version="3.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-factory.c"
+             filename="amtk/actions-menus-toolbars/amtk-factory.c"
              line="367">Sets the #AmtkFactory:default-flags property.</doc>
-        <source-position filename="amtk/amtk-factory.h" line="91"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-factory.h"
+                         line="91"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <instance-parameter name="factory" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="369">an #AmtkFactory.</doc>
             <type name="Factory" c:type="AmtkFactory*"/>
           </instance-parameter>
           <parameter name="default_flags" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-factory.c"
+                 filename="amtk/actions-menus-toolbars/amtk-factory.c"
                  line="370">the new value.</doc>
             <type name="FactoryFlags" c:type="AmtkFactoryFlags"/>
           </parameter>
@@ -1791,7 +1860,7 @@ So this function is useful only if the #GtkMenu contains only simple
                 transfer-ownership="none"
                 getter="get_application">
         <doc xml:space="preserve"
-             filename="amtk/amtk-factory.c"
+             filename="amtk/actions-menus-toolbars/amtk-factory.c"
              line="260">The associated #GtkApplication (it is optional, it can be %NULL).
 #AmtkFactory has a weak reference to the #GtkApplication.</doc>
         <type name="Gtk.Application"/>
@@ -1804,7 +1873,7 @@ So this function is useful only if the #GtkMenu contains only simple
                 getter="get_default_flags"
                 default-value="AMTK_FACTORY_FLAGS_NONE">
         <doc xml:space="preserve"
-             filename="amtk/amtk-factory.c"
+             filename="amtk/actions-menus-toolbars/amtk-factory.c"
              line="277">The default #AmtkFactoryFlags.</doc>
         <type name="FactoryFlags"/>
       </property>
@@ -1818,7 +1887,8 @@ So this function is useful only if the #GtkMenu contains only simple
     <record name="FactoryClass"
             c:type="AmtkFactoryClass"
             glib:is-gtype-struct-for="Factory">
-      <source-position filename="amtk/amtk-factory.h" line="40"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-factory.h"
+                       line="40"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -1834,7 +1904,7 @@ So this function is useful only if the #GtkMenu contains only simple
               glib:get-type="amtk_factory_flags_get_type"
               c:type="AmtkFactoryFlags">
       <doc xml:space="preserve"
-           filename="amtk/amtk-factory.h"
+           filename="amtk/actions-menus-toolbars/amtk-factory.h"
            line="42">#AmtkFactoryFlags permits to control how a factory function creates the
 object, to ignore some steps.</doc>
       <member name="flags_none"
@@ -1843,7 +1913,7 @@ object, to ignore some steps.</doc>
               glib:nick="flags-none"
               glib:name="AMTK_FACTORY_FLAGS_NONE">
         <doc xml:space="preserve"
-             filename="amtk/amtk-factory.h"
+             filename="amtk/actions-menus-toolbars/amtk-factory.h"
              line="44">No flags.</doc>
       </member>
       <member name="ignore_gaction"
@@ -1852,7 +1922,7 @@ object, to ignore some steps.</doc>
               glib:nick="ignore-gaction"
               glib:name="AMTK_FACTORY_IGNORE_GACTION">
         <doc xml:space="preserve"
-             filename="amtk/amtk-factory.h"
+             filename="amtk/actions-menus-toolbars/amtk-factory.h"
              line="45">Do not associate the created object with the
   #GAction. For example if the object to create is a #GtkActionable, do not
   call gtk_actionable_set_detailed_action_name().</doc>
@@ -1863,7 +1933,7 @@ object, to ignore some steps.</doc>
               glib:nick="ignore-icon"
               glib:name="AMTK_FACTORY_IGNORE_ICON">
         <doc xml:space="preserve"
-             filename="amtk/amtk-factory.h"
+             filename="amtk/actions-menus-toolbars/amtk-factory.h"
              line="48">Do not set an icon.</doc>
       </member>
       <member name="ignore_label"
@@ -1872,7 +1942,7 @@ object, to ignore some steps.</doc>
               glib:nick="ignore-label"
               glib:name="AMTK_FACTORY_IGNORE_LABEL">
         <doc xml:space="preserve"
-             filename="amtk/amtk-factory.h"
+             filename="amtk/actions-menus-toolbars/amtk-factory.h"
              line="49">Do not set a label/short description.</doc>
       </member>
       <member name="ignore_tooltip"
@@ -1881,7 +1951,7 @@ object, to ignore some steps.</doc>
               glib:nick="ignore-tooltip"
               glib:name="AMTK_FACTORY_IGNORE_TOOLTIP">
         <doc xml:space="preserve"
-             filename="amtk/amtk-factory.h"
+             filename="amtk/actions-menus-toolbars/amtk-factory.h"
              line="50">Do not set a tooltip/long description.</doc>
       </member>
       <member name="ignore_accels"
@@ -1890,7 +1960,7 @@ object, to ignore some steps.</doc>
               glib:nick="ignore-accels"
               glib:name="AMTK_FACTORY_IGNORE_ACCELS">
         <doc xml:space="preserve"
-             filename="amtk/amtk-factory.h"
+             filename="amtk/actions-menus-toolbars/amtk-factory.h"
              line="51">Ignore completely the accelerators.</doc>
       </member>
       <member name="ignore_accels_for_doc"
@@ -1899,7 +1969,7 @@ object, to ignore some steps.</doc>
               glib:nick="ignore-accels-for-doc"
               glib:name="AMTK_FACTORY_IGNORE_ACCELS_FOR_DOC">
         <doc xml:space="preserve"
-             filename="amtk/amtk-factory.h"
+             filename="amtk/actions-menus-toolbars/amtk-factory.h"
              line="52">Ignore the accelerators for
   documentation purposes only. For example do not add/configure a
   #GtkAccelLabel.</doc>
@@ -1910,7 +1980,7 @@ object, to ignore some steps.</doc>
               glib:nick="ignore-accels-for-app"
               glib:name="AMTK_FACTORY_IGNORE_ACCELS_FOR_APP">
         <doc xml:space="preserve"
-             filename="amtk/amtk-factory.h"
+             filename="amtk/actions-menus-toolbars/amtk-factory.h"
              line="55">Do not call
   gtk_application_set_accels_for_action().</doc>
       </member>
@@ -1919,12 +1989,13 @@ object, to ignore some steps.</doc>
             c:type="AmtkFactoryPrivate"
             disguised="1"
             opaque="1">
-      <source-position filename="amtk/amtk-factory.h" line="26"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-factory.h"
+                       line="26"/>
     </record>
     <function-macro name="IS_ACTION_INFO_CENTRAL_STORE"
                     c:identifier="AMTK_IS_ACTION_INFO_CENTRAL_STORE"
                     introspectable="0">
-      <source-position filename="amtk/amtk-action-info-central-store.h"
+      <source-position filename="amtk/actions-menus-toolbars/amtk-action-info-central-store.h"
                        line="20"/>
       <parameters>
         <parameter name="obj">
@@ -1934,7 +2005,7 @@ object, to ignore some steps.</doc>
     <function-macro name="IS_ACTION_INFO_CENTRAL_STORE_CLASS"
                     c:identifier="AMTK_IS_ACTION_INFO_CENTRAL_STORE_CLASS"
                     introspectable="0">
-      <source-position filename="amtk/amtk-action-info-central-store.h"
+      <source-position filename="amtk/actions-menus-toolbars/amtk-action-info-central-store.h"
                        line="21"/>
       <parameters>
         <parameter name="klass">
@@ -1944,7 +2015,8 @@ object, to ignore some steps.</doc>
     <function-macro name="IS_ACTION_INFO_STORE"
                     c:identifier="AMTK_IS_ACTION_INFO_STORE"
                     introspectable="0">
-      <source-position filename="amtk/amtk-action-info-store.h" line="20"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-action-info-store.h"
+                       line="20"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -1953,7 +2025,8 @@ object, to ignore some steps.</doc>
     <function-macro name="IS_ACTION_INFO_STORE_CLASS"
                     c:identifier="AMTK_IS_ACTION_INFO_STORE_CLASS"
                     introspectable="0">
-      <source-position filename="amtk/amtk-action-info-store.h" line="21"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-action-info-store.h"
+                       line="21"/>
       <parameters>
         <parameter name="klass">
         </parameter>
@@ -1962,7 +2035,8 @@ object, to ignore some steps.</doc>
     <function-macro name="IS_APPLICATION_WINDOW"
                     c:identifier="AMTK_IS_APPLICATION_WINDOW"
                     introspectable="0">
-      <source-position filename="amtk/amtk-application-window.h" line="19"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-application-window.h"
+                       line="19"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -1971,7 +2045,8 @@ object, to ignore some steps.</doc>
     <function-macro name="IS_APPLICATION_WINDOW_CLASS"
                     c:identifier="AMTK_IS_APPLICATION_WINDOW_CLASS"
                     introspectable="0">
-      <source-position filename="amtk/amtk-application-window.h" line="20"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-application-window.h"
+                       line="20"/>
       <parameters>
         <parameter name="klass">
         </parameter>
@@ -1980,7 +2055,8 @@ object, to ignore some steps.</doc>
     <function-macro name="IS_FACTORY"
                     c:identifier="AMTK_IS_FACTORY"
                     introspectable="0">
-      <source-position filename="amtk/amtk-factory.h" line="20"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-factory.h"
+                       line="20"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -1989,7 +2065,8 @@ object, to ignore some steps.</doc>
     <function-macro name="IS_FACTORY_CLASS"
                     c:identifier="AMTK_IS_FACTORY_CLASS"
                     introspectable="0">
-      <source-position filename="amtk/amtk-factory.h" line="21"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-factory.h"
+                       line="21"/>
       <parameters>
         <parameter name="klass">
         </parameter>
@@ -1998,7 +2075,8 @@ object, to ignore some steps.</doc>
     <function-macro name="IS_MENU_SHELL"
                     c:identifier="AMTK_IS_MENU_SHELL"
                     introspectable="0">
-      <source-position filename="amtk/amtk-menu-shell.h" line="19"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-menu-shell.h"
+                       line="19"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -2007,7 +2085,28 @@ object, to ignore some steps.</doc>
     <function-macro name="IS_MENU_SHELL_CLASS"
                     c:identifier="AMTK_IS_MENU_SHELL_CLASS"
                     introspectable="0">
-      <source-position filename="amtk/amtk-menu-shell.h" line="20"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-menu-shell.h"
+                       line="20"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_TREE_VIEW_SCROLLED_WINDOW_SIZING"
+                    c:identifier="AMTK_IS_TREE_VIEW_SCROLLED_WINDOW_SIZING"
+                    introspectable="0">
+      <source-position filename="amtk/amtk-tree-view-scrolled-window-sizing.h"
+                       line="18"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_TREE_VIEW_SCROLLED_WINDOW_SIZING_CLASS"
+                    c:identifier="AMTK_IS_TREE_VIEW_SCROLLED_WINDOW_SIZING_CLASS"
+                    introspectable="0">
+      <source-position filename="amtk/amtk-tree-view-scrolled-window-sizing.h"
+                       line="19"/>
       <parameters>
         <parameter name="klass">
         </parameter>
@@ -2016,7 +2115,8 @@ object, to ignore some steps.</doc>
     <function-macro name="MENU_SHELL"
                     c:identifier="AMTK_MENU_SHELL"
                     introspectable="0">
-      <source-position filename="amtk/amtk-menu-shell.h" line="17"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-menu-shell.h"
+                       line="17"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -2025,7 +2125,8 @@ object, to ignore some steps.</doc>
     <function-macro name="MENU_SHELL_CLASS"
                     c:identifier="AMTK_MENU_SHELL_CLASS"
                     introspectable="0">
-      <source-position filename="amtk/amtk-menu-shell.h" line="18"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-menu-shell.h"
+                       line="18"/>
       <parameters>
         <parameter name="klass">
         </parameter>
@@ -2034,7 +2135,8 @@ object, to ignore some steps.</doc>
     <function-macro name="MENU_SHELL_GET_CLASS"
                     c:identifier="AMTK_MENU_SHELL_GET_CLASS"
                     introspectable="0">
-      <source-position filename="amtk/amtk-menu-shell.h" line="21"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-menu-shell.h"
+                       line="21"/>
       <parameters>
         <parameter name="obj">
         </parameter>
@@ -2047,32 +2149,35 @@ object, to ignore some steps.</doc>
            glib:type-name="AmtkMenuShell"
            glib:get-type="amtk_menu_shell_get_type"
            glib:type-struct="MenuShellClass">
-      <source-position filename="amtk/amtk-menu-shell.h" line="47"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-menu-shell.h"
+                       line="47"/>
       <function name="get_from_gtk_menu_shell"
                 c:identifier="amtk_menu_shell_get_from_gtk_menu_shell"
                 version="2.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-menu-shell.c"
+             filename="amtk/actions-menus-toolbars/amtk-menu-shell.c"
              line="348">Returns the #AmtkMenuShell of @gtk_menu_shell. The returned object is
 guaranteed to be the same for the lifetime of @gtk_menu_shell.</doc>
-        <source-position filename="amtk/amtk-menu-shell.h" line="53"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-menu-shell.h"
+                         line="53"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-menu-shell.c"
+               filename="amtk/actions-menus-toolbars/amtk-menu-shell.c"
                line="355">the #AmtkMenuShell of @gtk_menu_shell.</doc>
           <type name="MenuShell" c:type="AmtkMenuShell*"/>
         </return-value>
         <parameters>
           <parameter name="gtk_menu_shell" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-menu-shell.c"
+                 filename="amtk/actions-menus-toolbars/amtk-menu-shell.c"
                  line="350">a #GtkMenuShell.</doc>
             <type name="Gtk.MenuShell" c:type="GtkMenuShell*"/>
           </parameter>
         </parameters>
       </function>
       <virtual-method name="menu_item_deselected">
-        <source-position filename="amtk/amtk-menu-shell.h" line="43"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-menu-shell.h"
+                         line="43"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2086,7 +2191,8 @@ guaranteed to be the same for the lifetime of @gtk_menu_shell.</doc>
         </parameters>
       </virtual-method>
       <virtual-method name="menu_item_selected">
-        <source-position filename="amtk/amtk-menu-shell.h" line="40"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-menu-shell.h"
+                         line="40"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -2103,17 +2209,18 @@ guaranteed to be the same for the lifetime of @gtk_menu_shell.</doc>
               c:identifier="amtk_menu_shell_get_menu_shell"
               glib:get-property="menu-shell"
               version="2.0">
-        <source-position filename="amtk/amtk-menu-shell.h" line="56"/>
+        <source-position filename="amtk/actions-menus-toolbars/amtk-menu-shell.h"
+                         line="56"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-menu-shell.c"
+               filename="amtk/actions-menus-toolbars/amtk-menu-shell.c"
                line="387">the #GtkMenuShell of @amtk_menu_shell.</doc>
           <type name="Gtk.MenuShell" c:type="GtkMenuShell*"/>
         </return-value>
         <parameters>
           <instance-parameter name="amtk_menu_shell" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-menu-shell.c"
+                 filename="amtk/actions-menus-toolbars/amtk-menu-shell.c"
                  line="385">an #AmtkMenuShell.</doc>
             <type name="MenuShell" c:type="AmtkMenuShell*"/>
           </instance-parameter>
@@ -2126,7 +2233,7 @@ guaranteed to be the same for the lifetime of @gtk_menu_shell.</doc>
                 transfer-ownership="none"
                 getter="get_menu_shell">
         <doc xml:space="preserve"
-             filename="amtk/amtk-menu-shell.c"
+             filename="amtk/actions-menus-toolbars/amtk-menu-shell.c"
              line="283">The #GtkMenuShell.</doc>
         <type name="Gtk.MenuShell"/>
       </property>
@@ -2138,7 +2245,7 @@ guaranteed to be the same for the lifetime of @gtk_menu_shell.</doc>
       </field>
       <glib:signal name="menu-item-deselected" when="first" version="2.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-menu-shell.c"
+             filename="amtk/actions-menus-toolbars/amtk-menu-shell.c"
              line="321">The ::menu-item-deselected signal is emitted when the
 #GtkMenuItem::deselect signal is emitted on a #GtkMenuItem belonging
 (directly or indirectly through submenus) to @amtk_menu_shell.</doc>
@@ -2148,7 +2255,7 @@ guaranteed to be the same for the lifetime of @gtk_menu_shell.</doc>
         <parameters>
           <parameter name="menu_item" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-menu-shell.c"
+                 filename="amtk/actions-menus-toolbars/amtk-menu-shell.c"
                  line="324">the #GtkMenuItem that has been deselected.</doc>
             <type name="Gtk.MenuItem"/>
           </parameter>
@@ -2156,7 +2263,7 @@ guaranteed to be the same for the lifetime of @gtk_menu_shell.</doc>
       </glib:signal>
       <glib:signal name="menu-item-selected" when="first" version="2.0">
         <doc xml:space="preserve"
-             filename="amtk/amtk-menu-shell.c"
+             filename="amtk/actions-menus-toolbars/amtk-menu-shell.c"
              line="301">The ::menu-item-selected signal is emitted when the
 #GtkMenuItem::select signal is emitted on a #GtkMenuItem belonging
 (directly or indirectly through submenus) to @amtk_menu_shell.</doc>
@@ -2166,7 +2273,7 @@ guaranteed to be the same for the lifetime of @gtk_menu_shell.</doc>
         <parameters>
           <parameter name="menu_item" transfer-ownership="none">
             <doc xml:space="preserve"
-                 filename="amtk/amtk-menu-shell.c"
+                 filename="amtk/actions-menus-toolbars/amtk-menu-shell.c"
                  line="304">the #GtkMenuItem that has been selected.</doc>
             <type name="Gtk.MenuItem"/>
           </parameter>
@@ -2176,13 +2283,15 @@ guaranteed to be the same for the lifetime of @gtk_menu_shell.</doc>
     <record name="MenuShellClass"
             c:type="AmtkMenuShellClass"
             glib:is-gtype-struct-for="MenuShell">
-      <source-position filename="amtk/amtk-menu-shell.h" line="47"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-menu-shell.h"
+                       line="47"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
       <field name="menu_item_selected">
         <callback name="menu_item_selected">
-          <source-position filename="amtk/amtk-menu-shell.h" line="40"/>
+          <source-position filename="amtk/actions-menus-toolbars/amtk-menu-shell.h"
+                           line="40"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -2198,7 +2307,8 @@ guaranteed to be the same for the lifetime of @gtk_menu_shell.</doc>
       </field>
       <field name="menu_item_deselected">
         <callback name="menu_item_deselected">
-          <source-position filename="amtk/amtk-menu-shell.h" line="43"/>
+          <source-position filename="amtk/actions-menus-toolbars/amtk-menu-shell.h"
+                           line="43"/>
           <return-value transfer-ownership="none">
             <type name="none" c:type="void"/>
           </return-value>
@@ -2222,13 +2332,180 @@ guaranteed to be the same for the lifetime of @gtk_menu_shell.</doc>
             c:type="AmtkMenuShellPrivate"
             disguised="1"
             opaque="1">
-      <source-position filename="amtk/amtk-menu-shell.h" line="25"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-menu-shell.h"
+                       line="25"/>
+    </record>
+    <function-macro name="TREE_VIEW_SCROLLED_WINDOW_SIZING"
+                    c:identifier="AMTK_TREE_VIEW_SCROLLED_WINDOW_SIZING"
+                    introspectable="0">
+      <source-position filename="amtk/amtk-tree-view-scrolled-window-sizing.h"
+                       line="16"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TREE_VIEW_SCROLLED_WINDOW_SIZING_CLASS"
+                    c:identifier="AMTK_TREE_VIEW_SCROLLED_WINDOW_SIZING_CLASS"
+                    introspectable="0">
+      <source-position filename="amtk/amtk-tree-view-scrolled-window-sizing.h"
+                       line="17"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TREE_VIEW_SCROLLED_WINDOW_SIZING_GET_CLASS"
+                    c:identifier="AMTK_TREE_VIEW_SCROLLED_WINDOW_SIZING_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="amtk/amtk-tree-view-scrolled-window-sizing.h"
+                       line="20"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="TreeViewScrolledWindowSizing"
+           c:symbol-prefix="tree_view_scrolled_window_sizing"
+           c:type="AmtkTreeViewScrolledWindowSizing"
+           parent="Gtk.ScrolledWindow"
+           glib:type-name="AmtkTreeViewScrolledWindowSizing"
+           glib:get-type="amtk_tree_view_scrolled_window_sizing_get_type"
+           glib:type-struct="TreeViewScrolledWindowSizingClass">
+      <source-position filename="amtk/amtk-tree-view-scrolled-window-sizing.h"
+                       line="36"/>
+      <implements name="Atk.ImplementorIface"/>
+      <implements name="Gtk.Buildable"/>
+      <constructor name="new"
+                   c:identifier="amtk_tree_view_scrolled_window_sizing_new"
+                   version="5.10">
+        <source-position filename="amtk/amtk-tree-view-scrolled-window-sizing.h"
+                         line="43"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="amtk/amtk-tree-view-scrolled-window-sizing.c"
+               line="387">a new #AmtkTreeViewScrolledWindowSizing.</doc>
+          <type name="TreeViewScrolledWindowSizing"
+                c:type="AmtkTreeViewScrolledWindowSizing*"/>
+        </return-value>
+      </constructor>
+      <method name="get_monitor_limit"
+              c:identifier="amtk_tree_view_scrolled_window_sizing_get_monitor_limit"
+              version="5.10">
+        <source-position filename="amtk/amtk-tree-view-scrolled-window-sizing.h"
+                         line="49"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="amtk/amtk-tree-view-scrolled-window-sizing.c"
+               line="420">the current value of the
+  #AmtkTreeViewScrolledWindowSizing:monitor-limit-enabled property.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="amtk/amtk-tree-view-scrolled-window-sizing.c"
+                 line="418">an #AmtkTreeViewScrolledWindowSizing.</doc>
+            <type name="TreeViewScrolledWindowSizing"
+                  c:type="AmtkTreeViewScrolledWindowSizing*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_tree_view"
+              c:identifier="amtk_tree_view_scrolled_window_sizing_get_tree_view"
+              version="5.10">
+        <source-position filename="amtk/amtk-tree-view-scrolled-window-sizing.h"
+                         line="46"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="amtk/amtk-tree-view-scrolled-window-sizing.c"
+               line="400">the #GtkTreeView, if the child widget is
+  a #GtkTreeView. Otherwise %NULL is returned.</doc>
+          <type name="Gtk.TreeView" c:type="GtkTreeView*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="amtk/amtk-tree-view-scrolled-window-sizing.c"
+                 line="398">an #AmtkTreeViewScrolledWindowSizing.</doc>
+            <type name="TreeViewScrolledWindowSizing"
+                  c:type="AmtkTreeViewScrolledWindowSizing*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_monitor_limit"
+              c:identifier="amtk_tree_view_scrolled_window_sizing_set_monitor_limit"
+              version="5.10">
+        <doc xml:space="preserve"
+             filename="amtk/amtk-tree-view-scrolled-window-sizing.c"
+             line="431">Sets the #AmtkTreeViewScrolledWindowSizing:monitor-limit-enabled property.</doc>
+        <source-position filename="amtk/amtk-tree-view-scrolled-window-sizing.h"
+                         line="52"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="amtk/amtk-tree-view-scrolled-window-sizing.c"
+                 line="433">an #AmtkTreeViewScrolledWindowSizing.</doc>
+            <type name="TreeViewScrolledWindowSizing"
+                  c:type="AmtkTreeViewScrolledWindowSizing*"/>
+          </instance-parameter>
+          <parameter name="monitor_limit" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="amtk/amtk-tree-view-scrolled-window-sizing.c"
+                 line="434">the new value.</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="monitor-limit-enabled"
+                version="5.10"
+                writable="1"
+                construct="1"
+                transfer-ownership="none"
+                default-value="TRUE">
+        <doc xml:space="preserve"
+             filename="amtk/amtk-tree-view-scrolled-window-sizing.c"
+             line="358">Whether to take the #GdkMonitor size into account as a maximum width
+and height to apply.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <field name="parent">
+        <type name="Gtk.ScrolledWindow" c:type="GtkScrolledWindow"/>
+      </field>
+      <field name="priv">
+        <type name="TreeViewScrolledWindowSizingPrivate"
+              c:type="AmtkTreeViewScrolledWindowSizingPrivate*"/>
+      </field>
+    </class>
+    <record name="TreeViewScrolledWindowSizingClass"
+            c:type="AmtkTreeViewScrolledWindowSizingClass"
+            glib:is-gtype-struct-for="TreeViewScrolledWindowSizing">
+      <source-position filename="amtk/amtk-tree-view-scrolled-window-sizing.h"
+                       line="36"/>
+      <field name="parent_class">
+        <type name="Gtk.ScrolledWindowClass" c:type="GtkScrolledWindowClass"/>
+      </field>
+      <field name="padding">
+        <array zero-terminated="0" fixed-size="1">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="TreeViewScrolledWindowSizingPrivate"
+            c:type="AmtkTreeViewScrolledWindowSizingPrivate"
+            disguised="1"
+            opaque="1">
+      <source-position filename="amtk/amtk-tree-view-scrolled-window-sizing.h"
+                       line="24"/>
     </record>
     <function name="action_map_add_action_entries_check_dups"
               c:identifier="amtk_action_map_add_action_entries_check_dups"
               version="2.0">
       <doc xml:space="preserve"
-           filename="amtk/amtk-action-map.c"
+           filename="amtk/actions-menus-toolbars/amtk-action-map.c"
            line="37">A wrapper function for g_action_map_add_action_entries() that checks
 duplicates.
 
@@ -2240,20 +2517,21 @@ function.
 
 This function also checks if there are duplicates in the @entries array
 itself.</doc>
-      <source-position filename="amtk/amtk-action-map.h" line="17"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-action-map.h"
+                       line="17"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
       <parameters>
         <parameter name="action_map" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-action-map.c"
+               filename="amtk/actions-menus-toolbars/amtk-action-map.c"
                line="39">a #GActionMap.</doc>
           <type name="Gio.ActionMap" c:type="GActionMap*"/>
         </parameter>
         <parameter name="entries" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-action-map.c"
+               filename="amtk/actions-menus-toolbars/amtk-action-map.c"
                line="40">a pointer to
           the first item in an array of #GActionEntry structs.</doc>
           <array length="2" zero-terminated="0" c:type="const GActionEntry*">
@@ -2262,7 +2540,7 @@ itself.</doc>
         </parameter>
         <parameter name="n_entries" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-action-map.c"
+               filename="amtk/actions-menus-toolbars/amtk-action-map.c"
                line="42">the length of @entries, or -1 if @entries is %NULL-terminated.</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
@@ -2271,7 +2549,7 @@ itself.</doc>
                    nullable="1"
                    allow-none="1">
           <doc xml:space="preserve"
-               filename="amtk/amtk-action-map.c"
+               filename="amtk/actions-menus-toolbars/amtk-action-map.c"
                line="43">the user data for signal connections.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
@@ -2279,7 +2557,7 @@ itself.</doc>
     </function>
     <docsection name="amtk-action-info">
       <doc xml:space="preserve"
-           filename="amtk/amtk-action-info.c"
+           filename="amtk/actions-menus-toolbars/amtk-action-info.c"
            line="9">An #AmtkActionInfo instance contains a set of information about a #GAction.
 Those pieces of information are useful to create UI elements that trigger the
 #GAction, for example a menu item or a toolbar item.
@@ -2289,14 +2567,14 @@ amtk_action_info_store_add_entries() function.</doc>
     </docsection>
     <docsection name="amtk-action-info-central-store">
       <doc xml:space="preserve"
-           filename="amtk/amtk-action-info-central-store.c"
+           filename="amtk/actions-menus-toolbars/amtk-action-info-central-store.c"
            line="8">#AmtkActionInfoCentralStore is a singleton class containing the aggregation
 of all #AmtkActionInfoStore's. Each time an #AmtkActionInfo is added to an
 #AmtkActionInfoStore, it is also added to the #AmtkActionInfoCentralStore.</doc>
     </docsection>
     <docsection name="amtk-action-info-store">
       <doc xml:space="preserve"
-           filename="amtk/amtk-action-info-store.c"
+           filename="amtk/actions-menus-toolbars/amtk-action-info-store.c"
            line="9">#AmtkActionInfoStore contains a set of #AmtkActionInfo's. It is add-only, an
 #AmtkActionInfo cannot be removed.
 
@@ -2319,12 +2597,12 @@ several accelerators after using amtk_action_info_store_add_entries()
     </docsection>
     <docsection name="amtk-action-map">
       <doc xml:space="preserve"
-           filename="amtk/amtk-action-map.c"
+           filename="amtk/actions-menus-toolbars/amtk-action-map.c"
            line="7">#GActionMap wrapper functions.</doc>
     </docsection>
     <docsection name="amtk-application-window">
       <doc xml:space="preserve"
-           filename="amtk/amtk-application-window.c"
+           filename="amtk/actions-menus-toolbars/amtk-application-window.c"
            line="14">#AmtkApplicationWindow extends the #GtkApplicationWindow class with a
 #AmtkApplicationWindow:statusbar property and functions to show longer
 descriptions of #GtkMenuItem's to the #GtkStatusbar.
@@ -2336,7 +2614,7 @@ extensions at the same time.</doc>
     </docsection>
     <docsection name="amtk-factory">
       <doc xml:space="preserve"
-           filename="amtk/amtk-factory.c"
+           filename="amtk/actions-menus-toolbars/amtk-factory.c"
            line="12">#AmtkFactory contains functions to create various objects such as a menu
 item, a toolbar item or a #GtkShortcutsShortcut, from the information
 provided by an #AmtkActionInfo. A factory function accesses an
@@ -2493,17 +2771,17 @@ the git repository of Amtk.</doc>
     </docsection>
     <docsection name="amtk-gmenu">
       <doc xml:space="preserve"
-           filename="amtk/amtk-gmenu.c"
+           filename="amtk/actions-menus-toolbars/amtk-gmenu.c"
            line="7">#GMenu convenience functions.</doc>
     </docsection>
     <docsection name="amtk-menu-item">
       <doc xml:space="preserve"
-           filename="amtk/amtk-menu-item.c"
+           filename="amtk/actions-menus-toolbars/amtk-menu-item.c"
            line="7">#GtkMenuItem functions.</doc>
     </docsection>
     <docsection name="amtk-menu-shell">
       <doc xml:space="preserve"
-           filename="amtk/amtk-menu-shell.c"
+           filename="amtk/actions-menus-toolbars/amtk-menu-shell.c"
            line="7">#AmtkMenuShell extends the #GtkMenuShell abstract class with the
 #AmtkMenuShell::menu-item-selected and #AmtkMenuShell::menu-item-deselected
 convenience signals.
@@ -2514,16 +2792,43 @@ amtk_application_window_connect_menu_to_statusbar() does.</doc>
     </docsection>
     <docsection name="amtk-shortcuts">
       <doc xml:space="preserve"
-           filename="amtk/amtk-shortcuts.c"
+           filename="amtk/actions-menus-toolbars/amtk-shortcuts.c"
            line="7">Convenience functions to create a #GtkShortcutsWindow. At the time of writing
 the GtkShortcuts* classes don't provide any function.
 
 You need to also use gtk_container_add(), and g_object_set() to set other
 properties.</doc>
     </docsection>
+    <docsection name="amtk-tree-view-scrolled-window-sizing">
+      <doc xml:space="preserve"
+           filename="amtk/amtk-tree-view-scrolled-window-sizing.c"
+           line="7">#AmtkTreeViewScrolledWindowSizing is a subclass of #GtkScrolledWindow to
+provide custom sizing when it contains a #GtkTreeView.
+
+If the #GtkTreeView is small enough, its natural size is taken. If it exceeds
+a certain size, a smaller size is applied with the height at a row boundary.
+
+To configure the size limits, you can use the following properties:
+- #GtkScrolledWindow:max-content-width
+- #GtkScrolledWindow:max-content-height
+- #AmtkTreeViewScrolledWindowSizing:monitor-limit-enabled
+
+One use-case is to show a #GtkTreeView in a popup #GtkWindow.
+
+# Limitations
+
+The current #AmtkTreeViewScrolledWindowSizing implementation has several
+limitations, so there is room for improvement in future versions.
+
+The restrictions:
+- The #GtkTreeView:headers-visible property should be %FALSE.
+- The #GtkTreeView should contain a list, not a tree.
+- All rows of the #GtkTreeView should have the same height, see the
+  #GtkTreeView:fixed-height-mode property.</doc>
+    </docsection>
     <docsection name="amtk-utils">
       <doc xml:space="preserve"
-           filename="amtk/amtk-utils.c"
+           filename="amtk/actions-menus-toolbars/amtk-utils.c"
            line="10">Utility functions.</doc>
     </docsection>
     <function name="finalize" c:identifier="amtk_finalize" version="3.0">
@@ -2544,22 +2849,23 @@ main(). It can be called several times.</doc>
               c:identifier="amtk_gmenu_append_item"
               version="5.0">
       <doc xml:space="preserve"
-           filename="amtk/amtk-gmenu.c"
+           filename="amtk/actions-menus-toolbars/amtk-gmenu.c"
            line="15">Like g_menu_append_item() but with (transfer full) for the @item parameter.</doc>
-      <source-position filename="amtk/amtk-gmenu.h" line="17"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-gmenu.h"
+                       line="17"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
       <parameters>
         <parameter name="menu" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-gmenu.c"
+               filename="amtk/actions-menus-toolbars/amtk-gmenu.c"
                line="17">a #GMenu.</doc>
           <type name="Gio.Menu" c:type="GMenu*"/>
         </parameter>
         <parameter name="item" transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="amtk/amtk-gmenu.c"
+               filename="amtk/actions-menus-toolbars/amtk-gmenu.c"
                line="18">a #GMenuItem to append.</doc>
           <type name="Gio.MenuItem" c:type="GMenuItem*"/>
         </parameter>
@@ -2569,17 +2875,18 @@ main(). It can be called several times.</doc>
               c:identifier="amtk_gmenu_append_section"
               version="5.0">
       <doc xml:space="preserve"
-           filename="amtk/amtk-gmenu.c"
+           filename="amtk/actions-menus-toolbars/amtk-gmenu.c"
            line="35">Like g_menu_append_section() but with (transfer full) and a different type
 for the @section parameter, and calls g_menu_freeze() on @section.</doc>
-      <source-position filename="amtk/amtk-gmenu.h" line="21"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-gmenu.h"
+                       line="21"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
       <parameters>
         <parameter name="menu" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-gmenu.c"
+               filename="amtk/actions-menus-toolbars/amtk-gmenu.c"
                line="37">a #GMenu.</doc>
           <type name="Gio.Menu" c:type="GMenu*"/>
         </parameter>
@@ -2588,13 +2895,13 @@ for the @section parameter, and calls g_menu_freeze() on @section.</doc>
                    nullable="1"
                    allow-none="1">
           <doc xml:space="preserve"
-               filename="amtk/amtk-gmenu.c"
+               filename="amtk/actions-menus-toolbars/amtk-gmenu.c"
                line="38">the section label, or %NULL.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="section" transfer-ownership="full">
           <doc xml:space="preserve"
-               filename="amtk/amtk-gmenu.c"
+               filename="amtk/actions-menus-toolbars/amtk-gmenu.c"
                line="39">a #GMenu with the items of the section.</doc>
           <type name="Gio.Menu" c:type="GMenu*"/>
         </parameter>
@@ -2615,10 +2922,11 @@ beginning of main(), before any other Amtk function call.</doc>
     <function name="menu_item_get_long_description"
               c:identifier="amtk_menu_item_get_long_description"
               version="2.0">
-      <source-position filename="amtk/amtk-menu-item.h" line="17"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-menu-item.h"
+                       line="17"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
-             filename="amtk/amtk-menu-item.c"
+             filename="amtk/actions-menus-toolbars/amtk-menu-item.c"
              line="21">the long description of @menu_item, previously set with
   amtk_menu_item_set_long_description().</doc>
         <type name="utf8" c:type="const gchar*"/>
@@ -2626,7 +2934,7 @@ beginning of main(), before any other Amtk function call.</doc>
       <parameters>
         <parameter name="menu_item" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-menu-item.c"
+               filename="amtk/actions-menus-toolbars/amtk-menu-item.c"
                line="19">a #GtkMenuItem.</doc>
           <type name="Gtk.MenuItem" c:type="GtkMenuItem*"/>
         </parameter>
@@ -2638,7 +2946,7 @@ beginning of main(), before any other Amtk function call.</doc>
               deprecated="1"
               deprecated-version="5.9">
       <doc xml:space="preserve"
-           filename="amtk/amtk-menu-item.c"
+           filename="amtk/actions-menus-toolbars/amtk-menu-item.c"
            line="55">Sets an icon to a #GtkMenuItem.
 
 If the child widget of @item is already a #GtkBox, all #GtkImage widgets
@@ -2653,20 +2961,21 @@ As a consequence, if you want to call functions on the #GtkAccelLabel, it's
 easier to do it before calling this function.</doc>
       <doc-deprecated xml:space="preserve">Use #GtkImageMenuItem instead, even if deprecated. This
   function doesn't place the icon at the right place.</doc-deprecated>
-      <source-position filename="amtk/amtk-menu-item.h" line="24"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-menu-item.h"
+                       line="24"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
       <parameters>
         <parameter name="item" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-menu-item.c"
+               filename="amtk/actions-menus-toolbars/amtk-menu-item.c"
                line="57">a #GtkMenuItem.</doc>
           <type name="Gtk.MenuItem" c:type="GtkMenuItem*"/>
         </parameter>
         <parameter name="icon_name" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-menu-item.c"
+               filename="amtk/actions-menus-toolbars/amtk-menu-item.c"
                line="58">an icon name.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
@@ -2676,17 +2985,18 @@ easier to do it before calling this function.</doc>
               c:identifier="amtk_menu_item_set_long_description"
               version="2.0">
       <doc xml:space="preserve"
-           filename="amtk/amtk-menu-item.c"
+           filename="amtk/actions-menus-toolbars/amtk-menu-item.c"
            line="33">Sets the long description of @menu_item. A possible use-case is to display it
 in a #GtkStatusbar, or as a tooltip.</doc>
-      <source-position filename="amtk/amtk-menu-item.h" line="20"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-menu-item.h"
+                       line="20"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
       <parameters>
         <parameter name="menu_item" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-menu-item.c"
+               filename="amtk/actions-menus-toolbars/amtk-menu-item.c"
                line="35">a #GtkMenuItem.</doc>
           <type name="Gtk.MenuItem" c:type="GtkMenuItem*"/>
         </parameter>
@@ -2695,7 +3005,7 @@ in a #GtkStatusbar, or as a tooltip.</doc>
                    nullable="1"
                    allow-none="1">
           <doc xml:space="preserve"
-               filename="amtk/amtk-menu-item.c"
+               filename="amtk/actions-menus-toolbars/amtk-menu-item.c"
                line="36">the long description, or %NULL to unset it.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
@@ -2704,17 +3014,18 @@ in a #GtkStatusbar, or as a tooltip.</doc>
     <function name="shortcuts_group_new"
               c:identifier="amtk_shortcuts_group_new"
               version="5.0">
-      <source-position filename="amtk/amtk-shortcuts.h" line="23"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-shortcuts.h"
+                       line="23"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
-             filename="amtk/amtk-shortcuts.c"
+             filename="amtk/actions-menus-toolbars/amtk-shortcuts.c"
              line="73">a new #GtkShortcutsGroup.</doc>
         <type name="Gtk.Container" c:type="GtkContainer*"/>
       </return-value>
       <parameters>
         <parameter name="title" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-shortcuts.c"
+               filename="amtk/actions-menus-toolbars/amtk-shortcuts.c"
                line="71">the #GtkShortcutsGroup:title.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
@@ -2723,17 +3034,18 @@ in a #GtkStatusbar, or as a tooltip.</doc>
     <function name="shortcuts_section_new"
               c:identifier="amtk_shortcuts_section_new"
               version="5.0">
-      <source-position filename="amtk/amtk-shortcuts.h" line="20"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-shortcuts.h"
+                       line="20"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
-             filename="amtk/amtk-shortcuts.c"
+             filename="amtk/actions-menus-toolbars/amtk-shortcuts.c"
              line="52">a new #GtkShortcutsSection.</doc>
         <type name="Gtk.Container" c:type="GtkContainer*"/>
       </return-value>
       <parameters>
         <parameter name="title" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-shortcuts.c"
+               filename="amtk/actions-menus-toolbars/amtk-shortcuts.c"
                line="50">the #GtkShortcutsSection:title.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
@@ -2743,7 +3055,7 @@ in a #GtkStatusbar, or as a tooltip.</doc>
               c:identifier="amtk_shortcuts_window_new"
               version="5.0">
       <doc xml:space="preserve"
-           filename="amtk/amtk-shortcuts.c"
+           filename="amtk/actions-menus-toolbars/amtk-shortcuts.c"
            line="19">Creates a new #GtkShortcutsWindow. The #GtkWindow:modal property is set to
 %TRUE.
 
@@ -2751,17 +3063,18 @@ It is on purpose that the return type is #GtkShortcutsWindow, not #GtkWidget
 or something else, so in C when you declare the variable as
 #GtkShortcutsWindow it's easier to find it later (searching "GtkShortcuts"
 will return something in your codebase).</doc>
-      <source-position filename="amtk/amtk-shortcuts.h" line="17"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-shortcuts.h"
+                       line="17"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
-             filename="amtk/amtk-shortcuts.c"
+             filename="amtk/actions-menus-toolbars/amtk-shortcuts.c"
              line="31">a new #GtkShortcutsWindow.</doc>
         <type name="Gtk.ShortcutsWindow" c:type="GtkShortcutsWindow*"/>
       </return-value>
       <parameters>
         <parameter name="parent" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-shortcuts.c"
+               filename="amtk/actions-menus-toolbars/amtk-shortcuts.c"
                line="21">the #GtkWindow:transient-for.</doc>
           <type name="Gtk.Window" c:type="GtkWindow*"/>
         </parameter>
@@ -2771,7 +3084,7 @@ will return something in your codebase).</doc>
               c:identifier="amtk_utils_bind_g_action_to_gtk_action"
               version="4.0">
       <doc xml:space="preserve"
-           filename="amtk/amtk-utils.c"
+           filename="amtk/actions-menus-toolbars/amtk-utils.c"
            line="251">Utility function to be able to port an application gradually to #GAction,
 when #GtkUIManager and #GtkAction are still used. Porting to #GAction should
 be the first step.
@@ -2797,34 +3110,35 @@ This function:
 
 When using this function, you should set the callback to %NULL in the
 corresponding #GtkActionEntry.</doc>
-      <source-position filename="amtk/amtk-utils.h" line="34"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-utils.h"
+                       line="34"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
       <parameters>
         <parameter name="g_action_map" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-utils.c"
+               filename="amtk/actions-menus-toolbars/amtk-utils.c"
                line="253">a #GActionMap.</doc>
           <type name="Gio.ActionMap" c:type="GActionMap*"/>
         </parameter>
         <parameter name="detailed_g_action_name_without_prefix"
                    transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-utils.c"
+               filename="amtk/actions-menus-toolbars/amtk-utils.c"
                line="254">a detailed #GAction name without the
   #GActionMap prefix; the #GAction must be present in @g_action_map.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="gtk_action_group" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-utils.c"
+               filename="amtk/actions-menus-toolbars/amtk-utils.c"
                line="256">a #GtkActionGroup.</doc>
           <type name="Gtk.ActionGroup" c:type="GtkActionGroup*"/>
         </parameter>
         <parameter name="gtk_action_name" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-utils.c"
+               filename="amtk/actions-menus-toolbars/amtk-utils.c"
                line="257">a #GtkAction name present in @gtk_action_group.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
@@ -2834,7 +3148,7 @@ corresponding #GtkActionEntry.</doc>
               c:identifier="amtk_utils_create_gtk_action"
               version="4.0">
       <doc xml:space="preserve"
-           filename="amtk/amtk-utils.c"
+           filename="amtk/actions-menus-toolbars/amtk-utils.c"
            line="388">Utility function to be able to port an application gradually to #GAction and
 #AmtkActionInfo, when #GtkUIManager is still used. This function goes one
 step further compared to amtk_utils_bind_g_action_to_gtk_action(). With
@@ -2853,34 +3167,35 @@ is taken into account.
 
 Once the #GtkAction is created, it is added to the @gtk_action_group, and
 amtk_utils_bind_g_action_to_gtk_action() is called.</doc>
-      <source-position filename="amtk/amtk-utils.h" line="40"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-utils.h"
+                       line="40"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
       <parameters>
         <parameter name="g_action_map" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-utils.c"
+               filename="amtk/actions-menus-toolbars/amtk-utils.c"
                line="390">a #GActionMap.</doc>
           <type name="Gio.ActionMap" c:type="GActionMap*"/>
         </parameter>
         <parameter name="detailed_g_action_name_with_prefix"
                    transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-utils.c"
+               filename="amtk/actions-menus-toolbars/amtk-utils.c"
                line="391">a detailed #GAction name with the
   #GActionMap prefix; the #GAction must be present in @g_action_map.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="gtk_action_group" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-utils.c"
+               filename="amtk/actions-menus-toolbars/amtk-utils.c"
                line="393">a #GtkActionGroup.</doc>
           <type name="Gtk.ActionGroup" c:type="GtkActionGroup*"/>
         </parameter>
         <parameter name="gtk_action_name" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-utils.c"
+               filename="amtk/actions-menus-toolbars/amtk-utils.c"
                line="394">the name of the #GtkAction to create and add to
   @gtk_action_group.</doc>
           <type name="utf8" c:type="const gchar*"/>
@@ -2891,22 +3206,23 @@ amtk_utils_bind_g_action_to_gtk_action() is called.</doc>
               c:identifier="amtk_utils_get_shrinkable_menubar"
               version="5.6">
       <doc xml:space="preserve"
-           filename="amtk/amtk-utils.c"
+           filename="amtk/actions-menus-toolbars/amtk-utils.c"
            line="469">This function wraps @menubar into a container, to allow the menubar to shrink
 below its minimum width.
 
 A possible use-case: have two applications side-by-side on a single screen.</doc>
-      <source-position filename="amtk/amtk-utils.h" line="47"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-utils.h"
+                       line="47"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
-             filename="amtk/amtk-utils.c"
+             filename="amtk/actions-menus-toolbars/amtk-utils.c"
              line="478">a new widget that contains @menubar.</doc>
         <type name="Gtk.Widget" c:type="GtkWidget*"/>
       </return-value>
       <parameters>
         <parameter name="menubar" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-utils.c"
+               filename="amtk/actions-menus-toolbars/amtk-utils.c"
                line="471">a #GtkMenuBar.</doc>
           <type name="Gtk.MenuBar" c:type="GtkMenuBar*"/>
         </parameter>
@@ -2916,30 +3232,31 @@ A possible use-case: have two applications side-by-side on a single screen.</doc
               c:identifier="amtk_utils_recent_chooser_menu_get_item_uri"
               version="2.0">
       <doc xml:space="preserve"
-           filename="amtk/amtk-utils.c"
+           filename="amtk/actions-menus-toolbars/amtk-utils.c"
            line="178">Gets the URI of @item. @item must be a child of @menu. @menu must be a
 #GtkRecentChooserMenu.
 
 This function has been written because the value returned by
 gtk_recent_chooser_get_current_uri() is not updated when #GtkMenuItem's of a
 #GtkRecentChooserMenu are selected/deselected.</doc>
-      <source-position filename="amtk/amtk-utils.h" line="29"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-utils.h"
+                       line="29"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
-             filename="amtk/amtk-utils.c"
+             filename="amtk/actions-menus-toolbars/amtk-utils.c"
              line="190">the URI of @item. Free with g_free() when no longer needed.</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
       <parameters>
         <parameter name="menu" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-utils.c"
+               filename="amtk/actions-menus-toolbars/amtk-utils.c"
                line="180">a #GtkRecentChooserMenu.</doc>
           <type name="Gtk.RecentChooserMenu" c:type="GtkRecentChooserMenu*"/>
         </parameter>
         <parameter name="item" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-utils.c"
+               filename="amtk/actions-menus-toolbars/amtk-utils.c"
                line="181">a #GtkMenuItem.</doc>
           <type name="Gtk.MenuItem" c:type="GtkMenuItem*"/>
         </parameter>
@@ -2949,14 +3266,15 @@ gtk_recent_chooser_get_current_uri() is not updated when #GtkMenuItem's of a
               c:identifier="amtk_utils_remove_mnemonic"
               version="5.0">
       <doc xml:space="preserve"
-           filename="amtk/amtk-utils.c"
+           filename="amtk/actions-menus-toolbars/amtk-utils.c"
            line="108">Removes the mnemonics from @str. Single underscores are removed, and two
 consecutive underscores are replaced by one underscore (see the documentation
 of gtk_label_new_with_mnemonic()).</doc>
-      <source-position filename="amtk/amtk-utils.h" line="24"/>
+      <source-position filename="amtk/actions-menus-toolbars/amtk-utils.h"
+                       line="24"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
-             filename="amtk/amtk-utils.c"
+             filename="amtk/actions-menus-toolbars/amtk-utils.c"
              line="116">the new string with the mnemonics removed. Free
 with g_free() when no longer needed.</doc>
         <type name="utf8" c:type="gchar*"/>
@@ -2964,7 +3282,7 @@ with g_free() when no longer needed.</doc>
       <parameters>
         <parameter name="str" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="amtk/amtk-utils.c"
+               filename="amtk/actions-menus-toolbars/amtk-utils.c"
                line="110">a string.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>

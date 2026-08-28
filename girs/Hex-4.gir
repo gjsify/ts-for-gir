@@ -1337,19 +1337,19 @@ it will fall back to the `malloc` buffer backend.</doc>
       <method name="can_redo" c:identifier="hex_document_can_redo">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="1980">Determine whether a redo operation is possible.</doc>
+             line="1986">Determine whether a redo operation is possible.</doc>
         <source-position filename="src/hex-document.h" line="232"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="1986">%TRUE if a redo operation is possible; %FALSE otherwise</doc>
+               line="1992">%TRUE if a redo operation is possible; %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1982">a [class@Hex.Document] object</doc>
+                 line="1988">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
         </parameters>
@@ -1357,19 +1357,19 @@ it will fall back to the `malloc` buffer backend.</doc>
       <method name="can_undo" c:identifier="hex_document_can_undo">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="1961">Determine whether an undo operation is possible.</doc>
+             line="1967">Determine whether an undo operation is possible.</doc>
         <source-position filename="src/hex-document.h" line="231"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="1967">%TRUE if an undo operation is possible; %FALSE otherwise</doc>
+               line="1973">%TRUE if an undo operation is possible; %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1963">a [class@Hex.Document] object</doc>
+                 line="1969">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
         </parameters>
@@ -1413,7 +1413,7 @@ signal. This method is mostly only useful for widgets utilizing
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="1440">0 if the comparison is an exact match; otherwise, a non-zero
+               line="1446">0 if the comparison is an exact match; otherwise, a non-zero
   value comparable to strcmp().</doc>
           <type name="gint" c:type="int"/>
         </return-value>
@@ -1421,13 +1421,13 @@ signal. This method is mostly only useful for widgets utilizing
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1434">a [class@Hex.Document] object</doc>
+                 line="1440">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
           <parameter name="what" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1435">a pointer to the data to
+                 line="1441">a pointer to the data to
   compare to data within the #HexDocument</doc>
             <array length="2" zero-terminated="0" c:type="const char*">
               <type name="gint8"/>
@@ -1436,13 +1436,13 @@ signal. This method is mostly only useful for widgets utilizing
           <parameter name="pos" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1437">offset position of the #HexDocument data to compare with @what</doc>
+                 line="1443">offset position of the #HexDocument data to compare with @what</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
           <parameter name="len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1438">size of the #HexDocument data to compare with @what, in bytes</doc>
+                 line="1444">size of the #HexDocument data to compare with @what, in bytes</doc>
             <type name="gsize" c:type="size_t"/>
           </parameter>
         </parameters>
@@ -1584,7 +1584,7 @@ and free a #HexDocumentFindData structure.</doc>
       <method name="find_backward" c:identifier="hex_document_find_backward">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="1735">Find a string backwards in a #HexDocument.
+             line="1741">Find a string backwards in a #HexDocument.
 
 This method will block. For a non-blocking version, use
 [method@Hex.Document.find_backward_async], which is also recommended
@@ -1594,7 +1594,7 @@ of found/not-found strings to be passed back to the interface.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="1751">%TRUE if @what was found by the requested operation; %FALSE
+               line="1757">%TRUE if @what was found by the requested operation; %FALSE
   otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1602,19 +1602,19 @@ of found/not-found strings to be passed back to the interface.</doc>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1737">a [class@Hex.Document] object</doc>
+                 line="1743">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
           <parameter name="start" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1738">starting offset byte of the payload to commence the search</doc>
+                 line="1744">starting offset byte of the payload to commence the search</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
           <parameter name="what" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1739">a pointer to the data to
+                 line="1745">a pointer to the data to
   search within the #HexDocument</doc>
             <array length="2" zero-terminated="0" c:type="const char*">
               <type name="gint8"/>
@@ -1623,7 +1623,7 @@ of found/not-found strings to be passed back to the interface.</doc>
           <parameter name="len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1741">length in bytes of the data to be searched for</doc>
+                 line="1747">length in bytes of the data to be searched for</doc>
             <type name="gsize" c:type="size_t"/>
           </parameter>
           <parameter name="offset"
@@ -1632,7 +1632,7 @@ of found/not-found strings to be passed back to the interface.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1742">offset of the found string, if the method returns %TRUE</doc>
+                 line="1748">offset of the found string, if the method returns %TRUE</doc>
             <type name="gint64" c:type="gint64*"/>
           </parameter>
         </parameters>
@@ -1642,7 +1642,7 @@ of found/not-found strings to be passed back to the interface.</doc>
               glib:finish-func="find_finish">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="1807">Non-blocking version of [method@Hex.Document.find_backward]. This is the
+             line="1813">Non-blocking version of [method@Hex.Document.find_backward]. This is the
 function that should generally be used by a GUI client to find a string
 backwards in a #HexDocument.</doc>
         <source-position filename="src/hex-document.h" line="220"/>
@@ -1653,19 +1653,19 @@ backwards in a #HexDocument.</doc>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1809">a [class@Hex.Document] object</doc>
+                 line="1815">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
           <parameter name="start" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1810">starting offset byte of the payload to commence the search</doc>
+                 line="1816">starting offset byte of the payload to commence the search</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
           <parameter name="what" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1811">a pointer to the data to
+                 line="1817">a pointer to the data to
   search within the #HexDocument</doc>
             <array length="2" zero-terminated="0" c:type="const char*">
               <type name="gint8"/>
@@ -1674,7 +1674,7 @@ backwards in a #HexDocument.</doc>
           <parameter name="len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1813">length in bytes of the data to be searched for</doc>
+                 line="1819">length in bytes of the data to be searched for</doc>
             <type name="gsize" c:type="size_t"/>
           </parameter>
           <parameter name="offset"
@@ -1683,20 +1683,20 @@ backwards in a #HexDocument.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1814">offset of the found string, if the method returns %TRUE</doc>
+                 line="1820">offset of the found string, if the method returns %TRUE</doc>
             <type name="gint64" c:type="gint64*"/>
           </parameter>
           <parameter name="found_msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1815">message intended to be displayed by the client if the string
+                 line="1821">message intended to be displayed by the client if the string
   is found</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="not_found_msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1817">message intended to be displayed by the client if the string
+                 line="1823">message intended to be displayed by the client if the string
   is not found</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
@@ -1714,7 +1714,7 @@ backwards in a #HexDocument.</doc>
                      closure="8">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1819">function to be called when the operation is
+                 line="1825">function to be called when the operation is
   complete</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -1731,7 +1731,7 @@ backwards in a #HexDocument.</doc>
               version="4.2">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="1711">Full version of [method@Hex.Document.find_backward] which allows for
+             line="1717">Full version of [method@Hex.Document.find_backward] which allows for
 more flexibility than the above, which is only for a byte-by-byte exact
 match. However, it is less convenient to call since the caller must
 create and and free a #HexDocumentFindData structure manually.
@@ -1742,7 +1742,7 @@ This method will block. For a non-blocking version, use
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="1723">%TRUE if the search string contained in `find_data` was found by
+               line="1729">%TRUE if the search string contained in `find_data` was found by
   the requested operation; %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1753,7 +1753,7 @@ This method will block. For a non-blocking version, use
           <parameter name="find_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1713">a #HexDocumentFindData structure</doc>
+                 line="1719">a #HexDocumentFindData structure</doc>
             <type name="DocumentFindData" c:type="HexDocumentFindData*"/>
           </parameter>
         </parameters>
@@ -1764,7 +1764,7 @@ This method will block. For a non-blocking version, use
               glib:finish-func="find_finish">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="1793">Non-blocking version of [method@Hex.Document.find_backward_full].</doc>
+             line="1799">Non-blocking version of [method@Hex.Document.find_backward_full].</doc>
         <source-position filename="src/hex-document.h" line="224"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1776,7 +1776,7 @@ This method will block. For a non-blocking version, use
           <parameter name="find_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1795">a #HexDocumentFindData structure</doc>
+                 line="1801">a #HexDocumentFindData structure</doc>
             <type name="DocumentFindData" c:type="HexDocumentFindData*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1785,7 +1785,7 @@ This method will block. For a non-blocking version, use
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1796">a #GCancellable</doc>
+                 line="1802">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -1796,7 +1796,7 @@ This method will block. For a non-blocking version, use
                      closure="3">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1797">function to be called when the operation is
+                 line="1803">function to be called when the operation is
   complete</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -1811,26 +1811,26 @@ This method will block. For a non-blocking version, use
       <method name="find_finish" c:identifier="hex_document_find_finish">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="1550">Obtain the result of a completed asynchronous find operation (forwards or
+             line="1556">Obtain the result of a completed asynchronous find operation (forwards or
 backwards).</doc>
         <source-position filename="src/hex-document.h" line="229"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="1558">a pointer to a [struct@Hex.DocumentFindData] structure, or %NULL</doc>
+               line="1564">a pointer to a [struct@Hex.DocumentFindData] structure, or %NULL</doc>
           <type name="DocumentFindData" c:type="HexDocumentFindData*"/>
         </return-value>
         <parameters>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1552">a [class@Hex.Document] object</doc>
+                 line="1558">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1553">result of the task</doc>
+                 line="1559">result of the task</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -1838,7 +1838,7 @@ backwards).</doc>
       <method name="find_forward" c:identifier="hex_document_find_forward">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="1511">Find a string forwards in a #HexDocument.
+             line="1517">Find a string forwards in a #HexDocument.
 
 This method will block. For a non-blocking version, use
 [method@Hex.Document.find_forward_async], which is also recommended
@@ -1848,7 +1848,7 @@ of found/not-found strings to be passed back to the interface.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="1527">%TRUE if @what was found by the requested operation; %FALSE
+               line="1533">%TRUE if @what was found by the requested operation; %FALSE
   otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -1856,19 +1856,19 @@ of found/not-found strings to be passed back to the interface.</doc>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1513">a [class@Hex.Document] object</doc>
+                 line="1519">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
           <parameter name="start" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1514">starting offset byte of the payload to commence the search</doc>
+                 line="1520">starting offset byte of the payload to commence the search</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
           <parameter name="what" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1515">a pointer to the data to
+                 line="1521">a pointer to the data to
   search within the #HexDocument</doc>
             <array length="2" zero-terminated="0" c:type="const char*">
               <type name="gint8"/>
@@ -1877,7 +1877,7 @@ of found/not-found strings to be passed back to the interface.</doc>
           <parameter name="len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1517">length in bytes of the data to be searched for</doc>
+                 line="1523">length in bytes of the data to be searched for</doc>
             <type name="gsize" c:type="size_t"/>
           </parameter>
           <parameter name="offset"
@@ -1886,7 +1886,7 @@ of found/not-found strings to be passed back to the interface.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1518">offset of the found string, if the method returns %TRUE</doc>
+                 line="1524">offset of the found string, if the method returns %TRUE</doc>
             <type name="gint64" c:type="gint64*"/>
           </parameter>
         </parameters>
@@ -1896,7 +1896,7 @@ of found/not-found strings to be passed back to the interface.</doc>
               glib:finish-func="find_finish">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="1635">Non-blocking version of [method@Hex.Document.find_forward]. This is the
+             line="1641">Non-blocking version of [method@Hex.Document.find_forward]. This is the
 function that should generally be used by a GUI client to find a string
 forwards in a #HexDocument.</doc>
         <source-position filename="src/hex-document.h" line="206"/>
@@ -1907,19 +1907,19 @@ forwards in a #HexDocument.</doc>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1637">a [class@Hex.Document] object</doc>
+                 line="1643">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
           <parameter name="start" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1638">starting offset byte of the payload to commence the search</doc>
+                 line="1644">starting offset byte of the payload to commence the search</doc>
             <type name="gint64" c:type="gint64"/>
           </parameter>
           <parameter name="what" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1639">a pointer to the data to
+                 line="1645">a pointer to the data to
   search within the #HexDocument</doc>
             <array length="2" zero-terminated="0" c:type="const char*">
               <type name="gint8"/>
@@ -1928,7 +1928,7 @@ forwards in a #HexDocument.</doc>
           <parameter name="len" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1641">length in bytes of the data to be searched for</doc>
+                 line="1647">length in bytes of the data to be searched for</doc>
             <type name="gsize" c:type="size_t"/>
           </parameter>
           <parameter name="offset"
@@ -1937,20 +1937,20 @@ forwards in a #HexDocument.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1642">offset of the found string, if the method returns %TRUE</doc>
+                 line="1648">offset of the found string, if the method returns %TRUE</doc>
             <type name="gint64" c:type="gint64*"/>
           </parameter>
           <parameter name="found_msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1643">message intended to be displayed by the client if the string
+                 line="1649">message intended to be displayed by the client if the string
   is found</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="not_found_msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1645">message intended to be displayed by the client if the string
+                 line="1651">message intended to be displayed by the client if the string
   is not found</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
@@ -1968,7 +1968,7 @@ forwards in a #HexDocument.</doc>
                      closure="8">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1647">function to be called when the operation is
+                 line="1653">function to be called when the operation is
   complete</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -1985,7 +1985,7 @@ forwards in a #HexDocument.</doc>
               version="4.2">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="1487">Full version of [method@Hex.Document.find_forward] which allows for
+             line="1493">Full version of [method@Hex.Document.find_forward] which allows for
 more flexibility than the above, which is only for a byte-by-byte exact
 match. However, it is less convenient to call since the caller must
 create and and free a #HexDocumentFindData structure manually.
@@ -1996,7 +1996,7 @@ This method will block. For a non-blocking version, use
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="1499">%TRUE if the search string contained in `find_data` was found by
+               line="1505">%TRUE if the search string contained in `find_data` was found by
   the requested operation; %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2007,7 +2007,7 @@ This method will block. For a non-blocking version, use
           <parameter name="find_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1489">a #HexDocumentFindData structure</doc>
+                 line="1495">a #HexDocumentFindData structure</doc>
             <type name="DocumentFindData" c:type="HexDocumentFindData*"/>
           </parameter>
         </parameters>
@@ -2018,7 +2018,7 @@ This method will block. For a non-blocking version, use
               glib:finish-func="find_finish">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="1621">Non-blocking version of [method@Hex.Document.find_forward_full].</doc>
+             line="1627">Non-blocking version of [method@Hex.Document.find_forward_full].</doc>
         <source-position filename="src/hex-document.h" line="211"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2030,7 +2030,7 @@ This method will block. For a non-blocking version, use
           <parameter name="find_data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1623">a #HexDocumentFindData structure</doc>
+                 line="1629">a #HexDocumentFindData structure</doc>
             <type name="DocumentFindData" c:type="HexDocumentFindData*"/>
           </parameter>
           <parameter name="cancellable"
@@ -2039,7 +2039,7 @@ This method will block. For a non-blocking version, use
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1624">a #GCancellable</doc>
+                 line="1630">a #GCancellable</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -2050,7 +2050,7 @@ This method will block. For a non-blocking version, use
                      closure="3">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1625">function to be called when the operation is
+                 line="1631">function to be called when the operation is
   complete</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -2067,12 +2067,12 @@ This method will block. For a non-blocking version, use
               glib:get-property="buffer">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="2014">Get the [iface@Hex.Buffer] connected with the #HexDocument.</doc>
+             line="2020">Get the [iface@Hex.Buffer] connected with the #HexDocument.</doc>
         <source-position filename="src/hex-document.h" line="237"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="2020">a pointer to the [iface@Hex.Buffer] connected
+               line="2026">a pointer to the [iface@Hex.Buffer] connected
 with the #HexDocument, or %NULL if no such interface is so connected.</doc>
           <type name="Buffer" c:type="HexBuffer*"/>
         </return-value>
@@ -2080,7 +2080,7 @@ with the #HexDocument, or %NULL if no such interface is so connected.</doc>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="2016">a [class@Hex.Document] object</doc>
+                 line="2022">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
         </parameters>
@@ -2090,12 +2090,12 @@ with the #HexDocument, or %NULL if no such interface is so connected.</doc>
               glib:get-property="file">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="2031">Get the #GFile connected with the #HexDocument.</doc>
+             line="2037">Get the #GFile connected with the #HexDocument.</doc>
         <source-position filename="src/hex-document.h" line="234"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="2037">the #GFile connected with the #HexDocument,
+               line="2043">the #GFile connected with the #HexDocument,
 or %NULL if no such object is so connected.</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </return-value>
@@ -2103,7 +2103,7 @@ or %NULL if no such object is so connected.</doc>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="2033">a [class@Hex.Document] object</doc>
+                 line="2039">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
         </parameters>
@@ -2122,12 +2122,12 @@ or %NULL if no such object is so connected.</doc>
       <method name="get_undo_data" c:identifier="hex_document_get_undo_data">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="1999">Get the undo data at the top of the undo stack of a #HexDocument, if any.</doc>
+             line="2005">Get the undo data at the top of the undo stack of a #HexDocument, if any.</doc>
         <source-position filename="src/hex-document.h" line="236"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="2005">a pointer to the [struct@Hex.ChangeData]
+               line="2011">a pointer to the [struct@Hex.ChangeData]
   structure at the top of the undo stack, or %NULL</doc>
           <type name="ChangeData" c:type="HexChangeData*"/>
         </return-value>
@@ -2135,7 +2135,7 @@ or %NULL if no such object is so connected.</doc>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="2001">a [class@Hex.Document] object</doc>
+                 line="2007">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
         </parameters>
@@ -2250,19 +2250,19 @@ operation.</doc>
       <method name="redo" c:identifier="hex_document_redo">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="1895">Perform a redo operation.</doc>
+             line="1901">Perform a redo operation.</doc>
         <source-position filename="src/hex-document.h" line="196"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="1901">%TRUE if the operation was successful; %FALSE otherwise.</doc>
+               line="1907">%TRUE if the operation was successful; %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1897">a [class@Hex.Document] object</doc>
+                 line="1903">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
         </parameters>
@@ -2273,25 +2273,25 @@ operation.</doc>
               version="4.2">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="2048">Set the [iface@Hex.Buffer] connected with the #HexDocument.</doc>
+             line="2054">Set the [iface@Hex.Buffer] connected with the #HexDocument.</doc>
         <source-position filename="src/hex-document.h" line="238"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="2055">%TRUE if the operation was successful; %FALSE otherwise.</doc>
+               line="2061">%TRUE if the operation was successful; %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="2050">a [class@Hex.Document] object</doc>
+                 line="2056">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
           <parameter name="buf" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="2051">[iface@Hex.Buffer]</doc>
+                 line="2057">[iface@Hex.Buffer]</doc>
             <type name="Buffer" c:type="HexBuffer*"/>
           </parameter>
         </parameters>
@@ -2493,19 +2493,19 @@ description of that method for details.</doc>
       <method name="undo" c:identifier="hex_document_undo">
         <doc xml:space="preserve"
              filename="src/hex-document.c"
-             line="1829">Perform an undo operation.</doc>
+             line="1835">Perform an undo operation.</doc>
         <source-position filename="src/hex-document.h" line="195"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/hex-document.c"
-               line="1835">%TRUE if the operation was successful; %FALSE otherwise.</doc>
+               line="1841">%TRUE if the operation was successful; %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="doc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/hex-document.c"
-                 line="1831">a [class@Hex.Document] object</doc>
+                 line="1837">a [class@Hex.Document] object</doc>
             <type name="Document" c:type="HexDocument*"/>
           </instance-parameter>
         </parameters>

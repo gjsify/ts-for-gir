@@ -783,14 +783,14 @@ GstVaDisplay descendants.</doc>
                    version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/va/gstvadisplay_drm.c"
-             line="192">Creates a new #GstVaDisplay from a DRM device . It will try to open
+             line="193">Creates a new #GstVaDisplay from a DRM device . It will try to open
 and operate the device in @path.</doc>
         <source-position filename="gst-libs/gst/va/gstvadisplay_drm.h"
                          line="40"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/va/gstvadisplay_drm.c"
-               line="199">a newly allocated #GstVaDisplay if the
+               line="200">a newly allocated #GstVaDisplay if the
     specified DRM render device could be opened and initialized;
     otherwise %NULL is returned.</doc>
           <type name="VaDisplay" c:type="GstVaDisplay*"/>
@@ -799,7 +799,7 @@ and operate the device in @path.</doc>
           <parameter name="path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/va/gstvadisplay_drm.c"
-                 line="194">the path to the DRM device</doc>
+                 line="195">the path to the DRM device</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>

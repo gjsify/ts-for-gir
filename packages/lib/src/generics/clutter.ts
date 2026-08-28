@@ -1,5 +1,6 @@
 import type { IntrospectedNamespace } from "../gir/namespace.ts";
 import { GenericType } from "../gir.ts";
+import { MUTTER_API_VERSIONS } from "../mutter-api-versions.ts";
 import type { ClutterTemplateConfig } from "../types/generics-config.ts";
 
 function createClutterTemplate(version: string): ClutterTemplateConfig {
@@ -61,21 +62,6 @@ function updatePropertyType(
 		});
 }
 
-// Version exports
-export const clutter10 = createClutterTemplate("10");
-export const clutter11 = createClutterTemplate("11");
-export const clutter12 = createClutterTemplate("12");
-export const clutter13 = createClutterTemplate("13");
-/** Clutter-14 was introduced with GNOME 46 */
-export const clutter14 = createClutterTemplate("14");
-/** Clutter-15 was introduced with GNOME 47 */
-export const clutter15 = createClutterTemplate("15");
-/** Clutter-16 was introduced with GNOME 48 */
-export const clutter16 = createClutterTemplate("16");
-/** Clutter-17 was introduced with GNOME 49 */
-export const clutter17 = createClutterTemplate("17");
-/** Clutter-18 was introduced with GNOME 50 */
-export const clutter18 = createClutterTemplate("18");
-// Possibly future versions, adjust if necessary
-export const clutter19 = createClutterTemplate("19");
-export const clutter20 = createClutterTemplate("20");
+// Version exports — one template per known Mutter API version. See
+// MUTTER_API_VERSIONS for why the list lives in one shared place.
+export const clutterTemplates: ClutterTemplateConfig[] = MUTTER_API_VERSIONS.map(createClutterTemplate);

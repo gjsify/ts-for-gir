@@ -2910,12 +2910,12 @@ function and hash value.</doc>
       <constructor name="new" c:identifier="as_component_new">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="6888">Creates a new #AsComponent.</doc>
+             line="6897">Creates a new #AsComponent.</doc>
         <source-position filename="src/as-component.h" line="189"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/as-component.c"
-               line="6893">a new #AsComponent</doc>
+               line="6902">a new #AsComponent</doc>
           <type name="Component" c:type="AsComponent*"/>
         </return-value>
       </constructor>
@@ -2949,7 +2949,7 @@ function and hash value.</doc>
               version="0.12.1">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="3941">Adds an agreement to the software component.</doc>
+             line="3940">Adds an agreement to the software component.</doc>
         <source-position filename="src/as-component.h" line="356"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -2958,13 +2958,13 @@ function and hash value.</doc>
           <instance-parameter name="cpt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3943">a #AsComponent instance.</doc>
+                 line="3942">a #AsComponent instance.</doc>
             <type name="Component" c:type="AsComponent*"/>
           </instance-parameter>
           <parameter name="agreement" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3944">an #AsAgreement instance.</doc>
+                 line="3943">an #AsAgreement instance.</doc>
             <type name="Agreement" c:type="AsAgreement*"/>
           </parameter>
         </parameters>
@@ -3022,7 +3022,7 @@ function and hash value.</doc>
               version="0.11.0">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="3544">Adds a content rating to this component.</doc>
+             line="3543">Adds a content rating to this component.</doc>
         <source-position filename="src/as-component.h" line="337"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3031,13 +3031,13 @@ function and hash value.</doc>
           <instance-parameter name="cpt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3546">a #AsComponent instance.</doc>
+                 line="3545">a #AsComponent instance.</doc>
             <type name="Component" c:type="AsComponent*"/>
           </instance-parameter>
           <parameter name="content_rating" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3547">a #AsContentRating instance.</doc>
+                 line="3546">a #AsContentRating instance.</doc>
             <type name="ContentRating" c:type="AsContentRating*"/>
           </parameter>
         </parameters>
@@ -3162,7 +3162,7 @@ check for duplicate keywords.</doc>
               version="0.11.0">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="3601">Adds a #AsLaunchable containing launchables entries for this component.</doc>
+             line="3600">Adds a #AsLaunchable containing launchables entries for this component.</doc>
         <source-position filename="src/as-component.h" line="236"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3171,13 +3171,13 @@ check for duplicate keywords.</doc>
           <instance-parameter name="cpt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3603">a #AsComponent instance.</doc>
+                 line="3602">a #AsComponent instance.</doc>
             <type name="Component" c:type="AsComponent*"/>
           </instance-parameter>
           <parameter name="launchable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3604">a #AsLaunchable instance.</doc>
+                 line="3603">a #AsLaunchable instance.</doc>
             <type name="Launchable" c:type="AsLaunchable*"/>
           </parameter>
         </parameters>
@@ -3268,7 +3268,7 @@ check for duplicate keywords.</doc>
               version="0.12.0">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="3670">Adds a #AsRelation to set a recommends or requires relation of
+             line="3669">Adds a #AsRelation to set a recommends or requires relation of
 component @cpt on the item mentioned in the #AsRelation.</doc>
         <source-position filename="src/as-component.h" line="342"/>
         <return-value transfer-ownership="none">
@@ -3278,13 +3278,13 @@ component @cpt on the item mentioned in the #AsRelation.</doc>
           <instance-parameter name="cpt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3672">a #AsComponent instance.</doc>
+                 line="3671">a #AsComponent instance.</doc>
             <type name="Component" c:type="AsComponent*"/>
           </instance-parameter>
           <parameter name="relation" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3673">a #AsRelation instance.</doc>
+                 line="3672">a #AsRelation instance.</doc>
             <type name="Relation" c:type="AsRelation*"/>
           </parameter>
         </parameters>
@@ -3315,7 +3315,7 @@ component @cpt on the item mentioned in the #AsRelation.</doc>
       <method name="add_replaces" c:identifier="as_component_add_replaces">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="3906">Add the component ID of a component that gets replaced by the current component.</doc>
+             line="3905">Add the component ID of a component that gets replaced by the current component.</doc>
         <source-position filename="src/as-component.h" line="353"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3324,13 +3324,13 @@ component @cpt on the item mentioned in the #AsRelation.</doc>
           <instance-parameter name="cpt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3908">a #AsComponent instance.</doc>
+                 line="3907">a #AsComponent instance.</doc>
             <type name="Component" c:type="AsComponent*"/>
           </instance-parameter>
           <parameter name="cid" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3909">an AppStream component ID</doc>
+                 line="3908">an AppStream component ID</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3340,7 +3340,7 @@ component @cpt on the item mentioned in the #AsRelation.</doc>
               version="0.14.0">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="3485">Adds a user review to a software component.</doc>
+             line="3484">Adds a user review to a software component.</doc>
         <source-position filename="src/as-component.h" line="379"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3349,13 +3349,13 @@ component @cpt on the item mentioned in the #AsRelation.</doc>
           <instance-parameter name="cpt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3487">a #AsComponent instance.</doc>
+                 line="3486">a #AsComponent instance.</doc>
             <type name="Component" c:type="AsComponent*"/>
           </instance-parameter>
           <parameter name="review" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3488">a #AsReview instance.</doc>
+                 line="3487">a #AsReview instance.</doc>
             <type name="Review" c:type="AsReview*"/>
           </parameter>
         </parameters>
@@ -3502,13 +3502,13 @@ by this component.</doc>
               version="1.0.0">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="3783">Verifies the respective relations and presents whether the system specified
+             line="3782">Verifies the respective relations and presents whether the system specified
 in #AsSystemInfo @sysinfo and data from @pool supply the requested facilities.</doc>
         <source-position filename="src/as-component.h" line="343"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="src/as-component.c"
-               line="3793">An array of #AsRelationCheckResult</doc>
+               line="3792">An array of #AsRelationCheckResult</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="RelationCheckResult"/>
           </array>
@@ -3517,7 +3517,7 @@ in #AsSystemInfo @sysinfo and data from @pool supply the requested facilities.</
           <instance-parameter name="cpt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3785">a #AsComponent instance.</doc>
+                 line="3784">a #AsComponent instance.</doc>
             <type name="Component" c:type="AsComponent*"/>
           </instance-parameter>
           <parameter name="sysinfo"
@@ -3526,7 +3526,7 @@ in #AsSystemInfo @sysinfo and data from @pool supply the requested facilities.</
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3786">an #AsSystemInfo to use for system information.</doc>
+                 line="3785">an #AsSystemInfo to use for system information.</doc>
             <type name="SystemInfo" c:type="AsSystemInfo*"/>
           </parameter>
           <parameter name="pool"
@@ -3535,13 +3535,13 @@ in #AsSystemInfo @sysinfo and data from @pool supply the requested facilities.</
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3787">an #AsPool to find component dependencies in.</doc>
+                 line="3786">an #AsPool to find component dependencies in.</doc>
             <type name="Pool" c:type="AsPool*"/>
           </parameter>
           <parameter name="rel_kind" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3788">the kind of relations to check</doc>
+                 line="3787">the kind of relations to check</doc>
             <type name="RelationKind" c:type="AsRelationKind"/>
           </parameter>
         </parameters>
@@ -3642,25 +3642,25 @@ This is the reverse of %as_component_get_extends()</doc>
               version="0.12.1">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="3957">Gets an agreement the component has specified for the particular kind.</doc>
+             line="3956">Gets an agreement the component has specified for the particular kind.</doc>
         <source-position filename="src/as-component.h" line="357"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/as-component.c"
-               line="3964">a #AsAgreement or %NULL for not found</doc>
+               line="3963">a #AsAgreement or %NULL for not found</doc>
           <type name="Agreement" c:type="AsAgreement*"/>
         </return-value>
         <parameters>
           <instance-parameter name="cpt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3959">a #AsComponent instance.</doc>
+                 line="3958">a #AsComponent instance.</doc>
             <type name="Component" c:type="AsComponent*"/>
           </instance-parameter>
           <parameter name="kind" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3960">an agreement kind, e.g. %AS_AGREEMENT_KIND_EULA</doc>
+                 line="3959">an agreement kind, e.g. %AS_AGREEMENT_KIND_EULA</doc>
             <type name="AgreementKind" c:type="AsAgreementKind"/>
           </parameter>
         </parameters>
@@ -3670,12 +3670,12 @@ This is the reverse of %as_component_get_extends()</doc>
               version="0.15.0">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="3924">Get a list of all agreements registered with this software component.</doc>
+             line="3923">Get a list of all agreements registered with this software component.</doc>
         <source-position filename="src/as-component.h" line="355"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-component.c"
-               line="3930">An array of #AsAgreement.</doc>
+               line="3929">An array of #AsAgreement.</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="Agreement"/>
           </array>
@@ -3684,7 +3684,7 @@ This is the reverse of %as_component_get_extends()</doc>
           <instance-parameter name="cpt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3926">an #AsComponent instance.</doc>
+                 line="3925">an #AsComponent instance.</doc>
             <type name="Component" c:type="AsComponent*"/>
           </instance-parameter>
         </parameters>
@@ -3716,20 +3716,20 @@ This is the reverse of %as_component_get_extends()</doc>
               version="0.15.2">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="3982">Get the branding associated with this component, or %NULL
+             line="3981">Get the branding associated with this component, or %NULL
 in case this component has no special branding.</doc>
         <source-position filename="src/as-component.h" line="359"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/as-component.c"
-               line="3989">An #AsBranding.</doc>
+               line="3988">An #AsBranding.</doc>
           <type name="Branding" c:type="AsBranding*"/>
         </return-value>
         <parameters>
           <instance-parameter name="cpt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3984">an #AsComponent instance.</doc>
+                 line="3983">an #AsComponent instance.</doc>
             <type name="Component" c:type="AsComponent*"/>
           </instance-parameter>
         </parameters>
@@ -3832,25 +3832,25 @@ in case this component has no special branding.</doc>
               version="0.11.0">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="3518">Gets a content ratings of a specific type that are defined for this component.</doc>
+             line="3517">Gets a content ratings of a specific type that are defined for this component.</doc>
         <source-position filename="src/as-component.h" line="336"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/as-component.c"
-               line="3525">a #AsContentRating or %NULL if not found</doc>
+               line="3524">a #AsContentRating or %NULL if not found</doc>
           <type name="ContentRating" c:type="AsContentRating*"/>
         </return-value>
         <parameters>
           <instance-parameter name="cpt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3520">a #AsComponent instance.</doc>
+                 line="3519">a #AsComponent instance.</doc>
             <type name="Component" c:type="AsComponent*"/>
           </instance-parameter>
           <parameter name="kind" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3521">a ratings kind, e.g. "oars-1.0"</doc>
+                 line="3520">a ratings kind, e.g. "oars-1.0"</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3860,12 +3860,12 @@ in case this component has no special branding.</doc>
               version="0.11.0">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="3501">Gets all content ratings defined for this software.</doc>
+             line="3500">Gets all content ratings defined for this software.</doc>
         <source-position filename="src/as-component.h" line="335"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-component.c"
-               line="3507">an array</doc>
+               line="3506">an array</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="ContentRating"/>
           </array>
@@ -3874,7 +3874,7 @@ in case this component has no special branding.</doc>
           <instance-parameter name="cpt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3503">a #AsComponent instance.</doc>
+                 line="3502">a #AsComponent instance.</doc>
             <type name="Component" c:type="AsComponent*"/>
           </instance-parameter>
         </parameters>
@@ -3884,7 +3884,7 @@ in case this component has no special branding.</doc>
               version="0.11.2">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="4020">Get the #AsContext associated with this component.
+             line="4019">Get the #AsContext associated with this component.
 This function may return %NULL if no context is set
 (which will be the case if the component was not loaded from
 a file or cache but constructed in memory).</doc>
@@ -3892,14 +3892,14 @@ a file or cache but constructed in memory).</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/as-component.c"
-               line="4029">the associated #AsContext or %NULL</doc>
+               line="4028">the associated #AsContext or %NULL</doc>
           <type name="Context" c:type="AsContext*"/>
         </return-value>
         <parameters>
           <instance-parameter name="cpt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="4022">a #AsComponent instance.</doc>
+                 line="4021">a #AsComponent instance.</doc>
             <type name="Component" c:type="AsComponent*"/>
           </instance-parameter>
         </parameters>
@@ -3911,7 +3911,7 @@ a file or cache but constructed in memory).</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-component.c"
-               line="3416">Hash table of custom user defined data fields.</doc>
+               line="3415">Hash table of custom user defined data fields.</doc>
           <type name="GLib.HashTable" c:type="GHashTable*">
             <type name="gpointer" c:type="gpointer"/>
             <type name="gpointer" c:type="gpointer"/>
@@ -3921,7 +3921,7 @@ a file or cache but constructed in memory).</doc>
           <instance-parameter name="cpt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3414">An #AsComponent.</doc>
+                 line="3413">An #AsComponent.</doc>
             <type name="Component" c:type="AsComponent*"/>
           </instance-parameter>
         </parameters>
@@ -3931,7 +3931,7 @@ a file or cache but constructed in memory).</doc>
               version="0.10.5">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="3427">Retrieve value for a custom data entry with the given key.</doc>
+             line="3426">Retrieve value for a custom data entry with the given key.</doc>
         <source-position filename="src/as-component.h" line="332"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
@@ -3940,13 +3940,13 @@ a file or cache but constructed in memory).</doc>
           <instance-parameter name="cpt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3429">An #AsComponent.</doc>
+                 line="3428">An #AsComponent.</doc>
             <type name="Component" c:type="AsComponent*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3430">Field name.</doc>
+                 line="3429">Field name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -4310,26 +4310,26 @@ keword arrays.</doc>
               version="0.11.0">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="3560">Gets a #AsLaunchable of a specific type that contains launchable entries for
+             line="3559">Gets a #AsLaunchable of a specific type that contains launchable entries for
 this component.</doc>
         <source-position filename="src/as-component.h" line="235"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/as-component.c"
-               line="3568">a #AsLaunchable or %NULL if not found</doc>
+               line="3567">a #AsLaunchable or %NULL if not found</doc>
           <type name="Launchable" c:type="AsLaunchable*"/>
         </return-value>
         <parameters>
           <instance-parameter name="cpt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3562">a #AsComponent instance.</doc>
+                 line="3561">a #AsComponent instance.</doc>
             <type name="Component" c:type="AsComponent*"/>
           </instance-parameter>
           <parameter name="kind" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3563">a launch kind, e.g. %AS_LAUNCHABLE_KIND_DESKTOP_ID</doc>
+                 line="3562">a launch kind, e.g. %AS_LAUNCHABLE_KIND_DESKTOP_ID</doc>
             <type name="LaunchableKind" c:type="AsLaunchableKind"/>
           </parameter>
         </parameters>
@@ -4341,7 +4341,7 @@ this component.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-component.c"
-               line="3590">an array</doc>
+               line="3589">an array</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="Launchable"/>
           </array>
@@ -4350,7 +4350,7 @@ this component.</doc>
           <instance-parameter name="cpt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3588">a #AsComponent instance.</doc>
+                 line="3587">a #AsComponent instance.</doc>
             <type name="Component" c:type="AsComponent*"/>
           </instance-parameter>
         </parameters>
@@ -4654,12 +4654,12 @@ this component provides.</doc>
               version="0.12.0">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="3635">Get an array of items that are recommended by this component.</doc>
+             line="3634">Get an array of items that are recommended by this component.</doc>
         <source-position filename="src/as-component.h" line="340"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-component.c"
-               line="3641">an array</doc>
+               line="3640">an array</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="Relation"/>
           </array>
@@ -4668,7 +4668,7 @@ this component provides.</doc>
           <instance-parameter name="cpt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3637">a #AsComponent instance.</doc>
+                 line="3636">a #AsComponent instance.</doc>
             <type name="Component" c:type="AsComponent*"/>
           </instance-parameter>
         </parameters>
@@ -4722,12 +4722,12 @@ without downloading or loading any data from external sources.</doc>
       <method name="get_replaces" c:identifier="as_component_get_replaces">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="3889">Get a list of component IDs of components that this software replaces entirely.</doc>
+             line="3888">Get a list of component IDs of components that this software replaces entirely.</doc>
         <source-position filename="src/as-component.h" line="352"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-component.c"
-               line="3895">an array of component-IDs</doc>
+               line="3894">an array of component-IDs</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="utf8"/>
           </array>
@@ -4736,7 +4736,7 @@ without downloading or loading any data from external sources.</doc>
           <instance-parameter name="cpt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3891">a #AsComponent instance.</doc>
+                 line="3890">a #AsComponent instance.</doc>
             <type name="Component" c:type="AsComponent*"/>
           </instance-parameter>
         </parameters>
@@ -4746,12 +4746,12 @@ without downloading or loading any data from external sources.</doc>
               version="0.12.0">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="3618">Get an array of items that are required by this component.</doc>
+             line="3617">Get an array of items that are required by this component.</doc>
         <source-position filename="src/as-component.h" line="339"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-component.c"
-               line="3624">an array</doc>
+               line="3623">an array</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="Relation"/>
           </array>
@@ -4760,7 +4760,7 @@ without downloading or loading any data from external sources.</doc>
           <instance-parameter name="cpt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3620">a #AsComponent instance.</doc>
+                 line="3619">a #AsComponent instance.</doc>
             <type name="Component" c:type="AsComponent*"/>
           </instance-parameter>
         </parameters>
@@ -4770,12 +4770,12 @@ without downloading or loading any data from external sources.</doc>
               version="0.14.0">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="3468">Gets any reviews associated with the component.</doc>
+             line="3467">Gets any reviews associated with the component.</doc>
         <source-position filename="src/as-component.h" line="378"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-component.c"
-               line="3474">an array</doc>
+               line="3473">an array</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="Review"/>
           </array>
@@ -4784,7 +4784,7 @@ without downloading or loading any data from external sources.</doc>
           <instance-parameter name="cpt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3470">a #AsComponent instance.</doc>
+                 line="3469">a #AsComponent instance.</doc>
             <type name="Component" c:type="AsComponent*"/>
           </instance-parameter>
         </parameters>
@@ -4977,13 +4977,13 @@ mapping table.</doc>
               version="0.15.0">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="3652">Get an array of items that are supported by this component,
+             line="3651">Get an array of items that are supported by this component,
 e.g. to indicate support for a specific piece of hardware.</doc>
         <source-position filename="src/as-component.h" line="341"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-component.c"
-               line="3659">an array</doc>
+               line="3658">an array</doc>
           <array name="GLib.PtrArray" c:type="GPtrArray*">
             <type name="Relation"/>
           </array>
@@ -4992,7 +4992,7 @@ e.g. to indicate support for a specific piece of hardware.</doc>
           <instance-parameter name="cpt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3654">a #AsComponent instance.</doc>
+                 line="3653">a #AsComponent instance.</doc>
             <type name="Component" c:type="AsComponent*"/>
           </instance-parameter>
         </parameters>
@@ -5001,7 +5001,7 @@ e.g. to indicate support for a specific piece of hardware.</doc>
               c:identifier="as_component_get_system_compatibility_score">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="3834">Return a score between 0 and 100 determining how compatible the component
+             line="3833">Return a score between 0 and 100 determining how compatible the component
 is with the system configuration provided as parameter.
 
 0 means the componsnt will not work at all, while 100 is best compatibility.</doc>
@@ -5009,26 +5009,26 @@ is with the system configuration provided as parameter.
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-component.c"
-               line="3846">a compatibility score between 0 and 100</doc>
+               line="3845">a compatibility score between 0 and 100</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="cpt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3836">a #AsComponent instance.</doc>
+                 line="3835">a #AsComponent instance.</doc>
             <type name="Component" c:type="AsComponent*"/>
           </instance-parameter>
           <parameter name="sysinfo" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3837">an #AsSystemInfo to use for system information.</doc>
+                 line="3836">an #AsSystemInfo to use for system information.</doc>
             <type name="SystemInfo" c:type="AsSystemInfo*"/>
           </parameter>
           <parameter name="is_template" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3838">if %TRUE, treat system info as neutral template, ignoring any peripheral devices or kernel relations.</doc>
+                 line="3837">if %TRUE, treat system info as neutral template, ignoring any peripheral devices or kernel relations.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
           <parameter name="results"
@@ -5039,7 +5039,7 @@ is with the system configuration provided as parameter.
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3839">Receive the resulting check results</doc>
+                 line="3838">Receive the resulting check results</doc>
             <array name="GLib.PtrArray" c:type="GPtrArray**">
               <type name="RelationCheckResult"/>
             </array>
@@ -5209,31 +5209,31 @@ tag.</doc>
               version="0.10.5">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="3445">Add a key and value pair to the custom data table.</doc>
+             line="3444">Add a key and value pair to the custom data table.</doc>
         <source-position filename="src/as-component.h" line="333"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-component.c"
-               line="3453">%TRUE if the key did not exist yet.</doc>
+               line="3452">%TRUE if the key did not exist yet.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="cpt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3447">An #AsComponent.</doc>
+                 line="3446">An #AsComponent.</doc>
             <type name="Component" c:type="AsComponent*"/>
           </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3448">Key name.</doc>
+                 line="3447">Key name.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3449">A string value.</doc>
+                 line="3448">A string value.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -5297,14 +5297,14 @@ are only free software licenses.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-component.c"
-               line="3401">Whether this component's metadata should be ignored.</doc>
+               line="3400">Whether this component's metadata should be ignored.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="cpt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3399">a #AsComponent instance.</doc>
+                 line="3398">a #AsComponent instance.</doc>
             <type name="Component" c:type="AsComponent*"/>
           </instance-parameter>
         </parameters>
@@ -5313,7 +5313,7 @@ are only free software licenses.</doc>
               c:identifier="as_component_is_member_of_category">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="3360">Test if the component @cpt is a member of category @category.</doc>
+             line="3359">Test if the component @cpt is a member of category @category.</doc>
         <source-position filename="src/as-component.h" line="321"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -5322,13 +5322,13 @@ are only free software licenses.</doc>
           <instance-parameter name="cpt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3362">a #AsComponent instance.</doc>
+                 line="3361">a #AsComponent instance.</doc>
             <type name="Component" c:type="AsComponent*"/>
           </instance-parameter>
           <parameter name="category" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="3363">The category to test.</doc>
+                 line="3362">The category to test.</doc>
             <type name="Category" c:type="AsCategory*"/>
           </parameter>
         </parameters>
@@ -5360,7 +5360,7 @@ populated with useful data.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="6477">Load metadata for this component from an XML string.
+             line="6486">Load metadata for this component from an XML string.
 You normally do not want to use this method directly and instead use the more
 convenient API of #AsMetadata to create and update components.
 
@@ -5371,32 +5371,32 @@ be set explicitly by the caller in order to make the component valid.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-component.c"
-               line="6493">%TRUE on success.</doc>
+               line="6502">%TRUE on success.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="cpt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="6479">an #AsComponent instance.</doc>
+                 line="6488">an #AsComponent instance.</doc>
             <type name="Component" c:type="AsComponent*"/>
           </instance-parameter>
           <parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="6480">an #AsContext instance.</doc>
+                 line="6489">an #AsContext instance.</doc>
             <type name="Context" c:type="AsContext*"/>
           </parameter>
           <parameter name="format" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="6481">the format of the data to load, e.g. %AS_FORMAT_KIND_XML</doc>
+                 line="6490">the format of the data to load, e.g. %AS_FORMAT_KIND_XML</doc>
             <type name="FormatKind" c:type="AsFormatKind"/>
           </parameter>
           <parameter name="bytes" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="6482">the data to load.</doc>
+                 line="6491">the data to load.</doc>
             <type name="GLib.Bytes" c:type="GBytes*"/>
           </parameter>
         </parameters>
@@ -5548,7 +5548,7 @@ matches.</doc>
               version="0.15.2">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="4000">Set branding for this component.</doc>
+             line="3999">Set branding for this component.</doc>
         <source-position filename="src/as-component.h" line="360"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5557,13 +5557,13 @@ matches.</doc>
           <instance-parameter name="cpt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="4002">a #AsComponent instance.</doc>
+                 line="4001">a #AsComponent instance.</doc>
             <type name="Component" c:type="AsComponent*"/>
           </instance-parameter>
           <parameter name="branding" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="4003">an #AsBranding instance.</doc>
+                 line="4002">an #AsBranding instance.</doc>
             <type name="Branding" c:type="AsBranding*"/>
           </parameter>
         </parameters>
@@ -5597,7 +5597,7 @@ matches.</doc>
               version="0.11.2">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="4040">Sets the document context this component is associated
+             line="4039">Sets the document context this component is associated
 with.</doc>
         <source-position filename="src/as-component.h" line="192"/>
         <return-value transfer-ownership="none">
@@ -5607,13 +5607,13 @@ with.</doc>
           <instance-parameter name="cpt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="4042">a #AsComponent instance.</doc>
+                 line="4041">a #AsComponent instance.</doc>
             <type name="Component" c:type="AsComponent*"/>
           </instance-parameter>
           <parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="4043">the #AsContext.</doc>
+                 line="4042">the #AsContext.</doc>
             <type name="Context" c:type="AsContext*"/>
           </parameter>
         </parameters>
@@ -6311,27 +6311,27 @@ If both "environment" and "style" are %NULL, the previous default order is resto
               throws="1">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="6566">Serialize this component into an XML string.
+             line="6575">Serialize this component into an XML string.
 You normally do not want to use this method directly and instead use the more
 convenient API of #AsMetadata to serialize components.</doc>
         <source-position filename="src/as-component.h" line="390"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/as-component.c"
-               line="6576">%TRUE on success.</doc>
+               line="6585">%TRUE on success.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="cpt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="6568">an #AsComponent instance.</doc>
+                 line="6577">an #AsComponent instance.</doc>
             <type name="Component" c:type="AsComponent*"/>
           </instance-parameter>
           <parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-component.c"
-                 line="6569">an #AsContext instance.</doc>
+                 line="6578">an #AsContext instance.</doc>
             <type name="Context" c:type="AsContext*"/>
           </parameter>
         </parameters>
@@ -6341,7 +6341,7 @@ convenient API of #AsMetadata to serialize components.</doc>
                 getter="get_categories">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="6829">string array of categories</doc>
+             line="6838">string array of categories</doc>
         <array name="GLib.PtrArray">
           <type name="gpointer" c:type="gpointer"/>
         </array>
@@ -6354,13 +6354,13 @@ convenient API of #AsMetadata to serialize components.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="6774">the description</doc>
+             line="6783">the description</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="icons" transfer-ownership="none" getter="get_icons">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="6802">hash map of icon urls and sizes</doc>
+             line="6811">hash map of icon urls and sizes</doc>
         <type name="GLib.List" c:type="gpointer">
           <type name="Icon"/>
         </type>
@@ -6373,7 +6373,7 @@ convenient API of #AsMetadata to serialize components.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="6732">the unique identifier</doc>
+             line="6741">the unique identifier</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="keywords"
@@ -6383,7 +6383,7 @@ convenient API of #AsMetadata to serialize components.</doc>
                 getter="get_keywords">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="6788">string array of keywords</doc>
+             line="6797">string array of keywords</doc>
         <array>
           <type name="utf8"/>
         </array>
@@ -6396,7 +6396,7 @@ convenient API of #AsMetadata to serialize components.</doc>
                 default-value="AS_COMPONENT_KIND_UNKNOWN">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="6703">the #AsComponentKind of this component</doc>
+             line="6712">the #AsComponentKind of this component</doc>
         <type name="ComponentKind"/>
       </property>
       <property name="name"
@@ -6407,7 +6407,7 @@ convenient API of #AsMetadata to serialize components.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="6746">the name</doc>
+             line="6755">the name</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="pkgnames"
@@ -6417,7 +6417,7 @@ convenient API of #AsMetadata to serialize components.</doc>
                 getter="get_pkgnames">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="6718">string array of packages name</doc>
+             line="6727">string array of packages name</doc>
         <array>
           <type name="utf8"/>
         </array>
@@ -6430,7 +6430,7 @@ convenient API of #AsMetadata to serialize components.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="6857">the project group</doc>
+             line="6866">the project group</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="project-license"
@@ -6441,13 +6441,13 @@ convenient API of #AsMetadata to serialize components.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="6843">the project license</doc>
+             line="6852">the project license</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="screenshots" transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="6872">An array of #AsScreenshot instances</doc>
+             line="6881">An array of #AsScreenshot instances</doc>
         <array name="GLib.PtrArray">
           <type name="Screenshot"/>
         </array>
@@ -6460,13 +6460,13 @@ convenient API of #AsMetadata to serialize components.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="6760">the summary</doc>
+             line="6769">the summary</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="urls" transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/as-component.c"
-             line="6815">the urls associated with this component</doc>
+             line="6824">the urls associated with this component</doc>
         <type name="GLib.HashTable">
           <type name="UrlKind"/>
           <type name="utf8"/>
@@ -10676,7 +10676,7 @@ object stores.</doc>
       <source-position filename="src/as-version.h" line="34"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="0" c:type="AS_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="3" c:type="AS_MICRO_VERSION">
       <source-position filename="src/as-version.h" line="36"/>
       <type name="gint" c:type="gint"/>
     </constant>
@@ -10824,12 +10824,12 @@ set for merge.</doc>
       <constructor name="new" c:identifier="as_metadata_new">
         <doc xml:space="preserve"
              filename="src/as-metadata.c"
-             line="1833">Creates a new #AsMetadata.</doc>
+             line="1834">Creates a new #AsMetadata.</doc>
         <source-position filename="src/as-metadata.h" line="87"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/as-metadata.c"
-               line="1838">a #AsMetadata</doc>
+               line="1839">a #AsMetadata</doc>
           <type name="Metadata" c:type="AsMetadata*"/>
         </return-value>
       </constructor>
@@ -10859,7 +10859,7 @@ the filename.</doc>
       <method name="add_component" c:identifier="as_metadata_add_component">
         <doc xml:space="preserve"
              filename="src/as-metadata.c"
-             line="1495">Add an #AsComponent to the list of components.
+             line="1496">Add an #AsComponent to the list of components.
 This can be used to add multiple components in order to
 produce a distro-XML AppStream metadata file.</doc>
         <source-position filename="src/as-metadata.h" line="127"/>
@@ -10950,27 +10950,27 @@ In case no component is present, %NULL is returned.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/as-metadata.c"
-             line="1441">Serialize all #AsComponent instances into AppStream
+             line="1442">Serialize all #AsComponent instances into AppStream
 catalog metadata.
 %NULL is returned if there is nothing to serialize.</doc>
         <source-position filename="src/as-metadata.h" line="117"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/as-metadata.c"
-               line="1451">A string containing the YAML or XML data. Free with g_free()</doc>
+               line="1452">A string containing the YAML or XML data. Free with g_free()</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="metad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-metadata.c"
-                 line="1443">An instance of #AsMetadata.</doc>
+                 line="1444">An instance of #AsMetadata.</doc>
             <type name="Metadata" c:type="AsMetadata*"/>
           </instance-parameter>
           <parameter name="format" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-metadata.c"
-                 line="1444">The format to serialize the data to (XML or YAML).</doc>
+                 line="1445">The format to serialize the data to (XML or YAML).</doc>
             <type name="FormatKind" c:type="AsFormatKind"/>
           </parameter>
         </parameters>
@@ -10981,14 +10981,14 @@ catalog metadata.
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-metadata.c"
-               line="1653">The architecture of AppStream distro metadata</doc>
+               line="1654">The architecture of AppStream distro metadata</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="metad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-metadata.c"
-                 line="1651">an #AsMetadata instance.</doc>
+                 line="1652">an #AsMetadata instance.</doc>
             <type name="Metadata" c:type="AsMetadata*"/>
           </instance-parameter>
         </parameters>
@@ -10996,21 +10996,21 @@ catalog metadata.
       <method name="get_component" c:identifier="as_metadata_get_component">
         <doc xml:space="preserve"
              filename="src/as-metadata.c"
-             line="1509">Gets the #AsComponent which has been parsed from the XML.
+             line="1510">Gets the #AsComponent which has been parsed from the XML.
 If the AppStream XML contained multiple components, return the last
 component that has been parsed.</doc>
         <source-position filename="src/as-metadata.h" line="123"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/as-metadata.c"
-               line="1517">An #AsComponent or %NULL</doc>
+               line="1518">An #AsComponent or %NULL</doc>
           <type name="Component" c:type="AsComponent*"/>
         </return-value>
         <parameters>
           <instance-parameter name="metad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-metadata.c"
-                 line="1511">a #AsMetadata instance.</doc>
+                 line="1512">a #AsMetadata instance.</doc>
             <type name="Metadata" c:type="AsMetadata*"/>
           </instance-parameter>
         </parameters>
@@ -11020,14 +11020,14 @@ component that has been parsed.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-metadata.c"
-               line="1533">an #AsComponentBox of all parsed components</doc>
+               line="1534">an #AsComponentBox of all parsed components</doc>
           <type name="ComponentBox" c:type="AsComponentBox*"/>
         </return-value>
         <parameters>
           <instance-parameter name="metad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-metadata.c"
-                 line="1531">a #AsMetadata instance.</doc>
+                 line="1532">a #AsMetadata instance.</doc>
             <type name="Metadata" c:type="AsMetadata*"/>
           </instance-parameter>
         </parameters>
@@ -11036,7 +11036,7 @@ component that has been parsed.</doc>
               c:identifier="as_metadata_get_format_style">
         <doc xml:space="preserve"
              filename="src/as-metadata.c"
-             line="1755">Get the metadata parsing mode.</doc>
+             line="1756">Get the metadata parsing mode.</doc>
         <source-position filename="src/as-metadata.h" line="140"/>
         <return-value transfer-ownership="none">
           <type name="FormatStyle" c:type="AsFormatStyle"/>
@@ -11045,7 +11045,7 @@ component that has been parsed.</doc>
           <instance-parameter name="metad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-metadata.c"
-                 line="1757">a #AsMetadata instance.</doc>
+                 line="1758">a #AsMetadata instance.</doc>
             <type name="Metadata" c:type="AsMetadata*"/>
           </instance-parameter>
         </parameters>
@@ -11056,14 +11056,14 @@ component that has been parsed.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-metadata.c"
-               line="1666">The AppStream metadata format version.</doc>
+               line="1667">The AppStream metadata format version.</doc>
           <type name="FormatVersion" c:type="AsFormatVersion"/>
         </return-value>
         <parameters>
           <instance-parameter name="metad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-metadata.c"
-                 line="1664">an #AsMetadata instance.</doc>
+                 line="1665">an #AsMetadata instance.</doc>
             <type name="Metadata" c:type="AsMetadata*"/>
           </instance-parameter>
         </parameters>
@@ -11071,20 +11071,20 @@ component that has been parsed.</doc>
       <method name="get_locale" c:identifier="as_metadata_get_locale">
         <doc xml:space="preserve"
              filename="src/as-metadata.c"
-             line="1561">Gets the current active locale for parsing metadata,
+             line="1562">Gets the current active locale for parsing metadata,
 or "ALL" if all locales are read.</doc>
         <source-position filename="src/as-metadata.h" line="144"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-metadata.c"
-               line="1568">Locale used for metadata parsing.</doc>
+               line="1569">Locale used for metadata parsing.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="metad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-metadata.c"
-                 line="1563">a #AsMetadata instance.</doc>
+                 line="1564">a #AsMetadata instance.</doc>
             <type name="Metadata" c:type="AsMetadata*"/>
           </instance-parameter>
         </parameters>
@@ -11095,14 +11095,14 @@ or "ALL" if all locales are read.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-metadata.c"
-               line="1625">The media URL prefix.</doc>
+               line="1626">The media URL prefix.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="metad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-metadata.c"
-                 line="1623">an #AsMetadata instance.</doc>
+                 line="1624">an #AsMetadata instance.</doc>
             <type name="Metadata" c:type="AsMetadata*"/>
           </instance-parameter>
         </parameters>
@@ -11112,14 +11112,14 @@ or "ALL" if all locales are read.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-metadata.c"
-               line="1596">The origin of AppStream distro metadata</doc>
+               line="1597">The origin of AppStream distro metadata</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="metad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-metadata.c"
-                 line="1594">an #AsMetadata instance.</doc>
+                 line="1595">an #AsMetadata instance.</doc>
             <type name="Metadata" c:type="AsMetadata*"/>
           </instance-parameter>
         </parameters>
@@ -11128,7 +11128,7 @@ or "ALL" if all locales are read.</doc>
               c:identifier="as_metadata_get_parse_flags">
         <doc xml:space="preserve"
              filename="src/as-metadata.c"
-             line="1782">Get the metadata parse flags.</doc>
+             line="1783">Get the metadata parse flags.</doc>
         <source-position filename="src/as-metadata.h" line="161"/>
         <return-value transfer-ownership="none">
           <type name="ParseFlags" c:type="AsParseFlags"/>
@@ -11137,7 +11137,7 @@ or "ALL" if all locales are read.</doc>
           <instance-parameter name="metad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-metadata.c"
-                 line="1784">a #AsMetadata instance.</doc>
+                 line="1785">a #AsMetadata instance.</doc>
             <type name="Metadata" c:type="AsMetadata*"/>
           </instance-parameter>
         </parameters>
@@ -11189,7 +11189,7 @@ or "ALL" if all locales are read.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-metadata.c"
-               line="1711">Whether existing components should be updates with the parsed data,
+               line="1712">Whether existing components should be updates with the parsed data,
          instead of creating new ones.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -11197,7 +11197,7 @@ or "ALL" if all locales are read.</doc>
           <instance-parameter name="metad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-metadata.c"
-                 line="1709">an #AsMetadata instance.</doc>
+                 line="1710">an #AsMetadata instance.</doc>
             <type name="Metadata" c:type="AsMetadata*"/>
           </instance-parameter>
         </parameters>
@@ -11208,14 +11208,14 @@ or "ALL" if all locales are read.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-metadata.c"
-               line="1746">Whether we will write a header/root node in catalog metadata.</doc>
+               line="1747">Whether we will write a header/root node in catalog metadata.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="metad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-metadata.c"
-                 line="1744">an #AsMetadata instance.</doc>
+                 line="1745">an #AsMetadata instance.</doc>
             <type name="Metadata" c:type="AsMetadata*"/>
           </instance-parameter>
         </parameters>
@@ -11535,7 +11535,7 @@ An existing file at the same location will be overridden.</doc>
               c:identifier="as_metadata_set_architecture">
         <doc xml:space="preserve"
              filename="src/as-metadata.c"
-             line="1634">Set the architecture the components in this metadata belong to.</doc>
+             line="1635">Set the architecture the components in this metadata belong to.</doc>
         <source-position filename="src/as-metadata.h" line="159"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11544,13 +11544,13 @@ An existing file at the same location will be overridden.</doc>
           <instance-parameter name="metad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-metadata.c"
-                 line="1636">an #AsMetadata instance.</doc>
+                 line="1637">an #AsMetadata instance.</doc>
             <type name="Metadata" c:type="AsMetadata*"/>
           </instance-parameter>
           <parameter name="arch" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-metadata.c"
-                 line="1637">an architecture string.</doc>
+                 line="1638">an architecture string.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -11559,7 +11559,7 @@ An existing file at the same location will be overridden.</doc>
               c:identifier="as_metadata_set_format_style">
         <doc xml:space="preserve"
              filename="src/as-metadata.c"
-             line="1768">Sets the current metadata parsing mode.</doc>
+             line="1769">Sets the current metadata parsing mode.</doc>
         <source-position filename="src/as-metadata.h" line="141"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11568,13 +11568,13 @@ An existing file at the same location will be overridden.</doc>
           <instance-parameter name="metad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-metadata.c"
-                 line="1770">a #AsMetadata instance.</doc>
+                 line="1771">a #AsMetadata instance.</doc>
             <type name="Metadata" c:type="AsMetadata*"/>
           </instance-parameter>
           <parameter name="mode" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-metadata.c"
-                 line="1771">the #AsFormatStyle.</doc>
+                 line="1772">the #AsFormatStyle.</doc>
             <type name="FormatStyle" c:type="AsFormatStyle"/>
           </parameter>
         </parameters>
@@ -11583,7 +11583,7 @@ An existing file at the same location will be overridden.</doc>
               c:identifier="as_metadata_set_format_version">
         <doc xml:space="preserve"
              filename="src/as-metadata.c"
-             line="1675">Set the current AppStream format version that we should generate data for
+             line="1676">Set the current AppStream format version that we should generate data for
 or be able to read.</doc>
         <source-position filename="src/as-metadata.h" line="138"/>
         <return-value transfer-ownership="none">
@@ -11593,13 +11593,13 @@ or be able to read.</doc>
           <instance-parameter name="metad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-metadata.c"
-                 line="1677">a #AsMetadata instance.</doc>
+                 line="1678">a #AsMetadata instance.</doc>
             <type name="Metadata" c:type="AsMetadata*"/>
           </instance-parameter>
           <parameter name="version" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-metadata.c"
-                 line="1678">the AppStream metadata format version as #AsFormatVersion.</doc>
+                 line="1679">the AppStream metadata format version as #AsFormatVersion.</doc>
             <type name="FormatVersion" c:type="AsFormatVersion"/>
           </parameter>
         </parameters>
@@ -11607,7 +11607,7 @@ or be able to read.</doc>
       <method name="set_locale" c:identifier="as_metadata_set_locale">
         <doc xml:space="preserve"
              filename="src/as-metadata.c"
-             line="1542">Sets the locale which should be read when processing metadata.
+             line="1543">Sets the locale which should be read when processing metadata.
 All other locales are ignored, which increases parsing speed and
 reduces memory usage.
 If you set the locale to "ALL", all locales will be read.</doc>
@@ -11619,13 +11619,13 @@ If you set the locale to "ALL", all locales will be read.</doc>
           <instance-parameter name="metad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-metadata.c"
-                 line="1544">a #AsMetadata instance.</doc>
+                 line="1545">a #AsMetadata instance.</doc>
             <type name="Metadata" c:type="AsMetadata*"/>
           </instance-parameter>
           <parameter name="locale" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-metadata.c"
-                 line="1545">the BCP47 locale.</doc>
+                 line="1546">the BCP47 locale.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -11634,7 +11634,7 @@ If you set the locale to "ALL", all locales will be read.</doc>
               c:identifier="as_metadata_set_media_baseurl">
         <doc xml:space="preserve"
              filename="src/as-metadata.c"
-             line="1605">Set the base URL for all media links referenced in the metadata,
+             line="1606">Set the base URL for all media links referenced in the metadata,
 or %NULL if every component has absolute URLs.</doc>
         <source-position filename="src/as-metadata.h" line="156"/>
         <return-value transfer-ownership="none">
@@ -11644,13 +11644,13 @@ or %NULL if every component has absolute URLs.</doc>
           <instance-parameter name="metad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-metadata.c"
-                 line="1607">an #AsMetadata instance.</doc>
+                 line="1608">an #AsMetadata instance.</doc>
             <type name="Metadata" c:type="AsMetadata*"/>
           </instance-parameter>
           <parameter name="url" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-metadata.c"
-                 line="1608">the base URL.</doc>
+                 line="1609">the base URL.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -11658,7 +11658,7 @@ or %NULL if every component has absolute URLs.</doc>
       <method name="set_origin" c:identifier="as_metadata_set_origin">
         <doc xml:space="preserve"
              filename="src/as-metadata.c"
-             line="1577">Set the origin of AppStream distro metadata</doc>
+             line="1578">Set the origin of AppStream distro metadata</doc>
         <source-position filename="src/as-metadata.h" line="147"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11667,13 +11667,13 @@ or %NULL if every component has absolute URLs.</doc>
           <instance-parameter name="metad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-metadata.c"
-                 line="1579">an #AsMetadata instance.</doc>
+                 line="1580">an #AsMetadata instance.</doc>
             <type name="Metadata" c:type="AsMetadata*"/>
           </instance-parameter>
           <parameter name="origin" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-metadata.c"
-                 line="1580">the origin of AppStream distro metadata.</doc>
+                 line="1581">the origin of AppStream distro metadata.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -11682,7 +11682,7 @@ or %NULL if every component has absolute URLs.</doc>
               c:identifier="as_metadata_set_parse_flags">
         <doc xml:space="preserve"
              filename="src/as-metadata.c"
-             line="1795">Sets the current metadata parse flags.</doc>
+             line="1796">Sets the current metadata parse flags.</doc>
         <source-position filename="src/as-metadata.h" line="162"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11691,13 +11691,13 @@ or %NULL if every component has absolute URLs.</doc>
           <instance-parameter name="metad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-metadata.c"
-                 line="1797">a #AsMetadata instance.</doc>
+                 line="1798">a #AsMetadata instance.</doc>
             <type name="Metadata" c:type="AsMetadata*"/>
           </instance-parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-metadata.c"
-                 line="1798">the #AsParseFlags.</doc>
+                 line="1799">the #AsParseFlags.</doc>
             <type name="ParseFlags" c:type="AsParseFlags"/>
           </parameter>
         </parameters>
@@ -11706,7 +11706,7 @@ or %NULL if every component has absolute URLs.</doc>
               c:identifier="as_metadata_set_update_existing">
         <doc xml:space="preserve"
              filename="src/as-metadata.c"
-             line="1690">If set to %TRUE, the parser will not create new components but
+             line="1691">If set to %TRUE, the parser will not create new components but
 instead update existing components in the pool with new metadata.
 
 NOTE: Right now, this feature is only implemented for metainfo XML parsing!</doc>
@@ -11718,13 +11718,13 @@ NOTE: Right now, this feature is only implemented for metainfo XML parsing!</doc
           <instance-parameter name="metad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-metadata.c"
-                 line="1692">an #AsMetadata instance.</doc>
+                 line="1693">an #AsMetadata instance.</doc>
             <type name="Metadata" c:type="AsMetadata*"/>
           </instance-parameter>
           <parameter name="update" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-metadata.c"
-                 line="1693">A boolean value.</doc>
+                 line="1694">A boolean value.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -11733,7 +11733,7 @@ NOTE: Right now, this feature is only implemented for metainfo XML parsing!</doc
               c:identifier="as_metadata_set_write_header">
         <doc xml:space="preserve"
              filename="src/as-metadata.c"
-             line="1721">If set to %TRUE, tehe metadata writer will omit writing a DEP-11
+             line="1722">If set to %TRUE, tehe metadata writer will omit writing a DEP-11
 header document when in YAML mode, and will not write a root components node
 when writing XML data.
 Please keep in mind that this will create an invalid DEP-11 YAML AppStream
@@ -11749,13 +11749,13 @@ NOTE: Right now, this feature is only implemented for YAML!</doc>
           <instance-parameter name="metad" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-metadata.c"
-                 line="1723">an #AsMetadata instance.</doc>
+                 line="1724">an #AsMetadata instance.</doc>
             <type name="Metadata" c:type="AsMetadata*"/>
           </instance-parameter>
           <parameter name="wheader" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-metadata.c"
-                 line="1724">A boolean value.</doc>
+                 line="1725">A boolean value.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -11877,7 +11877,7 @@ NOTE: Right now, this feature is only implemented for YAML!</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-metadata.c"
-               line="1822">An error quark.</doc>
+               line="1823">An error quark.</doc>
           <type name="GLib.Quark" c:type="GQuark"/>
         </return-value>
       </function>
@@ -19529,12 +19529,12 @@ components it may not be.</doc>
       <constructor name="new" c:identifier="as_validator_new">
         <doc xml:space="preserve"
              filename="src/as-validator.c"
-             line="4650">Creates a new #AsValidator.</doc>
+             line="4673">Creates a new #AsValidator.</doc>
         <source-position filename="src/as-validator.h" line="66"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/as-validator.c"
-               line="4655">an #AsValidator</doc>
+               line="4678">an #AsValidator</doc>
           <type name="Validator" c:type="AsValidator*"/>
         </return-value>
       </constructor>
@@ -19701,19 +19701,19 @@ validation process.</doc>
               version="0.16.0">
         <doc xml:space="preserve"
              filename="src/as-validator.c"
-             line="4385">Get the number of files for which issues have been found.</doc>
+             line="4408">Get the number of files for which issues have been found.</doc>
         <source-position filename="src/as-validator.h" line="82"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-validator.c"
-               line="4391">The number of files that have issues.</doc>
+               line="4414">The number of files that have issues.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="validator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-validator.c"
-                 line="4387">An instance of #AsValidator.</doc>
+                 line="4410">An instance of #AsValidator.</doc>
             <type name="Validator" c:type="AsValidator*"/>
           </instance-parameter>
         </parameters>
@@ -19721,12 +19721,12 @@ validation process.</doc>
       <method name="get_issues" c:identifier="as_validator_get_issues">
         <doc xml:space="preserve"
              filename="src/as-validator.c"
-             line="4402">Get a list of found metadata format issues.</doc>
+             line="4425">Get a list of found metadata format issues.</doc>
         <source-position filename="src/as-validator.h" line="83"/>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve"
                filename="src/as-validator.c"
-               line="4408">a list of #AsValidatorIssue instances, free with g_list_free()</doc>
+               line="4431">a list of #AsValidatorIssue instances, free with g_list_free()</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="ValidatorIssue"/>
           </type>
@@ -19735,7 +19735,7 @@ validation process.</doc>
           <instance-parameter name="validator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-validator.c"
-                 line="4404">An instance of #AsValidator.</doc>
+                 line="4427">An instance of #AsValidator.</doc>
             <type name="Validator" c:type="AsValidator*"/>
           </instance-parameter>
         </parameters>
@@ -19745,14 +19745,14 @@ validation process.</doc>
               version="0.12.8">
         <doc xml:space="preserve"
              filename="src/as-validator.c"
-             line="4417">Get a hash table of filenames mapped to lists of issues.
+             line="4440">Get a hash table of filenames mapped to lists of issues.
 This is useful if validation was requested for multiple files and
 a list of issues per-file is desired without prior explicit sorting.</doc>
         <source-position filename="src/as-validator.h" line="84"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-validator.c"
-               line="4425">a file to issue list mapping</doc>
+               line="4448">a file to issue list mapping</doc>
           <type name="GLib.HashTable" c:type="GHashTable*">
             <type name="utf8"/>
             <array name="GLib.PtrArray">
@@ -19764,7 +19764,7 @@ a list of issues per-file is desired without prior explicit sorting.</doc>
           <instance-parameter name="validator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-validator.c"
-                 line="4419">An instance of #AsValidator.</doc>
+                 line="4442">An instance of #AsValidator.</doc>
             <type name="Validator" c:type="AsValidator*"/>
           </instance-parameter>
         </parameters>
@@ -19805,19 +19805,19 @@ a list of issues per-file is desired without prior explicit sorting.</doc>
               c:identifier="as_validator_get_tag_explanation">
         <doc xml:space="preserve"
              filename="src/as-validator.c"
-             line="4578">Get the explanatory text for a given issue tag.</doc>
+             line="4601">Get the explanatory text for a given issue tag.</doc>
         <source-position filename="src/as-validator.h" line="99"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-validator.c"
-               line="4584">Explanation text.</doc>
+               line="4607">Explanation text.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="validator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-validator.c"
-                 line="4580">An instance of #AsValidator.</doc>
+                 line="4603">An instance of #AsValidator.</doc>
             <type name="Validator" c:type="AsValidator*"/>
           </instance-parameter>
           <parameter name="tag" transfer-ownership="none">
@@ -19829,19 +19829,19 @@ a list of issues per-file is desired without prior explicit sorting.</doc>
               c:identifier="as_validator_get_tag_severity">
         <doc xml:space="preserve"
              filename="src/as-validator.c"
-             line="4596">Get the severity for a given issue tag.</doc>
+             line="4619">Get the severity for a given issue tag.</doc>
         <source-position filename="src/as-validator.h" line="100"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-validator.c"
-               line="4602">The #AsIssueSeverity</doc>
+               line="4625">The #AsIssueSeverity</doc>
           <type name="IssueSeverity" c:type="AsIssueSeverity"/>
         </return-value>
         <parameters>
           <instance-parameter name="validator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-validator.c"
-                 line="4598">An instance of #AsValidator.</doc>
+                 line="4621">An instance of #AsValidator.</doc>
             <type name="Validator" c:type="AsValidator*"/>
           </instance-parameter>
           <parameter name="tag" transfer-ownership="none">
@@ -19852,12 +19852,12 @@ a list of issues per-file is desired without prior explicit sorting.</doc>
       <method name="get_tags" c:identifier="as_validator_get_tags">
         <doc xml:space="preserve"
              filename="src/as-validator.c"
-             line="4614">Get an array of all tags known to the validator.</doc>
+             line="4637">Get an array of all tags known to the validator.</doc>
         <source-position filename="src/as-validator.h" line="101"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/as-validator.c"
-               line="4620">A string array of tags</doc>
+               line="4643">A string array of tags</doc>
           <array c:type="gchar**">
             <type name="utf8"/>
           </array>
@@ -19866,7 +19866,7 @@ a list of issues per-file is desired without prior explicit sorting.</doc>
           <instance-parameter name="validator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-validator.c"
-                 line="4616">An instance of #AsValidator.</doc>
+                 line="4639">An instance of #AsValidator.</doc>
             <type name="Validator" c:type="AsValidator*"/>
           </instance-parameter>
         </parameters>
@@ -19927,27 +19927,27 @@ Otherwise, only a "warning" or "error" will cause the validation to fail.</doc>
               version="0.14.0">
         <doc xml:space="preserve"
              filename="src/as-validator.c"
-             line="3943">Validate AppStream XML data from a byte array.
+             line="3966">Validate AppStream XML data from a byte array.
 Remember to run %as_validator_clear_issues if you do not want previous
 validation runs to affect the outcome of this validation.</doc>
         <source-position filename="src/as-validator.h" line="69"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-validator.c"
-               line="3952">%TRUE if bytes validated successfully.</doc>
+               line="3975">%TRUE if bytes validated successfully.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="validator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-validator.c"
-                 line="3945">An instance of #AsValidator.</doc>
+                 line="3968">An instance of #AsValidator.</doc>
             <type name="Validator" c:type="AsValidator*"/>
           </instance-parameter>
           <parameter name="metadata" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-validator.c"
-                 line="3946">XML metadata as #GBytes.</doc>
+                 line="3969">XML metadata as #GBytes.</doc>
             <type name="GLib.Bytes" c:type="GBytes*"/>
           </parameter>
         </parameters>
@@ -19955,25 +19955,25 @@ validation runs to affect the outcome of this validation.</doc>
       <method name="validate_data" c:identifier="as_validator_validate_data">
         <doc xml:space="preserve"
              filename="src/as-validator.c"
-             line="4023">Validate AppStream XML data.</doc>
+             line="4046">Validate AppStream XML data.</doc>
         <source-position filename="src/as-validator.h" line="70"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-validator.c"
-               line="4030">%TRUE if data validated successfully.</doc>
+               line="4053">%TRUE if data validated successfully.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="validator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-validator.c"
-                 line="4025">An instance of #AsValidator.</doc>
+                 line="4048">An instance of #AsValidator.</doc>
             <type name="Validator" c:type="AsValidator*"/>
           </instance-parameter>
           <parameter name="metadata" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-validator.c"
-                 line="4026">XML metadata.</doc>
+                 line="4049">XML metadata.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -19981,25 +19981,25 @@ validation runs to affect the outcome of this validation.</doc>
       <method name="validate_file" c:identifier="as_validator_validate_file">
         <doc xml:space="preserve"
              filename="src/as-validator.c"
-             line="3816">Validate an AppStream XML file.</doc>
+             line="3839">Validate an AppStream XML file.</doc>
         <source-position filename="src/as-validator.h" line="68"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-validator.c"
-               line="3823">%TRUE if file validated successfully.</doc>
+               line="3846">%TRUE if file validated successfully.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="validator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-validator.c"
-                 line="3818">An instance of #AsValidator.</doc>
+                 line="3841">An instance of #AsValidator.</doc>
             <type name="Validator" c:type="AsValidator*"/>
           </instance-parameter>
           <parameter name="metadata_file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-validator.c"
-                 line="3819">An AppStream XML file.</doc>
+                 line="3842">An AppStream XML file.</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
         </parameters>
@@ -20007,25 +20007,25 @@ validation runs to affect the outcome of this validation.</doc>
       <method name="validate_tree" c:identifier="as_validator_validate_tree">
         <doc xml:space="preserve"
              filename="src/as-validator.c"
-             line="4204">Validate a full directory tree for issues in AppStream metadata.</doc>
+             line="4227">Validate a full directory tree for issues in AppStream metadata.</doc>
         <source-position filename="src/as-validator.h" line="71"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-validator.c"
-               line="4211">%TRUE if file validated successfully.</doc>
+               line="4234">%TRUE if file validated successfully.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="validator" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-validator.c"
-                 line="4206">An instance of #AsValidator.</doc>
+                 line="4229">An instance of #AsValidator.</doc>
             <type name="Validator" c:type="AsValidator*"/>
           </instance-parameter>
           <parameter name="root_dir" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/as-validator.c"
-                 line="4207">The root directory of the filesystem tree that should be validated.</doc>
+                 line="4230">The root directory of the filesystem tree that should be validated.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -23019,7 +23019,7 @@ than @line_len. Words are not split.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/as-metadata.c"
-             line="1822">An error quark.</doc>
+             line="1823">An error quark.</doc>
         <type name="GLib.Quark" c:type="GQuark"/>
       </return-value>
     </function>
@@ -24066,21 +24066,21 @@ of GUI environment and style. E.g. "plasma:dark" becomes "Plasma (Dark)".</doc>
               c:identifier="as_utils_get_tag_search_weight">
       <doc xml:space="preserve"
            filename="src/as-utils.c"
-           line="2981">Retrieve the raw search token weight for the given tag name that AppStream uses
+           line="2984">Retrieve the raw search token weight for the given tag name that AppStream uses
 internally for searching.
 This can be used to implement separate, but compatible search logic.</doc>
       <source-position filename="src/as-utils.h" line="153"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/as-utils.c"
-             line="2989">The tag weight used in (fulltext) searches. 0 for lowest weight/unused.</doc>
+             line="2992">The tag weight used in (fulltext) searches. 0 for lowest weight/unused.</doc>
         <type name="guint16" c:type="guint16"/>
       </return-value>
       <parameters>
         <parameter name="tag_name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/as-utils.c"
-               line="2983">A tag name in a component element, e.g. "name" or "summary" or "keyword"</doc>
+               line="2986">A tag name in a component element, e.g. "name" or "summary" or "keyword"</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>

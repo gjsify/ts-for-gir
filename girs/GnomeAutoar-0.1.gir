@@ -5,12 +5,14 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GLib" version="2.0"/>
   <include name="GObject" version="2.0"/>
   <include name="Gio" version="2.0"/>
   <package name="GnomeAutoar-0.1"/>
   <c:include name="gnome-autoar/gnome-autoar.h"/>
+  <doc:format name="unknown"/>
   <namespace name="GnomeAutoar"
              version="0.1"
              shared-library="libgnome-autoar-0.so.0"
@@ -693,25 +695,25 @@ respectively.</doc>
       <constructor name="new" c:identifier="autoar_extractor_new">
         <doc xml:space="preserve"
              filename="gnome-autoar/autoar-extractor.c"
-             line="1606">Create a new #AutoarExtractor object.</doc>
+             line="1605">Create a new #AutoarExtractor object.</doc>
         <source-position filename="gnome-autoar/autoar-extractor.h" line="53"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gnome-autoar/autoar-extractor.c"
-               line="1613">a new #AutoarExtractor object</doc>
+               line="1612">a new #AutoarExtractor object</doc>
           <type name="Extractor" c:type="AutoarExtractor*"/>
         </return-value>
         <parameters>
           <parameter name="source_file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gnome-autoar/autoar-extractor.c"
-                 line="1608">a #GFile for the source archive</doc>
+                 line="1607">a #GFile for the source archive</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
           <parameter name="output_file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gnome-autoar/autoar-extractor.c"
-                 line="1609">a #GFile for the directory where the files will be extracted</doc>
+                 line="1608">a #GFile for the directory where the files will be extracted</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
         </parameters>
@@ -1031,7 +1033,7 @@ extracted files</doc>
               c:identifier="autoar_extractor_set_passphrase">
         <doc xml:space="preserve"
              filename="gnome-autoar/autoar-extractor.c"
-             line="2134">Sets a passphrase to use if the file to decompress is passphrase-protected.</doc>
+             line="2133">Sets a passphrase to use if the file to decompress is passphrase-protected.</doc>
         <source-position filename="gnome-autoar/autoar-extractor.h" line="77"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1040,13 +1042,13 @@ extracted files</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gnome-autoar/autoar-extractor.c"
-                 line="2136">an #AutoarExtractor object</doc>
+                 line="2135">an #AutoarExtractor object</doc>
             <type name="Extractor" c:type="AutoarExtractor*"/>
           </instance-parameter>
           <parameter name="passphrase" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gnome-autoar/autoar-extractor.c"
-                 line="2137">a string with the passphrase to use</doc>
+                 line="2136">a string with the passphrase to use</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1054,7 +1056,7 @@ extracted files</doc>
       <method name="start" c:identifier="autoar_extractor_start">
         <doc xml:space="preserve"
              filename="gnome-autoar/autoar-extractor.c"
-             line="2102">Runs the archive extracting work. All callbacks will be called in the same
+             line="2101">Runs the archive extracting work. All callbacks will be called in the same
 thread as the caller of this functions.</doc>
         <source-position filename="gnome-autoar/autoar-extractor.h" line="56"/>
         <return-value transfer-ownership="none">
@@ -1064,7 +1066,7 @@ thread as the caller of this functions.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gnome-autoar/autoar-extractor.c"
-                 line="2104">an #AutoarExtractor object</doc>
+                 line="2103">an #AutoarExtractor object</doc>
             <type name="Extractor" c:type="AutoarExtractor*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -1073,7 +1075,7 @@ thread as the caller of this functions.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gnome-autoar/autoar-extractor.c"
-                 line="2105">optional #GCancellable object, or %NULL to ignore</doc>
+                 line="2104">optional #GCancellable object, or %NULL to ignore</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -1081,7 +1083,7 @@ thread as the caller of this functions.</doc>
       <method name="start_async" c:identifier="autoar_extractor_start_async">
         <doc xml:space="preserve"
              filename="gnome-autoar/autoar-extractor.c"
-             line="2154">Asynchronously runs the archive extracting work. You should connect to
+             line="2153">Asynchronously runs the archive extracting work. You should connect to
 #AutoarExtractor::cancelled, #AutoarExtractor::error, and
 #AutoarExtractor::completed signal to get notification when the work is
 terminated. All callbacks will be called in the main thread, so you can
@@ -1094,7 +1096,7 @@ safely manipulate GTK+ widgets in the callbacks.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gnome-autoar/autoar-extractor.c"
-                 line="2156">an #AutoarExtractor object</doc>
+                 line="2155">an #AutoarExtractor object</doc>
             <type name="Extractor" c:type="AutoarExtractor*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -1103,7 +1105,7 @@ safely manipulate GTK+ widgets in the callbacks.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gnome-autoar/autoar-extractor.c"
-                 line="2157">optional #GCancellable object, or %NULL to ignore</doc>
+                 line="2156">optional #GCancellable object, or %NULL to ignore</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -1176,7 +1178,7 @@ safely manipulate GTK+ widgets in the callbacks.</doc>
       <glib:signal name="cancelled" when="last">
         <doc xml:space="preserve"
              filename="gnome-autoar/autoar-extractor.c"
-             line="1500">This signal is emitted after archive extracting job is cancelled by the
+             line="1499">This signal is emitted after archive extracting job is cancelled by the
 #GCancellable.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1185,7 +1187,7 @@ safely manipulate GTK+ widgets in the callbacks.</doc>
       <glib:signal name="completed" when="last">
         <doc xml:space="preserve"
              filename="gnome-autoar/autoar-extractor.c"
-             line="1516">This signal is emitted after the archive extracting job is successfully
+             line="1515">This signal is emitted after the archive extracting job is successfully
 completed.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1195,7 +1197,7 @@ completed.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gnome-autoar/autoar-extractor.c"
-               line="1483">the #AutoarConflictAction to be performed by #AutoarExtractor
+               line="1482">the #AutoarConflictAction to be performed by #AutoarExtractor
 
 This signal is used to report and offer the possibility to solve name
 conflicts when extracting files. If it is not handled, the @file will be
@@ -1206,7 +1208,7 @@ skipped.</doc>
           <parameter name="file" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gnome-autoar/autoar-extractor.c"
-                 line="1480">a #GFile for the file that caused a conflict</doc>
+                 line="1479">a #GFile for the file that caused a conflict</doc>
             <type name="Gio.File"/>
           </parameter>
           <parameter name="new_file"
@@ -1215,7 +1217,7 @@ skipped.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gnome-autoar/autoar-extractor.c"
-                 line="1481">a #GFile for the new destination of @file</doc>
+                 line="1480">a #GFile for the new destination of @file</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1224,7 +1226,7 @@ skipped.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gnome-autoar/autoar-extractor.c"
-               line="1440">#GFile for location that will overwrite
+               line="1439">#GFile for location that will overwrite
                           @destination, or %NULL if this is not wanted
 
 This signal is emitted when the path of the destination is determined. It is
@@ -1236,7 +1238,7 @@ the contents of the archive.</doc>
           <parameter name="destination" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gnome-autoar/autoar-extractor.c"
-                 line="1436">a #GFile for the location where files will be extracted</doc>
+                 line="1435">a #GFile for the location where files will be extracted</doc>
             <type name="Gio.File"/>
           </parameter>
           <parameter name="files"
@@ -1245,7 +1247,7 @@ the contents of the archive.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gnome-autoar/autoar-extractor.c"
-                 line="1437">the list of #GFile objects to be extracted. All have @destination as
+                 line="1436">the list of #GFile objects to be extracted. All have @destination as
         their common prefix</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
@@ -1254,7 +1256,7 @@ the contents of the archive.</doc>
       <glib:signal name="error" when="last">
         <doc xml:space="preserve"
              filename="gnome-autoar/autoar-extractor.c"
-             line="1548">This signal is emitted when error occurs and all jobs should be terminated.
+             line="1547">This signal is emitted when error occurs and all jobs should be terminated.
 Possible error domains are %AUTOAR_EXTRACTOR_ERROR, %G_IO_ERROR, and
 %AUTOAR_LIBARCHIVE_ERROR, which represent error occurs in #AutoarExtractor,
 GIO, and libarchive, respectively. The #GError is owned by #AutoarExtractor
@@ -1266,7 +1268,7 @@ and should not be freed.</doc>
           <parameter name="error" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gnome-autoar/autoar-extractor.c"
-                 line="1551">the #GError</doc>
+                 line="1550">the #GError</doc>
             <type name="GLib.Error"/>
           </parameter>
         </parameters>
@@ -1274,7 +1276,7 @@ and should not be freed.</doc>
       <glib:signal name="progress" when="last">
         <doc xml:space="preserve"
              filename="gnome-autoar/autoar-extractor.c"
-             line="1458">This signal is used to report progress of extraction.</doc>
+             line="1457">This signal is used to report progress of extraction.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1282,13 +1284,13 @@ and should not be freed.</doc>
           <parameter name="completed_size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gnome-autoar/autoar-extractor.c"
-                 line="1461">bytes has been written to disk</doc>
+                 line="1460">bytes has been written to disk</doc>
             <type name="guint64" c:type="guint64"/>
           </parameter>
           <parameter name="completed_files" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gnome-autoar/autoar-extractor.c"
-                 line="1462">number of files have been written to disk</doc>
+                 line="1461">number of files have been written to disk</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -1296,7 +1298,7 @@ and should not be freed.</doc>
       <glib:signal name="request-passphrase" when="last">
         <doc xml:space="preserve"
              filename="gnome-autoar/autoar-extractor.c"
-             line="1532">This signal is emitted when the archive extracting job needs a
+             line="1531">This signal is emitted when the archive extracting job needs a
 passphrase.</doc>
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="gchar*"/>
@@ -1305,7 +1307,7 @@ passphrase.</doc>
       <glib:signal name="scanned" when="last">
         <doc xml:space="preserve"
              filename="gnome-autoar/autoar-extractor.c"
-             line="1415">This signal is emitted when #AutoarExtractor finish scanning filename entries
+             line="1414">This signal is emitted when #AutoarExtractor finish scanning filename entries
 in the source archive.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1314,7 +1316,7 @@ in the source archive.</doc>
           <parameter name="files" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gnome-autoar/autoar-extractor.c"
-                 line="1418">the number of files will be extracted from the source archive</doc>
+                 line="1417">the number of files will be extracted from the source archive</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -1572,20 +1574,20 @@ of archive formats and filters.</doc>
               c:identifier="autoar_check_mime_type_supported">
       <doc xml:space="preserve"
            filename="gnome-autoar/autoar-mime-types.c"
-           line="53">Checks whether a mime type is supported by autoar. This function does no
+           line="54">Checks whether a mime type is supported by autoar. This function does no
 blocking IO.</doc>
       <source-position filename="gnome-autoar/autoar-mime-types.h" line="32"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gnome-autoar/autoar-mime-types.c"
-             line="60">%TRUE if the mime type is supported</doc>
+             line="61">%TRUE if the mime type is supported</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="mime_type" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gnome-autoar/autoar-mime-types.c"
-               line="55">a string representing the mime type</doc>
+               line="56">a string representing the mime type</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -2095,20 +2097,20 @@ archive_write_new().</doc>
               c:identifier="autoar_query_mime_type_supported">
       <doc xml:space="preserve"
            filename="gnome-autoar/autoar-mime-types.c"
-           line="74">This function will query the file's mime type and then call
+           line="75">This function will query the file's mime type and then call
 autoar_check_mime_type_supported(), so it does blocking IO.</doc>
       <source-position filename="gnome-autoar/autoar-mime-types.h" line="33"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gnome-autoar/autoar-mime-types.c"
-             line="81">%TRUE if the mime type of the #GFile is supported</doc>
+             line="82">%TRUE if the mime type of the #GFile is supported</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
         <parameter name="file" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gnome-autoar/autoar-mime-types.c"
-               line="76">a #GFile to check if its mime type is supported</doc>
+               line="77">a #GFile to check if its mime type is supported</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </parameter>
       </parameters>

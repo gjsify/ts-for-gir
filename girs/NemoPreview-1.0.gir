@@ -892,10 +892,11 @@ and/or use gtk-doc annotations.  -->
               c:identifier="nemo_preview_create_foreign_window">
       <source-position filename="src/libnemo-preview/nemo-preview-utils.h"
                        line="38"/>
-      <return-value transfer-ownership="full">
+      <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve"
              filename="src/libnemo-preview/nemo-preview-utils.c"
-             line="96">a #GdkWindow</doc>
+             line="96">a #GdkWindow, or %NULL if @xid can't be
+looked up. Nemo sends 0 when it has no X11 window to parent us to.</doc>
         <type name="Gdk.Window" c:type="GdkWindow*"/>
       </return-value>
       <parameters>

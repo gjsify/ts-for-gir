@@ -34,7 +34,16 @@ CONTAINER_RUNTIME="podman"
 # Fedora version to GNOME version mapping (update as new releases come out):
 # Fedora 43 = GNOME 49 (Mutter API 17)
 # Fedora 44 = GNOME 50 (Mutter API 18)
-# Fedora 45 = GNOME 51 (Mutter API 19) — expected
+# Fedora 45 = GNOME 51 (Mutter API 51)
+#
+# The Mutter API number is NOT GNOME - 32 any more: GNOME 51 realigned it with
+# the GNOME major, so it went 18 -> 51 in one step. Nothing here computes it —
+# it is read from the submodule's meson.build — but the mapping above used to
+# say "API 19 expected", which is what a guess looks like when upstream stops
+# following the pattern.
+#
+# A cycle still in development lives in Rawhide, not in a numbered release:
+# pass `--fedora rawhide` for a beta.
 FEDORA_VERSION=""
 GNOME_SHELL_TAG=""
 
@@ -71,6 +80,7 @@ usage() {
     echo "  $0                          # Build with auto-detected versions"
     echo "  $0 --fedora 44 --tag 50.0   # Build GNOME 50 GIRs using Fedora 44"
     echo "  $0 --tag 51.0 --fedora 45   # Build GNOME 51 GIRs using Fedora 45"
+    echo "  $0 --tag 51.beta --fedora rawhide  # A cycle still in development"
 }
 
 # Parse command line arguments
@@ -200,9 +210,19 @@ build_girs() {
         sleep infinity
 
     # Install build dependencies
+    #
+    # `--disablerepo=fedora-cisco-openh264`: that repo serves an rpm whose
+    # signature does not verify against the key the container trusts, and dnf
+    # fails the whole TRANSACTION over it — one unrelated codec package taking
+    # every build dependency down with it. Nothing in it is needed here.
+    #
+    # NOT piped through `tail`: the pipe made dnf's exit status tail's, so a
+    # failed install reported success and the run went on to die at `meson:
+    # command not found` several steps later, where the cause is no longer in
+    # view. The assertion below is the second half of that fix.
     log_info "Installing build dependencies (this may take a few minutes)..."
-    $CONTAINER_RUNTIME exec "$CONTAINER_NAME" bash -c '
-        dnf install -y \
+    if ! $CONTAINER_RUNTIME exec "$CONTAINER_NAME" bash -c '
+        dnf install -y --disablerepo=fedora-cisco-openh264 \
             meson gcc git pkg-config sassc python3-docutils \
             gobject-introspection-devel \
             mutter-devel gjs-devel \
@@ -214,8 +234,19 @@ build_girs() {
             NetworkManager-libnm-devel \
             libsoup3-devel systemd-devel \
             pulseaudio-libs-devel gnome-settings-daemon \
-            2>&1 | tail -5
-    '
+            librsvg2-devel libsecret-devel libxml2-devel \
+            at-spi2-atk-devel cairo-devel json-glib-devel \
+            libX11-devel libXext-devel libXfixes-devel
+    ' 2>&1 | tail -20; then
+        log_error "Installing build dependencies failed — see the output above."
+        exit 1
+    fi
+
+    # Prove the toolchain is actually there before spending minutes on meson.
+    if ! $CONTAINER_RUNTIME exec "$CONTAINER_NAME" bash -c 'command -v meson >/dev/null'; then
+        log_error "meson is missing after the install — the dependency step did not do its job."
+        exit 1
+    fi
 
     # Configure
     log_info "Configuring meson build..."

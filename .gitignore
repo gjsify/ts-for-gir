@@ -45,3 +45,7 @@ build-dir/
 repo/
 *.flatpak
 .readme-examples.*.ts
+
+# Staging dir of scripts/fetch-fedora-girs.sh (container harvest, reviewed then
+# copied into girs/ — never a source of truth on its own)
+.fedora-girs-*/

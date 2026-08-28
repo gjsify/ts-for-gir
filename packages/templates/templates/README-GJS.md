@@ -6,11 +6,11 @@
 
 <%- PACKAGE_DESC %> using [<%- APP_NAME %>](<%- APP_SOURCE %>) v<%- APP_VERSION %>.
 
-[GJS](https://gitlab.gnome.org/GNOME/gjs) is a JavaScript runtime for the GNOME ecosystem. Using GJS and the type definitions in this NPM package, you can build GTK applications in JavaScript or TypeScript with type checking, better autocompletion and inline documentations.
+[GJS](https://gitlab.gnome.org/GNOME/gjs) is GNOME's JavaScript runtime. With these type definitions your editor knows the GTK API: it type-checks calls, completes method names, and shows the upstream C documentation inline.
 
 ## Install
 
-To use this type definitions, install them with NPM:
+Install the type definitions with npm:
 ```bash
 npm install <%- npmScope %>/<%- importName %>
 ```
@@ -22,12 +22,12 @@ npm install <%- npmScope %>/<%- importName %>
 
 ## Usage
 
-You can import this package into your project like this:
+Import it like any other module:
 ```ts
 import <%- pkg.namespace %> from '<%- pkg.importPath %>';
 ```
 
-Or if you prefer CommonJS, you can also use this:
+For CommonJS:
 ```ts
 const <%- pkg.namespace %> = require('<%- pkg.importPath %>');
 ```
@@ -49,7 +49,7 @@ const ByteArray = imports.byteArray;
 ### Global DOM types
 
 Some types that conflict with the DOM are outsourced to allow frameworks like Gjsify to rebuild the DOM API without causing type conflicts.
-But you can easily import them:
+Import them explicitly:
 
 ```ts
 import '@girs/gjs/dom';
@@ -66,11 +66,11 @@ setTimeout(() => {
 // And so on...
 ```
 
-To avoid a type conflict with the DOM types it is recommended to either modify your `tsconfig.json` or `jsconfig.json` file to exclude the DOM lib, or to enable the `noLib` property.
+These collide with the DOM types. Exclude the DOM lib in your `tsconfig.json` or `jsconfig.json`, or set `noLib`.
 
 ### Ambient Modules
 
-You can import the built in [ambient modules](https://github.com/gjsify/ts-for-gir/tree/main/packages/cli#ambient-modules) of GJS.
+GJS's built-in [ambient modules](https://github.com/gjsify/ts-for-gir/tree/main/packages/cli#ambient-modules) are importable too.
 For this you need to include the `<%- npmScope %>/<%- importName %>` or `<%- npmScope %>/<%- importName %>/ambient` in your `tsconfig` or entry point Typescript file:
     
 `index.ts`:
@@ -89,7 +89,7 @@ import '<%- npmScope %>/<%- importName %>'
 }
 ```
 
-Now you can import `gettext`, `system` and `cairo` in ESM style with Typescript support:
+`gettext`, `system` and `cairo` now resolve as ESM imports, with types:
 
 ```ts
 import gettext from 'gettext';
@@ -122,7 +122,7 @@ const button = new Gtk.Button();
 
 ### Bundle
 
-Depending on your project configuration, it is recommended to use a bundler like [esbuild](https://esbuild.github.io/). You can find examples using different bundlers [here](https://github.com/gjsify/ts-for-gir/tree/main/examples).
+Most projects want a bundler. [esbuild](https://esbuild.github.io/) is the smallest thing that works; the [examples directory](https://github.com/gjsify/ts-for-gir/tree/main/examples) has setups for several others.
 
 ## Other packages
 

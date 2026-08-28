@@ -18,7 +18,7 @@
 
 # Generator Base
 
-This package defines the base interface that all generators in the ts-for-gir ecosystem must implement. It provides a common contract for various types of generators, ensuring they have a consistent API.
+Every generator in ts-for-gir implements the interface defined here, so the CLI can drive one without knowing which it got.
 
 ## Purpose
 
@@ -29,7 +29,7 @@ Every concrete generator extends the base class here:
 
 ## Interface
 
-The package defines a simple but powerful `Generator` interface with three lifecycle methods:
+The `Generator` interface has three lifecycle methods:
 
 ```typescript
 interface Generator {

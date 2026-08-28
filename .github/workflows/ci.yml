@@ -24,8 +24,14 @@ on:
       - 'tsconfig*.json'
       - '.github/workflows/ci.yml'
   pull_request:
+    # `**`, not `*`. A GitHub filter `*` stops at a slash, so a PR whose BASE
+    # is `feat/x` or `chore/y` matched nothing here and got no CI at all. That
+    # does not look like a failure. The checks are simply absent, which reads
+    # as "still queued", and stacked PRs are where it happens.
+    # Measured on three open PRs at once: pr-lint.yml has no branches filter
+    # and ran on all three, this workflow ran only on the one based on `main`.
     branches:
-      - "*"
+      - "**"
     paths:
       - 'packages/**'
       - 'tests/**'

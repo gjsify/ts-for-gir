@@ -12,7 +12,7 @@
     "start": "ts-for-gir-dev",
     "start:prod": "ts-for-gir",
     "format": "gjsify fix",
-    "build:app": "gjsify workspace @ts-for-gir/cli build",
+    "build:app": "gjsify workspace @ts-for-gir/cli build && gjsify workspace @ts-for-gir/gir-files build",
     "build:app:gjs": "gjsify workspace @ts-for-gir/cli build:gjs",
     "build:examples": "gjsify foreach build -v -p --include '@ts-for-gir-example/*'",
     "build:types": "ts-for-gir-dev generate --configName='.ts-for-gir.packages-all.rc.js' --girDirectories='./girs' --workspace=true --outdir='./types-dev' && gjsify install",

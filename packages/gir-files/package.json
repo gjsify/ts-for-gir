@@ -1,0 +1,49 @@
+{
+  "name": "@ts-for-gir/gir-files",
+  "version": "4.3.0",
+  "description": "The original GIR XML files behind @girs/*, with per-namespace provenance and upstream licence attribution",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./provenance.json": "./provenance.json",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "node scripts/build-payload.mjs",
+    "check": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gjsify/ts-for-gir.git"
+  },
+  "author": "Pascal Garber <pascal@mailfreun.de>",
+  "files": [
+    "src",
+    "payload",
+    "provenance.json",
+    "NOTICE.md"
+  ],
+  "license": "SEE LICENSE IN NOTICE.md",
+  "bugs": {
+    "url": "https://github.com/gjsify/ts-for-gir/issues"
+  },
+  "homepage": "https://github.com/gjsify/ts-for-gir/tree/main/packages/gir-files#readme",
+  "keywords": [
+    "gir",
+    "gobject-introspection",
+    "gnome",
+    "gtk",
+    "xml",
+    "introspection"
+  ],
+  "devDependencies": {
+    "@ts-for-gir/tsconfig": "workspace:^",
+    "@types/node": "^26.4.0",
+    "typescript": "^6.0.3"
+  }
+}

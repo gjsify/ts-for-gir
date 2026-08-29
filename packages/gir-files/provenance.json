@@ -1,0 +1,4124 @@
+{
+  "$schema": "https://github.com/gjsify/ts-for-gir/blob/main/packages/gir-files/provenance.schema.json",
+  "schemaVersion": 1,
+  "generatedFrom": {
+    "distribution": "fedora",
+    "release": "rawhide"
+  },
+  "entries": {
+    "Abi-3.0": {
+      "file": "Abi-3.0.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "libabiword-devel",
+      "sourceRpm": "abiword-3.0.8-5.fc46.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/World/AbiWord"
+    },
+    "Accounts-1.0": {
+      "file": "Accounts-1.0.gir",
+      "license": "LicenseRef-Callaway-LGPLv2",
+      "source": "fedora",
+      "sourcePackage": "libaccounts-glib-devel",
+      "sourceRpm": "libaccounts-glib-1.25-27.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.com/accounts-sso/libaccounts-glib"
+    },
+    "AccountsService-1.0": {
+      "file": "AccountsService-1.0.gir",
+      "license": "GPL-3.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "accountsservice-devel",
+      "sourceRpm": "accountsservice-26.27.3-2.fc45.src.rpm",
+      "upstreamUrl": "https://www.freedesktop.org/wiki/Software/AccountsService/"
+    },
+    "Adw-1": {
+      "file": "Adw-1.gir",
+      "license": "LGPL-2.1-or-later AND MIT",
+      "source": "fedora",
+      "sourcePackage": "libadwaita-devel",
+      "sourceRpm": "libadwaita-1.10~beta.1-2.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/libadwaita"
+    },
+    "Ags-8.0": {
+      "file": "Ags-8.0.gir",
+      "license": "GPL-3.0-or-later AND AGPL-3.0-or-later AND LicenseRef-Callaway-GFDL",
+      "source": "fedora",
+      "sourcePackage": "gsequencer-devel",
+      "sourceRpm": "gsequencer-8.4.2-1.fc45.src.rpm",
+      "upstreamUrl": "http://nongnu.org/gsequencer"
+    },
+    "AgsAudio-8.0": {
+      "file": "AgsAudio-8.0.gir",
+      "license": "GPL-3.0-or-later AND AGPL-3.0-or-later AND LicenseRef-Callaway-GFDL",
+      "source": "fedora",
+      "sourcePackage": "gsequencer-devel",
+      "sourceRpm": "gsequencer-8.4.2-1.fc45.src.rpm",
+      "upstreamUrl": "http://nongnu.org/gsequencer"
+    },
+    "AgsGui-8.0": {
+      "file": "AgsGui-8.0.gir",
+      "license": "GPL-3.0-or-later AND AGPL-3.0-or-later AND LicenseRef-Callaway-GFDL",
+      "source": "fedora",
+      "sourcePackage": "gsequencer-devel",
+      "sourceRpm": "gsequencer-8.4.2-1.fc45.src.rpm",
+      "upstreamUrl": "http://nongnu.org/gsequencer"
+    },
+    "Amtk-5": {
+      "file": "Amtk-5.gir",
+      "license": "LGPL-3.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "libgedit-amtk-devel",
+      "sourceRpm": "libgedit-amtk-5.10.0-2.fc45.src.rpm",
+      "upstreamUrl": "https://gedit-text-editor.org/"
+    },
+    "Anjuta-3.0": {
+      "file": "Anjuta-3.0.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "anjuta-devel",
+      "sourceRpm": "anjuta-3.34.0-31.fc45.src.rpm",
+      "upstreamUrl": "http://www.anjuta.org/"
+    },
+    "Anthy-9000": {
+      "file": "Anthy-9000.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "ibus-anthy-devel",
+      "sourceRpm": "ibus-anthy-1.5.18-4.fc46.src.rpm",
+      "upstreamUrl": "https://github.com/ibus/ibus/wiki"
+    },
+    "AppIndicator3-0.1": {
+      "file": "AppIndicator3-0.1.gir",
+      "license": "LicenseRef-Callaway-LGPLv2 AND LGPL-3.0-only",
+      "source": "fedora",
+      "sourcePackage": "libappindicator-gtk3-devel",
+      "sourceRpm": "libappindicator-12.10.1-11.fc45.src.rpm",
+      "upstreamUrl": "https://launchpad.net/libappindicator"
+    },
+    "AppStream-1.0": {
+      "file": "AppStream-1.0.gir",
+      "license": "GPL-2.0-or-later AND LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "appstream-devel",
+      "sourceRpm": "appstream-1.1.3-3.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/ximion/appstream"
+    },
+    "AppStreamCompose-1.0": {
+      "file": "AppStreamCompose-1.0.gir",
+      "license": "GPL-2.0-or-later AND LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "appstream-compose-devel",
+      "sourceRpm": "appstream-1.1.3-3.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/ximion/appstream"
+    },
+    "AppStreamGlib-1.0": {
+      "file": "AppStreamGlib-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libappstream-glib-devel",
+      "sourceRpm": "libappstream-glib-0.8.4-1.fc45.src.rpm",
+      "upstreamUrl": "http://people.freedesktop.org/~hughsient/appstream-glib/"
+    },
+    "Arrow-23.0": {
+      "file": "Arrow-23.0.gir",
+      "license": "Apache-2.0",
+      "source": "fedora",
+      "sourcePackage": "libarrow-glib-devel",
+      "sourceRpm": "libarrow-23.0.1-11.fc46.src.rpm",
+      "upstreamUrl": "https://arrow.apache.org/"
+    },
+    "ArrowDataset-23.0": {
+      "file": "ArrowDataset-23.0.gir",
+      "license": "Apache-2.0",
+      "source": "fedora",
+      "sourcePackage": "libarrow-dataset-glib-devel",
+      "sourceRpm": "libarrow-23.0.1-11.fc46.src.rpm",
+      "upstreamUrl": "https://arrow.apache.org/"
+    },
+    "ArrowFlight-23.0": {
+      "file": "ArrowFlight-23.0.gir",
+      "license": "Apache-2.0",
+      "source": "fedora",
+      "sourcePackage": "libarrow-flight-devel",
+      "sourceRpm": "libarrow-23.0.1-11.fc46.src.rpm",
+      "upstreamUrl": "https://arrow.apache.org/"
+    },
+    "Atk-1.0": {
+      "file": "Atk-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "atk-devel",
+      "sourceRpm": "at-spi2-core-2.61.1-1.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/at-spi2-core/"
+    },
+    "AtrilDocument-1.5.0": {
+      "file": "AtrilDocument-1.5.0.gir",
+      "license": "GPL-2.0-or-later AND LicenseRef-Callaway-LGPLv2+ AND LicenseRef-Callaway-MIT",
+      "source": "fedora",
+      "sourcePackage": "atril-devel",
+      "sourceRpm": "atril-1.28.6-2.fc45.src.rpm",
+      "upstreamUrl": "http://mate-desktop.org"
+    },
+    "AtrilView-1.5.0": {
+      "file": "AtrilView-1.5.0.gir",
+      "license": "GPL-2.0-or-later AND LicenseRef-Callaway-LGPLv2+ AND LicenseRef-Callaway-MIT",
+      "source": "fedora",
+      "sourcePackage": "atril-devel",
+      "sourceRpm": "atril-1.28.6-2.fc45.src.rpm",
+      "upstreamUrl": "http://mate-desktop.org"
+    },
+    "Atspi-2.0": {
+      "file": "Atspi-2.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "at-spi2-core-devel",
+      "sourceRpm": "at-spi2-core-2.61.1-1.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/at-spi2-core/"
+    },
+    "AyatanaAppIndicator-0.1": {
+      "file": "AyatanaAppIndicator-0.1.gir",
+      "license": "GPL-3.0-only AND LGPL-3.0-only AND (LGPL-3.0-only OR LGPL-2.1-only)",
+      "source": "fedora",
+      "sourcePackage": "libayatana-appindicator-gtk2-devel",
+      "sourceRpm": "libayatana-appindicator-0.5.94-7.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/AyatanaIndicators/libayatana-appindicator"
+    },
+    "AyatanaAppIndicator3-0.1": {
+      "file": "AyatanaAppIndicator3-0.1.gir",
+      "license": "GPL-3.0-only AND LGPL-3.0-only AND (LGPL-3.0-only OR LGPL-2.1-only)",
+      "source": "fedora",
+      "sourcePackage": "libayatana-appindicator-gtk3-devel",
+      "sourceRpm": "libayatana-appindicator-0.5.94-7.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/AyatanaIndicators/libayatana-appindicator"
+    },
+    "AyatanaIdo3-0.4": {
+      "file": "AyatanaIdo3-0.4.gir",
+      "license": "LGPL-2.0-or-later AND GPL-3.0-only AND (LGPL-3.0-only OR LGPL-2.1-only)",
+      "source": "fedora",
+      "sourcePackage": "libayatana-ido-gtk3-devel",
+      "sourceRpm": "libayatana-ido-0.10.4-8.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/AyatanaIndicators/ayatana-ido"
+    },
+    "Babl-0.1": {
+      "file": "Babl-0.1.gir",
+      "license": "LGPL-3.0-or-later AND GPL-3.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "babl-devel",
+      "sourceRpm": "babl-0.1.128-1.fc45.src.rpm",
+      "upstreamUrl": "https://www.gegl.org/babl/"
+    },
+    "Bamf-3": {
+      "file": "Bamf-3.gir",
+      "license": "GPL-2.0-only OR GPL-3.0-only",
+      "source": "fedora",
+      "sourcePackage": "bamf-devel",
+      "sourceRpm": "bamf-0.5.6-7.fc45.src.rpm",
+      "upstreamUrl": "https://launchpad.net/bamf"
+    },
+    "BlockDev-3.0": {
+      "file": "BlockDev-3.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libblockdev-devel",
+      "sourceRpm": "libblockdev-3.5.0-4.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/storaged-project/libblockdev"
+    },
+    "BraseroBurn-3.1": {
+      "file": "BraseroBurn-3.1.gir",
+      "license": "GPL-3.0-or-later AND LGPL-2.0-or-later AND GPL-2.0-only AND CC-BY-SA-2.0 AND GPL-2.0-or-later WITH GStreamer-exception-2008",
+      "source": "fedora",
+      "sourcePackage": "brasero-devel",
+      "sourceRpm": "brasero-3.12.3-29.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Apps/Brasero"
+    },
+    "BraseroMedia-3.1": {
+      "file": "BraseroMedia-3.1.gir",
+      "license": "GPL-3.0-or-later AND LGPL-2.0-or-later AND GPL-2.0-only AND CC-BY-SA-2.0 AND GPL-2.0-or-later WITH GStreamer-exception-2008",
+      "source": "fedora",
+      "sourcePackage": "brasero-devel",
+      "sourceRpm": "brasero-3.12.3-29.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Apps/Brasero"
+    },
+    "Budgie-3.0": {
+      "file": "Budgie-3.0.gir",
+      "license": "GPL-2.0-or-later AND GPL-2.0-only AND LGPL-2.1-or-later AND CC0-1.0 AND CC-BY-SA-4.0",
+      "source": "fedora",
+      "sourcePackage": "budgie-desktop-devel",
+      "sourceRpm": "budgie-desktop-10.10.2-3.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/BuddiesOfBudgie/budgie-desktop"
+    },
+    "BudgieRaven-3.0": {
+      "file": "BudgieRaven-3.0.gir",
+      "license": "GPL-2.0-or-later AND GPL-2.0-only AND LGPL-2.1-or-later AND CC0-1.0 AND CC-BY-SA-4.0",
+      "source": "fedora",
+      "sourcePackage": "budgie-desktop-devel",
+      "sourceRpm": "budgie-desktop-10.10.2-3.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/BuddiesOfBudgie/budgie-desktop"
+    },
+    "CDesktopEnums-3.0": {
+      "file": "CDesktopEnums-3.0.gir",
+      "license": "GPL-2.0-or-later AND LGPL-2.0-or-later AND LGPL-2.1-or-later AND LGPL-3.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "cinnamon-desktop-devel",
+      "sourceRpm": "cinnamon-desktop-6.7.3^unstable-1.fc46.src.rpm",
+      "upstreamUrl": "https://github.com/linuxmint/cinnamon-desktop"
+    },
+    "CMenu-3.0": {
+      "file": "CMenu-3.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "cinnamon-menus-devel",
+      "sourceRpm": "cinnamon-menus-6.7.0^unstable-2.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/linuxmint/cinnamon-menus"
+    },
+    "Caja-2.0": {
+      "file": "Caja-2.0.gir",
+      "license": "GPL-2.0-or-later AND LicenseRef-Callaway-LGPLv2+",
+      "source": "fedora",
+      "sourcePackage": "caja-devel",
+      "sourceRpm": "caja-1.28.0-12.fc45.src.rpm",
+      "upstreamUrl": "http://mate-desktop.org"
+    },
+    "Cally-1.0": {
+      "file": "Cally-1.0.gir",
+      "license": "LicenseRef-Callaway-LGPLv2+",
+      "source": "fedora",
+      "sourcePackage": "clutter-devel",
+      "sourceRpm": "clutter-1.26.4-20.fc45.src.rpm",
+      "upstreamUrl": "http://www.clutter-project.org/"
+    },
+    "CambalachePrivate-3.0": {
+      "file": "CambalachePrivate-3.0.gir",
+      "license": "LGPL-2.1-only AND GPL-2.0-only AND GPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "cambalache",
+      "sourceRpm": "cambalache-0.99.8-4.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/jpu/cambalache"
+    },
+    "CambalachePrivate-4.0": {
+      "file": "CambalachePrivate-4.0.gir",
+      "license": "LGPL-2.1-only AND GPL-2.0-only AND GPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "cambalache",
+      "sourceRpm": "cambalache-0.99.8-4.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/jpu/cambalache"
+    },
+    "Camel-1.2": {
+      "file": "Camel-1.2.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "evolution-data-server-devel",
+      "sourceRpm": "evolution-data-server-3.61.2-1.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/evolution/-/wikis/home"
+    },
+    "Caribou-1.0": {
+      "file": "Caribou-1.0.gir",
+      "license": "LicenseRef-Callaway-LGPLv2+",
+      "source": "fedora",
+      "sourcePackage": "caribou-devel",
+      "sourceRpm": "caribou-0.4.21-53.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/Caribou"
+    },
+    "Casilda-1.0": {
+      "file": "Casilda-1.0.gir",
+      "license": "LGPL-2.1-only AND LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "casilda-devel",
+      "sourceRpm": "casilda-1.0.0-2.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/jpu/casilda"
+    },
+    "Champlain-0.12": {
+      "file": "Champlain-0.12.gir",
+      "license": "LicenseRef-Callaway-LGPLv2+",
+      "source": "fedora",
+      "sourcePackage": "libchamplain-devel",
+      "sourceRpm": "libchamplain-0.12.21-10.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/libchamplain"
+    },
+    "CinnamonDesktop-3.0": {
+      "file": "CinnamonDesktop-3.0.gir",
+      "license": "GPL-2.0-or-later AND LGPL-2.0-or-later AND LGPL-2.1-or-later AND LGPL-3.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "cinnamon-desktop-devel",
+      "sourceRpm": "cinnamon-desktop-6.7.3^unstable-1.fc46.src.rpm",
+      "upstreamUrl": "https://github.com/linuxmint/cinnamon-desktop"
+    },
+    "Clapper-0.0": {
+      "file": "Clapper-0.0.gir",
+      "license": "GPL-3.0-or-later AND LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "clapper-devel",
+      "sourceRpm": "clapper-0.10.0-5.fc46.src.rpm",
+      "upstreamUrl": "https://github.com/Rafostar/clapper"
+    },
+    "ClapperGtk-0.0": {
+      "file": "ClapperGtk-0.0.gir",
+      "license": "GPL-3.0-or-later AND LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "clapper-devel",
+      "sourceRpm": "clapper-0.10.0-5.fc46.src.rpm",
+      "upstreamUrl": "https://github.com/Rafostar/clapper"
+    },
+    "CloudProviders-0.3": {
+      "file": "CloudProviders-0.3.gir",
+      "license": "LGPL-3.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "libcloudproviders-devel",
+      "sourceRpm": "libcloudproviders-0.4.0-8.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/libcloudproviders"
+    },
+    "Clutter-1.0": {
+      "file": "Clutter-1.0.gir",
+      "license": "LicenseRef-Callaway-LGPLv2+",
+      "source": "fedora",
+      "sourcePackage": "clutter-devel",
+      "sourceRpm": "clutter-1.26.4-20.fc45.src.rpm",
+      "upstreamUrl": "http://www.clutter-project.org/"
+    },
+    "Clutter-10": {
+      "file": "Clutter-10.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Clutter-11": {
+      "file": "Clutter-11.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Clutter-12": {
+      "file": "Clutter-12.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Clutter-13": {
+      "file": "Clutter-13.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Clutter-14": {
+      "file": "Clutter-14.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Clutter-15": {
+      "file": "Clutter-15.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Clutter-16": {
+      "file": "Clutter-16.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Clutter-17": {
+      "file": "Clutter-17.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Clutter-18": {
+      "file": "Clutter-18.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Clutter-3": {
+      "file": "Clutter-3.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Clutter-4": {
+      "file": "Clutter-4.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Clutter-5": {
+      "file": "Clutter-5.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Clutter-51": {
+      "file": "Clutter-51.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Clutter-6": {
+      "file": "Clutter-6.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Clutter-7": {
+      "file": "Clutter-7.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Clutter-8": {
+      "file": "Clutter-8.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Clutter-9": {
+      "file": "Clutter-9.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "ClutterGdk-1.0": {
+      "file": "ClutterGdk-1.0.gir",
+      "license": "LicenseRef-Callaway-LGPLv2+",
+      "source": "fedora",
+      "sourcePackage": "clutter-devel",
+      "sourceRpm": "clutter-1.26.4-20.fc45.src.rpm",
+      "upstreamUrl": "http://www.clutter-project.org/"
+    },
+    "ClutterGst-3.0": {
+      "file": "ClutterGst-3.0.gir",
+      "license": "LicenseRef-Callaway-LGPLv2+",
+      "source": "fedora",
+      "sourcePackage": "clutter-gst3-devel",
+      "sourceRpm": "clutter-gst3-3.0.27-25.fc45.src.rpm",
+      "upstreamUrl": "https://developer.gnome.org/clutter-gst/stable/"
+    },
+    "ClutterX11-1.0": {
+      "file": "ClutterX11-1.0.gir",
+      "license": "LicenseRef-Callaway-LGPLv2+",
+      "source": "fedora",
+      "sourcePackage": "clutter-devel",
+      "sourceRpm": "clutter-1.26.4-20.fc45.src.rpm",
+      "upstreamUrl": "http://www.clutter-project.org/"
+    },
+    "CmbCatalogUtils-3.0": {
+      "file": "CmbCatalogUtils-3.0.gir",
+      "license": "LGPL-2.1-only AND GPL-2.0-only AND GPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "cambalache",
+      "sourceRpm": "cambalache-0.99.8-4.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/jpu/cambalache"
+    },
+    "CmbCatalogUtils-4.0": {
+      "file": "CmbCatalogUtils-4.0.gir",
+      "license": "LGPL-2.1-only AND GPL-2.0-only AND GPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "cambalache",
+      "sourceRpm": "cambalache-0.99.8-4.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/jpu/cambalache"
+    },
+    "Cogl-1.0": {
+      "file": "Cogl-1.0.gir",
+      "license": "LicenseRef-Callaway-LGPLv2+",
+      "source": "fedora",
+      "sourcePackage": "cogl-devel",
+      "sourceRpm": "cogl-1.22.8-18.fc45.src.rpm",
+      "upstreamUrl": "http://www.clutter-project.org/"
+    },
+    "Cogl-10": {
+      "file": "Cogl-10.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Cogl-11": {
+      "file": "Cogl-11.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Cogl-12": {
+      "file": "Cogl-12.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Cogl-13": {
+      "file": "Cogl-13.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Cogl-14": {
+      "file": "Cogl-14.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Cogl-15": {
+      "file": "Cogl-15.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Cogl-16": {
+      "file": "Cogl-16.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Cogl-17": {
+      "file": "Cogl-17.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Cogl-18": {
+      "file": "Cogl-18.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Cogl-2.0": {
+      "file": "Cogl-2.0.gir",
+      "license": "LicenseRef-Callaway-LGPLv2+",
+      "source": "fedora",
+      "sourcePackage": "cogl-devel",
+      "sourceRpm": "cogl-1.22.8-18.fc45.src.rpm",
+      "upstreamUrl": "http://www.clutter-project.org/"
+    },
+    "Cogl-3": {
+      "file": "Cogl-3.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Cogl-4": {
+      "file": "Cogl-4.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Cogl-5": {
+      "file": "Cogl-5.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Cogl-51": {
+      "file": "Cogl-51.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Cogl-6": {
+      "file": "Cogl-6.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Cogl-7": {
+      "file": "Cogl-7.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Cogl-8": {
+      "file": "Cogl-8.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Cogl-9": {
+      "file": "Cogl-9.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "CoglPango-1.0": {
+      "file": "CoglPango-1.0.gir",
+      "license": "LicenseRef-Callaway-LGPLv2+",
+      "source": "fedora",
+      "sourcePackage": "cogl-devel",
+      "sourceRpm": "cogl-1.22.8-18.fc45.src.rpm",
+      "upstreamUrl": "http://www.clutter-project.org/"
+    },
+    "CoglPango-2.0": {
+      "file": "CoglPango-2.0.gir",
+      "license": "LicenseRef-Callaway-LGPLv2+",
+      "source": "fedora",
+      "sourcePackage": "cogl-devel",
+      "sourceRpm": "cogl-1.22.8-18.fc45.src.rpm",
+      "upstreamUrl": "http://www.clutter-project.org/"
+    },
+    "Colord-1.0": {
+      "file": "Colord-1.0.gir",
+      "license": "GPL-2.0-or-later AND LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "colord-devel",
+      "sourceRpm": "colord-1.4.8-5.fc45.src.rpm",
+      "upstreamUrl": "https://www.freedesktop.org/software/colord/"
+    },
+    "ColordGtk-1.0": {
+      "file": "ColordGtk-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "colord-gtk-devel",
+      "sourceRpm": "colord-gtk-0.3.1-9.fc45.src.rpm",
+      "upstreamUrl": "http://www.freedesktop.org/software/colord/"
+    },
+    "Colorhug-1.0": {
+      "file": "Colorhug-1.0.gir",
+      "license": "GPL-2.0-or-later AND LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "colord-devel",
+      "sourceRpm": "colord-1.4.8-5.fc45.src.rpm",
+      "upstreamUrl": "https://www.freedesktop.org/software/colord/"
+    },
+    "CryptUI-0.0": {
+      "file": "CryptUI-0.0.gir",
+      "license": "LicenseRef-Callaway-LGPLv2+",
+      "source": "fedora",
+      "sourcePackage": "libcryptui-devel",
+      "sourceRpm": "libcryptui-3.12.2-46.fc45.src.rpm",
+      "upstreamUrl": "http://projects.gnome.org/seahorse/"
+    },
+    "CudaGst-1.0": {
+      "file": "CudaGst-1.0.gir",
+      "license": "LGPL-2.1-or-later AND LGPL-2.0-or-later AND (MIT OR LGPL-2.1-or-later) AND MPL-1.1 AND BSD-2-Clause AND BSD-3-Clause AND BSD-2-Clause-Views AND (BSD-2-Clause AND DOC) AND MIT-Festival AND (LGPL-2.0-or-later AND LicenseRef-Fedora-Public-Domain) AND (MPL-1.1 OR LGPL-2.0-or-later OR MIT) AND BSD-3-Clause WITH AdditionRef-Dart AND MIT AND GPL-2.0-only WITH Linux-syscall-note",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-plugins-bad-free-devel",
+      "sourceRpm": "gstreamer1-plugins-bad-free-1.28.6-1.fc45.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "Cvc-1.0": {
+      "file": "Cvc-1.0.gir",
+      "license": "GPL-2.0-or-later AND LGPL-2.0-or-later AND LGPL-2.1-or-later AND LGPL-3.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "cinnamon-desktop-devel",
+      "sourceRpm": "cinnamon-desktop-6.7.3^unstable-1.fc46.src.rpm",
+      "upstreamUrl": "https://github.com/linuxmint/cinnamon-desktop"
+    },
+    "DBus-1.0": {
+      "file": "DBus-1.0.gir",
+      "license": "GPL-2.0-or-later AND LGPL-2.0-or-later AND LGPL-2.1-or-later AND BSD-2-Clause",
+      "source": "fedora",
+      "sourcePackage": "gobject-introspection-devel",
+      "sourceRpm": "gobject-introspection-1.86.0-11.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/GObjectIntrospection"
+    },
+    "DBusGLib-1.0": {
+      "file": "DBusGLib-1.0.gir",
+      "license": "GPL-2.0-or-later AND LGPL-2.0-or-later AND LGPL-2.1-or-later AND BSD-2-Clause",
+      "source": "fedora",
+      "sourcePackage": "gobject-introspection-devel",
+      "sourceRpm": "gobject-introspection-1.86.0-11.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/GObjectIntrospection"
+    },
+    "Dazzle-1.0": {
+      "file": "Dazzle-1.0.gir",
+      "license": "GPL-3.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "libdazzle-devel",
+      "sourceRpm": "libdazzle-3.44.0-12.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/libdazzle"
+    },
+    "Dbusmenu-0.4": {
+      "file": "Dbusmenu-0.4.gir",
+      "license": "(LGPL-3.0-only OR LGPL-2.1-only) AND GPL-3.0-only",
+      "source": "fedora",
+      "sourcePackage": "libdbusmenu-devel",
+      "sourceRpm": "libdbusmenu-16.04.0-32.fc45.src.rpm",
+      "upstreamUrl": "https://launchpad.net/libdbusmenu"
+    },
+    "DbusmenuGtk-0.4": {
+      "file": "DbusmenuGtk-0.4.gir",
+      "license": "(LGPL-3.0-only OR LGPL-2.1-only) AND GPL-3.0-only",
+      "source": "fedora",
+      "sourcePackage": "libdbusmenu-gtk2-devel",
+      "sourceRpm": "libdbusmenu-16.04.0-32.fc45.src.rpm",
+      "upstreamUrl": "https://launchpad.net/libdbusmenu"
+    },
+    "DbusmenuGtk3-0.4": {
+      "file": "DbusmenuGtk3-0.4.gir",
+      "license": "(LGPL-3.0-only OR LGPL-2.1-only) AND GPL-3.0-only",
+      "source": "fedora",
+      "sourcePackage": "libdbusmenu-gtk3-devel",
+      "sourceRpm": "libdbusmenu-16.04.0-32.fc45.src.rpm",
+      "upstreamUrl": "https://launchpad.net/libdbusmenu"
+    },
+    "Dee-1.0": {
+      "file": "Dee-1.0.gir",
+      "license": "LGPL-3.0-only",
+      "source": "fedora",
+      "sourcePackage": "dee-devel",
+      "sourceRpm": "dee-1.2.7-69.fc45.src.rpm",
+      "upstreamUrl": "https://launchpad.net/dee"
+    },
+    "Devhelp-3.0": {
+      "file": "Devhelp-3.0.gir",
+      "license": "GPL-3.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "devhelp-devel",
+      "sourceRpm": "devhelp-43.0-19.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Apps/Devhelp"
+    },
+    "Dex-1": {
+      "file": "Dex-1.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libdex-devel",
+      "sourceRpm": "libdex-1.2~beta-1.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/libdex"
+    },
+    "Dmap-4.0": {
+      "file": "Dmap-4.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libdmapsharing4-devel",
+      "sourceRpm": "libdmapsharing4-3.9.14-2.fc45.src.rpm",
+      "upstreamUrl": "https://www.flyn.org/projects/libdmapsharing/"
+    },
+    "EBackend-1.2": {
+      "file": "EBackend-1.2.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "evolution-data-server-devel",
+      "sourceRpm": "evolution-data-server-3.61.2-1.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/evolution/-/wikis/home"
+    },
+    "EBook-1.2": {
+      "file": "EBook-1.2.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "evolution-data-server-devel",
+      "sourceRpm": "evolution-data-server-3.61.2-1.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/evolution/-/wikis/home"
+    },
+    "EBookContacts-1.2": {
+      "file": "EBookContacts-1.2.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "evolution-data-server-devel",
+      "sourceRpm": "evolution-data-server-3.61.2-1.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/evolution/-/wikis/home"
+    },
+    "ECal-2.0": {
+      "file": "ECal-2.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "evolution-data-server-devel",
+      "sourceRpm": "evolution-data-server-3.61.2-1.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/evolution/-/wikis/home"
+    },
+    "EDataBook-1.2": {
+      "file": "EDataBook-1.2.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "evolution-data-server-devel",
+      "sourceRpm": "evolution-data-server-3.61.2-1.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/evolution/-/wikis/home"
+    },
+    "EDataCal-2.0": {
+      "file": "EDataCal-2.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "evolution-data-server-devel",
+      "sourceRpm": "evolution-data-server-3.61.2-1.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/evolution/-/wikis/home"
+    },
+    "EDataServer-1.2": {
+      "file": "EDataServer-1.2.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "evolution-data-server-devel",
+      "sourceRpm": "evolution-data-server-3.61.2-1.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/evolution/-/wikis/home"
+    },
+    "EDataServerUI-1.2": {
+      "file": "EDataServerUI-1.2.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "evolution-data-server-devel",
+      "sourceRpm": "evolution-data-server-3.61.2-1.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/evolution/-/wikis/home"
+    },
+    "EDataServerUI4-1.0": {
+      "file": "EDataServerUI4-1.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "evolution-data-server-devel",
+      "sourceRpm": "evolution-data-server-3.61.2-1.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/evolution/-/wikis/home"
+    },
+    "Easyfc-0.14": {
+      "file": "Easyfc-0.14.gir",
+      "license": "LGPL-3.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "libeasyfc-gobject-devel",
+      "sourceRpm": "libeasyfc-0.14.1-8.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.com/tagoh/libeasyfc/"
+    },
+    "Entangle-0.1": {
+      "file": "Entangle-0.1.gir",
+      "license": "GPL-3.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "entangle",
+      "sourceRpm": "entangle-3.0-18.fc45.src.rpm",
+      "upstreamUrl": "https://entangle-photo.org/"
+    },
+    "Eog-3.0": {
+      "file": "Eog-3.0.gir",
+      "license": "GPL-2.0-or-later AND CC-BY-SA-3.0 AND CC0-1.0",
+      "source": "fedora",
+      "sourcePackage": "eog",
+      "sourceRpm": "eog-50.2-3.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Apps/EyeOfGnome"
+    },
+    "Eom-1.0": {
+      "file": "Eom-1.0.gir",
+      "license": "GPL-2.0-or-later AND LicenseRef-Callaway-LGPLv2+",
+      "source": "fedora",
+      "sourcePackage": "eom-devel",
+      "sourceRpm": "eom-1.28.1-3.fc45.src.rpm",
+      "upstreamUrl": "http://mate-desktop.org"
+    },
+    "EvinceDocument-3.0": {
+      "file": "EvinceDocument-3.0.gir",
+      "license": "GPL-2.0-or-later AND GPL-3.0-or-later AND LGPL-2.0-or-later AND LGPL-2.1-or-later AND X11 AND MIT AND Afmparse",
+      "source": "fedora",
+      "sourcePackage": "evince-devel",
+      "sourceRpm": "evince-48.1-10.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Apps/Evince"
+    },
+    "EvinceView-3.0": {
+      "file": "EvinceView-3.0.gir",
+      "license": "GPL-2.0-or-later AND GPL-3.0-or-later AND LGPL-2.0-or-later AND LGPL-2.1-or-later AND X11 AND MIT AND Afmparse",
+      "source": "fedora",
+      "sourcePackage": "evince-devel",
+      "sourceRpm": "evince-48.1-10.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Apps/Evince"
+    },
+    "FPrint-2.0": {
+      "file": "FPrint-2.0.gir",
+      "license": "LGPL-2.1-or-later AND NIST-PD",
+      "source": "fedora",
+      "sourcePackage": "libfprint-devel",
+      "sourceRpm": "libfprint-1.94.100-1.fc45.src.rpm",
+      "upstreamUrl": "http://www.freedesktop.org/wiki/Software/fprint/libfprint"
+    },
+    "Farstream-0.2": {
+      "file": "Farstream-0.2.gir",
+      "license": "LicenseRef-Callaway-LGPLv2+ AND GPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "farstream02-devel",
+      "sourceRpm": "farstream02-0.2.9-21.fc45.src.rpm",
+      "upstreamUrl": "https://www.freedesktop.org/wiki/Software/Farstream/"
+    },
+    "Fcitx-1.0": {
+      "file": "Fcitx-1.0.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "fcitx-devel",
+      "sourceRpm": "fcitx-4.2.9.9-14.fc45.src.rpm",
+      "upstreamUrl": "https://fcitx-im.org/wiki/Fcitx"
+    },
+    "FcitxG-1.0": {
+      "file": "FcitxG-1.0.gir",
+      "license": "LicenseRef-Callaway-LGPLv2+",
+      "source": "fedora",
+      "sourcePackage": "fcitx5-gtk-devel",
+      "sourceRpm": "fcitx5-gtk-5.1.7-2.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/fcitx/fcitx5-gtk"
+    },
+    "Fep-1.0": {
+      "file": "Fep-1.0.gir",
+      "license": "LicenseRef-Callaway-BSD AND GPL-3.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "libfep-devel",
+      "sourceRpm": "libfep-0.1.0-31.fc45.src.rpm",
+      "upstreamUrl": "http://github.com/ueno/libfep"
+    },
+    "Flatpak-1.0": {
+      "file": "Flatpak-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "flatpak-devel",
+      "sourceRpm": "flatpak-1.19.0-2.fc46.src.rpm",
+      "upstreamUrl": "https://flatpak.org/"
+    },
+    "Folks-0.7": {
+      "file": "Folks-0.7.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "folks-devel",
+      "sourceRpm": "folks-0.15.12-10.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/Folks"
+    },
+    "FolksDummy-0.7": {
+      "file": "FolksDummy-0.7.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "folks-devel",
+      "sourceRpm": "folks-0.15.12-10.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/Folks"
+    },
+    "FolksEds-0.7": {
+      "file": "FolksEds-0.7.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "folks-devel",
+      "sourceRpm": "folks-0.15.12-10.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/Folks"
+    },
+    "FolksTelepathy-0.7": {
+      "file": "FolksTelepathy-0.7.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "folks-devel",
+      "sourceRpm": "folks-0.15.12-10.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/Folks"
+    },
+    "Foundry-1": {
+      "file": "Foundry-1.gir",
+      "license": "LGPL-2.1-or-later AND Apache-2.0",
+      "source": "fedora",
+      "sourcePackage": "libfoundry-devel",
+      "sourceRpm": "foundry-1.2~beta-1.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/foundry"
+    },
+    "FoundryAdw-1": {
+      "file": "FoundryAdw-1.gir",
+      "license": "LGPL-2.1-or-later AND Apache-2.0",
+      "source": "fedora",
+      "sourcePackage": "libfoundry-devel",
+      "sourceRpm": "foundry-1.2~beta-1.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/foundry"
+    },
+    "FoundryGtk-1": {
+      "file": "FoundryGtk-1.gir",
+      "license": "LGPL-2.1-or-later AND Apache-2.0",
+      "source": "fedora",
+      "sourcePackage": "libfoundry-gtk-devel",
+      "sourceRpm": "foundry-1.2~beta-1.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/foundry"
+    },
+    "Fwupd-2.0": {
+      "file": "Fwupd-2.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "fwupd-devel",
+      "sourceRpm": "fwupd-2.1.7-1.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/fwupd/fwupd"
+    },
+    "GCab-1.0": {
+      "file": "GCab-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libgcab1-devel",
+      "sourceRpm": "gcab-1.6-12.fc45.src.rpm",
+      "upstreamUrl": "http://ftp.gnome.org/pub/GNOME/sources/gcab"
+    },
+    "GCalc-2": {
+      "file": "GCalc-2.gir",
+      "license": "GPL-3.0-or-later AND CC-BY-SA-3.0 AND CC0-1.0",
+      "source": "fedora",
+      "sourcePackage": "gnome-calculator-devel",
+      "sourceRpm": "gnome-calculator-51~beta-1.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Apps/Calculator"
+    },
+    "GCi-1": {
+      "file": "GCi-1.gir",
+      "license": "GPL-3.0-or-later AND CC-BY-SA-3.0 AND CC0-1.0",
+      "source": "fedora",
+      "sourcePackage": "gnome-calculator-devel",
+      "sourceRpm": "gnome-calculator-51~beta-1.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Apps/Calculator"
+    },
+    "GConf-2.0": {
+      "file": "GConf-2.0.gir",
+      "license": "LGPL-2.0-or-later AND GPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "GConf2-devel",
+      "sourceRpm": "GConf2-3.2.6-50.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/Archive/gconf/"
+    },
+    "GDesktopEnums-3.0": {
+      "file": "GDesktopEnums-3.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "gsettings-desktop-schemas-devel",
+      "sourceRpm": "gsettings-desktop-schemas-51~beta-1.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gsettings-desktop-schemas"
+    },
+    "GES-1.0": {
+      "file": "GES-1.0.gir",
+      "license": "GPL-2.0-or-later and LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "gst-editing-services-devel",
+      "sourceRpm": "gst-editing-services-1.28.6-1.fc45.src.rpm",
+      "upstreamUrl": "http://cgit.freedesktop.org/gstreamer/gst-editing-services/"
+    },
+    "GExiv2-0.10": {
+      "file": "GExiv2-0.10.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "libgexiv2_0.14-devel",
+      "sourceRpm": "libgexiv2_0.14-0.14.7-1.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/gexiv2"
+    },
+    "GExiv2-0.16": {
+      "file": "GExiv2-0.16.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "libgexiv2-devel",
+      "sourceRpm": "libgexiv2-0.16.2-1.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/gexiv2"
+    },
+    "GIRepository-2.0": {
+      "file": "GIRepository-2.0.gir",
+      "license": "GPL-2.0-or-later AND LGPL-2.0-or-later AND LGPL-2.1-or-later AND BSD-2-Clause",
+      "source": "fedora",
+      "sourcePackage": "gobject-introspection-devel",
+      "sourceRpm": "gobject-introspection-1.86.0-11.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/GObjectIntrospection"
+    },
+    "GIRepository-3.0": {
+      "file": "GIRepository-3.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "glib2-devel",
+      "sourceRpm": "glib2-2.89.4-1.fc46.src.rpm",
+      "upstreamUrl": "https://www.gtk.org"
+    },
+    "GL-1.0": {
+      "file": "GL-1.0.gir",
+      "license": "GPL-2.0-or-later AND LGPL-2.0-or-later AND LGPL-2.1-or-later AND BSD-2-Clause",
+      "source": "fedora",
+      "sourcePackage": "gobject-introspection-devel",
+      "sourceRpm": "gobject-introspection-1.86.0-11.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/GObjectIntrospection"
+    },
+    "GLib-2.0": {
+      "file": "GLib-2.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "glib2-devel",
+      "sourceRpm": "glib2-2.89.4-1.fc46.src.rpm",
+      "upstreamUrl": "https://www.gtk.org"
+    },
+    "GLibUnix-2.0": {
+      "file": "GLibUnix-2.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "glib2-devel",
+      "sourceRpm": "glib2-2.89.4-1.fc46.src.rpm",
+      "upstreamUrl": "https://www.gtk.org"
+    },
+    "GLibWin32-2.0": {
+      "file": "GLibWin32-2.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/glib.git"
+    },
+    "GMenu-3.0": {
+      "file": "GMenu-3.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "gnome-menus-devel",
+      "sourceRpm": "gnome-menus-3.38.1-9.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gnome-menus"
+    },
+    "GMime-2.6": {
+      "file": "GMime-2.6.gir",
+      "license": "LicenseRef-Callaway-LGPLv2+ AND GPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "gmime-devel",
+      "sourceRpm": "gmime-2.6.23-27.fc45.src.rpm",
+      "upstreamUrl": "http://spruce.sourceforge.net/gmime/"
+    },
+    "GMime-3.0": {
+      "file": "GMime-3.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "gmime30-devel",
+      "sourceRpm": "gmime30-3.2.15-8.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/jstedfast/gmime"
+    },
+    "GModule-2.0": {
+      "file": "GModule-2.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "glib2-devel",
+      "sourceRpm": "glib2-2.89.4-1.fc46.src.rpm",
+      "upstreamUrl": "https://www.gtk.org"
+    },
+    "GObject-2.0": {
+      "file": "GObject-2.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "glib2-devel",
+      "sourceRpm": "glib2-2.89.4-1.fc46.src.rpm",
+      "upstreamUrl": "https://www.gtk.org"
+    },
+    "GPaste-2": {
+      "file": "GPaste-2.gir",
+      "license": "BSD-2-Clause",
+      "source": "fedora",
+      "sourcePackage": "gpaste-devel",
+      "sourceRpm": "gpaste-50.6-1.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/Keruspe/GPaste/"
+    },
+    "GPasteGtk-4": {
+      "file": "GPasteGtk-4.gir",
+      "license": "BSD-2-Clause",
+      "source": "fedora",
+      "sourcePackage": "gpaste-devel",
+      "sourceRpm": "gpaste-50.6-1.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/Keruspe/GPaste/"
+    },
+    "GPlugin-1.0": {
+      "file": "GPlugin-1.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "gplugin-devel",
+      "sourceRpm": "gplugin-0.44.2-9.fc45.src.rpm",
+      "upstreamUrl": "https://keep.imfreedom.org/gplugin/gplugin"
+    },
+    "GPluginGtk4-1.0": {
+      "file": "GPluginGtk4-1.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "gplugin-gtk4-devel",
+      "sourceRpm": "gplugin-0.44.2-9.fc45.src.rpm",
+      "upstreamUrl": "https://keep.imfreedom.org/gplugin/gplugin"
+    },
+    "GSSDP-1.6": {
+      "file": "GSSDP-1.6.gir",
+      "license": "LGPL-2.1-or-later AND CC0-1.0",
+      "source": "fedora",
+      "sourcePackage": "gssdp-devel",
+      "sourceRpm": "gssdp-1.6.6-3.fc45.src.rpm",
+      "upstreamUrl": "http://www.gupnp.org/"
+    },
+    "GSound-1.0": {
+      "file": "GSound-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "gsound-devel",
+      "sourceRpm": "gsound-1.0.3-21.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/GSound"
+    },
+    "GTop-2.0": {
+      "file": "GTop-2.0.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "libgtop2-devel",
+      "sourceRpm": "libgtop2-2.41.3-13.fc45.src.rpm",
+      "upstreamUrl": "https://download.gnome.org/sources/libgtop"
+    },
+    "GUPnP-1.6": {
+      "file": "GUPnP-1.6.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "gupnp-devel",
+      "sourceRpm": "gupnp-1.6.10-3.fc45.src.rpm",
+      "upstreamUrl": "https://www.gupnp.org/"
+    },
+    "GUPnPAV-1.0": {
+      "file": "GUPnPAV-1.0.gir",
+      "license": "LGPL-2.1-or-later AND CC0-1.0",
+      "source": "fedora",
+      "sourcePackage": "gupnp-av-devel",
+      "sourceRpm": "gupnp-av-0.14.5-3.fc45.src.rpm",
+      "upstreamUrl": "http://www.gupnp.org/"
+    },
+    "GUPnPDLNA-2.0": {
+      "file": "GUPnPDLNA-2.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "gupnp-dlna-devel",
+      "sourceRpm": "gupnp-dlna-0.12.0-21.fc45.src.rpm",
+      "upstreamUrl": "http://www.gupnp.org/"
+    },
+    "GUPnPDLNAGst-2.0": {
+      "file": "GUPnPDLNAGst-2.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "gupnp-dlna-devel",
+      "sourceRpm": "gupnp-dlna-0.12.0-21.fc45.src.rpm",
+      "upstreamUrl": "http://www.gupnp.org/"
+    },
+    "GUPnPIgd-1.6": {
+      "file": "GUPnPIgd-1.6.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "gupnp-igd-devel",
+      "sourceRpm": "gupnp-igd-1.6.0-15.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/GUPnP"
+    },
+    "GUdev-1.0": {
+      "file": "GUdev-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libgudev-devel",
+      "sourceRpm": "libgudev-238-10.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/libgudev"
+    },
+    "GUsb-1.0": {
+      "file": "GUsb-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libgusb-devel",
+      "sourceRpm": "libgusb-0.4.9-6.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/hughsie/libgusb"
+    },
+    "GVnc-1.0": {
+      "file": "GVnc-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "gvnc-devel",
+      "sourceRpm": "gtk-vnc-1.5.0-6.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gtk-vnc"
+    },
+    "GVncPulse-1.0": {
+      "file": "GVncPulse-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "gvncpulse-devel",
+      "sourceRpm": "gtk-vnc-1.5.0-6.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gtk-vnc"
+    },
+    "GWeather-4.0": {
+      "file": "GWeather-4.0.gir",
+      "license": "GPL-2.0-or-later AND BSD-3-Clause",
+      "source": "fedora",
+      "sourcePackage": "libgweather-devel",
+      "sourceRpm": "libgweather-4.6.0-5.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/LibGWeather"
+    },
+    "GXPS-0.1": {
+      "file": "GXPS-0.1.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libgxps-devel",
+      "sourceRpm": "libgxps-0.3.2-13.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/libgxps"
+    },
+    "Gamerzilla-0.1": {
+      "file": "Gamerzilla-0.1.gir",
+      "license": "zlib",
+      "source": "fedora",
+      "sourcePackage": "gamerzillagobj-devel",
+      "sourceRpm": "gamerzillagobj-0.1.3-4.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/dulsi/gamerzillagobj"
+    },
+    "Garcon-1.0": {
+      "file": "Garcon-1.0.gir",
+      "license": "LicenseRef-Callaway-LGPLv2+ AND LicenseRef-Callaway-GFDL",
+      "source": "fedora",
+      "sourcePackage": "garcon",
+      "sourceRpm": "garcon-4.20.0-6.fc45.src.rpm",
+      "upstreamUrl": "http://xfce.org/"
+    },
+    "GarconGtk-1.0": {
+      "file": "GarconGtk-1.0.gir",
+      "license": "LicenseRef-Callaway-LGPLv2+ AND LicenseRef-Callaway-GFDL",
+      "source": "fedora",
+      "sourcePackage": "garcon",
+      "sourceRpm": "garcon-4.20.0-6.fc45.src.rpm",
+      "upstreamUrl": "http://xfce.org/"
+    },
+    "Gc-1.0": {
+      "file": "Gc-1.0.gir",
+      "license": "BSD-3-Clause AND GPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "gnome-characters",
+      "sourceRpm": "gnome-characters-50.0-6.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Design/Apps/CharacterMap"
+    },
+    "Gck-1": {
+      "file": "Gck-1.gir",
+      "license": "LGPL-2.1-or-later AND LicenseRef-Fedora-Public-Domain AND FSFULLRWD AND (LGPL-3.0-or-later OR CC-BY-SA-3.0) AND (MPL-1.1 OR GPL-2.0-or-later OR LGPL-2.1-or-later) AND GCR-docs",
+      "source": "fedora",
+      "sourcePackage": "gcr3-devel",
+      "sourceRpm": "gcr3-3.41.1-13.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/CryptoGlue"
+    },
+    "Gck-2": {
+      "file": "Gck-2.gir",
+      "license": "LGPL-2.1-or-later AND FSFULLRWD AND (LGPL-3.0-or-later OR CC-BY-SA-3.0) AND (MPL-1.1 OR GPL-2.0-or-later OR LGPL-2.1-or-later) AND GCR-docs",
+      "source": "fedora",
+      "sourcePackage": "gcr-devel",
+      "sourceRpm": "gcr-4.4.0.1-14.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gcr"
+    },
+    "Gcr-3": {
+      "file": "Gcr-3.gir",
+      "license": "LGPL-2.1-or-later AND LicenseRef-Fedora-Public-Domain AND FSFULLRWD AND (LGPL-3.0-or-later OR CC-BY-SA-3.0) AND (MPL-1.1 OR GPL-2.0-or-later OR LGPL-2.1-or-later) AND GCR-docs",
+      "source": "fedora",
+      "sourcePackage": "gcr3-devel",
+      "sourceRpm": "gcr3-3.41.1-13.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/CryptoGlue"
+    },
+    "Gcr-4": {
+      "file": "Gcr-4.gir",
+      "license": "LGPL-2.1-or-later AND FSFULLRWD AND (LGPL-3.0-or-later OR CC-BY-SA-3.0) AND (MPL-1.1 OR GPL-2.0-or-later OR LGPL-2.1-or-later) AND GCR-docs",
+      "source": "fedora",
+      "sourcePackage": "gcr-devel",
+      "sourceRpm": "gcr-4.4.0.1-14.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gcr"
+    },
+    "GcrUi-3": {
+      "file": "GcrUi-3.gir",
+      "license": "LGPL-2.1-or-later AND LicenseRef-Fedora-Public-Domain AND FSFULLRWD AND (LGPL-3.0-or-later OR CC-BY-SA-3.0) AND (MPL-1.1 OR GPL-2.0-or-later OR LGPL-2.1-or-later) AND GCR-docs",
+      "source": "fedora",
+      "sourcePackage": "gcr3-devel",
+      "sourceRpm": "gcr3-3.41.1-13.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/CryptoGlue"
+    },
+    "Gda-5.0": {
+      "file": "Gda-5.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libgda5-devel",
+      "sourceRpm": "libgda5-5.2.10-29.fc46.src.rpm",
+      "upstreamUrl": "http://www.gnome-db.org/"
+    },
+    "Gda-6.0": {
+      "file": "Gda-6.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "libgda-devel",
+      "sourceRpm": "libgda-6.0.0-27.fc45.src.rpm",
+      "upstreamUrl": "http://www.gnome-db.org/"
+    },
+    "Gdaui-5.0": {
+      "file": "Gdaui-5.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libgda5-ui-devel",
+      "sourceRpm": "libgda5-5.2.10-29.fc46.src.rpm",
+      "upstreamUrl": "http://www.gnome-db.org/"
+    },
+    "Gdaui-6.0": {
+      "file": "Gdaui-6.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "libgda-ui-devel",
+      "sourceRpm": "libgda-6.0.0-27.fc45.src.rpm",
+      "upstreamUrl": "http://www.gnome-db.org/"
+    },
+    "Gdk-2.0": {
+      "file": "Gdk-2.0.gir",
+      "license": "LicenseRef-Callaway-LGPLv2+",
+      "source": "fedora",
+      "sourcePackage": "gtk2-devel",
+      "sourceRpm": "gtk2-2.24.33-28.fc45.src.rpm",
+      "upstreamUrl": "http://www.gtk.org"
+    },
+    "Gdk-3.0": {
+      "file": "Gdk-3.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "gtk3-devel",
+      "sourceRpm": "gtk3-3.24.52-6.fc45.src.rpm",
+      "upstreamUrl": "https://gtk.org"
+    },
+    "Gdk-4.0": {
+      "file": "Gdk-4.0.gir",
+      "license": "LGPL-2.0-or-later AND LGPL-2.1-or-later AND Apache-2.0 AND CC0-1.0 AND MIT AND MIT-open-group AND HPND-sell-variant AND GPL-2.0-or-later AND GPL-3.0-or-later AND OFL-1.1",
+      "source": "fedora",
+      "sourcePackage": "gtk4-devel",
+      "sourceRpm": "gtk4-4.23.3-1.fc45.src.rpm",
+      "upstreamUrl": "https://www.gtk.org"
+    },
+    "GdkMacos-4.0": {
+      "file": "GdkMacos-4.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "docLicense": "GPL-2.1-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gtk.git"
+    },
+    "GdkPixbuf-2.0": {
+      "file": "GdkPixbuf-2.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "gdk-pixbuf2-devel",
+      "sourceRpm": "gdk-pixbuf2-2.44.8-2.fc46.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gdk-pixbuf"
+    },
+    "GdkPixdata-2.0": {
+      "file": "GdkPixdata-2.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "gdk-pixbuf2-devel",
+      "sourceRpm": "gdk-pixbuf2-2.44.8-2.fc46.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gdk-pixbuf"
+    },
+    "GdkWayland-4.0": {
+      "file": "GdkWayland-4.0.gir",
+      "license": "LGPL-2.0-or-later AND LGPL-2.1-or-later AND Apache-2.0 AND CC0-1.0 AND MIT AND MIT-open-group AND HPND-sell-variant AND GPL-2.0-or-later AND GPL-3.0-or-later AND OFL-1.1",
+      "source": "fedora",
+      "sourcePackage": "gtk4-devel",
+      "sourceRpm": "gtk4-4.23.3-1.fc45.src.rpm",
+      "upstreamUrl": "https://www.gtk.org"
+    },
+    "GdkWin32-4.0": {
+      "file": "GdkWin32-4.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "docLicense": "GPL-2.1-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gtk.git"
+    },
+    "GdkX11-2.0": {
+      "file": "GdkX11-2.0.gir",
+      "license": "LicenseRef-Callaway-LGPLv2+",
+      "source": "fedora",
+      "sourcePackage": "gtk2-devel",
+      "sourceRpm": "gtk2-2.24.33-28.fc45.src.rpm",
+      "upstreamUrl": "http://www.gtk.org"
+    },
+    "GdkX11-3.0": {
+      "file": "GdkX11-3.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "gtk3-devel",
+      "sourceRpm": "gtk3-3.24.52-6.fc45.src.rpm",
+      "upstreamUrl": "https://gtk.org"
+    },
+    "GdkX11-4.0": {
+      "file": "GdkX11-4.0.gir",
+      "license": "LGPL-2.0-or-later AND LGPL-2.1-or-later AND Apache-2.0 AND CC0-1.0 AND MIT AND MIT-open-group AND HPND-sell-variant AND GPL-2.0-or-later AND GPL-3.0-or-later AND OFL-1.1",
+      "source": "fedora",
+      "sourcePackage": "gtk4-devel",
+      "sourceRpm": "gtk4-4.23.3-1.fc45.src.rpm",
+      "upstreamUrl": "https://www.gtk.org"
+    },
+    "Gdl-3": {
+      "file": "Gdl-3.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libgdl-devel",
+      "sourceRpm": "libgdl-3.40.0-15.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/Archive/gdl"
+    },
+    "Gdm-1.0": {
+      "file": "Gdm-1.0.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "gdm-devel",
+      "sourceRpm": "gdm-51~beta-1.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/GDM"
+    },
+    "Gedit-3.0": {
+      "file": "Gedit-3.0.gir",
+      "license": "GPL-3.0-or-later AND LGPL-3.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "gedit",
+      "sourceRpm": "gedit-50.0-2.fc45.src.rpm",
+      "upstreamUrl": "https://gedit-text-editor.org/"
+    },
+    "Gee-0.8": {
+      "file": "Gee-0.8.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libgee-devel",
+      "sourceRpm": "libgee-0.20.8-4.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/Libgee"
+    },
+    "Gegl-0.4": {
+      "file": "Gegl-0.4.gir",
+      "license": "GPL-3.0-or-later AND LGPL-3.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "gegl04-devel",
+      "sourceRpm": "gegl04-0.4.70-4.fc45.src.rpm",
+      "upstreamUrl": "https://www.gegl.org/"
+    },
+    "Geoclue-2.0": {
+      "file": "Geoclue-2.0.gir",
+      "license": "GPL-2.0-or-later AND LGPL-2.0-or-later AND LGPL-2.1-or-later AND GFDL-1.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "geoclue2-devel",
+      "sourceRpm": "geoclue2-2.8.2-2.fc45.src.rpm",
+      "upstreamUrl": "http://www.freedesktop.org/wiki/Software/GeoClue/"
+    },
+    "GeocodeGlib-2.0": {
+      "file": "GeocodeGlib-2.0.gir",
+      "license": "LGPL-2.0-or-later AND BSD-3-Clause",
+      "source": "fedora",
+      "sourcePackage": "geocode-glib-devel",
+      "sourceRpm": "geocode-glib-3.26.4-21.fc45.src.rpm",
+      "upstreamUrl": "http://www.gnome.org/"
+    },
+    "Gepub-0.7": {
+      "file": "Gepub-0.7.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libgepub-devel",
+      "sourceRpm": "libgepub-0.7.3-13.fc45.src.rpm",
+      "upstreamUrl": "https://git.gnome.org/browse/libgepub"
+    },
+    "Gfls-1": {
+      "file": "Gfls-1.gir",
+      "license": "LGPL-3.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "libgedit-gfls-devel",
+      "sourceRpm": "libgedit-gfls-0.4.1-2.fc45.src.rpm",
+      "upstreamUrl": "https://gedit-text-editor.org/"
+    },
+    "Ggit-1.0": {
+      "file": "Ggit-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libgit2-glib-devel",
+      "sourceRpm": "libgit2-glib-1.2.1-18.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/Libgit2-glib"
+    },
+    "Gimp-3.0": {
+      "file": "Gimp-3.0.gir",
+      "license": "LGPL-3.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "gimp-devel",
+      "sourceRpm": "gimp-3.2.4-4.fc46.src.rpm",
+      "upstreamUrl": "https://www.gimp.org"
+    },
+    "GimpUi-3.0": {
+      "file": "GimpUi-3.0.gir",
+      "license": "LGPL-3.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "gimp-devel",
+      "sourceRpm": "gimp-3.2.4-4.fc46.src.rpm",
+      "upstreamUrl": "https://www.gimp.org"
+    },
+    "Gio-2.0": {
+      "file": "Gio-2.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "glib2-devel",
+      "sourceRpm": "glib2-2.89.4-1.fc46.src.rpm",
+      "upstreamUrl": "https://www.gtk.org"
+    },
+    "GioUnix-2.0": {
+      "file": "GioUnix-2.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "glib2-devel",
+      "sourceRpm": "glib2-2.89.4-1.fc46.src.rpm",
+      "upstreamUrl": "https://www.gtk.org"
+    },
+    "GioWin32-2.0": {
+      "file": "GioWin32-2.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/glib.git"
+    },
+    "Gitg-1.0": {
+      "file": "Gitg-1.0.gir",
+      "license": "GPL-2.0-or-later AND GPL-3.0-or-later AND LGPL-2.0-or-later AND MIT",
+      "source": "fedora",
+      "sourcePackage": "gitg-devel",
+      "sourceRpm": "gitg-50-4.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Apps/Gitg"
+    },
+    "GitgExt-1.0": {
+      "file": "GitgExt-1.0.gir",
+      "license": "GPL-2.0-or-later AND GPL-3.0-or-later AND LGPL-2.0-or-later AND MIT",
+      "source": "fedora",
+      "sourcePackage": "gitg-devel",
+      "sourceRpm": "gitg-50-4.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Apps/Gitg"
+    },
+    "Gkbd-3.0": {
+      "file": "Gkbd-3.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "libgnomekbd-devel",
+      "sourceRpm": "libgnomekbd-3.28.1-10.fc45.src.rpm",
+      "upstreamUrl": "http://gswitchit.sourceforge.net"
+    },
+    "Gladeui-2.0": {
+      "file": "Gladeui-2.0.gir",
+      "license": "GPL-2.0-or-later AND LicenseRef-Callaway-LGPLv2+",
+      "source": "fedora",
+      "sourcePackage": "glade-devel",
+      "sourceRpm": "glade-3.40.0-17.fc45.src.rpm",
+      "upstreamUrl": "https://glade.gnome.org/"
+    },
+    "Gly-2": {
+      "file": "Gly-2.gir",
+      "license": "(MPL-2.0 OR LGPL-2.1-or-later) AND Apache-2.0 WITH LLVM-exception AND BSD-3-Clause AND CC0-1.0 AND GPL-3.0-or-later AND IJG AND ISC AND MIT AND Unicode-3.0 AND Unicode-DFS-2016 AND (0BSD OR MIT OR Apache-2.0) AND (Apache-2.0 OR MIT) AND (Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT) AND (BSD-2-Clause OR Apache-2.0 OR MIT) AND (BSD-3-Clause OR Apache-2.0) AND (MIT OR Apache-2.0 OR Zlib) AND (Unlicense OR MIT)",
+      "source": "fedora",
+      "sourcePackage": "glycin-devel",
+      "sourceRpm": "glycin-2.2~beta-1.fc46.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/glycin"
+    },
+    "GlyGtk4-2": {
+      "file": "GlyGtk4-2.gir",
+      "license": "(MPL-2.0 OR LGPL-2.1-or-later) AND Apache-2.0 WITH LLVM-exception AND BSD-3-Clause AND CC0-1.0 AND GPL-3.0-or-later AND IJG AND ISC AND MIT AND Unicode-3.0 AND Unicode-DFS-2016 AND (0BSD OR MIT OR Apache-2.0) AND (Apache-2.0 OR MIT) AND (Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT) AND (BSD-2-Clause OR Apache-2.0 OR MIT) AND (BSD-3-Clause OR Apache-2.0) AND (MIT OR Apache-2.0 OR Zlib) AND (Unlicense OR MIT)",
+      "source": "fedora",
+      "sourcePackage": "glycin-gtk4-devel",
+      "sourceRpm": "glycin-2.2~beta-1.fc46.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/glycin"
+    },
+    "Gm-0": {
+      "file": "Gm-0.gir",
+      "license": "LGPL-2.1-or-later AND GPL-3.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "gmobile-devel",
+      "sourceRpm": "gmobile-0.7.3-1.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/World/Phosh/gmobile"
+    },
+    "GnomeAutoar-0.1": {
+      "file": "GnomeAutoar-0.1.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "gnome-autoar-devel",
+      "sourceRpm": "gnome-autoar-0.4.5-11.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gnome-autoar"
+    },
+    "GnomeAutoarGtk-0.1": {
+      "file": "GnomeAutoarGtk-0.1.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "gnome-autoar-devel",
+      "sourceRpm": "gnome-autoar-0.4.5-11.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gnome-autoar"
+    },
+    "GnomeBG-4.0": {
+      "file": "GnomeBG-4.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "gnome-desktop4-devel",
+      "sourceRpm": "gnome-desktop3-51~alpha-2.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gnome-desktop"
+    },
+    "GnomeBluetooth-1.0": {
+      "file": "GnomeBluetooth-1.0.gir",
+      "license": "LGPL-2.0-or-later AND LGPL-2.1-or-later AND GPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "gnome-bluetooth3.34-libs-devel",
+      "sourceRpm": "gnome-bluetooth3.34-3.34.5-12.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/GnomeBluetooth"
+    },
+    "GnomeBluetooth-3.0": {
+      "file": "GnomeBluetooth-3.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "gnome-bluetooth-libs-devel",
+      "sourceRpm": "gnome-bluetooth-47.2-3.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/GnomeBluetooth"
+    },
+    "GnomeCmd-1.0": {
+      "file": "GnomeCmd-1.0.gir",
+      "license": "GPL-3.0-or-later AND GFDL-1.3-or-later AND CC0-1.0",
+      "source": "fedora",
+      "sourcePackage": "gnome-commander",
+      "sourceRpm": "gnome-commander-2.0.3-2.fc45.src.rpm",
+      "upstreamUrl": "https://gnome.pages.gitlab.gnome.org/gnome-commander/"
+    },
+    "GnomeDesktop-3.0": {
+      "file": "GnomeDesktop-3.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "gnome-desktop3-devel",
+      "sourceRpm": "gnome-desktop3-51~alpha-2.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gnome-desktop"
+    },
+    "GnomeDesktop-4.0": {
+      "file": "GnomeDesktop-4.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "gnome-desktop4-devel",
+      "sourceRpm": "gnome-desktop3-51~alpha-2.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gnome-desktop"
+    },
+    "GnomeKeyring-1.0": {
+      "file": "GnomeKeyring-1.0.gir",
+      "license": "LicenseRef-Callaway-LGPLv2+",
+      "source": "fedora",
+      "sourcePackage": "libgnome-keyring-devel",
+      "sourceRpm": "libgnome-keyring-3.12.0-34.fc45.src.rpm",
+      "upstreamUrl": "http://live.gnome.org/GnomeKeyring"
+    },
+    "GnomeMaps-1.0": {
+      "file": "GnomeMaps-1.0.gir",
+      "license": "GPL-2.0-or-later AND CC0-1.0",
+      "source": "fedora",
+      "sourcePackage": "gnome-maps",
+      "sourceRpm": "gnome-maps-51~beta-1.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Apps/Maps"
+    },
+    "GnomeQR-4.0": {
+      "file": "GnomeQR-4.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "gnome-desktop4-devel",
+      "sourceRpm": "gnome-desktop3-51~alpha-2.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gnome-desktop"
+    },
+    "GnomeQRGtk-4.0": {
+      "file": "GnomeQRGtk-4.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "gnome-desktop4-devel",
+      "sourceRpm": "gnome-desktop3-51~alpha-2.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gnome-desktop"
+    },
+    "GoVirt-1.0": {
+      "file": "GoVirt-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libgovirt-devel",
+      "sourceRpm": "libgovirt-0.3.11-2.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/libgovirt"
+    },
+    "Goa-1.0": {
+      "file": "Goa-1.0.gir",
+      "license": "LGPL-2.0-or-later AND CC-BY-SA-4.0",
+      "source": "fedora",
+      "sourcePackage": "gnome-online-accounts-devel",
+      "sourceRpm": "gnome-online-accounts-3.58.1-3.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/GnomeOnlineAccounts"
+    },
+    "Gom-1.0": {
+      "file": "Gom-1.0.gir",
+      "license": "LGPL-2.1-or-later AND GFDL-1.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "gom-devel",
+      "sourceRpm": "gom-0.5.6-10.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/Gom"
+    },
+    "GooCanvas-2.0": {
+      "file": "GooCanvas-2.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "goocanvas2-devel",
+      "sourceRpm": "goocanvas2-2.0.4-23.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects(2f)GooCanvas.html"
+    },
+    "Gpiodglib-1.0": {
+      "file": "Gpiodglib-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libgpiod-devel",
+      "sourceRpm": "libgpiod-2.3.1-3.fc45.src.rpm",
+      "upstreamUrl": "https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git/"
+    },
+    "Granite-1.0": {
+      "file": "Granite-1.0.gir",
+      "license": "LGPL-3.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "granite-devel",
+      "sourceRpm": "granite-6.2.0-13.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/elementary/granite"
+    },
+    "Graphene-1.0": {
+      "file": "Graphene-1.0.gir",
+      "license": "MIT",
+      "source": "fedora",
+      "sourcePackage": "graphene-devel",
+      "sourceRpm": "graphene-1.10.8-6.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/ebassi/graphene"
+    },
+    "Grl-0.3": {
+      "file": "Grl-0.3.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "grilo-devel",
+      "sourceRpm": "grilo-0.3.19-9.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/Grilo"
+    },
+    "GrlNet-0.3": {
+      "file": "GrlNet-0.3.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "grilo-devel",
+      "sourceRpm": "grilo-0.3.19-9.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/Grilo"
+    },
+    "GrlPls-0.3": {
+      "file": "GrlPls-0.3.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "grilo-devel",
+      "sourceRpm": "grilo-0.3.19-9.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/Grilo"
+    },
+    "Grss-0.7": {
+      "file": "Grss-0.7.gir",
+      "license": "LGPL-3.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "libgrss-devel",
+      "sourceRpm": "libgrss-0.7.0-25.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/Libgrss"
+    },
+    "Gsf-1": {
+      "file": "Gsf-1.gir",
+      "license": "LGPL-2.1-only",
+      "source": "fedora",
+      "sourcePackage": "libgsf-devel",
+      "sourceRpm": "libgsf-1.14.58-3.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/libgsf/"
+    },
+    "Gsk-4.0": {
+      "file": "Gsk-4.0.gir",
+      "license": "LGPL-2.0-or-later AND LGPL-2.1-or-later AND Apache-2.0 AND CC0-1.0 AND MIT AND MIT-open-group AND HPND-sell-variant AND GPL-2.0-or-later AND GPL-3.0-or-later AND OFL-1.1",
+      "source": "fedora",
+      "sourcePackage": "gtk4-devel",
+      "sourceRpm": "gtk4-4.23.3-1.fc45.src.rpm",
+      "upstreamUrl": "https://www.gtk.org"
+    },
+    "Gspell-1": {
+      "file": "Gspell-1.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "gspell-devel",
+      "sourceRpm": "gspell-1.14.4-3.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/gspell"
+    },
+    "Gst-1.0": {
+      "file": "Gst-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-devel",
+      "sourceRpm": "gstreamer1-1.28.6-2.fc46.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstAllocators-1.0": {
+      "file": "GstAllocators-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-plugins-base-devel",
+      "sourceRpm": "gstreamer1-plugins-base-1.28.6-1.fc45.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstAnalytics-1.0": {
+      "file": "GstAnalytics-1.0.gir",
+      "license": "LGPL-2.1-or-later AND LGPL-2.0-or-later AND (MIT OR LGPL-2.1-or-later) AND MPL-1.1 AND BSD-2-Clause AND BSD-3-Clause AND BSD-2-Clause-Views AND (BSD-2-Clause AND DOC) AND MIT-Festival AND (LGPL-2.0-or-later AND LicenseRef-Fedora-Public-Domain) AND (MPL-1.1 OR LGPL-2.0-or-later OR MIT) AND BSD-3-Clause WITH AdditionRef-Dart AND MIT AND GPL-2.0-only WITH Linux-syscall-note",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-plugins-bad-free-devel",
+      "sourceRpm": "gstreamer1-plugins-bad-free-1.28.6-1.fc45.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstApp-1.0": {
+      "file": "GstApp-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-plugins-base-devel",
+      "sourceRpm": "gstreamer1-plugins-base-1.28.6-1.fc45.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstAudio-1.0": {
+      "file": "GstAudio-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-plugins-base-devel",
+      "sourceRpm": "gstreamer1-plugins-base-1.28.6-1.fc45.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstBadAudio-1.0": {
+      "file": "GstBadAudio-1.0.gir",
+      "license": "LGPL-2.1-or-later AND LGPL-2.0-or-later AND (MIT OR LGPL-2.1-or-later) AND MPL-1.1 AND BSD-2-Clause AND BSD-3-Clause AND BSD-2-Clause-Views AND (BSD-2-Clause AND DOC) AND MIT-Festival AND (LGPL-2.0-or-later AND LicenseRef-Fedora-Public-Domain) AND (MPL-1.1 OR LGPL-2.0-or-later OR MIT) AND BSD-3-Clause WITH AdditionRef-Dart AND MIT AND GPL-2.0-only WITH Linux-syscall-note",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-plugins-bad-free-devel",
+      "sourceRpm": "gstreamer1-plugins-bad-free-1.28.6-1.fc45.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstBase-1.0": {
+      "file": "GstBase-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-devel",
+      "sourceRpm": "gstreamer1-1.28.6-2.fc46.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstCheck-1.0": {
+      "file": "GstCheck-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-devel",
+      "sourceRpm": "gstreamer1-1.28.6-2.fc46.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstCodecParsers-1.0": {
+      "file": "GstCodecParsers-1.0.gir",
+      "license": "LGPL-2.1-or-later AND LGPL-2.0-or-later AND (MIT OR LGPL-2.1-or-later) AND MPL-1.1 AND BSD-2-Clause AND BSD-3-Clause AND BSD-2-Clause-Views AND (BSD-2-Clause AND DOC) AND MIT-Festival AND (LGPL-2.0-or-later AND LicenseRef-Fedora-Public-Domain) AND (MPL-1.1 OR LGPL-2.0-or-later OR MIT) AND BSD-3-Clause WITH AdditionRef-Dart AND MIT AND GPL-2.0-only WITH Linux-syscall-note",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-plugins-bad-free-devel",
+      "sourceRpm": "gstreamer1-plugins-bad-free-1.28.6-1.fc45.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstCodecs-1.0": {
+      "file": "GstCodecs-1.0.gir",
+      "license": "LGPL-2.1-or-later AND LGPL-2.0-or-later AND (MIT OR LGPL-2.1-or-later) AND MPL-1.1 AND BSD-2-Clause AND BSD-3-Clause AND BSD-2-Clause-Views AND (BSD-2-Clause AND DOC) AND MIT-Festival AND (LGPL-2.0-or-later AND LicenseRef-Fedora-Public-Domain) AND (MPL-1.1 OR LGPL-2.0-or-later OR MIT) AND BSD-3-Clause WITH AdditionRef-Dart AND MIT AND GPL-2.0-only WITH Linux-syscall-note",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-plugins-bad-free-devel",
+      "sourceRpm": "gstreamer1-plugins-bad-free-1.28.6-1.fc45.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstController-1.0": {
+      "file": "GstController-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-devel",
+      "sourceRpm": "gstreamer1-1.28.6-2.fc46.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstCuda-1.0": {
+      "file": "GstCuda-1.0.gir",
+      "license": "LGPL-2.1-or-later AND LGPL-2.0-or-later AND (MIT OR LGPL-2.1-or-later) AND MPL-1.1 AND BSD-2-Clause AND BSD-3-Clause AND BSD-2-Clause-Views AND (BSD-2-Clause AND DOC) AND MIT-Festival AND (LGPL-2.0-or-later AND LicenseRef-Fedora-Public-Domain) AND (MPL-1.1 OR LGPL-2.0-or-later OR MIT) AND BSD-3-Clause WITH AdditionRef-Dart AND MIT AND GPL-2.0-only WITH Linux-syscall-note",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-plugins-bad-free-devel",
+      "sourceRpm": "gstreamer1-plugins-bad-free-1.28.6-1.fc45.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstDxva-1.0": {
+      "file": "GstDxva-1.0.gir",
+      "license": "LGPL-2.1-or-later AND LGPL-2.0-or-later AND (MIT OR LGPL-2.1-or-later) AND MPL-1.1 AND BSD-2-Clause AND BSD-3-Clause AND BSD-2-Clause-Views AND (BSD-2-Clause AND DOC) AND MIT-Festival AND (LGPL-2.0-or-later AND LicenseRef-Fedora-Public-Domain) AND (MPL-1.1 OR LGPL-2.0-or-later OR MIT) AND BSD-3-Clause WITH AdditionRef-Dart AND MIT AND GPL-2.0-only WITH Linux-syscall-note",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-plugins-bad-free-devel",
+      "sourceRpm": "gstreamer1-plugins-bad-free-1.28.6-1.fc45.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstGL-1.0": {
+      "file": "GstGL-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-plugins-base-devel",
+      "sourceRpm": "gstreamer1-plugins-base-1.28.6-1.fc45.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstGLEGL-1.0": {
+      "file": "GstGLEGL-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-plugins-base-devel",
+      "sourceRpm": "gstreamer1-plugins-base-1.28.6-1.fc45.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstGLWayland-1.0": {
+      "file": "GstGLWayland-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-plugins-base-devel",
+      "sourceRpm": "gstreamer1-plugins-base-1.28.6-1.fc45.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstGLX11-1.0": {
+      "file": "GstGLX11-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-plugins-base-devel",
+      "sourceRpm": "gstreamer1-plugins-base-1.28.6-1.fc45.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstHip-1.0": {
+      "file": "GstHip-1.0.gir",
+      "license": "LGPL-2.1-or-later AND LGPL-2.0-or-later AND (MIT OR LGPL-2.1-or-later) AND MPL-1.1 AND BSD-2-Clause AND BSD-3-Clause AND BSD-2-Clause-Views AND (BSD-2-Clause AND DOC) AND MIT-Festival AND (LGPL-2.0-or-later AND LicenseRef-Fedora-Public-Domain) AND (MPL-1.1 OR LGPL-2.0-or-later OR MIT) AND BSD-3-Clause WITH AdditionRef-Dart AND MIT AND GPL-2.0-only WITH Linux-syscall-note",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-plugins-bad-free-devel",
+      "sourceRpm": "gstreamer1-plugins-bad-free-1.28.6-1.fc45.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstHipGL-1.0": {
+      "file": "GstHipGL-1.0.gir",
+      "license": "LGPL-2.1-or-later AND LGPL-2.0-or-later AND (MIT OR LGPL-2.1-or-later) AND MPL-1.1 AND BSD-2-Clause AND BSD-3-Clause AND BSD-2-Clause-Views AND (BSD-2-Clause AND DOC) AND MIT-Festival AND (LGPL-2.0-or-later AND LicenseRef-Fedora-Public-Domain) AND (MPL-1.1 OR LGPL-2.0-or-later OR MIT) AND BSD-3-Clause WITH AdditionRef-Dart AND MIT AND GPL-2.0-only WITH Linux-syscall-note",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-plugins-bad-free-devel",
+      "sourceRpm": "gstreamer1-plugins-bad-free-1.28.6-1.fc45.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstInsertBin-1.0": {
+      "file": "GstInsertBin-1.0.gir",
+      "license": "LGPL-2.1-or-later AND LGPL-2.0-or-later AND (MIT OR LGPL-2.1-or-later) AND MPL-1.1 AND BSD-2-Clause AND BSD-3-Clause AND BSD-2-Clause-Views AND (BSD-2-Clause AND DOC) AND MIT-Festival AND (LGPL-2.0-or-later AND LicenseRef-Fedora-Public-Domain) AND (MPL-1.1 OR LGPL-2.0-or-later OR MIT) AND BSD-3-Clause WITH AdditionRef-Dart AND MIT AND GPL-2.0-only WITH Linux-syscall-note",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-plugins-bad-free-devel",
+      "sourceRpm": "gstreamer1-plugins-bad-free-1.28.6-1.fc45.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstMpegts-1.0": {
+      "file": "GstMpegts-1.0.gir",
+      "license": "LGPL-2.1-or-later AND LGPL-2.0-or-later AND (MIT OR LGPL-2.1-or-later) AND MPL-1.1 AND BSD-2-Clause AND BSD-3-Clause AND BSD-2-Clause-Views AND (BSD-2-Clause AND DOC) AND MIT-Festival AND (LGPL-2.0-or-later AND LicenseRef-Fedora-Public-Domain) AND (MPL-1.1 OR LGPL-2.0-or-later OR MIT) AND BSD-3-Clause WITH AdditionRef-Dart AND MIT AND GPL-2.0-only WITH Linux-syscall-note",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-plugins-bad-free-devel",
+      "sourceRpm": "gstreamer1-plugins-bad-free-1.28.6-1.fc45.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstMse-1.0": {
+      "file": "GstMse-1.0.gir",
+      "license": "LGPL-2.1-or-later AND LGPL-2.0-or-later AND (MIT OR LGPL-2.1-or-later) AND MPL-1.1 AND BSD-2-Clause AND BSD-3-Clause AND BSD-2-Clause-Views AND (BSD-2-Clause AND DOC) AND MIT-Festival AND (LGPL-2.0-or-later AND LicenseRef-Fedora-Public-Domain) AND (MPL-1.1 OR LGPL-2.0-or-later OR MIT) AND BSD-3-Clause WITH AdditionRef-Dart AND MIT AND GPL-2.0-only WITH Linux-syscall-note",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-plugins-bad-free-devel",
+      "sourceRpm": "gstreamer1-plugins-bad-free-1.28.6-1.fc45.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstNet-1.0": {
+      "file": "GstNet-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-devel",
+      "sourceRpm": "gstreamer1-1.28.6-2.fc46.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstPbutils-1.0": {
+      "file": "GstPbutils-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-plugins-base-devel",
+      "sourceRpm": "gstreamer1-plugins-base-1.28.6-1.fc45.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstPlay-1.0": {
+      "file": "GstPlay-1.0.gir",
+      "license": "LGPL-2.1-or-later AND LGPL-2.0-or-later AND (MIT OR LGPL-2.1-or-later) AND MPL-1.1 AND BSD-2-Clause AND BSD-3-Clause AND BSD-2-Clause-Views AND (BSD-2-Clause AND DOC) AND MIT-Festival AND (LGPL-2.0-or-later AND LicenseRef-Fedora-Public-Domain) AND (MPL-1.1 OR LGPL-2.0-or-later OR MIT) AND BSD-3-Clause WITH AdditionRef-Dart AND MIT AND GPL-2.0-only WITH Linux-syscall-note",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-plugins-bad-free-devel",
+      "sourceRpm": "gstreamer1-plugins-bad-free-1.28.6-1.fc45.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstPlayer-1.0": {
+      "file": "GstPlayer-1.0.gir",
+      "license": "LGPL-2.1-or-later AND LGPL-2.0-or-later AND (MIT OR LGPL-2.1-or-later) AND MPL-1.1 AND BSD-2-Clause AND BSD-3-Clause AND BSD-2-Clause-Views AND (BSD-2-Clause AND DOC) AND MIT-Festival AND (LGPL-2.0-or-later AND LicenseRef-Fedora-Public-Domain) AND (MPL-1.1 OR LGPL-2.0-or-later OR MIT) AND BSD-3-Clause WITH AdditionRef-Dart AND MIT AND GPL-2.0-only WITH Linux-syscall-note",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-plugins-bad-free-devel",
+      "sourceRpm": "gstreamer1-plugins-bad-free-1.28.6-1.fc45.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstRtp-1.0": {
+      "file": "GstRtp-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-plugins-base-devel",
+      "sourceRpm": "gstreamer1-plugins-base-1.28.6-1.fc45.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstRtsp-1.0": {
+      "file": "GstRtsp-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-plugins-base-devel",
+      "sourceRpm": "gstreamer1-plugins-base-1.28.6-1.fc45.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstRtspServer-1.0": {
+      "file": "GstRtspServer-1.0.gir",
+      "license": "LGPL-2.0-or-later AND LGPL-2.1-only",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-rtsp-server-devel",
+      "sourceRpm": "gstreamer1-rtsp-server-1.28.6-1.fc45.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstSdp-1.0": {
+      "file": "GstSdp-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-plugins-base-devel",
+      "sourceRpm": "gstreamer1-plugins-base-1.28.6-1.fc45.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstTag-1.0": {
+      "file": "GstTag-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-plugins-base-devel",
+      "sourceRpm": "gstreamer1-plugins-base-1.28.6-1.fc45.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstTranscoder-1.0": {
+      "file": "GstTranscoder-1.0.gir",
+      "license": "LGPL-2.1-or-later AND LGPL-2.0-or-later AND (MIT OR LGPL-2.1-or-later) AND MPL-1.1 AND BSD-2-Clause AND BSD-3-Clause AND BSD-2-Clause-Views AND (BSD-2-Clause AND DOC) AND MIT-Festival AND (LGPL-2.0-or-later AND LicenseRef-Fedora-Public-Domain) AND (MPL-1.1 OR LGPL-2.0-or-later OR MIT) AND BSD-3-Clause WITH AdditionRef-Dart AND MIT AND GPL-2.0-only WITH Linux-syscall-note",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-plugins-bad-free-devel",
+      "sourceRpm": "gstreamer1-plugins-bad-free-1.28.6-1.fc45.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstVa-1.0": {
+      "file": "GstVa-1.0.gir",
+      "license": "LGPL-2.1-or-later AND LGPL-2.0-or-later AND (MIT OR LGPL-2.1-or-later) AND MPL-1.1 AND BSD-2-Clause AND BSD-3-Clause AND BSD-2-Clause-Views AND (BSD-2-Clause AND DOC) AND MIT-Festival AND (LGPL-2.0-or-later AND LicenseRef-Fedora-Public-Domain) AND (MPL-1.1 OR LGPL-2.0-or-later OR MIT) AND BSD-3-Clause WITH AdditionRef-Dart AND MIT AND GPL-2.0-only WITH Linux-syscall-note",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-plugins-bad-free-devel",
+      "sourceRpm": "gstreamer1-plugins-bad-free-1.28.6-1.fc45.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstValidate-1.0": {
+      "file": "GstValidate-1.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "gst-devtools-devel",
+      "sourceRpm": "gst-devtools-1.28.6-1.fc45.src.rpm",
+      "upstreamUrl": "https://gstreamer.freedesktop.org/src/gst-devtools"
+    },
+    "GstVideo-1.0": {
+      "file": "GstVideo-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-plugins-base-devel",
+      "sourceRpm": "gstreamer1-plugins-base-1.28.6-1.fc45.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstVulkan-1.0": {
+      "file": "GstVulkan-1.0.gir",
+      "license": "LGPL-2.1-or-later AND LGPL-2.0-or-later AND (MIT OR LGPL-2.1-or-later) AND MPL-1.1 AND BSD-2-Clause AND BSD-3-Clause AND BSD-2-Clause-Views AND (BSD-2-Clause AND DOC) AND MIT-Festival AND (LGPL-2.0-or-later AND LicenseRef-Fedora-Public-Domain) AND (MPL-1.1 OR LGPL-2.0-or-later OR MIT) AND BSD-3-Clause WITH AdditionRef-Dart AND MIT AND GPL-2.0-only WITH Linux-syscall-note",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-plugins-bad-free-devel",
+      "sourceRpm": "gstreamer1-plugins-bad-free-1.28.6-1.fc45.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstVulkanWayland-1.0": {
+      "file": "GstVulkanWayland-1.0.gir",
+      "license": "LGPL-2.1-or-later AND LGPL-2.0-or-later AND (MIT OR LGPL-2.1-or-later) AND MPL-1.1 AND BSD-2-Clause AND BSD-3-Clause AND BSD-2-Clause-Views AND (BSD-2-Clause AND DOC) AND MIT-Festival AND (LGPL-2.0-or-later AND LicenseRef-Fedora-Public-Domain) AND (MPL-1.1 OR LGPL-2.0-or-later OR MIT) AND BSD-3-Clause WITH AdditionRef-Dart AND MIT AND GPL-2.0-only WITH Linux-syscall-note",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-plugins-bad-free-devel",
+      "sourceRpm": "gstreamer1-plugins-bad-free-1.28.6-1.fc45.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "GstWebRTC-1.0": {
+      "file": "GstWebRTC-1.0.gir",
+      "license": "LGPL-2.1-or-later AND LGPL-2.0-or-later AND (MIT OR LGPL-2.1-or-later) AND MPL-1.1 AND BSD-2-Clause AND BSD-3-Clause AND BSD-2-Clause-Views AND (BSD-2-Clause AND DOC) AND MIT-Festival AND (LGPL-2.0-or-later AND LicenseRef-Fedora-Public-Domain) AND (MPL-1.1 OR LGPL-2.0-or-later OR MIT) AND BSD-3-Clause WITH AdditionRef-Dart AND MIT AND GPL-2.0-only WITH Linux-syscall-note",
+      "source": "fedora",
+      "sourcePackage": "gstreamer1-plugins-bad-free-devel",
+      "sourceRpm": "gstreamer1-plugins-bad-free-1.28.6-1.fc45.src.rpm",
+      "upstreamUrl": "http://gstreamer.freedesktop.org/"
+    },
+    "Gtd-1.0": {
+      "file": "Gtd-1.0.gir",
+      "license": "GPL-3.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "gnome-todo-devel",
+      "sourceRpm": "gnome-todo-43.0-9.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/World/Endeavour/"
+    },
+    "Gtk-2.0": {
+      "file": "Gtk-2.0.gir",
+      "license": "LicenseRef-Callaway-LGPLv2+",
+      "source": "fedora",
+      "sourcePackage": "gtk2-devel",
+      "sourceRpm": "gtk2-2.24.33-28.fc45.src.rpm",
+      "upstreamUrl": "http://www.gtk.org"
+    },
+    "Gtk-3.0": {
+      "file": "Gtk-3.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "gtk3-devel",
+      "sourceRpm": "gtk3-3.24.52-6.fc45.src.rpm",
+      "upstreamUrl": "https://gtk.org"
+    },
+    "Gtk-4.0": {
+      "file": "Gtk-4.0.gir",
+      "license": "LGPL-2.0-or-later AND LGPL-2.1-or-later AND Apache-2.0 AND CC0-1.0 AND MIT AND MIT-open-group AND HPND-sell-variant AND GPL-2.0-or-later AND GPL-3.0-or-later AND OFL-1.1",
+      "source": "fedora",
+      "sourcePackage": "gtk4-devel",
+      "sourceRpm": "gtk4-4.23.3-1.fc45.src.rpm",
+      "upstreamUrl": "https://www.gtk.org"
+    },
+    "Gtk4LayerShell-1.0": {
+      "file": "Gtk4LayerShell-1.0.gir",
+      "license": "MIT",
+      "source": "fedora",
+      "sourcePackage": "gtk4-layer-shell-devel",
+      "sourceRpm": "gtk4-layer-shell-1.3.0-3.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/wmww/gtk4-layer-shell"
+    },
+    "Gtk4SessionLock-1.0": {
+      "file": "Gtk4SessionLock-1.0.gir",
+      "license": "MIT",
+      "source": "fedora",
+      "sourcePackage": "gtk4-layer-shell-devel",
+      "sourceRpm": "gtk4-layer-shell-1.3.0-3.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/wmww/gtk4-layer-shell"
+    },
+    "GtkChamplain-0.12": {
+      "file": "GtkChamplain-0.12.gir",
+      "license": "LicenseRef-Callaway-LGPLv2+",
+      "source": "fedora",
+      "sourcePackage": "libchamplain-devel",
+      "sourceRpm": "libchamplain-0.12.21-10.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/libchamplain"
+    },
+    "GtkClutter-1.0": {
+      "file": "GtkClutter-1.0.gir",
+      "license": "LicenseRef-Callaway-LGPLv2+",
+      "source": "fedora",
+      "sourcePackage": "clutter-gtk-devel",
+      "sourceRpm": "clutter-gtk-1.8.4-25.fc45.src.rpm",
+      "upstreamUrl": "http://www.clutter-project.org"
+    },
+    "GtkLayerShell-0.1": {
+      "file": "GtkLayerShell-0.1.gir",
+      "license": "LGPL-3.0-or-later and MIT",
+      "source": "fedora",
+      "sourcePackage": "gtk-layer-shell-devel",
+      "sourceRpm": "gtk-layer-shell-0.10.1-2.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/wmww/gtk-layer-shell"
+    },
+    "GtkSessionLock-0.1": {
+      "file": "GtkSessionLock-0.1.gir",
+      "license": "GPL-3.0-or-later AND MIT",
+      "source": "fedora",
+      "sourcePackage": "gtk-session-lock-devel",
+      "sourceRpm": "gtk-session-lock-0.2.0-3.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/Cu3PO42/gtk-session-lock"
+    },
+    "GtkSource-2.0": {
+      "file": "GtkSource-2.0.gir",
+      "license": "LGPL-2.0-or-later AND GPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "gtksourceview2-devel",
+      "sourceRpm": "gtksourceview2-2.11.2-47.fc45.src.rpm",
+      "upstreamUrl": "http://gtksourceview.sourceforge.net/"
+    },
+    "GtkSource-3.0": {
+      "file": "GtkSource-3.0.gir",
+      "license": "LicenseRef-Callaway-LGPLv2+",
+      "source": "fedora",
+      "sourcePackage": "gtksourceview3-devel",
+      "sourceRpm": "gtksourceview3-3.24.11-18.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/GtkSourceView"
+    },
+    "GtkSource-300": {
+      "file": "GtkSource-300.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libgedit-gtksourceview-devel",
+      "sourceRpm": "libgedit-gtksourceview-299.7.0-2.fc45.src.rpm",
+      "upstreamUrl": "https://gedit-text-editor.org/"
+    },
+    "GtkSource-4": {
+      "file": "GtkSource-4.gir",
+      "license": "LicenseRef-Callaway-LGPLv2+",
+      "source": "fedora",
+      "sourcePackage": "gtksourceview4-devel",
+      "sourceRpm": "gtksourceview4-4.8.4-12.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/GtkSourceView"
+    },
+    "GtkSource-5": {
+      "file": "GtkSource-5.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "gtksourceview5-devel",
+      "sourceRpm": "gtksourceview5-5.21.0-2.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/GtkSourceView"
+    },
+    "GtkSpell-3.0": {
+      "file": "GtkSpell-3.0.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "gtkspell3-devel",
+      "sourceRpm": "gtkspell3-3.0.10-26.fc45.src.rpm",
+      "upstreamUrl": "https://gtkspell.sourceforge.net/"
+    },
+    "GtkVnc-2.0": {
+      "file": "GtkVnc-2.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "gtk-vnc2-devel",
+      "sourceRpm": "gtk-vnc-1.5.0-6.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gtk-vnc"
+    },
+    "Gucharmap-2.90": {
+      "file": "Gucharmap-2.90.gir",
+      "license": "GPL-3.0-or-later AND GFDL-1.3-or-later AND Unicode-DFS-2016",
+      "source": "fedora",
+      "sourcePackage": "gucharmap-devel",
+      "sourceRpm": "gucharmap-17.0.2-2.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Apps/Gucharmap"
+    },
+    "Gvc-1.0": {
+      "file": "Gvc-1.0.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gnome-shell.git"
+    },
+    "Handy-1": {
+      "file": "Handy-1.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libhandy-devel",
+      "sourceRpm": "libhandy-1.8.3-16.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/libhandy"
+    },
+    "HarfBuzz-0.0": {
+      "file": "HarfBuzz-0.0.gir",
+      "license": "MIT-Modern-Variant",
+      "source": "fedora",
+      "sourcePackage": "harfbuzz-devel",
+      "sourceRpm": "harfbuzz-14.4.0-1.fc46.src.rpm",
+      "upstreamUrl": "https://github.com/harfbuzz/harfbuzz/"
+    },
+    "Hex-4": {
+      "file": "Hex-4.gir",
+      "license": "GPL-2.0-or-later AND GFDL-1.1-no-invariants-or-later AND CC-BY-SA-4.0",
+      "source": "fedora",
+      "sourcePackage": "ghex-devel",
+      "sourceRpm": "ghex-50.3-1.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/ghex"
+    },
+    "IAnjuta-3.0": {
+      "file": "IAnjuta-3.0.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "anjuta-devel",
+      "sourceRpm": "anjuta-3.34.0-31.fc45.src.rpm",
+      "upstreamUrl": "http://www.anjuta.org/"
+    },
+    "IBus-1.0": {
+      "file": "IBus-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "ibus-devel",
+      "sourceRpm": "ibus-1.5.35~beta2-1.fc46.src.rpm",
+      "upstreamUrl": "https://github.com/ibus/ibus/wiki"
+    },
+    "ICal-3.0": {
+      "file": "ICal-3.0.gir",
+      "license": "LGPL-2.1-only OR MPL-2.0",
+      "source": "fedora",
+      "sourcePackage": "libical-devel",
+      "sourceRpm": "libical-3.0.20-9.fc45.src.rpm",
+      "upstreamUrl": "https://libical.github.io/libical/"
+    },
+    "ICalGLib-3.0": {
+      "file": "ICalGLib-3.0.gir",
+      "license": "LGPL-2.1-only OR MPL-2.0",
+      "source": "fedora",
+      "sourcePackage": "libical-glib-devel",
+      "sourceRpm": "libical-3.0.20-9.fc45.src.rpm",
+      "upstreamUrl": "https://libical.github.io/libical/"
+    },
+    "IMSettings-1.8": {
+      "file": "IMSettings-1.8.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "imsettings-devel",
+      "sourceRpm": "imsettings-1.8.11-3.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.com/tagoh/imsettings/"
+    },
+    "Ide-50": {
+      "file": "Ide-50.gir",
+      "license": "GPL-3.0-or-later AND GPL-2.0-or-later AND LGPL-3.0-or-later AND LGPL-2.1-or-later AND LGPL-2.0-or-later AND MIT AND CC0-1.0 AND CC-BY-3.0",
+      "source": "fedora",
+      "sourcePackage": "gnome-builder-devel",
+      "sourceRpm": "gnome-builder-50.0-4.fc46.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Apps/Builder"
+    },
+    "InputPad-1.1": {
+      "file": "InputPad-1.1.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "input-pad-devel",
+      "sourceRpm": "input-pad-1.1.0-6.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/fujiwarat/input-pad/wiki"
+    },
+    "Ipuz-1.0": {
+      "file": "Ipuz-1.0.gir",
+      "license": "(LGPL-2.1-or-later OR MIT) AND (Apache-2.0 OR MIT) AND (BSD-2-Clause OR Apache-2.0 OR MIT) AND MIT AND (MIT OR Apache-2.0) AND (Unlicense OR MIT)",
+      "source": "fedora",
+      "sourcePackage": "libipuz-devel",
+      "sourceRpm": "libipuz-0.5.4-5.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/jrb/libipuz"
+    },
+    "JavaScriptCore-4.1": {
+      "file": "JavaScriptCore-4.1.gir",
+      "license": "LGPL-2.1-only AND BSD-2-Clause AND BSD-3-Clause AND ISC AND bzip2-1.0.6 AND NCSA AND MIT AND GPL-2.0-only AND MPL-1.1 AND SunPro AND Apache-2.0 AND GPL-3.0-or-later WITH Bison-exception-2.2 AND MPL-2.0 AND OFL-1.1 AND (AFL-2.0 OR GPL-2.0-or-later) AND BSD-Source-Code AND BSD-2-Clause-Views AND LGPL-2.1-or-later AND (NCSA OR MIT) AND Apache-2.0 WITH LLVM-exception AND BSL-1.0",
+      "source": "fedora",
+      "sourcePackage": "javascriptcoregtk4.1-devel",
+      "sourceRpm": "webkitgtk-2.53.91-1.fc46.src.rpm",
+      "upstreamUrl": "https://www.webkitgtk.org/"
+    },
+    "JavaScriptCore-6.0": {
+      "file": "JavaScriptCore-6.0.gir",
+      "license": "LGPL-2.1-only AND BSD-2-Clause AND BSD-3-Clause AND ISC AND bzip2-1.0.6 AND NCSA AND MIT AND GPL-2.0-only AND MPL-1.1 AND SunPro AND Apache-2.0 AND GPL-3.0-or-later WITH Bison-exception-2.2 AND MPL-2.0 AND OFL-1.1 AND (AFL-2.0 OR GPL-2.0-or-later) AND BSD-Source-Code AND BSD-2-Clause-Views AND LGPL-2.1-or-later AND (NCSA OR MIT) AND Apache-2.0 WITH LLVM-exception AND BSL-1.0",
+      "source": "fedora",
+      "sourcePackage": "javascriptcoregtk6.0-devel",
+      "sourceRpm": "webkitgtk-2.53.91-1.fc46.src.rpm",
+      "upstreamUrl": "https://www.webkitgtk.org/"
+    },
+    "Jcat-1.0": {
+      "file": "Jcat-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libjcat-devel",
+      "sourceRpm": "libjcat-0.2.6-1.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/hughsie/libjcat"
+    },
+    "Json-1.0": {
+      "file": "Json-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "json-glib-devel",
+      "sourceRpm": "json-glib-1.10.8-11.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/JsonGlib"
+    },
+    "Jsonrpc-1.0": {
+      "file": "Jsonrpc-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "jsonrpc-glib-devel",
+      "sourceRpm": "jsonrpc-glib-3.44.2-12.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/jsonrpc-glib"
+    },
+    "Keybinder-0.0": {
+      "file": "Keybinder-0.0.gir",
+      "license": "MIT",
+      "source": "fedora",
+      "sourcePackage": "keybinder",
+      "sourceRpm": "keybinder-0.3.1-34.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/engla/keybinder"
+    },
+    "Keybinder-3.0": {
+      "file": "Keybinder-3.0.gir",
+      "license": "MIT",
+      "source": "fedora",
+      "sourcePackage": "keybinder3-devel",
+      "sourceRpm": "keybinder3-0.3.2-23.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/kupferlauncher/keybinder"
+    },
+    "Kkc-1.0": {
+      "file": "Kkc-1.0.gir",
+      "license": "GPL-3.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "libkkc-devel",
+      "sourceRpm": "libkkc-0.3.5-36.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/ueno/libkkc"
+    },
+    "LangTag-0.6": {
+      "file": "LangTag-0.6.gir",
+      "license": "LGPL-3.0-or-later OR MPL-2.0",
+      "source": "fedora",
+      "sourcePackage": "liblangtag-devel",
+      "sourceRpm": "liblangtag-0.6.8-1.fc46.src.rpm",
+      "upstreamUrl": "https://bitbucket.org/tagoh/liblangtag/"
+    },
+    "Lasem-0.6": {
+      "file": "Lasem-0.6.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "lasem-devel",
+      "sourceRpm": "lasem-0.6.0-5.fc45.src.rpm",
+      "upstreamUrl": "https://lasemproject.github.io/lasem/"
+    },
+    "Lfb-0.0": {
+      "file": "Lfb-0.0.gir",
+      "license": "GPL-3.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "feedbackd-devel",
+      "sourceRpm": "feedbackd-0.8.9-4.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.freedesktop.org/feedbackd/feedbackd"
+    },
+    "Libinsane-1.0": {
+      "file": "Libinsane-1.0.gir",
+      "license": "LGPL-3.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "libinsane-gobject-devel",
+      "sourceRpm": "libinsane-1.0.10-10.fc45.src.rpm",
+      "upstreamUrl": "https://doc.openpaper.work/libinsane/latest/"
+    },
+    "Libmsi-1.0": {
+      "file": "Libmsi-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libmsi1-devel",
+      "sourceRpm": "msitools-0.106.73-1.fc45.src.rpm",
+      "upstreamUrl": "http://ftp.gnome.org/pub/GNOME/sources/msitools"
+    },
+    "Libosinfo-1.0": {
+      "file": "Libosinfo-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libosinfo-devel",
+      "sourceRpm": "libosinfo-1.12.0-10.fc45.src.rpm",
+      "upstreamUrl": "https://libosinfo.org/"
+    },
+    "Libproxy-1.0": {
+      "file": "Libproxy-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libproxy-devel",
+      "sourceRpm": "libproxy-0.5.12-3.fc45.src.rpm",
+      "upstreamUrl": "https://libproxy.github.io/libproxy/"
+    },
+    "LibvirtGConfig-1.0": {
+      "file": "LibvirtGConfig-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libvirt-gconfig-devel",
+      "sourceRpm": "libvirt-glib-5.0.0-10.fc45.src.rpm",
+      "upstreamUrl": "https://libvirt.org/"
+    },
+    "LibvirtGLib-1.0": {
+      "file": "LibvirtGLib-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libvirt-glib-devel",
+      "sourceRpm": "libvirt-glib-5.0.0-10.fc45.src.rpm",
+      "upstreamUrl": "https://libvirt.org/"
+    },
+    "LibvirtGObject-1.0": {
+      "file": "LibvirtGObject-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libvirt-gobject-devel",
+      "sourceRpm": "libvirt-glib-5.0.0-10.fc45.src.rpm",
+      "upstreamUrl": "https://libvirt.org/"
+    },
+    "LibvirtSandbox-1.0": {
+      "file": "LibvirtSandbox-1.0.gir",
+      "license": "LicenseRef-Callaway-LGPLv2+",
+      "source": "fedora",
+      "sourcePackage": "libvirt-sandbox-devel",
+      "sourceRpm": "libvirt-sandbox-0.8.0-21.fc45.src.rpm",
+      "upstreamUrl": "http://libvirt.org/"
+    },
+    "Libxfce4panel-2.0": {
+      "file": "Libxfce4panel-2.0.gir",
+      "license": "GPL-2.0-or-later AND LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "xfce4-panel-devel",
+      "sourceRpm": "xfce4-panel-4.20.8-4.fc45.src.rpm",
+      "upstreamUrl": "http://www.xfce.org/"
+    },
+    "Libxfce4ui-2.0": {
+      "file": "Libxfce4ui-2.0.gir",
+      "license": "LicenseRef-Callaway-LGPLv2+",
+      "source": "fedora",
+      "sourcePackage": "libxfce4ui",
+      "sourceRpm": "libxfce4ui-4.20.2-4.fc45.src.rpm",
+      "upstreamUrl": "http://xfce.org/"
+    },
+    "Libxfce4util-1.0": {
+      "file": "Libxfce4util-1.0.gir",
+      "license": "LicenseRef-Callaway-LGPLv2+",
+      "source": "fedora",
+      "sourcePackage": "libxfce4util",
+      "sourceRpm": "libxfce4util-4.20.1-4.fc45.src.rpm",
+      "upstreamUrl": "http://www.xfce.org/"
+    },
+    "Libxfce4windowing-0.0": {
+      "file": "Libxfce4windowing-0.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libxfce4windowing-devel",
+      "sourceRpm": "libxfce4windowing-4.20.7-1.fc46.src.rpm",
+      "upstreamUrl": "https://docs.xfce.org/xfce/libxfce4windowing/start"
+    },
+    "Libxfce4windowingui-0.0": {
+      "file": "Libxfce4windowingui-0.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libxfce4windowing-devel",
+      "sourceRpm": "libxfce4windowing-4.20.7-1.fc46.src.rpm",
+      "upstreamUrl": "https://docs.xfce.org/xfce/libxfce4windowing/start"
+    },
+    "Liferea-3.0": {
+      "file": "Liferea-3.0.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "liferea",
+      "sourceRpm": "liferea-2.0-1.fc46.src.rpm",
+      "upstreamUrl": "https://lzone.de/liferea/"
+    },
+    "LightDM-1": {
+      "file": "LightDM-1.gir",
+      "license": "(LGPL-2.0-only OR LGPL-3.0-only) AND GPL-3.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "lightdm-gobject-devel",
+      "sourceRpm": "lightdm-1.33.1-2.fc46.src.rpm",
+      "upstreamUrl": "https://www.freedesktop.org/wiki/Software/LightDM/"
+    },
+    "MPID-3.0": {
+      "file": "MPID-3.0.gir",
+      "license": "GPL-2.0-or-later AND CC0-1.0 AND MIT",
+      "source": "fedora",
+      "sourcePackage": "rhythmbox-devel",
+      "sourceRpm": "rhythmbox-3.5.0-1.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Apps/Rhythmbox"
+    },
+    "Malcontent-0": {
+      "file": "Malcontent-0.gir",
+      "license": "LGPL-2.1-only AND CC-BY-3.0",
+      "source": "fedora",
+      "sourcePackage": "malcontent-devel",
+      "sourceRpm": "malcontent-0.14.0-7.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.freedesktop.org/pwithnall/malcontent/"
+    },
+    "MalcontentUi-1": {
+      "file": "MalcontentUi-1.gir",
+      "license": "LGPL-2.1-only AND CC-BY-3.0",
+      "source": "fedora",
+      "sourcePackage": "malcontent-ui-devel",
+      "sourceRpm": "malcontent-0.14.0-7.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.freedesktop.org/pwithnall/malcontent/"
+    },
+    "Manette-0.2": {
+      "file": "Manette-0.2.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libmanette-devel",
+      "sourceRpm": "libmanette-0.2.13-9.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/libmanette"
+    },
+    "Mash-0.2": {
+      "file": "Mash-0.2.gir",
+      "license": "LicenseRef-Callaway-LGPLv2+",
+      "source": "fedora",
+      "sourcePackage": "libmash-devel",
+      "sourceRpm": "libmash-0.2.0-43.fc45.src.rpm",
+      "upstreamUrl": "http://clutter-project.github.com/mash/"
+    },
+    "MateDesktop-2.0": {
+      "file": "MateDesktop-2.0.gir",
+      "license": "LicenseRef-Callaway-LGPLv2+",
+      "source": "fedora",
+      "sourcePackage": "mate-desktop-devel",
+      "sourceRpm": "mate-desktop-1.28.2-9.fc45.src.rpm",
+      "upstreamUrl": "http://mate-desktop.org"
+    },
+    "MateMenu-2.0": {
+      "file": "MateMenu-2.0.gir",
+      "license": "GPL-2.0-or-later AND LicenseRef-Callaway-LGPLv2+",
+      "source": "fedora",
+      "sourcePackage": "mate-menus-devel",
+      "sourceRpm": "mate-menus-1.28.1-2.fc45.src.rpm",
+      "upstreamUrl": "http://mate-desktop.org"
+    },
+    "MatePanelApplet-4.0": {
+      "file": "MatePanelApplet-4.0.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "mate-panel-devel",
+      "sourceRpm": "mate-panel-1.28.4-5.fc45.src.rpm",
+      "upstreamUrl": "http://mate-desktop.org"
+    },
+    "Matekbd-1.0": {
+      "file": "Matekbd-1.0.gir",
+      "license": "LicenseRef-Callaway-LGPLv2+",
+      "source": "fedora",
+      "sourcePackage": "libmatekbd",
+      "sourceRpm": "libmatekbd-1.28.0-10.fc45.src.rpm",
+      "upstreamUrl": "http://mate-desktop.org"
+    },
+    "Mbim-1.0": {
+      "file": "Mbim-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libmbim-devel",
+      "sourceRpm": "libmbim-1.32.0-4.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.freedesktop.org/mobile-broadband/libmbim/"
+    },
+    "MediaArt-2.0": {
+      "file": "MediaArt-2.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libmediaart-devel",
+      "sourceRpm": "libmediaart-1.9.7-12.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/libmediaart"
+    },
+    "Meta-10": {
+      "file": "Meta-10.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Meta-11": {
+      "file": "Meta-11.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Meta-12": {
+      "file": "Meta-12.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Meta-13": {
+      "file": "Meta-13.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Meta-14": {
+      "file": "Meta-14.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Meta-15": {
+      "file": "Meta-15.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Meta-16": {
+      "file": "Meta-16.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Meta-17": {
+      "file": "Meta-17.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Meta-18": {
+      "file": "Meta-18.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Meta-3": {
+      "file": "Meta-3.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Meta-4": {
+      "file": "Meta-4.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Meta-5": {
+      "file": "Meta-5.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Meta-51": {
+      "file": "Meta-51.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Meta-6": {
+      "file": "Meta-6.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Meta-7": {
+      "file": "Meta-7.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Meta-8": {
+      "file": "Meta-8.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Meta-9": {
+      "file": "Meta-9.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Mks-1": {
+      "file": "Mks-1.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libmks-devel",
+      "sourceRpm": "libmks-0.1.5-12.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/libmks"
+    },
+    "ModemManager-1.0": {
+      "file": "ModemManager-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "ModemManager-glib-devel",
+      "sourceRpm": "ModemManager-1.24.2-5.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.freedesktop.org/mobile-broadband/ModemManager"
+    },
+    "Modulemd-2.0": {
+      "file": "Modulemd-2.0.gir",
+      "license": "MIT",
+      "source": "fedora",
+      "sourcePackage": "libmodulemd-devel",
+      "sourceRpm": "libmodulemd-2.15.3-3.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/fedora-modularity/libmodulemd"
+    },
+    "Msg-1": {
+      "file": "Msg-1.gir",
+      "license": "LGPL-3.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "msgraph-devel",
+      "sourceRpm": "msgraph-0.3.5-1.fc46.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/msgraph"
+    },
+    "Mtk-13": {
+      "file": "Mtk-13.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Mtk-14": {
+      "file": "Mtk-14.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Mtk-15": {
+      "file": "Mtk-15.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Mtk-16": {
+      "file": "Mtk-16.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Mtk-17": {
+      "file": "Mtk-17.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Mtk-18": {
+      "file": "Mtk-18.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "Mtk-51": {
+      "file": "Mtk-51.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/mutter.git"
+    },
+    "MyPaint-1.6": {
+      "file": "MyPaint-1.6.gir",
+      "license": "ISC",
+      "source": "fedora",
+      "sourcePackage": "libmypaint-devel",
+      "sourceRpm": "libmypaint-1.6.1-22.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/mypaint/libmypaint"
+    },
+    "NM-1.0": {
+      "file": "NM-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "NetworkManager-libnm-devel",
+      "sourceRpm": "NetworkManager-1.58.1-1.fc46.src.rpm",
+      "upstreamUrl": "https://networkmanager.dev/"
+    },
+    "NMA-1.0": {
+      "file": "NMA-1.0.gir",
+      "license": "GPL-2.0-or-later AND LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libnma-devel",
+      "sourceRpm": "libnma-1.10.6-12.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/libnma/"
+    },
+    "NMA4-1.0": {
+      "file": "NMA4-1.0.gir",
+      "license": "GPL-2.0-or-later AND LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libnma-gtk4-devel",
+      "sourceRpm": "libnma-1.10.6-12.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/libnma/"
+    },
+    "Nautilus-4.1": {
+      "file": "Nautilus-4.1.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "nautilus-devel",
+      "sourceRpm": "nautilus-51~beta-1.fc45.src.rpm",
+      "upstreamUrl": "https://apps.gnome.org/Nautilus/"
+    },
+    "Nemo-3.0": {
+      "file": "Nemo-3.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "nemo-devel",
+      "sourceRpm": "nemo-6.7.5^unstable-1.fc46.src.rpm",
+      "upstreamUrl": "https://github.com/linuxmint/nemo"
+    },
+    "NemoPreview-1.0": {
+      "file": "NemoPreview-1.0.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "nemo-preview",
+      "sourceRpm": "nemo-extensions-6.7.1^unstable-1.fc46.src.rpm",
+      "upstreamUrl": "https://github.com/linuxmint/nemo-extensions"
+    },
+    "Nice-0.1": {
+      "file": "Nice-0.1.gir",
+      "license": "LGPL-2.1-or-later OR MPL-1.1",
+      "source": "fedora",
+      "sourcePackage": "libnice-devel",
+      "sourceRpm": "libnice-0.1.23-3.fc45.src.rpm",
+      "upstreamUrl": "https://nice.freedesktop.org/"
+    },
+    "Notify-0.7": {
+      "file": "Notify-0.7.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libnotify-devel",
+      "sourceRpm": "libnotify-0.8.8-8.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/libnotify"
+    },
+    "OSTree-1.0": {
+      "file": "OSTree-1.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "ostree-devel",
+      "sourceRpm": "ostree-2026.4-1.fc46.src.rpm",
+      "upstreamUrl": "https://ostreedev.github.io/ostree/"
+    },
+    "OsmGpsMap-1.0": {
+      "file": "OsmGpsMap-1.0.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "osm-gps-map-devel",
+      "sourceRpm": "osm-gps-map-1.2.1-1.fc46.src.rpm",
+      "upstreamUrl": "https://github.com/nzjrs/osm-gps-map/"
+    },
+    "PackageKitGlib-1.0": {
+      "file": "PackageKitGlib-1.0.gir",
+      "license": "GPL-2.0-or-later AND LGPL-2.1-or-later AND FSFAP",
+      "source": "fedora",
+      "sourcePackage": "PackageKit-glib-devel",
+      "sourceRpm": "PackageKit-1.3.6-3.fc45.src.rpm",
+      "upstreamUrl": "http://www.freedesktop.org/software/PackageKit/"
+    },
+    "Panel-1": {
+      "file": "Panel-1.gir",
+      "license": "LGPL-3.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "libpanel-devel",
+      "sourceRpm": "libpanel-1.10.4-8.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/libpanel"
+    },
+    "Pango-1.0": {
+      "file": "Pango-1.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "pango-devel",
+      "sourceRpm": "pango-1.58.2-1.fc45.src.rpm",
+      "upstreamUrl": "https://pango.gnome.org/"
+    },
+    "PangoCairo-1.0": {
+      "file": "PangoCairo-1.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "pango-devel",
+      "sourceRpm": "pango-1.58.2-1.fc45.src.rpm",
+      "upstreamUrl": "https://pango.gnome.org/"
+    },
+    "PangoFT2-1.0": {
+      "file": "PangoFT2-1.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "pango-devel",
+      "sourceRpm": "pango-1.58.2-1.fc45.src.rpm",
+      "upstreamUrl": "https://pango.gnome.org/"
+    },
+    "PangoFc-1.0": {
+      "file": "PangoFc-1.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "pango-devel",
+      "sourceRpm": "pango-1.58.2-1.fc45.src.rpm",
+      "upstreamUrl": "https://pango.gnome.org/"
+    },
+    "PangoOT-1.0": {
+      "file": "PangoOT-1.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "pango-devel",
+      "sourceRpm": "pango-1.58.2-1.fc45.src.rpm",
+      "upstreamUrl": "https://pango.gnome.org/"
+    },
+    "PangoXft-1.0": {
+      "file": "PangoXft-1.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "pango-devel",
+      "sourceRpm": "pango-1.58.2-1.fc45.src.rpm",
+      "upstreamUrl": "https://pango.gnome.org/"
+    },
+    "PapersDocument-4.0": {
+      "file": "PapersDocument-4.0.gir",
+      "license": "GPL-2.0-or-later AND GPL-3.0-or-later AND LGPL-2.0-or-later AND LGPL-2.1-or-later AND MIT AND libtiff AND Apache-2.0 AND BSD-2-Clause AND BSD-3-Clause AND ISC AND LicenseRef-BSD-2-Clause-WITH-AdditionRef-AOMPL-1.0 AND Unicode-3.0 AND Unicode-DFS-2016 AND Zlib AND (0BSD OR MIT OR Apache-2.0) AND (Apache-2.0 OR MIT) AND (Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT) AND (BSD-2-Clause OR Apache-2.0 OR MIT) AND (BSD-2-Clause AND ISC) AND (BSD-3-Clause OR Apache-2.0) AND (MIT OR Apache-2.0 OR Zlib) AND (Unlicense OR MIT)",
+      "source": "fedora",
+      "sourcePackage": "papers-devel",
+      "sourceRpm": "papers-51~beta-1.fc46.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/papers"
+    },
+    "PapersView-4.0": {
+      "file": "PapersView-4.0.gir",
+      "license": "GPL-2.0-or-later AND GPL-3.0-or-later AND LGPL-2.0-or-later AND LGPL-2.1-or-later AND MIT AND libtiff AND Apache-2.0 AND BSD-2-Clause AND BSD-3-Clause AND ISC AND LicenseRef-BSD-2-Clause-WITH-AdditionRef-AOMPL-1.0 AND Unicode-3.0 AND Unicode-DFS-2016 AND Zlib AND (0BSD OR MIT OR Apache-2.0) AND (Apache-2.0 OR MIT) AND (Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT) AND (BSD-2-Clause OR Apache-2.0 OR MIT) AND (BSD-2-Clause AND ISC) AND (BSD-3-Clause OR Apache-2.0) AND (MIT OR Apache-2.0 OR Zlib) AND (Unlicense OR MIT)",
+      "source": "fedora",
+      "sourcePackage": "papers-devel",
+      "sourceRpm": "papers-51~beta-1.fc46.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/papers"
+    },
+    "Parquet-23.0": {
+      "file": "Parquet-23.0.gir",
+      "license": "Apache-2.0",
+      "source": "fedora",
+      "sourcePackage": "parquet-glib-devel",
+      "sourceRpm": "libarrow-23.0.1-11.fc46.src.rpm",
+      "upstreamUrl": "https://arrow.apache.org/"
+    },
+    "Passim-1.0": {
+      "file": "Passim-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "passim-devel",
+      "sourceRpm": "passim-0.1.12-1.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/hughsie/passim"
+    },
+    "Peas-1.0": {
+      "file": "Peas-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libpeas1-devel",
+      "sourceRpm": "libpeas1-1.36.0-16.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/Libpeas"
+    },
+    "Peas-2": {
+      "file": "Peas-2.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libpeas-devel",
+      "sourceRpm": "libpeas-2.2.1-8.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/Libpeas"
+    },
+    "PeasGtk-1.0": {
+      "file": "PeasGtk-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libpeas1-devel",
+      "sourceRpm": "libpeas1-1.36.0-16.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/Libpeas"
+    },
+    "Phosh-0": {
+      "file": "Phosh-0.gir",
+      "license": "GPL-3.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "phosh-devel",
+      "sourceRpm": "phosh-0.57.0-1.fc46.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/World/Phosh/phosh"
+    },
+    "Playerctl-2.0": {
+      "file": "Playerctl-2.0.gir",
+      "license": "LGPL-3.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "playerctl-devel",
+      "sourceRpm": "playerctl-2.4.1-13.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/acrisci/playerctl"
+    },
+    "Pluma-1.0": {
+      "file": "Pluma-1.0.gir",
+      "license": "GPL-2.0-or-later AND LicenseRef-Callaway-LGPLv2+",
+      "source": "fedora",
+      "sourcePackage": "pluma-devel",
+      "sourceRpm": "pluma-1.28.1-3.fc45.src.rpm",
+      "upstreamUrl": "http://mate-desktop.org"
+    },
+    "Pms-1.0": {
+      "file": "Pms-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libphosh-mobile-settings-devel",
+      "sourceRpm": "phosh-mobile-settings-0.57.0-1.fc46.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings"
+    },
+    "Polkit-1.0": {
+      "file": "Polkit-1.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "polkit-devel",
+      "sourceRpm": "polkit-127-5.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/polkit-org/polkit"
+    },
+    "PolkitAgent-1.0": {
+      "file": "PolkitAgent-1.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "polkit-devel",
+      "sourceRpm": "polkit-127-5.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/polkit-org/polkit"
+    },
+    "Poppler-0.18": {
+      "file": "Poppler-0.18.gir",
+      "license": "(GPL-2.0-only OR GPL-3.0-only) AND GPL-2.0-or-later AND LGPL-2.0-or-later AND LGPL-2.1-or-later AND MIT",
+      "source": "fedora",
+      "sourcePackage": "poppler-glib-devel",
+      "sourceRpm": "poppler-26.08.0-1.fc45.src.rpm",
+      "upstreamUrl": "https://poppler.freedesktop.org/"
+    },
+    "Qmi-1.0": {
+      "file": "Qmi-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libqmi-devel",
+      "sourceRpm": "libqmi-1.36.0-4.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.freedesktop.org/mobile-broadband/libqmi/"
+    },
+    "Qrtr-1.0": {
+      "file": "Qrtr-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libqrtr-glib-devel",
+      "sourceRpm": "libqrtr-glib-1.2.2-10.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.freedesktop.org/mobile-broadband/libqrtr-glib"
+    },
+    "RB-3.0": {
+      "file": "RB-3.0.gir",
+      "license": "GPL-2.0-or-later AND CC0-1.0 AND MIT",
+      "source": "fedora",
+      "sourcePackage": "rhythmbox-devel",
+      "sourceRpm": "rhythmbox-3.5.0-1.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Apps/Rhythmbox"
+    },
+    "Rest-0.7": {
+      "file": "Rest-0.7.gir",
+      "license": "LicenseRef-Callaway-LGPLv2",
+      "source": "fedora",
+      "sourcePackage": "rest0.7-devel",
+      "sourceRpm": "rest0.7-0.8.1-12.fc45.src.rpm",
+      "upstreamUrl": "http://www.gnome.org"
+    },
+    "Rest-1.0": {
+      "file": "Rest-1.0.gir",
+      "license": "LGPL-2.1-only",
+      "source": "fedora",
+      "sourcePackage": "rest-devel",
+      "sourceRpm": "rest-0.10.2-12.fc46.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/librest"
+    },
+    "RestExtras-0.7": {
+      "file": "RestExtras-0.7.gir",
+      "license": "LicenseRef-Callaway-LGPLv2",
+      "source": "fedora",
+      "sourcePackage": "rest0.7-devel",
+      "sourceRpm": "rest0.7-0.8.1-12.fc45.src.rpm",
+      "upstreamUrl": "http://www.gnome.org"
+    },
+    "RestExtras-1.0": {
+      "file": "RestExtras-1.0.gir",
+      "license": "LGPL-2.1-only",
+      "source": "fedora",
+      "sourcePackage": "rest-devel",
+      "sourceRpm": "rest-0.10.2-12.fc46.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/librest"
+    },
+    "RpmOstree-1.0": {
+      "file": "RpmOstree-1.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "rpm-ostree-devel",
+      "sourceRpm": "rpm-ostree-2026.2-4.fc46.src.rpm",
+      "upstreamUrl": "https://github.com/coreos/rpm-ostree"
+    },
+    "Rsvg-2.0": {
+      "file": "Rsvg-2.0.gir",
+      "license": "LGPL-2.1-or-later AND Apache-2.0 AND BSD-3-Clause AND MIT AND MPL-2.0 AND Unicode-3.0 AND Unicode-DFS-2016 AND (0BSD OR MIT OR Apache-2.0) AND (Apache-2.0 OR MIT) AND (BSD-3-Clause OR Apache-2.0) AND (MIT OR Apache-2.0 OR Zlib) AND (Unlicense OR MIT)",
+      "source": "fedora",
+      "sourcePackage": "librsvg2-devel",
+      "sourceRpm": "librsvg2-2.62.3-3.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/LibRsvg"
+    },
+    "RygelCore-2.8": {
+      "file": "RygelCore-2.8.gir",
+      "license": "LGPL-2.1-or-later AND CC-BY-SA-3.0",
+      "source": "fedora",
+      "sourcePackage": "rygel-devel",
+      "sourceRpm": "rygel-46~beta-1.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/Rygel"
+    },
+    "RygelRenderer-2.8": {
+      "file": "RygelRenderer-2.8.gir",
+      "license": "LGPL-2.1-or-later AND CC-BY-SA-3.0",
+      "source": "fedora",
+      "sourcePackage": "rygel-devel",
+      "sourceRpm": "rygel-46~beta-1.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/Rygel"
+    },
+    "RygelRendererGst-2.8": {
+      "file": "RygelRendererGst-2.8.gir",
+      "license": "LGPL-2.1-or-later AND CC-BY-SA-3.0",
+      "source": "fedora",
+      "sourcePackage": "rygel-devel",
+      "sourceRpm": "rygel-46~beta-1.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/Rygel"
+    },
+    "RygelServer-2.8": {
+      "file": "RygelServer-2.8.gir",
+      "license": "LGPL-2.1-or-later AND CC-BY-SA-3.0",
+      "source": "fedora",
+      "sourcePackage": "rygel-devel",
+      "sourceRpm": "rygel-46~beta-1.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/Rygel"
+    },
+    "Secret-1": {
+      "file": "Secret-1.gir",
+      "license": "LGPL-2.1-or-later AND Apache-2.0 AND (GPL-2.0-or-later OR TGPPL-1.0) AND LicenseRef-Fedora-Public-Domain AND GCR-docs",
+      "source": "fedora",
+      "sourcePackage": "libsecret-devel",
+      "sourceRpm": "libsecret-0.21.7-16.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/Libsecret"
+    },
+    "Shell-0.1": {
+      "file": "Shell-0.1.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gnome-shell.git"
+    },
+    "Shell-10": {
+      "file": "Shell-10.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gnome-shell.git"
+    },
+    "Shell-11": {
+      "file": "Shell-11.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gnome-shell.git"
+    },
+    "Shell-12": {
+      "file": "Shell-12.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gnome-shell.git"
+    },
+    "Shell-13": {
+      "file": "Shell-13.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gnome-shell.git"
+    },
+    "Shell-14": {
+      "file": "Shell-14.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gnome-shell.git"
+    },
+    "Shell-15": {
+      "file": "Shell-15.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gnome-shell.git"
+    },
+    "Shell-16": {
+      "file": "Shell-16.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gnome-shell.git"
+    },
+    "Shell-17": {
+      "file": "Shell-17.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gnome-shell.git"
+    },
+    "Shell-18": {
+      "file": "Shell-18.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gnome-shell.git"
+    },
+    "Shell-51": {
+      "file": "Shell-51.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gnome-shell.git"
+    },
+    "Shell-9": {
+      "file": "Shell-9.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gnome-shell.git"
+    },
+    "Shew-0": {
+      "file": "Shew-0.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gnome-shell.git"
+    },
+    "Shumate-1.0": {
+      "file": "Shumate-1.0.gir",
+      "license": "LGPL-2.1-or-later AND LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "libshumate-devel",
+      "sourceRpm": "libshumate-1.7~beta-1.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/libshumate"
+    },
+    "Skk-1.0": {
+      "file": "Skk-1.0.gir",
+      "license": "GPL-3.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "libskk-devel",
+      "sourceRpm": "libskk-1.1.1-2.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/ueno/libskk"
+    },
+    "Snapd-2": {
+      "file": "Snapd-2.gir",
+      "license": "LGPL-2.0-only OR LGPL-3.0-only",
+      "source": "fedora",
+      "sourcePackage": "snapd-glib-devel",
+      "sourceRpm": "snapd-glib-1.72-2.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/canonical/snapd-glib"
+    },
+    "Soup-2.4": {
+      "file": "Soup-2.4.gir",
+      "license": "LGPL-2.0-only",
+      "source": "fedora",
+      "sourcePackage": "libsoup-devel",
+      "sourceRpm": "libsoup-2.74.3-11.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/libsoup"
+    },
+    "Soup-3.0": {
+      "file": "Soup-3.0.gir",
+      "license": "LGPL-2.0-or-later AND LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libsoup3-devel",
+      "sourceRpm": "libsoup3-3.7.2-1.fc46.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/libsoup"
+    },
+    "SoupGNOME-2.4": {
+      "file": "SoupGNOME-2.4.gir",
+      "license": "LGPL-2.0-only",
+      "source": "fedora",
+      "sourcePackage": "libsoup-devel",
+      "sourceRpm": "libsoup-2.74.3-11.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/libsoup"
+    },
+    "Spelling-1": {
+      "file": "Spelling-1.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libspelling-devel",
+      "sourceRpm": "libspelling-0.4.10-3.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/libspelling"
+    },
+    "SpiceClientGLib-2.0": {
+      "file": "SpiceClientGLib-2.0.gir",
+      "license": "LGPL-2.1-or-later AND MIT AND MIT-open-group and BSD-3-Clause",
+      "source": "fedora",
+      "sourcePackage": "spice-glib-devel",
+      "sourceRpm": "spice-gtk-0.43-4.fc45.src.rpm",
+      "upstreamUrl": "https://www.spice-space.org/spice-gtk.html"
+    },
+    "SpiceClientGtk-3.0": {
+      "file": "SpiceClientGtk-3.0.gir",
+      "license": "LGPL-2.1-or-later AND MIT AND MIT-open-group and BSD-3-Clause",
+      "source": "fedora",
+      "sourcePackage": "spice-gtk3-devel",
+      "sourceRpm": "spice-gtk-0.43-4.fc45.src.rpm",
+      "upstreamUrl": "https://www.spice-space.org/spice-gtk.html"
+    },
+    "St-1.0": {
+      "file": "St-1.0.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gnome-shell.git"
+    },
+    "St-10": {
+      "file": "St-10.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gnome-shell.git"
+    },
+    "St-11": {
+      "file": "St-11.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gnome-shell.git"
+    },
+    "St-12": {
+      "file": "St-12.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gnome-shell.git"
+    },
+    "St-13": {
+      "file": "St-13.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gnome-shell.git"
+    },
+    "St-14": {
+      "file": "St-14.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gnome-shell.git"
+    },
+    "St-15": {
+      "file": "St-15.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gnome-shell.git"
+    },
+    "St-16": {
+      "file": "St-16.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gnome-shell.git"
+    },
+    "St-17": {
+      "file": "St-17.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gnome-shell.git"
+    },
+    "St-18": {
+      "file": "St-18.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gnome-shell.git"
+    },
+    "St-51": {
+      "file": "St-51.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gnome-shell.git"
+    },
+    "St-9": {
+      "file": "St-9.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/gnome-shell.git"
+    },
+    "SugarExt-1.0": {
+      "file": "SugarExt-1.0.gir",
+      "license": "LicenseRef-Callaway-LGPLv2+",
+      "source": "fedora",
+      "sourcePackage": "sugar-toolkit-gtk3-devel",
+      "sourceRpm": "sugar-toolkit-gtk3-0.121-15.fc45.src.rpm",
+      "upstreamUrl": "http://wiki.laptop.org/go/Sugar"
+    },
+    "SugarGestures-1.0": {
+      "file": "SugarGestures-1.0.gir",
+      "license": "LicenseRef-Callaway-LGPLv2+",
+      "source": "fedora",
+      "sourcePackage": "sugar-toolkit-gtk3-devel",
+      "sourceRpm": "sugar-toolkit-gtk3-0.121-15.fc45.src.rpm",
+      "upstreamUrl": "http://wiki.laptop.org/go/Sugar"
+    },
+    "Sushi-1.0": {
+      "file": "Sushi-1.0.gir",
+      "license": "GPL-2.0-or-later WITH GStreamer-exception-2008 AND CC0-1.0 AND (LGPL-2.0-or-later AND LGPL-2.1-or-later WITH GStreamer-exception-2005)",
+      "source": "fedora",
+      "sourcePackage": "sushi",
+      "sourceRpm": "sushi-51~beta-1.fc46.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/sushi"
+    },
+    "TelepathyGLib-0.12": {
+      "file": "TelepathyGLib-0.12.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "telepathy-glib-devel",
+      "sourceRpm": "telepathy-glib-0.24.2-16.fc45.src.rpm",
+      "upstreamUrl": "http://telepathy.freedesktop.org/wiki/FrontPage"
+    },
+    "Template-1.0": {
+      "file": "Template-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "template-glib-devel",
+      "sourceRpm": "template-glib-3.40.0-5.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.gnome.org/GNOME/template-glib/"
+    },
+    "Tepl-6": {
+      "file": "Tepl-6.gir",
+      "license": "LGPL-3.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "libgedit-tepl-devel",
+      "sourceRpm": "libgedit-tepl-6.14.0-5.fc45.src.rpm",
+      "upstreamUrl": "https://gedit-text-editor.org/"
+    },
+    "Thunarx-3.0": {
+      "file": "Thunarx-3.0.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "Thunar-devel",
+      "sourceRpm": "Thunar-4.20.9-1.fc45.src.rpm",
+      "upstreamUrl": "http://thunar.xfce.org/"
+    },
+    "TimezoneMap-1.0": {
+      "file": "TimezoneMap-1.0.gir",
+      "license": "GPL-3.0-only",
+      "source": "fedora",
+      "sourcePackage": "libtimezonemap-devel",
+      "sourceRpm": "libtimezonemap-0.4.5.4-3.fc45.src.rpm",
+      "upstreamUrl": "https://launchpad.net/timezonemap"
+    },
+    "Totem-1.0": {
+      "file": "Totem-1.0.gir",
+      "license": "GPL-2.0-or-later AND (GPL-2.0-or-later WITH GStreamer-exception-2008) AND LGPL-2.0-or-later AND CC0-1.0",
+      "source": "fedora",
+      "sourcePackage": "totem-devel",
+      "sourceRpm": "totem-43.2-16.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Apps/Videos"
+    },
+    "TotemPlParser-1.0": {
+      "file": "TotemPlParser-1.0.gir",
+      "license": "LGPL-2.0-or-later AND (LGPL-2.1-or-later WITH GStreamer-exception-2005)",
+      "source": "fedora",
+      "sourcePackage": "totem-pl-parser-devel",
+      "sourceRpm": "totem-pl-parser-3.26.7-3.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Apps/Videos"
+    },
+    "Tracker-3.0": {
+      "file": "Tracker-3.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "tinysparql-devel",
+      "sourceRpm": "tinysparql-3.12~alpha-2.fc45.src.rpm",
+      "upstreamUrl": "https://gnome.pages.gitlab.gnome.org/tinysparql/"
+    },
+    "Translit-1.0": {
+      "file": "Translit-1.0.gir",
+      "license": "GPL-3.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "libtranslit-devel",
+      "sourceRpm": "libtranslit-0.0.3-53.fc45.src.rpm",
+      "upstreamUrl": "http://github.com/ueno/libtranslit"
+    },
+    "Tsparql-3.0": {
+      "file": "Tsparql-3.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "tinysparql-devel",
+      "sourceRpm": "tinysparql-3.12~alpha-2.fc45.src.rpm",
+      "upstreamUrl": "https://gnome.pages.gitlab.gnome.org/tinysparql/"
+    },
+    "UDisks-2.0": {
+      "file": "UDisks-2.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "libudisks2-devel",
+      "sourceRpm": "udisks2-2.11.2-1.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/storaged-project/udisks"
+    },
+    "UMockdev-1.0": {
+      "file": "UMockdev-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "umockdev-devel",
+      "sourceRpm": "umockdev-0.19.8-2.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/martinpitt/umockdev"
+    },
+    "UPowerGlib-1.0": {
+      "file": "UPowerGlib-1.0.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "upower-devel",
+      "sourceRpm": "upower-1.91.3-2.fc45.src.rpm",
+      "upstreamUrl": "https://upower.freedesktop.org/"
+    },
+    "Uhm-1.0": {
+      "file": "Uhm-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "uhttpmock-devel",
+      "sourceRpm": "uhttpmock-0.11.0-6.fc45.src.rpm",
+      "upstreamUrl": "https://gitlab.freedesktop.org/pwithnall/uhttpmock"
+    },
+    "Unity-7.0": {
+      "file": "Unity-7.0.gir",
+      "license": "GPL-3.0-only",
+      "source": "fedora",
+      "sourcePackage": "libunity-devel",
+      "sourceRpm": "libunity-7.1.4-47.20190319.fc45.src.rpm",
+      "upstreamUrl": "https://launchpad.net/libunity"
+    },
+    "UnityExtras-7.0": {
+      "file": "UnityExtras-7.0.gir",
+      "license": "GPL-3.0-only",
+      "source": "fedora",
+      "sourcePackage": "libunity-devel",
+      "sourceRpm": "libunity-7.1.4-47.20190319.fc45.src.rpm",
+      "upstreamUrl": "https://launchpad.net/libunity"
+    },
+    "Vips-8.0": {
+      "file": "Vips-8.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "vips-devel",
+      "sourceRpm": "vips-8.18.3-4.fc46.src.rpm",
+      "upstreamUrl": "https://www.libvips.org/"
+    },
+    "Vte-0.0": {
+      "file": "Vte-0.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "vte-devel",
+      "sourceRpm": "vte-0.28.2-47.fc45.src.rpm",
+      "upstreamUrl": "http://developer.gnome.org/vte/"
+    },
+    "Vte-2.91": {
+      "file": "Vte-2.91.gir",
+      "license": "GPL-3.0-or-later AND LGPL-3.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "vte291-devel",
+      "sourceRpm": "vte291-0.84.1-1.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Apps/Terminal/VTE"
+    },
+    "Vte-3.91": {
+      "file": "Vte-3.91.gir",
+      "license": "GPL-3.0-or-later AND LGPL-3.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "vte291-gtk4-devel",
+      "sourceRpm": "vte291-0.84.1-1.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Apps/Terminal/VTE"
+    },
+    "Vulkan-1.0": {
+      "file": "Vulkan-1.0.gir",
+      "license": "GPL-2.0-or-later AND LGPL-2.0-or-later AND LGPL-2.1-or-later AND BSD-2-Clause",
+      "source": "fedora",
+      "sourcePackage": "gobject-introspection-devel",
+      "sourceRpm": "gobject-introspection-1.86.0-11.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/GObjectIntrospection"
+    },
+    "WebKit-6.0": {
+      "file": "WebKit-6.0.gir",
+      "license": "LGPL-2.1-only AND BSD-2-Clause AND BSD-3-Clause AND ISC AND bzip2-1.0.6 AND NCSA AND MIT AND GPL-2.0-only AND MPL-1.1 AND SunPro AND Apache-2.0 AND GPL-3.0-or-later WITH Bison-exception-2.2 AND MPL-2.0 AND OFL-1.1 AND (AFL-2.0 OR GPL-2.0-or-later) AND BSD-Source-Code AND BSD-2-Clause-Views AND LGPL-2.1-or-later AND (NCSA OR MIT) AND Apache-2.0 WITH LLVM-exception AND BSL-1.0",
+      "source": "fedora",
+      "sourcePackage": "webkitgtk6.0-devel",
+      "sourceRpm": "webkitgtk-2.53.91-1.fc46.src.rpm",
+      "upstreamUrl": "https://www.webkitgtk.org/"
+    },
+    "WebKit2-4.1": {
+      "file": "WebKit2-4.1.gir",
+      "license": "LGPL-2.1-only AND BSD-2-Clause AND BSD-3-Clause AND ISC AND bzip2-1.0.6 AND NCSA AND MIT AND GPL-2.0-only AND MPL-1.1 AND SunPro AND Apache-2.0 AND GPL-3.0-or-later WITH Bison-exception-2.2 AND MPL-2.0 AND OFL-1.1 AND (AFL-2.0 OR GPL-2.0-or-later) AND BSD-Source-Code AND BSD-2-Clause-Views AND LGPL-2.1-or-later AND (NCSA OR MIT) AND Apache-2.0 WITH LLVM-exception AND BSL-1.0",
+      "source": "fedora",
+      "sourcePackage": "webkit2gtk4.1-devel",
+      "sourceRpm": "webkitgtk-2.53.91-1.fc46.src.rpm",
+      "upstreamUrl": "https://www.webkitgtk.org/"
+    },
+    "WebKit2WebExtension-4.1": {
+      "file": "WebKit2WebExtension-4.1.gir",
+      "license": "LGPL-2.1-only AND BSD-2-Clause AND BSD-3-Clause AND ISC AND bzip2-1.0.6 AND NCSA AND MIT AND GPL-2.0-only AND MPL-1.1 AND SunPro AND Apache-2.0 AND GPL-3.0-or-later WITH Bison-exception-2.2 AND MPL-2.0 AND OFL-1.1 AND (AFL-2.0 OR GPL-2.0-or-later) AND BSD-Source-Code AND BSD-2-Clause-Views AND LGPL-2.1-or-later AND (NCSA OR MIT) AND Apache-2.0 WITH LLVM-exception AND BSL-1.0",
+      "source": "fedora",
+      "sourcePackage": "webkit2gtk4.1-devel",
+      "sourceRpm": "webkitgtk-2.53.91-1.fc46.src.rpm",
+      "upstreamUrl": "https://www.webkitgtk.org/"
+    },
+    "WebKitWebExtension-6.0": {
+      "file": "WebKitWebExtension-6.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "gir-module-metadata",
+      "upstreamUrl": "https://webkitgtk.org"
+    },
+    "WebKitWebProcessExtension-6.0": {
+      "file": "WebKitWebProcessExtension-6.0.gir",
+      "license": "LGPL-2.1-only AND BSD-2-Clause AND BSD-3-Clause AND ISC AND bzip2-1.0.6 AND NCSA AND MIT AND GPL-2.0-only AND MPL-1.1 AND SunPro AND Apache-2.0 AND GPL-3.0-or-later WITH Bison-exception-2.2 AND MPL-2.0 AND OFL-1.1 AND (AFL-2.0 OR GPL-2.0-or-later) AND BSD-Source-Code AND BSD-2-Clause-Views AND LGPL-2.1-or-later AND (NCSA OR MIT) AND Apache-2.0 WITH LLVM-exception AND BSL-1.0",
+      "source": "fedora",
+      "sourcePackage": "webkitgtk6.0-devel",
+      "sourceRpm": "webkitgtk-2.53.91-1.fc46.src.rpm",
+      "upstreamUrl": "https://www.webkitgtk.org/"
+    },
+    "Wnck-1.0": {
+      "file": "Wnck-1.0.gir",
+      "license": "LicenseRef-Callaway-LGPLv2+",
+      "source": "fedora",
+      "sourcePackage": "libwnck-devel",
+      "sourceRpm": "libwnck-2.31.0-30.fc45.src.rpm",
+      "upstreamUrl": "http://download.gnome.org/sources/libwnck/"
+    },
+    "Wnck-3.0": {
+      "file": "Wnck-3.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "libwnck3-devel",
+      "sourceRpm": "libwnck3-43.3-8.fc45.src.rpm",
+      "upstreamUrl": "http://download.gnome.org/sources/libwnck/"
+    },
+    "Wp-0.5": {
+      "file": "Wp-0.5.gir",
+      "license": "MIT",
+      "source": "fedora",
+      "sourcePackage": "wireplumber-devel",
+      "sourceRpm": "wireplumber-0.5.14-2.fc45.src.rpm",
+      "upstreamUrl": "https://pipewire.pages.freedesktop.org/wireplumber/"
+    },
+    "XApp-1.0": {
+      "file": "XApp-1.0.gir",
+      "license": "LGPL-3.0-only",
+      "source": "fedora",
+      "sourcePackage": "xapps-devel",
+      "sourceRpm": "xapps-3.3.4^unstable-1.fc46.src.rpm",
+      "upstreamUrl": "https://github.com/linuxmint/xapps"
+    },
+    "Xdp-1.0": {
+      "file": "Xdp-1.0.gir",
+      "license": "LGPL-3.0-only AND LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libportal-devel",
+      "sourceRpm": "libportal-0.10.0-2.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/flatpak/libportal"
+    },
+    "XdpGtk3-1.0": {
+      "file": "XdpGtk3-1.0.gir",
+      "license": "LGPL-3.0-only AND LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libportal-gtk3-devel",
+      "sourceRpm": "libportal-0.10.0-2.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/flatpak/libportal"
+    },
+    "XdpGtk4-1.0": {
+      "file": "XdpGtk4-1.0.gir",
+      "license": "LGPL-3.0-only AND LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libportal-gtk4-devel",
+      "sourceRpm": "libportal-0.10.0-2.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/flatpak/libportal"
+    },
+    "Xed-1.0": {
+      "file": "Xed-1.0.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "xed-devel",
+      "sourceRpm": "xed-3.8.9-4.fc46.src.rpm",
+      "upstreamUrl": "https://github.com/linuxmint/xed"
+    },
+    "Xfconf-0": {
+      "file": "Xfconf-0.gir",
+      "license": "GPL-2.0-only",
+      "source": "fedora",
+      "sourcePackage": "xfconf",
+      "sourceRpm": "xfconf-4.20.0-5.fc45.src.rpm",
+      "upstreamUrl": "http://www.xfce.org/"
+    },
+    "Xkl-1.0": {
+      "file": "Xkl-1.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "libxklavier-devel",
+      "sourceRpm": "libxklavier-5.4-31.fc45.src.rpm",
+      "upstreamUrl": "http://www.freedesktop.org/wiki/Software/LibXklavier"
+    },
+    "Xmlb-2.0": {
+      "file": "Xmlb-2.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "libxmlb-devel",
+      "sourceRpm": "libxmlb-0.3.29-1.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/hughsie/libxmlb"
+    },
+    "XreaderDocument-1.5": {
+      "file": "XreaderDocument-1.5.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "xreader-devel",
+      "sourceRpm": "xreader-4.6.4-3.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/linuxmint/xreader"
+    },
+    "XreaderView-1.5": {
+      "file": "XreaderView-1.5.gir",
+      "license": "GPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "xreader-devel",
+      "sourceRpm": "xreader-4.6.4-3.fc45.src.rpm",
+      "upstreamUrl": "https://github.com/linuxmint/xreader"
+    },
+    "ZBar-1.0": {
+      "file": "ZBar-1.0.gir",
+      "license": "LGPL-2.1-or-later",
+      "source": "fedora",
+      "sourcePackage": "zbar-devel",
+      "sourceRpm": "zbar-0.23.93-13.fc45.src.rpm",
+      "upstreamUrl": "http://zbar.sourceforge.net/"
+    },
+    "Zeitgeist-2.0": {
+      "file": "Zeitgeist-2.0.gir",
+      "license": "LGPL-2.0-or-later",
+      "source": "fedora",
+      "sourcePackage": "zeitgeist-devel",
+      "sourceRpm": "zeitgeist-1.0.4-25.fc45.src.rpm",
+      "upstreamUrl": "https://launchpad.net/zeitgeist"
+    },
+    "cairo-1.0": {
+      "file": "cairo-1.0.gir",
+      "license": "GPL-2.0-or-later AND LGPL-2.0-or-later AND LGPL-2.1-or-later AND BSD-2-Clause",
+      "source": "fedora",
+      "sourcePackage": "gobject-introspection-devel",
+      "sourceRpm": "gobject-introspection-1.86.0-11.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/GObjectIntrospection"
+    },
+    "fontconfig-2.0": {
+      "file": "fontconfig-2.0.gir",
+      "license": "GPL-2.0-or-later AND LGPL-2.0-or-later AND LGPL-2.1-or-later AND BSD-2-Clause",
+      "source": "fedora",
+      "sourcePackage": "gobject-introspection-devel",
+      "sourceRpm": "gobject-introspection-1.86.0-11.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/GObjectIntrospection"
+    },
+    "freetype2-2.0": {
+      "file": "freetype2-2.0.gir",
+      "license": "GPL-2.0-or-later AND LGPL-2.0-or-later AND LGPL-2.1-or-later AND BSD-2-Clause",
+      "source": "fedora",
+      "sourcePackage": "gobject-introspection-devel",
+      "sourceRpm": "gobject-introspection-1.86.0-11.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/GObjectIntrospection"
+    },
+    "libxml2-2.0": {
+      "file": "libxml2-2.0.gir",
+      "license": "GPL-2.0-or-later AND LGPL-2.0-or-later AND LGPL-2.1-or-later AND BSD-2-Clause",
+      "source": "fedora",
+      "sourcePackage": "gobject-introspection-devel",
+      "sourceRpm": "gobject-introspection-1.86.0-11.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/GObjectIntrospection"
+    },
+    "win32-1.0": {
+      "file": "win32-1.0.gir",
+      "license": "GPL-2.0-or-later AND LGPL-2.0-or-later AND LGPL-2.1-or-later AND BSD-2-Clause",
+      "source": "fedora",
+      "sourcePackage": "gobject-introspection-devel",
+      "sourceRpm": "gobject-introspection-1.86.0-11.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/GObjectIntrospection"
+    },
+    "xfixes-4.0": {
+      "file": "xfixes-4.0.gir",
+      "license": "GPL-2.0-or-later AND LGPL-2.0-or-later AND LGPL-2.1-or-later AND BSD-2-Clause",
+      "source": "fedora",
+      "sourcePackage": "gobject-introspection-devel",
+      "sourceRpm": "gobject-introspection-1.86.0-11.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/GObjectIntrospection"
+    },
+    "xft-2.0": {
+      "file": "xft-2.0.gir",
+      "license": "GPL-2.0-or-later AND LGPL-2.0-or-later AND LGPL-2.1-or-later AND BSD-2-Clause",
+      "source": "fedora",
+      "sourcePackage": "gobject-introspection-devel",
+      "sourceRpm": "gobject-introspection-1.86.0-11.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/GObjectIntrospection"
+    },
+    "xlib-2.0": {
+      "file": "xlib-2.0.gir",
+      "license": "GPL-2.0-or-later AND LGPL-2.0-or-later AND LGPL-2.1-or-later AND BSD-2-Clause",
+      "source": "fedora",
+      "sourcePackage": "gobject-introspection-devel",
+      "sourceRpm": "gobject-introspection-1.86.0-11.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/GObjectIntrospection"
+    },
+    "xrandr-1.3": {
+      "file": "xrandr-1.3.gir",
+      "license": "GPL-2.0-or-later AND LGPL-2.0-or-later AND LGPL-2.1-or-later AND BSD-2-Clause",
+      "source": "fedora",
+      "sourcePackage": "gobject-introspection-devel",
+      "sourceRpm": "gobject-introspection-1.86.0-11.fc45.src.rpm",
+      "upstreamUrl": "https://wiki.gnome.org/Projects/GObjectIntrospection"
+    }
+  },
+  "unattributed": [
+    "Ags-6.0",
+    "AgsAudio-6.0",
+    "AgsGui-6.0",
+    "Amtk-4",
+    "AnacondaWidgets-3.4",
+    "AppStreamBuilder-1.0",
+    "Arrow-1.0",
+    "ArrowCUDA-1.0",
+    "ArrowDataset-1.0",
+    "ArrowFlight-1.0",
+    "Avahi-0.6",
+    "AvahiCore-0.6",
+    "Budgie-1.0",
+    "BudgieRaven-1.0",
+    "Builder-1.0",
+    "Bump-0.1",
+    "Cally-10",
+    "Cally-11",
+    "Cally-12",
+    "Cally-13",
+    "Cally-14",
+    "Cally-15",
+    "Cally-3",
+    "Cally-4",
+    "Cally-5",
+    "Cally-6",
+    "Cally-7",
+    "Cally-8",
+    "Cally-9",
+    "Casilda-0.1",
+    "Cheese-3.0",
+    "ClutterGst-1.0",
+    "ClutterGst-2.0",
+    "ClutterX11-3",
+    "ClutterX11-4",
+    "ClutterX11-5",
+    "ClutterX11-6",
+    "ClutterX11-7",
+    "ClutterX11-8",
+    "CoglGst-2.0",
+    "CoglPango-10",
+    "CoglPango-11",
+    "CoglPango-12",
+    "CoglPango-13",
+    "CoglPango-14",
+    "CoglPango-15",
+    "CoglPango-3",
+    "CoglPango-4",
+    "CoglPango-5",
+    "CoglPango-6",
+    "CoglPango-7",
+    "CoglPango-8",
+    "CoglPango-9",
+    "ColorHug-1.0",
+    "DMAP-3.0",
+    "Deviced-1.0",
+    "ECalendar-1.2",
+    "Egg-1.0",
+    "Epc-1.0",
+    "EpcUi-1.0",
+    "Farstream-0.1",
+    "Folks-0.6",
+    "FolksDummy-0.6",
+    "FolksEds-0.6",
+    "FolksLibsocialweb-0.6",
+    "FolksTelepathy-0.6",
+    "GCalc-1",
+    "GData-0.0",
+    "GFBGraph-0.2",
+    "GFBGraph-0.3",
+    "GPasteGtk-3",
+    "GSSDP-1.0",
+    "GSSDP-1.2",
+    "GSignond-1.0",
+    "GSystem-1.0",
+    "GUPnP-1.0",
+    "GUPnP-1.2",
+    "GUPnPDLNA-1.0",
+    "GUPnPIgd-1.0",
+    "GWeather-3.0",
+    "GXml-0.14",
+    "GXml-0.16",
+    "GXml-0.18",
+    "GXml-0.20",
+    "Gandiva-1.0",
+    "GcrGtk3-4",
+    "GcrGtk4-4",
+    "Gd-1.0",
+    "Gee-1.0",
+    "Gegl-0.3",
+    "GeglGtk3-0.1",
+    "GeocodeGlib-1.0",
+    "Gepub-0.5",
+    "GjsDBus-1.0",
+    "GjsPrivate-1.0",
+    "Gly-1",
+    "GlyGtk4-1",
+    "GnomeRR-4.0",
+    "GooCanvas-3.0",
+    "Govf-0.1",
+    "Gpseq-1.0",
+    "Granite-7.0",
+    "Grl-0.1",
+    "Grl-0.2",
+    "GrlNet-0.1",
+    "GrlNet-0.2",
+    "GrlPls-0.2",
+    "Gst-0.10",
+    "GstAudio-0.10",
+    "GstBadAllocators-1.0",
+    "GstBase-0.10",
+    "GstClapper-1.0",
+    "GstFft-1.0",
+    "GstInterfaces-0.10",
+    "GstPbutils-0.10",
+    "GstRiff-1.0",
+    "GstTag-0.10",
+    "GstVideo-0.10",
+    "GstVulkanXCB-1.0",
+    "Gtef-2",
+    "Gthree-1.0",
+    "GthreeGtk3-1.0",
+    "GtkFrdp-0.2",
+    "GtkosxApplication-1.0",
+    "Guestfs-1.0",
+    "Gxps-1.0",
+    "Handy-0.0",
+    "Hs-1",
+    "Ide-1.0",
+    "Ide-45",
+    "Ide-46",
+    "Ide-47",
+    "Ide-49",
+    "JSCore-3.0",
+    "JavaScriptCore-4.0",
+    "JavaScriptCore-5.0",
+    "Lasem-0.4",
+    "Libsitra-0.1",
+    "Manette-1",
+    "MediaArt-1.0",
+    "MetaTest-12",
+    "MetaTest-13",
+    "MetaTest-14",
+    "MetaTest-15",
+    "MetaTest-16",
+    "MetaTest-17",
+    "MetaTest-18",
+    "MetaTest-51",
+    "Midori-0.6",
+    "Ministream-1",
+    "Mirage-3.2",
+    "Msg-0",
+    "Mx-1.0",
+    "Mx-2.0",
+    "MxGtk-1.0",
+    "MyPaintGegl-1.6",
+    "NMClient-1.0",
+    "NMGtk-1.0",
+    "Nautilus-3.0",
+    "Nautilus-4.0",
+    "NetworkManager-1.0",
+    "P11Kit-1.0",
+    "PQMarble-2",
+    "PackageKitPlugin-1.0",
+    "PanelApplet-4.0",
+    "PantheonWayland-1",
+    "Parquet-1.0",
+    "Plasma-1.0",
+    "Pnl-1.0",
+    "Retro-0.14",
+    "Retro-1",
+    "Retro-2",
+    "RygelCore-2.6",
+    "RygelRenderer-2.6",
+    "RygelRendererGst-2.6",
+    "RygelServer-2.6",
+    "SecretUnstable-0",
+    "Signon-2.0",
+    "Snapd-1",
+    "SocialWebClient-0.25",
+    "TelepathyFarstream-0.6",
+    "TelepathyLogger-0.2",
+    "Tepl-4",
+    "Tepl-5",
+    "Tracker-1.0",
+    "Tracker-2.0",
+    "TrackerControl-1.0",
+    "TrackerControl-2.0",
+    "TrackerMiner-1.0",
+    "TrackerMiner-2.0",
+    "Uhm-0.0",
+    "Unique-3.0",
+    "Unity-6.0",
+    "Vda-1",
+    "Vgda-1",
+    "Vgpg-1",
+    "Vgsl-1",
+    "Vpg-1",
+    "Vsqlite-1",
+    "Vte-4-2.91",
+    "WebKit2-4.0",
+    "WebKit2-5.0",
+    "WebKit2WebExtension-4.0",
+    "WebKit2WebExtension-5.0",
+    "Workbench-0",
+    "Wp-0.4",
+    "Zpj-0.0",
+    "gSignon-1.0"
+  ]
+}

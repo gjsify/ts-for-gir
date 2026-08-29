@@ -66,14 +66,22 @@ jobs:
         # the parent ts-for-gir version on each release run).
         git checkout -B main origin/main
 
+    # `NODE_OPTIONS`: TypeDoc holds the whole corpus in memory, and the corpus
+    # grows every cycle. v4.3.0 added GNOME 51, taking it from 703 namespaces to
+    # 716, and `build:doc` died at 3.8 GB against Node's ~4 GB default with
+    # "Ineffective mark-compacts near heap limit". `build:json` survived the same
+    # run, which is the reason both steps get the headroom rather than only the
+    # one that happened to fail first. The runner has 16 GB.
     - name: Generate JSON files
       env:
         WS_PATH: ${{ github.workspace }}
+        NODE_OPTIONS: --max-old-space-size=12288
       run: PATH="$WS_PATH/node_modules/.bin:$PATH" gjsify run build:json
 
     - name: Generate HTML documentation
       env:
         WS_PATH: ${{ github.workspace }}
+        NODE_OPTIONS: --max-old-space-size=12288
       run: PATH="$WS_PATH/node_modules/.bin:$PATH" gjsify run build:doc
 
     - name: Check for changes in docs submodule

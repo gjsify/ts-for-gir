@@ -49,3 +49,8 @@ repo/
 # Staging dir of scripts/fetch-fedora-girs.sh (container harvest, reviewed then
 # copied into girs/ — never a source of truth on its own)
 .fedora-girs-*/
+
+# Generated payload of packages/gir-files (rebuilt by build:app from girs/).
+# NOTICE.md and provenance.json ARE committed: they are the licence record and
+# have to be reviewable in a diff.
+packages/gir-files/payload/

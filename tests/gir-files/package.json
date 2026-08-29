@@ -1,0 +1,22 @@
+{
+  "name": "@ts-for-gir-test/gir-files",
+  "type": "module",
+  "private": true,
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "node ../../packages/gir-files/scripts/build-payload.mjs && vitest run",
+    "test:watch": "vitest"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@ts-for-gir/gir-files": "workspace:^",
+    "vitest": "^4.1.11"
+  },
+  "devDependencies": {
+    "@types/node": "^26.4.0",
+    "typescript": "^6.0.3"
+  }
+}

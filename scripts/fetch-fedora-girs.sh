@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Harvest .gir/.typelib files from a Fedora release inside a container.
+# Harvest .gir files from a Fedora release inside a container.
 #
 # The workstation runs ONE Fedora release, so `copy:girs` can only ever see the
 # GNOME version that release ships. A GNOME cycle starts in Rawhide months
@@ -49,7 +49,7 @@ usage() {
     cat <<EOF
 Usage: $0 [OPTIONS]
 
-Harvest .gir/.typelib files from a Fedora release inside a container into ./girs.
+Harvest .gir files from a Fedora release inside a container into ./girs.
 
 Options:
   --fedora VERSION   Fedora release / image tag (default: rawhide)
@@ -181,17 +181,13 @@ else
     echo "installed: $(rpm -qa | wc -l) rpms"
 INNER
 
-    log_info "Collecting .gir / .typelib files from the container ..."
+    log_info "Collecting .gir files from the container ..."
 
     $CONTAINER_RUNTIME exec -i "$CONTAINER_NAME" bash -s <<'INNER'
     set -uo pipefail
     GIR_DIRS=(/usr/local/share/gir-1.0 /usr/share/gir-1.0 /usr/share/gnome-shell /usr/share/gnome-shell/gir-1.0)
     for d in /usr/share/*/gir-1.0 /usr/lib64/mutter-* /usr/lib/mutter-*; do
         [ -d "$d" ] && GIR_DIRS+=("$d")
-    done
-    LIB_DIRS=(/usr/lib64/girepository-1.0 /usr/lib/girepository-1.0)
-    for d in /usr/lib64/mutter-* /usr/lib/mutter-*; do
-        [ -d "$d" ] && LIB_DIRS+=("$d")
     done
 
     n=0
@@ -202,14 +198,7 @@ INNER
             cp -f "$f" /out/ && n=$((n+1))
         done
     done
-    for d in "${LIB_DIRS[@]}"; do
-        [ -d "$d" ] || continue
-        for f in "$d"/*.typelib; do
-            [ -e "$f" ] || continue
-            cp -f "$f" /out/
-        done
-    done
-    echo "collected: $n .gir, $(ls /out/*.typelib 2>/dev/null | wc -l) .typelib"
+    echo "collected: $n .gir"
 INNER
     finish
 fi
@@ -273,9 +262,9 @@ unchanged=0
 skipped=0
 
 shopt -s nullglob
-for staged in "$STAGE_DIR"/*.gir "$STAGE_DIR"/*.typelib; do
+for staged in "$STAGE_DIR"/*.gir; do
     file="$(basename "$staged")"
-    base="${file%.gir}"; base="${base%.typelib}"
+    base="${file%.gir}"
     if ! matches_only "$base"; then
         skipped=$((skipped+1))
         continue
@@ -285,7 +274,7 @@ for staged in "$STAGE_DIR"/*.gir "$STAGE_DIR"/*.typelib; do
         added+=("$file")
     elif cmp -s "$staged" "$target"; then
         unchanged=$((unchanged+1))
-    elif [[ "$file" == *.gir ]] && ! $ALLOW_DOWNGRADE \
+    elif ! $ALLOW_DOWNGRADE \
          && old_v=$(gir_version "$target") && new_v=$(gir_version "$staged") \
          && [[ "$old_v" != "$new_v" ]] \
          && [[ "$(printf '%s\n%s\n' "$old_v" "$new_v" | sort -V | head -1)" == "$new_v" ]]; then

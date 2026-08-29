@@ -49,3 +49,8 @@ repo/
 # Staging dir of scripts/fetch-fedora-girs.sh (container harvest, reviewed then
 # copied into girs/ — never a source of truth on its own)
 .fedora-girs-*/
+
+# Compiled typelibs are a DERIVATION of girs/*.gir (`g-ir-compiler`), not a source,
+# and are no longer committed. A local harvest may still drop one here; it must not
+# come back into git.
+girs/*.typelib

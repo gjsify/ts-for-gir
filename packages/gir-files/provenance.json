@@ -1,5 +1,4 @@
 {
-  "$schema": "https://github.com/gjsify/ts-for-gir/blob/main/packages/gir-files/provenance.schema.json",
   "schemaVersion": 1,
   "generatedFrom": {
     "distribution": "fedora",

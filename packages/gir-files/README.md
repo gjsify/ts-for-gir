@@ -122,4 +122,4 @@ node packages/gir-files/scripts/build-payload.mjs   # rebuild payload/ + NOTICE.
 ```
 
 `build:app` runs the second one, so a release cut picks it up. The payload is generated, not
-committed — `girs/` is already in the repo and a second copy would be 32.7 MB of duplication.
+committed — `girs/` is already in the repo and a second copy would be 27.6 MB of duplication.

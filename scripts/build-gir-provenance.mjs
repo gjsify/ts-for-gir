@@ -100,8 +100,6 @@ for (const file of girFiles) {
 }
 
 const manifest = {
-  $schema:
-    "https://github.com/gjsify/ts-for-gir/blob/main/packages/gir-files/provenance.schema.json",
   schemaVersion: 1,
   // Regenerate with scripts/build-gir-provenance.sh. Do not hand-edit: the licence
   // column is a claim about third-party terms and must stay traceable to a query.

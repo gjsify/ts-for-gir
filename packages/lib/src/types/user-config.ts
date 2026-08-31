@@ -25,7 +25,7 @@ export interface UserConfig {
 	/** Generate promisified functions for async/finish calls */
 	promisify: boolean;
 	/**
-	 * Emit the GIR-derived widget vocabulary on an opt-in `./surface` subpath, for
+	 * Emit the GIR-derived widget vocabulary on an opt-in `./vocabulary` subpath, for
 	 * every namespace that declares descendants of `GtkWidget`.
 	 *
 	 * Off by default: it is a separate subpath, so a consumer that never imports it

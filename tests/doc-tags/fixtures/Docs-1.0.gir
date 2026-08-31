@@ -73,6 +73,13 @@
         <type name="gboolean" c:type="gboolean"/>
       </property>
     </class>
+    <!-- A constant with a value. All 98 in Gtk-4.0 carry one and none reached the output,
+         so a reader had to open the C headers to learn what the string is. -->
+    <constant name="BACKGROUND_KEY" value="bg-color" c:type="DOCS_BACKGROUND_KEY">
+      <doc xml:space="preserve">The attribute name for a background.</doc>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+
     <!-- Enum values, the case TypeScript's positional default gets WRONG. `ok` is -5 and
          a bitfield's members are powers of two; both are unrepresentable by position. -->
     <enumeration name="Answer" c:type="DocsAnswer" glib:type-name="DocsAnswer" glib:get-type="docs_answer_get_type">

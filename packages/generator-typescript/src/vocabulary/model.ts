@@ -96,6 +96,8 @@ export interface VocabularyProp {
   /** Upstream's reason and version, rendered as `@deprecated since X: reason`. */
   readonly deprecatedSince?: string;
   readonly deprecatedDoc?: string;
+  /** GIR's `default-value`. The vocabulary is where a JSX or template author hovers. */
+  readonly defaultValue?: string;
 }
 
 export interface VocabularyDecl {
@@ -176,7 +178,7 @@ export interface WidgetVocabulary {
   readonly enums: ReadonlyMap<string, VocabularyEnum>;
   /** GIR namespace -> the import this surface needs for its VALUE types. */
   readonly namespaceImports: ReadonlyMap<string, string>;
-  /** `@girs/<pkg>/surface` -> the names imported from another namespace's surface. */
+  /** `@girs/<pkg>/vocabulary` -> the names imported from another namespace's vocabulary. */
   readonly surfaceImports: ReadonlyMap<string, readonly string[]>;
   /** Base -> members it must not contribute, because a nearer declaration disagrees. */
   readonly omissions: ReadonlyMap<string, ReadonlyMap<string, readonly string[]>>;
@@ -338,7 +340,7 @@ function childHoldersOf(module: GirModule, config: OptionsGeneration): Introspec
 }
 
 /**
- * Does this namespace get a `./surface` at all?
+ * Does this namespace get a `./vocabulary` at all?
  *
  * Only namespaces that DECLARE widgets, not the 700-odd that merely appear in a
  * widget's property types. Answered per namespace and cached, because a widget's
@@ -491,6 +493,7 @@ function ownProps(
       deprecated: prop.metadata?.deprecated === true || prop.deprecated === true,
       deprecatedSince: prop.metadata?.deprecatedVersion,
       deprecatedDoc: blurb(prop.metadata?.deprecatedDoc),
+      defaultValue: prop.defaultValue,
     });
   }
   return [...byName.values()].sort((a, b) => (a.girName < b.girName ? -1 : 1));
@@ -615,7 +618,7 @@ function computeOmissions(
  * Build the surface for one namespace, or null if it declares no widgets.
  *
  * Cross-namespace bases are IMPORTED, not copied: `AdwToolbarViewProps extends
- * GtkWidgetProps` reads `GtkWidgetProps` from `@girs/gtk-4.0/surface`. Inlining
+ * GtkWidgetProps` reads `GtkWidgetProps` from `@girs/gtk-4.0/vocabulary`. Inlining
  * them wholesale would put a second, nominally distinct `GtkWidgetProps` in every
  * widget namespace — a copy per namespace of the same interface, and confusing errors
  * the first time a consumer mixes two of them.
@@ -636,7 +639,7 @@ function computeOmissions(
  * namespace whose widgets live in a different one — and it is the reason the rule is not
  * simply "drop it": the first version of this generator refused the input outright and
  * took the 705-namespace run down with it. One counterexample is a bounded bill, not an
- * argument for a surface per namespace: `@girs/gcr-3/surface` would be a widget surface
+ * argument for a vocabulary per namespace: `@girs/gcr-3/vocabulary` would be a widget vocabulary
  * with no widgets in it.
  */
 export function buildWidgetVocabulary(
@@ -652,8 +655,8 @@ export function buildWidgetVocabulary(
   const namespaceImports = new Map<string, string>();
   const enums = new Map<string, VocabularyEnum>();
   const surfaceImports = new Map<string, Set<string>>();
-  const importFromSurface = (owner: GirModule, name: string) => {
-    const subpath = `${owner.importPath}/surface`;
+  const importFromVocabulary = (owner: GirModule, name: string) => {
+    const subpath = `${owner.importPath}/vocabulary`;
     const names = surfaceImports.get(subpath) ?? new Set<string>();
     names.add(name);
     surfaceImports.set(subpath, names);
@@ -670,12 +673,12 @@ export function buildWidgetVocabulary(
       );
       // A nick union is emitted ONCE, by the surface that owns the enum, and imported
       // from there — `AdwHeaderBarProps` reads `GtkPackTypeNick` out of
-      // `@girs/gtk-4.0/surface`. Enums from namespaces with no widgets (Pango, Gdk)
+      // `@girs/gtk-4.0/vocabulary`. Enums from namespaces with no widgets (Pango, Gdk)
       // have no surface to live in, so each consumer emits its own alias for those.
       // Skipping the emission without adding the IMPORT is the shape the per-package
       // `tsc --project` caught first: 9 × TS2304 in Adw-1, naming 6 Gtk enums.
       if (owner && owner !== module && declaresWidgets(owner)) {
-        importFromSurface(owner, nickAliasOf(enumeration.gtype));
+        importFromVocabulary(owner, nickAliasOf(enumeration.gtype));
         continue;
       }
       enums.set(enumeration.gtype, enumeration);
@@ -714,8 +717,8 @@ export function buildWidgetVocabulary(
     }
     const emitted = own || foreignWithoutSurface;
     if (!emitted) {
-      importFromSurface(owner, propsInterfaceOf(gtype));
-      importFromSurface(owner, constructOnlyAliasOf(gtype));
+      importFromVocabulary(owner, propsInterfaceOf(gtype));
+      importFromVocabulary(owner, constructOnlyAliasOf(gtype));
     }
     if (foreignWithoutSurface) inlined.push(key);
     declarations.set(key, {
@@ -780,8 +783,8 @@ export function buildWidgetVocabulary(
   //
   // The alternative — emit what you reference — is what shipped first, and the
   // per-package `tsc --project` failed it: `GtkSourceView.text-window-type` reaches
-  // `Gtk.TextWindowType`, no Gtk-4.0 widget property does, so `@girs/gtk-4.0/surface` had
-  // no `GtkTextWindowTypeNick` for `@girs/gtksource-5/surface` to import (TS2305, plus the
+  // `Gtk.TextWindowType`, no Gtk-4.0 widget property does, so `@girs/gtk-4.0/vocabulary` had
+  // no `GtkTextWindowTypeNick` for `@girs/gtksource-5/vocabulary` to import (TS2305, plus the
   // same shape for `GtkPackTypeNick` in Handy-1 against Gtk-3.0). The nick vocabulary of a
   // namespace is a property of the NAMESPACE, not of which of its own properties use it —
   // and emitting all of them also makes `ENUM_NICKS` a complete answer for a consumer

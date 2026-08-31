@@ -1202,10 +1202,21 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
   generateConst(tsConst: IntrospectedConstant, indentCount = 0) {
     const desc: string[] = [];
 
+    // The VALUE, as documentation. All 98 constants in Gtk-4.0 carry one in the GIR and
+    // none of it reached the output, so `ACCESSIBLE_ATTRIBUTE_BACKGROUND: string` sent a
+    // reader to the C headers to learn it is "bg-color".
+    //
+    // A literal TYPE would be richer and is deliberately not done: it would break
+    // `let x = Gtk.CONST; x = other`, and a documentation gap is not worth a breaking
+    // change to every consumer that assigns one.
+    const valueTag = tsConst.value
+      ? [{ tagName: "default", paramName: "", text: tsConst.value } as const]
+      : [];
+
     desc.push(
       ...this.addGirDocComment(
         tsConst.doc,
-        this.namespace.getTsDocMetadataTags(tsConst.metadata),
+        [...this.namespace.getTsDocMetadataTags(tsConst.metadata), ...valueTag],
         indentCount,
       ),
     );

@@ -75,6 +75,18 @@ for (const [label, declaration, expected] of must) {
     fail(`${label}: block does not match ${expected}\n      ${block.replace(/\n/g, "\n      ")}`);
 }
 
+// -------------------------------------------------------------- constant values
+//
+// All 98 constants in Gtk-4.0 carry a value in the GIR and none of it reached the output,
+// so `ACCESSIBLE_ATTRIBUTE_BACKGROUND: string` sent a reader to the C headers to learn it
+// is "bg-color". A literal TYPE would be richer and is deliberately not done: it breaks
+// `let x = C; x = other`.
+{
+  const block = docBlockOf("const BACKGROUND_KEY: string;");
+  if (block === null) fail("no TSDoc block above the constant");
+  else if (!/@default bg-color/.test(block)) fail("a constant does not document its value");
+}
+
 // ------------------------------------------------------------------------ @throws
 //
 // `throws="1"` means the C function takes a `GError**`, which GJS turns into a raised

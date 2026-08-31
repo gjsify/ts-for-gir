@@ -82,7 +82,7 @@
 
     <class name="Box" c:symbol-prefix="box" c:type="GtkBox" glib:type-name="GtkBox" glib:get-type="gtk_box_get_type" parent="Widget">
       <implements name="Orientable"/>
-      <property name="spacing" writable="1" transfer-ownership="none">
+      <property name="spacing" default-value="6" writable="1" transfer-ownership="none">
         <type name="gint" c:type="gint"/>
       </property>
       <!-- RESOLVABLE and inexpressible. A writable `gpointer` is a real ParamSpec the

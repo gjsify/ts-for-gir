@@ -93,6 +93,10 @@ const must = [
     /export const OWN_PROPS: Readonly<Record<string, readonly string\[\]>>;/,
   ],
   ["since map declared", /export const SINCE: Readonly<Record<string, string>>;/],
+  // The default a template author needs at the attribute. The main `.d.ts` has carried
+  // it all along (2004 tags in Gtk-4.0); this file, which is what a JSX or Vue author
+  // hovers, carried none.
+  ["property documents its default", /@default 6/],
   ["helper types", /export type WidgetGType = keyof Widgets;/],
   // Deprecation, in the same shape the main `.d.ts` uses. The surface read a base
   // field the property parser never sets, so it emitted none at all — 0 against 136
@@ -340,8 +344,8 @@ if (!existsSync(crossFile)) {
   fail(`the cross-namespace fixture did not generate: ${crossFile}`);
 } else {
   const cross = readFileSync(crossFile, "utf8");
-  if (!/from '@girs\/base-1\.0\/surface'/.test(cross)) {
-    fail("Base's interfaces were copied instead of imported from its surface");
+  if (!/from '@girs\/base-1\.0\/vocabulary'/.test(cross)) {
+    fail("Base's interfaces were copied instead of imported from its vocabulary");
   }
   if (/export interface GtkWidgetProps/.test(cross)) {
     fail("Base's GtkWidgetProps is emitted a second time here — two nominally distinct copies");

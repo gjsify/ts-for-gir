@@ -1,5 +1,5 @@
 /**
- * Render the `./surface` type module.
+ * Render the `./vocabulary` type module.
  *
  * Module-scoped exports ONLY: named interfaces and type aliases a consumer imports.
  * No `declare global`, no `JSX` namespace, no `IntrinsicElements`, no augmentation
@@ -39,10 +39,15 @@ const jsdoc = (
   since?: string,
   deprecatedSince?: string,
   deprecatedDoc?: string,
+  defaultValue?: string,
 ): string => {
   const lines: string[] = [];
   if (doc) lines.push(doc);
   if (since) lines.push(`@since ${since}`);
+  // "Do I have to set this?" is the question a template author has at the attribute. The
+  // main `.d.ts` answers it (2004 `@default` tags in Gtk-4.0); the vocabulary, which is
+  // the file a JSX or Vue author actually hovers, did not.
+  if (defaultValue) lines.push(`@default ${defaultValue}`);
   if (deprecated) {
     // Same shape the main `.d.ts` uses, so an editor renders one thing for both.
     const detail = [deprecatedSince ? `since ${deprecatedSince}` : "", deprecatedDoc ?? ""]
@@ -83,6 +88,7 @@ function renderDeclaration(decl: VocabularyDecl, surface: WidgetVocabulary): str
           prop.since,
           prop.deprecatedSince,
           prop.deprecatedDoc,
+          prop.defaultValue,
         ) + `    ${key(prop.girName)}?: ${prop.ts};\n`,
     )
     .join("");

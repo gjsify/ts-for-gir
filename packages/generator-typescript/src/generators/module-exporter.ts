@@ -78,12 +78,12 @@ export class ModuleExporter {
   }
 
   /**
-   * Emit the opt-in `@girs/<ns>/surface` subpath, if this namespace declares widgets.
+   * Emit the opt-in `@girs/<ns>/vocabulary` subpath, if this namespace declares widgets.
    *
    * Two gates, and the second is the one that keeps the count honest: the config flag
    * has to be on, and the namespace has to declare at least one concrete descendant of
    * `GtkWidget`. Of the 705 GIRs in this repository a handful do; emitting an empty
-   * surface for the rest would put a `./surface` entry in every package that resolves
+   * vocabulary for the rest would put a `./vocabulary` entry in every package that resolves
    * to a file with no widgets in it.
    *
    * `package` mode only: the subpath needs an `exports` entry to be reachable at all,

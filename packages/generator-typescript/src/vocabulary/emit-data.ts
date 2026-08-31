@@ -1,5 +1,5 @@
 /**
- * Render the `./surface` runtime data module.
+ * Render the `./vocabulary` runtime data module.
  *
  * Why data and not only types: the one check that can go red for a real reason is
  * "does the INSTALLED library actually have this". Asking it needs a running GJS

@@ -282,7 +282,12 @@ export const PROVENANCE: {
 /** Declaration GType -> its own settable properties, as GObject registered them. */
 export const OWN_PROPS: Readonly<Record<string, readonly string[]>>;
 
-/** Widget GType -> its own signals. */
+/**
+ * Declaration GType -> the signals it registers itself, never its parents'.
+ *
+ * Keyed like \`OWN_PROPS\`, so both are read at every link of a \`DECLS\` chain. An
+ * abstract base has no \`Widgets\` row and still owns signals — \`GtkWidget\` owns 13.
+ */
 export const OWN_SIGNALS: Readonly<Record<string, readonly string[]>>;
 
 /** Widget GType -> every declaration its members come from, self first. */

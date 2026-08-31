@@ -94,6 +94,13 @@ const must = [
   ],
   ["since map declared", /export const SINCE: Readonly<Record<string, string>>;/],
   ["helper types", /export type WidgetGType = keyof Widgets;/],
+  // Deprecation, in the same shape the main `.d.ts` uses. The surface read a base
+  // field the property parser never sets, so it emitted none at all — 0 against 136
+  // in the `.d.ts` for the same namespace.
+  [
+    "deprecated property carries version and reason",
+    /@deprecated since 1\.4: Use the style class instead\./,
+  ],
   // Child holders: a sibling table, never four more rows in `Widgets`.
   ["child holder table", /export interface ChildHolders \{/],
   ["child holder helper type", /export type ChildHolderGType = keyof ChildHolders;/],

@@ -37,11 +37,19 @@ const jsdoc = (
   doc: string | undefined,
   deprecated: boolean,
   since?: string,
+  deprecatedSince?: string,
+  deprecatedDoc?: string,
 ): string => {
   const lines: string[] = [];
   if (doc) lines.push(doc);
   if (since) lines.push(`@since ${since}`);
-  if (deprecated) lines.push("@deprecated");
+  if (deprecated) {
+    // Same shape the main `.d.ts` uses, so an editor renders one thing for both.
+    const detail = [deprecatedSince ? `since ${deprecatedSince}` : "", deprecatedDoc ?? ""]
+      .filter(Boolean)
+      .join(": ");
+    lines.push(detail ? `@deprecated ${detail}` : "@deprecated");
+  }
   if (lines.length === 0) return "";
   if (lines.length === 1) return `${indent}/** ${lines[0]} */\n`;
   return `${indent}/**\n${lines.map((l) => `${indent} * ${l}`).join("\n")}\n${indent} */\n`;
@@ -68,8 +76,14 @@ function renderDeclaration(decl: SurfaceDecl, surface: WidgetSurface): string {
   const body = decl.props
     .map(
       (prop) =>
-        jsdoc("    ", prop.doc, prop.deprecated, prop.since) +
-        `    ${key(prop.girName)}?: ${prop.ts};\n`,
+        jsdoc(
+          "    ",
+          prop.doc,
+          prop.deprecated,
+          prop.since,
+          prop.deprecatedSince,
+          prop.deprecatedDoc,
+        ) + `    ${key(prop.girName)}?: ${prop.ts};\n`,
     )
     .join("");
   const constructOnly = decl.props

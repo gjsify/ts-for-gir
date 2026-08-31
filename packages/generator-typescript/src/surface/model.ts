@@ -93,6 +93,9 @@ export interface SurfaceProp {
   readonly since?: string;
   readonly doc?: string;
   readonly deprecated: boolean;
+  /** Upstream's reason and version, rendered as `@deprecated since X: reason`. */
+  readonly deprecatedSince?: string;
+  readonly deprecatedDoc?: string;
 }
 
 export interface SurfaceDecl {
@@ -459,7 +462,13 @@ function ownProps(
       constructOnly: prop.constructOnly,
       since: prop.metadata?.introducedVersion,
       doc: blurb(prop.doc),
-      deprecated: prop.deprecated === true,
+      // From the METADATA, not the base field. `IntrospectedProperty.fromXML` sets
+      // `metadata` and never the inherited `deprecated`, so `prop.deprecated === true`
+      // was false for every property ever emitted — the surface shipped 0 `@deprecated`
+      // while the main `.d.ts` for the same namespace carried 136.
+      deprecated: prop.metadata?.deprecated === true || prop.deprecated === true,
+      deprecatedSince: prop.metadata?.deprecatedVersion,
+      deprecatedDoc: blurb(prop.metadata?.deprecatedDoc),
     });
   }
   return [...byName.values()].sort((a, b) => (a.girName < b.girName ? -1 : 1));

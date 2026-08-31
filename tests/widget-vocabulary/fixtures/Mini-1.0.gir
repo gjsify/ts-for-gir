@@ -77,7 +77,14 @@
         <doc-deprecated xml:space="preserve">Use the style class instead.</doc-deprecated>
         <type name="gboolean" c:type="gboolean"/>
       </property>
+      <!-- Signals on the ABSTRACT base, which has no `Widgets` row and every widget in
+           the namespace inherits from. `OWN_SIGNALS` is keyed by DECLARATION, so these
+           must be findable under `GtkWidget` — the version keyed by concrete widget
+           dropped all 13 of the real `GtkWidget`'s, for all 53 Gtk-4.0 widgets at once,
+           while `OWN_PROPS` carried this same declaration's properties throughout. -->
       <glib:signal name="destroy" when="cleanup"/>
+      <!-- …and one WITH a since-version, so `SINCE` is keyed over the same set. -->
+      <glib:signal name="state-flags-changed" when="first" version="1.3"/>
     </class>
 
     <class name="Box" c:symbol-prefix="box" c:type="GtkBox" glib:type-name="GtkBox" glib:get-type="gtk_box_get_type" parent="Widget">
@@ -95,8 +102,10 @@
       <property name="user-data" writable="1" transfer-ownership="none">
         <type name="gpointer" c:type="gpointer"/>
       </property>
-      <!-- A signal WITH a since-version, on a CONCRETE class: `OWN_SIGNALS` carries a
-           widget's own signals, so a version on the abstract base would reach nothing. -->
+      <!-- A signal WITH a since-version on a CONCRETE class. Together with the abstract
+           base's two above it holds the OTHER half of the rule: `OWN_SIGNALS` is OWN,
+           never inherited, so this row stays exactly `child-added` — folding the chain in
+           would say `destroy` once per descendant and lose which GType registers it. -->
       <glib:signal name="child-added" when="last" version="1.6">
         <parameters>
           <parameter name="child" transfer-ownership="none">

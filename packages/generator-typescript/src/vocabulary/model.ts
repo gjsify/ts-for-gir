@@ -115,6 +115,26 @@ export interface VocabularyDecl {
   readonly inlined: boolean;
   readonly bases: readonly string[];
   readonly props: readonly VocabularyProp[];
+  /**
+   * The signals THIS declaration registers, dashed as GObject spells them.
+   *
+   * Keyed per declaration for the same reason {@link VocabularyDecl.props} is: `DECLS`
+   * publishes a chain, and a consumer unions the chain's entries to answer "what can I
+   * connect to on a `GtkButton`". The first version keyed signals by CONCRETE WIDGET
+   * instead, which dropped every signal an abstract base owns without saying so —
+   * measured on Gtk-4.0, where `GtkWidget` registers 13 (`destroy`, `map`, `realize`,
+   * `unrealize`, `show`, `state-flags-changed`, …): all 53 widgets in the namespace were
+   * missing all 13, while `OWN_PROPS` had carried `GtkWidget`'s properties all along.
+   * The two halves of one vocabulary disagreed about which GTypes it describes.
+   *
+   * INTERFACE signals are absent here because they are absent from the MODEL: only
+   * `IntrospectedClass.fromXML` reads `<glib:signal>`, so `Gtk.Editable::changed`,
+   * `Gtk.CellEditable::editing-done` and `Gtk.ColorChooser::color-activated` — 7 signals
+   * over 3 interfaces in Gtk-4.0 — reach neither this vocabulary nor the main `.d.ts`,
+   * which emits no `SignalSignatures` for an interface at all. A separate defect one
+   * level down, named here rather than left to be rediscovered from this file.
+   */
+  readonly signals: readonly string[];
   readonly doc?: string;
 }
 
@@ -127,8 +147,6 @@ export interface VocabularyWidget {
   readonly slotCandidates: ReadonlyMap<string, string>;
   /** Every declaration this widget draws members from, self first, by GType. */
   readonly chain: readonly string[];
-  /** Own signals, for the runtime data module. */
-  readonly signals: readonly string[];
 }
 
 export interface VocabularyEnum {
@@ -500,6 +518,19 @@ function ownProps(
 }
 
 /**
+ * The signals one declaration registers itself — never its parents'.
+ *
+ * Deliberately NOT `getAllSignals()`: `DECLS` already publishes the chain, so folding a
+ * base's signals into every descendant would say the same fact 53 times in Gtk-4.0 and
+ * lose which GType actually owns `destroy`.
+ *
+ * Returns nothing for an interface, which carries no signals in this model — see
+ * {@link VocabularyDecl.signals} for what that costs and why it is not decided here.
+ */
+const ownSignals = (cls: IntrospectedBaseClass): string[] =>
+  cls instanceof IntrospectedClass ? cls.signals.map((signal) => signal.name).sort() : [];
+
+/**
  * A method taking exactly one widget argument names a CANDIDATE slot.
  *
  * `pack_start` -> start, `set_title_widget` -> title, `add_top_bar` -> top. It is a
@@ -734,6 +765,7 @@ export function buildWidgetVocabulary(
       // owner's import to make, and adding it here would leave `noUnusedLocals` staring at
       // an import nothing in this file reads.
       props: ownProps(module, config, cls, emitted ? collect : () => {}),
+      signals: ownSignals(cls),
       doc: emitted ? blurb(cls.doc) : undefined,
     });
   }
@@ -766,7 +798,6 @@ export function buildWidgetVocabulary(
         chain: (chains.get(keyOf(widget)) ?? [])
           .filter((decl) => withBases.has(keyOf(decl)))
           .map((decl) => decl.glibTypeName!),
-        signals: [...widget.signals].map((signal) => signal.name).sort(),
       }))
       .sort((a, b) => (a.gtype < b.gtype ? -1 : 1));
 
@@ -821,12 +852,16 @@ export function buildWidgetVocabulary(
     for (const prop of decl.props)
       if (prop.since) since.set(`${decl.gtype}.${prop.girName}`, prop.since);
   }
-  for (const widget of [...widgetClasses, ...holderClasses]) {
-    const gtype = widget.glibTypeName;
-    if (!gtype) continue;
-    for (const signal of widget.signals) {
+  // Over the DECLARATIONS, exactly the set `OWN_SIGNALS` is keyed by. Walking the concrete
+  // widgets instead leaves a signal a consumer can read out of `OWN_SIGNALS` with nothing
+  // to explain its absence from an older library — the same hole, one table over.
+  for (const [key, decl] of withBases) {
+    if (!decl.emitted) continue;
+    const cls = needed.get(key);
+    if (!(cls instanceof IntrospectedClass)) continue;
+    for (const signal of cls.signals) {
       const introduced = signal.metadata?.introducedVersion;
-      if (introduced) since.set(`${gtype}::${signal.name}`, introduced);
+      if (introduced) since.set(`${decl.gtype}::${signal.name}`, introduced);
     }
   }
 

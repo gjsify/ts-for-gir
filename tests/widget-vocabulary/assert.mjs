@@ -257,9 +257,55 @@ if (!data.OWN_PROPS?.GtkBox?.includes("user-data")) {
   // consumer check that asks the installed library whether every name here exists.
   fail(`OWN_PROPS.GtkBox lost the gpointer property: ${JSON.stringify(data.OWN_PROPS?.GtkBox)}`);
 }
+
+// ------------------------------------------------------- signals are keyed by DECLARATION
+//
+// `OWN_SIGNALS` and `OWN_PROPS` describe the same set of GTypes, because `DECLS` hands a
+// consumer a CHAIN and it reads both tables at every link. Keying signals by creatable
+// widget instead is a hole with no symptom in this file's older shape: measured on
+// Gtk-4.0, `GtkWidget` registers 13 signals (`destroy`, `map`, `realize`, `unrealize`,
+// `show`, `state-flags-changed`, …), has no `Widgets` row because it is abstract, and so
+// contributed nothing — all 53 widgets in the namespace were missing all 13, while
+// `OWN_PROPS.GtkWidget` was there the whole time.
+const baseSignals = data.OWN_SIGNALS?.GtkWidget;
+if (baseSignals?.join(",") !== "destroy,state-flags-changed") {
+  fail(`OWN_SIGNALS lost the abstract base's own signals: ${JSON.stringify(baseSignals)}`);
+}
+// The control that has to go the OTHER way, and the reason the row above is not simply
+// "every signal reachable from GtkBox": `OWN_SIGNALS` is OWN. Folding the chain in would
+// repeat `destroy` under all 53 Gtk-4.0 widgets and lose which GType registers it.
 if (data.OWN_SIGNALS?.GtkBox?.join(",") !== "child-added") {
   fail(`OWN_SIGNALS.GtkBox is ${JSON.stringify(data.OWN_SIGNALS?.GtkBox)}`);
 }
+// `SINCE` is keyed over the same set for the same reason: a signal a consumer can read
+// out of `OWN_SIGNALS` with no version to explain its absence from an older library is
+// the correct-surface-reported-as-a-defect case again, one table over.
+if (data.SINCE?.["GtkWidget::state-flags-changed"] !== "1.3") {
+  fail(
+    `SINCE has no version for the abstract base's signal: ${JSON.stringify(
+      Object.keys(data.SINCE ?? {}).filter((k) => k.startsWith("GtkWidget")),
+    )}`,
+  );
+}
+// Every GType `OWN_SIGNALS` names must be one this vocabulary actually describes — the
+// same containment `OWN_PROPS` is held to above, so a key can never appear that a
+// consumer walking `DECLS` has no interface for.
+for (const gtype of Object.keys(data.OWN_SIGNALS ?? {})) {
+  if (!new RegExp(`export interface ${gtype}Props\\b`).test(types)) {
+    fail(`OWN_SIGNALS names ${gtype} but the .d.ts has no ${gtype}Props`);
+  }
+}
+// A REGRESSION GUARD, not evidence: nothing in the generator can produce this today.
+// It is written down because a reader of the consumer's output mistook `onNotifySuffix`
+// for a detail-qualified signal leaking in here. It is not one — `notify::<prop>` is the
+// consumer's own rendering of a PROPERTY (`AdwSidebar:suffix`, `GtkSwitch:state`), and no
+// signal name in any of the 719 GIRs in `girs/` contains `::`.
+for (const [gtype, signals] of Object.entries(data.OWN_SIGNALS ?? {})) {
+  for (const signal of signals) {
+    if (signal.includes("::")) fail(`OWN_SIGNALS[${gtype}] carries a detail-qualified ${signal}`);
+  }
+}
+
 if (data.SLOT_CANDIDATES?.GtkBox?.child !== "set_child") {
   fail(`SLOT_CANDIDATES.GtkBox is ${JSON.stringify(data.SLOT_CANDIDATES?.GtkBox)}`);
 }

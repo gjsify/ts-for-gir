@@ -23,13 +23,22 @@ const list = (items: readonly string[]): string =>
   `[${items.map((item) => `'${item}'`).join(", ")}]`;
 
 export function emitVocabularyData(surface: WidgetVocabulary): string {
-  const ownProps: string[] = [];
-  for (const decl of [...surface.declarations.values()].sort((a, b) =>
-    a.gtype < b.gtype ? -1 : 1,
-  )) {
-    if (!decl.emitted || decl.props.length === 0) continue;
-    ownProps.push(`    ${decl.gtype}: ${list(decl.props.map((prop) => prop.girName))},`);
-  }
+  // `OWN_PROPS` and `OWN_SIGNALS` are keyed by DECLARATION, not by creatable widget, and
+  // they must stay keyed the same way: `DECLS` hands the consumer a chain of GTypes, and
+  // it reads both tables at every link of it. Keying signals by concrete widget is what
+  // this fixes — `GtkWidget` owns 13 signals and no `Widgets` row, so the two tables
+  // disagreed about which GTypes the vocabulary describes.
+  const byGType = [...surface.declarations.values()]
+    .filter((decl) => decl.emitted)
+    .sort((a, b) => (a.gtype < b.gtype ? -1 : 1));
+
+  const ownProps = byGType
+    .filter((decl) => decl.props.length > 0)
+    .map((decl) => `    ${decl.gtype}: ${list(decl.props.map((prop) => prop.girName))},`);
+
+  const ownSignals = byGType
+    .filter((decl) => decl.signals.length > 0)
+    .map((decl) => `    ${decl.gtype}: ${list(decl.signals)},`);
 
   // The runtime data describes EVERYTHING the surface knows, widgets and holders alike:
   // a holder a consumer cannot look up is a holder it has to re-read the GIR for.
@@ -37,10 +46,6 @@ export function emitVocabularyData(surface: WidgetVocabulary): string {
   const all = [...surface.widgets, ...surface.childHolders].sort((a, b) =>
     a.gtype < b.gtype ? -1 : 1,
   );
-
-  const ownSignals = all
-    .filter((widget) => widget.signals.length > 0)
-    .map((widget) => `    ${widget.gtype}: ${list(widget.signals)},`);
 
   const decls = all.map((widget) => `    ${widget.gtype}: ${list(widget.chain)},`);
 

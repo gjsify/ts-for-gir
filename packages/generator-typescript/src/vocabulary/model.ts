@@ -135,6 +135,15 @@ export interface VocabularyDecl {
    * level down, named here rather than left to be rediscovered from this file.
    */
   readonly signals: readonly string[];
+  /**
+   * The release that introduced the TYPE itself — GIR's `version` on `<class>`/`<interface>`.
+   *
+   * Absent where the GIR states none, and never inferred: a wrong version here is worse
+   * than no version, because the whole point of the value is to let a consumer forgive
+   * an absence, and a forgiven absence that is actually a defect is a defect that stops
+   * being reported.
+   */
+  readonly since?: string;
   readonly doc?: string;
 }
 
@@ -200,7 +209,7 @@ export interface WidgetVocabulary {
   readonly surfaceImports: ReadonlyMap<string, readonly string[]>;
   /** Base -> members it must not contribute, because a nearer declaration disagrees. */
   readonly omissions: ReadonlyMap<string, ReadonlyMap<string, readonly string[]>>;
-  /** Declaration GType -> its own properties' since versions, for the skew rule. */
+  /** GType, `GType.property` and `GType::signal` -> since versions, for the skew rule. */
   readonly since: ReadonlyMap<string, string>;
 }
 
@@ -766,6 +775,7 @@ export function buildWidgetVocabulary(
       // an import nothing in this file reads.
       props: ownProps(module, config, cls, emitted ? collect : () => {}),
       signals: ownSignals(cls),
+      since: cls.metadata?.introducedVersion,
       doc: emitted ? blurb(cls.doc) : undefined,
     });
   }
@@ -834,21 +844,37 @@ export function buildWidgetVocabulary(
     }
   }
 
-  // Two key shapes, and the second one is not decoration.
+  // Three key shapes, and none of them is decoration.
   //
-  // `SINCE` exists so a consumer can tell "this surface describes a NEWER library than the
-  // one installed" from "this surface is wrong". That test only works for the members it
-  // covers. Measured against gtk4-4.22.4 / libadwaita-1.9.3 while the surface described
+  // `SINCE` exists so a consumer can tell "this vocabulary describes a NEWER library than
+  // the one installed" from "this vocabulary is wrong". That test only works for the names
+  // it covers, and each shape was added because a real cross-check went red without it.
+  //
+  // MEMBERS. Measured against gtk4-4.22.4 / libadwaita-1.9.3 while the vocabulary described
   // 4.23.3 / 1.10.0: every missing PROPERTY was explained by a since-version — 14 of them,
   // 0 unexplained — and 18 missing SIGNALS were not, because a property-only `SINCE` has
   // nothing to say about `GtkWindow::force-close`. A consumer checking signals against the
-  // installed typelib therefore went red on 18 widgets for a surface that was correct.
+  // installed typelib therefore went red on 18 widgets for a vocabulary that was correct.
   //
-  // `Type.property` and `Type::signal` are GObject's own two spellings, so they cannot
-  // collide, and a reader already knows which is which.
+  // THE TYPE ITSELF, keyed bare. A member-only map explains an absent member and says
+  // nothing about an absent CLASS, and the class is the worse failure of the two: a
+  // consumer resolving `GtkSvgWidget` (GIR `version="4.24"`) against an older GTK does not
+  // get a name it can attribute the miss to, it gets `TypeError: can't access property
+  // "$gtype", ctor() is undefined` — the GType it asked for is not in the message, so the
+  // one fact needed to forgive the absence is the one fact the failure withholds.
+  //
+  // The attribute is real but SPARSE, which is why the entry is conditional rather than
+  // required: `version` sits on 23 of 272 `<class>` and 6 of 29 `<interface>` in
+  // Gtk-4.0.gir, and on 1777 of 16156 across the 715 GIRs in `girs/`. Where GIR states no
+  // version none is written — inventing one would let a consumer forgive an absence that
+  // is a genuine defect, which is the failure this table exists to prevent.
+  //
+  // `GtkBox`, `GtkBox.spacing` and `GtkBox::clicked` are GObject's own three spellings, so
+  // they cannot collide, and a reader already knows which is which.
   const since = new Map<string, string>();
   for (const decl of withBases.values()) {
     if (!decl.emitted) continue;
+    if (decl.since) since.set(decl.gtype, decl.since);
     for (const prop of decl.props)
       if (prop.since) since.set(`${decl.gtype}.${prop.girName}`, prop.since);
   }

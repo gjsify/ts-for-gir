@@ -563,7 +563,12 @@ these names instead.
 Beside the `.d.ts`, the same subpath exports the facts as runtime **data** (`OWN_PROPS`,
 `OWN_SIGNALS`, `DECLS`, `ENUM_NICKS`, `SLOT_CANDIDATES`, `SINCE`), because types are erased and
 the check worth having is a consumer asking the *installed* library whether every name is real.
-`SINCE` is what lets that check tell a version gap from a defect without an allowlist.
+`SINCE` is what lets that check tell a version gap from a defect without an allowlist. It is
+keyed in GObject's own three spellings — `GtkSvgWidget`, `GtkBox.spacing`, `GtkBox::clicked` —
+so a consumer can forgive a missing TYPE as well as a missing member; without the bare key a
+class added after the installed library fails as `TypeError: can't access property "$gtype",
+ctor() is undefined`, which does not name the GType. Only where the GIR states a version: the
+attribute sits on 29 of the 301 classes and interfaces in Gtk-4.0, and none is ever inferred.
 
 ### package
 

@@ -248,9 +248,44 @@ if (data.SINCE?.["GtkBox::child-added"] !== "1.6") {
     )}`,
   );
 }
-// And the two spellings must not collide: a property key never contains `::`.
+// The TYPE half. A member-only `SINCE` explains a missing property or signal and says
+// nothing about a missing CLASS — and that is the worse failure: `GtkSvgWidget` against a
+// pre-4.24 GTK is a bare `TypeError: can't access property "$gtype", ctor() is undefined`,
+// which names neither the GType asked for nor a version to forgive it with. Measured on
+// the published vocabulary before this: 0 keys of this shape.
+for (const [gtype, expected] of [
+  // A class, an interface, and a child holder — the holders ride the same pipeline, and a
+  // holder whose type has no key is a holder a consumer cannot forgive either.
+  ["GtkBox", "1.4"],
+  ["GtkOrientable", "1.1"],
+  ["GtkListItem", "1.8"],
+]) {
+  if (data.SINCE?.[gtype] !== expected) {
+    fail(
+      `SINCE has no version for the type ${gtype} (expected ${expected}): ${JSON.stringify(
+        Object.keys(data.SINCE ?? {}).filter((k) => !k.includes(".") && !k.includes("::")),
+      )}`,
+    );
+  }
+}
+// The CONTROL that keeps the entry honest, and the reason it is conditional: `GtkWidget`
+// is emitted and carries five properties, and its GIR states NO version. An invented one
+// would let a consumer forgive an absence that is a genuine defect — the exact failure
+// this table exists to prevent. Sparse is correct: `version` sits on 29 of the 301 classes
+// and interfaces in Gtk-4.0.gir.
+if ("GtkWidget" in (data.SINCE ?? {})) {
+  fail(`SINCE invented a version for a type whose GIR states none: ${data.SINCE.GtkWidget}`);
+}
+// And the three spellings must not collide, nor may the bare one over-generate: a property
+// key always contains `.`, a signal key `::`, and a type key neither.
 for (const key of Object.keys(data.SINCE ?? {})) {
   if (key.includes("::") && key.includes(".")) fail(`SINCE key is neither spelling: ${key}`);
+}
+const typeKeys = Object.keys(data.SINCE ?? {})
+  .filter((key) => !key.includes(".") && !key.includes("::"))
+  .sort();
+if (typeKeys.join(",") !== "GtkBox,GtkListItem,GtkOrientable") {
+  fail(`SINCE keys a type the fixture gives no version: ${JSON.stringify(typeKeys)}`);
 }
 if (!data.OWN_PROPS?.GtkBox?.includes("user-data")) {
   // Dropping it from the runtime data would hide a real writable ParamSpec from the

@@ -303,15 +303,21 @@ export const ENUM_NICKS: Readonly<Record<string, readonly string[]>>;
 export const SLOT_CANDIDATES: Readonly<Record<string, Readonly<Record<string, string>>>>;
 
 /**
- * \`Type.property\` and \`Type::signal\` -> the release that introduced it.
+ * \`Type\`, \`Type.property\` and \`Type::signal\` -> the release that introduced it.
  *
  * What keeps a runtime cross-check honest across a version gap without an
- * allowlist: a member the installed library lacks is a defect UNLESS the version
+ * allowlist: a name the installed library lacks is a defect UNLESS the version
  * here is newer than the one running.
  *
- * BOTH key shapes, because that test only works for the members it covers. A
+ * ALL THREE key shapes, because that test only works for the names it covers. A
  * property-only map leaves a consumer no way to explain a missing SIGNAL, which is
- * a correct surface reported as 18 defects.
+ * a correct vocabulary reported as 18 defects; a member-only map leaves it no way to
+ * explain a missing CLASS, and that one fails as a bare
+ * \`TypeError: can't access property "$gtype", ctor() is undefined\` that does not
+ * even name the GType.
+ *
+ * A key is present only where the GIR states a version — sparse by nature (\`version\`
+ * sits on 29 of the 301 classes and interfaces in Gtk-4.0), never inferred.
  */
 export const SINCE: Readonly<Record<string, string>>;
 `;

@@ -231,6 +231,12 @@ export class IntrospectedClassFunction<
 		});
 
 		classFn.returnTypeDoc = fn.returnTypeDoc;
+		// `IntrospectedFunction.fromXML` already parsed it; rebuilding as a class function
+		// dropped it, and with it every `@deprecated` and `@since` a METHOD carries — the
+		// most common kind there is. Measured on Gtk-4.0: 528 `<doc-deprecated>` on
+		// `<method>` reached no consumer, so an IDE showed no strikethrough for an API
+		// slated to disappear.
+		classFn.metadata = fn.metadata;
 		classFn.generics = [...fn.generics];
 		classFn.finishFuncName = element.$["glib:finish-func"];
 
@@ -341,7 +347,7 @@ export class IntrospectedVirtualClassFunction extends IntrospectedClassFunction<
 		// Convert the function to a virtual class function
 		const { raw_name: name, output_parameters, parameters, return_type, doc, isIntrospectable } = fn;
 
-		return new IntrospectedVirtualClassFunction({
+		const virtualFn = new IntrospectedVirtualClassFunction({
 			parent,
 			name,
 			output_parameters,
@@ -350,6 +356,10 @@ export class IntrospectedVirtualClassFunction extends IntrospectedClassFunction<
 			doc,
 			isIntrospectable,
 		});
+
+		virtualFn.metadata = fn.metadata;
+
+		return virtualFn;
 	}
 
 	asString<T extends FormatGenerator<unknown>>(generator: T): ReturnType<T["generateVirtualClassFunction"]> {
@@ -442,7 +452,7 @@ export class IntrospectedStaticClassFunction extends IntrospectedClassFunction {
 
 		const isShadowedBy = m.$["shadowed-by"] != null;
 
-		return new IntrospectedStaticClassFunction({
+		const staticFn = new IntrospectedStaticClassFunction({
 			parent,
 			name,
 			output_parameters,
@@ -451,6 +461,10 @@ export class IntrospectedStaticClassFunction extends IntrospectedClassFunction {
 			doc,
 			isIntrospectable: isIntrospectable && !isShadowedBy,
 		});
+
+		staticFn.metadata = fn.metadata;
+
+		return staticFn;
 	}
 }
 
@@ -512,6 +526,8 @@ export class IntrospectedClassCallback extends IntrospectedClassFunction {
 		const cb = new IntrospectedClassCallback(
 			IntrospectedClassFunction.fromXML(element, parent, options).getCallbackParameters(),
 		);
+
+		cb.metadata = parseMetadata(element);
 
 		const glibTypeName = element.$["glib:type-name"];
 		if (typeof glibTypeName === "string" && element.$["glib:type-name"]) {

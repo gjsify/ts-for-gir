@@ -1,4 +1,4 @@
-// Asserts the `@girs/<ns>/surface` subpath: what it emits, what it must NOT emit, that
+// Asserts the `@girs/<ns>/vocabulary` subpath: what it emits, what it must NOT emit, that
 // the type half and the runtime half state the SAME facts, and that the generator refuses
 // an input it cannot describe.
 //
@@ -8,7 +8,7 @@
 // like one that passes because the emitter filtered correctly. So this file carries three
 // controls beside the positives, each of which has to go the other way:
 //
-//   1. FLAG OFF, same input — no surface file and no `./surface` in the package.json. A
+//   1. FLAG OFF, same input — no surface file and no `./vocabulary` in the package.json. A
 //      subpath that appears either way is not opt-in.
 //   2. A BROKEN input — a widget with a settable property whose GIR type resolves to
 //      NOTHING. The surface would reference a name the main emitter never emitted, so the
@@ -37,8 +37,8 @@ import { fileURLToPath } from "node:url";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const pkgDir = join(here, "generated", "mini-1.0");
-const typesFile = join(pkgDir, "mini-1.0-surface.d.ts");
-const dataFile = join(pkgDir, "mini-1.0-surface.js");
+const typesFile = join(pkgDir, "mini-1.0-vocabulary.d.ts");
+const dataFile = join(pkgDir, "mini-1.0-vocabulary.js");
 
 /** @type {string[]} */
 const failures = [];
@@ -137,9 +137,9 @@ const mustNot = [
 const code = types.replace(/\/\*[\s\S]*?\*\//g, "").replace(/^\s*\/\/.*$/gm, "");
 
 for (const [label, re] of must)
-  if (!re.test(types)) fail(`missing from surface .d.ts: ${label} (${re})`);
+  if (!re.test(types)) fail(`missing from vocabulary .d.ts: ${label} (${re})`);
 for (const [label, re] of mustNot)
-  if (re.test(code)) fail(`must not appear in surface .d.ts: ${label} (${re})`);
+  if (re.test(code)) fail(`must not appear in vocabulary .d.ts: ${label} (${re})`);
 
 // ---------------------------------------------------------------- both halves agree
 
@@ -176,8 +176,8 @@ const blockOf = (name) =>
   new RegExp(`export interface ${name} \\{([\\s\\S]*?)\\n\\}`).exec(types)?.[1] ?? null;
 const widgetsBlock = blockOf("Widgets");
 const holdersBlock = blockOf("ChildHolders");
-if (widgetsBlock === null) fail("no Widgets interface in the surface .d.ts");
-if (holdersBlock === null) fail("no ChildHolders interface in the surface .d.ts");
+if (widgetsBlock === null) fail("no Widgets interface in the vocabulary .d.ts");
+if (holdersBlock === null) fail("no ChildHolders interface in the vocabulary .d.ts");
 
 const holders = new Set(data.CHILD_HOLDERS ?? []);
 if (!holders.has("GtkListItem")) {
@@ -263,18 +263,18 @@ if (data.SLOT_CANDIDATES?.GtkBox?.child !== "set_child") {
 // ---------------------------------------------------------------- the package shape
 
 const pkg = JSON.parse(readFileSync(join(pkgDir, "package.json"), "utf8"));
-const surfaceExport = pkg.exports?.["./surface"];
+const surfaceExport = pkg.exports?.["./vocabulary"];
 if (
-  surfaceExport?.types !== "./mini-1.0-surface.d.ts" ||
-  surfaceExport?.import !== "./mini-1.0-surface.js"
+  surfaceExport?.types !== "./mini-1.0-vocabulary.d.ts" ||
+  surfaceExport?.import !== "./mini-1.0-vocabulary.js"
 ) {
-  fail(`package.json exports["./surface"] is ${JSON.stringify(surfaceExport)}`);
+  fail(`package.json exports["./vocabulary"] is ${JSON.stringify(surfaceExport)}`);
 }
 // The generated tsconfig carries `//` comments, so it is JSONC rather than JSON.
 const tsconfig = JSON.parse(
   readFileSync(join(pkgDir, "tsconfig.json"), "utf8").replace(/^\s*\/\/.*$/gm, ""),
 );
-if (!tsconfig.include?.includes("./mini-1.0-surface.d.ts")) {
+if (!tsconfig.include?.includes("./mini-1.0-vocabulary.d.ts")) {
   // Without this the surface is never compiled, and a surface referencing a name the
   // main emitter did not emit is exactly what nothing else can catch.
   fail(`tsconfig.json include does not cover the surface: ${JSON.stringify(tsconfig.include)}`);
@@ -287,7 +287,8 @@ for (const dir of ["gobject-2.0", "glib-2.0"]) {
   const stray = readdirSync(other).filter((name) => name.includes("-surface."));
   if (stray.length > 0) fail(`${dir} declares no widgets but emitted ${stray.join(", ")}`);
   const otherPkg = JSON.parse(readFileSync(join(other, "package.json"), "utf8"));
-  if (otherPkg.exports?.["./surface"]) fail(`${dir} declares no widgets but exports ./surface`);
+  if (otherPkg.exports?.["./vocabulary"])
+    fail(`${dir} declares no widgets but exports ./vocabulary`);
 }
 
 // ---------------------------------------------------------------- control 1: flag off
@@ -299,7 +300,8 @@ if (!existsSync(offDir)) {
   const strayOff = readdirSync(offDir).filter((name) => name.includes("-surface."));
   if (strayOff.length > 0) fail(`widgetSurface off still emitted ${strayOff.join(", ")}`);
   const offPkg = JSON.parse(readFileSync(join(offDir, "package.json"), "utf8"));
-  if (offPkg.exports?.["./surface"]) fail("widgetSurface off still wrote exports['./surface']");
+  if (offPkg.exports?.["./vocabulary"])
+    fail("widgetSurface off still wrote exports['./vocabulary']");
   // …and the control has to be a real run of the same generator, not an empty directory.
   if (!existsSync(join(offDir, "mini-1.0.d.ts")))
     fail("the flag-off control emitted no module .d.ts");
@@ -307,7 +309,7 @@ if (!existsSync(offDir)) {
 
 // ------------------------------------------------- a base from a namespace with no surface
 
-const inlineFile = join(here, "generated-inline", "hosted-1.0", "hosted-1.0-surface.d.ts");
+const inlineFile = join(here, "generated-inline", "hosted-1.0", "hosted-1.0-vocabulary.d.ts");
 if (!existsSync(inlineFile)) {
   fail(`the inline fixture did not generate: ${inlineFile}`);
 } else {
@@ -318,7 +320,7 @@ if (!existsSync(inlineFile)) {
   if (!/interface GtkWidgetProps extends CarrierHolderProps/.test(inline)) {
     fail("the inlined base is emitted but nothing extends it");
   }
-  if (!/inlined base\(s\) from a namespace with no surface: Carrier\.Holder/.test(inline)) {
+  if (!/inlined base\(s\) from a namespace with no vocabulary: Carrier\.Holder/.test(inline)) {
     // Named in the provenance line, so a dependency release that changes the base graph
     // shows up in a diff instead of in a support question.
     fail("the provenance line does not name the inlined base");
@@ -326,14 +328,14 @@ if (!existsSync(inlineFile)) {
   if (/from '@girs\/carrier-1\.0\/surface'/.test(inline)) {
     fail("the surface imports from @girs/carrier-1.0/surface, which does not exist");
   }
-  if (existsSync(join(here, "generated-inline", "carrier-1.0", "carrier-1.0-surface.d.ts"))) {
+  if (existsSync(join(here, "generated-inline", "carrier-1.0", "carrier-1.0-vocabulary.d.ts"))) {
     fail("Carrier declares no widgets and still got a surface of its own");
   }
 }
 
 // ------------------------------------------------- a base imported from another namespace
 
-const crossFile = join(here, "generated-cross", "derived-1.0", "derived-1.0-surface.d.ts");
+const crossFile = join(here, "generated-cross", "derived-1.0", "derived-1.0-vocabulary.d.ts");
 if (!existsSync(crossFile)) {
   fail(`the cross-namespace fixture did not generate: ${crossFile}`);
 } else {
@@ -380,7 +382,7 @@ if (brokenExit === 0) {
   // measuring anything, which is the failure this whole file is shaped against.
   fail(`the broken fixture failed without naming the property:\n${brokenOutput.slice(-2000)}`);
 }
-const brokenSurface = join(here, "generated-broken", "broken-1.0", "broken-1.0-surface.d.ts");
+const brokenSurface = join(here, "generated-broken", "broken-1.0", "broken-1.0-vocabulary.d.ts");
 if (existsSync(brokenSurface)) fail("the broken fixture wrote a surface file before failing");
 
 // ----------------------------------------------------------------------------------

@@ -17,9 +17,9 @@ import {
   constructOnlyAliasOf,
   nickAliasOf,
   propsInterfaceOf,
-  type SurfaceDecl,
-  type SurfaceWidget,
-  type WidgetSurface,
+  type VocabularyDecl,
+  type VocabularyWidget,
+  type WidgetVocabulary,
 } from "./model.ts";
 
 const RUNTIME_DATA_DOC = `/**
@@ -59,7 +59,7 @@ const jsdoc = (
 const key = (name: string): string =>
   /^[A-Za-z_$][A-Za-z0-9_$]*$/.test(name) ? name : `'${name}'`;
 
-function renderBases(decl: SurfaceDecl, surface: WidgetSurface): string {
+function renderBases(decl: VocabularyDecl, surface: WidgetVocabulary): string {
   if (decl.bases.length === 0) return "";
   const omissions = surface.omissions.get(decl.key);
   const rendered = decl.bases.map((base) => {
@@ -72,7 +72,7 @@ function renderBases(decl: SurfaceDecl, surface: WidgetSurface): string {
   return ` extends ${rendered.join(", ")}`;
 }
 
-function renderDeclaration(decl: SurfaceDecl, surface: WidgetSurface): string {
+function renderDeclaration(decl: VocabularyDecl, surface: WidgetVocabulary): string {
   const body = decl.props
     .map(
       (prop) =>
@@ -91,7 +91,7 @@ function renderDeclaration(decl: SurfaceDecl, surface: WidgetSurface): string {
     .map((prop) => `'${prop.girName}'`);
   const baseAliases = decl.bases
     .map((base) => surface.declarations.get(base))
-    .filter((base): base is SurfaceDecl => base !== undefined)
+    .filter((base): base is VocabularyDecl => base !== undefined)
     .map((base) => constructOnlyAliasOf(base.gtype));
   const parts = [...baseAliases, ...constructOnly];
   return (
@@ -102,7 +102,7 @@ function renderDeclaration(decl: SurfaceDecl, surface: WidgetSurface): string {
   );
 }
 
-function renderImports(surface: WidgetSurface): string[] {
+function renderImports(surface: WidgetVocabulary): string[] {
   const lines: string[] = [];
   for (const [ns, importPath] of [...surface.namespaceImports].sort(([a], [b]) =>
     a < b ? -1 : 1,
@@ -118,7 +118,7 @@ function renderImports(surface: WidgetSurface): string[] {
   return lines;
 }
 
-export function emitSurfaceTypes(surface: WidgetSurface): string {
+export function emitVocabularyTypes(surface: WidgetVocabulary): string {
   const emitted = [...surface.declarations.values()]
     .filter((decl) => decl.emitted)
     .sort((a, b) => (a.gtype < b.gtype ? -1 : 1));
@@ -132,7 +132,7 @@ export function emitSurfaceTypes(surface: WidgetSurface): string {
       return `export type ${nickAliasOf(entry.gtype)} = ${union};`;
     });
 
-  const rowsOf = (entries: readonly SurfaceWidget[]): string[] =>
+  const rowsOf = (entries: readonly VocabularyWidget[]): string[] =>
     entries.map((widget) => {
       const slots = [...widget.slotCandidates]
         .sort(([a], [b]) => (a < b ? -1 : 1))
@@ -262,7 +262,16 @@ export type ConstructOnlyOf<G extends WidgetGType> = Widgets[G]['constructOnly']
 export type SlotCandidatesOf<G extends WidgetGType> = keyof Widgets[G]['slotCandidates'];
 
 ${RUNTIME_DATA_DOC}
-export const SURFACE_PROVENANCE: string;
+export const PROVENANCE: {
+    readonly namespace: string;
+    readonly version: string;
+    /** The version the LIBRARY states, or null where it states none. Never the namespace's. */
+    readonly libraryVersion: string | null;
+    readonly childHolders: number;
+    readonly droppedBases: readonly string[];
+    readonly inlinedBases: readonly string[];
+    readonly unsettableProps: readonly string[];
+};
 
 /** Declaration GType -> its own settable properties, as GObject registered them. */
 export const OWN_PROPS: Readonly<Record<string, readonly string[]>>;

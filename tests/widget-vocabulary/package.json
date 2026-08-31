@@ -1,5 +1,5 @@
 {
-    "name": "@ts-for-gir-test/widget-surface",
+    "name": "@ts-for-gir-test/widget-vocabulary",
     "type": "module",
     "private": true,
     "scripts": {

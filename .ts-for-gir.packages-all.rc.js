@@ -21,7 +21,7 @@ export default {
   // The GIR-derived widget vocabulary on `@girs/<ns>/surface`. Namespaces that declare no
   // GtkWidget descendant emit nothing regardless, so this turns it on for the handful that
   // do (Gtk-4.0, Gtk-3.0, Adw-1, GtkSource, WebKit, …) and leaves the rest untouched.
-  widgetSurface: true,
+  widgetVocabulary: true,
   onlyVersionPrefix: false,
   package: true,
   reporter: true,

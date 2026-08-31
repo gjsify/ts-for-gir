@@ -26,7 +26,7 @@ export interface OptionsGeneration extends OptionsBase {
 	 * namespace gate is automatic — a namespace with no `GtkWidget` descendant
 	 * never emits a surface even with this on.
 	 */
-	widgetSurface: boolean;
+	widgetVocabulary: boolean;
 	/**
 	 * Scope of the generated NPM packages
 	 * @see https://docs.npmjs.com/cli/v7/using-npm/scope

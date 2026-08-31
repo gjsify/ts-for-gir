@@ -34,7 +34,7 @@ export interface UserConfig {
 	 * namespace gate is automatic — a namespace with no `GtkWidget` descendant
 	 * never emits a surface even with this on.
 	 */
-	widgetSurface: boolean;
+	widgetVocabulary: boolean;
 	/** Scope of the generated NPM packages */
 	npmScope: string;
 	/** Uses the workspace protocol for the generated packages which can be used with package managers like Yarn and PNPM */

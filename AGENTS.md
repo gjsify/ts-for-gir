@@ -78,9 +78,9 @@ When modifying generators, templates, injections, or lib code that affects gener
 
 **Important:** Examples import from `@girs/*` packages which resolve to `/types-dev/`. Generator changes will NOT be reflected in examples or `gjsify run check` until `gjsify run build:types` has been run.
 
-### Widget surface (`@girs/<ns>/surface`)
+### Widget surface (`@girs/<ns>/vocabulary`)
 
-Opt-in subpath (`widgetSurface`, on in `.ts-for-gir.packages-all.rc.js`) carrying the
+Opt-in subpath (`widgetVocabulary`, on in `.ts-for-gir.packages-all.rc.js`) carrying the
 GIR-derived widget VOCABULARY: a writable-only, optional, GObject-keyed props interface per
 declaration, the construct-only name union, enum nick unions from `glib:nick`, a GType-keyed
 `Widgets` map, and the same facts again as runtime data in the sibling `.js` — because types

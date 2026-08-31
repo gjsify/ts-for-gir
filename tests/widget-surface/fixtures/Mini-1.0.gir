@@ -88,7 +88,9 @@
       <property name="user-data" writable="1" transfer-ownership="none">
         <type name="gpointer" c:type="gpointer"/>
       </property>
-      <glib:signal name="child-added" when="last">
+      <!-- A signal WITH a since-version, on a CONCRETE class: `OWN_SIGNALS` carries a
+           widget's own signals, so a version on the abstract base would reach nothing. -->
+      <glib:signal name="child-added" when="last" version="1.6">
         <parameters>
           <parameter name="child" transfer-ownership="none">
             <type name="Widget" c:type="GtkWidget*"/>

@@ -769,11 +769,31 @@ export function buildWidgetSurface(
     }
   }
 
+  // Two key shapes, and the second one is not decoration.
+  //
+  // `SINCE` exists so a consumer can tell "this surface describes a NEWER library than the
+  // one installed" from "this surface is wrong". That test only works for the members it
+  // covers. Measured against gtk4-4.22.4 / libadwaita-1.9.3 while the surface described
+  // 4.23.3 / 1.10.0: every missing PROPERTY was explained by a since-version — 14 of them,
+  // 0 unexplained — and 18 missing SIGNALS were not, because a property-only `SINCE` has
+  // nothing to say about `GtkWindow::force-close`. A consumer checking signals against the
+  // installed typelib therefore went red on 18 widgets for a surface that was correct.
+  //
+  // `Type.property` and `Type::signal` are GObject's own two spellings, so they cannot
+  // collide, and a reader already knows which is which.
   const since = new Map<string, string>();
   for (const decl of withBases.values()) {
     if (!decl.emitted) continue;
     for (const prop of decl.props)
       if (prop.since) since.set(`${decl.gtype}.${prop.girName}`, prop.since);
+  }
+  for (const widget of [...widgetClasses, ...holderClasses]) {
+    const gtype = widget.glibTypeName;
+    if (!gtype) continue;
+    for (const signal of widget.signals) {
+      const introduced = signal.metadata?.introducedVersion;
+      if (introduced) since.set(`${gtype}::${signal.name}`, introduced);
+    }
   }
 
   const provenanceParts = [`${module.packageName}`];

@@ -90,6 +90,26 @@ if (!/"row-activated": \(row: Thing\)/.test(types)) {
 // them is upstream of the naming code, so a control written here would be testing that
 // instead. The fallback stays defensive and is argued in `signalParamName`'s comment.
 
+// ------------------------------------------------------------- enum member values
+//
+// TypeScript's positional default is not the GIR's value, and since TS 5.0 made numeric
+// enums literal unions it is wrong in a way the compiler enforces. Measured on Gtk-4.0
+// before the change: 124 of 806 members carried a value that is not their position —
+// `ResponseType.OK` is -5 and was emitted as 4, so `response === -5` failed to compile
+// against the enum that defines it.
+if (!/NONE = -1,/.test(types) || !/OK = -5,/.test(types)) {
+  fail("an enum member lost its GIR value to the positional default");
+}
+// A bitfield is the case where "off by one" understates it: 0,1,2,4,8 became 0,1,2,3,4,
+// so `THIRD | FOURTH` computed 7 where the library means 12.
+if (!/THIRD = 4,/.test(types) || !/FOURTH = 8,/.test(types)) {
+  fail("a bitfield's members were renumbered by position");
+}
+// Metadata reaches enum members, the same way it now reaches properties and signals.
+if (!/@since 1\.7[\s\S]{0,80}LATER = -9,/.test(types)) {
+  fail("an enum member's since-version did not reach the output");
+}
+
 // The control: an undeprecated method must not inherit a sibling's tag.
 const newWay = docBlockOf("new_way(): void");
 if (newWay && /@deprecated/.test(newWay)) {

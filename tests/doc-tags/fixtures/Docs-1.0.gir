@@ -63,5 +63,22 @@
         <type name="gboolean" c:type="gboolean"/>
       </property>
     </class>
+    <!-- Enum values, the case TypeScript's positional default gets WRONG. `ok` is -5 and
+         a bitfield's members are powers of two; both are unrepresentable by position. -->
+    <enumeration name="Answer" c:type="DocsAnswer" glib:type-name="DocsAnswer" glib:get-type="docs_answer_get_type">
+      <member name="none" value="-1" c:identifier="DOCS_ANSWER_NONE"/>
+      <member name="ok" value="-5" c:identifier="DOCS_ANSWER_OK"/>
+      <!-- A member with its own since-version: metadata reaches enum members too. -->
+      <member name="later" value="-9" c:identifier="DOCS_ANSWER_LATER" version="1.7"/>
+    </enumeration>
+
+    <bitfield name="Mask" c:type="DocsMask" glib:type-name="DocsMask" glib:get-type="docs_mask_get_type">
+      <member name="none" value="0" c:identifier="DOCS_MASK_NONE"/>
+      <member name="first" value="1" c:identifier="DOCS_MASK_FIRST"/>
+      <member name="second" value="2" c:identifier="DOCS_MASK_SECOND"/>
+      <member name="third" value="4" c:identifier="DOCS_MASK_THIRD"/>
+      <member name="fourth" value="8" c:identifier="DOCS_MASK_FOURTH"/>
+    </bitfield>
+
   </namespace>
 </repository>

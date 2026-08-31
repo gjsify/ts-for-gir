@@ -108,6 +108,15 @@ const DOC_BASE_URLS = new Map<string, string>([
   ["GtkSource-5", "https://gnome.pages.gitlab.gnome.org/gtksourceview/gtksourceview5/"],
 ]);
 
+/** A GIR enum value TypeScript can use as an initialiser, or null to keep the default. */
+function enumInitialiser(raw: string | undefined): string | null {
+  if (raw === undefined) return null;
+  const trimmed = raw.trim();
+  if (!/^-?\d+$/.test(trimmed)) return null;
+  // Beyond this, the literal loses precision and the emitted number is not the GIR's.
+  return Number.isSafeInteger(Number(trimmed)) ? trimmed : null;
+}
+
 export class ModuleGenerator extends FormatGenerator<string[]> {
   log: Reporter;
   dependencyManager: DependencyManager;
@@ -1144,15 +1153,39 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
   generateEnumMember(tsMember: GirEnumMember, indentCount = 1) {
     const desc: string[] = [];
 
-    desc.push(...this.addGirDocComment(tsMember.doc, [], indentCount));
+    // The member's own metadata, for the same reason properties and signals carry it: a
+    // member the installed library predates is otherwise indistinguishable from a wrong one.
+    desc.push(
+      ...this.addGirDocComment(
+        tsMember.doc,
+        this.namespace.getTsDocMetadataTags(tsMember.metadata),
+        indentCount,
+      ),
+    );
 
     const invalid = isInvalid(tsMember.name);
 
+    // The GIR's VALUE, not TypeScript's positional default.
+    //
+    // Without it the numbers are simply wrong, and since TS 5.0 made numeric enums literal
+    // unions, wrong in a way the compiler enforces: `Gtk.ResponseType.OK` is -5 upstream and
+    // was emitted as 4, so `response === -5` failed to compile against the very enum that
+    // defines it. Bitfields are worse than off-by-one — `Gtk.StateFlags` declares
+    // 0,1,2,4,8,16 and got 0,1,2,3,4,5, so `SELECTED | INSENSITIVE` computed 7 where GTK
+    // means 12. Measured: 124 of 806 members in Gtk-4.0 and 424 of 751 in GLib had a value
+    // that is not their position.
+    //
+    // Only a plain integer is carried. GIR also holds symbolic and out-of-range values that
+    // TypeScript cannot express as an initialiser, and those keep the positional default
+    // rather than emitting something that does not compile.
+    const value = enumInitialiser(tsMember.value);
+    const assignment = value === null ? "" : ` = ${value}`;
+
     const indent = generateIndent(indentCount);
     if (invalid) {
-      desc.push(`${indent}"${tsMember.name}",`);
+      desc.push(`${indent}"${tsMember.name}"${assignment},`);
     } else {
-      desc.push(`${indent}${tsMember.name},`);
+      desc.push(`${indent}${tsMember.name}${assignment},`);
     }
 
     return desc;

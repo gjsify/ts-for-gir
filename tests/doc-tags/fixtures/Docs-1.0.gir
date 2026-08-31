@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <package name="docs-1.0"/>
+  <namespace name="Docs" version="1.0" shared-library="libdocs-1.0.so.0" c:identifier-prefixes="Docs" c:symbol-prefixes="docs">
+
+    <class name="Thing" c:symbol-prefix="thing" c:type="DocsThing" glib:type-name="DocsThing" glib:get-type="docs_thing_get_type" parent="GObject.Object">
+
+      <!-- An ordinary METHOD that upstream deprecated, with a version and a reason.
+           This is the common case: 528 of them in Gtk-4.0 alone. -->
+      <method name="old_way" c:identifier="docs_thing_old_way" version="1.2" deprecated="1" deprecated-version="1.8">
+        <doc xml:space="preserve">Does the thing the old way.</doc>
+        <doc-deprecated xml:space="preserve">Use docs_thing_new_way() instead.</doc-deprecated>
+        <return-value transfer-ownership="none"><type name="none" c:type="void"/></return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none"><type name="Docs.Thing" c:type="DocsThing*"/></instance-parameter>
+        </parameters>
+      </method>
+
+      <!-- CONTROL: a method upstream did NOT deprecate. It must carry its doc and its
+           `@since`, and must NOT acquire a `@deprecated` from a sibling. -->
+      <method name="new_way" c:identifier="docs_thing_new_way" version="1.8">
+        <doc xml:space="preserve">Does the thing the new way.</doc>
+        <return-value transfer-ownership="none"><type name="none" c:type="void"/></return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none"><type name="Docs.Thing" c:type="DocsThing*"/></instance-parameter>
+        </parameters>
+      </method>
+
+      <!-- A STATIC function: a different rebuild path, same loss. -->
+      <function name="make_old" c:identifier="docs_thing_make_old" deprecated="1" deprecated-version="1.9">
+        <doc xml:space="preserve">Builds one the old way.</doc>
+        <doc-deprecated xml:space="preserve">Construct it directly.</doc-deprecated>
+        <return-value transfer-ownership="full"><type name="Docs.Thing" c:type="DocsThing*"/></return-value>
+      </function>
+
+      <!-- A VIRTUAL method: the third rebuild path. -->
+      <virtual-method name="handle_old" invoker="old_way" deprecated="1" deprecated-version="1.8">
+        <doc xml:space="preserve">Handles the old way.</doc>
+        <doc-deprecated xml:space="preserve">Override handle_new instead.</doc-deprecated>
+        <return-value transfer-ownership="none"><type name="none" c:type="void"/></return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none"><type name="Docs.Thing" c:type="DocsThing*"/></instance-parameter>
+        </parameters>
+      </virtual-method>
+
+      <!-- A PROPERTY, which never lost its metadata: the positive control proving the
+           suite reads a file where deprecation DOES arrive by another route. -->
+      <property name="legacy-mode" writable="1" transfer-ownership="none" deprecated="1" deprecated-version="1.5">
+        <doc xml:space="preserve">Whether the legacy mode is on.</doc>
+        <doc-deprecated xml:space="preserve">Legacy mode is gone.</doc-deprecated>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+
+    </class>
+  </namespace>
+</repository>

@@ -1,0 +1,15 @@
+{
+  "name": "@ts-for-gir-test/doc-tags",
+  "description": "Tests that GIR documentation metadata survives the rebuild into class members",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "gjsify run clear && gjsify run generate && gjsify run assert",
+    "generate": "ts-for-gir-dev generate --configName .ts-for-gir.rc.js",
+    "assert": "node --no-warnings assert.mjs",
+    "clear": "rm -rf generated"
+  },
+  "devDependencies": {
+    "@ts-for-gir/cli": "workspace:^"
+  }
+}

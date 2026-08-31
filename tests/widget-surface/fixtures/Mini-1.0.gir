@@ -129,5 +129,71 @@
       </property>
     </class>
 
+    <!-- A CHILD HOLDER: not a widget, carries one through the set_child/get_child PAIR.
+         `GtkListItem`, `GtkListHeader`, `GtkColumnViewCell` and `AdwToggle` are this
+         shape in the real corpus — they descend from GObject.Object, and a renderer
+         places them exactly like a container. -->
+    <class name="ListItem" c:symbol-prefix="list_item" c:type="GtkListItem" glib:type-name="GtkListItem" glib:get-type="gtk_list_item_get_type" parent="GObject.Object">
+      <property name="activatable" writable="1" transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <method name="set_child" c:identifier="gtk_list_item_set_child">
+        <return-value transfer-ownership="none"><type name="none" c:type="void"/></return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none"><type name="Mini.ListItem" c:type="GtkListItem*"/></instance-parameter>
+          <parameter name="child" transfer-ownership="none"><type name="Widget" c:type="GtkWidget*"/></parameter>
+        </parameters>
+      </method>
+      <method name="get_child" c:identifier="gtk_list_item_get_child">
+        <return-value transfer-ownership="none"><type name="Widget" c:type="GtkWidget*"/></return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none"><type name="Mini.ListItem" c:type="GtkListItem*"/></instance-parameter>
+        </parameters>
+      </method>
+    </class>
+
+    <!-- CONTROL, and the one that decides whether the rule is the PAIR or either half:
+         a setter with no getter. If this reaches CHILD_HOLDERS the rule matched one
+         accessor, which would also sweep in every `set_child`-carrying non-widget the
+         real corpus has. `Adjustment` above is the weaker control (neither accessor)
+         and `Box` is the third (both a widget AND a `set_child` carrier). -->
+    <class name="Setter" c:symbol-prefix="setter" c:type="GtkSetter" glib:type-name="GtkSetter" glib:get-type="gtk_setter_get_type" parent="GObject.Object">
+      <property name="tag" writable="1" transfer-ownership="none">
+        <type name="utf8" c:type="const gchar*"/>
+      </property>
+      <method name="set_child" c:identifier="gtk_setter_set_child">
+        <return-value transfer-ownership="none"><type name="none" c:type="void"/></return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none"><type name="Mini.Setter" c:type="GtkSetter*"/></instance-parameter>
+          <parameter name="child" transfer-ownership="none"><type name="Widget" c:type="GtkWidget*"/></parameter>
+        </parameters>
+      </method>
+    </class>
+
+    <!-- CONTROL for the defect that took a 705-namespace run down: BOTH accessors, but
+         the child is not a widget. `St.Bin` and eleven `Mx.*` are exactly this — the pair
+         over a `ClutterActor` — and a surface rooted at GtkWidget has nothing to say about
+         them. A name-only rule selects 17 classes across the corpus instead of four, and
+         then asks the emitter to print a property type from a hierarchy it does not
+         model. If this reaches CHILD_HOLDERS the type test is gone. -->
+    <class name="ActorBin" c:symbol-prefix="actor_bin" c:type="GtkActorBin" glib:type-name="GtkActorBin" glib:get-type="gtk_actor_bin_get_type" parent="GObject.Object">
+      <property name="tint" writable="1" transfer-ownership="none">
+        <type name="utf8" c:type="const gchar*"/>
+      </property>
+      <method name="set_child" c:identifier="gtk_actor_bin_set_child">
+        <return-value transfer-ownership="none"><type name="none" c:type="void"/></return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none"><type name="Mini.ActorBin" c:type="GtkActorBin*"/></instance-parameter>
+          <parameter name="child" transfer-ownership="none"><type name="Adjustment" c:type="GtkAdjustment*"/></parameter>
+        </parameters>
+      </method>
+      <method name="get_child" c:identifier="gtk_actor_bin_get_child">
+        <return-value transfer-ownership="none"><type name="Adjustment" c:type="GtkAdjustment*"/></return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none"><type name="Mini.ActorBin" c:type="GtkActorBin*"/></instance-parameter>
+        </parameters>
+      </method>
+    </class>
+
   </namespace>
 </repository>

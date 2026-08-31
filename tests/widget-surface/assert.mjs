@@ -94,6 +94,10 @@ const must = [
   ],
   ["since map declared", /export const SINCE: Readonly<Record<string, string>>;/],
   ["helper types", /export type WidgetGType = keyof Widgets;/],
+  // Child holders: a sibling table, never four more rows in `Widgets`.
+  ["child holder table", /export interface ChildHolders \{/],
+  ["child holder helper type", /export type ChildHolderGType = keyof ChildHolders;/],
+  ["child holder list declared", /export const CHILD_HOLDERS: readonly string\[\];/],
 ];
 
 const mustNot = [
@@ -115,6 +119,8 @@ const mustNot = [
   // A non-widget gets neither.
   ["non-widget row", /GtkAdjustment: \{/],
   ["non-widget props interface", /GtkAdjustmentProps/],
+  // Half the accessor pair is not a holder, so it reaches no table at all.
+  ["a set_child-only class anywhere", /GtkSetter/],
 ];
 
 // The `mustNot` list runs against the DECLARATIONS with comments stripped. The header
@@ -146,10 +152,52 @@ for (const name of Object.keys(data)) {
 const rowGTypes = new Set([...types.matchAll(/^ {4}(\w+): \{$/gm)].map((match) => match[1]));
 const dataGTypes = new Set(Object.keys(data.DECLS ?? {}));
 for (const gtype of rowGTypes) {
-  if (!dataGTypes.has(gtype)) fail(`in the Widgets map but not in DECLS: ${gtype}`);
+  if (!dataGTypes.has(gtype)) fail(`in a surface row but not in DECLS: ${gtype}`);
 }
 for (const gtype of dataGTypes) {
-  if (!rowGTypes.has(gtype)) fail(`in DECLS but not in the Widgets map: ${gtype}`);
+  if (!rowGTypes.has(gtype)) fail(`in DECLS but in no surface row: ${gtype}`);
+}
+
+// ------------------------------------------------------- child holders vs widgets
+//
+// `Widgets` and `ChildHolders` have the SAME row shape, so the row-level regex above
+// cannot tell them apart — which is precisely what a consumer asking "is this a widget"
+// would get wrong. Both blocks are extracted and held against each other AND against the
+// runtime list, because agreement between two halves of one emitter is not the same fact
+// as the rule having selected correctly.
+const blockOf = (name) =>
+  new RegExp(`export interface ${name} \\{([\\s\\S]*?)\\n\\}`).exec(types)?.[1] ?? null;
+const widgetsBlock = blockOf("Widgets");
+const holdersBlock = blockOf("ChildHolders");
+if (widgetsBlock === null) fail("no Widgets interface in the surface .d.ts");
+if (holdersBlock === null) fail("no ChildHolders interface in the surface .d.ts");
+
+const holders = new Set(data.CHILD_HOLDERS ?? []);
+if (!holders.has("GtkListItem")) {
+  fail(`CHILD_HOLDERS omits the set_child/get_child carrier: ${JSON.stringify([...holders])}`);
+}
+// THE control: half a pair is not a pair. Matching either accessor alone would also sweep
+// in every `set_child`-carrying non-widget the real corpus has.
+if (holders.has("GtkSetter")) {
+  fail("CHILD_HOLDERS took a class with set_child and no get_child — the rule matched one half");
+}
+// The control for the defect that took a 705-namespace run down: both accessors over a
+// NON-widget child. Name-only matching selects 17 classes across the corpus instead of
+// four, and then asks the emitter to print a type from a hierarchy it does not model.
+if (holders.has("GtkActorBin")) {
+  fail("CHILD_HOLDERS took a set_child/get_child pair over a NON-widget — the type test is gone");
+}
+if (holders.has("GtkBox")) fail("CHILD_HOLDERS took a widget; concreteWidgetsOf already serves it");
+if (holders.has("GtkAdjustment")) fail("CHILD_HOLDERS took a class with neither accessor");
+if (widgetsBlock?.includes("GtkListItem:")) fail("a child holder appears as a WIDGET row");
+if (!holdersBlock?.includes("GtkListItem:")) fail("the child holder has no ChildHolders row");
+if (!widgetsBlock?.includes("GtkBox:")) fail("the widget table lost GtkBox");
+if (holdersBlock?.includes("GtkBox:")) fail("a widget appears as a CHILD HOLDER row");
+// A holder rides the same pipeline, so it must be describable like any other declaration:
+// a holder a consumer cannot type is a holder it has to re-read the GIR for.
+if (!data.DECLS?.GtkListItem) fail("DECLS omits the child holder — a consumer cannot type it");
+if (!data.OWN_PROPS?.GtkListItem?.includes("activatable")) {
+  fail(`OWN_PROPS lost the holder's own property: ${JSON.stringify(data.OWN_PROPS?.GtkListItem)}`);
 }
 
 // Every property the runtime data offers must be a key of the interface it belongs to.
@@ -322,7 +370,8 @@ if (failures.length > 0) {
 }
 
 console.log(
-  `OK: ${rowGTypes.size} widget row(s), ${Object.keys(data.OWN_PROPS).length} declaration(s) with props, ` +
+  `OK: ${rowGTypes.size - holders.size} widget row(s), ${holders.size} child holder(s), ` +
+    `${Object.keys(data.OWN_PROPS).length} declaration(s) with props, ` +
     `${Object.keys(data.ENUM_NICKS).length} nick union(s); flag-off control clean; ` +
     `broken fixture rejected with exit ${brokenExit}`,
 );

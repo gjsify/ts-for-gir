@@ -31,17 +31,24 @@ export function emitSurfaceData(surface: WidgetSurface): string {
     ownProps.push(`    ${decl.gtype}: ${list(decl.props.map((prop) => prop.girName))},`);
   }
 
-  const ownSignals = surface.widgets
+  // The runtime data describes EVERYTHING the surface knows, widgets and holders alike:
+  // a holder a consumer cannot look up is a holder it has to re-read the GIR for.
+  // `CHILD_HOLDERS` is the line between the two kinds, not a second data set.
+  const all = [...surface.widgets, ...surface.childHolders].sort((a, b) =>
+    a.gtype < b.gtype ? -1 : 1,
+  );
+
+  const ownSignals = all
     .filter((widget) => widget.signals.length > 0)
     .map((widget) => `    ${widget.gtype}: ${list(widget.signals)},`);
 
-  const decls = surface.widgets.map((widget) => `    ${widget.gtype}: ${list(widget.chain)},`);
+  const decls = all.map((widget) => `    ${widget.gtype}: ${list(widget.chain)},`);
 
   const nicks = [...surface.enums.values()]
     .sort((a, b) => (a.gtype < b.gtype ? -1 : 1))
     .map((entry) => `    ${entry.gtype}: ${list(entry.nicks)},`);
 
-  const slots = surface.widgets
+  const slots = all
     .filter((widget) => widget.slotCandidates.size > 0)
     .map((widget) => {
       const rows = [...widget.slotCandidates]
@@ -69,6 +76,12 @@ export const OWN_PROPS = ${record(ownProps)};
 export const OWN_SIGNALS = ${record(ownSignals)};
 
 export const DECLS = ${record(decls)};
+
+// The GTypes above that are NOT widgets: they hold one through \`set_child\`/\`get_child\`
+// and descend from \`GObject.Object\`. A renderer places them like a container; a check
+// asking "is this a widget" must not count them. Derived from the accessor pair, never
+// from a list — the count is in the provenance line above.
+export const CHILD_HOLDERS = ${list(surface.childHolders.map((holder) => holder.gtype))};
 
 export const ENUM_NICKS = ${record(nicks)};
 

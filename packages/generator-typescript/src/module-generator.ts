@@ -962,6 +962,14 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
           ...this.namespace.getTsDocInParamTags(tsFunction.parameters),
           ...this.namespace.getTsDocReturnTags(tsFunction),
           ...this.namespace.getTsDocMetadataTags(tsFunction.metadata),
+          // GIR's `throws="1"` means the C function takes a `GError**`, and GJS turns
+          // that into a raised exception. The signature cannot say so — `add_from_file`
+          // reads as returning a plain boolean — so the only place a caller can learn it
+          // is here. 63 functions in Gtk-4.0, 23718 across the corpus, and an uncaught
+          // GError ends the process.
+          ...(tsFunction.throws
+            ? [{ tagName: "throws", paramName: "", text: "GLib.Error" } as const]
+            : []),
           ...(tsFunction instanceof IntrospectedVirtualClassFunction
             ? [{ tagName: "virtual", paramName: "", text: "" } as const]
             : []),

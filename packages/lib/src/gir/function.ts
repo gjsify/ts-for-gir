@@ -30,6 +30,12 @@ export class IntrospectedFunction extends IntrospectedNamespaceMember {
 
 	generics: Generic[] = [];
 	returnTypeDoc: string | null;
+	/**
+	 * GIR's `throws="1"`: the C function takes a `GError**`, so GJS raises instead of
+	 * returning it. Nothing in the emitted signature shows that, which is why it needs
+	 * to reach the docs.
+	 */
+	throws = false;
 
 	constructor({
 		name,
@@ -80,6 +86,7 @@ export class IntrospectedFunction extends IntrospectedNamespaceMember {
 
 		fn.returnTypeDoc = this.returnTypeDoc;
 		fn.generics = [...this.generics];
+		fn.throws = this.throws;
 
 		return fn._copyBaseProperties(this);
 	}
@@ -135,6 +142,7 @@ export class IntrospectedFunction extends IntrospectedNamespaceMember {
 		if (options.loadDocs) {
 			fn.doc = parseDoc(element);
 			fn.metadata = parseMetadata(element);
+			fn.throws = element.$.throws === "1";
 		}
 
 		return fn;

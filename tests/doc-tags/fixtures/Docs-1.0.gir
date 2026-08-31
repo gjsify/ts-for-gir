@@ -30,6 +30,16 @@
         </parameters>
       </method>
 
+      <!-- A method that takes a GError**. GJS raises instead of returning it, and the
+           signature cannot show that: `may_fail(): void` reads as infallible. -->
+      <method name="may_fail" c:identifier="docs_thing_may_fail" throws="1">
+        <doc xml:space="preserve">Does the thing, or raises.</doc>
+        <return-value transfer-ownership="none"><type name="gboolean" c:type="gboolean"/></return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none"><type name="Docs.Thing" c:type="DocsThing*"/></instance-parameter>
+        </parameters>
+      </method>
+
       <!-- A STATIC function: a different rebuild path, same loss. -->
       <function name="make_old" c:identifier="docs_thing_make_old" deprecated="1" deprecated-version="1.9">
         <doc xml:space="preserve">Builds one the old way.</doc>

@@ -75,6 +75,23 @@ for (const [label, declaration, expected] of must) {
     fail(`${label}: block does not match ${expected}\n      ${block.replace(/\n/g, "\n      ")}`);
 }
 
+// ------------------------------------------------------------------------ @throws
+//
+// `throws="1"` means the C function takes a `GError**`, which GJS turns into a raised
+// exception. Nothing in the signature says so — `add_from_file(filename): boolean` reads
+// as infallible — so this is the only place a caller can learn it. 63 functions in
+// Gtk-4.0, 23718 across the corpus, and an uncaught GError ends the process.
+{
+  const block = docBlockOf("may_fail(): boolean");
+  if (block === null) fail("no TSDoc block above the throwing method");
+  else if (!/@throws GLib\.Error/.test(block)) fail("a throwing method carries no @throws");
+}
+// The control: a method that does NOT throw must not acquire the tag from a sibling.
+{
+  const block = docBlockOf("new_way(): void");
+  if (block && /@throws/.test(block)) fail("a non-throwing method carries @throws");
+}
+
 // ---------------------------------------------------------- signal parameter names
 //
 // Methods have always carried the GIR's parameter name — `set_child(child: Widget)` — and

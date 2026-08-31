@@ -269,11 +269,15 @@ export const ENUM_NICKS: Readonly<Record<string, readonly string[]>>;
 export const SLOT_CANDIDATES: Readonly<Record<string, Readonly<Record<string, string>>>>;
 
 /**
- * \`Type.property\` -> the release that introduced it.
+ * \`Type.property\` and \`Type::signal\` -> the release that introduced it.
  *
  * What keeps a runtime cross-check honest across a version gap without an
  * allowlist: a member the installed library lacks is a defect UNLESS the version
  * here is newer than the one running.
+ *
+ * BOTH key shapes, because that test only works for the members it covers. A
+ * property-only map leaves a consumer no way to explain a missing SIGNAL, which is
+ * a correct surface reported as 18 defects.
  */
 export const SINCE: Readonly<Record<string, string>>;
 `;

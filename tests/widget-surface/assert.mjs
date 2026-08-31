@@ -226,6 +226,21 @@ if (data.ENUM_NICKS?.GtkStateFlags) {
 if (data.SINCE?.["GtkOrientable.orientation"] !== "1.2") {
   fail(`SINCE lost the GIR version attribute: ${JSON.stringify(data.SINCE)}`);
 }
+// The SIGNAL half, keyed the way GObject spells a signal. Without it a consumer has no
+// way to tell "this surface describes a newer library" from "this surface is wrong" for
+// signals — measured against gtk4-4.22.4: 18 widgets reported as defects for a correct
+// surface, because `GtkWindow::force-close` had nothing to explain it.
+if (data.SINCE?.["GtkBox::child-added"] !== "1.6") {
+  fail(
+    `SINCE carries no signal key: ${JSON.stringify(
+      Object.keys(data.SINCE ?? {}).filter((k) => k.includes("::")),
+    )}`,
+  );
+}
+// And the two spellings must not collide: a property key never contains `::`.
+for (const key of Object.keys(data.SINCE ?? {})) {
+  if (key.includes("::") && key.includes(".")) fail(`SINCE key is neither spelling: ${key}`);
+}
 if (!data.OWN_PROPS?.GtkBox?.includes("user-data")) {
   // Dropping it from the runtime data would hide a real writable ParamSpec from the
   // consumer check that asks the installed library whether every name here exists.

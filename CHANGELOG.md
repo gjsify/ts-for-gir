@@ -1,5 +1,20 @@
 # Changelog
 
+## [4.4.0](https://github.com/gjsify/ts-for-gir/compare/v4.3.0...v4.4.0) (2026-08-31)
+
+### Features
+
+* emit child holders on the widget surface ([#452](https://github.com/gjsify/ts-for-gir/issues/452)) ([b2a65a0](https://github.com/gjsify/ts-for-gir/commit/b2a65a0adc5fdfbaa47f453ae354daf62c8e3484))
+
+### Bug Fixes
+
+* **ci:** give the docs build room for a growing corpus ([#449](https://github.com/gjsify/ts-for-gir/issues/449)) ([7e97f3f](https://github.com/gjsify/ts-for-gir/commit/7e97f3f3a4724b15c3bc77fbe0dcfcd579443da7))
+* **lib:** carry doc metadata into class members ([#453](https://github.com/gjsify/ts-for-gir/issues/453)) ([0807afd](https://github.com/gjsify/ts-for-gir/commit/0807afd4bfe77960e2f8cf2ec339d7c96f323b38))
+
+### Maintenance
+
+* **girs:** drop the committed typelibs ([#451](https://github.com/gjsify/ts-for-gir/issues/451)) ([186fd91](https://github.com/gjsify/ts-for-gir/commit/186fd912d71f40d67d87c877ba31f04c2b9b46c1))
+
 ## [4.3.0](https://github.com/gjsify/ts-for-gir/compare/v4.2.0...v4.3.0) (2026-08-28)
 
 ### Features

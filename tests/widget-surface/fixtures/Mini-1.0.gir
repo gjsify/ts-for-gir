@@ -129,5 +129,46 @@
       </property>
     </class>
 
+    <!-- A CHILD HOLDER: not a widget, carries one through the set_child/get_child PAIR.
+         `GtkListItem`, `GtkListHeader`, `GtkColumnViewCell` and `AdwToggle` are this
+         shape in the real corpus — they descend from GObject.Object, and a renderer
+         places them exactly like a container. -->
+    <class name="ListItem" c:symbol-prefix="list_item" c:type="GtkListItem" glib:type-name="GtkListItem" glib:get-type="gtk_list_item_get_type" parent="GObject.Object">
+      <property name="activatable" writable="1" transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <method name="set_child" c:identifier="gtk_list_item_set_child">
+        <return-value transfer-ownership="none"><type name="none" c:type="void"/></return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none"><type name="Mini.ListItem" c:type="GtkListItem*"/></instance-parameter>
+          <parameter name="child" transfer-ownership="none"><type name="Widget" c:type="GtkWidget*"/></parameter>
+        </parameters>
+      </method>
+      <method name="get_child" c:identifier="gtk_list_item_get_child">
+        <return-value transfer-ownership="none"><type name="Widget" c:type="GtkWidget*"/></return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none"><type name="Mini.ListItem" c:type="GtkListItem*"/></instance-parameter>
+        </parameters>
+      </method>
+    </class>
+
+    <!-- CONTROL, and the one that decides whether the rule is the PAIR or either half:
+         a setter with no getter. If this reaches CHILD_HOLDERS the rule matched one
+         accessor, which would also sweep in every `set_child`-carrying non-widget the
+         real corpus has. `Adjustment` above is the weaker control (neither accessor)
+         and `Box` is the third (both a widget AND a `set_child` carrier). -->
+    <class name="Setter" c:symbol-prefix="setter" c:type="GtkSetter" glib:type-name="GtkSetter" glib:get-type="gtk_setter_get_type" parent="GObject.Object">
+      <property name="tag" writable="1" transfer-ownership="none">
+        <type name="utf8" c:type="const gchar*"/>
+      </property>
+      <method name="set_child" c:identifier="gtk_setter_set_child">
+        <return-value transfer-ownership="none"><type name="none" c:type="void"/></return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none"><type name="Mini.Setter" c:type="GtkSetter*"/></instance-parameter>
+          <parameter name="child" transfer-ownership="none"><type name="Widget" c:type="GtkWidget*"/></parameter>
+        </parameters>
+      </method>
+    </class>
+
   </namespace>
 </repository>

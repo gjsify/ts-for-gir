@@ -139,6 +139,12 @@ export interface WidgetSurface {
   readonly importName: string;
   readonly provenance: string;
   readonly widgets: readonly SurfaceWidget[];
+  /**
+   * Objects that hold a widget without being one — see `childHoldersOf`. Same shape as
+   * `widgets` and deliberately a SEPARATE list: a consumer wanting both concatenates
+   * them, and one that means "is a widget" is not quietly handed four that are not.
+   */
+  readonly childHolders: readonly SurfaceWidget[];
   /** Key -> declaration, own and foreign, in emit order. */
   readonly declarations: ReadonlyMap<string, SurfaceDecl>;
   /** Nick unions this surface must emit itself, by enum GType. */
@@ -258,6 +264,45 @@ function concreteWidgetsOf(module: GirModule): IntrospectedClass[] {
       typeof cls.glibTypeName === "string" &&
       isWidgetClass(module, cls),
   );
+}
+
+/**
+ * The CHILD HOLDERS of one namespace — objects that carry a widget without being one.
+ *
+ * `GtkListItem`, `GtkListHeader`, `GtkColumnViewCell` and `AdwToggle` hold a widget
+ * through `set_child`/`get_child` and descend from `GObject.Object`, not from
+ * `GtkWidget`. A renderer that places children addresses them exactly like a container,
+ * so leaving them out leaves the consumer re-reading the GIR for four types — which is
+ * the second reader this subpath exists to remove.
+ *
+ * The rule is the accessor PAIR, not a hand-written list, and that distinction is
+ * load-bearing: measured across Gtk-4.0 and Adw-1 it selects exactly those four, and
+ * `AdwToggle` is the argument for having a rule at all — it was absent from the
+ * hand-written list this replaces, has the identical shape, and would have been an
+ * arbitrary gap.
+ *
+ * Names, not types, because that is what was measured. A type-directed version ("holds
+ * anything descending from the root") sounds more general and is unmeasured across the
+ * other 700 namespaces; the per-namespace counts in the provenance are what would show
+ * it going wrong.
+ *
+ * A holder never becomes a widget here: `Widgets` keeps its meaning and `ChildHolders`
+ * is its sibling.
+ */
+function childHoldersOf(module: GirModule): IntrospectedClass[] {
+  return classLikeMembers(module).filter((cls): cls is IntrospectedClass => {
+    if (!(cls instanceof IntrospectedClass)) return false;
+    if (cls.isAbstract || !cls.isIntrospectable) return false;
+    if (typeof cls.glibTypeName !== "string") return false;
+    // A widget is served by `concreteWidgetsOf`. Emitting it twice would put one GType
+    // in two lists a consumer is entitled to concatenate.
+    if (isWidgetClass(module, cls)) return false;
+    const accessors = new Set<string>();
+    for (const decl of [cls, ...ancestorsOf(module, cls)]) {
+      for (const member of decl.members) accessors.add(member.name);
+    }
+    return accessors.has("set_child") && accessors.has("get_child");
+  });
 }
 
 /**
@@ -553,6 +598,9 @@ export function buildWidgetSurface(
 ): WidgetSurface | null {
   const widgetClasses = concreteWidgetsOf(module);
   if (widgetClasses.length === 0) return null;
+  // Holders ride the SAME pipeline — they need declarations, props and since-versions
+  // exactly as widgets do, or a consumer cannot type them. Only the list differs.
+  const holderClasses = childHoldersOf(module);
 
   const namespaceImports = new Map<string, string>();
   const enums = new Map<string, SurfaceEnum>();
@@ -589,7 +637,7 @@ export function buildWidgetSurface(
 
   const needed = new Map<string, IntrospectedBaseClass>();
   const chains = new Map<string, IntrospectedBaseClass[]>();
-  for (const widget of widgetClasses) {
+  for (const widget of [...widgetClasses, ...holderClasses]) {
     const chain = declarationChain(module, widget);
     chains.set(keyOf(widget), chain);
     for (const decl of chain) needed.set(keyOf(decl), decl);
@@ -656,22 +704,26 @@ export function buildWidgetSurface(
     withBases.set(key, { ...decl, bases });
   }
 
-  const widgets: SurfaceWidget[] = widgetClasses
-    .filter((widget) => withBases.has(keyOf(widget)))
-    .map((widget) => ({
-      key: keyOf(widget),
-      namespace: widget.namespace.namespace,
-      local: widget.name,
-      gtype: widget.glibTypeName!,
-      slotCandidates: slotCandidatesOf(module, config, widget),
-      chain: (chains.get(keyOf(widget)) ?? [])
-        .filter((decl) => withBases.has(keyOf(decl)))
-        .map((decl) => decl.glibTypeName!),
-      signals: [...widget.signals].map((signal) => signal.name).sort(),
-    }))
-    .sort((a, b) => (a.gtype < b.gtype ? -1 : 1));
+  const toEntries = (classes: readonly IntrospectedClass[]): SurfaceWidget[] =>
+    classes
+      .filter((widget) => withBases.has(keyOf(widget)))
+      .map((widget) => ({
+        key: keyOf(widget),
+        namespace: widget.namespace.namespace,
+        local: widget.name,
+        gtype: widget.glibTypeName!,
+        slotCandidates: slotCandidatesOf(module, config, widget),
+        chain: (chains.get(keyOf(widget)) ?? [])
+          .filter((decl) => withBases.has(keyOf(decl)))
+          .map((decl) => decl.glibTypeName!),
+        signals: [...widget.signals].map((signal) => signal.name).sort(),
+      }))
+      .sort((a, b) => (a.gtype < b.gtype ? -1 : 1));
 
-  for (const widget of widgets) {
+  const widgets = toEntries(widgetClasses);
+  const childHolders = toEntries(holderClasses);
+
+  for (const widget of [...widgets, ...childHolders]) {
     const owner = module.getInstalledImport(widget.namespace);
     if (owner) namespaceImports.set(widget.namespace, owner.importPath);
   }
@@ -711,6 +763,10 @@ export function buildWidgetSurface(
   const provenanceParts = [`${module.packageName}`];
   if (module.libraryVersion?.declaredByLibrary)
     provenanceParts.push(`library ${module.libraryVersion}`);
+  // Counted, not named: the holder rule is a RULE, so what a reader needs from a diff is
+  // whether it started selecting more — a namespace where it suddenly picks forty is how
+  // an over-broad rule announces itself across the 700-namespace run.
+  if (childHolders.length > 0) provenanceParts.push(`${childHolders.length} child holder(s)`);
   // Named, not counted: both lists are how a GTK or dependency release that changes the
   // shape of the base graph shows up in a diff rather than in a support question.
   if (dropped.length > 0) provenanceParts.push(`dropped empty base(s): ${dropped.join(" ")}`);
@@ -734,6 +790,7 @@ export function buildWidgetSurface(
     importName: module.importName,
     provenance: provenanceParts.join(" — "),
     widgets,
+    childHolders,
     declarations: withBases,
     enums,
     namespaceImports,

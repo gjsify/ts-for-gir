@@ -30,6 +30,16 @@
         </parameters>
       </method>
 
+      <!-- A method that takes a GError**. GJS raises instead of returning it, and the
+           signature cannot show that: `may_fail(): void` reads as infallible. -->
+      <method name="may_fail" c:identifier="docs_thing_may_fail" throws="1">
+        <doc xml:space="preserve">Does the thing, or raises.</doc>
+        <return-value transfer-ownership="none"><type name="gboolean" c:type="gboolean"/></return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none"><type name="Docs.Thing" c:type="DocsThing*"/></instance-parameter>
+        </parameters>
+      </method>
+
       <!-- A STATIC function: a different rebuild path, same loss. -->
       <function name="make_old" c:identifier="docs_thing_make_old" deprecated="1" deprecated-version="1.9">
         <doc xml:space="preserve">Builds one the old way.</doc>
@@ -47,6 +57,14 @@
         </parameters>
       </virtual-method>
 
+      <!-- Signals, for the parameter-NAME rule. Handlers used to read `(arg0: …)`, which
+           discards the one label a reader needs while writing the callback. -->
+      <glib:signal name="row-activated" when="last">
+        <return-value transfer-ownership="none"><type name="none" c:type="void"/></return-value>
+        <parameters>
+          <parameter name="row" transfer-ownership="none"><type name="Docs.Thing" c:type="DocsThing*"/></parameter>
+        </parameters>
+      </glib:signal>
       <!-- A PROPERTY, which never lost its metadata: the positive control proving the
            suite reads a file where deprecation DOES arrive by another route. -->
       <property name="legacy-mode" writable="1" transfer-ownership="none" deprecated="1" deprecated-version="1.5">
@@ -54,7 +72,30 @@
         <doc-deprecated xml:space="preserve">Legacy mode is gone.</doc-deprecated>
         <type name="gboolean" c:type="gboolean"/>
       </property>
-
     </class>
+    <!-- A constant with a value. All 98 in Gtk-4.0 carry one and none reached the output,
+         so a reader had to open the C headers to learn what the string is. -->
+    <constant name="BACKGROUND_KEY" value="bg-color" c:type="DOCS_BACKGROUND_KEY">
+      <doc xml:space="preserve">The attribute name for a background.</doc>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+
+    <!-- Enum values, the case TypeScript's positional default gets WRONG. `ok` is -5 and
+         a bitfield's members are powers of two; both are unrepresentable by position. -->
+    <enumeration name="Answer" c:type="DocsAnswer" glib:type-name="DocsAnswer" glib:get-type="docs_answer_get_type">
+      <member name="none" value="-1" c:identifier="DOCS_ANSWER_NONE"/>
+      <member name="ok" value="-5" c:identifier="DOCS_ANSWER_OK"/>
+      <!-- A member with its own since-version: metadata reaches enum members too. -->
+      <member name="later" value="-9" c:identifier="DOCS_ANSWER_LATER" version="1.7"/>
+    </enumeration>
+
+    <bitfield name="Mask" c:type="DocsMask" glib:type-name="DocsMask" glib:get-type="docs_mask_get_type">
+      <member name="none" value="0" c:identifier="DOCS_MASK_NONE"/>
+      <member name="first" value="1" c:identifier="DOCS_MASK_FIRST"/>
+      <member name="second" value="2" c:identifier="DOCS_MASK_SECOND"/>
+      <member name="third" value="4" c:identifier="DOCS_MASK_THIRD"/>
+      <member name="fourth" value="8" c:identifier="DOCS_MASK_FOURTH"/>
+    </bitfield>
+
   </namespace>
 </repository>

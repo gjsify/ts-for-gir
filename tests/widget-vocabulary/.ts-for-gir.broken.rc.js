@@ -6,6 +6,6 @@ export default {
   outdir: "./generated-broken",
   npmScope: "@girs",
   package: true,
-  widgetSurface: true,
+  widgetVocabulary: true,
   reporter: false,
 };

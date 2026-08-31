@@ -75,6 +75,70 @@ for (const [label, declaration, expected] of must) {
     fail(`${label}: block does not match ${expected}\n      ${block.replace(/\n/g, "\n      ")}`);
 }
 
+// -------------------------------------------------------------- constant values
+//
+// All 98 constants in Gtk-4.0 carry a value in the GIR and none of it reached the output,
+// so `ACCESSIBLE_ATTRIBUTE_BACKGROUND: string` sent a reader to the C headers to learn it
+// is "bg-color". A literal TYPE would be richer and is deliberately not done: it breaks
+// `let x = C; x = other`.
+{
+  const block = docBlockOf("const BACKGROUND_KEY: string;");
+  if (block === null) fail("no TSDoc block above the constant");
+  else if (!/@default bg-color/.test(block)) fail("a constant does not document its value");
+}
+
+// ------------------------------------------------------------------------ @throws
+//
+// `throws="1"` means the C function takes a `GError**`, which GJS turns into a raised
+// exception. Nothing in the signature says so — `add_from_file(filename): boolean` reads
+// as infallible — so this is the only place a caller can learn it. 63 functions in
+// Gtk-4.0, 23718 across the corpus, and an uncaught GError ends the process.
+{
+  const block = docBlockOf("may_fail(): boolean");
+  if (block === null) fail("no TSDoc block above the throwing method");
+  else if (!/@throws GLib\.Error/.test(block)) fail("a throwing method carries no @throws");
+}
+// The control: a method that does NOT throw must not acquire the tag from a sibling.
+{
+  const block = docBlockOf("new_way(): void");
+  if (block && /@throws/.test(block)) fail("a non-throwing method carries @throws");
+}
+
+// ---------------------------------------------------------- signal parameter names
+//
+// Methods have always carried the GIR's parameter name — `set_child(child: Widget)` — and
+// signals carried `arg0`, which discards the label exactly where a reader is about to
+// write a callback. Measured on Gtk-4.0 after the change: 125 named, 0 `argN`.
+if (!/"row-activated": \(row: Thing\)/.test(types)) {
+  fail("a signal parameter lost its GIR name");
+}
+// NOT covered here, and said so rather than left as a silent gap: the `argN` fallback for
+// a reserved word or a duplicate name. Two extra signals added to this same fixture class
+// to exercise it never reached the output at all, and four hypotheses were ruled out
+// (parameter name, parameter type, position in the class, stale artefact). Whatever drops
+// them is upstream of the naming code, so a control written here would be testing that
+// instead. The fallback stays defensive and is argued in `signalParamName`'s comment.
+
+// ------------------------------------------------------------- enum member values
+//
+// TypeScript's positional default is not the GIR's value, and since TS 5.0 made numeric
+// enums literal unions it is wrong in a way the compiler enforces. Measured on Gtk-4.0
+// before the change: 124 of 806 members carried a value that is not their position —
+// `ResponseType.OK` is -5 and was emitted as 4, so `response === -5` failed to compile
+// against the enum that defines it.
+if (!/NONE = -1,/.test(types) || !/OK = -5,/.test(types)) {
+  fail("an enum member lost its GIR value to the positional default");
+}
+// A bitfield is the case where "off by one" understates it: 0,1,2,4,8 became 0,1,2,3,4,
+// so `THIRD | FOURTH` computed 7 where the library means 12.
+if (!/THIRD = 4,/.test(types) || !/FOURTH = 8,/.test(types)) {
+  fail("a bitfield's members were renumbered by position");
+}
+// Metadata reaches enum members, the same way it now reaches properties and signals.
+if (!/@since 1\.7[\s\S]{0,80}LATER = -9,/.test(types)) {
+  fail("an enum member's since-version did not reach the output");
+}
+
 // The control: an undeprecated method must not inherit a sibling's tag.
 const newWay = docBlockOf("new_way(): void");
 if (newWay && /@deprecated/.test(newWay)) {

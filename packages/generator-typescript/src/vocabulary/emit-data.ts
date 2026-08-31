@@ -1,5 +1,5 @@
 /**
- * Render the `./surface` runtime data module.
+ * Render the `./vocabulary` runtime data module.
  *
  * Why data and not only types: the one check that can go red for a real reason is
  * "does the INSTALLED library actually have this". Asking it needs a running GJS
@@ -14,7 +14,7 @@
  * do.
  */
 
-import type { WidgetSurface } from "./model.ts";
+import type { WidgetVocabulary } from "./model.ts";
 
 const record = (rows: readonly string[]): string =>
   rows.length === 0 ? "{}" : `{\n${rows.join("\n")}\n}`;
@@ -22,7 +22,7 @@ const record = (rows: readonly string[]): string =>
 const list = (items: readonly string[]): string =>
   `[${items.map((item) => `'${item}'`).join(", ")}]`;
 
-export function emitSurfaceData(surface: WidgetSurface): string {
+export function emitVocabularyData(surface: WidgetVocabulary): string {
   const ownProps: string[] = [];
   for (const decl of [...surface.declarations.values()].sort((a, b) =>
     a.gtype < b.gtype ? -1 : 1,
@@ -61,6 +61,22 @@ export function emitSurfaceData(surface: WidgetSurface): string {
     .sort(([a], [b]) => (a < b ? -1 : 1))
     .map(([member, version]) => `    '${member}': '${version}',`);
 
+  // Structured, not the prose line. The header sentence is for a reader; a consumer
+  // comparing this vocabulary against the library it runs against needs the version as a
+  // value, and pulling it out of a sentence is a parser nobody should have to write.
+  const p = surface.provenanceData;
+  const provenance = [
+    "{",
+    `    namespace: '${p.namespace}',`,
+    `    version: '${p.version}',`,
+    `    libraryVersion: ${p.libraryVersion === null ? "null" : `'${p.libraryVersion}'`},`,
+    `    childHolders: ${p.childHolders},`,
+    `    droppedBases: ${list(p.droppedBases)},`,
+    `    inlinedBases: ${list(p.inlinedBases)},`,
+    `    unsettableProps: ${list(p.unsettableProps)},`,
+    "}",
+  ].join("\n");
+
   return `// The widget vocabulary of ${surface.namespace}-${surface.version} as runtime data.
 //
 // GENERATED — do not edit. Provenance: ${surface.provenance}
@@ -69,7 +85,7 @@ export function emitSurfaceData(surface: WidgetSurface): string {
 // types are erased: a consumer that wants to ask the installed library whether every
 // name here is real needs values, not declarations.
 
-export const SURFACE_PROVENANCE = '${surface.provenance.replace(/'/g, "\\'")}';
+export const PROVENANCE = ${provenance};
 
 export const OWN_PROPS = ${record(ownProps)};
 

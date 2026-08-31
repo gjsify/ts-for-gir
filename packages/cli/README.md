@@ -136,8 +136,8 @@ Options:
                                                       [boolean] [default: false]
       --promisify               Generate promisified functions for async/finish
                                 calls                  [boolean] [default: true]
-      --widgetSurface           Emit the GIR-derived widget vocabulary on a
-                                `./surface` subpath for namespaces that declare
+      --widgetVocabulary           Emit the GIR-derived widget vocabulary on a
+                                `./vocabulary` subpath for namespaces that declare
                                 GtkWidget descendants [boolean] [default: false]
       --npmScope                Scope of the generated NPM packages
                                                      [string] [default: "@girs"]
@@ -528,9 +528,9 @@ The `noAdvancedVariants` option disables the advanced GLib.Variant class with st
 ts-for-gir generate * --noAdvancedVariants=false
 ```
 
-### widgetSurface
+### widgetVocabulary
 
-Emits the GIR-derived widget **vocabulary** on an opt-in `@girs/<ns>/surface` subpath, for the
+Emits the GIR-derived widget **vocabulary** on an opt-in `@girs/<ns>/vocabulary` subpath, for the
 namespaces that declare concrete descendants of `GtkWidget`: `Gtk-4.0`, `Adw-1`, `Gtk-3.0`,
 `GtkSource`, `WebKit` and so on. Every other namespace emits nothing regardless of the flag, so
 this is not something a Gio-only project pays for. Requires `--package`.

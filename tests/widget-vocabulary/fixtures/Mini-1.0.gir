@@ -70,12 +70,19 @@
       <property name="css-name" writable="1" construct-only="1" transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>
+      <!-- A DEPRECATED property, with upstream's version and reason. The surface read
+           a base field the property parser never sets, so it shipped none at all. -->
+      <property name="legacy-mode" writable="1" transfer-ownership="none" deprecated="1" deprecated-version="1.4">
+        <doc xml:space="preserve">Whether legacy mode is on.</doc>
+        <doc-deprecated xml:space="preserve">Use the style class instead.</doc-deprecated>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
       <glib:signal name="destroy" when="cleanup"/>
     </class>
 
     <class name="Box" c:symbol-prefix="box" c:type="GtkBox" glib:type-name="GtkBox" glib:get-type="gtk_box_get_type" parent="Widget">
       <implements name="Orientable"/>
-      <property name="spacing" writable="1" transfer-ownership="none">
+      <property name="spacing" default-value="6" writable="1" transfer-ownership="none">
         <type name="gint" c:type="gint"/>
       </property>
       <!-- RESOLVABLE and inexpressible. A writable `gpointer` is a real ParamSpec the

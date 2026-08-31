@@ -17,7 +17,7 @@ export interface OptionsGeneration extends OptionsBase {
 	/** Generate promisified functions for async/finish calls */
 	promisify: boolean;
 	/**
-	 * Emit the GIR-derived widget vocabulary on an opt-in `./surface` subpath, for
+	 * Emit the GIR-derived widget vocabulary on an opt-in `./vocabulary` subpath, for
 	 * every namespace that declares descendants of `GtkWidget`.
 	 *
 	 * Off by default: it is a separate subpath, so a consumer that never imports it
@@ -26,7 +26,7 @@ export interface OptionsGeneration extends OptionsBase {
 	 * namespace gate is automatic — a namespace with no `GtkWidget` descendant
 	 * never emits a surface even with this on.
 	 */
-	widgetSurface: boolean;
+	widgetVocabulary: boolean;
 	/**
 	 * Scope of the generated NPM packages
 	 * @see https://docs.npmjs.com/cli/v7/using-npm/scope

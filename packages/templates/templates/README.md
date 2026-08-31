@@ -4,85 +4,102 @@
 ![version](https://img.shields.io/npm/v/<%- npmScope %>/<%- importName %>)
 ![downloads/week](https://img.shields.io/npm/dw/<%- npmScope %>/<%- importName %>)
 
-
 <%- PACKAGE_DESC %> using [<%- APP_NAME %>](<%- APP_SOURCE %>) v<%- APP_VERSION %>.
+
+This package contains type declarations only. It ships no runtime code, so it adds
+nothing to your program and works with any bundler or none at all.
 
 ## Install
 
-Install the type definitions with npm:
 ```bash
 npm install <%- npmScope %>/<%- importName %>
 ```
+
+Any package manager works. The package has no dependencies beyond other `<%- npmScope %>/*`
+type packages.
 
 <%_ const pkg = await dep.get(packageName) _%>
 <%_ if(!pkg){ _%>
   <%_ return `Package with package name "${packageName}" not found!` _%>
 <%_ } _%>
-## Usage
+## What it exports
 
-Import it like any other module:
+| Import | What you get |
+|---|---|
+| `<%- npmScope %>/<%- importName %>` | the namespace as a default export, plus the ambient and global declarations |
+| `<%- npmScope %>/<%- importName %>/ambient` | only the `gi://` module declarations |
+| `<%- npmScope %>/<%- importName %>/import` | only the `imports.gi` declarations |
+| `<%- npmScope %>/<%- importName %>/<%- importName %>` | the namespace, without the side-effecting declarations |
+<%_ if (typeof girModule !== "undefined" && girModule && girModule.hasWidgetVocabulary) { _%>
+| `<%- npmScope %>/<%- importName %>/vocabulary` | GIR-derived widget data: settable properties, enum nicks, slot candidates |
+<%_ } _%>
+
+## Three ways to import
+
+Which one you use depends on how you write imports elsewhere, not on your toolchain.
+
+### As a module
+
 ```ts
-import <%- pkg.namespace %> from '<%- pkg.importPath %>';
+import <%- pkg.namespace %> from '<%- npmScope %>/<%- importName %>';
 ```
 
-### Ambient Modules
+### As `gi://`
 
-[Ambient modules](https://github.com/gjsify/ts-for-gir/tree/main/packages/cli#ambient-modules) let you write the same import you would in plain JavaScript.
-For this you need to include `<%- npmScope %>/<%- importName %>` or `<%- npmScope %>/<%- importName %>/ambient` in your `tsconfig` or entry point Typescript file:
+GJS resolves `gi://` at runtime. To give it types, reference the package once, either
+from your entry point or from `tsconfig.json`:
 
-`index.ts`:
 ```ts
-import '<%- npmScope %>/<%- importName %>'
+import '<%- npmScope %>/<%- importName %>';
 ```
 
-`tsconfig.json`:
 ```json
-{
-  "compilerOptions": {
-    ...
-  },
-  "include": ["<%- npmScope %>/<%- importName %>"],
-  ...
-}
+{ "include": ["<%- npmScope %>/<%- importName %>"] }
 ```
 
-The ambient module now resolves with types:
+Then the runtime spelling type-checks:
 
 ```ts
-import <%= pkg.namespace %> from 'gi://<%= pkg.namespace %>?version=<%= pkg.version %>';
+import <%- pkg.namespace %> from 'gi://<%- pkg.namespace %>?version=<%- pkg.version %>';
 ```
 
-### Global import
+Referencing `<%- npmScope %>/<%- importName %>/ambient` instead pulls in these declarations
+alone. See [ambient modules](https://github.com/gjsify/ts-for-gir/tree/main/packages/cli#ambient-modules).
 
-GJS's global `imports.gi` works too, with types.
-For this you need to include `<%- npmScope %>/<%- importName %>` or `<%- npmScope %>/<%- importName %>/import` in your `tsconfig` or entry point Typescript file:
+### As `imports.gi`
 
-`index.ts`:
-```ts
-import '<%- npmScope %>/<%- importName %>'
-```
-
-`tsconfig.json`:
-```json
-{
-  "compilerOptions": {
-    ...
-  },
-  "include": ["<%- npmScope %>/<%- importName %>"],
-  ...
-}
-```
-
-That form carries types as well:
+GJS's global object works the same way, via `<%- npmScope %>/<%- importName %>/import`:
 
 ```ts
-const <%= pkg.namespace %> = imports.gi.<%= pkg.namespace %>;
+const <%- pkg.namespace %> = imports.gi.<%- pkg.namespace %>;
+```
+<%_ if (typeof girModule !== "undefined" && girModule && girModule.hasWidgetVocabulary) { _%>
+
+## Widget vocabulary
+
+`<%- importName %>` declares widgets, so it also carries what the GIR says about them, as
+types and as values a test can read:
+
+```ts
+import type { Widgets, PropsOf } from '<%- npmScope %>/<%- importName %>/vocabulary';
+import { OWN_PROPS, ENUM_NICKS, PROVENANCE } from '<%- npmScope %>/<%- importName %>/vocabulary';
 ```
 
-### Bundle
+Properties are keyed the way GObject registered them, writable-only and optional, so they
+match `g_object_set`, GtkBuilder XML and Blueprint. `PROVENANCE.libraryVersion` names the
+library release this was generated from, which lets a check tell "newer than what is
+installed" from "wrong".
 
-Most projects want a bundler. [esbuild](https://esbuild.github.io/) is the smallest thing that works; the [examples directory](https://github.com/gjsify/ts-for-gir/tree/main/examples) has setups for several others.
+This subpath answers what the GIR says, not what the installed library has. For the
+second question, ask the library.
+<%_ } _%>
+
+## Building
+
+The declarations need no build step. If you bundle, every bundler works, since there is
+no runtime code to resolve. The [examples](https://github.com/gjsify/ts-for-gir/tree/main/examples)
+show working setups for several.
 
 ## Other packages
 
-All existing pre-generated packages can be found on [gjsify/types](https://github.com/gjsify/types).
+Every pre-generated package is at [gjsify/types](https://github.com/gjsify/types).

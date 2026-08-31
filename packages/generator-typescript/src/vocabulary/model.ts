@@ -52,7 +52,7 @@ import {
 const WIDGET_ROOT_GTYPE = "GtkWidget";
 
 /** Thrown with the offending member named — never swallowed into a fallback type. */
-export class SurfaceError extends Error {}
+export class VocabularyError extends Error {}
 
 /**
  * A property whose printed type accepts no value at all.
@@ -85,7 +85,7 @@ export class SurfaceError extends Error {}
  */
 const acceptsNothing = (ts: string): boolean => /\bnever\b/.test(ts);
 
-export interface SurfaceProp {
+export interface VocabularyProp {
   /** The name GObject registered — `icon-name`, dashed. */
   readonly girName: string;
   readonly ts: string;
@@ -93,9 +93,14 @@ export interface SurfaceProp {
   readonly since?: string;
   readonly doc?: string;
   readonly deprecated: boolean;
+  /** Upstream's reason and version, rendered as `@deprecated since X: reason`. */
+  readonly deprecatedSince?: string;
+  readonly deprecatedDoc?: string;
+  /** GIR's `default-value`. The vocabulary is where a JSX or template author hovers. */
+  readonly defaultValue?: string;
 }
 
-export interface SurfaceDecl {
+export interface VocabularyDecl {
   /** `Gtk.Box` — the key the graph is walked on, the way GIR references. */
   readonly key: string;
   readonly namespace: string;
@@ -105,15 +110,15 @@ export interface SurfaceDecl {
   readonly emitted: boolean;
   /**
    * Emitted here despite belonging to another namespace, because that namespace has no
-   * surface of its own to import it from. See {@link buildWidgetSurface}.
+   * surface of its own to import it from. See {@link buildWidgetVocabulary}.
    */
   readonly inlined: boolean;
   readonly bases: readonly string[];
-  readonly props: readonly SurfaceProp[];
+  readonly props: readonly VocabularyProp[];
   readonly doc?: string;
 }
 
-export interface SurfaceWidget {
+export interface VocabularyWidget {
   readonly key: string;
   readonly namespace: string;
   readonly local: string;
@@ -126,32 +131,54 @@ export interface SurfaceWidget {
   readonly signals: readonly string[];
 }
 
-export interface SurfaceEnum {
+export interface VocabularyEnum {
   readonly gtype: string;
   /** `Gtk.Orientation` as the surface spells it. */
   readonly reference: string;
   readonly nicks: readonly string[];
 }
 
-export interface WidgetSurface {
+/** Where a vocabulary came from, in a shape a check can read. */
+export interface VocabularyProvenance {
+  readonly namespace: string;
+  readonly version: string;
+  /** The version the LIBRARY states, or null where it states none — never the namespace's. */
+  readonly libraryVersion: string | null;
+  readonly childHolders: number;
+  readonly droppedBases: readonly string[];
+  readonly inlinedBases: readonly string[];
+  readonly unsettableProps: readonly string[];
+}
+
+export interface WidgetVocabulary {
   readonly namespace: string;
   readonly version: string;
   readonly importName: string;
   readonly provenance: string;
-  readonly widgets: readonly SurfaceWidget[];
+  /**
+   * The same facts, structured.
+   *
+   * `provenance` is prose for the file header, which is the right shape for a reader and
+   * the wrong one for a check: a consumer comparing this vocabulary against the library it
+   * is running has to know the version, and pulling it out of a sentence is a parser
+   * nobody should have to write. Measured need — that comparison is exactly what a
+   * runtime cross-check does with `SINCE`.
+   */
+  readonly provenanceData: VocabularyProvenance;
+  readonly widgets: readonly VocabularyWidget[];
   /**
    * Objects that hold a widget without being one — see `childHoldersOf`. Same shape as
    * `widgets` and deliberately a SEPARATE list: a consumer wanting both concatenates
    * them, and one that means "is a widget" is not quietly handed four that are not.
    */
-  readonly childHolders: readonly SurfaceWidget[];
+  readonly childHolders: readonly VocabularyWidget[];
   /** Key -> declaration, own and foreign, in emit order. */
-  readonly declarations: ReadonlyMap<string, SurfaceDecl>;
+  readonly declarations: ReadonlyMap<string, VocabularyDecl>;
   /** Nick unions this surface must emit itself, by enum GType. */
-  readonly enums: ReadonlyMap<string, SurfaceEnum>;
+  readonly enums: ReadonlyMap<string, VocabularyEnum>;
   /** GIR namespace -> the import this surface needs for its VALUE types. */
   readonly namespaceImports: ReadonlyMap<string, string>;
-  /** `@girs/<pkg>/surface` -> the names imported from another namespace's surface. */
+  /** `@girs/<pkg>/vocabulary` -> the names imported from another namespace's vocabulary. */
   readonly surfaceImports: ReadonlyMap<string, readonly string[]>;
   /** Base -> members it must not contribute, because a nearer declaration disagrees. */
   readonly omissions: ReadonlyMap<string, ReadonlyMap<string, readonly string[]>>;
@@ -313,7 +340,7 @@ function childHoldersOf(module: GirModule, config: OptionsGeneration): Introspec
 }
 
 /**
- * Does this namespace get a `./surface` at all?
+ * Does this namespace get a `./vocabulary` at all?
  *
  * Only namespaces that DECLARE widgets, not the 700-odd that merely appear in a
  * widget's property types. Answered per namespace and cached, because a widget's
@@ -336,7 +363,7 @@ interface PrintedType {
   /** GIR namespaces whose value import the text needs. */
   readonly namespaces: readonly string[];
   /** Enums whose nick alias the text references. */
-  readonly enums: readonly SurfaceEnum[];
+  readonly enums: readonly VocabularyEnum[];
 }
 
 /**
@@ -359,10 +386,10 @@ function printPropType(
   where: string,
 ): PrintedType {
   const namespaces = new Set<string>();
-  const enums = new Map<string, SurfaceEnum>();
+  const enums = new Map<string, VocabularyEnum>();
 
   const walk = (node: TypeExpression, depth: number): string => {
-    if (depth > 8) throw new SurfaceError(`${where}: type nests deeper than 8 levels`);
+    if (depth > 8) throw new VocabularyError(`${where}: type nests deeper than 8 levels`);
     if (node instanceof ArrayType) {
       const inner = walk(node.type, depth + 1);
       const element = /[|&]/.test(inner) ? `(${inner})` : inner;
@@ -377,10 +404,10 @@ function printPropType(
     if (node instanceof TypeIdentifier) {
       const resolved = node.resolveIdentifier(module, config);
       if (!resolved)
-        throw new SurfaceError(`${where}: cannot resolve ${node.namespace}.${node.name}`);
+        throw new VocabularyError(`${where}: cannot resolve ${node.namespace}.${node.name}`);
       const owner = module.getInstalledImport(resolved.namespace);
       if (!owner)
-        throw new SurfaceError(`${where}: namespace ${resolved.namespace} is not installed`);
+        throw new VocabularyError(`${where}: namespace ${resolved.namespace} is not installed`);
       const enumeration = owner.getEnum(resolved.name);
       if (enumeration) {
         // Flags stay `number` in both positions, mirroring the runtime: GObject
@@ -404,7 +431,7 @@ function printPropType(
       if (node === NullType) return "null";
       return node.print(module, config);
     }
-    throw new SurfaceError(`${where}: unsupported type expression ${node.constructor.name}`);
+    throw new VocabularyError(`${where}: unsupported type expression ${node.constructor.name}`);
   };
 
   return { text: walk(type, 0), namespaces: [...namespaces], enums: [...enums.values()] };
@@ -442,8 +469,8 @@ function ownProps(
   config: OptionsGeneration,
   cls: IntrospectedBaseClass,
   collect: (printed: PrintedType) => void,
-): SurfaceProp[] {
-  const byName = new Map<string, SurfaceProp>();
+): VocabularyProp[] {
+  const byName = new Map<string, VocabularyProp>();
   for (const prop of cls.props as IntrospectedProperty[]) {
     // WRITABLE ONLY — the axis `ConstructorProps` gets wrong. GObject spells
     // CONSTRUCT_ONLY out as `writable` too, so `writable` alone is the settable set.
@@ -459,7 +486,14 @@ function ownProps(
       constructOnly: prop.constructOnly,
       since: prop.metadata?.introducedVersion,
       doc: blurb(prop.doc),
-      deprecated: prop.deprecated === true,
+      // From the METADATA, not the base field. `IntrospectedProperty.fromXML` sets
+      // `metadata` and never the inherited `deprecated`, so `prop.deprecated === true`
+      // was false for every property ever emitted — the surface shipped 0 `@deprecated`
+      // while the main `.d.ts` for the same namespace carried 136.
+      deprecated: prop.metadata?.deprecated === true || prop.deprecated === true,
+      deprecatedSince: prop.metadata?.deprecatedVersion,
+      deprecatedDoc: blurb(prop.metadata?.deprecatedDoc),
+      defaultValue: prop.defaultValue,
     });
   }
   return [...byName.values()].sort((a, b) => (a.girName < b.girName ? -1 : 1));
@@ -540,7 +574,7 @@ function slotCandidatesOf(
  * its owner rendered it.
  */
 function computeOmissions(
-  decls: ReadonlyMap<string, SurfaceDecl>,
+  decls: ReadonlyMap<string, VocabularyDecl>,
 ): Map<string, Map<string, string[]>> {
   const resolved = new Map<string, Map<string, string>>();
   const resolving = new Set<string>();
@@ -584,7 +618,7 @@ function computeOmissions(
  * Build the surface for one namespace, or null if it declares no widgets.
  *
  * Cross-namespace bases are IMPORTED, not copied: `AdwToolbarViewProps extends
- * GtkWidgetProps` reads `GtkWidgetProps` from `@girs/gtk-4.0/surface`. Inlining
+ * GtkWidgetProps` reads `GtkWidgetProps` from `@girs/gtk-4.0/vocabulary`. Inlining
  * them wholesale would put a second, nominally distinct `GtkWidgetProps` in every
  * widget namespace — a copy per namespace of the same interface, and confusing errors
  * the first time a consumer mixes two of them.
@@ -605,13 +639,13 @@ function computeOmissions(
  * namespace whose widgets live in a different one — and it is the reason the rule is not
  * simply "drop it": the first version of this generator refused the input outright and
  * took the 705-namespace run down with it. One counterexample is a bounded bill, not an
- * argument for a surface per namespace: `@girs/gcr-3/surface` would be a widget surface
+ * argument for a vocabulary per namespace: `@girs/gcr-3/vocabulary` would be a widget vocabulary
  * with no widgets in it.
  */
-export function buildWidgetSurface(
+export function buildWidgetVocabulary(
   module: GirModule,
   config: OptionsGeneration,
-): WidgetSurface | null {
+): WidgetVocabulary | null {
   const widgetClasses = concreteWidgetsOf(module);
   if (widgetClasses.length === 0) return null;
   // Holders ride the SAME pipeline — they need declarations, props and since-versions
@@ -619,10 +653,10 @@ export function buildWidgetSurface(
   const holderClasses = childHoldersOf(module, config);
 
   const namespaceImports = new Map<string, string>();
-  const enums = new Map<string, SurfaceEnum>();
+  const enums = new Map<string, VocabularyEnum>();
   const surfaceImports = new Map<string, Set<string>>();
-  const importFromSurface = (owner: GirModule, name: string) => {
-    const subpath = `${owner.importPath}/surface`;
+  const importFromVocabulary = (owner: GirModule, name: string) => {
+    const subpath = `${owner.importPath}/vocabulary`;
     const names = surfaceImports.get(subpath) ?? new Set<string>();
     names.add(name);
     surfaceImports.set(subpath, names);
@@ -630,7 +664,7 @@ export function buildWidgetSurface(
   const collect = (printed: PrintedType) => {
     for (const ns of printed.namespaces) {
       const owner = module.getInstalledImport(ns);
-      if (!owner) throw new SurfaceError(`namespace ${ns} is referenced but not installed`);
+      if (!owner) throw new VocabularyError(`namespace ${ns} is referenced but not installed`);
       namespaceImports.set(ns, owner.importPath);
     }
     for (const enumeration of printed.enums) {
@@ -639,12 +673,12 @@ export function buildWidgetSurface(
       );
       // A nick union is emitted ONCE, by the surface that owns the enum, and imported
       // from there — `AdwHeaderBarProps` reads `GtkPackTypeNick` out of
-      // `@girs/gtk-4.0/surface`. Enums from namespaces with no widgets (Pango, Gdk)
+      // `@girs/gtk-4.0/vocabulary`. Enums from namespaces with no widgets (Pango, Gdk)
       // have no surface to live in, so each consumer emits its own alias for those.
       // Skipping the emission without adding the IMPORT is the shape the per-package
       // `tsc --project` caught first: 9 × TS2304 in Adw-1, naming 6 Gtk enums.
       if (owner && owner !== module && declaresWidgets(owner)) {
-        importFromSurface(owner, nickAliasOf(enumeration.gtype));
+        importFromVocabulary(owner, nickAliasOf(enumeration.gtype));
         continue;
       }
       enums.set(enumeration.gtype, enumeration);
@@ -661,7 +695,7 @@ export function buildWidgetSurface(
 
   const dropped: string[] = [];
   const inlined: string[] = [];
-  const declarations = new Map<string, SurfaceDecl>();
+  const declarations = new Map<string, VocabularyDecl>();
 
   for (const [key, cls] of needed) {
     const gtype = cls.glibTypeName;
@@ -669,7 +703,7 @@ export function buildWidgetSurface(
     // looked up in the typelib, or named in GtkBuilder XML.
     if (!gtype) {
       if ((cls.props as IntrospectedProperty[]).some((p) => p.writable)) {
-        throw new SurfaceError(`${key} has writable properties but no glib:type-name`);
+        throw new VocabularyError(`${key} has writable properties but no glib:type-name`);
       }
       dropped.push(key);
       continue;
@@ -683,8 +717,8 @@ export function buildWidgetSurface(
     }
     const emitted = own || foreignWithoutSurface;
     if (!emitted) {
-      importFromSurface(owner, propsInterfaceOf(gtype));
-      importFromSurface(owner, constructOnlyAliasOf(gtype));
+      importFromVocabulary(owner, propsInterfaceOf(gtype));
+      importFromVocabulary(owner, constructOnlyAliasOf(gtype));
     }
     if (foreignWithoutSurface) inlined.push(key);
     declarations.set(key, {
@@ -705,7 +739,7 @@ export function buildWidgetSurface(
   }
 
   // Bases second, so a base dropped above is dropped from every `extends` too.
-  const withBases = new Map<string, SurfaceDecl>();
+  const withBases = new Map<string, VocabularyDecl>();
   for (const [key, decl] of declarations) {
     const cls = needed.get(key)!;
     const bases: string[] = [];
@@ -720,7 +754,7 @@ export function buildWidgetSurface(
     withBases.set(key, { ...decl, bases });
   }
 
-  const toEntries = (classes: readonly IntrospectedClass[]): SurfaceWidget[] =>
+  const toEntries = (classes: readonly IntrospectedClass[]): VocabularyWidget[] =>
     classes
       .filter((widget) => withBases.has(keyOf(widget)))
       .map((widget) => ({
@@ -749,8 +783,8 @@ export function buildWidgetSurface(
   //
   // The alternative — emit what you reference — is what shipped first, and the
   // per-package `tsc --project` failed it: `GtkSourceView.text-window-type` reaches
-  // `Gtk.TextWindowType`, no Gtk-4.0 widget property does, so `@girs/gtk-4.0/surface` had
-  // no `GtkTextWindowTypeNick` for `@girs/gtksource-5/surface` to import (TS2305, plus the
+  // `Gtk.TextWindowType`, no Gtk-4.0 widget property does, so `@girs/gtk-4.0/vocabulary` had
+  // no `GtkTextWindowTypeNick` for `@girs/gtksource-5/vocabulary` to import (TS2305, plus the
   // same shape for `GtkPackTypeNick` in Handy-1 against Gtk-3.0). The nick vocabulary of a
   // namespace is a property of the NAMESPACE, not of which of its own properties use it —
   // and emitting all of them also makes `ENUM_NICKS` a complete answer for a consumer
@@ -807,7 +841,9 @@ export function buildWidgetSurface(
   // shape of the base graph shows up in a diff rather than in a support question.
   if (dropped.length > 0) provenanceParts.push(`dropped empty base(s): ${dropped.join(" ")}`);
   if (inlined.length > 0)
-    provenanceParts.push(`inlined base(s) from a namespace with no surface: ${inlined.join(" ")}`);
+    provenanceParts.push(
+      `inlined base(s) from a namespace with no vocabulary: ${inlined.join(" ")}`,
+    );
   const unsettable = [...withBases.values()]
     .filter((decl) => decl.emitted)
     .flatMap((decl) =>
@@ -825,6 +861,15 @@ export function buildWidgetSurface(
     version: module.version,
     importName: module.importName,
     provenance: provenanceParts.join(" — "),
+    provenanceData: {
+      namespace: module.namespace,
+      version: module.version,
+      libraryVersion: module.libraryVersion?.declaredByLibrary ? `${module.libraryVersion}` : null,
+      childHolders: childHolders.length,
+      droppedBases: dropped,
+      inlinedBases: inlined,
+      unsettableProps: unsettable,
+    },
     widgets,
     childHolders,
     declarations: withBases,

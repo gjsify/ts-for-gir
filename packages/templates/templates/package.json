@@ -68,11 +68,11 @@ _%>
              because TypeScript reads only the files a program reaches. Emitted only for
              namespaces that declare GtkWidget descendants, so the entry is conditional on the
              FILE existing rather than on the flag being set. */ _%>
-      <%_ if (typeof girModule !== "undefined" && girModule && girModule.hasWidgetSurface) { _%>
-      "./surface": {
-        "types": "./<%- entryPointName %>-surface.d.ts",
-        "import": "./<%- entryPointName %>-surface.js",
-        "default": "./<%- entryPointName %>-surface.js"
+      <%_ if (typeof girModule !== "undefined" && girModule && girModule.hasWidgetVocabulary) { _%>
+      "./vocabulary": {
+        "types": "./<%- entryPointName %>-vocabulary.d.ts",
+        "import": "./<%- entryPointName %>-vocabulary.js",
+        "default": "./<%- entryPointName %>-vocabulary.js"
       },
       <%_ } _%>
       "./<%- entryPointName %>": {

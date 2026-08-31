@@ -127,16 +127,16 @@ export class GirModule implements IGirModule {
 	extends?: string;
 
 	/**
-	 * Set by the generator once this namespace's `./surface` files exist.
+	 * Set by the generator once this namespace's `./vocabulary` files exist.
 	 *
 	 * The package.json and tsconfig.json templates need to know whether the subpath
-	 * was actually emitted, and that is not the same question as the `widgetSurface`
+	 * was actually emitted, and that is not the same question as the `widgetVocabulary`
 	 * config flag: with the flag on, the 700-odd namespaces that declare no
 	 * `GtkWidget` descendant still emit nothing. An `exports` entry pointing at a
 	 * file that was never written is a package that fails to resolve at install time,
 	 * which is the worst place to find out.
 	 */
-	hasWidgetSurface = false;
+	hasWidgetVocabulary = false;
 
 	/**
 	 * To prevent constants from being exported twice, the names already exported are saved here for comparison.

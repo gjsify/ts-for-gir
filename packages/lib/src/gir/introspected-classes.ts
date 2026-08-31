@@ -113,6 +113,11 @@ export class IntrospectedClassFunction<
 	signalOrigin?: string;
 	/** GIR glib:finish-func attribute: name of the function that finishes this async operation. */
 	finishFuncName?: string;
+	/**
+	 * GIR's `throws="1"`: the C function takes a `GError**`, so GJS raises instead of
+	 * returning it. The emitted signature cannot show that, so the docs have to.
+	 */
+	throws = false;
 
 	generics: Generic[] = [];
 
@@ -182,6 +187,9 @@ export class IntrospectedClassFunction<
 		fn.generics = [...this.generics];
 		fn.returnTypeDoc = this.returnTypeDoc;
 		fn.finishFuncName = this.finishFuncName;
+		// Carried like every other field here: a rebuild that drops one is exactly how
+		// `metadata` went missing from every method in the corpus.
+		fn.throws = this.throws;
 
 		if (interfaceParent) {
 			fn.interfaceParent = interfaceParent;
@@ -237,6 +245,7 @@ export class IntrospectedClassFunction<
 		// `<method>` reached no consumer, so an IDE showed no strikethrough for an API
 		// slated to disappear.
 		classFn.metadata = fn.metadata;
+		classFn.throws = fn.throws;
 		classFn.generics = [...fn.generics];
 		classFn.finishFuncName = element.$["glib:finish-func"];
 
@@ -358,6 +367,7 @@ export class IntrospectedVirtualClassFunction extends IntrospectedClassFunction<
 		});
 
 		virtualFn.metadata = fn.metadata;
+		virtualFn.throws = fn.throws;
 
 		return virtualFn;
 	}
@@ -463,6 +473,7 @@ export class IntrospectedStaticClassFunction extends IntrospectedClassFunction {
 		});
 
 		staticFn.metadata = fn.metadata;
+		staticFn.throws = fn.throws;
 
 		return staticFn;
 	}

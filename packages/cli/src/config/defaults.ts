@@ -23,7 +23,7 @@ export const defaults = {
   noNamespace: false,
   noComments: false,
   promisify: true,
-  widgetSurface: false,
+  widgetVocabulary: false,
   npmScope: "@girs",
   workspace: false,
   onlyVersionPrefix: false,

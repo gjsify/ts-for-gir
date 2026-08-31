@@ -7,7 +7,11 @@ import type {
 } from "@ts-for-gir/lib";
 import type { ModuleGenerator } from "../module-generator.ts";
 import { NpmPackage } from "../npm-package.ts";
-import { buildWidgetSurface, emitSurfaceData, emitSurfaceTypes } from "../surface/index.ts";
+import {
+  buildWidgetVocabulary,
+  emitVocabularyData,
+  emitVocabularyTypes,
+} from "../vocabulary/index.ts";
 import type { TemplateProcessor } from "../template-processor.ts";
 
 /** Handles exporting generated modules to files. */
@@ -74,38 +78,38 @@ export class ModuleExporter {
   }
 
   /**
-   * Emit the opt-in `@girs/<ns>/surface` subpath, if this namespace declares widgets.
+   * Emit the opt-in `@girs/<ns>/vocabulary` subpath, if this namespace declares widgets.
    *
    * Two gates, and the second is the one that keeps the count honest: the config flag
    * has to be on, and the namespace has to declare at least one concrete descendant of
    * `GtkWidget`. Of the 705 GIRs in this repository a handful do; emitting an empty
-   * surface for the rest would put a `./surface` entry in every package that resolves
+   * vocabulary for the rest would put a `./vocabulary` entry in every package that resolves
    * to a file with no widgets in it.
    *
    * `package` mode only: the subpath needs an `exports` entry to be reachable at all,
    * and `externalDeps` mode deliberately emits one flat ambient `.d.ts` with no package
    * around it.
    */
-  private async exportWidgetSurface(girModule: GirModule): Promise<void> {
-    if (!this.config.widgetSurface || !this.config.package || this.config.externalDeps) return;
+  private async exportWidgetVocabulary(girModule: GirModule): Promise<void> {
+    if (!this.config.widgetVocabulary || !this.config.package || this.config.externalDeps) return;
     if (!this.config.outdir) return;
 
-    const surface = buildWidgetSurface(girModule, this.config);
+    const surface = buildWidgetVocabulary(girModule, this.config);
     if (!surface) return;
 
     const name = girModule.importName;
     await this.moduleTemplateProcessor.write(
-      emitSurfaceTypes(surface),
+      emitVocabularyTypes(surface),
       this.config.outdir,
-      `${name}-surface.d.ts`,
+      `${name}-vocabulary.d.ts`,
     );
     await this.moduleTemplateProcessor.write(
-      emitSurfaceData(surface),
+      emitVocabularyData(surface),
       this.config.outdir,
-      `${name}-surface.js`,
+      `${name}-vocabulary.js`,
     );
     // Read by the package.json and tsconfig.json templates, which run after this.
-    girModule.hasWidgetSurface = true;
+    girModule.hasWidgetVocabulary = true;
     this.log.log(
       `${girModule.packageName}: widget surface — ${surface.widgets.length} widgets, ` +
         `${[...surface.declarations.values()].filter((d) => d.emitted).length} declarations, ` +
@@ -127,7 +131,7 @@ export class ModuleExporter {
       await this.exportTemplate("module-import.js", `${name}-import.js`);
 
       // Before the package.json, which needs to know whether the subpath exists.
-      await this.exportWidgetSurface(girModule);
+      await this.exportWidgetVocabulary(girModule);
 
       const pkg = new NpmPackage(
         this.config,

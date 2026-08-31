@@ -168,7 +168,7 @@ export async function load(cliOptions: ConfigFlags): Promise<UserConfig> {
       ["noNamespace", options.noNamespace.default],
       ["noComments", options.noComments.default],
       ["promisify", options.promisify.default],
-      ["widgetSurface", options.widgetSurface.default],
+      ["widgetVocabulary", options.widgetVocabulary.default],
       ["workspace", options.workspace.default],
       ["onlyVersionPrefix", options.onlyVersionPrefix.default],
       ["noPrettyPrint", options.noPrettyPrint.default],

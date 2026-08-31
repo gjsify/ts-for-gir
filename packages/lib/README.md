@@ -53,7 +53,7 @@ What the subpath exports, per namespace:
 | `<GType>Nick` | the enum nick strings, from GIR's `glib:nick` |
 | `Widgets` | GType-keyed map: `class`, `props`, `signals`, `constructOnly`, `slotCandidates` |
 | `WidgetGType`, `PropsOf<G>`, `SignalsOf<G>`, `InstanceOf<G>`, `ConstructOnlyOf<G>`, `SlotCandidatesOf<G>` | helpers over that map |
-| `OWN_PROPS`, `OWN_SIGNALS`, `DECLS`, `ENUM_NICKS`, `SLOT_CANDIDATES`, `SINCE`, `SURFACE_PROVENANCE` | the same facts as RUNTIME data in the sibling `.js` |
+| `OWN_PROPS`, `OWN_SIGNALS`, `DECLS`, `ENUM_NICKS`, `SLOT_CANDIDATES`, `SINCE`, `PROVENANCE` | the same facts as RUNTIME data in the sibling `.js` |
 
 The subpath does not re-derive signal handler types. `Widgets[G]['signals']` points at
 the `X.SignalSignatures` the main `@girs` package already emits, with the parent chain,
@@ -119,7 +119,7 @@ ts-for-gir generate --girDirectories=./my-girs --modules=MyLib-1.0 \
   --outdir=./src/types --npmScope=@girs --package=false
 ```
 
-Add `--widgetSurface` to get the subpath above for your own widgets. This is how gjsify
+Add `--widgetVocabulary` to get the subpath above for your own widgets. This is how gjsify
 types its six native bridges, each against the `.gir` shipped next to its prebuilt
 binary.
 

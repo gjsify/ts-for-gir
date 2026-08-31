@@ -25,7 +25,7 @@ export interface UserConfig {
 	/** Generate promisified functions for async/finish calls */
 	promisify: boolean;
 	/**
-	 * Emit the GIR-derived widget vocabulary on an opt-in `./surface` subpath, for
+	 * Emit the GIR-derived widget vocabulary on an opt-in `./vocabulary` subpath, for
 	 * every namespace that declares descendants of `GtkWidget`.
 	 *
 	 * Off by default: it is a separate subpath, so a consumer that never imports it
@@ -34,7 +34,7 @@ export interface UserConfig {
 	 * namespace gate is automatic — a namespace with no `GtkWidget` descendant
 	 * never emits a surface even with this on.
 	 */
-	widgetSurface: boolean;
+	widgetVocabulary: boolean;
 	/** Scope of the generated NPM packages */
 	npmScope: string;
 	/** Uses the workspace protocol for the generated packages which can be used with package managers like Yarn and PNPM */

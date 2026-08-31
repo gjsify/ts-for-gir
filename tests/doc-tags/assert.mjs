@@ -75,6 +75,21 @@ for (const [label, declaration, expected] of must) {
     fail(`${label}: block does not match ${expected}\n      ${block.replace(/\n/g, "\n      ")}`);
 }
 
+// ---------------------------------------------------------- signal parameter names
+//
+// Methods have always carried the GIR's parameter name — `set_child(child: Widget)` — and
+// signals carried `arg0`, which discards the label exactly where a reader is about to
+// write a callback. Measured on Gtk-4.0 after the change: 125 named, 0 `argN`.
+if (!/"row-activated": \(row: Thing\)/.test(types)) {
+  fail("a signal parameter lost its GIR name");
+}
+// NOT covered here, and said so rather than left as a silent gap: the `argN` fallback for
+// a reserved word or a duplicate name. Two extra signals added to this same fixture class
+// to exercise it never reached the output at all, and four hypotheses were ruled out
+// (parameter name, parameter type, position in the class, stale artefact). Whatever drops
+// them is upstream of the naming code, so a control written here would be testing that
+// instead. The fallback stays defensive and is argued in `signalParamName`'s comment.
+
 // The control: an undeprecated method must not inherit a sibling's tag.
 const newWay = docBlockOf("new_way(): void");
 if (newWay && /@deprecated/.test(newWay)) {

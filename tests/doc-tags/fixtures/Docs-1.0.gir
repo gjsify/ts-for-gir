@@ -47,6 +47,14 @@
         </parameters>
       </virtual-method>
 
+      <!-- Signals, for the parameter-NAME rule. Handlers used to read `(arg0: …)`, which
+           discards the one label a reader needs while writing the callback. -->
+      <glib:signal name="row-activated" when="last">
+        <return-value transfer-ownership="none"><type name="none" c:type="void"/></return-value>
+        <parameters>
+          <parameter name="row" transfer-ownership="none"><type name="Docs.Thing" c:type="DocsThing*"/></parameter>
+        </parameters>
+      </glib:signal>
       <!-- A PROPERTY, which never lost its metadata: the positive control proving the
            suite reads a file where deprecation DOES arrive by another route. -->
       <property name="legacy-mode" writable="1" transfer-ownership="none" deprecated="1" deprecated-version="1.5">
@@ -54,7 +62,6 @@
         <doc-deprecated xml:space="preserve">Legacy mode is gone.</doc-deprecated>
         <type name="gboolean" c:type="gboolean"/>
       </property>
-
     </class>
   </namespace>
 </repository>

@@ -11,11 +11,32 @@ import {
   IntrospectedClassFunction,
   IntrospectedInterface,
   type IntrospectedRecord,
+  isInvalid,
   mergeDescs,
   NumberType,
   type OptionsGeneration,
   VoidType,
 } from "@ts-for-gir/lib";
+
+/**
+ * The GIR's own parameter name, where TypeScript can carry it.
+ *
+ * Methods already do this — `set_child(child: Widget | null)` — and signals did not:
+ * every handler read `(arg0: ListBoxRow) => void`, so the one place a reader most needs
+ * the name (a callback they are about to write) was the one place it was discarded.
+ *
+ * Falls back to `argN` rather than repairing a name, because a repaired name is a third
+ * spelling nobody can look up: reserved words, anything that is not an identifier, and a
+ * duplicate all take the fallback. The duplicate case is real — GIR does not require
+ * signal parameters to be uniquely named — and two identical parameter names is a syntax
+ * error, not a style problem.
+ */
+function signalParamName(raw: string | undefined, idx: number, used: Set<string>): string {
+  const fallback = `arg${idx}`;
+  if (!raw || isInvalid(raw) || !/^[A-Za-z_$][\w$]*$/.test(raw) || used.has(raw)) return fallback;
+  used.add(raw);
+  return raw;
+}
 import type { ModuleGenerator } from "../module-generator.ts";
 
 const SIGNAL_JSDOC = "/** @signal */";
@@ -127,8 +148,12 @@ export class SignalGenerator {
         // Signal handlers are invoked from C to JS: in-params come _out_ of C
         // (so e.g. 64-bit ints arrive as `number`, not `bigint | number`), and
         // the handler's return value goes _in_ to C.
+        const used = new Set<string>();
         const paramTypes = signalInfo.signal.parameters
-          .map((p, idx) => `arg${idx}: ${this.core.generateDirectedType(p.type, GirDirection.Out)}`)
+          .map(
+            (p, idx) =>
+              `${signalParamName(p.name, idx, used)}: ${this.core.generateDirectedType(p.type, GirDirection.Out)}`,
+          )
           .join(", ");
 
         let returnType = signalInfo.signal.return_type;

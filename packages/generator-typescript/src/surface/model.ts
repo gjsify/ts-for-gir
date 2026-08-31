@@ -275,21 +275,28 @@ function concreteWidgetsOf(module: GirModule): IntrospectedClass[] {
  * so leaving them out leaves the consumer re-reading the GIR for four types — which is
  * the second reader this subpath exists to remove.
  *
- * The rule is the accessor PAIR, not a hand-written list, and that distinction is
- * load-bearing: measured across Gtk-4.0 and Adw-1 it selects exactly those four, and
- * `AdwToggle` is the argument for having a rule at all — it was absent from the
- * hand-written list this replaces, has the identical shape, and would have been an
- * arbitrary gap.
+ * THE ACCESSOR NAMES ARE NOT ENOUGH, and that was measured the expensive way. A
+ * name-only rule (`set_child` + `get_child`, no type test) selects 17 classes across the
+ * 718-file corpus, not four: `St.Bin` and eleven `Mx.*` carry the same pair over a
+ * `ClutterActor`. A surface rooted at `GtkWidget` has nothing to say about those, and
+ * the first version took the whole 705-namespace run down with
+ * `St.Bin.child: unsupported type expression GenericType` — the generator was asked to
+ * print a property type belonging to a hierarchy it does not model.
  *
- * Names, not types, because that is what was measured. A type-directed version ("holds
- * anything descending from the root") sounds more general and is unmeasured across the
- * other 700 namespaces; the per-namespace counts in the provenance are what would show
- * it going wrong.
+ * So the child must be a WIDGET, tested with the same `takesOneWidget` the slot
+ * candidates use. The rule is then anchored to the surface's own root rather than to a
+ * GTK naming convention, which is also what makes it survive a namespace nobody has
+ * looked at.
+ *
+ * It stays a rule and not a hand-written list: `AdwToggle` was absent from the list this
+ * replaces, has the identical shape, and would have been an arbitrary gap. The
+ * per-namespace count is printed in the provenance so an over-broad rule shows up in a
+ * diff instead of in a support question.
  *
  * A holder never becomes a widget here: `Widgets` keeps its meaning and `ChildHolders`
  * is its sibling.
  */
-function childHoldersOf(module: GirModule): IntrospectedClass[] {
+function childHoldersOf(module: GirModule, config: OptionsGeneration): IntrospectedClass[] {
   return classLikeMembers(module).filter((cls): cls is IntrospectedClass => {
     if (!(cls instanceof IntrospectedClass)) return false;
     if (cls.isAbstract || !cls.isIntrospectable) return false;
@@ -297,11 +304,11 @@ function childHoldersOf(module: GirModule): IntrospectedClass[] {
     // A widget is served by `concreteWidgetsOf`. Emitting it twice would put one GType
     // in two lists a consumer is entitled to concatenate.
     if (isWidgetClass(module, cls)) return false;
-    const accessors = new Set<string>();
-    for (const decl of [cls, ...ancestorsOf(module, cls)]) {
-      for (const member of decl.members) accessors.add(member.name);
-    }
-    return accessors.has("set_child") && accessors.has("get_child");
+    // Nearest declaration first, so an override does not lose to its own ancestor.
+    const members = [cls, ...ancestorsOf(module, cls)].flatMap((decl) => [...decl.members]);
+    if (!members.some((member) => member.name === "get_child")) return false;
+    const setter = members.find((member) => member.name === "set_child");
+    return setter !== undefined && takesOneWidget(module, config, setter);
   });
 }
 
@@ -477,6 +484,23 @@ function slotNameOf(method: string): string | null {
   return null;
 }
 
+/** Does this method take exactly one argument, and is that argument a widget? */
+function takesOneWidget(
+  module: GirModule,
+  config: OptionsGeneration,
+  method: { parameters: readonly { direction?: string; type: { unwrap(): unknown } }[] },
+): boolean {
+  const params = method.parameters.filter((p) => p.direction === "in");
+  if (params.length !== 1) return false;
+  const type = params[0]!.type.unwrap();
+  if (!(type instanceof TypeIdentifier)) return false;
+  const resolved = type.resolveIdentifier(module, config);
+  if (!resolved) return false;
+  const owner = module.getInstalledImport(resolved.namespace);
+  const target = owner?.getClass(resolved.name);
+  return Boolean(target && isClassLike(target) && isWidgetClass(module, target));
+}
+
 function slotCandidatesOf(
   module: GirModule,
   config: OptionsGeneration,
@@ -487,15 +511,7 @@ function slotCandidatesOf(
   for (const method of methods) {
     const slot = slotNameOf(method.name);
     if (!slot) continue;
-    const params = method.parameters.filter((p) => p.direction === "in");
-    if (params.length !== 1) continue;
-    const type = params[0]!.type.unwrap();
-    if (!(type instanceof TypeIdentifier)) continue;
-    const resolved = type.resolveIdentifier(module, config);
-    if (!resolved) continue;
-    const owner = module.getInstalledImport(resolved.namespace);
-    const target = owner?.getClass(resolved.name);
-    if (!target || !isClassLike(target) || !isWidgetClass(module, target)) continue;
+    if (!takesOneWidget(module, config, method)) continue;
     // First wins in sorted method order: two methods can derive the same slot name
     // (`set_child` and `add_child` both yield `child`) and a duplicate key in an
     // emitted type literal is TS1117 rather than a warning.
@@ -600,7 +616,7 @@ export function buildWidgetSurface(
   if (widgetClasses.length === 0) return null;
   // Holders ride the SAME pipeline — they need declarations, props and since-versions
   // exactly as widgets do, or a consumer cannot type them. Only the list differs.
-  const holderClasses = childHoldersOf(module);
+  const holderClasses = childHoldersOf(module, config);
 
   const namespaceImports = new Map<string, string>();
   const enums = new Map<string, SurfaceEnum>();

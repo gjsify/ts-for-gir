@@ -181,6 +181,12 @@ if (!holders.has("GtkListItem")) {
 if (holders.has("GtkSetter")) {
   fail("CHILD_HOLDERS took a class with set_child and no get_child — the rule matched one half");
 }
+// The control for the defect that took a 705-namespace run down: both accessors over a
+// NON-widget child. Name-only matching selects 17 classes across the corpus instead of
+// four, and then asks the emitter to print a type from a hierarchy it does not model.
+if (holders.has("GtkActorBin")) {
+  fail("CHILD_HOLDERS took a set_child/get_child pair over a NON-widget — the type test is gone");
+}
 if (holders.has("GtkBox")) fail("CHILD_HOLDERS took a widget; concreteWidgetsOf already serves it");
 if (holders.has("GtkAdjustment")) fail("CHILD_HOLDERS took a class with neither accessor");
 if (widgetsBlock?.includes("GtkListItem:")) fail("a child holder appears as a WIDGET row");

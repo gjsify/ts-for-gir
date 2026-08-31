@@ -170,5 +170,30 @@
       </method>
     </class>
 
+    <!-- CONTROL for the defect that took a 705-namespace run down: BOTH accessors, but
+         the child is not a widget. `St.Bin` and eleven `Mx.*` are exactly this — the pair
+         over a `ClutterActor` — and a surface rooted at GtkWidget has nothing to say about
+         them. A name-only rule selects 17 classes across the corpus instead of four, and
+         then asks the emitter to print a property type from a hierarchy it does not
+         model. If this reaches CHILD_HOLDERS the type test is gone. -->
+    <class name="ActorBin" c:symbol-prefix="actor_bin" c:type="GtkActorBin" glib:type-name="GtkActorBin" glib:get-type="gtk_actor_bin_get_type" parent="GObject.Object">
+      <property name="tint" writable="1" transfer-ownership="none">
+        <type name="utf8" c:type="const gchar*"/>
+      </property>
+      <method name="set_child" c:identifier="gtk_actor_bin_set_child">
+        <return-value transfer-ownership="none"><type name="none" c:type="void"/></return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none"><type name="Mini.ActorBin" c:type="GtkActorBin*"/></instance-parameter>
+          <parameter name="child" transfer-ownership="none"><type name="Adjustment" c:type="GtkAdjustment*"/></parameter>
+        </parameters>
+      </method>
+      <method name="get_child" c:identifier="gtk_actor_bin_get_child">
+        <return-value transfer-ownership="none"><type name="Adjustment" c:type="GtkAdjustment*"/></return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none"><type name="Mini.ActorBin" c:type="GtkActorBin*"/></instance-parameter>
+        </parameters>
+      </method>
+    </class>
+
   </namespace>
 </repository>

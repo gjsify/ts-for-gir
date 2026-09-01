@@ -60,11 +60,47 @@ export class SignalGenerator {
    * enabling TypeScript to provide proper type checking and IntelliSense for
    * GObject signals using the centralized getAllSignals() method from the model.
    */
-  generateClassSignalInterfaces(girClass: IntrospectedClass, indentCount = 0): string[] {
+  generateClassSignalInterfaces(
+    girClass: IntrospectedClass | IntrospectedInterface,
+    indentCount = 0,
+  ): string[] {
     const def: string[] = [];
     const indent = generateIndent(indentCount);
 
     def.push(`${indent}// Signal signatures`);
+
+    // AN INTERFACE NEVER REACHES `GObject.Object.SignalSignatures` FROM HERE, on purpose.
+    // Its members are unioned into the implementing class's
+    // `SignalSignatures extends …, Gtk.Editable.SignalSignatures`, and that class already
+    // reaches `GObject.Object.SignalSignatures` through its own parent chain — extending it
+    // a second time from the interface side would carry the `notify::` keys down two
+    // branches into one declaration.
+    //
+    // A PREREQUISITE INTERFACE with signals is the one thing it does extend, because the
+    // block is the interface's OWN signature map and a prerequisite's signals are part of
+    // it: `ClutterGst.Player` (1.0/2.0) said `download-buffering` but not the `eos`/`error`
+    // its prerequisite `Clutter.Media` registers; Gtk-4.0's `SectionModel`/`SelectionModel`
+    // said nothing of `Gio.ListModel::items-changed`. It also guards the `<implements>`
+    // omission GIR does not forbid — measured per file over 718 GIRs, no class omits a
+    // signal-bearing prerequisite today, so that half is prophylactic. Interface blocks
+    // only ever extend other interface blocks, so the `notify::` invariant holds by
+    // construction.
+    if (girClass instanceof IntrospectedInterface) {
+      const prerequisite = girClass.resolveParents().extends();
+      const prerequisiteSource =
+        prerequisite && prerequisite.node instanceof IntrospectedInterface
+          ? prerequisite.node.findSignalSource()
+          : null;
+      const prerequisiteRef = prerequisiteSource
+        ?.getType()
+        .resolveIdentifier(this.namespace, this.config)
+        ?.print(this.namespace, this.config);
+
+      const signatureDecl = prerequisiteRef
+        ? `interface SignalSignatures extends ${prerequisiteRef}.SignalSignatures`
+        : `interface SignalSignatures`;
+      return [...def, ...this.signalSignatureBody(girClass, signatureDecl, indentCount)];
+    }
 
     const parentSignatures: string[] = [];
 
@@ -92,10 +128,14 @@ export class SignalGenerator {
       .resolveParents()
       .implements()
       .filter((iface) => iface.node instanceof IntrospectedInterface)
-      .filter((iface) => {
-        const node = iface.node as unknown as { signals?: unknown[] };
-        return node.signals && node.signals.length > 0;
-      })
+      // `signals` is a real field on `IntrospectedInterface` now, so this reads the model
+      // instead of casting a guess at one. Until it was, the predicate was false for
+      // every interface in every namespace and this whole branch was dead: 7 signals
+      // over 4 Gtk-4.0 interfaces, 41 handler slots across 17 concrete widgets.
+      // `findSignalSource()` rather than `signals.length`: the SAME predicate gates the
+      // block's emission, so this filter can never reference a name that does not exist —
+      // and an interface whose signals all sit on a prerequisite interface still counts.
+      .filter((iface) => (iface.node as IntrospectedInterface).findSignalSource() !== null)
       .map((iface) => {
         const interfaceTypeIdentifier = iface.identifier
           .resolveIdentifier(this.namespace, this.config)
@@ -130,6 +170,23 @@ export class SignalGenerator {
       }
     }
 
+    return [...def, ...this.signalSignatureBody(girClass, signatureDecl, indentCount)];
+  }
+
+  /**
+   * The `SignalSignatures { … }` block itself, given its already-decided declaration line.
+   *
+   * Split out so a class and an interface print the same body from the same code — the
+   * only thing that differs between them is what the declaration extends, which the
+   * caller has settled by the time it gets here.
+   */
+  private signalSignatureBody(
+    girClass: IntrospectedClass | IntrospectedInterface,
+    signatureDecl: string,
+    indentCount: number,
+  ): string[] {
+    const def: string[] = [];
+    const indent = generateIndent(indentCount);
     const allSignals = girClass.getAllSignals();
 
     if (allSignals.length === 0) {

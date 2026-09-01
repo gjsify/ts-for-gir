@@ -22,6 +22,7 @@ import {
 	type IntrospectedClass,
 	IntrospectedClassCallback,
 	IntrospectedClassFunction,
+	type IntrospectedInterface,
 } from "./introspected-classes.ts";
 import { IntrospectedFunctionParameter } from "./parameter.ts";
 
@@ -31,7 +32,13 @@ export enum IntrospectedSignalType {
 	EMIT,
 }
 
-export class IntrospectedSignal extends IntrospectedClassMember<IntrospectedClass> {
+/**
+ * The owner of a signal: GIR writes `<glib:signal>` under `<class>` AND under
+ * `<interface>`, and GObject registers it on that GType either way.
+ */
+export type SignalOwner = IntrospectedClass | IntrospectedInterface;
+
+export class IntrospectedSignal extends IntrospectedClassMember<SignalOwner> {
 	parameters: IntrospectedFunctionParameter[];
 	return_type: TypeExpression;
 	detailed: boolean;
@@ -60,7 +67,7 @@ export class IntrospectedSignal extends IntrospectedClassMember<IntrospectedClas
 		noRecurse?: boolean;
 		noHooks?: boolean;
 		when?: "first" | "last" | "cleanup";
-		parent: IntrospectedClass;
+		parent: SignalOwner;
 	}>) {
 		super(name, parent, { ...args });
 
@@ -94,7 +101,7 @@ export class IntrospectedSignal extends IntrospectedClassMember<IntrospectedClas
 		noHooks,
 		when,
 	}: {
-		parent?: IntrospectedClass;
+		parent?: SignalOwner;
 		parameters?: IntrospectedFunctionParameter[];
 		returnType?: TypeExpression;
 		detailed?: boolean;
@@ -116,7 +123,7 @@ export class IntrospectedSignal extends IntrospectedClassMember<IntrospectedClas
 		})._copyBaseProperties(this);
 	}
 
-	static fromXML(element: GirSignalElement, parent: IntrospectedClass, options: OptionsLoad): IntrospectedSignal {
+	static fromXML(element: GirSignalElement, parent: SignalOwner, options: OptionsLoad): IntrospectedSignal {
 		const ns = parent.namespace;
 		const signal = new IntrospectedSignal({
 			name: element.$.name,

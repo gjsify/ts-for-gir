@@ -27,7 +27,18 @@ const app = new Gtk.Application({
   flags: Gio.ApplicationFlags.FLAGS_NONE,
 });
 
+// ✅ DETAILED interface signal: Gio.ActionGroup registers all four of its signals as
+// detailed, and Gtk.Application implements the interface. The `::detail` catch-all
+// lives on the interface's own SignalSignatures, so `action-added::quit` is typed —
+// previously it only matched the untyped `(...args: any[])` overload.
+app.connect("action-added::quit", (_src, actionName) => {
+  console.log(`Action added: ${actionName}`);
+});
+
 app.connect("activate", () => {
+  // Register the action the detailed handler above is filtered on, so it fires.
+  app.add_action(Gio.SimpleAction.new("quit", null));
+
   // Create main window
   const window = new Gtk.ApplicationWindow({
     application: app,
@@ -192,6 +203,22 @@ app.connect("activate", () => {
   entry.connect("notify::text", (_obj, _pspec) => {
     const text = entry.get_text();
     statusLabel.set_text(`Entry text changed via detail signal: "${text}"`);
+  });
+
+  // ✅ INTERFACE signals: `changed` and `delete-text` are registered by the Gtk.Editable
+  // INTERFACE, not by Gtk.Entry — GIR writes `<glib:signal>` under `<interface>` exactly
+  // as it does under `<class>`. Until the generator read those, Gtk.Editable had no
+  // `SignalSignatures` at all and these connects fell through to the untyped
+  // `(...args: any[])` overload. The `keyof` line is the compile-time proof: it fails
+  // to build against types generated without interface signals.
+  const changedKey: keyof Gtk.Editable.SignalSignatures = "changed";
+  entry.connect(changedKey, (src) => {
+    console.log(`Editable changed, text is now: "${src.get_text()}"`);
+  });
+
+  // ✅ Parameter names and types come from the interface's GIR declaration
+  entry.connect("delete-text", (_src, startPos, endPos) => {
+    console.log(`Editable delete-text: ${startPos}..${endPos}`);
   });
 
   // Demonstrate property change notifications on the toggle button

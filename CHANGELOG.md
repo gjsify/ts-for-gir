@@ -1,5 +1,11 @@
 # Changelog
 
+## [4.6.0](https://github.com/gjsify/ts-for-gir/compare/v4.5.0...v4.6.0) (2026-09-01)
+
+### Bug Fixes
+
+* read glib:signal on an interface too ([#460](https://github.com/gjsify/ts-for-gir/issues/460)) ([bb4418b](https://github.com/gjsify/ts-for-gir/commit/bb4418b99816dff7caedda74828de596473c42b9))
+
 ## [4.5.0](https://github.com/gjsify/ts-for-gir/compare/v4.4.0...v4.5.0) (2026-09-01)
 
 ### Features

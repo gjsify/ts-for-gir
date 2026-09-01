@@ -32,11 +32,9 @@ export function promisifyNamespaceFunctions(namespace: GirModule) {
 		const internal = last_param_unwrapped.type;
 
 		if (internal instanceof TypeIdentifier && internal.is("Gio", "AsyncReadyCallback")) {
-			const async_res = [
-				...Array.from(namespace.members.values()).filter(
-					(m): m is IntrospectedFunction => m instanceof IntrospectedFunction,
-				),
-			].find((m) => m.name === `${node.name.replace(/_async$/, "")}_finish` || m.name === `${node.name}_finish`);
+			const async_res = Array.from(namespace.members.values())
+				.filter((m): m is IntrospectedFunction => m instanceof IntrospectedFunction)
+				.find((m) => m.name === `${node.name.replace(/_async$/, "")}_finish` || m.name === `${node.name}_finish`);
 
 			if (async_res) {
 				const async_parameters = node.parameters.slice(0, -1).map((p) => p.copy());

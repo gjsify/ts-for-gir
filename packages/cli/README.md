@@ -538,8 +538,8 @@ this is not something a Gio-only project pays for. Requires `--package`.
 What the subpath exports, all module-scoped:
 
 ```ts
-import type { Widgets, GtkBoxProps, GtkOrientationNick } from '@girs/gtk-4.0/surface';
-import { OWN_PROPS, ENUM_NICKS, SINCE } from '@girs/gtk-4.0/surface';
+import type { Widgets, GtkBoxProps, GtkOrientationNick } from '@girs/gtk-4.0/vocabulary';
+import { OWN_PROPS, ENUM_NICKS, SINCE } from '@girs/gtk-4.0/vocabulary';
 
 // One props interface per GIR DECLARATION, mirroring GIR's own inheritance:
 // writable-only, optional, keyed by the name GObject registered.

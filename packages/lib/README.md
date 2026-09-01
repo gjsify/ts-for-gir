@@ -41,7 +41,7 @@ published beside it on an opt-in subpath, and that is the whole input a framewor
 binding needs:
 
 ```ts
-import type { Widgets, WidgetGType, PropsOf, SignalsOf } from '@girs/gtk-4.0/surface'
+import type { Widgets, WidgetGType, PropsOf, SignalsOf } from '@girs/gtk-4.0/vocabulary'
 ```
 
 What the subpath exports, per namespace:
@@ -75,7 +75,7 @@ All four together are a mapped type, not a code generator. You supply `TagOf`, t
 is mechanical:
 
 ```ts
-import type { Widgets, WidgetGType } from '@girs/gtk-4.0/surface'
+import type { Widgets, WidgetGType } from '@girs/gtk-4.0/vocabulary'
 
 export type IntrinsicElements = {
   [G in WidgetGType as TagOf<G>]: Widgets[G]['props'] & {
@@ -101,7 +101,7 @@ side by side.
 
 Two consequences worth knowing before you build on this. A consumer that never imports
 the subpath parses zero extra bytes, because TypeScript only reads files a program
-reaches. The Gtk-4.0 surface is 159 KB against a 5.6 MB base `.d.ts`.
+reaches. The Gtk-4.0 vocabulary is 159 KB against a 5.6 MB base `.d.ts`.
 
 `slotCandidates` is honestly named. It comes from method signatures, so it holds
 candidates the GIR cannot tell apart from real slots.
@@ -133,7 +133,7 @@ turns that model into declarations.
 Build on the MODEL rather than adding a second GIR reader. A parallel parse gives you a
 second opinion about what a class is, and then a type you emit can reference a name the
 main emitter never produced. That stays invisible until a namespace with an unusual
-shape hits it. The widget surface is built this way for that reason.
+shape hits it. The widget vocabulary is built this way for that reason.
 
 #### Loading a namespace
 
@@ -205,7 +205,7 @@ is GObject's own name. `g_object_set()` takes `has-default`, in kebab. If you ar
 emitting kebab keys, normalise and de-duplicate rather than mapping `props` one to one,
 or you emit two keys for one property.
 
-Those five names are also the concrete reason a widget surface is not
+Those five names are also the concrete reason a widget vocabulary is not
 `Partial<ConstructorProps>`: `Gtk.Widget.ConstructorProps` offers `has_default`,
 `has_focus`, `parent`, `root` and `scale_factor` as settable, and GTK's failure mode for
 writing one is exit 0.

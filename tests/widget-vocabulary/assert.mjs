@@ -395,10 +395,13 @@ if (!/"orientation-changed::orientation": \(what: string\) => void;/.test(mainTy
 if (!/\[key: `orientation-changed::\$\{string\}`\]: \(what: string\) => void;/.test(mainTypes)) {
   fail("the detailed interface signal lost its template-literal catch-all");
 }
-// A PREREQUISITE'S signals reach an implementor only through the derived interface when
-// the GIR omits the prerequisite from `<implements>` (ClutterGst.Camera lists only
-// Player; `eos`/`error` live on Player's prerequisite Clutter.Media). So Flippable — no
-// signals of its own — must still get a block, extending the prerequisite's…
+// A PREREQUISITE'S signals are part of the derived interface's own signature map
+// (ClutterGst.Player without Clutter.Media's `eos`/`error` is wrong for any consumer of
+// `keyof Player.SignalSignatures`), and they reach an implementor only through the
+// derived interface when the GIR omits the prerequisite from `<implements>` — which GIR
+// does not forbid, though measured per file over 718 GIRs no real class does it today.
+// So Flippable — no signals of its own — must still get a block, extending the
+// prerequisite's…
 if (!/interface SignalSignatures extends Orientable\.SignalSignatures \{\}/.test(mainTypes)) {
   fail("the signal-less interface does not extend its signal-bearing prerequisite");
 }

@@ -1395,11 +1395,15 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
 	 * says "reference it" emits a name that does not exist.
 	 *
 	 * Own signals are not the whole answer: a `<prerequisite>` of interface type
-	 * carries its signals into every implementor, and GIR does not promise the class
-	 * lists the prerequisite in `<implements>` — measured: `ClutterGst.Camera` and
-	 * `ClutterGst.Playback` list only `Player`, whose prerequisite `Clutter.Media`
-	 * registers `eos` and `error`. A class prerequisite is not walked: its signals
-	 * reach the implementing class through its own `extends` chain.
+	 * carries its signals into every conformer, so they belong to this interface's
+	 * signature map — `ClutterGst.Player` (prerequisite `Clutter.Media`: `eos`,
+	 * `error`), `Gtk.SectionModel`/`Gtk.SelectionModel` (prerequisite
+	 * `Gio.ListModel`: `items-changed`), `Gio.RemoteActionGroup` (no own signals at
+	 * all, prerequisite `Gio.ActionGroup`). GIR also does not promise a class lists
+	 * the prerequisite in `<implements>` — measured per file over 718 GIRs no class
+	 * omits one today, so that half is prophylactic. A class prerequisite is not
+	 * walked: its signals reach the implementing class through its own `extends`
+	 * chain.
 	 */
 	findSignalSource(): IntrospectedInterface | null {
 		if (this.signals.length > 0) return this;

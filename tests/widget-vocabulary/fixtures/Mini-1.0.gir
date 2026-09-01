@@ -87,12 +87,15 @@
       </glib:signal>
     </interface>
 
-    <!-- NO signals of its own; its prerequisite has them. They still reach an implementor
-         only through THIS interface when the GIR omits the prerequisite from the class's
-         `<implements>` — real case: `ClutterGst.Camera` and `ClutterGst.Playback` list
-         only `Player`, whose prerequisite `Clutter.Media` registers `eos` and `error`.
-         So this block must EXIST and extend the prerequisite's, while `OWN_SIGNALS` must
-         never key it: it registers nothing. -->
+    <!-- NO signals of its own; its prerequisite has them. The prerequisite's signals are
+         part of this interface's signature map — real shape: `Gio.RemoteActionGroup`
+         (no own signals, prerequisite `Gio.ActionGroup`), and with own signals beside it
+         `ClutterGst.Player` (prerequisite `Clutter.Media`: `eos`/`error`) and
+         `Gtk.SectionModel` (prerequisite `Gio.ListModel`: `items-changed`). It also
+         carries the signals into a class whose `<implements>` omits the prerequisite,
+         which GIR does not forbid (Flipper below; measured per file over 718 GIRs, no
+         real class does it today). So this block must EXIST and extend the
+         prerequisite's, while `OWN_SIGNALS` must never key it: it registers nothing. -->
     <interface name="Flippable" c:symbol-prefix="flippable" c:type="GtkFlippable" glib:type-name="GtkFlippable" glib:get-type="gtk_flippable_get_type">
       <prerequisite name="Orientable"/>
     </interface>

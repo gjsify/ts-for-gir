@@ -76,11 +76,15 @@ export class SignalGenerator {
     // a second time from the interface side would carry the `notify::` keys down two
     // branches into one declaration.
     //
-    // A PREREQUISITE INTERFACE with signals is the one thing it does extend: those signals
-    // reach an implementor only through this interface when the GIR omits the prerequisite
-    // from the class's `<implements>` (`ClutterGst.Camera` lists only `Player`; `eos` and
-    // `error` live on `Player`'s prerequisite `Clutter.Media`). Interface blocks only ever
-    // extend other interface blocks, so the `notify::` invariant holds by construction.
+    // A PREREQUISITE INTERFACE with signals is the one thing it does extend, because the
+    // block is the interface's OWN signature map and a prerequisite's signals are part of
+    // it: `ClutterGst.Player` (1.0/2.0) said `download-buffering` but not the `eos`/`error`
+    // its prerequisite `Clutter.Media` registers; Gtk-4.0's `SectionModel`/`SelectionModel`
+    // said nothing of `Gio.ListModel::items-changed`. It also guards the `<implements>`
+    // omission GIR does not forbid — measured per file over 718 GIRs, no class omits a
+    // signal-bearing prerequisite today, so that half is prophylactic. Interface blocks
+    // only ever extend other interface blocks, so the `notify::` invariant holds by
+    // construction.
     if (girClass instanceof IntrospectedInterface) {
       const prerequisite = girClass.resolveParents().extends();
       const prerequisiteSource =

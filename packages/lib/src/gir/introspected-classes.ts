@@ -1320,19 +1320,94 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
 	/**
 	 * This interface's own signals, in the shape the emitter consumes.
 	 *
-	 * Deliberately NOT {@link IntrospectedClass.getAllSignals}'s behaviour: no
-	 * `notify::` keys and no detailed variants. Those belong to the implementing
-	 * CLASS, whose `SignalSignatures` already extends `GObject.Object`'s and would
-	 * otherwise inherit the same keys twice, from two branches, for every interface
-	 * it implements.
+	 * No `notify::` keys, deliberately — unlike {@link IntrospectedClass.getAllSignals}.
+	 * Those belong to the implementing CLASS, whose `SignalSignatures` already extends
+	 * `GObject.Object`'s and enumerates every property it can see — this interface's
+	 * included, via `implementedProperties()` — so repeating them here would inherit
+	 * the same keys down two branches into one declaration.
+	 *
+	 * DETAIL variants are here, though, and the same reasoning says they must be: the
+	 * class expands details only for its OWN signals (see
+	 * {@link IntrospectedClass.addDetailedSignals}), so a detailed interface signal not
+	 * expanded here is expanded nowhere. Measured before this existed:
+	 * `Gio.ActionGroup`'s four signals are all detailed, so `action-added` was typed
+	 * while `action-added::quit` on the same application object fell through to the
+	 * untyped `connect(signal: string, …)` overload — 25 detailed interface signals
+	 * across the 718-GIR corpus, every one of them half-covered.
 	 */
 	getAllSignals(): SignalDescriptor[] {
-		return this.signals.map((signal) => ({
+		const allSignals: SignalDescriptor[] = this.signals.map((signal) => ({
 			name: signal.name,
 			signal,
 			isNotifySignal: false,
 			isDetailSignal: false,
 		}));
+
+		// Mirrors IntrospectedClass.addDetailedSignals over the interface's OWN properties —
+		// an interface has no parent chain to walk for more. `parameterTypes`/`returnType`
+		// are not duplicated onto the descriptors: the emitter derives both from `signal`
+		// whenever it is present.
+		const propertyNames = new Set(
+			this.props.map((prop) =>
+				prop.name
+					.replace(/_/g, "-")
+					.replace(/([a-z0-9])([A-Z])/g, "$1-$2")
+					.toLowerCase(),
+			),
+		);
+
+		for (const signal of this.signals) {
+			if (!signal.detailed) continue;
+			// `notify` is GObject.Object's; the implementing class already carries its keys.
+			if (signal.name === "notify") continue;
+
+			for (const propertyName of propertyNames) {
+				allSignals.push({
+					name: `${signal.name}::${propertyName}`,
+					signal,
+					isNotifySignal: false,
+					isDetailSignal: true,
+				});
+			}
+
+			// The catch-all is the functional half: details are action names, setting keys,
+			// property names — arbitrary strings GIR does not enumerate.
+			allSignals.push({
+				name: `${signal.name}::\${string}`,
+				signal,
+				isNotifySignal: false,
+				isDetailSignal: true,
+				isTemplateLiteral: true,
+			});
+		}
+
+		return allSignals;
+	}
+
+	/**
+	 * The nearest interface — this one included — in the prerequisite chain that
+	 * registers signals, or `null` when none does.
+	 *
+	 * This is the one predicate behind every `SignalSignatures` decision an interface
+	 * is part of: whether it gets a block of its own, what that block extends, and
+	 * whether an implementing class references it. One predicate, because the three
+	 * call sites MUST agree — a gate that says "no block" while the class-side filter
+	 * says "reference it" emits a name that does not exist.
+	 *
+	 * Own signals are not the whole answer: a `<prerequisite>` of interface type
+	 * carries its signals into every implementor, and GIR does not promise the class
+	 * lists the prerequisite in `<implements>` — measured: `ClutterGst.Camera` and
+	 * `ClutterGst.Playback` list only `Player`, whose prerequisite `Clutter.Media`
+	 * registers `eos` and `error`. A class prerequisite is not walked: its signals
+	 * reach the implementing class through its own `extends` chain.
+	 */
+	findSignalSource(): IntrospectedInterface | null {
+		if (this.signals.length > 0) return this;
+		const prerequisite = this.resolveParents().extends();
+		if (prerequisite && prerequisite.node instanceof IntrospectedInterface) {
+			return prerequisite.node.findSignalSource();
+		}
+		return null;
 	}
 
 	accept(visitor: GirVisitor): IntrospectedInterface {

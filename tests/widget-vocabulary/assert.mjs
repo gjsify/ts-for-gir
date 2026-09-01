@@ -329,8 +329,21 @@ if (data.SINCE?.["GtkWidget::state-flags-changed"] !== "1.3") {
 // (editing-done, remove-widget), `GtkColorChooser` (color-activated) and `GtkFontChooser`
 // (font-activated) reached no vocabulary at all, which through `implements` was 41 handler
 // slots missing across 17 concrete widgets, `<gtk-entry onChanged>` among them.
-if (data.OWN_SIGNALS?.GtkOrientable?.join(",") !== "orientation-flipped") {
-  fail(`OWN_SIGNALS lost the interface's own signal: ${JSON.stringify(data.OWN_SIGNALS?.GtkOrientable)}`);
+// EXACT equality, base names only: detail variants (`orientation-changed::x`) are a
+// TYPE-side expansion and must never leak into the runtime vocabulary — GObject
+// registers ONE signal, the details are connect-time strings.
+if (data.OWN_SIGNALS?.GtkOrientable?.join(",") !== "orientation-changed,orientation-flipped") {
+  fail(
+    `OWN_SIGNALS lost the interface's own signals: ${JSON.stringify(data.OWN_SIGNALS?.GtkOrientable)}`,
+  );
+}
+// `GtkFlippable` registers NOTHING — its signals-by-prerequisite are Orientable's, and
+// `OWN_SIGNALS` is keyed by the GType that REGISTERS. A key here would say the same
+// signal twice and lose which GType owns it.
+if ("GtkFlippable" in (data.OWN_SIGNALS ?? {})) {
+  fail(
+    `OWN_SIGNALS keys GtkFlippable, which registers no signal: ${JSON.stringify(data.OWN_SIGNALS?.GtkFlippable)}`,
+  );
 }
 // Same containment as the class case: an interface signal a consumer reads out of
 // `OWN_SIGNALS` needs a version to forgive its absence from an older library.
@@ -347,20 +360,57 @@ if (data.SINCE?.["GtkOrientable::orientation-flipped"] !== "1.7") {
 // consumer is allowed to write), and a consumer that has one without the other gets
 // either a handler it cannot name or a name that connects to nothing.
 const mainTypes = readFileSync(join(pkgDir, "mini-1.0.d.ts"), "utf8");
-if (!/namespace Orientable \{\s*\n\s*\/\/ Signal signatures\n\s*interface SignalSignatures \{/.test(mainTypes)) {
+if (
+  !/namespace Orientable \{\s*\n\s*\/\/ Signal signatures\n\s*interface SignalSignatures \{/.test(
+    mainTypes,
+  )
+) {
   fail("the interface got no SignalSignatures of its own in mini-1.0.d.ts");
 }
 // And the implementing class must UNION it in. A bare `interface SignalSignatures` on the
 // interface that nothing extends is the same hole one step later.
-if (!/interface SignalSignatures extends Widget\.SignalSignatures, Orientable\.SignalSignatures \{/.test(mainTypes)) {
-  fail("the implementing class does not extend the interface's SignalSignatures");
+if (
+  !/interface SignalSignatures extends Widget\.SignalSignatures, Orientable\.SignalSignatures, Flippable\.SignalSignatures \{/.test(
+    mainTypes,
+  )
+) {
+  fail("the implementing class does not extend the interfaces' SignalSignatures");
 }
-// The interface's own block must NOT extend `GObject.Object.SignalSignatures`: the class
-// already reaches it through its parent chain, and inheriting the same `notify::` keys
-// down two branches into one declaration is a conflict the first differing prerequisite
-// would surface.
+// The block that OWNS the signals must not extend anything here: Orientable's only
+// prerequisite is a class (GObject.Object, filled in by the InterfaceVisitor), and the
+// implementing class already reaches `GObject.Object.SignalSignatures` through its own
+// parent chain — inheriting the same `notify::` keys down two branches into one
+// declaration is a conflict the first differing prerequisite would surface.
 if (/interface SignalSignatures extends [^\n]*\n[^}]*"orientation-flipped"/.test(mainTypes)) {
-  fail("the interface's SignalSignatures extends something; it must be bare");
+  fail("the signal-owning interface's SignalSignatures extends something; it must be bare");
+}
+// DETAIL VARIANTS live on the interface block or nowhere: the class side expands details
+// only for its OWN signals, so `Gio.ActionGroup`-shaped signals (all four detailed) had
+// the base name typed while `action-added::quit` fell through to the untyped overload.
+// Both halves of the class convention: the enumerated key over the interface's own
+// property, and the template-literal catch-all for the details GIR cannot enumerate.
+if (!/"orientation-changed::orientation": \(what: string\) => void;/.test(mainTypes)) {
+  fail("the detailed interface signal lost its property-enumerated detail variant");
+}
+if (!/\[key: `orientation-changed::\$\{string\}`\]: \(what: string\) => void;/.test(mainTypes)) {
+  fail("the detailed interface signal lost its template-literal catch-all");
+}
+// A PREREQUISITE'S signals reach an implementor only through the derived interface when
+// the GIR omits the prerequisite from `<implements>` (ClutterGst.Camera lists only
+// Player; `eos`/`error` live on Player's prerequisite Clutter.Media). So Flippable — no
+// signals of its own — must still get a block, extending the prerequisite's…
+if (!/interface SignalSignatures extends Orientable\.SignalSignatures \{\}/.test(mainTypes)) {
+  fail("the signal-less interface does not extend its signal-bearing prerequisite");
+}
+// …and the class with the omission must reach the signals through it.
+if (
+  !/interface SignalSignatures extends GObject\.Object\.SignalSignatures, Flippable\.SignalSignatures \{/.test(
+    mainTypes,
+  )
+) {
+  fail(
+    "the class implementing only the derived interface does not reach the prerequisite's signals",
+  );
 }
 
 // Every GType `OWN_SIGNALS` names must be one this vocabulary actually describes — the

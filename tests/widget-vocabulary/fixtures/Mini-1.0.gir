@@ -68,6 +68,33 @@
           </parameter>
         </parameters>
       </glib:signal>
+      <!-- DETAILED, because a detailed interface signal is the case with no other home:
+           the class side expands detail variants only for its OWN signals, so if the
+           interface's block does not carry `orientation-changed::x` nothing does. The
+           real shape is `Gio.ActionGroup` — all four of its signals are detailed, and
+           `action-added::quit` fell through to the untyped overload while `action-added`
+           beside it was typed. 25 such signals across the 718-GIR corpus. -->
+      <glib:signal name="orientation-changed" when="last" detailed="1">
+        <doc xml:space="preserve">Emitted when a named aspect of the orientation changed.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="what" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </interface>
+
+    <!-- NO signals of its own; its prerequisite has them. They still reach an implementor
+         only through THIS interface when the GIR omits the prerequisite from the class's
+         `<implements>` — real case: `ClutterGst.Camera` and `ClutterGst.Playback` list
+         only `Player`, whose prerequisite `Clutter.Media` registers `eos` and `error`.
+         So this block must EXIST and extend the prerequisite's, while `OWN_SIGNALS` must
+         never key it: it registers nothing. -->
+    <interface name="Flippable" c:symbol-prefix="flippable" c:type="GtkFlippable" glib:type-name="GtkFlippable" glib:get-type="gtk_flippable_get_type">
+      <prerequisite name="Orientable"/>
     </interface>
 
     <!-- Abstract, so it must NOT get a `Widgets` row, and it must still get a props
@@ -118,6 +145,7 @@
          names neither the GType nor a version. -->
     <class name="Box" c:symbol-prefix="box" c:type="GtkBox" glib:type-name="GtkBox" glib:get-type="gtk_box_get_type" parent="Widget" version="1.4">
       <implements name="Orientable"/>
+      <implements name="Flippable"/>
       <property name="spacing" default-value="6" writable="1" transfer-ownership="none">
         <type name="gint" c:type="gint"/>
       </property>
@@ -167,6 +195,15 @@
           <parameter name="label" transfer-ownership="none"><type name="utf8" c:type="const gchar*"/></parameter>
         </parameters>
       </method>
+    </class>
+
+    <!-- The `<implements>` OMISSION, as a class: lists only Flippable, never its
+         prerequisite Orientable — the ClutterGst.Camera shape. The prerequisite's signals
+         reach this class's SignalSignatures only through Flippable's block extending
+         Orientable's. Not a widget on purpose, so the vocabulary walk stays exactly as
+         it was. -->
+    <class name="Flipper" c:symbol-prefix="flipper" c:type="GtkFlipper" glib:type-name="GtkFlipper" glib:get-type="gtk_flipper_get_type" parent="GObject.Object">
+      <implements name="Flippable"/>
     </class>
 
     <!-- Not a widget: no row, no props interface. -->

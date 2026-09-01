@@ -69,13 +69,33 @@ export class SignalGenerator {
 
     def.push(`${indent}// Signal signatures`);
 
-    // AN INTERFACE INHERITS NOTHING HERE, on purpose. Its members are unioned into the
-    // implementing class's `SignalSignatures extends …, Gtk.Editable.SignalSignatures`,
-    // and that class already reaches `GObject.Object.SignalSignatures` through its own
-    // parent chain. Extending it a second time from the interface side would carry the
-    // `notify::` keys down two branches into one declaration.
+    // AN INTERFACE NEVER REACHES `GObject.Object.SignalSignatures` FROM HERE, on purpose.
+    // Its members are unioned into the implementing class's
+    // `SignalSignatures extends …, Gtk.Editable.SignalSignatures`, and that class already
+    // reaches `GObject.Object.SignalSignatures` through its own parent chain — extending it
+    // a second time from the interface side would carry the `notify::` keys down two
+    // branches into one declaration.
+    //
+    // A PREREQUISITE INTERFACE with signals is the one thing it does extend: those signals
+    // reach an implementor only through this interface when the GIR omits the prerequisite
+    // from the class's `<implements>` (`ClutterGst.Camera` lists only `Player`; `eos` and
+    // `error` live on `Player`'s prerequisite `Clutter.Media`). Interface blocks only ever
+    // extend other interface blocks, so the `notify::` invariant holds by construction.
     if (girClass instanceof IntrospectedInterface) {
-      return [...def, ...this.signalSignatureBody(girClass, `interface SignalSignatures`, indentCount)];
+      const prerequisite = girClass.resolveParents().extends();
+      const prerequisiteSource =
+        prerequisite && prerequisite.node instanceof IntrospectedInterface
+          ? prerequisite.node.findSignalSource()
+          : null;
+      const prerequisiteRef = prerequisiteSource
+        ?.getType()
+        .resolveIdentifier(this.namespace, this.config)
+        ?.print(this.namespace, this.config);
+
+      const signatureDecl = prerequisiteRef
+        ? `interface SignalSignatures extends ${prerequisiteRef}.SignalSignatures`
+        : `interface SignalSignatures`;
+      return [...def, ...this.signalSignatureBody(girClass, signatureDecl, indentCount)];
     }
 
     const parentSignatures: string[] = [];
@@ -104,11 +124,14 @@ export class SignalGenerator {
       .resolveParents()
       .implements()
       .filter((iface) => iface.node instanceof IntrospectedInterface)
-      // `signals` is a real field on `IntrospectedInterface` now, so this reads it
+      // `signals` is a real field on `IntrospectedInterface` now, so this reads the model
       // instead of casting a guess at one. Until it was, the predicate was false for
       // every interface in every namespace and this whole branch was dead: 7 signals
       // over 4 Gtk-4.0 interfaces, 41 handler slots across 17 concrete widgets.
-      .filter((iface) => (iface.node as IntrospectedInterface).signals.length > 0)
+      // `findSignalSource()` rather than `signals.length`: the SAME predicate gates the
+      // block's emission, so this filter can never reference a name that does not exist —
+      // and an interface whose signals all sit on a prerequisite interface still counts.
+      .filter((iface) => (iface.node as IntrospectedInterface).findSignalSource() !== null)
       .map((iface) => {
         const interfaceTypeIdentifier = iface.identifier
           .resolveIdentifier(this.namespace, this.config)

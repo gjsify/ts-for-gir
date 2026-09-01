@@ -1,5 +1,21 @@
 # Changelog
 
+## [4.5.0](https://github.com/gjsify/ts-for-gir/compare/v4.4.0...v4.5.0) (2026-09-01)
+
+### Features
+
+* key SINCE by signal as well as property ([#454](https://github.com/gjsify/ts-for-gir/issues/454)) ([421d11f](https://github.com/gjsify/ts-for-gir/commit/421d11f92eb9ff0afc4da0d682498289ae212713))
+* key SINCE by the type, not only its members ([#457](https://github.com/gjsify/ts-for-gir/issues/457)) ([6a9962b](https://github.com/gjsify/ts-for-gir/commit/6a9962bd5dad2d9dbd7f96e43c49e8e74ad3a034))
+
+### Bug Fixes
+
+* emit what the GIR says — enum values, throws, deprecation, names ([#455](https://github.com/gjsify/ts-for-gir/issues/455)) ([7ac7703](https://github.com/gjsify/ts-for-gir/commit/7ac7703025b11b673ff3cc63c15d51bdf9cdbacf)), closes [#453](https://github.com/gjsify/ts-for-gir/issues/453)
+* key vocabulary signals by declaration ([#456](https://github.com/gjsify/ts-for-gir/issues/456)) ([ab6eb58](https://github.com/gjsify/ts-for-gir/commit/ab6eb583740774cfac89ce8618d5585c683ea1a4))
+
+### Documentation
+
+* finish the vocabulary rename in the READMEs ([#459](https://github.com/gjsify/ts-for-gir/issues/459)) ([dfe2d09](https://github.com/gjsify/ts-for-gir/commit/dfe2d09266af94951fa7022891ee40d94e276e3a))
+
 ## [4.4.0](https://github.com/gjsify/ts-for-gir/compare/v4.3.0...v4.4.0) (2026-08-31)
 
 ### Features

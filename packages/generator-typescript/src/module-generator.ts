@@ -1675,6 +1675,20 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
     }
 
     if (girClass instanceof IntrospectedInterface) {
+      // An interface gets one only when it REGISTERS signals. Emitting an empty
+      // `SignalSignatures` for the other ~1500 would put a namespace block on every
+      // interface in the run — and, worse, offer implementors a name to extend that
+      // says nothing. `generateClassSignalInterfaces` produces a bare interface here
+      // rather than one extending `GObject.Object.SignalSignatures`: the implementing
+      // CLASS already extends that through its own parent chain, and inheriting the
+      // same `notify::` keys down two branches is a conflict waiting for the first
+      // interface whose prerequisite differs.
+      if (girClass.signals.length > 0) {
+        bodyDef.push(
+          ...this.signalGenerator.generateClassSignalInterfaces(girClass, indentCount + 1),
+        );
+      }
+
       // Virtual interface for implementation
       bodyDef.push(...this.generateVirtualInterface(girClass, indentCount + 1));
     }

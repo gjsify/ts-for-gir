@@ -127,12 +127,13 @@ export interface VocabularyDecl {
    * missing all 13, while `OWN_PROPS` had carried `GtkWidget`'s properties all along.
    * The two halves of one vocabulary disagreed about which GTypes it describes.
    *
-   * INTERFACE signals are absent here because they are absent from the MODEL: only
-   * `IntrospectedClass.fromXML` reads `<glib:signal>`, so `Gtk.Editable::changed`,
-   * `Gtk.CellEditable::editing-done` and `Gtk.ColorChooser::color-activated` — 7 signals
-   * over 3 interfaces in Gtk-4.0 — reach neither this vocabulary nor the main `.d.ts`,
-   * which emits no `SignalSignatures` for an interface at all. A separate defect one
-   * level down, named here rather than left to be rediscovered from this file.
+   * INTERFACE signals are here too, and were not always: until `IntrospectedInterface`
+   * learned to read `<glib:signal>`, `Gtk.Editable::changed`, `Gtk.CellEditable::editing-done`,
+   * `Gtk.ColorChooser::color-activated` and `Gtk.FontChooser::font-activated` — 7 signals over
+   * 4 interfaces in Gtk-4.0 — reached neither this vocabulary nor the main `.d.ts`. Through
+   * `implements` that was 41 handler slots across 17 concrete widget types, `gtk-entry`'s
+   * `changed` among them. The chain in `DECLS` already carried the interfaces, so a consumer
+   * unioning it got the right answer the moment the model had the data.
    */
   readonly signals: readonly string[];
   /**
@@ -531,13 +532,14 @@ function ownProps(
  *
  * Deliberately NOT `getAllSignals()`: `DECLS` already publishes the chain, so folding a
  * base's signals into every descendant would say the same fact 53 times in Gtk-4.0 and
- * lose which GType actually owns `destroy`.
- *
- * Returns nothing for an interface, which carries no signals in this model — see
- * {@link VocabularyDecl.signals} for what that costs and why it is not decided here.
+ * lose which GType actually owns `destroy`. Interfaces answer the same way classes do,
+ * because GObject registers a signal on the interface GType and `DECLS` puts that GType
+ * in the chain.
  */
 const ownSignals = (cls: IntrospectedBaseClass): string[] =>
-  cls instanceof IntrospectedClass ? cls.signals.map((signal) => signal.name).sort() : [];
+  cls instanceof IntrospectedClass || cls instanceof IntrospectedInterface
+    ? cls.signals.map((signal) => signal.name).sort()
+    : [];
 
 /**
  * A method taking exactly one widget argument names a CANDIDATE slot.
@@ -884,7 +886,7 @@ export function buildWidgetVocabulary(
   for (const [key, decl] of withBases) {
     if (!decl.emitted) continue;
     const cls = needed.get(key);
-    if (!(cls instanceof IntrospectedClass)) continue;
+    if (!(cls instanceof IntrospectedClass || cls instanceof IntrospectedInterface)) continue;
     for (const signal of cls.signals) {
       const introduced = signal.metadata?.introducedVersion;
       if (introduced) since.set(`${decl.gtype}::${signal.name}`, introduced);

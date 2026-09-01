@@ -1302,8 +1302,38 @@ export class IntrospectedClass extends IntrospectedBaseClass {
  * Represents a GIR interface
  */
 export class IntrospectedInterface extends IntrospectedBaseClass {
+	/**
+	 * The signals this interface registers itself, from `<glib:signal>`.
+	 *
+	 * GIR puts signals on `<interface>` exactly as it does on `<class>`, and GObject
+	 * registers them on the interface GType — `GtkEditable::changed` is the one every
+	 * entry-like widget in GTK4 emits. Reading them only in {@link IntrospectedClass}
+	 * dropped all of them: 7 signals over 4 interfaces in Gtk-4.0, reaching 17 concrete
+	 * widget types through `implements`, and `gtk-entry` alone lost five handler slots
+	 * including `changed`. Nothing said so, because a signal that is never parsed is a
+	 * signal nothing can miss.
+	 */
+	signals: IntrospectedSignal[] = [];
 	interfaces: TypeIdentifier[] = [];
 	noParent: boolean = false;
+
+	/**
+	 * This interface's own signals, in the shape the emitter consumes.
+	 *
+	 * Deliberately NOT {@link IntrospectedClass.getAllSignals}'s behaviour: no
+	 * `notify::` keys and no detailed variants. Those belong to the implementing
+	 * CLASS, whose `SignalSignatures` already extends `GObject.Object`'s and would
+	 * otherwise inherit the same keys twice, from two branches, for every interface
+	 * it implements.
+	 */
+	getAllSignals(): SignalDescriptor[] {
+		return this.signals.map((signal) => ({
+			name: signal.name,
+			signal,
+			isNotifySignal: false,
+			isDetailSignal: false,
+		}));
+	}
 
 	accept(visitor: GirVisitor): IntrospectedInterface {
 		const node = this.copy({
@@ -1312,6 +1342,7 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
 			props: this.props.map((p) => p.accept(visitor)),
 			fields: this.fields.map((f) => f.accept(visitor)),
 			callbacks: this.callbacks.map((c) => c.accept(visitor)),
+			signals: this.signals.map((s) => s.accept(visitor)),
 		});
 		return visitor.visitInterface?.(node) ?? node;
 	}
@@ -1378,6 +1409,7 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
 			props?: IntrospectedProperty[];
 			fields?: IntrospectedField[];
 			callbacks?: IntrospectedClassCallback[];
+			signals?: IntrospectedSignal[];
 		} = {},
 	): IntrospectedInterface {
 		const iface = new IntrospectedInterface({ name: this.name, namespace: this.namespace });
@@ -1393,6 +1425,7 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
 			props = this.props,
 			fields = this.fields,
 			callbacks = this.callbacks,
+			signals = this.signals,
 		} = options;
 
 		iface.constructors = [...constructors.map((c) => c.copy({ parent: iface }))];
@@ -1400,6 +1433,7 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
 		iface.props = [...props.map((p) => p.copy({ parent: iface }))];
 		iface.fields = [...fields.map((f) => f.copy({ parent: iface }))];
 		iface.callbacks = [...callbacks.map((c) => c.copy({ parent: iface }))];
+		iface.signals = [...signals.map((sig) => sig.copy({ parent: iface }))];
 
 		if (this.mainConstructor) {
 			iface.mainConstructor = this.mainConstructor.copy({ parent: iface });
@@ -1473,6 +1507,7 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
 	): void {
 		try {
 			IntrospectedInterface.parseInterfaceConstructors(element, iface, options);
+			IntrospectedInterface.parseInterfaceSignals(element, iface, options);
 			IntrospectedInterface.parseInterfaceProperties(element, iface, options);
 			IntrospectedInterface.parseInterfaceMethods(element, iface, options);
 			IntrospectedInterface.parseInterfaceFields(element, iface);
@@ -1481,6 +1516,17 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
 			IntrospectedInterface.parseInterfaceStaticFunctions(element, iface, options);
 		} catch (e) {
 			log.reportParsingFailure(iface.name, "interface", namespace.namespace, e as Error);
+		}
+	}
+
+	/** `<glib:signal>` on an `<interface>`, read exactly as {@link IntrospectedClass.parseSignals} reads it on a class. */
+	private static parseInterfaceSignals(
+		element: GirInterfaceElement,
+		iface: IntrospectedInterface,
+		options: OptionsLoad,
+	): void {
+		if (element["glib:signal"]) {
+			iface.signals.push(...element["glib:signal"].map((signal) => IntrospectedSignal.fromXML(signal, iface, options)));
 		}
 	}
 

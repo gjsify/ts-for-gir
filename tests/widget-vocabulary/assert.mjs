@@ -322,6 +322,47 @@ if (data.SINCE?.["GtkWidget::state-flags-changed"] !== "1.3") {
     )}`,
   );
 }
+// AN INTERFACE REGISTERS SIGNALS TOO, and reading them only on `<class>` is a hole with
+// no symptom: an interface that contributes nothing looks exactly like one that has
+// nothing to contribute. Measured on Gtk-4.0 before this assertion existed —
+// `GtkEditable` (changed, delete-text, insert-text, input-intercepted), `GtkCellEditable`
+// (editing-done, remove-widget), `GtkColorChooser` (color-activated) and `GtkFontChooser`
+// (font-activated) reached no vocabulary at all, which through `implements` was 41 handler
+// slots missing across 17 concrete widgets, `<gtk-entry onChanged>` among them.
+if (data.OWN_SIGNALS?.GtkOrientable?.join(",") !== "orientation-flipped") {
+  fail(`OWN_SIGNALS lost the interface's own signal: ${JSON.stringify(data.OWN_SIGNALS?.GtkOrientable)}`);
+}
+// Same containment as the class case: an interface signal a consumer reads out of
+// `OWN_SIGNALS` needs a version to forgive its absence from an older library.
+if (data.SINCE?.["GtkOrientable::orientation-flipped"] !== "1.7") {
+  fail(
+    `SINCE has no version for the interface's signal: ${JSON.stringify(
+      Object.keys(data.SINCE ?? {}).filter((k) => k.startsWith("GtkOrientable")),
+    )}`,
+  );
+}
+// THE TYPE SIDE OF THE SAME FACT, read out of the main `.d.ts` rather than the
+// vocabulary's. The two halves fail independently: an interface can reach `OWN_SIGNALS`
+// (runtime, what a host connects) while emitting no `SignalSignatures` (types, what a
+// consumer is allowed to write), and a consumer that has one without the other gets
+// either a handler it cannot name or a name that connects to nothing.
+const mainTypes = readFileSync(join(pkgDir, "mini-1.0.d.ts"), "utf8");
+if (!/namespace Orientable \{\s*\n\s*\/\/ Signal signatures\n\s*interface SignalSignatures \{/.test(mainTypes)) {
+  fail("the interface got no SignalSignatures of its own in mini-1.0.d.ts");
+}
+// And the implementing class must UNION it in. A bare `interface SignalSignatures` on the
+// interface that nothing extends is the same hole one step later.
+if (!/interface SignalSignatures extends Widget\.SignalSignatures, Orientable\.SignalSignatures \{/.test(mainTypes)) {
+  fail("the implementing class does not extend the interface's SignalSignatures");
+}
+// The interface's own block must NOT extend `GObject.Object.SignalSignatures`: the class
+// already reaches it through its parent chain, and inheriting the same `notify::` keys
+// down two branches into one declaration is a conflict the first differing prerequisite
+// would surface.
+if (/interface SignalSignatures extends [^\n]*\n[^}]*"orientation-flipped"/.test(mainTypes)) {
+  fail("the interface's SignalSignatures extends something; it must be bare");
+}
+
 // Every GType `OWN_SIGNALS` names must be one this vocabulary actually describes — the
 // same containment `OWN_PROPS` is held to above, so a key can never appear that a
 // consumer walking `DECLS` has no interface for.

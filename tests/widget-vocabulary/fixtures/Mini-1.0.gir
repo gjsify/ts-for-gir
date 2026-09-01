@@ -51,6 +51,23 @@
         <doc xml:space="preserve">The orientation of the orientable.</doc>
         <type name="Orientation" c:type="GtkOrientation"/>
       </property>
+      <!-- GIR puts `<glib:signal>` on an interface exactly as it does on a class, and
+           GObject registers it on the interface GType. Reading it only on `<class>` cost
+           Gtk-4.0 eight signals over four interfaces, which through `implements` was 41
+           handler slots across 17 concrete widgets — `GtkEditable::changed`, so
+           `<gtk-entry onChanged>`, among them. Versioned, so the SINCE half is exercised
+           over an interface signal too. -->
+      <glib:signal name="orientation-flipped" when="last" version="1.7">
+        <doc xml:space="preserve">Emitted after the orientation changed.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="previous" transfer-ownership="none">
+            <type name="Orientation" c:type="GtkOrientation"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
     </interface>
 
     <!-- Abstract, so it must NOT get a `Widgets` row, and it must still get a props

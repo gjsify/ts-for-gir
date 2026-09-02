@@ -27,6 +27,7 @@ import {
 	UnknownType,
 	VoidType,
 } from "../gir.ts";
+import type { OptionsGeneration } from "../types/index.ts";
 import { girParsingReporter } from "./gir-parsing.ts";
 
 /**
@@ -397,11 +398,11 @@ class HashTableDictType extends TypeExpression {
 		super();
 	}
 
-	print(namespace: IntrospectedNamespace, options: import("../types/index.ts").OptionsGeneration): string {
+	print(namespace: IntrospectedNamespace, options: OptionsGeneration): string {
 		return `{ [key: ${this.keyShape}]: ${this.valueType.rootPrint(namespace, options)} }`;
 	}
 
-	resolve(_namespace: IntrospectedNamespace, _options: import("../types/index.ts").OptionsGeneration): TypeExpression {
+	resolve(_namespace: IntrospectedNamespace, _options: OptionsGeneration): TypeExpression {
 		return this;
 	}
 

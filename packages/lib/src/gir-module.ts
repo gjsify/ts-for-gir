@@ -296,7 +296,12 @@ export class GirModule implements IGirModule {
 	}
 
 	accept(visitor: GirVisitor) {
-		for (const key of [...this.members.keys()]) {
+		// Snapshot the keys: the loop writes each visited member back into the very
+		// map it is walking, and a live iterator only survives that by a subtle rule
+		// about re-setting existing keys. Not worth depending on.
+		const keys = [...this.members.keys()];
+
+		for (const key of keys) {
 			const member = this.members.get(key);
 
 			if (!member) continue;

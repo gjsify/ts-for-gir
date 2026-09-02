@@ -608,11 +608,11 @@ export abstract class IntrospectedBaseClass extends IntrospectedNamespaceMember 
 		this.superType = superType;
 
 		this.mainConstructor = mainConstructor?.copy({ parent: this }) ?? null;
-		this.constructors = [...constructors.map((c) => c.copy({ parent: this }))];
-		this.members = [...members.map((m) => m.copy({ parent: this }))];
-		this.props = [...props.map((p) => p.copy({ parent: this }))];
-		this.fields = [...fields.map((f) => f.copy({ parent: this }))];
-		this.callbacks = [...callbacks.map((c) => c.copy({ parent: this }))];
+		this.constructors = constructors.map((c) => c.copy({ parent: this }));
+		this.members = members.map((m) => m.copy({ parent: this }));
+		this.props = props.map((p) => p.copy({ parent: this }));
+		this.fields = fields.map((f) => f.copy({ parent: this }));
+		this.callbacks = callbacks.map((c) => c.copy({ parent: this }));
 	}
 
 	abstract accept(visitor: GirVisitor): IntrospectedBaseClass;
@@ -1085,12 +1085,12 @@ export class IntrospectedClass extends IntrospectedBaseClass {
 			callbacks = this.callbacks,
 		} = options;
 
-		klass.signals = [...signals.map((s) => s.copy({ parent: klass }))];
-		klass.constructors = [...constructors.map((c) => c.copy({ parent: klass }))];
-		klass.members = [...members.map((m) => m.copy({ parent: klass }))];
-		klass.props = [...props.map((p) => p.copy({ parent: klass }))];
-		klass.fields = [...fields.map((f) => f.copy({ parent: klass }))];
-		klass.callbacks = [...callbacks.map((c) => c.copy({ parent: klass }))];
+		klass.signals = signals.map((s) => s.copy({ parent: klass }));
+		klass.constructors = constructors.map((c) => c.copy({ parent: klass }));
+		klass.members = members.map((m) => m.copy({ parent: klass }));
+		klass.props = props.map((p) => p.copy({ parent: klass }));
+		klass.fields = fields.map((f) => f.copy({ parent: klass }));
+		klass.callbacks = callbacks.map((c) => c.copy({ parent: klass }));
 
 		if (this.mainConstructor) {
 			klass.mainConstructor = this.mainConstructor.copy({ parent: klass });
@@ -1507,12 +1507,12 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
 			signals = this.signals,
 		} = options;
 
-		iface.constructors = [...constructors.map((c) => c.copy({ parent: iface }))];
-		iface.members = [...members.map((m) => m.copy({ parent: iface }))];
-		iface.props = [...props.map((p) => p.copy({ parent: iface }))];
-		iface.fields = [...fields.map((f) => f.copy({ parent: iface }))];
-		iface.callbacks = [...callbacks.map((c) => c.copy({ parent: iface }))];
-		iface.signals = [...signals.map((sig) => sig.copy({ parent: iface }))];
+		iface.constructors = constructors.map((c) => c.copy({ parent: iface }));
+		iface.members = members.map((m) => m.copy({ parent: iface }));
+		iface.props = props.map((p) => p.copy({ parent: iface }));
+		iface.fields = fields.map((f) => f.copy({ parent: iface }));
+		iface.callbacks = callbacks.map((c) => c.copy({ parent: iface }));
+		iface.signals = signals.map((sig) => sig.copy({ parent: iface }));
 
 		if (this.mainConstructor) {
 			iface.mainConstructor = this.mainConstructor.copy({ parent: iface });

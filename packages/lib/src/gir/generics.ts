@@ -26,31 +26,30 @@ const GenericNames = [
 	"Z",
 ];
 
-export function* getGenericNames(start: string = "A") {
-	let names = GenericNames.map((s) => `${s}`);
+/**
+ * An unbounded supply of generic parameter names: `A`…`Z`, then `A1`…`Z1`,
+ * then `A2`…`Z2`, and so on.
+ *
+ * `start` resumes the sequence at an already-issued name, so a copied class
+ * keeps handing out the names the original had not reached yet. The first
+ * pass begins at that letter; every later pass covers the full alphabet.
+ *
+ * The generator is infinite by design and therefore never returns — that is
+ * what the `never` return type states, so callers can treat `next().value`
+ * as a plain `string`.
+ */
+export function* getGenericNames(start: string = "A"): Generator<string, never, unknown> {
+	// A name is a letter plus the pass number, with pass 0 left bare ("A", not "A0").
 	const startIteration = Number.parseInt(start.slice(1) || "0", 10);
+	const startPosition = GenericNames.indexOf(start[0]);
 
-	let i = startIteration;
+	for (let iteration = startIteration; ; iteration++) {
+		for (const [position, letter] of GenericNames.entries()) {
+			if (iteration === startIteration && position < startPosition) continue;
 
-	names = names.map((s) => (i === 0 ? s : `${s}${i}`));
-
-	const StartLetter = start[0];
-	const position = GenericNames.indexOf(StartLetter);
-
-	while (true) {
-		for (const name of names) {
-			if (i === startIteration && GenericNames.indexOf(name) >= position) {
-				yield name;
-			}
+			yield iteration === 0 ? letter : `${letter}${iteration}`;
 		}
-
-		names = names.map((s) => `${s}${i}`);
-
-		i++;
 	}
-
-	// This will always be a string return.
-	return "ThisShouldNeverHappen";
 }
 
 export function createGenericNameGenerator(): () => string {

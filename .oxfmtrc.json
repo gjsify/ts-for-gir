@@ -20,7 +20,7 @@
     "**/*.gir",
     "**/node_modules",
     "**/dist",
-    "**/lib",
+    "packages/*/lib",
     "**/build",
     "**/coverage",
     "refs",

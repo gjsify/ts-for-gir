@@ -1,0 +1,29 @@
+{
+  "name": "@ts-for-gir-test/generic-names",
+  "description": "Tests for getGenericNames — the unbounded supply of generic parameter names a class draws on",
+  "type": "module",
+  "private": true,
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "keywords": [
+    "gir",
+    "testing",
+    "generics"
+  ],
+  "author": "Pascal Garber <pascal@mailfreun.de>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@ts-for-gir/lib": "workspace:^",
+    "vitest": "^4.1.11"
+  },
+  "devDependencies": {
+    "@types/node": "^26.4.0",
+    "typescript": "^6.0.3"
+  }
+}

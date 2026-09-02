@@ -1675,6 +1675,21 @@ export class ModuleGenerator extends FormatGenerator<string[]> {
     }
 
     if (girClass instanceof IntrospectedInterface) {
+      // An interface gets one only when it CARRIES signals — its own, or a prerequisite
+      // interface's (`findSignalSource`, the same predicate the class-side filter reads,
+      // so neither can name a block the other refused to emit). Emitting an empty
+      // `SignalSignatures` for the other ~1500 would put a namespace block on every
+      // interface in the run — and, worse, offer implementors a name to extend that
+      // says nothing. `generateClassSignalInterfaces` never extends
+      // `GObject.Object.SignalSignatures` here: the implementing CLASS already extends
+      // that through its own parent chain, and inheriting the same `notify::` keys down
+      // two branches is a conflict waiting for the first differing prerequisite.
+      if (girClass.findSignalSource() !== null) {
+        bodyDef.push(
+          ...this.signalGenerator.generateClassSignalInterfaces(girClass, indentCount + 1),
+        );
+      }
+
       // Virtual interface for implementation
       bodyDef.push(...this.generateVirtualInterface(girClass, indentCount + 1));
     }

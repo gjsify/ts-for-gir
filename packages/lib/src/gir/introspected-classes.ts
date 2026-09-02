@@ -1302,8 +1302,117 @@ export class IntrospectedClass extends IntrospectedBaseClass {
  * Represents a GIR interface
  */
 export class IntrospectedInterface extends IntrospectedBaseClass {
+	/**
+	 * The signals this interface registers itself, from `<glib:signal>`.
+	 *
+	 * GIR puts signals on `<interface>` exactly as it does on `<class>`, and GObject
+	 * registers them on the interface GType — `GtkEditable::changed` is the one every
+	 * entry-like widget in GTK4 emits. Reading them only in {@link IntrospectedClass}
+	 * dropped all of them: 7 signals over 4 interfaces in Gtk-4.0, reaching 17 concrete
+	 * widget types through `implements`, and `gtk-entry` alone lost five handler slots
+	 * including `changed`. Nothing said so, because a signal that is never parsed is a
+	 * signal nothing can miss.
+	 */
+	signals: IntrospectedSignal[] = [];
 	interfaces: TypeIdentifier[] = [];
 	noParent: boolean = false;
+
+	/**
+	 * This interface's own signals, in the shape the emitter consumes.
+	 *
+	 * No `notify::` keys, deliberately — unlike {@link IntrospectedClass.getAllSignals}.
+	 * Those belong to the implementing CLASS, whose `SignalSignatures` already extends
+	 * `GObject.Object`'s and enumerates every property it can see — this interface's
+	 * included, via `implementedProperties()` — so repeating them here would inherit
+	 * the same keys down two branches into one declaration.
+	 *
+	 * DETAIL variants are here, though, and the same reasoning says they must be: the
+	 * class expands details only for its OWN signals (see
+	 * {@link IntrospectedClass.addDetailedSignals}), so a detailed interface signal not
+	 * expanded here is expanded nowhere. Measured before this existed:
+	 * `Gio.ActionGroup`'s four signals are all detailed, so `action-added` was typed
+	 * while `action-added::quit` on the same application object fell through to the
+	 * untyped `connect(signal: string, …)` overload — 25 detailed interface signals
+	 * across the 718-GIR corpus, every one of them half-covered.
+	 */
+	getAllSignals(): SignalDescriptor[] {
+		const allSignals: SignalDescriptor[] = this.signals.map((signal) => ({
+			name: signal.name,
+			signal,
+			isNotifySignal: false,
+			isDetailSignal: false,
+		}));
+
+		// Mirrors IntrospectedClass.addDetailedSignals over the interface's OWN properties —
+		// an interface has no parent chain to walk for more. `parameterTypes`/`returnType`
+		// are not duplicated onto the descriptors: the emitter derives both from `signal`
+		// whenever it is present.
+		const propertyNames = new Set(
+			this.props.map((prop) =>
+				prop.name
+					.replace(/_/g, "-")
+					.replace(/([a-z0-9])([A-Z])/g, "$1-$2")
+					.toLowerCase(),
+			),
+		);
+
+		for (const signal of this.signals) {
+			if (!signal.detailed) continue;
+			// `notify` is GObject.Object's; the implementing class already carries its keys.
+			if (signal.name === "notify") continue;
+
+			for (const propertyName of propertyNames) {
+				allSignals.push({
+					name: `${signal.name}::${propertyName}`,
+					signal,
+					isNotifySignal: false,
+					isDetailSignal: true,
+				});
+			}
+
+			// The catch-all is the functional half: details are action names, setting keys,
+			// property names — arbitrary strings GIR does not enumerate.
+			allSignals.push({
+				name: `${signal.name}::\${string}`,
+				signal,
+				isNotifySignal: false,
+				isDetailSignal: true,
+				isTemplateLiteral: true,
+			});
+		}
+
+		return allSignals;
+	}
+
+	/**
+	 * The nearest interface — this one included — in the prerequisite chain that
+	 * registers signals, or `null` when none does.
+	 *
+	 * This is the one predicate behind every `SignalSignatures` decision an interface
+	 * is part of: whether it gets a block of its own, what that block extends, and
+	 * whether an implementing class references it. One predicate, because the three
+	 * call sites MUST agree — a gate that says "no block" while the class-side filter
+	 * says "reference it" emits a name that does not exist.
+	 *
+	 * Own signals are not the whole answer: a `<prerequisite>` of interface type
+	 * carries its signals into every conformer, so they belong to this interface's
+	 * signature map — `ClutterGst.Player` (prerequisite `Clutter.Media`: `eos`,
+	 * `error`), `Gtk.SectionModel`/`Gtk.SelectionModel` (prerequisite
+	 * `Gio.ListModel`: `items-changed`), `Gio.RemoteActionGroup` (no own signals at
+	 * all, prerequisite `Gio.ActionGroup`). GIR also does not promise a class lists
+	 * the prerequisite in `<implements>` — measured per file over 718 GIRs no class
+	 * omits one today, so that half is prophylactic. A class prerequisite is not
+	 * walked: its signals reach the implementing class through its own `extends`
+	 * chain.
+	 */
+	findSignalSource(): IntrospectedInterface | null {
+		if (this.signals.length > 0) return this;
+		const prerequisite = this.resolveParents().extends();
+		if (prerequisite && prerequisite.node instanceof IntrospectedInterface) {
+			return prerequisite.node.findSignalSource();
+		}
+		return null;
+	}
 
 	accept(visitor: GirVisitor): IntrospectedInterface {
 		const node = this.copy({
@@ -1312,6 +1421,7 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
 			props: this.props.map((p) => p.accept(visitor)),
 			fields: this.fields.map((f) => f.accept(visitor)),
 			callbacks: this.callbacks.map((c) => c.accept(visitor)),
+			signals: this.signals.map((s) => s.accept(visitor)),
 		});
 		return visitor.visitInterface?.(node) ?? node;
 	}
@@ -1378,6 +1488,7 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
 			props?: IntrospectedProperty[];
 			fields?: IntrospectedField[];
 			callbacks?: IntrospectedClassCallback[];
+			signals?: IntrospectedSignal[];
 		} = {},
 	): IntrospectedInterface {
 		const iface = new IntrospectedInterface({ name: this.name, namespace: this.namespace });
@@ -1393,6 +1504,7 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
 			props = this.props,
 			fields = this.fields,
 			callbacks = this.callbacks,
+			signals = this.signals,
 		} = options;
 
 		iface.constructors = constructors.map((c) => c.copy({ parent: iface }));
@@ -1400,6 +1512,7 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
 		iface.props = props.map((p) => p.copy({ parent: iface }));
 		iface.fields = fields.map((f) => f.copy({ parent: iface }));
 		iface.callbacks = callbacks.map((c) => c.copy({ parent: iface }));
+		iface.signals = signals.map((sig) => sig.copy({ parent: iface }));
 
 		if (this.mainConstructor) {
 			iface.mainConstructor = this.mainConstructor.copy({ parent: iface });
@@ -1473,6 +1586,7 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
 	): void {
 		try {
 			IntrospectedInterface.parseInterfaceConstructors(element, iface, options);
+			IntrospectedInterface.parseInterfaceSignals(element, iface, options);
 			IntrospectedInterface.parseInterfaceProperties(element, iface, options);
 			IntrospectedInterface.parseInterfaceMethods(element, iface, options);
 			IntrospectedInterface.parseInterfaceFields(element, iface);
@@ -1481,6 +1595,17 @@ export class IntrospectedInterface extends IntrospectedBaseClass {
 			IntrospectedInterface.parseInterfaceStaticFunctions(element, iface, options);
 		} catch (e) {
 			log.reportParsingFailure(iface.name, "interface", namespace.namespace, e as Error);
+		}
+	}
+
+	/** `<glib:signal>` on an `<interface>`, read exactly as {@link IntrospectedClass.parseSignals} reads it on a class. */
+	private static parseInterfaceSignals(
+		element: GirInterfaceElement,
+		iface: IntrospectedInterface,
+		options: OptionsLoad,
+	): void {
+		if (element["glib:signal"]) {
+			iface.signals.push(...element["glib:signal"].map((signal) => IntrospectedSignal.fromXML(signal, iface, options)));
 		}
 	}
 

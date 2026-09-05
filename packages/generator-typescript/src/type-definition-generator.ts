@@ -7,8 +7,9 @@ import {
   Reporter,
   ReporterService,
 } from "@ts-for-gir/lib";
-import { ModuleGenerator } from "./module-generator.ts";
 //import { PackageDataParser } from './package-data-parser.ts'
+import { BundlePackage } from "./bundle-package.ts";
+import { ModuleGenerator } from "./module-generator.ts";
 import { NpmPackage } from "./npm-package.ts";
 import { TemplateProcessor } from "./template-processor.ts";
 
@@ -205,6 +206,12 @@ export class TypeDefinitionGenerator implements Generator {
     // single ambient `.d.ts` for one module and the aggregator would have nothing to do.
     if (!this.config.package && !this.config.externalDeps) {
       await this.exportAllModules(girModules);
+    }
+
+    // Last: the bundle manifest reads the directory it describes, so every namespace and the
+    // GJS package have to be on disk before it runs.
+    if (this.config.bundle) {
+      await new BundlePackage(this.config, girModules).export();
     }
   }
 }

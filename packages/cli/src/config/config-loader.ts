@@ -92,9 +92,72 @@ function parseExternalPackagePairs(
 }
 
 /**
- * Validate the configuration
+ * npm package name: an optional `@scope/` followed by a name. Deliberately stricter than npm
+ * itself (no uppercase, no leading dot/underscore) — the value also becomes `npmScope`, so it
+ * is pasted into every generated import specifier, where a name npm would reject only fails
+ * once the bundle is published.
+ */
+const NPM_PACKAGE_NAME = /^(?:@[a-z0-9-~][a-z0-9-._~]*\/)?[a-z0-9-~][a-z0-9-._~]*$/;
+
+/**
+ * Parse the `--bundleMeta` JSON string. Fails loudly: the alternative is a bundle published
+ * without the provenance the caller asked for, which nothing downstream can tell apart from a
+ * bundle that never wanted any.
+ */
+function parseBundleMeta(raw: string): Record<string, unknown> {
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(raw);
+  } catch (error) {
+    throw new Error(
+      `--bundleMeta is not valid JSON: ${error instanceof Error ? error.message : String(error)}`,
+    );
+  }
+  if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) {
+    throw new Error("--bundleMeta must be a JSON object");
+  }
+  return parsed as Record<string, unknown>;
+}
+
+/**
+ * Validate the configuration, and apply the implications `--bundle` has on other options.
+ *
+ * Bundle mode is a different SHAPE of the same output, not a separate generator: the modules
+ * are generated exactly as in package mode, and only the manifests change. So it sets the two
+ * options that shape has to have — `package` and `npmScope` — rather than asking the caller to
+ * keep three flags consistent by hand.
  */
 export function validate(config: UserConfig): UserConfig {
+  if (config.bundleMeta !== undefined && !config.bundle) {
+    throw new Error("--bundleMeta is only valid together with --bundle");
+  }
+
+  if (!config.bundle) return config;
+
+  if (!NPM_PACKAGE_NAME.test(config.bundle)) {
+    throw new Error(`--bundle is not a valid npm package name: ${config.bundle}`);
+  }
+
+  // --external-deps resolves dep imports against INSTALLED @girs/* packages, which is the exact
+  // opposite of a bundle: one deliberately reaches outside the output, the other deliberately
+  // cannot. Silently letting one win would produce a bundle with unresolvable imports.
+  if (config.externalDeps) {
+    throw new Error("--bundle cannot be combined with --external-deps");
+  }
+
+  if (config.bundleMeta) {
+    for (const reserved of ["name", "exports"]) {
+      if (reserved in config.bundleMeta) {
+        throw new Error(
+          `--bundleMeta cannot override '${reserved}' — it is computed from the generated output`,
+        );
+      }
+    }
+  }
+
+  config.package = true;
+  config.npmScope = config.bundle;
+
   return config;
 }
 
@@ -155,6 +218,12 @@ export async function load(cliOptions: ConfigFlags): Promise<UserConfig> {
   const userConfig: UserConfig = {
     ...cliOptionsClean,
   };
+
+  // `--bundleMeta` arrives as a JSON string on the CLI and as an object from an rc file.
+  // Normalize here so everything downstream sees the object form only.
+  if (typeof userConfig.bundleMeta === "string") {
+    userConfig.bundleMeta = parseBundleMeta(userConfig.bundleMeta);
+  }
   if (externalPackagesFromCli) {
     userConfig.externalPackages = externalPackagesFromCli;
   }
@@ -187,6 +256,7 @@ export async function load(cliOptions: ConfigFlags): Promise<UserConfig> {
     // String options — config file overrides CLI defaults
     const stringKeys: Array<[keyof UserConfig, unknown]> = [
       ["npmScope", options.npmScope.default],
+      ["bundle", undefined],
       ["reporterOutput", options.reporterOutput.default],
       ["depVersionFormat", undefined],
       ["theme", docOptions.theme.default],
@@ -231,6 +301,11 @@ export async function load(cliOptions: ConfigFlags): Promise<UserConfig> {
       userConfig.outdir === options.outdir.default || userConfig.outdir === defaults.docOutdir;
     if (isDefaultOutdir && configFileData.outdir) {
       userConfig.outdir = userConfig.print ? null : configFileData.outdir;
+    }
+
+    // bundleMeta is an object in rc files; a CLI --bundleMeta wins.
+    if (userConfig.bundleMeta === undefined && configFileData.bundleMeta) {
+      userConfig.bundleMeta = configFileData.bundleMeta;
     }
 
     // externalPackages is a Record<string, string> in rc files; CLI overrides take precedence.

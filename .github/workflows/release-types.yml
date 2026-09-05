@@ -57,9 +57,16 @@ jobs:
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
         git remote set-url origin "https://x-access-token:${PAT_TOKEN}@github.com/gjsify/types.git"
-        git fetch origin
-        git checkout main
-        git pull origin main
+        # The submodule is cloned SHALLOW at the recorded gitlink, so its history and
+        # origin/main's need not overlap — and `git pull` then reports "divergent branches"
+        # and exits 128 instead of fast-forwarding. Measured on the v4.7.0 release: "1 and 1
+        # different commits each" for a gitlink that IS an ancestor of main; it had only
+        # worked while the two happened to be the same commit.
+        #
+        # This job regenerates the whole tree and commits on top of the remote state, so it
+        # wants that state outright rather than a merge with whatever the shallow clone holds.
+        git fetch --unshallow origin main 2>/dev/null || git fetch origin main
+        git checkout -B main FETCH_HEAD
 
     - name: Generate release types
       env:

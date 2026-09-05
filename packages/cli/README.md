@@ -141,6 +141,12 @@ Options:
                                 GtkWidget descendants [boolean] [default: false]
       --npmScope                Scope of the generated NPM packages
                                                      [string] [default: "@girs"]
+      --bundle                  Emit every generated namespace as ONE npm package
+                                with this name (e.g. '@girs/sdk-gnome-50').
+                                Implies --package and sets --npmScope    [string]
+      --bundleMeta              JSON object merged into the bundle package.json,
+                                for provenance the generator cannot know. Only
+                                valid with --bundle                      [string]
       --workspace               Uses the workspace protocol for the generated
                                 packages              [boolean] [default: false]
       --onlyVersionPrefix       Only use the version prefix for the ambient
@@ -613,6 +619,58 @@ ts-for-gir generate * --package --npmScope my-scope
 ```
 
 This command will generate NPM packages with the scope `@my-scope` instead of the default `@girs` scope. For `Gtk-4.0` this would generate a package with the name of `@my-scope/gtk-4.0`.
+
+## bundle
+
+`--package` emits one npm package per namespace, each depending on the others by name. That is
+right for the published `@girs/*` set, and wrong whenever the types have to match one specific
+runtime: npm is free to satisfy `@girs/glib-2.0` from the registry for one namespace and from
+your pinned copy for another, and two copies of a namespace are not a version skew — they are
+duplicate `declare module 'gi://GLib'` blocks, which is the "Incompatible GObject type" failure
+of [#431](https://github.com/gjsify/ts-for-gir/issues/431).
+
+`--bundle` emits the same namespaces as ONE package instead:
+
+```bash
+ts-for-gir generate '*' \
+  -g /usr/share/gir-1.0 \
+  -o ./sdk-gnome-50 \
+  --bundle '@girs/sdk-gnome-50'
+```
+
+Every namespace becomes a subpath of that package, and the namespaces reference each other
+inside it, so the whole set installs, resolves and versions as a unit:
+
+```ts
+import "@girs/sdk-gnome-50/gtk-4.0";
+import "@girs/sdk-gnome-50/adw-1";
+
+import Gtk from "gi://Gtk?version=4.0";
+```
+
+The flag implies `--package` and sets `--npmScope` to the bundle name — bundle mode is a
+different shape of the same output, not a separate generator, so it sets the options that shape
+has to have rather than asking you to keep three flags consistent.
+
+There is deliberately no barrel: importing `@girs/sdk-gnome-50` on its own is not supported,
+because a single entry point over every namespace would pull the whole set into any program that
+touches one of them. To keep the classic specifiers in an existing project, map them once:
+
+```jsonc
+// tsconfig.json
+"paths": { "@girs/*": ["./node_modules/@girs/sdk-gnome-50/*"] }
+```
+
+`--bundleMeta` merges a JSON object into the bundle's `package.json`, for provenance the
+generator cannot know — which SDK the GIR files came from, at which commit:
+
+```bash
+--bundleMeta '{"sdk":{"id":"org.gnome.Sdk","branch":"50","commit":"c87589be…"}}'
+```
+
+`name` and `exports` are computed from the generated output and cannot be overridden. The
+library versions the namespaces state about themselves are recorded automatically, under
+`libraryVersions`.
 
 ## Ambient modules
 

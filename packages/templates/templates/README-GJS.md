@@ -37,7 +37,7 @@ const <%- pkg.namespace %> = require('<%- pkg.importPath %>');
 After the import, the global types of GJS are also available:
 
 ```ts
-import '@girs/gjs';
+import '<%- npmScope %>/gjs';
 
 print('Hello World from print');
 
@@ -52,7 +52,7 @@ Some types that conflict with the DOM are outsourced to allow frameworks like Gj
 Import them explicitly:
 
 ```ts
-import '@girs/gjs/dom';
+import '<%- npmScope %>/gjs/dom';
 
 console.log('Hello World from console');
 
@@ -104,11 +104,11 @@ If you want to have types for [GObject Introspection](https://gi.readthedocs.io/
 These types will then be available to you:
 
 ```ts
-import '@girs/gjs'
-import '@girs/gjs/dom'
-import '@girs/gio-2.0'
-import '@girs/gtk-4.0'
-import '@girs/adw-1'
+import '<%- npmScope %>/gjs'
+import '<%- npmScope %>/gjs/dom'
+import '<%- npmScope %>/gio-2.0'
+import '<%- npmScope %>/gtk-4.0'
+import '<%- npmScope %>/adw-1'
 
 import Gio from 'gi://Gio?version=2.0';
 import Gtk from 'gi://Gtk?version=4.0';

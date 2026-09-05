@@ -94,6 +94,34 @@ jobs:
         Source: ${REPO}@${RELEASE_TAG}"
         git push origin main
 
+    # The SDK channels (`@girs/sdk-gnome-*`) are generated from Flatpak SDKs rather than from
+    # this repository's `girs/`, so they are not part of the commit above and no push event
+    # reaches them. They are rebuilt on their own schedule too — an SDK moves inside a GNOME
+    # cycle without a release here — and this dispatch is the other half: a new generator has
+    # to reach every channel, not only the next weekly poll.
+    #
+    # Not gated on `changes`: a release with no diff in the per-namespace types can still be a
+    # new generator version for the channels, which record the generator they were built from.
+    - name: Trigger the SDK channel builds
+      env:
+        PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+        RELEASE_TAG: ${{ github.event.release.tag_name || github.event.inputs.release_tag || 'unknown' }}
+      run: |
+        set -euo pipefail
+        status=$(curl -sS -o /tmp/dispatch.out -w '%{http_code}' \
+          -X POST https://api.github.com/repos/gjsify/types/dispatches \
+          -H "Authorization: Bearer ${PAT_TOKEN}" \
+          -H "Accept: application/vnd.github+json" \
+          -d "{\"event_type\":\"generator-released\",\"client_payload\":{\"release\":\"${RELEASE_TAG}\"}}")
+        # 204 is the only success. Anything else is a dispatch that did not happen, and a
+        # channel nobody rebuilt looks exactly like a channel that needed no rebuild.
+        if [ "$status" != "204" ]; then
+          echo "dispatch to gjsify/types failed with HTTP $status" >&2
+          cat /tmp/dispatch.out >&2
+          exit 1
+        fi
+        echo "Dispatched generator-released for ${RELEASE_TAG}"
+
     - name: Summary
       env:
         RELEASE_TAG: ${{ github.event.release.tag_name || github.event.inputs.release_tag || 'unknown' }}

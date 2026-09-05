@@ -47,6 +47,11 @@ export class NpmPackage<Wrapped extends Dependency | GirModule> {
   }
 
   async exportNPMPackage() {
+    // In bundle mode the namespaces are directories inside ONE package, so a manifest per
+    // namespace would describe a package that does not exist — and `<bundle>/<namespace>` is
+    // not even a legal npm name. The single manifest is written once by `BundlePackage`.
+    if (this.config.bundle) return;
+
     await this.exportNPMPackageJson();
     await this.exportNPMReadme();
     await this.exportTSConfig();

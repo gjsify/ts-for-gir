@@ -1,0 +1,18 @@
+{
+    "name": "@ts-for-gir-test/bundle",
+    "type": "module",
+    "private": true,
+    "scripts": {
+        "test": "gjsify run clear && gjsify run generate && gjsify run assert && gjsify run controls && gjsify run link && gjsify run check:types",
+        "generate": "ts-for-gir-dev generate --configName .ts-for-gir.rc.js",
+        "assert": "node --no-warnings assert.mjs",
+        "controls": "node --no-warnings controls.mjs",
+        "link": "mkdir -p node_modules/@girs-test && ln -sfn ../../generated node_modules/@girs-test/bundle-fixture",
+        "check:types": "tsc --noEmit",
+        "clear": "rm -rf generated control-package node_modules/@girs-test"
+    },
+    "devDependencies": {
+        "@ts-for-gir/cli": "workspace:^",
+        "typescript": "^6.0.3"
+    }
+}

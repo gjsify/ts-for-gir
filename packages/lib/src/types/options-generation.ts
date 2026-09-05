@@ -28,6 +28,13 @@ export interface OptionsGeneration extends OptionsBase {
 	 */
 	widgetVocabulary: boolean;
 	/**
+	 * Emit every generated namespace as ONE npm package with this name (see `UserConfig.bundle`).
+	 * Implies `package`, and `npmScope` is set to it.
+	 */
+	bundle?: string;
+	/** Extra fields merged into the bundle `package.json` (see `UserConfig.bundleMeta`). */
+	bundleMeta?: Record<string, unknown>;
+	/**
 	 * Scope of the generated NPM packages
 	 * @see https://docs.npmjs.com/cli/v7/using-npm/scope
 	 */

@@ -35,6 +35,29 @@ export interface UserConfig {
 	 * never emits a surface even with this on.
 	 */
 	widgetVocabulary: boolean;
+	/**
+	 * Emit every generated namespace as ONE npm package with this name, instead of one
+	 * package per namespace.
+	 *
+	 * Implies `package: true` and sets `npmScope` to this name, so cross-namespace imports
+	 * become self-reference subpaths (`@girs/sdk-gnome-50/gdk-4.0`) that resolve inside the
+	 * bundle. The per-namespace manifests are replaced by a single `package.json` at the
+	 * output root whose `exports` map every namespace to a subpath.
+	 *
+	 * The point is a closed set: a runtime-pinned type set (a Flatpak SDK, say) must never
+	 * be able to resolve half its namespaces against a differently-versioned copy from the
+	 * registry. Two copies of one namespace are not a version skew, they are duplicate
+	 * `declare module 'gi://GLib'` blocks — the "Incompatible GObject type" failure of #431.
+	 * One package cannot be installed twice at different versions, so the failure mode is
+	 * gone by construction rather than by discipline.
+	 */
+	bundle?: string;
+	/**
+	 * JSON object merged into the bundle `package.json`. Carries provenance the generator
+	 * cannot know — which SDK the GIR files came from, at which commit. Only valid together
+	 * with `bundle`; `name` and `exports` are computed and cannot be overridden.
+	 */
+	bundleMeta?: Record<string, unknown>;
 	/** Scope of the generated NPM packages */
 	npmScope: string;
 	/** Uses the workspace protocol for the generated packages which can be used with package managers like Yarn and PNPM */

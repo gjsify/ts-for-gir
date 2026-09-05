@@ -97,6 +97,16 @@ export const options: { [name: string]: Options } = {
     default: defaults.widgetVocabulary,
     normalize: true,
   },
+  bundle: {
+    type: "string",
+    description:
+      "Emit every generated namespace as ONE npm package with this name (e.g. '@girs/sdk-gnome-50'). Implies --package, sets --npmScope to the bundle name, and replaces the per-namespace manifests with a single package.json whose exports map each namespace to a subpath",
+  },
+  bundleMeta: {
+    type: "string",
+    description:
+      'JSON object merged into the bundle package.json, for provenance the generator cannot know (e.g. \'{"sdk":{"id":"org.gnome.Sdk","branch":"50"}}\'). Only valid with --bundle; cannot override \'name\' or \'exports\'',
+  },
   npmScope: {
     type: "string",
     description: "Scope of the generated NPM packages",
@@ -193,6 +203,8 @@ export const generateOptions = {
   promisify: options.promisify,
   widgetVocabulary: options.widgetVocabulary,
   npmScope: options.npmScope,
+  bundle: options.bundle,
+  bundleMeta: options.bundleMeta,
   workspace: options.workspace,
   depVersionFormat: options.depVersionFormat,
   onlyVersionPrefix: options.onlyVersionPrefix,

@@ -1,5 +1,15 @@
 # Changelog
 
+## [4.7.0](https://github.com/gjsify/ts-for-gir/compare/v4.6.0...v4.7.0) (2026-09-05)
+
+### Features
+
+* **cli:** `--bundle` emits one package for an SDK ([#463](https://github.com/gjsify/ts-for-gir/issues/463)) ([5e1a45e](https://github.com/gjsify/ts-for-gir/commit/5e1a45e4752ecbd3dbf2ffa76823f1bf6fc7159e)), references [#431](https://github.com/gjsify/ts-for-gir/issues/431)
+
+### Bug Fixes
+
+* **lib:** lint the core package, and fix the hang it hid ([#461](https://github.com/gjsify/ts-for-gir/issues/461)) ([e78ca84](https://github.com/gjsify/ts-for-gir/commit/e78ca847c469bb50ead4ea9c230f03eeb73286cd))
+
 ## [4.6.0](https://github.com/gjsify/ts-for-gir/compare/v4.5.0...v4.6.0) (2026-09-01)
 
 ### Bug Fixes

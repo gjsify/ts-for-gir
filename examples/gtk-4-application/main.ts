@@ -20,7 +20,7 @@ import System from "system";
 
 // Define a custom signal interface
 interface ExampleApplicationSignals extends Gtk.Application.SignalSignatures {
-  hello: (arg: string) => void;
+  examplesig: (arg: number) => void;
 }
 
 // An example GtkApplication with a few bells and whistles, see also:
@@ -51,7 +51,21 @@ class ExampleApplication extends Gtk.Application {
     signal: K,
     callback: GObject.SignalCallback<this, ExampleApplicationSignals[K]>,
   ): number {
-    return super.connect(signal, callback);
+    return GObject.signal_connect(this, signal, callback);
+  }
+
+  override connect_after<K extends keyof ExampleApplicationSignals>(
+    signal: K,
+    callback: GObject.SignalCallback<this, ExampleApplicationSignals[K]>,
+  ): number {
+    return GObject.signal_connect_after(this, signal, callback);
+  }
+
+  override emit<K extends keyof ExampleApplicationSignals>(
+    signal: K,
+    ...args: GObject.GjsParameters<ExampleApplicationSignals[K]>
+  ): void {
+    GObject.signal_emit_by_name(this, signal, ...args);
   }
 
   constructor() {

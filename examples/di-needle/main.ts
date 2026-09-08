@@ -208,6 +208,10 @@ class GObjectUserService extends GObject.Object {
 }
 
 // GObject-based Application service
+interface GObjectAppSignals extends Gio.Application.SignalSignatures {
+  "user-processed": (userName: string, userId: string) => void;
+}
+
 @injectable()
 class GObjectApp extends Gio.Application {
   static {
@@ -234,6 +238,27 @@ class GObjectApp extends Gio.Application {
   }
 
   private _appName = "User Management App";
+
+  override connect<K extends keyof GObjectAppSignals>(
+    signal: K,
+    callback: GObject.SignalCallback<this, GObjectAppSignals[K]>,
+  ): number {
+    return GObject.signal_connect(this, signal, callback);
+  }
+
+  override connect_after<K extends keyof GObjectAppSignals>(
+    signal: K,
+    callback: GObject.SignalCallback<this, GObjectAppSignals[K]>,
+  ): number {
+    return GObject.signal_connect_after(this, signal, callback);
+  }
+
+  override emit<K extends keyof GObjectAppSignals>(
+    signal: K,
+    ...args: GObject.GjsParameters<GObjectAppSignals[K]>
+  ): void {
+    GObject.signal_emit_by_name(this, signal, ...args);
+  }
 
   constructor(
     public readonly userService = inject(GObjectUserService),

@@ -41,7 +41,21 @@ class MyButton extends Gtk.Button {
     signal: K,
     callback: GObject.SignalCallback<this, MyButtonSignals[K]>,
   ): number {
-    return super.connect(signal, callback);
+    return GObject.signal_connect(this, signal, callback);
+  }
+
+  override connect_after<K extends keyof MyButtonSignals>(
+    signal: K,
+    callback: GObject.SignalCallback<this, MyButtonSignals[K]>,
+  ): number {
+    return GObject.signal_connect_after(this, signal, callback);
+  }
+
+  override emit<K extends keyof MyButtonSignals>(
+    signal: K,
+    ...args: GObject.GjsParameters<MyButtonSignals[K]>
+  ): void {
+    GObject.signal_emit_by_name(this, signal, ...args);
   }
 
   triggerCustomSignal() {
@@ -89,7 +103,7 @@ function jsx<T extends GObject.Object>(widget: T, props: ElementProps<T>): T {
         .toLowerCase()
         .replace(/^-/, ""); // Remove leading dash if any
 
-      widget.connect(signalName, handler as AnySignalCallback<T>);
+      GObject.signal_connect(widget, signalName, handler as AnySignalCallback<T>);
     }
   }
 

@@ -17,12 +17,12 @@ win.connect("destroy", () => {
   return true;
 });
 
-const closeButton = builder.get_object("closeButton");
+const closeButton = builder.get_object("closeButton") as Gtk.Button | null;
 if (!closeButton) {
   throw new Error("Builder object closeButton not found!");
 }
 
-const actionButton = builder.get_object("actionButton");
+const actionButton = builder.get_object("actionButton") as Gtk.Button | null;
 if (!actionButton) {
   throw new Error("Builder object actionButton not found!");
 }

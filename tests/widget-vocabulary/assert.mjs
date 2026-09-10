@@ -321,14 +321,52 @@ if ("GtkWidget.axes" in (data.PROP_ENUMS ?? {})) {
 }
 // And a property with no enum type at all has no entry.
 if ("GtkBox.spacing" in (data.PROP_ENUMS ?? {})) fail("PROP_ENUMS claims a plain int property");
+// A bitfield from a namespace that emits NO vocabulary of its own, which is the case the
+// join silently broke: `printPropType` returned `number` for a bitfield before collecting
+// it, so `FLAG_VALUES` only ever carried the ones this namespace DECLARES. `PROP_ENUMS`
+// then named `GdkGLAPI` for `GtkGLArea:allowed-apis` with no table anywhere holding its
+// numbers -- 5 such rows in the 142 generated vocabularies, every one of them a bitfield.
+if (data.PROP_ENUMS?.["GtkWidget.binding-flags"] !== "GBindingFlags") {
+  fail(`PROP_ENUMS omits the foreign bitfield: ${JSON.stringify(data.PROP_ENUMS)}`);
+}
+// The invariant that makes the join a join, and the same one `ENUM_NICKS` is held to above:
+// a GType named here has numbers to be resolved against.
+const numbered = new Set(
+  [
+    ...Object.keys(data.ENUM_VALUES ?? {}),
+    ...Object.keys(data.FLAG_VALUES ?? {}),
+    ...Object.keys(data.ENUM_VALUES_UNREADABLE ?? {}),
+    ...Object.keys(data.FLAG_VALUES_UNREADABLE ?? {}),
+  ].map((key) => key.slice(0, key.lastIndexOf("."))),
+);
+for (const [key, gtype] of Object.entries(data.PROP_ENUMS ?? {})) {
+  if (numbered.has(gtype)) continue;
+  fail(
+    `PROP_ENUMS says ${key} is a ${gtype}, and no value table carries one — a join into nothing`,
+  );
+}
+// The other half of the same containment `OWN_PROPS` is held to above: a key here names a
+// declaration and a property that declaration actually offers. A table keyed by anything
+// else — the concrete widget, the underscored spelling — is one a `DECLS` walk cannot hit.
+for (const key of Object.keys(data.PROP_ENUMS ?? {})) {
+  const gtype = key.slice(0, key.indexOf("."));
+  const prop = key.slice(key.indexOf(".") + 1);
+  if ((data.OWN_PROPS?.[gtype] ?? []).includes(prop)) continue;
+  fail(`PROP_ENUMS keys ${key}, which OWN_PROPS[${gtype}] does not offer`);
+}
 // End to end, the way a consumer actually walks it: widget -> DECLS chain -> PROP_ENUMS ->
 // ENUM_VALUES. If this stops working the three tables have stopped being one answer.
 {
   const chain = data.DECLS?.GtkBox ?? [];
   const owner = chain.find((gtype) => `${gtype}.orientation` in (data.PROP_ENUMS ?? {}));
-  const resolved = owner === undefined ? undefined : data.ENUM_VALUES?.[`${data.PROP_ENUMS[`${owner}.orientation`]}.vertical`];
+  const resolved =
+    owner === undefined
+      ? undefined
+      : data.ENUM_VALUES?.[`${data.PROP_ENUMS[`${owner}.orientation`]}.vertical`];
   if (resolved !== 1) {
-    fail(`walking GtkBox -> DECLS -> PROP_ENUMS -> ENUM_VALUES for \`vertical\` gave ${resolved}, expected 1`);
+    fail(
+      `walking GtkBox -> DECLS -> PROP_ENUMS -> ENUM_VALUES for \`vertical\` gave ${resolved}, expected 1`,
+    );
   }
 }
 
@@ -365,7 +403,14 @@ for (const key of Object.keys(data.FLAG_VALUES ?? {})) {
 }
 
 // The TYPE half declares all three, or the two halves have stopped describing one surface.
-for (const name of ["ENUM_VALUES", "ENUM_DEPRECATED", "ENUM_VALUES_UNREADABLE", "FLAG_VALUES", "FLAG_VALUES_UNREADABLE", "PROP_ENUMS"]) {
+for (const name of [
+  "ENUM_VALUES",
+  "ENUM_DEPRECATED",
+  "ENUM_VALUES_UNREADABLE",
+  "FLAG_VALUES",
+  "FLAG_VALUES_UNREADABLE",
+  "PROP_ENUMS",
+]) {
   if (!new RegExp(`export const ${name}\\s*:`).test(types)) {
     fail(`the .d.ts half does not declare ${name}`);
   }
@@ -714,7 +759,8 @@ console.log(
     `${Object.keys(data.OWN_PROPS).length} declaration(s) with props, ` +
     `${Object.keys(data.ENUM_NICKS).length} nick union(s), ` +
     `${Object.keys(data.ENUM_VALUES).length} enum value(s) with ${Object.keys(data.ENUM_VALUES_UNREADABLE).length} declared unreadable, ` +
-    `${Object.keys(data.FLAG_VALUES).length} flag value(s) with ${Object.keys(data.FLAG_VALUES_UNREADABLE).length} declared unreadable; ` +
+    `${Object.keys(data.FLAG_VALUES).length} flag value(s) with ${Object.keys(data.FLAG_VALUES_UNREADABLE).length} declared unreadable, ` +
+    `${Object.keys(data.PROP_ENUMS).length} property/enum join(s); ` +
     `flag-off control clean; ` +
     `broken fixture rejected with exit ${brokenExit}`,
 );

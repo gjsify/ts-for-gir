@@ -153,6 +153,13 @@ newline" c:identifier="GTK_ODD_HOSTILE" glib:nick="hostile"/>
       <property name="state-flags" writable="1" transfer-ownership="none">
         <type name="StateFlags" c:type="GtkStateFlags"/>
       </property>
+      <!-- A bitfield owned by a namespace that declares no widget and therefore emits no
+           vocabulary. `PROP_ENUMS` names its GType, so some table has to carry its numbers,
+           and before the fix none did: the real instance is `GtkGLArea:allowed-apis`, a
+           `GdkGLAPI`, one of 5 rows in the corpus pointing at a GType no vocabulary held. -->
+      <property name="binding-flags" writable="1" transfer-ownership="none">
+        <type name="GObject.BindingFlags" c:type="GBindingFlags"/>
+      </property>
       <!-- READ-ONLY. `ConstructorProps` offers this as settable; writing it is exit 0. -->
       <property name="parent" readable="1" writable="0" transfer-ownership="none">
         <type name="Widget" c:type="GtkWidget*"/>

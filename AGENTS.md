@@ -88,7 +88,9 @@ behind each of those nicks from `value` (plus each nick GIR marks deprecated —
 for the registered BITFIELDS — which get no nick union, because GObject cannot resolve a nick
 SET, and whose members still carry numbers 21 bitfield-typed widget properties need — the
 declaration-keyed join saying WHICH enum or bitfield a settable property is (without it the
-numbers are half an answer: nothing else says `orientation` is a `GtkOrientation`), a
+numbers are half an answer: nothing else says `orientation` is a `GtkOrientation`; every GType
+it names has numbers in SOME vocabulary — a referenced bitfield whose owner emits none is
+inlined, which `GtkGLArea:allowed-apis` needed and 4 more rows in the corpus with it), a
 GType-keyed `Widgets` map, and the same facts again as runtime data in the sibling `.js` —
 because types are erased and the only check that can go red for a real reason is a consumer asking the
 INSTALLED library whether every name is real. Code:

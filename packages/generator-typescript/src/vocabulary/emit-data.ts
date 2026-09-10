@@ -243,6 +243,10 @@ export const FLAG_VALUES_UNREADABLE = ${record(flagUnreadable)};
 //
 // Only where the property's OWN type is the enum. An array of them and a union that mentions
 // one are both entries a consumer would resolve wrongly, so neither is written.
+//
+// A GType named here has numbers in SOME vocabulary, not necessarily this one: the namespace
+// that OWNS an enum publishes it, so 57 of the 438 entries a full run emits want the owner's
+// vocabulary loaded too. Owners that emit none (Gdk, Pango) are inlined into the tables above.
 export const PROP_ENUMS = ${record(propEnums)};
 
 export const SLOT_CANDIDATES = ${record(slots)};

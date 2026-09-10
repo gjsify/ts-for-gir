@@ -470,6 +470,16 @@ interface PrintedType {
   /** Enums whose nick alias the text references. */
   readonly enums: readonly VocabularyEnum[];
   /**
+   * Registered bitfields the text references, which get no nick alias and still need numbers.
+   *
+   * A bitfield prints as bare `number`, so nothing about the TEXT asks for it — `PROP_ENUMS`
+   * does. Naming a bitfield no table gives numbers for is a join into nothing, and it is not
+   * hypothetical: `GtkGLArea:allowed-apis` is a `GdkGLAPI`, Gdk declares no widget and so
+   * emits no vocabulary, and 5 rows in the 142-vocabulary corpus pointed at a GType no
+   * vocabulary carried.
+   */
+  readonly flags: readonly VocabularyEnum[];
+  /**
    * The GType of the property's OWN type, when that type is a registered enum or bitfield.
    *
    * Recorded at depth 0 only, which is what makes it a fact rather than a guess: an array of
@@ -501,6 +511,7 @@ function printPropType(
 ): PrintedType {
   const namespaces = new Set<string>();
   const enums = new Map<string, VocabularyEnum>();
+  const flags = new Map<string, VocabularyEnum>();
   /** Set only from depth 0 — see `PrintedType.ownEnumType`. */
   let ownEnumType: string | undefined;
 
@@ -528,19 +539,25 @@ function printPropType(
       if (enumeration) {
         // A bitfield's GType is recorded even though its TEXT is `number`: the reason
         // `ENUM_NICKS` refuses one is that GObject cannot resolve a nick SET, and that says
-        // nothing about a single member's number. 21 writable widget properties in Gtk-4.0
-        // and Adw-1 are bitfield-typed, and this is the only thing that says which bitfield.
+        // nothing about a single member's number. 10 of the 104 properties this table keys
+        // in Gtk-4.0 and Adw-1 are bitfield-typed (8 + 2), and nothing else says which
+        // bitfield. The 21 counted for `FLAG_VALUES` is a different set: it covers every
+        // Gtk/Adw class, and 11 of those 21 sit on declarations no widget chain reaches.
         if (depth === 0 && enumeration.glibTypeName) ownEnumType = enumeration.glibTypeName;
+        const gtype = enumeration.glibTypeName;
+        const reference = `${resolved.namespace}.${resolved.name}`;
         // Flags stay `number` in both positions, mirroring the runtime: GObject
         // exposes no way to resolve a nick SET ("horizontal|vertical"), so a union
-        // of nicks would type something every host has to reject.
-        if (enumeration.flags) return "number";
-        const gtype = enumeration.glibTypeName;
+        // of nicks would type something every host has to reject. The MEMBERS are
+        // collected anyway — see `PrintedType.flags` for the join that needs them.
+        if (enumeration.flags) {
+          if (gtype) flags.set(gtype, vocabularyEnumOf(gtype, reference, enumeration));
+          return "number";
+        }
         // An unregistered enum has no GType, therefore no nicks GObject knows,
         // therefore nothing a string could be checked against.
-        if (!gtype) return `${resolved.namespace}.${resolved.name}`;
+        if (!gtype) return reference;
         namespaces.add(resolved.namespace);
-        const reference = `${resolved.namespace}.${resolved.name}`;
         enums.set(gtype, vocabularyEnumOf(gtype, reference, enumeration));
         return `${nickAliasOf(gtype)} | ${reference}`;
       }
@@ -559,6 +576,7 @@ function printPropType(
     text,
     namespaces: [...namespaces],
     enums: [...enums.values()],
+    flags: [...flags.values()],
     ...(ownEnumType === undefined ? {} : { ownEnumType }),
   };
 }
@@ -824,6 +842,17 @@ export function buildWidgetVocabulary(
         continue;
       }
       enums.set(enumeration.gtype, enumeration);
+    }
+    for (const bitfield of printed.flags) {
+      const owner = module.getInstalledImport(
+        bitfield.reference.slice(0, bitfield.reference.indexOf(".")),
+      );
+      // Same division as the enums above, minus the import: a bitfield gets no nick union,
+      // so there is no NAME to bring over, only numbers. They live in the owner's own
+      // vocabulary when it has one and here when it does not — which is the case
+      // `PROP_ENUMS` broke, Gdk owning `GdkGLAPI` and declaring no widget to emit it.
+      if (owner && owner !== module && declaresWidgets(owner)) continue;
+      flags.set(bitfield.gtype, bitfield);
     }
   };
 

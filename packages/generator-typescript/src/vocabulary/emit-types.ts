@@ -365,6 +365,13 @@ export const FLAG_VALUES_UNREADABLE: Readonly<Record<string, string>>;
  *
  * Present only where the property's OWN type is the enum: an array of them, or a union that
  * merely mentions one, would be an entry a consumer resolves wrongly.
+ *
+ * The GType named here is not always one THIS module gives numbers for. A nick vocabulary is
+ * emitted once, by the namespace that owns the enum, so \`AdwComboRow.search-match-mode\` names
+ * \`GtkStringFilterMatchMode\` and its rows are in \`@girs/gtk-4.0/vocabulary\` — 57 of the 438
+ * entries in a full run resolve only with the owner's vocabulary loaded beside this one. An
+ * owner with no vocabulary of its own (Gdk, Pango) is inlined here instead, so every entry
+ * resolves against SOME module.
  */
 export const PROP_ENUMS: Readonly<Record<string, string>>;
 

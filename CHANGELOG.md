@@ -1,5 +1,11 @@
 # Changelog
 
+## [4.9.0](https://github.com/gjsify/ts-for-gir/compare/v4.8.0...v4.9.0) (2026-09-10)
+
+### Features
+
+* say which enum a property is ([#467](https://github.com/gjsify/ts-for-gir/issues/467)) ([051a0cd](https://github.com/gjsify/ts-for-gir/commit/051a0cd289ca2823d2bad9340019dc5e659468e0)), references [#465](https://github.com/gjsify/ts-for-gir/issues/465) [#465](https://github.com/gjsify/ts-for-gir/issues/465)
+
 ## [4.8.0](https://github.com/gjsify/ts-for-gir/compare/v4.7.0...v4.8.0) (2026-09-10)
 
 ### Features

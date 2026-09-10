@@ -142,6 +142,14 @@ newline" c:identifier="GTK_ODD_HOSTILE" glib:nick="hostile"/>
           <type name="utf8" c:type="gchar*"/>
         </array>
       </property>
+      <!-- An ARRAY of a registered enum: references one without BEING one, so PROP_ENUMS
+           must NOT claim it — a consumer resolving a nick against it resolves the wrong
+           thing. This is the control for the depth-0 rule. -->
+      <property name="axes" writable="1" transfer-ownership="none">
+        <array>
+          <type name="Orientation" c:type="GtkOrientation"/>
+        </array>
+      </property>
       <property name="state-flags" writable="1" transfer-ownership="none">
         <type name="StateFlags" c:type="GtkStateFlags"/>
       </property>

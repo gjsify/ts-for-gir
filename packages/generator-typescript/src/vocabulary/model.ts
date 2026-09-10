@@ -88,6 +88,16 @@ const acceptsNothing = (ts: string): boolean => /\bnever\b/.test(ts);
 export interface VocabularyProp {
   /** The name GObject registered — `icon-name`, dashed. */
   readonly girName: string;
+  /**
+   * The GType of this property's enum or bitfield type, where it has one.
+   *
+   * The join a host without GI cannot make for itself: it knows a property name and a nick
+   * and needs a number, `ENUM_VALUES` is keyed by ENUM GType, and nothing else says which
+   * enum a property is. Deriving it by searching the nick lists is not available — `never`
+   * is a member of several Gtk enums, and picking between them is a wrong number rather than
+   * a missing one.
+   */
+  readonly enumType?: string;
   readonly ts: string;
   readonly constructOnly: boolean;
   readonly since?: string;
@@ -459,6 +469,15 @@ interface PrintedType {
   readonly namespaces: readonly string[];
   /** Enums whose nick alias the text references. */
   readonly enums: readonly VocabularyEnum[];
+  /**
+   * The GType of the property's OWN type, when that type is a registered enum or bitfield.
+   *
+   * Recorded at depth 0 only, which is what makes it a fact rather than a guess: an array of
+   * enums and a union that mentions one both reference an enum without BEING one, and a
+   * consumer resolving a nick against them would be resolving the wrong thing. `enums` above
+   * stays the set the TEXT references, which is a different question with a different answer.
+   */
+  readonly ownEnumType?: string;
 }
 
 /**
@@ -482,6 +501,8 @@ function printPropType(
 ): PrintedType {
   const namespaces = new Set<string>();
   const enums = new Map<string, VocabularyEnum>();
+  /** Set only from depth 0 — see `PrintedType.ownEnumType`. */
+  let ownEnumType: string | undefined;
 
   const walk = (node: TypeExpression, depth: number): string => {
     if (depth > 8) throw new VocabularyError(`${where}: type nests deeper than 8 levels`);
@@ -505,6 +526,11 @@ function printPropType(
         throw new VocabularyError(`${where}: namespace ${resolved.namespace} is not installed`);
       const enumeration = owner.getEnum(resolved.name);
       if (enumeration) {
+        // A bitfield's GType is recorded even though its TEXT is `number`: the reason
+        // `ENUM_NICKS` refuses one is that GObject cannot resolve a nick SET, and that says
+        // nothing about a single member's number. 21 writable widget properties in Gtk-4.0
+        // and Adw-1 are bitfield-typed, and this is the only thing that says which bitfield.
+        if (depth === 0 && enumeration.glibTypeName) ownEnumType = enumeration.glibTypeName;
         // Flags stay `number` in both positions, mirroring the runtime: GObject
         // exposes no way to resolve a nick SET ("horizontal|vertical"), so a union
         // of nicks would type something every host has to reject.
@@ -528,7 +554,13 @@ function printPropType(
     throw new VocabularyError(`${where}: unsupported type expression ${node.constructor.name}`);
   };
 
-  return { text: walk(type, 0), namespaces: [...namespaces], enums: [...enums.values()] };
+  const text = walk(type, 0);
+  return {
+    text,
+    namespaces: [...namespaces],
+    enums: [...enums.values()],
+    ...(ownEnumType === undefined ? {} : { ownEnumType }),
+  };
 }
 
 /**
@@ -576,6 +608,7 @@ function ownProps(
     collect(printed);
     byName.set(girName, {
       girName,
+      ...(printed.ownEnumType === undefined ? {} : { enumType: printed.ownEnumType }),
       ts: printed.text,
       constructOnly: prop.constructOnly,
       since: prop.metadata?.introducedVersion,

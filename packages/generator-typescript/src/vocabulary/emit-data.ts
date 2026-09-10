@@ -60,6 +60,16 @@ export function emitVocabularyData(surface: WidgetVocabulary): string {
     .filter((decl) => decl.props.length > 0)
     .map((decl) => `    ${decl.gtype}: ${list(decl.props.map((prop) => prop.girName))},`);
 
+  // The join `ENUM_VALUES` needs and nothing else in the vocabulary carries: which enum or
+  // bitfield a settable property IS. Keyed by DECLARATION, like `OWN_PROPS` beside it, so a
+  // consumer walks a `DECLS` chain and reads all three at every link — `orientation` is
+  // registered on `GtkOrientable`, not on the `GtkBox` a caller starts from.
+  const propEnums = byGType.flatMap((decl) =>
+    decl.props
+      .filter((prop) => prop.enumType !== undefined)
+      .map((prop) => `    '${decl.gtype}.${prop.girName}': '${prop.enumType}',`),
+  );
+
   const ownSignals = byGType
     .filter((decl) => decl.signals.length > 0)
     .map((decl) => `    ${decl.gtype}: ${list(decl.signals)},`);
@@ -222,6 +232,18 @@ export const FLAG_VALUES = ${record(flagValues)};
 // \`girs/\` whose value is past \`Number.MAX_SAFE_INTEGER\` is a bitfield member (Fwupd, Qmi),
 // so this is the table that shape actually reaches.
 export const FLAG_VALUES_UNREADABLE = ${record(flagUnreadable)};
+
+// Declaration GType + property name -> the GType of that property's enum or bitfield.
+//
+// Without it the value tables above are half an answer. A host with no GI knows it must set
+// \`orientation\` to the number behind the nick \`vertical\`; \`ENUM_VALUES\` is keyed
+// \`GtkOrientation.vertical\`, and nothing else says that \`orientation\` is a
+// \`GtkOrientation\`. Deriving it is not available: \`never\` is a member of several Gtk enums,
+// and choosing between them produces a wrong number rather than a missing one.
+//
+// Only where the property's OWN type is the enum. An array of them and a union that mentions
+// one are both entries a consumer would resolve wrongly, so neither is written.
+export const PROP_ENUMS = ${record(propEnums)};
 
 export const SLOT_CANDIDATES = ${record(slots)};
 

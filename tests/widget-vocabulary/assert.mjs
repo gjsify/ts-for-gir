@@ -300,6 +300,38 @@ for (const [gtype, nicks] of Object.entries(data.ENUM_NICKS ?? {})) {
 for (const key of Object.keys(data.ENUM_VALUES ?? {})) {
   if (key.startsWith("GtkStateFlags.")) fail(`ENUM_VALUES carries a bitfield member: ${key}`);
 }
+// THE JOIN, without which the value tables are half an answer.
+//
+// A host with no GI has a property name and a nick and needs a number. `ENUM_VALUES` is keyed
+// by ENUM GType, and only `PROP_ENUMS` says which enum a property is. Keyed by DECLARATION:
+// `orientation` is registered on the `GtkOrientable` INTERFACE, so a consumer that looked it
+// up under `GtkBox` would find nothing.
+if (data.PROP_ENUMS?.["GtkOrientable.orientation"] !== "GtkOrientation") {
+  fail(`PROP_ENUMS lost the interface-declared property: ${JSON.stringify(data.PROP_ENUMS)}`);
+}
+// A bitfield gets an entry even though `ENUM_NICKS` refuses it — the refusal is about a nick
+// SET, and this is about one member's number.
+if (data.PROP_ENUMS?.["GtkWidget.state-flags"] !== "GtkStateFlags") {
+  fail(`PROP_ENUMS omits the bitfield-typed property: ${JSON.stringify(data.PROP_ENUMS)}`);
+}
+// The control for the depth-0 rule: an ARRAY of a registered enum references one without
+// being one. An entry here would be a nick resolved against the wrong thing.
+if ("GtkWidget.axes" in (data.PROP_ENUMS ?? {})) {
+  fail("PROP_ENUMS claims an array-of-enum property, which no consumer can resolve a nick against");
+}
+// And a property with no enum type at all has no entry.
+if ("GtkBox.spacing" in (data.PROP_ENUMS ?? {})) fail("PROP_ENUMS claims a plain int property");
+// End to end, the way a consumer actually walks it: widget -> DECLS chain -> PROP_ENUMS ->
+// ENUM_VALUES. If this stops working the three tables have stopped being one answer.
+{
+  const chain = data.DECLS?.GtkBox ?? [];
+  const owner = chain.find((gtype) => `${gtype}.orientation` in (data.PROP_ENUMS ?? {}));
+  const resolved = owner === undefined ? undefined : data.ENUM_VALUES?.[`${data.PROP_ENUMS[`${owner}.orientation`]}.vertical`];
+  if (resolved !== 1) {
+    fail(`walking GtkBox -> DECLS -> PROP_ENUMS -> ENUM_VALUES for \`vertical\` gave ${resolved}, expected 1`);
+  }
+}
+
 // THE BITFIELDS, which `ENUM_NICKS` refuses and which still have numbers.
 //
 // `GtkStateFlags.insensitive` is 8 at position 2, so this separates read from counted the
@@ -333,7 +365,7 @@ for (const key of Object.keys(data.FLAG_VALUES ?? {})) {
 }
 
 // The TYPE half declares all three, or the two halves have stopped describing one surface.
-for (const name of ["ENUM_VALUES", "ENUM_DEPRECATED", "ENUM_VALUES_UNREADABLE", "FLAG_VALUES", "FLAG_VALUES_UNREADABLE"]) {
+for (const name of ["ENUM_VALUES", "ENUM_DEPRECATED", "ENUM_VALUES_UNREADABLE", "FLAG_VALUES", "FLAG_VALUES_UNREADABLE", "PROP_ENUMS"]) {
   if (!new RegExp(`export const ${name}\\s*:`).test(types)) {
     fail(`the .d.ts half does not declare ${name}`);
   }

@@ -86,7 +86,9 @@ declaration, the construct-only name union, enum nick unions from `glib:nick`, t
 behind each of those nicks from `value` (plus each nick GIR marks deprecated — evidence only,
 4 members in 718 GIRs carry it, so absence is silence not currency), the same numbers again
 for the registered BITFIELDS — which get no nick union, because GObject cannot resolve a nick
-SET, and whose members still carry numbers 21 bitfield-typed widget properties need — a
+SET, and whose members still carry numbers 21 bitfield-typed widget properties need — the
+declaration-keyed join saying WHICH enum or bitfield a settable property is (without it the
+numbers are half an answer: nothing else says `orientation` is a `GtkOrientation`), a
 GType-keyed `Widgets` map, and the same facts again as runtime data in the sibling `.js` —
 because types are erased and the only check that can go red for a real reason is a consumer asking the
 INSTALLED library whether every name is real. Code:

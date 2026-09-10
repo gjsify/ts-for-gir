@@ -46,6 +46,11 @@ export class GirEnumMember extends IntrospectedBase<IntrospectedEnum> {
 	 * ENUM rather than about its documentation. Two members sharing a value is how GObject
 	 * spells an alias -- `GTK_ALIGN_BASELINE` and `GTK_ALIGN_BASELINE_FILL` are both 4 --
 	 * and the flag is the only thing that says which of the two names is the old one.
+	 *
+	 * How often it says so is worth carrying with the rule, because it is not "usually":
+	 * four registered-enum members in the 718 GIRs have the attribute, and 179 of the 182
+	 * value-sharing pairs have it on neither half. The flag is therefore evidence when
+	 * present and silence when absent -- never the negative claim.
 	 */
 	deprecated: boolean;
 
@@ -85,6 +90,16 @@ export class GirEnumMember extends IntrospectedBase<IntrospectedEnum> {
 	 * `Number.MAX_SAFE_INTEGER`, where the literal loses precision and the emitted number
 	 * is not the GIR's. Measured over the 718 GIRs in `girs/`: 32 of 34096 registered-enum
 	 * members, none of them in Gtk, Adw, GLib or Gio.
+	 *
+	 * WHAT NULL COSTS at the `.d.ts` emitter, because the two emitters diverge here and
+	 * only here. It emits no initialiser, so TypeScript falls back to the PREVIOUS member's
+	 * value plus one -- not the member's index, and not the GIR's number: `Mini.Odd` in
+	 * `tests/widget-vocabulary` has `HUGE` follow `ZERO = 0` and become 1 where GIR says
+	 * 9007199254740993. So `./vocabulary` names the member in `ENUM_VALUES_UNREADABLE`
+	 * while the enum beside it quietly asserts a number. It stays that way because
+	 * TypeScript has no enum initialiser meaning "unknown": the alternatives are a literal
+	 * that is not the GIR's, or dropping the member out of the enum and breaking every
+	 * reference to it. A consumer that needs the true number reads the vocabulary.
 	 */
 	get numericValue(): number | null {
 		const trimmed = this.value?.trim();

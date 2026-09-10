@@ -303,7 +303,7 @@ export const ENUM_NICKS: Readonly<Record<string, readonly string[]>>;
  * \`<enum GType>.<nick>\` -> the integer GObject registers for it, from GIR's \`value\`.
  *
  * Position in \`ENUM_NICKS\` is NOT this number. Counting is wrong on 6 of the 129 enums a
- * GTK 4 vocabulary carries: \`GtkResponseType\` runs -1 to -11, \`GtkTextWindowType\` starts
+ * GTK 4 vocabulary carries -- 104 in Gtk-4.0 and 25 in Adw-1: \`GtkResponseType\` runs -1 to -11, \`GtkTextWindowType\` starts
  * at 1, \`GtkOrdering\` and \`GtkConstraintRelation\` are -1/0/1, \`GtkAlign\` has two names
  * on one value, and \`GtkConstraintStrength.required\` is 1001001000 where counting says 0.
  *
@@ -318,7 +318,10 @@ export const ENUM_VALUES: Readonly<Record<string, number>>;
  *
  * Two names on one value is how GObject spells an alias -- \`GTK_ALIGN_BASELINE\` and
  * \`GTK_ALIGN_BASELINE_FILL\` are both 4, and both keep a \`ENUM_VALUES\` entry. The pairing
- * is visible in the numbers; which name is the old one is not, and this is that fact.
+ * is visible in the numbers; which name is the old one is not, and this is that fact --
+ * where GIR states it. It usually does not: 4 registered-enum members across the 718 GIRs
+ * carry the attribute, and 179 of the 182 value-sharing pairs carry it on neither half, so
+ * absence from this list means GIR is silent, not that the nick is the current one.
  */
 export const ENUM_DEPRECATED: readonly string[];
 
@@ -332,6 +335,24 @@ export const ENUM_DEPRECATED: readonly string[];
  * GIR's number. Empty for Gtk, Adw, GLib and Gio.
  */
 export const ENUM_VALUES_UNREADABLE: Readonly<Record<string, string>>;
+
+/**
+ * \`<bitfield GType>.<nick>\` -> the integer GObject registers for that one member.
+ *
+ * \`ENUM_NICKS\` carries no bitfield, because GObject cannot resolve a nick SET; that says
+ * nothing about a single member's number, and the number is what a host without GI needs.
+ * 21 writable widget properties in Gtk-4.0 and Adw-1 are bitfield-typed and are declared
+ * bare \`number\` -- \`GtkEntry:input-hints\`, \`GtkPopoverMenu:flags\`, \`AdwTabView:shortcuts\`
+ * among them. Counting is worst here: 95 of 121 Gtk-4.0 bitfield members disagree with their
+ * position, against 29 of 685 enumeration members.
+ *
+ * Combine with \`|\` as GObject does. There is no nick table to pair this with, so a name
+ * here is resolvable and a SET still is not.
+ */
+export const FLAG_VALUES: Readonly<Record<string, number>>;
+
+/** \`<bitfield GType>.<nick>\` -> the raw GIR \`value\` no number could be read from. */
+export const FLAG_VALUES_UNREADABLE: Readonly<Record<string, string>>;
 
 /** Widget GType -> slot name -> the method that may adopt a child there. */
 export const SLOT_CANDIDATES: Readonly<Record<string, Readonly<Record<string, string>>>>;

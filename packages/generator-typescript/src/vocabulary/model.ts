@@ -168,12 +168,22 @@ export interface VocabularyEnum {
    * Nick -> the integer GObject registers for it, straight from GIR's `value`.
    *
    * Position in `nicks` is NOT this number and never was. Counting is wrong on 6 of the
-   * 129 enums a GTK 4 vocabulary carries, and `GtkConstraintStrength.required` is why
+   * 129 enums a GTK 4 vocabulary carries -- 104 in Gtk-4.0 and 25 in Adw-1 -- and
+   * `GtkConstraintStrength.required` is why
    * "off by one" is the wrong mental model for it: counting answers 0 where the library
    * means 1001001000.
    */
   readonly values: ReadonlyMap<string, number>;
-  /** The nicks GIR marks `deprecated="1"` — an alias always is the deprecated half. */
+  /**
+   * The nicks GIR marks `deprecated="1"`.
+   *
+   * NOT "the alias halves": the flag and the alias are independent, and measured over the
+   * 718 GIRs they barely meet. Four registered-enum members carry the flag at all --
+   * `GtkAlign.baseline`, `GstValidateActionReturn.interlaced`, `NotifyClosedReason.undefiend`
+   * and `FolksIndividualAggregatorError.no-writeable-store`, the last of which shares its
+   * value with nothing -- while 179 of the 182 value-sharing pairs carry it on NEITHER half.
+   * So an absent entry means "GIR does not say", never "this is the current name".
+   */
   readonly deprecated: readonly string[];
   /** Nick -> the raw GIR `value` for the members no number could be read from. */
   readonly unreadable: ReadonlyMap<string, string>;
@@ -247,6 +257,20 @@ export interface WidgetVocabulary {
   readonly declarations: ReadonlyMap<string, VocabularyDecl>;
   /** Nick unions this surface must emit itself, by enum GType. */
   readonly enums: ReadonlyMap<string, VocabularyEnum>;
+  /**
+   * Registered BITFIELDS this namespace declares, by GType — values only, no nicks.
+   *
+   * A separate table from `enums` and not a widening of it, because the two answer
+   * different questions and one of them has to stay narrow. `ENUM_NICKS` refuses a
+   * bitfield on purpose: GObject cannot resolve a nick SET, so a union of nicks would
+   * type something every host rejects. That reason says nothing about a single member's
+   * NUMBER, and the number is what a host without GI needs — 21 writable widget
+   * properties in Gtk-4.0 and Adw-1 are bitfield-typed (`GtkEntry:input-hints`,
+   * `GtkPopoverMenu:flags`, `AdwTabView:shortcuts`, …), typed bare `number` with nothing
+   * to compute one from. Counting is worst exactly here: 95 of 121 Gtk-4.0 bitfield
+   * members disagree with their position, against 29 of 685 enumeration members.
+   */
+  readonly flags: ReadonlyMap<string, VocabularyEnum>;
   /** GIR namespace -> the import this surface needs for its VALUE types. */
   readonly namespaceImports: ReadonlyMap<string, string>;
   /** `@girs/<pkg>/vocabulary` -> the names imported from another namespace's vocabulary. */
@@ -738,6 +762,7 @@ export function buildWidgetVocabulary(
 
   const namespaceImports = new Map<string, string>();
   const enums = new Map<string, VocabularyEnum>();
+  const flags = new Map<string, VocabularyEnum>();
   const surfaceImports = new Map<string, Set<string>>();
   const importFromVocabulary = (owner: GirModule, name: string) => {
     const subpath = `${owner.importPath}/vocabulary`;
@@ -877,9 +902,23 @@ export function buildWidgetVocabulary(
   for (const member of module.members.values()) {
     for (const candidate of Array.isArray(member) ? member : [member]) {
       if (!(candidate instanceof IntrospectedEnum)) continue;
+      // An unregistered enum has no GType and no nicks GObject knows, so neither table
+      // can key it.
+      if (!candidate.glibTypeName) continue;
       // Flags stay `number` everywhere, so a nick union for one would type something
-      // every host has to reject; an unregistered enum has no nicks GObject knows.
-      if (candidate.flags || !candidate.glibTypeName) continue;
+      // every host has to reject — but their MEMBERS still have numbers, and `flags`
+      // above says why those are carried anyway.
+      if (candidate.flags) {
+        flags.set(
+          candidate.glibTypeName,
+          vocabularyEnumOf(
+            candidate.glibTypeName,
+            `${module.namespace}.${candidate.name}`,
+            candidate,
+          ),
+        );
+        continue;
+      }
       enums.set(
         candidate.glibTypeName,
         vocabularyEnumOf(
@@ -982,6 +1021,7 @@ export function buildWidgetVocabulary(
     childHolders,
     declarations: withBases,
     enums,
+    flags,
     namespaceImports,
     surfaceImports: new Map([...surfaceImports].map(([k, v]) => [k, [...v].sort()])),
     omissions: computeOmissions(withBases),

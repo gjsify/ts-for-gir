@@ -1,5 +1,19 @@
 # Changelog
 
+## [4.8.0](https://github.com/gjsify/ts-for-gir/compare/v4.7.0...v4.8.0) (2026-09-10)
+
+### Features
+
+* the number behind each vocabulary nick ([#465](https://github.com/gjsify/ts-for-gir/issues/465)) ([29bfc16](https://github.com/gjsify/ts-for-gir/commit/29bfc161b355806d03b4265df61aa1ecb2db8637)), references [#455](https://github.com/gjsify/ts-for-gir/issues/455)
+
+### Bug Fixes
+
+* **ci:** take the remote state, not a pull, for types ([d693f6a](https://github.com/gjsify/ts-for-gir/commit/d693f6afeedb6f4062ffe8e40084c41743b04135))
+
+### Maintenance
+
+* point types-release at its remote head ([2b9c342](https://github.com/gjsify/ts-for-gir/commit/2b9c34213fe7d38c67f2f9cf1c8bb96d8c4f2ef2))
+
 ## [4.7.0](https://github.com/gjsify/ts-for-gir/compare/v4.6.0...v4.7.0) (2026-09-05)
 
 ### Features

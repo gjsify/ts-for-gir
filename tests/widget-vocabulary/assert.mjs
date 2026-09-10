@@ -234,6 +234,111 @@ if (!data.ENUM_NICKS?.GtkUnreferenced) {
 if (data.ENUM_NICKS?.GtkStateFlags) {
   fail("ENUM_NICKS carries a bitfield; a nick SET is not something GObject can resolve");
 }
+// THE NUMBERS BEHIND THE NICKS, and the control that separates "read" from "counted".
+//
+// A suite that only checked `GtkOrientation` would pass either way: its values ARE its
+// positions. `GtkOdd.below` is -1 at position 0, so counting answers 0 and reading answers
+// -1, and only one of those can pass. That is the shape the real corpus has -- 6 of the 129
+// enums in a GTK 4 vocabulary (104 in Gtk-4.0, 25 in Adw-1) disagree with counting, `GtkConstraintStrength.required`
+// by 1001001000.
+if (data.ENUM_VALUES?.["GtkOdd.below"] !== -1) {
+  fail(
+    `ENUM_VALUES lost the GIR value: GtkOdd.below is ${data.ENUM_VALUES?.["GtkOdd.below"]}, GIR says -1`,
+  );
+}
+if (data.ENUM_VALUES?.["GtkOdd.below"] === data.ENUM_NICKS?.GtkOdd?.indexOf("below")) {
+  fail("ENUM_VALUES agrees with counting on the one enum where counting is wrong");
+}
+// An alias: two names, one number. Both keep an entry -- dropping either would make a
+// number un-spellable in one direction or the other -- and only `ENUM_DEPRECATED` says
+// which name is the old one.
+if (
+  data.ENUM_VALUES?.["GtkAlign.baseline"] !== 4 ||
+  data.ENUM_VALUES?.["GtkAlign.baseline-fill"] !== 4
+) {
+  fail(
+    `an alias lost one of its two names: ${JSON.stringify({
+      baseline: data.ENUM_VALUES?.["GtkAlign.baseline"],
+      "baseline-fill": data.ENUM_VALUES?.["GtkAlign.baseline-fill"],
+    })}`,
+  );
+}
+if (JSON.stringify(data.ENUM_DEPRECATED) !== JSON.stringify(["GtkAlign.baseline"])) {
+  fail(`ENUM_DEPRECATED is ${JSON.stringify(data.ENUM_DEPRECATED)}, expected the alias half only`);
+}
+// The declared remainder, with the raw attribute kept: an entry that said only "no number"
+// would leave a reader unable to tell a Vala `(null)` from an integer too large to carry.
+if (data.ENUM_VALUES_UNREADABLE?.["GtkOdd.symbolic"] !== "(null)") {
+  fail(`ENUM_VALUES_UNREADABLE lost the raw value: ${JSON.stringify(data.ENUM_VALUES_UNREADABLE)}`);
+}
+if (data.ENUM_VALUES_UNREADABLE?.["GtkOdd.huge"] !== "9007199254740993") {
+  fail("an integer past Number.MAX_SAFE_INTEGER was carried as a number instead of declared");
+}
+// The raw value is the one string the vocabulary emits that is not an identifier, and this
+// is the only member that makes its quoting do anything -- every real unreadable value in
+// `girs/` is `(null)` or a single letter, so a suite without a hostile one passes just as
+// well with the escaping deleted. Checked by ROUND TRIP: the `import()` above already had
+// to parse the module (an unescaped newline makes it a SyntaxError and takes every other
+// export with it), and the characters have to come back unchanged.
+if (data.ENUM_VALUES_UNREADABLE?.["GtkOdd.hostile"] !== "it's a \\ and a\nnewline") {
+  fail(
+    `the raw value did not survive quoting: ${JSON.stringify(data.ENUM_VALUES_UNREADABLE?.["GtkOdd.hostile"])}`,
+  );
+}
+// And the invariant the remainder exists for: nothing falls between the two tables.
+for (const [gtype, nicks] of Object.entries(data.ENUM_NICKS ?? {})) {
+  for (const nick of nicks) {
+    const key = `${gtype}.${nick}`;
+    if (key in (data.ENUM_VALUES ?? {})) continue;
+    if (key in (data.ENUM_VALUES_UNREADABLE ?? {})) continue;
+    fail(`${key} has a nick and neither a number nor a declared reason — a silent drop`);
+  }
+}
+// Same subject as the nicks, so a bitfield is out of both: ENUM_NICKS refuses one because
+// GObject cannot resolve a nick SET, and a values table that covered more than the nicks
+// would make the invariant above a claim about an overlap instead of about one set.
+for (const key of Object.keys(data.ENUM_VALUES ?? {})) {
+  if (key.startsWith("GtkStateFlags.")) fail(`ENUM_VALUES carries a bitfield member: ${key}`);
+}
+// THE BITFIELDS, which `ENUM_NICKS` refuses and which still have numbers.
+//
+// `GtkStateFlags.insensitive` is 8 at position 2, so this separates read from counted the
+// way `GtkOdd.below` does for the enums -- and it is the shape that matters most: 95 of 121
+// Gtk-4.0 bitfield members disagree with their position, against 29 of 685 enumeration
+// members.
+if (data.FLAG_VALUES?.["GtkStateFlags.insensitive"] !== 8) {
+  fail(`FLAG_VALUES lost the GIR value: GtkStateFlags.insensitive is ${data.FLAG_VALUES?.["GtkStateFlags.insensitive"]}, GIR says 8`);
+}
+if (data.FLAG_VALUES?.["GtkStateFlags.active"] !== 1 || data.FLAG_VALUES?.["GtkStateFlags.focused"] !== 2) {
+  fail(`FLAG_VALUES is ${JSON.stringify(data.FLAG_VALUES)}`);
+}
+if (data.FLAG_VALUES?.["GtkStateFlags.insensitive"] === 2) {
+  fail("FLAG_VALUES agrees with counting on a power-of-two member");
+}
+// The remainder reaches this table and not the enum one: every value past
+// Number.MAX_SAFE_INTEGER in ts-for-gir's `girs/` is a bitfield member.
+if (data.FLAG_VALUES_UNREADABLE?.["GtkStateFlags.beyond"] !== "9007199254740993") {
+  fail(`FLAG_VALUES_UNREADABLE is ${JSON.stringify(data.FLAG_VALUES_UNREADABLE)}`);
+}
+if ("GtkStateFlags.beyond" in (data.FLAG_VALUES ?? {})) {
+  fail("an integer past Number.MAX_SAFE_INTEGER was carried as a number instead of declared");
+}
+// And the line stays where `ENUM_NICKS` drew it: a bitfield has numbers here and no nicks
+// there, so neither table has quietly taken the other's subject.
+if (data.ENUM_NICKS?.GtkStateFlags) fail("ENUM_NICKS took a bitfield after all");
+for (const key of Object.keys(data.FLAG_VALUES ?? {})) {
+  if (key.startsWith("GtkOrientation.") || key.startsWith("GtkOdd.")) {
+    fail(`FLAG_VALUES carries a plain enum member: ${key}`);
+  }
+}
+
+// The TYPE half declares all three, or the two halves have stopped describing one surface.
+for (const name of ["ENUM_VALUES", "ENUM_DEPRECATED", "ENUM_VALUES_UNREADABLE", "FLAG_VALUES", "FLAG_VALUES_UNREADABLE"]) {
+  if (!new RegExp(`export const ${name}\\s*:`).test(types)) {
+    fail(`the .d.ts half does not declare ${name}`);
+  }
+}
+
 if (data.SINCE?.["GtkOrientable.orientation"] !== "1.2") {
   fail(`SINCE lost the GIR version attribute: ${JSON.stringify(data.SINCE)}`);
 }
@@ -567,7 +672,7 @@ if (existsSync(brokenSurface)) fail("the broken fixture wrote a surface file bef
 // ----------------------------------------------------------------------------------
 
 if (failures.length > 0) {
-  console.error("widget-surface assertion failures:");
+  console.error("widget-vocabulary assertion failures:");
   for (const failure of failures) console.error(`  - ${failure}`);
   process.exit(1);
 }
@@ -575,6 +680,9 @@ if (failures.length > 0) {
 console.log(
   `OK: ${rowGTypes.size - holders.size} widget row(s), ${holders.size} child holder(s), ` +
     `${Object.keys(data.OWN_PROPS).length} declaration(s) with props, ` +
-    `${Object.keys(data.ENUM_NICKS).length} nick union(s); flag-off control clean; ` +
+    `${Object.keys(data.ENUM_NICKS).length} nick union(s), ` +
+    `${Object.keys(data.ENUM_VALUES).length} enum value(s) with ${Object.keys(data.ENUM_VALUES_UNREADABLE).length} declared unreadable, ` +
+    `${Object.keys(data.FLAG_VALUES).length} flag value(s) with ${Object.keys(data.FLAG_VALUES_UNREADABLE).length} declared unreadable; ` +
+    `flag-off control clean; ` +
     `broken fixture rejected with exit ${brokenExit}`,
 );

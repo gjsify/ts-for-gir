@@ -27,6 +27,32 @@
          `GtkSourceView.text-window-type` reaches `Gtk.TextWindowType`, which no Gtk-4.0
          widget property uses, and the emit-what-you-reference version left
          `@girs/gtksource-5/surface` importing a name `@girs/gtk-4.0/surface` did not have). -->
+    <!-- Two names on one value, the second deprecated: GObject's own spelling of an alias,
+         copied from GtkAlign where GTK 4.12 deprecated BASELINE into BASELINE_FILL. -->
+    <enumeration name="Align" c:type="GtkAlign" glib:type-name="GtkAlign" glib:get-type="gtk_align_get_type">
+      <member name="fill" value="0" c:identifier="GTK_ALIGN_FILL" glib:nick="fill"/>
+      <member name="start" value="1" c:identifier="GTK_ALIGN_START" glib:nick="start"/>
+      <member name="baseline_fill" value="4" c:identifier="GTK_ALIGN_BASELINE_FILL" glib:nick="baseline-fill"/>
+      <member name="baseline" value="4" c:identifier="GTK_ALIGN_BASELINE" glib:nick="baseline" deprecated="1" deprecated-version="4.12"/>
+    </enumeration>
+    <!-- The shapes counting gets wrong and the two GIR writes that no integer holds. Every
+         member here is real somewhere in `girs/`: negatives are GtkOrdering, the symbolic
+         value is Vala's `(null)`, and the letter is Gitg's char enum. -->
+    <enumeration name="Odd" c:type="GtkOdd" glib:type-name="GtkOdd" glib:get-type="gtk_odd_get_type">
+      <member name="below" value="-1" c:identifier="GTK_ODD_BELOW" glib:nick="below"/>
+      <member name="zero" value="0" c:identifier="GTK_ODD_ZERO" glib:nick="zero"/>
+      <member name="huge" value="9007199254740993" c:identifier="GTK_ODD_HUGE" glib:nick="huge"/>
+      <member name="symbolic" value="(null)" c:identifier="GTK_ODD_SYMBOLIC" glib:nick="symbolic"/>
+      <!-- The raw value is the one string the vocabulary emits that is not an
+           identifier, so it is the one that has to survive quoting -- and the only member
+           here that makes `quote` do anything: every real unreadable value in `girs/` is
+           `(null)` or a single letter, so without this the escaping could be deleted whole
+           and the suite would still pass. The newline is deliberate and is the worst of
+           the three: a stray quote emits a wrong string, an unescaped newline emits an
+           unterminated one and every export in the module stops parsing with it. -->
+      <member name="hostile" value="it&apos;s a \ and a
+newline" c:identifier="GTK_ODD_HOSTILE" glib:nick="hostile"/>
+    </enumeration>
     <enumeration name="Unreferenced" c:type="GtkUnreferenced" glib:type-name="GtkUnreferenced" glib:get-type="gtk_unreferenced_get_type">
       <member name="one" value="0" c:identifier="GTK_UNREFERENCED_ONE" glib:nick="one"/>
       <member name="two" value="1" c:identifier="GTK_UNREFERENCED_TWO" glib:nick="two"/>
@@ -36,6 +62,11 @@
     <bitfield name="StateFlags" c:type="GtkStateFlags" glib:type-name="GtkStateFlags" glib:get-type="gtk_state_flags_get_type">
       <member name="active" value="1" c:identifier="GTK_STATE_FLAG_ACTIVE" glib:nick="active"/>
       <member name="focused" value="2" c:identifier="GTK_STATE_FLAG_FOCUSED" glib:nick="focused"/>
+      <!-- A power of two three positions in: counting answers 2, GObject means 8. This is
+           the shape 95 of 121 Gtk-4.0 bitfield members have. -->
+      <member name="insensitive" value="8" c:identifier="GTK_STATE_FLAG_INSENSITIVE" glib:nick="insensitive"/>
+      <!-- Every value past Number.MAX_SAFE_INTEGER in `girs/` is a bitfield member. -->
+      <member name="beyond" value="9007199254740993" c:identifier="GTK_STATE_FLAG_BEYOND" glib:nick="beyond"/>
     </bitfield>
 
     <!-- The interface that carries `orientation`. GObject installs interface properties on

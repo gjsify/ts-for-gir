@@ -2,6 +2,7 @@ import type { FormatGenerator } from "../generators/generator.ts";
 import type { GirMemberElement } from "../index.ts";
 import type { OptionsLoad } from "../types/index.ts";
 import { parseDoc, parseMetadata } from "../utils/gir-parsing.ts";
+import { isDeprecated } from "../utils/girs.ts";
 import type { GirVisitor } from "../visitor.ts";
 import type { IntrospectedEnum } from "./enum.ts";
 import { IntrospectedBase } from "./introspected-base.ts";
@@ -37,11 +38,74 @@ export class GirEnumMember extends IntrospectedBase<IntrospectedEnum> {
 	 */
 	nick: string;
 
-	constructor(name: string, value: string, parent: IntrospectedEnum, c_identifier: string, nick: string) {
+	/**
+	 * GIR's `deprecated="1"` on the member itself.
+	 *
+	 * A first-class field and not `metadata.deprecated`, for the same reason `nick` is
+	 * one: `parseMetadata` only runs when docs are loaded, and this is a fact about the
+	 * ENUM rather than about its documentation. Two members sharing a value is how GObject
+	 * spells an alias -- `GTK_ALIGN_BASELINE` and `GTK_ALIGN_BASELINE_FILL` are both 4 --
+	 * and the flag is the only thing that says which of the two names is the old one.
+	 *
+	 * How often it says so is worth carrying with the rule, because it is not "usually":
+	 * four registered-enum members in the 718 GIRs have the attribute, and 179 of the 182
+	 * value-sharing pairs have it on neither half. The flag is therefore evidence when
+	 * present and silence when absent -- never the negative claim.
+	 */
+	deprecated: boolean;
+
+	constructor(
+		name: string,
+		value: string,
+		parent: IntrospectedEnum,
+		c_identifier: string,
+		nick: string,
+		deprecated = false,
+	) {
 		super(name, parent);
 		this.value = value;
 		this.c_identifier = c_identifier;
 		this.nick = nick;
+		this.deprecated = deprecated;
+	}
+
+	/**
+	 * The GIR's `value` as a number, or null where it is not one this can carry.
+	 *
+	 * THE INCIDENT. Without it the numbers were simply wrong, and since TS 5.0 made
+	 * numeric enums literal unions, wrong in a way the compiler enforces:
+	 * `Gtk.ResponseType.OK` is -5 upstream and was emitted as 4, so `response === -5`
+	 * failed to compile against the very enum that defines it. Bitfields are worse than
+	 * off-by-one -- `Gtk.StateFlags` declares 0,1,2,4,8,16 and got 0,1,2,3,4,5, so
+	 * `SELECTED | INSENSITIVE` computed 7 where GTK means 12. Measured: 124 of 806 members
+	 * in Gtk-4.0 and 424 of 751 in GLib had a value that is not their position.
+	 *
+	 * ONE RULE, TWO EMITTERS. The `.d.ts` enum initialiser and the `./vocabulary` runtime
+	 * table both ask this. They used to be one rule and one caller; a second copy of
+	 * "which GIR values TypeScript can carry" is the thing that would drift apart, and
+	 * nothing would say so because both would still emit something.
+	 *
+	 * Null covers the two shapes GIR writes that no initialiser can hold: a symbolic or
+	 * absent value (Vala emits `(null)`, and a char enum emits `'a'`), and an integer past
+	 * `Number.MAX_SAFE_INTEGER`, where the literal loses precision and the emitted number
+	 * is not the GIR's. Measured over the 718 GIRs in `girs/`: 32 of 34096 registered-enum
+	 * members, none of them in Gtk, Adw, GLib or Gio.
+	 *
+	 * WHAT NULL COSTS at the `.d.ts` emitter, because the two emitters diverge here and
+	 * only here. It emits no initialiser, so TypeScript falls back to the PREVIOUS member's
+	 * value plus one -- not the member's index, and not the GIR's number: `Mini.Odd` in
+	 * `tests/widget-vocabulary` has `HUGE` follow `ZERO = 0` and become 1 where GIR says
+	 * 9007199254740993. So `./vocabulary` names the member in `ENUM_VALUES_UNREADABLE`
+	 * while the enum beside it quietly asserts a number. It stays that way because
+	 * TypeScript has no enum initialiser meaning "unknown": the alternatives are a literal
+	 * that is not the GIR's, or dropping the member out of the enum and breaking every
+	 * reference to it. A consumer that needs the true number reads the vocabulary.
+	 */
+	get numericValue(): number | null {
+		const trimmed = this.value?.trim();
+		if (trimmed === undefined || !/^-?\d+$/.test(trimmed)) return null;
+		const parsed = Number(trimmed);
+		return Number.isSafeInteger(parsed) ? parsed : null;
 	}
 
 	get namespace() {
@@ -54,9 +118,16 @@ export class GirEnumMember extends IntrospectedBase<IntrospectedEnum> {
 	}
 
 	copy(): GirEnumMember {
-		const { value, name, parent, c_identifier, nick } = this;
+		const { value, name, parent, c_identifier, nick, deprecated } = this;
 
-		return new GirEnumMember(name, value, parent, c_identifier, nick)._copyBaseProperties(this);
+		return new GirEnumMember(
+			name,
+			value,
+			parent,
+			c_identifier,
+			nick,
+			deprecated,
+		)._copyBaseProperties(this);
 	}
 
 	static fromXML(element: GirMemberElement, parent: IntrospectedEnum, options: OptionsLoad): GirEnumMember {
@@ -67,7 +138,14 @@ export class GirEnumMember extends IntrospectedBase<IntrospectedEnum> {
 		// case, because a nick never differs from its name by case -- see `nick` above.
 		const nick = element.$["glib:nick"] ?? element.$.name.replace(/_/g, "-");
 
-		const enumMember = new GirEnumMember(upper, element.$.value, parent, c_identifier, nick);
+		const enumMember = new GirEnumMember(
+			upper,
+			element.$.value,
+			parent,
+			c_identifier,
+			nick,
+			isDeprecated(element),
+		);
 
 		if (options.loadDocs) {
 			enumMember.doc = parseDoc(element);

@@ -22,6 +22,30 @@ const record = (rows: readonly string[]): string =>
 const list = (items: readonly string[]): string =>
   `[${items.map((item) => `'${item}'`).join(", ")}]`;
 
+/**
+ * A single-quoted literal for text that is NOT an identifier.
+ *
+ * `list` above quotes nicks and GTypes, which GObject constrains to
+ * `[A-Za-z0-9_-]` (measured: no nick or GType in the 718 GIRs leaves that set). The raw
+ * GIR `value` of a member no number could be read from is arbitrary text -- Vala writes
+ * `(null)`, a char enum writes a letter -- so it is the one thing emitted here that has to
+ * survive a quote of its own.
+ *
+ * Line terminators are in the list beside the quote and the backslash because they fail
+ * DIFFERENTLY and worse: a stray quote emits a wrong string, a raw newline emits an
+ * unterminated one and the whole module stops parsing -- every export in it, not just this
+ * entry. The parser does not apply XML attribute-value normalisation, so a newline written
+ * into a `value` reaches here as a newline.
+ */
+const quote = (text: string): string =>
+  `'${text
+    .replace(/\\/g, "\\\\")
+    .replace(/'/g, "\\'")
+    .replace(/\n/g, "\\n")
+    .replace(/\r/g, "\\r")
+    .replace(/\u2028/g, "\\u2028")
+    .replace(/\u2029/g, "\\u2029")}'`;
+
 export function emitVocabularyData(surface: WidgetVocabulary): string {
   // `OWN_PROPS` and `OWN_SIGNALS` are keyed by DECLARATION, not by creatable widget, and
   // they must stay keyed the same way: `DECLS` hands the consumer a chain of GTypes, and
@@ -49,9 +73,45 @@ export function emitVocabularyData(surface: WidgetVocabulary): string {
 
   const decls = all.map((widget) => `    ${widget.gtype}: ${list(widget.chain)},`);
 
-  const nicks = [...surface.enums.values()]
-    .sort((a, b) => (a.gtype < b.gtype ? -1 : 1))
-    .map((entry) => `    ${entry.gtype}: ${list(entry.nicks)},`);
+  const enums = [...surface.enums.values()].sort((a, b) => (a.gtype < b.gtype ? -1 : 1));
+
+  const nicks = enums.map((entry) => `    ${entry.gtype}: ${list(entry.nicks)},`);
+
+  // `<GType>.<nick>`, the same grammar `SINCE` uses for a member, because a consumer that
+  // reads both should not need two key parsers. Emitted for exactly the enums `ENUM_NICKS`
+  // covers, so "every nick has a number or is named in the remainder" is a claim about one
+  // subject rather than about the overlap of two.
+  const values = enums.flatMap((entry) =>
+    [...entry.values]
+      .sort(([a], [b]) => (a < b ? -1 : 1))
+      .map(([nick, value]) => `    '${entry.gtype}.${nick}': ${value},`),
+  );
+
+  const deprecated = enums.flatMap((entry) =>
+    [...entry.deprecated].sort().map((nick) => `${entry.gtype}.${nick}`),
+  );
+
+  // Same two shapes as the enum tables above, over the bitfields — see `WidgetVocabulary.flags`
+  // for why they are carried at all and why they are their own table.
+  const bitfields = [...surface.flags.values()].sort((a, b) => (a.gtype < b.gtype ? -1 : 1));
+
+  const flagValues = bitfields.flatMap((entry) =>
+    [...entry.values]
+      .sort(([a], [b]) => (a < b ? -1 : 1))
+      .map(([nick, value]) => `    '${entry.gtype}.${nick}': ${value},`),
+  );
+
+  const flagUnreadable = bitfields.flatMap((entry) =>
+    [...entry.unreadable]
+      .sort(([a], [b]) => (a < b ? -1 : 1))
+      .map(([nick, raw]) => `    '${entry.gtype}.${nick}': ${quote(raw)},`),
+  );
+
+  const unreadable = enums.flatMap((entry) =>
+    [...entry.unreadable]
+      .sort(([a], [b]) => (a < b ? -1 : 1))
+      .map(([nick, raw]) => `    '${entry.gtype}.${nick}': ${quote(raw)},`),
+  );
 
   const slots = all
     .filter((widget) => widget.slotCandidates.size > 0)
@@ -105,6 +165,63 @@ export const DECLS = ${record(decls)};
 export const CHILD_HOLDERS = ${list(surface.childHolders.map((holder) => holder.gtype))};
 
 export const ENUM_NICKS = ${record(nicks)};
+
+// The number behind each of those nicks, read from GIR's own \`value\` attribute.
+//
+// It ships because position in \`ENUM_NICKS\` is not the value and a consumer with no
+// typelib has no other way to learn it: a surface without GI still has to hand GObject an
+// integer. The alternative a consumer reaches for first is counting, and counting is wrong
+// on 6 of the 129 enums a GTK 4 vocabulary carries (104 in Gtk-4.0, 25 in Adw-1) --
+// \`GtkResponseType\` runs -1 down to
+// -11, \`GtkTextWindowType\` starts at 1, and \`GtkConstraintStrength.required\` is
+// 1001001000 where counting answers 0.
+//
+// Same provenance as the nicks above, which is the point: a consumer that reads the numbers
+// from an INSTALLED library instead gets two provenances for one table, and a member the
+// vocabulary describes but the host predates then looks like a missing number rather than a
+// version gap.
+export const ENUM_VALUES = ${record(values)};
+
+// The nicks GIR marks \`deprecated="1"\`.
+//
+// Two members of one enum may share a value -- that is how GObject spells an alias, and
+// \`GTK_ALIGN_BASELINE\` and \`GTK_ALIGN_BASELINE_FILL\` are both 4. \`ENUM_VALUES\` keeps
+// both names, so nothing is lost, and this is what says which of the two a number should be
+// spelled back as. Stated rather than derived: the pairing is visible in the values, the
+// DIRECTION is not.
+//
+// Read it as evidence, not as a negative: 4 registered-enum members in the 718 GIRs carry
+// the attribute at all, and 179 of the 182 value-sharing pairs carry it on neither half.
+// A nick missing from here is a nick GIR says nothing about, not a nick GIR calls current.
+export const ENUM_DEPRECATED = ${list(deprecated)};
+
+// The declared remainder: nicks whose GIR \`value\` is not a number this can carry.
+//
+// Every nick in \`ENUM_NICKS\` is in \`ENUM_VALUES\` or here -- a nick in neither would be a
+// silent drop. GIR carries two shapes no integer holds: a symbolic or absent value (Vala
+// writes \`(null)\`, a char enum writes a letter) and an integer past
+// \`Number.MAX_SAFE_INTEGER\`. The value kept here is the raw attribute, so the entry says
+// WHAT was unreadable rather than only that something was. Measured over the 718 GIRs in
+// ts-for-gir's \`girs/\`: 32 of 34096 registered-enum members, none in Gtk, Adw, GLib or Gio.
+export const ENUM_VALUES_UNREADABLE = ${record(unreadable)};
+
+// The number behind each member of a registered BITFIELD, keyed the same way.
+//
+// \`ENUM_NICKS\` refuses a bitfield because GObject cannot resolve a nick SET, and that
+// reason says nothing about one member's number. 21 writable widget properties in Gtk-4.0
+// and Adw-1 are bitfield-typed -- \`GtkEntry:input-hints\`, \`GtkPopoverMenu:flags\`,
+// \`AdwTabView:shortcuts\`, ... -- and they are typed bare \`number\`, so a host without GI
+// has nothing to compute one from. Counting is worst exactly here: 95 of 121 Gtk-4.0
+// bitfield members disagree with their position, against 29 of 685 enumeration members.
+//
+// A table of its own rather than more rows in \`ENUM_VALUES\`, so that "every nick in
+// \`ENUM_NICKS\` has a number or a declared reason" stays a claim about one set.
+export const FLAG_VALUES = ${record(flagValues)};
+
+// The same declared remainder for the bitfields. Every one of the 13 members in ts-for-gir's
+// \`girs/\` whose value is past \`Number.MAX_SAFE_INTEGER\` is a bitfield member (Fwupd, Qmi),
+// so this is the table that shape actually reaches.
+export const FLAG_VALUES_UNREADABLE = ${record(flagUnreadable)};
 
 export const SLOT_CANDIDATES = ${record(slots)};
 

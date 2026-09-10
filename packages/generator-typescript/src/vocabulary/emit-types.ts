@@ -354,6 +354,27 @@ export const FLAG_VALUES: Readonly<Record<string, number>>;
 /** \`<bitfield GType>.<nick>\` -> the raw GIR \`value\` no number could be read from. */
 export const FLAG_VALUES_UNREADABLE: Readonly<Record<string, string>>;
 
+/**
+ * \`<declaration GType>.<property>\` -> the GType of that property's enum or bitfield.
+ *
+ * The join the value tables need and nothing else here carries. A host with no GI has a
+ * property name and a nick and needs a number; \`ENUM_VALUES\` is keyed by ENUM GType, and
+ * only this says which enum a property is. Keyed by DECLARATION like \`OWN_PROPS\`, so it is
+ * read at every link of a \`DECLS\` chain — \`orientation\` belongs to \`GtkOrientable\`, not
+ * to the \`GtkBox\` a caller starts from.
+ *
+ * Present only where the property's OWN type is the enum: an array of them, or a union that
+ * merely mentions one, would be an entry a consumer resolves wrongly.
+ *
+ * The GType named here is not always one THIS module gives numbers for. A nick vocabulary is
+ * emitted once, by the namespace that owns the enum, so \`AdwComboRow.search-match-mode\` names
+ * \`GtkStringFilterMatchMode\` and its rows are in \`@girs/gtk-4.0/vocabulary\` — 57 of the 438
+ * entries in a full run resolve only with the owner's vocabulary loaded beside this one. An
+ * owner with no vocabulary of its own (Gdk, Pango) is inlined here instead, so every entry
+ * resolves against SOME module.
+ */
+export const PROP_ENUMS: Readonly<Record<string, string>>;
+
 /** Widget GType -> slot name -> the method that may adopt a child there. */
 export const SLOT_CANDIDATES: Readonly<Record<string, Readonly<Record<string, string>>>>;
 

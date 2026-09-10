@@ -164,6 +164,49 @@ export interface VocabularyEnum {
   /** `Gtk.Orientation` as the surface spells it. */
   readonly reference: string;
   readonly nicks: readonly string[];
+  /**
+   * Nick -> the integer GObject registers for it, straight from GIR's `value`.
+   *
+   * Position in `nicks` is NOT this number and never was. Counting is wrong on 6 of the
+   * 129 enums a GTK 4 vocabulary carries, and `GtkConstraintStrength.required` is why
+   * "off by one" is the wrong mental model for it: counting answers 0 where the library
+   * means 1001001000.
+   */
+  readonly values: ReadonlyMap<string, number>;
+  /** The nicks GIR marks `deprecated="1"` — an alias always is the deprecated half. */
+  readonly deprecated: readonly string[];
+  /** Nick -> the raw GIR `value` for the members no number could be read from. */
+  readonly unreadable: ReadonlyMap<string, string>;
+}
+
+/**
+ * One registered, non-flag enum as the vocabulary carries it.
+ *
+ * Both callers below build the same entry from the same members, so they build it here:
+ * the runtime table and the nick union describe one enum, and two constructions of it
+ * would be two answers with nothing comparing them.
+ */
+function vocabularyEnumOf(
+  gtype: string,
+  reference: string,
+  enumeration: IntrospectedEnum,
+): VocabularyEnum {
+  const members = [...enumeration.members.values()];
+  const values = new Map<string, number>();
+  const unreadable = new Map<string, string>();
+  for (const member of members) {
+    const value = member.numericValue;
+    if (value === null) unreadable.set(member.nick, member.value);
+    else values.set(member.nick, value);
+  }
+  return {
+    gtype,
+    reference,
+    nicks: members.map((member) => member.nick),
+    values,
+    deprecated: members.filter((member) => member.deprecated).map((member) => member.nick),
+    unreadable,
+  };
 }
 
 /** Where a vocabulary came from, in a shape a check can read. */
@@ -448,8 +491,7 @@ function printPropType(
         if (!gtype) return `${resolved.namespace}.${resolved.name}`;
         namespaces.add(resolved.namespace);
         const reference = `${resolved.namespace}.${resolved.name}`;
-        const nicks = [...enumeration.members.values()].map((m) => m.nick);
-        enums.set(gtype, { gtype, reference, nicks });
+        enums.set(gtype, vocabularyEnumOf(gtype, reference, enumeration));
         return `${nickAliasOf(gtype)} | ${reference}`;
       }
       namespaces.add(resolved.namespace);
@@ -838,11 +880,14 @@ export function buildWidgetVocabulary(
       // Flags stay `number` everywhere, so a nick union for one would type something
       // every host has to reject; an unregistered enum has no nicks GObject knows.
       if (candidate.flags || !candidate.glibTypeName) continue;
-      enums.set(candidate.glibTypeName, {
-        gtype: candidate.glibTypeName,
-        reference: `${module.namespace}.${candidate.name}`,
-        nicks: [...candidate.members.values()].map((m) => m.nick),
-      });
+      enums.set(
+        candidate.glibTypeName,
+        vocabularyEnumOf(
+          candidate.glibTypeName,
+          `${module.namespace}.${candidate.name}`,
+          candidate,
+        ),
+      );
     }
   }
 

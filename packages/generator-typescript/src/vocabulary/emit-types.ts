@@ -299,6 +299,40 @@ export const CHILD_HOLDERS: readonly string[];
 /** Enum GType -> the nicks this surface offers. */
 export const ENUM_NICKS: Readonly<Record<string, readonly string[]>>;
 
+/**
+ * \`<enum GType>.<nick>\` -> the integer GObject registers for it, from GIR's \`value\`.
+ *
+ * Position in \`ENUM_NICKS\` is NOT this number. Counting is wrong on 6 of the 129 enums a
+ * GTK 4 vocabulary carries: \`GtkResponseType\` runs -1 to -11, \`GtkTextWindowType\` starts
+ * at 1, \`GtkOrdering\` and \`GtkConstraintRelation\` are -1/0/1, \`GtkAlign\` has two names
+ * on one value, and \`GtkConstraintStrength.required\` is 1001001000 where counting says 0.
+ *
+ * Read from the same GIR as the nicks, deliberately. A consumer reading the numbers off an
+ * installed typelib instead has two provenances for one table, and then cannot tell a
+ * missing number from a host older than the vocabulary.
+ */
+export const ENUM_VALUES: Readonly<Record<string, number>>;
+
+/**
+ * The \`<enum GType>.<nick>\` entries GIR marks \`deprecated="1"\`.
+ *
+ * Two names on one value is how GObject spells an alias -- \`GTK_ALIGN_BASELINE\` and
+ * \`GTK_ALIGN_BASELINE_FILL\` are both 4, and both keep a \`ENUM_VALUES\` entry. The pairing
+ * is visible in the numbers; which name is the old one is not, and this is that fact.
+ */
+export const ENUM_DEPRECATED: readonly string[];
+
+/**
+ * \`<enum GType>.<nick>\` -> the raw GIR \`value\` no number could be read from.
+ *
+ * The declared remainder, so that every nick in \`ENUM_NICKS\` is in \`ENUM_VALUES\` or in
+ * here and a drop cannot be silent. Two shapes reach it: a symbolic or absent value (Vala
+ * writes \`(null)\`, a char enum writes a letter) and an integer past
+ * \`Number.MAX_SAFE_INTEGER\`, where a literal would lose precision and stop being the
+ * GIR's number. Empty for Gtk, Adw, GLib and Gio.
+ */
+export const ENUM_VALUES_UNREADABLE: Readonly<Record<string, string>>;
+
 /** Widget GType -> slot name -> the method that may adopt a child there. */
 export const SLOT_CANDIDATES: Readonly<Record<string, Readonly<Record<string, string>>>>;
 

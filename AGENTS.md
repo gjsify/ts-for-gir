@@ -82,7 +82,9 @@ When modifying generators, templates, injections, or lib code that affects gener
 
 Opt-in subpath (`widgetVocabulary`, on in `.ts-for-gir.packages-all.rc.js`) carrying the
 GIR-derived widget VOCABULARY: a writable-only, optional, GObject-keyed props interface per
-declaration, the construct-only name union, enum nick unions from `glib:nick`, a GType-keyed
+declaration, the construct-only name union, enum nick unions from `glib:nick`, the number
+behind each of those nicks from `value` (with the deprecated half of an alias named, since
+two names on one value is how GObject spells one), a GType-keyed
 `Widgets` map, and the same facts again as runtime data in the sibling `.js` — because types
 are erased and the only check that can go red for a real reason is a consumer asking the
 INSTALLED library whether every name is real. Code: `packages/generator-typescript/src/surface/`.
@@ -101,7 +103,8 @@ a namespace with no surface is dropped when it contributes no settable property 
 when it does, named in that file's provenance line. (Refusing it was the first version, and it
 took a 705-namespace run down at namespace 265 on `Gcr.Prompt` — the only such base in the
 corpus.) **Nothing is derived that GIR carries**: the nick comes
-from `glib:nick` — substitution is not a law, some nicks keep an underscore it would have
+from `glib:nick` and the number from `value` — position in the nick list is NOT the value, and
+counting is wrong on 6 of the 129 enums a GTK 4 vocabulary carries — substitution is not a law, some nicks keep an underscore it would have
 replaced, and Gtk-4.0 and Adw-1 contradict nothing, which is how a derived nick passes review;
 `gjsify run check:girs` re-measures that over `girs/` and asserts the two invariants the
 fallback rests on — the dashed property name from `IntrospectedProperty.girName`, the GType

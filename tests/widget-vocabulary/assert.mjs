@@ -234,6 +234,68 @@ if (!data.ENUM_NICKS?.GtkUnreferenced) {
 if (data.ENUM_NICKS?.GtkStateFlags) {
   fail("ENUM_NICKS carries a bitfield; a nick SET is not something GObject can resolve");
 }
+// THE NUMBERS BEHIND THE NICKS, and the control that separates "read" from "counted".
+//
+// A suite that only checked `GtkOrientation` would pass either way: its values ARE its
+// positions. `GtkOdd.below` is -1 at position 0, so counting answers 0 and reading answers
+// -1, and only one of those can pass. That is the shape the real corpus has -- 6 of the 129
+// enums in a GTK 4 vocabulary disagree with counting, `GtkConstraintStrength.required`
+// by 1001001000.
+if (data.ENUM_VALUES?.["GtkOdd.below"] !== -1) {
+  fail(
+    `ENUM_VALUES lost the GIR value: GtkOdd.below is ${data.ENUM_VALUES?.["GtkOdd.below"]}, GIR says -1`,
+  );
+}
+if (data.ENUM_VALUES?.["GtkOdd.below"] === data.ENUM_NICKS?.GtkOdd?.indexOf("below")) {
+  fail("ENUM_VALUES agrees with counting on the one enum where counting is wrong");
+}
+// An alias: two names, one number. Both keep an entry -- dropping either would make a
+// number un-spellable in one direction or the other -- and only `ENUM_DEPRECATED` says
+// which name is the old one.
+if (
+  data.ENUM_VALUES?.["GtkAlign.baseline"] !== 4 ||
+  data.ENUM_VALUES?.["GtkAlign.baseline-fill"] !== 4
+) {
+  fail(
+    `an alias lost one of its two names: ${JSON.stringify({
+      baseline: data.ENUM_VALUES?.["GtkAlign.baseline"],
+      "baseline-fill": data.ENUM_VALUES?.["GtkAlign.baseline-fill"],
+    })}`,
+  );
+}
+if (JSON.stringify(data.ENUM_DEPRECATED) !== JSON.stringify(["GtkAlign.baseline"])) {
+  fail(`ENUM_DEPRECATED is ${JSON.stringify(data.ENUM_DEPRECATED)}, expected the alias half only`);
+}
+// The declared remainder, with the raw attribute kept: an entry that said only "no number"
+// would leave a reader unable to tell a Vala `(null)` from an integer too large to carry.
+if (data.ENUM_VALUES_UNREADABLE?.["GtkOdd.symbolic"] !== "(null)") {
+  fail(`ENUM_VALUES_UNREADABLE lost the raw value: ${JSON.stringify(data.ENUM_VALUES_UNREADABLE)}`);
+}
+if (data.ENUM_VALUES_UNREADABLE?.["GtkOdd.huge"] !== "9007199254740993") {
+  fail("an integer past Number.MAX_SAFE_INTEGER was carried as a number instead of declared");
+}
+// And the invariant the remainder exists for: nothing falls between the two tables.
+for (const [gtype, nicks] of Object.entries(data.ENUM_NICKS ?? {})) {
+  for (const nick of nicks) {
+    const key = `${gtype}.${nick}`;
+    if (key in (data.ENUM_VALUES ?? {})) continue;
+    if (key in (data.ENUM_VALUES_UNREADABLE ?? {})) continue;
+    fail(`${key} has a nick and neither a number nor a declared reason — a silent drop`);
+  }
+}
+// Same subject as the nicks, so a bitfield is out of both: ENUM_NICKS refuses one because
+// GObject cannot resolve a nick SET, and a values table that covered more than the nicks
+// would make the invariant above a claim about an overlap instead of about one set.
+for (const key of Object.keys(data.ENUM_VALUES ?? {})) {
+  if (key.startsWith("GtkStateFlags.")) fail(`ENUM_VALUES carries a bitfield member: ${key}`);
+}
+// The TYPE half declares all three, or the two halves have stopped describing one surface.
+for (const name of ["ENUM_VALUES", "ENUM_DEPRECATED", "ENUM_VALUES_UNREADABLE"]) {
+  if (!new RegExp(`export const ${name}\\s*:`).test(types)) {
+    fail(`the .d.ts half does not declare ${name}`);
+  }
+}
+
 if (data.SINCE?.["GtkOrientable.orientation"] !== "1.2") {
   fail(`SINCE lost the GIR version attribute: ${JSON.stringify(data.SINCE)}`);
 }
@@ -575,6 +637,8 @@ if (failures.length > 0) {
 console.log(
   `OK: ${rowGTypes.size - holders.size} widget row(s), ${holders.size} child holder(s), ` +
     `${Object.keys(data.OWN_PROPS).length} declaration(s) with props, ` +
-    `${Object.keys(data.ENUM_NICKS).length} nick union(s); flag-off control clean; ` +
+    `${Object.keys(data.ENUM_NICKS).length} nick union(s), ` +
+    `${Object.keys(data.ENUM_VALUES).length} enum value(s) with ${Object.keys(data.ENUM_VALUES_UNREADABLE).length} declared unreadable; ` +
+    `flag-off control clean; ` +
     `broken fixture rejected with exit ${brokenExit}`,
 );

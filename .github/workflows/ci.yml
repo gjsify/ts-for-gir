@@ -18,6 +18,12 @@ on:
       - 'tests/**'
       - 'girs/**'
       - 'examples/**'
+      # `gjsify run check` runs the `scripts/check-*.mjs` gates, so a change to ONE OF THE GATES
+      # has to be able to fail CI. Without this line a PR that touches only `scripts/` matches no
+      # path and gets no CI at all -- which does not read as "skipped", it reads as "still
+      # queued", and a gate that ships without ever having run is the defect this very directory
+      # exists to catch.
+      - 'scripts/**'
       - 'package.json'
       - 'gjsify-lock.json'
       - '.ts-for-gir.*.rc.js'
@@ -37,6 +43,7 @@ on:
       - 'tests/**'
       - 'girs/**'
       - 'examples/**'
+      - 'scripts/**'
       - 'package.json'
       - 'gjsify-lock.json'
       - '.ts-for-gir.*.rc.js'

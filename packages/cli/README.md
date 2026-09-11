@@ -740,8 +740,10 @@ This is a breaking change: the permissive `string`/`any` fallback overloads have
 `emit` takes every declared signal argument; the emitter is only added to connection callbacks.
 
 For a `GObject.registerClass` subclass, extend the parent's `SignalSignatures` with your custom
-signals and override all three methods. Keep the signatures consistent with the registered
-`param_types`; the signal interface lists arguments without the emitter:
+signals and declare all three methods using `GObject.SignalMethods`. These declarations only
+refine the types; they emit no JavaScript and keep the inherited GJS implementations.
+Keep the signatures consistent with the registered `param_types`; the signal interface lists
+arguments without the emitter:
 
 ```ts
 import GObject from "gi://GObject?version=2.0";
@@ -763,26 +765,9 @@ class Counter extends GObject.Object {
     );
   }
 
-  override connect<K extends keyof CounterSignals>(
-    signal: K,
-    callback: GObject.SignalCallback<this, CounterSignals[K]>,
-  ): number {
-    return GObject.signal_connect(this, signal, callback);
-  }
-
-  override connect_after<K extends keyof CounterSignals>(
-    signal: K,
-    callback: GObject.SignalCallback<this, CounterSignals[K]>,
-  ): number {
-    return GObject.signal_connect_after(this, signal, callback);
-  }
-
-  override emit<K extends keyof CounterSignals>(
-    signal: K,
-    ...args: GObject.GjsParameters<CounterSignals[K]>
-  ): void {
-    GObject.signal_emit_by_name(this, signal, ...args);
-  }
+  declare connect: GObject.SignalMethods<this, CounterSignals>["connect"];
+  declare connect_after: GObject.SignalMethods<this, CounterSignals>["connect_after"];
+  declare emit: GObject.SignalMethods<this, CounterSignals>["emit"];
 }
 
 const counter = new Counter();

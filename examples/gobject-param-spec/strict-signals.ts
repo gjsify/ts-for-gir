@@ -17,7 +17,7 @@ action.disconnect(after);
 if (calls !== 2) throw new Error(`Expected two callbacks, got ${calls}`);
 print("Strict signal connections and emission passed.");
 
-// Rationale: registerClass signals absent from GIR need all three typed overrides.
+// Rationale: SignalMethods refines registered signals without replacing GJS methods.
 interface StrictSignalActionSignals extends Gio.SimpleAction.SignalSignatures {
   "value-changed": (value: number, label: string) => void;
 }
@@ -38,25 +38,12 @@ class StrictSignalAction extends Gio.SimpleAction {
     );
   }
 
-  override connect<K extends keyof StrictSignalActionSignals>(
-    signal: K,
-    callback: GObject.SignalCallback<this, StrictSignalActionSignals[K]>,
-  ): number {
-    return GObject.signal_connect(this, signal, callback);
-  }
+  declare connect: GObject.SignalMethods<this, StrictSignalActionSignals>["connect"];
+  declare connect_after: GObject.SignalMethods<this, StrictSignalActionSignals>["connect_after"];
+  declare emit: GObject.SignalMethods<this, StrictSignalActionSignals>["emit"];
 
-  override connect_after<K extends keyof StrictSignalActionSignals>(
-    signal: K,
-    callback: GObject.SignalCallback<this, StrictSignalActionSignals[K]>,
-  ): number {
-    return GObject.signal_connect_after(this, signal, callback);
-  }
-
-  override emit<K extends keyof StrictSignalActionSignals>(
-    signal: K,
-    ...args: GObject.GjsParameters<StrictSignalActionSignals[K]>
-  ): void {
-    GObject.signal_emit_by_name(this, signal, ...args);
+  publishValue(value: number, label: string): void {
+    this.emit("value-changed", value, label);
   }
 }
 
@@ -76,7 +63,7 @@ const afterHandler = customAction.connect_after("value-changed", (source, value,
     source === customAction ? `after:${source.name}:${amount}:${text}` : "wrong source",
   );
 });
-customAction.emit("value-changed", 42, "answer");
+customAction.publishValue(42, "answer");
 customAction.disconnect(firstHandler);
 customAction.emit("value-changed", 7, "remaining");
 customAction.disconnect(afterHandler);

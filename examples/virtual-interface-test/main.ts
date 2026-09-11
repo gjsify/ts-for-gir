@@ -28,26 +28,9 @@ class CustomListModel extends GObject.Object implements Gio.ListModel.Interface<
   declare get_item_type: Gio.ListModel["get_item_type"];
   declare get_n_items: Gio.ListModel["get_n_items"];
 
-  override connect<K extends keyof CustomListModelSignals>(
-    signal: K,
-    callback: GObject.SignalCallback<this, CustomListModelSignals[K]>,
-  ): number {
-    return GObject.signal_connect(this, signal, callback);
-  }
-
-  override connect_after<K extends keyof CustomListModelSignals>(
-    signal: K,
-    callback: GObject.SignalCallback<this, CustomListModelSignals[K]>,
-  ): number {
-    return GObject.signal_connect_after(this, signal, callback);
-  }
-
-  override emit<K extends keyof CustomListModelSignals>(
-    signal: K,
-    ...args: GObject.GjsParameters<CustomListModelSignals[K]>
-  ): void {
-    GObject.signal_emit_by_name(this, signal, ...args);
-  }
+  declare connect: GObject.SignalMethods<this, CustomListModelSignals>["connect"];
+  declare connect_after: GObject.SignalMethods<this, CustomListModelSignals>["connect_after"];
+  declare emit: GObject.SignalMethods<this, CustomListModelSignals>["emit"];
 
   static {
     GObject.registerClass(

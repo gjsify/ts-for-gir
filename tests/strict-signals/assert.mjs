@@ -46,7 +46,13 @@ try {
   new Gio.Cancellable().emit('cancelled');
   action.connect('notify::enabled', (source, pspec) => { void source.enabled; void pspec.name; });
   // Rationale: GObject's notify index signature deliberately accepts arbitrary details.
-  customAction.connect('notify::nonexistent-property', (_source, pspec) => { void pspec.name; });`;
+  customAction.connect('notify::nonexistent-property', (_source, pspec) => { void pspec.name; });
+  // Rationale: SignalMethods<this, Signals> must preserve the most-derived emitter type.
+  class DerivedAction extends StrictSignalAction { derivedOnly(): void {} }
+  const derived = new DerivedAction({ name: 'derived' });
+  derived.connect('value-changed', source => source.derivedOnly());
+  derived.connect_after('value-changed', source => source.derivedOnly());
+  derived.emit('value-changed', 42, 'answer');`;
   const negatives = [
     "action.connect('activtae', () => {});",
     "action.connect('activate', (_source, parameter: number) => {});",
@@ -67,6 +73,8 @@ try {
     "customAction.connect('activtae', () => {});",
     "customAction.connect_after('activate', (_source, parameter: number) => {});",
     "customAction.emit('activate', 123);",
+    // Rationale: the helper requires a callback signature for every signal entry.
+    "type InvalidSignals = GObject.SignalMethods<GObject.Object, { broken: string }>;",
   ];
   const options = {
     strict: true,

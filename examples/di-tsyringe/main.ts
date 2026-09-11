@@ -239,26 +239,9 @@ class GObjectApp extends Gio.Application {
 
   private _appName = "User Management App";
 
-  override connect<K extends keyof GObjectAppSignals>(
-    signal: K,
-    callback: GObject.SignalCallback<this, GObjectAppSignals[K]>,
-  ): number {
-    return GObject.signal_connect(this, signal, callback);
-  }
-
-  override connect_after<K extends keyof GObjectAppSignals>(
-    signal: K,
-    callback: GObject.SignalCallback<this, GObjectAppSignals[K]>,
-  ): number {
-    return GObject.signal_connect_after(this, signal, callback);
-  }
-
-  override emit<K extends keyof GObjectAppSignals>(
-    signal: K,
-    ...args: GObject.GjsParameters<GObjectAppSignals[K]>
-  ): void {
-    GObject.signal_emit_by_name(this, signal, ...args);
-  }
+  declare connect: GObject.SignalMethods<this, GObjectAppSignals>["connect"];
+  declare connect_after: GObject.SignalMethods<this, GObjectAppSignals>["connect_after"];
+  declare emit: GObject.SignalMethods<this, GObjectAppSignals>["emit"];
 
   constructor(
     @inject(GObjectUserService) public readonly userService: GObjectUserService,

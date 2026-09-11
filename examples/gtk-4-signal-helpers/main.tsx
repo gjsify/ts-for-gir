@@ -37,26 +37,9 @@ class MyButton extends Gtk.Button {
     );
   }
 
-  override connect<K extends keyof MyButtonSignals>(
-    signal: K,
-    callback: GObject.SignalCallback<this, MyButtonSignals[K]>,
-  ): number {
-    return GObject.signal_connect(this, signal, callback);
-  }
-
-  override connect_after<K extends keyof MyButtonSignals>(
-    signal: K,
-    callback: GObject.SignalCallback<this, MyButtonSignals[K]>,
-  ): number {
-    return GObject.signal_connect_after(this, signal, callback);
-  }
-
-  override emit<K extends keyof MyButtonSignals>(
-    signal: K,
-    ...args: GObject.GjsParameters<MyButtonSignals[K]>
-  ): void {
-    GObject.signal_emit_by_name(this, signal, ...args);
-  }
+  declare connect: GObject.SignalMethods<this, MyButtonSignals>["connect"];
+  declare connect_after: GObject.SignalMethods<this, MyButtonSignals>["connect_after"];
+  declare emit: GObject.SignalMethods<this, MyButtonSignals>["emit"];
 
   triggerCustomSignal() {
     this.emit("my-signal", 42);

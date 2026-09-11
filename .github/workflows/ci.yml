@@ -18,6 +18,12 @@ on:
       - 'tests/**'
       - 'girs/**'
       - 'examples/**'
+      # `gjsify run check` runs the `scripts/check-*.mjs` gates, so a change to ONE OF THE GATES
+      # has to be able to fail CI. Without this line a PR that touches only `scripts/` matches no
+      # path and gets no CI at all -- which does not read as "skipped", it reads as "still
+      # queued", and a gate that ships without ever having run is the defect this very directory
+      # exists to catch.
+      - 'scripts/**'
       - 'package.json'
       - 'gjsify-lock.json'
       - '.ts-for-gir.*.rc.js'
@@ -37,6 +43,7 @@ on:
       - 'tests/**'
       - 'girs/**'
       - 'examples/**'
+      - 'scripts/**'
       - 'package.json'
       - 'gjsify-lock.json'
       - '.ts-for-gir.*.rc.js'
@@ -251,6 +258,19 @@ jobs:
       - name: Show diff
         if: steps.filter.outputs.generator == 'true' || github.event_name == 'workflow_dispatch'
         run: (cd ./types-dev && git diff | cat)
+      # The generated set is published as a SET: every `@girs/*` package declares its siblings as
+      # runtime dependencies. A manifest naming a namespace this run did not emit is uninstallable
+      # from the day it ships — and neither `check:types` nor the diff above can see it, because
+      # both read the tree that is missing the dependency rather than the declaration that wants
+      # it. Asked here, where the fix is a regeneration; the publisher in gjsify/types asks the
+      # same question of the registry, but only once part of the set is already out. See
+      # PUBLISHING.md.
+      #
+      # The `check` job already runs this script on the COMMITTED types-dev (it is part of
+      # `gjsify run check`); this step asks it again of the tree `build:types` just wrote, which
+      # is the one a generator change can break -- hence the same guard as `build:types`.
+      - run: node --no-warnings scripts/check-dependency-closure.mjs ./types-dev
+        if: steps.filter.outputs.generator == 'true' || github.event_name == 'workflow_dispatch'
       - run: PATH="$PWD/node_modules/.bin:$PATH" gjsify run build:examples
         if: steps.filter.outputs.examples == 'true' || github.event_name == 'workflow_dispatch'
       - run: PATH="$PWD/node_modules/.bin:$PATH" gjsify run check:examples

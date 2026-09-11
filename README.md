@@ -164,5 +164,8 @@ gjsify run build:doc            # build HTML docs into ./docs
 - [CLI Documentation](/packages/cli/README.md)
 - [Using ts-for-gir as a library](/packages/lib/README.md#using-ts-for-gir-as-a-library): building
   your own TSX or framework types from GIR, and which of the three routes needs no library at all
+- [Publishing `@girs/*`](/PUBLISHING.md): how a 716-package set is released, why sibling ranges
+  are carets, and the ordering defect that left 513 of v4.9.0's 716 packages uninstallable for
+  up to two hours
 - [gjsify/types](https://github.com/gjsify/types): pre-generated NPM packages
 - [gjsify/gnome-shell](https://github.com/gjsify/gnome-shell): hand-written Shell Extension types

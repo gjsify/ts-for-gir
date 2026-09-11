@@ -111,7 +111,9 @@ Measured with `npm install` and `tsc 5.9.3`:
 | `node_modules` | 16 MB | 23 MB |
 | TypeScript errors | **0** | **5** |
 
-The five are the failure this project already has a number for — [#431](https://github.com/gjsify/ts-for-gir/issues/431):
+The five are the defect this project already has a number for — [#431](https://github.com/gjsify/ts-for-gir/issues/431),
+which hit the same duplicate through `@girs/gjs` and reported it as `TS2345`, two incompatible
+`GObject.Object` types. Here it surfaces on Gtk instead:
 
 ```
 node_modules/@girs/adw-1/node_modules/@girs/gtk-4.0/gtk-4.0-ambient.d.ts(4,20):
@@ -147,7 +149,8 @@ sibling, so its publish plan is a single group and the ordering defect cannot re
 The closure gate still runs for the bundles, and it earns its place there for the other reason:
 `@girs/sdk-gnome-master@4.7.0` was published, listed by `npm view` with an attestation, and
 answered `E404` to `npm install` — a manifest without a tarball. The final install probe is what
-sees that.
+sees that. That version has a tarball again since, so the case no longer reproduces; it is kept
+here because nothing except an actual install would have caught it while it was true.
 
 ## Running the checks by hand
 
@@ -183,10 +186,14 @@ escape hatch, not the release path — CI publishes from gjsify/types — and it
 no topological order and no closure gate, so it can reproduce the v4.9.0 window on its own.
 
 `gjsify foreach` does have `-t` / `--topological`, and it cannot order this graph. Measured
-2026-09-11 over the 703 `types-dev` workspaces: with `-t`, `@girs/gtk-4.0` started before the
-`@girs/pango-1.0` it depends on, and the start order of the whole set violated 3019 dependency
-edges — `@gjsify/workspace` counts only `workspace:`-protocol specs as edges (`graph.ts`), and the
-committed tree declares carets, so `-t` sees no graph at all. A tree regenerated with
-`--workspace=true` does declare `workspace:^`, and there the same ordering code refuses a cycle
-outright (`dependency cycle detected`) — and this graph has one. So: run `--verify-only` against
-the registry afterwards, and treat a green sweep as unproven until it does.
+2026-09-11 over the 703 `types-dev` workspaces: with `-t`, `@girs/gtk-4.0` started 166 places
+before the `@girs/pango-1.0` it depends on, and the start order of the whole set violated 3030 of
+the 7428 `@girs` edges that tree declares — `@gjsify/workspace` counts only `workspace:`-protocol
+specs as edges (`graph.ts`), and the committed tree declares carets, so `-t` sees no graph at all.
+The order it returns is plain alphabetical, which is why the number is reproducible rather than a
+property of one run: sort the 703 package names and count the edges pointing forwards.
+
+A tree regenerated with `--workspace=true` does declare `workspace:^`, and there the same ordering
+code refuses a cycle outright (`dependency cycle detected`) — and this graph has one. So: run
+`--verify-only` against the registry afterwards, and treat a green sweep as unproven until it
+does.

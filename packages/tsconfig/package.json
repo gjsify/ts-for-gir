@@ -1,6 +1,6 @@
 {
 	"name": "@ts-for-gir/tsconfig",
-	"version": "4.9.0",
+	"version": "5.0.0",
 	"private": true,
 	"files": [
 		"tsconfig.base.json"

@@ -1,5 +1,25 @@
 # Changelog
 
+## [5.0.0](https://github.com/gjsify/ts-for-gir/compare/v4.9.0...v5.0.0) (2026-09-11)
+
+### ⚠ BREAKING CHANGES
+
+* **generator:** connect, connect_after, and emit reject unknown signal names and
+  incompatible arguments. Declare custom signal signatures with GObject.SignalMethods,
+  or use the lower-level GObject signal APIs for truly dynamic calls.
+
+### Bug Fixes
+
+* **generator:** enforce typed signals ([#464](https://github.com/gjsify/ts-for-gir/issues/464)) ([00d5af4](https://github.com/gjsify/ts-for-gir/commit/00d5af41e7760fba0d92e9003231a7b679e15234))
+
+### Documentation
+
+* why [@girs](https://github.com/girs) sibling ranges are carets, plus a closure gate ([#469](https://github.com/gjsify/ts-for-gir/issues/469)) ([be3edd9](https://github.com/gjsify/ts-for-gir/commit/be3edd98e4833f03f5bedadda65d3650c9b9bca0))
+
+### Tests
+
+* anchor the README recipe the gate compiles ([#470](https://github.com/gjsify/ts-for-gir/issues/470)) ([265828d](https://github.com/gjsify/ts-for-gir/commit/265828d10947129edce0a25ae4fe2c7993125623))
+
 ## [4.9.0](https://github.com/gjsify/ts-for-gir/compare/v4.8.0...v4.9.0) (2026-09-10)
 
 ### Features

@@ -67,6 +67,18 @@ The components are computed, never listed by hand. The first count of the v4.9.0
 component is six wide, so the real number for that sample is 7. A hand-written exemption list was
 five packages wrong on the only cycle this graph has.
 
+**What is left after the fix.** npm has no atomic multi-package publish, so the cycle keeps a
+window of its own: the six go out one after another as the first group, and the first of them
+names the last. At v4.9.0's observed pace (127.7 min / 716 = 10.7 s per package) that is
+
+| | before | after |
+|---|---|---|
+| packages published with an incomplete closure | 508 | 6 |
+| how long | 128 min | ~54 s |
+
+and it is the remainder, not an oversight: no order can shorten it, and the gate exempts it on
+purpose. Everything outside the cycle — the other 710 packages — has no window at all.
+
 ## Why sibling ranges are carets, not exact pins
 
 Generated `@girs/*` manifests declare siblings as `^<version>` — all 7637 edges of the v4.9.0 tree.

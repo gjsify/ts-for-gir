@@ -37,12 +37,9 @@ class MyButton extends Gtk.Button {
     );
   }
 
-  override connect<K extends keyof MyButtonSignals>(
-    signal: K,
-    callback: GObject.SignalCallback<this, MyButtonSignals[K]>,
-  ): number {
-    return super.connect(signal, callback);
-  }
+  declare connect: GObject.SignalMethods<this, MyButtonSignals>["connect"];
+  declare connect_after: GObject.SignalMethods<this, MyButtonSignals>["connect_after"];
+  declare emit: GObject.SignalMethods<this, MyButtonSignals>["emit"];
 
   triggerCustomSignal() {
     this.emit("my-signal", 42);
@@ -89,7 +86,7 @@ function jsx<T extends GObject.Object>(widget: T, props: ElementProps<T>): T {
         .toLowerCase()
         .replace(/^-/, ""); // Remove leading dash if any
 
-      widget.connect(signalName, handler as AnySignalCallback<T>);
+      GObject.signal_connect(widget, signalName, handler as AnySignalCallback<T>);
     }
   }
 

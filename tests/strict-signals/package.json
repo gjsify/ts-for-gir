@@ -1,0 +1,7 @@
+{
+  "name": "@ts-for-gir-test/strict-signals",
+  "private": true,
+  "type": "module",
+  "scripts": {"test": "node --no-warnings assert.mjs"},
+  "devDependencies": {"@ts-for-gir/cli": "workspace:^", "typescript": "^6.0.3"}
+}

@@ -133,12 +133,9 @@ app.connect("activate", () => {
     // Define a custom signal interface as instance property
     declare $signals: MyButtonSignals;
 
-    override connect<K extends keyof MyButtonSignals>(
-      signal: K,
-      callback: GObject.SignalCallback<this, MyButtonSignals[K]>,
-    ): number {
-      return super.connect(signal, callback);
-    }
+    declare connect: GObject.SignalMethods<this, MyButtonSignals>["connect"];
+    declare connect_after: GObject.SignalMethods<this, MyButtonSignals>["connect_after"];
+    declare emit: GObject.SignalMethods<this, MyButtonSignals>["emit"];
 
     public customMethod() {
       this.emit("hello", "world");

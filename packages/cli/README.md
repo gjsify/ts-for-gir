@@ -731,3 +731,60 @@ The `--reporterOutput` option specifies the output file path for the reporter. T
 ```bash
 ts-for-gir generate * --reporterOutput custom-report.json
 ```
+
+### Signal type checking
+
+Generated `connect`, `connect_after`, and `emit` methods only accept signals described by GIR.
+This makes misspelled signal names and incompatible callback parameters TypeScript errors.
+This is a breaking change: the permissive `string`/`any` fallback overloads have been removed.
+`emit` takes every declared signal argument; the emitter is only added to connection callbacks.
+
+For a `GObject.registerClass` subclass, extend the parent's `SignalSignatures` with your custom
+signals and declare all three methods using `GObject.SignalMethods`. These declarations only
+refine the types; they emit no JavaScript and keep the inherited GJS implementations.
+Keep the signatures consistent with the registered `param_types`; the signal interface lists
+arguments without the emitter:
+
+```ts
+import GObject from "gi://GObject?version=2.0";
+
+interface CounterSignals extends GObject.Object.SignalSignatures {
+  "count-changed": (count: number) => void;
+}
+
+class Counter extends GObject.Object {
+  static {
+    GObject.registerClass(
+      {
+        GTypeName: "SignalExampleCounter",
+        Signals: {
+          "count-changed": { param_types: [GObject.TYPE_INT] },
+        },
+      },
+      Counter,
+    );
+  }
+
+  declare connect: GObject.SignalMethods<this, CounterSignals>["connect"];
+  declare connect_after: GObject.SignalMethods<this, CounterSignals>["connect_after"];
+  declare emit: GObject.SignalMethods<this, CounterSignals>["emit"];
+}
+
+const counter = new Counter();
+counter.connect("count-changed", (_source, count) => console.log(count.toFixed()));
+counter.connect_after("count-changed", (_source, count) => console.log(count.toFixed()));
+counter.emit("count-changed", 1);
+```
+
+For a class registered with `Implements: [Gio.ListModel]`, also extend
+`Gio.ListModel.SignalSignatures` in its signal interface, alongside the parent signatures.
+This preserves type checking for interface signals such as `items-changed`.
+See the [list model example](../../examples/gio-2-list-model/main.ts) and the
+[custom signal runtime example](../../examples/gobject-param-spec/strict-signals.ts).
+
+`notify::` details remain unchecked: the inherited `` [key: `notify::${string}`] `` index
+signature accepts any property name, including misspellings. The callback itself stays typed.
+
+Truly dynamic signal names can use `GObject.signal_connect`, `GObject.signal_connect_after`,
+or `GObject.signal_emit_by_name` explicitly. These lower-level APIs do not check signal names
+or argument types.

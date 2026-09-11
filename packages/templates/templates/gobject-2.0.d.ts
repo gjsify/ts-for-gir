@@ -304,6 +304,29 @@ export type SignalCallback<Emitter, Fn> = Fn extends (...args: infer P) => infer
     ? (source: Emitter, ...args: P) => R
     : never
 
+/**
+ * Typed signal methods for subclasses with custom or implemented-interface signals.
+ * Include the parent's SignalSignatures in Signals, then use each member with
+ * a `declare` field to refine the inherited method without replacing it at runtime.
+ * The constraint checks each signal without requiring a string index signature.
+ *
+ * @example
+ * declare connect: GObject.SignalMethods<this, MySignals>["connect"]
+ * declare connect_after: GObject.SignalMethods<this, MySignals>["connect_after"]
+ * declare emit: GObject.SignalMethods<this, MySignals>["emit"]
+ */
+export interface SignalMethods<
+    Emitter,
+    Signals extends Record<keyof Signals, (...args: never[]) => unknown>,
+> {
+    /** Connect a callback, with the emitter prepended to the signal arguments. */
+    connect<K extends keyof Signals>(signal: K, callback: SignalCallback<Emitter, Signals[K]>): number
+    /** Connect a callback to run after the signal's default handler. */
+    connect_after<K extends keyof Signals>(signal: K, callback: SignalCallback<Emitter, Signals[K]>): number
+    /** Emit a signal with its declared arguments, without the emitter. */
+    emit<K extends keyof Signals>(signal: K, ...args: GjsParameters<Signals[K]>): void
+}
+
 // TODO: What about the generated class Closure
 export type TClosure<R = any, P = any> = (...args: P[]) => R
 

@@ -2,6 +2,10 @@ import Gdk from "gi://Gdk";
 import Gio from "gi://Gio";
 import GObject from "gi://GObject";
 
+// Include signals provided by the registered GObject interface.
+interface CustomListModelSignals
+  extends GObject.Object.SignalSignatures, Gio.ListModel.SignalSignatures {}
+
 /**
  * Example demonstrating the new virtual interface functionality.
  *
@@ -23,6 +27,10 @@ class CustomListModel extends GObject.Object implements Gio.ListModel.Interface<
   declare get_item: Gio.ListModel["get_item"];
   declare get_item_type: Gio.ListModel["get_item_type"];
   declare get_n_items: Gio.ListModel["get_n_items"];
+
+  declare connect: GObject.SignalMethods<this, CustomListModelSignals>["connect"];
+  declare connect_after: GObject.SignalMethods<this, CustomListModelSignals>["connect_after"];
+  declare emit: GObject.SignalMethods<this, CustomListModelSignals>["emit"];
 
   static {
     GObject.registerClass(

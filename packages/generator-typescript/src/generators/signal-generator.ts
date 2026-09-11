@@ -349,7 +349,6 @@ export class SignalGenerator {
       groups.push([
         SIGNAL_JSDOC,
         `connect<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, callback: ${gobjectRef}SignalCallback<this, ${girClass.name}.SignalSignatures[K]>): number;`,
-        "connect(signal: string, callback: (...args: any[]) => any): number;",
       ]);
     }
 
@@ -357,15 +356,13 @@ export class SignalGenerator {
       groups.push([
         SIGNAL_JSDOC,
         `connect_after<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, callback: ${gobjectRef}SignalCallback<this, ${girClass.name}.SignalSignatures[K]>): number;`,
-        "connect_after(signal: string, callback: (...args: any[]) => any): number;",
       ]);
     }
 
     if (allowedNames.has("emit")) {
       groups.push([
         SIGNAL_JSDOC,
-        `emit<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, ...args: ${gobjectRef}GjsParameters<${girClass.name}.SignalSignatures[K]> extends [any, ...infer Q] ? Q : never): void;`,
-        "emit(signal: string, ...args: any[]): void;",
+        `emit<K extends keyof ${girClass.name}.SignalSignatures>(signal: K, ...args: ${gobjectRef}GjsParameters<${girClass.name}.SignalSignatures[K]>): void;`,
       ]);
     }
 

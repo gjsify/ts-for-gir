@@ -7,6 +7,10 @@
 import Gio from "gi://Gio?version=2.0";
 import GObject from "gi://GObject?version=2.0";
 
+// Include signals provided by the registered GObject interface.
+interface GjsListStoreSignals
+  extends GObject.Object.SignalSignatures, Gio.ListModel.SignalSignatures {}
+
 /**
  * An example of implementing the GListModel interface using the new virtual interface pattern.
  *
@@ -26,6 +30,10 @@ export class GjsListStore
   declare get_item: Gio.ListModel["get_item"];
   declare get_item_type: Gio.ListModel["get_item_type"];
   declare get_n_items: Gio.ListModel["get_n_items"];
+
+  declare connect: GObject.SignalMethods<this, GjsListStoreSignals>["connect"];
+  declare connect_after: GObject.SignalMethods<this, GjsListStoreSignals>["connect_after"];
+  declare emit: GObject.SignalMethods<this, GjsListStoreSignals>["emit"];
 
   static {
     GObject.registerClass(

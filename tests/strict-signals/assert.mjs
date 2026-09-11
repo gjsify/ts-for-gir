@@ -104,14 +104,40 @@ try {
     }),
   );
   for (const negative of negatives) {
-    assert.notEqual(check(negative).length, 0, negative);
+    const diagnostics = check(negative);
+    // Rationale: `length !== 0` would also be satisfied by a diagnostic from the header, so the
+    // assertion says what it means -- the failure has to come from the line under test. The
+    // positives above are what prove the header itself compiles; this pins the attribution, and
+    // prints the diagnostics instead of just the snippet when a negative stops failing.
+    const fromNegative = diagnostics.filter((d) => d.file && d.start >= header.length);
+    assert.notEqual(
+      fromNegative.length,
+      0,
+      `${negative}\n  compiled clean, or failed away from the line under test:\n  ${diagnostics
+        .map((d) => ts.flattenDiagnosticMessageText(d.messageText, "\n"))
+        .join("\n  ")}`,
+    );
   }
 
   // Rationale: the documented migration recipe must compile and execute as written.
   const readme = readFileSync(join(root, "packages/cli/README.md"), "utf8");
-  const signalDocs = readme.slice(readme.indexOf("### Signal type checking"));
+  const heading = "### Signal type checking";
+  const headingAt = readme.indexOf(heading);
+  // Rationale: `indexOf` returning -1 would slice from the last character, find no block, and
+  // report a missing recipe when the real fault is a renamed section. Name the actual fault.
+  assert.notEqual(headingAt, -1, `packages/cli/README.md no longer has a "${heading}" section`);
+  const signalDocs = readme.slice(headingAt);
   const recipe = /```ts\n([\s\S]*?)```/.exec(signalDocs)?.[1];
   assert.ok(recipe, "Missing custom signal migration recipe");
+  // Rationale: "the first ts block after the heading" is the recipe only by convention. Pin the
+  // convention -- a block inserted above it would otherwise be compiled in its place, and this
+  // check would stay green while the documented recipe went untested.
+  for (const marker of ["GObject.SignalMethods", "registerClass", "declare emit"]) {
+    assert.ok(
+      recipe.includes(marker),
+      `the first ts block under "${heading}" is not the migration recipe: no ${marker}`,
+    );
+  }
   const recipeErrors = check(recipe.replace("gi://GObject?version=2.0", "@girs/gobject-2.0"), "");
   assert.equal(
     recipeErrors.length,

@@ -229,6 +229,71 @@ export function cycles(packages) {
   return state.found;
 }
 
+// --- Deciding about one tree ------------------------------------------------
+
+const DETAIL = {
+  dangling: () => "no package in this tree provides it",
+  "unknown-range": () => "range shape not recognised — teach `satisfied()` or fix the generator",
+  unsatisfied: (problem) => `the tree has ${problem.have}`,
+};
+
+/** What was read, and what the shape of the graph means for publishing it. */
+function reportShape(tree, dir, io) {
+  io.log(`📦 ${dir}: ${tree.packages.size} packages`);
+  if (tree.skipped.length > 0) {
+    io.log(`   skipped ${tree.skipped.length} without a package.json: ${tree.skipped.join(", ")}`);
+  }
+  const found = cycles(tree.packages);
+  for (const component of found) {
+    io.log(`🔁 dependency cycle (${component.length}): ${component.join(", ")}`);
+  }
+  io.log(
+    found.length === 0
+      ? "   no cycles — the set can be published one package at a time"
+      : "   cycles publish as one group; see PUBLISHING.md",
+  );
+}
+
+/**
+ * Read one tree and answer the process exit code: 0 installable as published, 1 not.
+ *
+ * It RETURNS the code instead of exiting, because the decision is the half a self-test that only
+ * calls the pure helpers can never reach -- `satisfied()` can be perfect while the script still
+ * exits 0 on a tree full of findings, and that is the failure this whole file exists to prevent.
+ * @param {{ log: (line: string) => void, error: (line: string) => void }} io
+ */
+export function checkTree(dir, io) {
+  let tree;
+  try {
+    tree = readTree(dir);
+  } catch (error) {
+    io.error(`❌ cannot read ${dir}: ${error.message}`);
+    io.error("   Generate the types first: gjsify run build:types");
+    return 1;
+  }
+  for (const broken of tree.broken) io.error(`❌ ${broken}`);
+  if (tree.packages.size === 0) {
+    // An empty tree satisfies every assertion below, which is the classic green that checked
+    // nothing. The submodule is probably not initialised.
+    io.error(`❌ ${dir} holds no packages — nothing was checked.`);
+    io.error("   git submodule update --init types-dev && gjsify run build:types");
+    return 1;
+  }
+  reportShape(tree, dir, io);
+  const problems = closureProblems(tree.packages);
+  for (const problem of problems) {
+    const edge = `${problem.package} declares ${problem.dependency}@${problem.range}`;
+    io.error(`❌ ${edge} — ${DETAIL[problem.kind](problem)}`);
+  }
+  const findings = problems.length + tree.broken.length;
+  if (findings === 0) {
+    io.log(`✅ every @girs dependency resolves inside ${dir}`);
+    return 0;
+  }
+  io.error(`\n${findings} finding(s): ${dir} could not be installed as published.`);
+  return 1;
+}
+
 // --- SELF-TEST FIRST: a check that cannot go red is worse than no check. -----
 
 /** `[version, range, expected]` -- `null` is "refused". Cross-checked against npm's `semver`. */
@@ -256,50 +321,85 @@ const RANGE_VECTORS = [
   ["4.9.0", "4.x", null],
   ["4.9.0", "^4.9", null], // partial: not a shape the generator writes
   ["4.9.0", "latest", null],
+  // an alias spec: refused, and it also proves `workspace:` is matched as a PREFIX, not searched
+  // for anywhere in the string
+  ["4.9.0", "npm:@girs/workspace-1.0@4.9.0", null],
   ["4.9.0", "", null],
   ["v4.9.0", "^4.9.0", null], // the version side is parsed just as strictly
 ];
 
+const SILENT = { log: () => {}, error: () => {} };
+
 /**
- * One synthetic tree on disk, run through the REAL reader, carrying every finding this script can
- * make: a dangling edge, an unsatisfied range, a corrupt manifest, a directory that is not a
- * package -- and a legal cycle, which must come back as a cycle and not as a problem.
+ * Synthetic trees on disk, run through the REAL reader and the REAL decision, carrying every
+ * finding this script can make and every field it claims to read: dangling edges reached through
+ * each of the three runtime fields, an unsatisfied range, a corrupt manifest, a manifest with no
+ * name, two directories claiming one name, a directory that is not a package -- plus a legal
+ * cycle, which must come back as a cycle and not as a problem, and a dev-only dangling edge,
+ * which must not come back at all: `devDependencies` do not travel with a published package.
  */
 function syntheticTreeFailures() {
-  const dir = mkdtempSync(join(tmpdir(), "girs-closure-selftest-"));
-  const write = (name, manifest) => {
+  const root = mkdtempSync(join(tmpdir(), "girs-closure-selftest-"));
+  const broken = join(root, "broken");
+  const healthy = join(root, "healthy");
+  const write = (dir, name, manifest) => {
     mkdirSync(join(dir, name), { recursive: true });
     writeFileSync(join(dir, name, "package.json"), manifest);
   };
-  const manifest = (name, dependencies) =>
-    JSON.stringify({ name: `@girs/${name}`, version: "4.9.0", dependencies });
+  const manifest = (name, fields) =>
+    JSON.stringify({ name: `@girs/${name}`, version: "4.9.0", ...fields });
+  const deps = (dependencies) => ({ dependencies });
   try {
-    write("glib-2.0", manifest("glib-2.0", { "@girs/gobject-2.0": "^4.9.0" }));
-    write("gobject-2.0", manifest("gobject-2.0", { "@girs/glib-2.0": "^4.9.0" }));
+    write(broken, "glib-2.0", manifest("glib-2.0", deps({ "@girs/gobject-2.0": "^4.9.0" })));
+    write(broken, "gobject-2.0", manifest("gobject-2.0", deps({ "@girs/glib-2.0": "^4.9.0" })));
     // dangling: nothing emits @girs/pango-1.0 in this tree
-    write(
-      "gtk-4.0",
-      manifest("gtk-4.0", { "@girs/pango-1.0": "^4.9.0", "@girs/glib-2.0": "^4.9.0" }),
-    );
+    const gtk = { "@girs/pango-1.0": "^4.9.0", "@girs/glib-2.0": "^4.9.0" };
+    write(broken, "gtk-4.0", manifest("gtk-4.0", deps(gtk)));
     // unsatisfied: gtk-4.0 is there, at 4.9.0, and ^4.10.0 does not accept it
-    write("adw-1", manifest("adw-1", { "@girs/gtk-4.0": "^4.10.0" }));
-    write("gsk-4.0", "{ not json");
-    mkdirSync(join(dir, "sdk"));
+    write(broken, "adw-1", manifest("adw-1", deps({ "@girs/gtk-4.0": "^4.10.0" })));
+    // a shape `satisfied()` does not decide must become a FINDING, not a pass: refusing it in the
+    // predicate is only half the claim, the gate has to carry it out to the exit code
+    write(broken, "gdkpixbuf-2.0", manifest("gdkpixbuf-2.0", deps({ "@girs/glib-2.0": "~4.9.0" })));
+    // the other two runtime fields reach the registry too, so they are read and must be caught
+    const peer = { peerDependencies: { "@girs/peeronly-1.0": "^4.9.0" } };
+    write(broken, "soup-3.0", manifest("soup-3.0", peer));
+    const optional = { optionalDependencies: { "@girs/optonly-1.0": "^4.9.0" } };
+    write(broken, "gdk-4.0", manifest("gdk-4.0", optional));
+    // ...and devDependencies do NOT: an installed package never pulls them
+    const dev = { devDependencies: { "@girs/devonly-1.0": "^4.9.0" } };
+    write(broken, "gio-2.0", manifest("gio-2.0", dev));
+    write(broken, "gsk-4.0", "{ not json");
+    write(broken, "nameless", JSON.stringify({ version: "4.9.0" }));
+    write(broken, "adw-1-again", manifest("adw-1", deps({ "@girs/gtk-4.0": "^4.10.0" })));
+    mkdirSync(join(broken, "sdk"));
 
-    const tree = readTree(dir);
+    write(healthy, "glib-2.0", manifest("glib-2.0", deps({ "@girs/gobject-2.0": "^4.9.0" })));
+    write(healthy, "gobject-2.0", manifest("gobject-2.0", deps({ "@girs/glib-2.0": "^4.9.0" })));
+
+    const tree = readTree(broken);
     const failures = [];
     const kinds = closureProblems(tree.packages)
       .map((p) => `${p.kind}:${p.package}->${p.dependency}`)
       .sort();
     const expected = [
+      "dangling:@girs/gdk-4.0->@girs/optonly-1.0",
       "dangling:@girs/gtk-4.0->@girs/pango-1.0",
+      "dangling:@girs/soup-3.0->@girs/peeronly-1.0",
+      "unknown-range:@girs/gdkpixbuf-2.0->@girs/glib-2.0",
       "unsatisfied:@girs/adw-1->@girs/gtk-4.0",
     ];
     if (JSON.stringify(kinds) !== JSON.stringify(expected)) {
       failures.push(`problems: expected ${JSON.stringify(expected)}, got ${JSON.stringify(kinds)}`);
     }
-    if (tree.broken.length !== 1 || !tree.broken[0].includes("gsk-4.0")) {
-      failures.push(`a corrupt manifest must be named, got ${JSON.stringify(tree.broken)}`);
+    // Directory order is the filesystem's, so match on what each finding says, not on position.
+    const says = (text) => tree.broken.filter((line) => line.includes(text)).length;
+    if (tree.broken.length !== 3) {
+      failures.push(`expected 3 unreadable manifests, got ${JSON.stringify(tree.broken)}`);
+    }
+    if (says("gsk-4.0") !== 1) failures.push("a corrupt manifest must be named");
+    if (says("has no string") !== 1) failures.push("a manifest without a name must be named");
+    if (says("already declared by another directory") !== 1) {
+      failures.push("two directories claiming one package name must be named");
     }
     if (JSON.stringify(tree.skipped) !== '["sdk"]') {
       failures.push(`a manifest-less directory is skipped, got ${JSON.stringify(tree.skipped)}`);
@@ -308,9 +408,18 @@ function syntheticTreeFailures() {
     if (JSON.stringify(found) !== '[["@girs/glib-2.0","@girs/gobject-2.0"]]') {
       failures.push(`expected the one glib/gobject cycle, got ${JSON.stringify(found)}`);
     }
+    // The exit code itself, in both directions -- a gate that cannot go red, and one that cannot
+    // go green, are the same defect seen from two sides.
+    const code = (dir) => checkTree(dir, SILENT);
+    if (code(broken) !== 1) failures.push("a tree with findings must exit non-zero");
+    if (code(healthy) !== 0) failures.push("a healthy tree must exit zero");
+    if (code(join(broken, "sdk")) !== 1) failures.push("a tree holding no packages must exit non-zero");
+    if (code(join(root, "not-generated")) !== 1) {
+      failures.push("an unreadable directory must exit non-zero");
+    }
     return failures;
   } finally {
-    rmSync(dir, { recursive: true, force: true });
+    rmSync(root, { recursive: true, force: true });
   }
 }
 
@@ -325,62 +434,14 @@ if (selfTestFailures.length > 0) {
   process.exit(1);
 }
 console.log(
-  `🧪 closure self-test green — ${RANGE_VECTORS.length} range vectors; one synthetic tree: ` +
-    "2 broken edges caught, 1 corrupt manifest named, 1 legal cycle left alone",
+  `🧪 closure self-test green — ${RANGE_VECTORS.length} range vectors; two synthetic trees: ` +
+    "5 broken edges caught across all three runtime fields, 3 unreadable manifests named, " +
+    "1 dev-only edge ignored, 1 legal cycle left alone, and the exit code checked both ways",
 );
 
 // --- The tree ----------------------------------------------------------------
 
-const DETAIL = {
-  dangling: () => "no package in this tree provides it",
-  "unknown-range": () => "range shape not recognised — teach `satisfied()` or fix the generator",
-  unsatisfied: (problem) => `the tree has ${problem.have}`,
-};
-
-const dir = process.argv[2] ?? "./types-dev";
-let tree;
-try {
-  tree = readTree(dir);
-} catch (error) {
-  console.error(`❌ cannot read ${dir}: ${error.message}`);
-  console.error("   Generate the types first: gjsify run build:types");
-  process.exit(1);
-}
-
-for (const broken of tree.broken) console.error(`❌ ${broken}`);
-
-if (tree.packages.size === 0) {
-  // An empty tree passing every assertion is the classic green that checked nothing. The
-  // submodule is probably not initialised.
-  console.error(`❌ ${dir} holds no packages — nothing was checked.`);
-  console.error("   git submodule update --init types-dev && gjsify run build:types");
-  process.exit(1);
-}
-
-console.log(`📦 ${dir}: ${tree.packages.size} packages`);
-if (tree.skipped.length > 0) {
-  const names = tree.skipped.join(", ");
-  console.log(`   skipped ${tree.skipped.length} without a package.json: ${names}`);
-}
-const found = cycles(tree.packages);
-for (const component of found) {
-  console.log(`🔁 dependency cycle (${component.length}): ${component.join(", ")}`);
-}
-console.log(
-  found.length === 0
-    ? "   no cycles — the set can be published one package at a time"
-    : "   cycles publish as one group; see PUBLISHING.md",
-);
-
-const problems = closureProblems(tree.packages);
-for (const problem of problems) {
-  const edge = `${problem.package} declares ${problem.dependency}@${problem.range}`;
-  console.error(`❌ ${edge} — ${DETAIL[problem.kind](problem)}`);
-}
-if (problems.length > 0 || tree.broken.length > 0) {
-  const count = problems.length + tree.broken.length;
-  console.error(`\n${count} finding(s): ${dir} could not be installed as published.`);
-  process.exit(1);
-}
-
-console.log(`✅ every @girs dependency resolves inside ${dir}`);
+// Exit only on a finding, so the exports stay importable on a healthy tree -- the same shape the
+// sibling `scripts/check-*.mjs` use.
+const exitCode = checkTree(process.argv[2] ?? "./types-dev", console);
+if (exitCode !== 0) process.exit(exitCode);

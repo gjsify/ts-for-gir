@@ -22,8 +22,12 @@ sorted nor topological. Measured afterwards from the registry's own `time` maps:
 | first package published | `@girs/abi-3.0`, 2026-09-10 22:15:33Z |
 | last package published | `@girs/xkl-1.0`, 2026-09-11 00:23:15Z |
 | length of the sweep | 128 minutes |
-| published before something they depend on existed | **508 of 716** |
+| published before something they depend on existed | **513 of 716** |
 | worst case | `@girs/abi-3.0` waited 125 min for `@girs/xlib-2.0` |
+
+(Reproducible: `npm view @girs/<name> time --json` for each of the 716, counting a package whose
+own `4.9.0` stamp precedes that of one of its dependencies. 513 raw; 5 of them are members of the
+cycle below, which no order can avoid, and the other 508 are the defect.)
 
 gjsify's e2e legs went red twice inside that window with
 
@@ -44,7 +48,8 @@ Diagnosis cost more than the bug.
    naming the package, the dependency and the range.
 
 Plus a real `npm install` of the whole published set into an empty directory at the end, which is
-the only check that also proves the tarballs exist. Measured: 5.5 minutes and 225 MB for the full
+the only check that also proves the tarballs exist. Measured in
+[gjsify/types#16](https://github.com/gjsify/types/pull/16): 5.5 minutes and 225 MB for the full
 716-package set on a cold cache.
 
 ### The graph has a cycle, and it is six namespaces wide
@@ -68,13 +73,16 @@ component is six wide, so the real number for that sample is 7. A hand-written e
 five packages wrong on the only cycle this graph has.
 
 **What is left after the fix.** npm has no atomic multi-package publish, so the cycle keeps a
-window of its own: the six go out one after another as the first group, and the first of them
-names the last. At v4.9.0's observed pace (127.7 min / 716 = 10.7 s per package) that is
+window of its own: the six go out one after another as the first group, and whichever goes first
+names members that are not there yet. How many of the six do depends on the order inside the
+group — two at best (`gjs`, `glib-2.0`, `gobject-2.0`, `cairo-1.0`, `gmodule-2.0`, `gio-2.0`;
+brute-forced over all 720 orders of the v4.9.0 edges), five at worst, and v4.9.0's `readdir`
+order hit five. At v4.9.0's observed pace (127.7 min / 716 = 10.7 s per package) that is
 
 | | before | after |
 |---|---|---|
-| packages published with an incomplete closure | 508 | 6 |
-| how long | 128 min | ~54 s |
+| packages published with an incomplete closure | 513 | 2–5 |
+| how long | 128 min | ≤ 54 s |
 
 and it is the remainder, not an oversight: no order can shorten it, and the gate exempts it on
 purpose. Everything outside the cycle — the other 710 packages — has no window at all.
@@ -143,6 +151,14 @@ sees that.
 
 ## Running the checks by hand
 
+Here, against a generated tree — the build-time half. It is part of `gjsify run check`, and CI
+runs it again in `build-validate` on the tree `build:types` has just written:
+
+```bash
+gjsify run check:closure                                                 # ./types-dev
+node --no-warnings scripts/check-dependency-closure.mjs ./types-release  # any tree
+```
+
 In [gjsify/types](https://github.com/gjsify/types), `.github/release-script/`:
 
 ```bash
@@ -166,6 +182,11 @@ node --experimental-strip-types --experimental-transform-types --no-warnings \
 escape hatch, not the release path — CI publishes from gjsify/types — and it has **neither half**:
 no topological order and no closure gate, so it can reproduce the v4.9.0 window on its own.
 
-`gjsify foreach` does have `-t` / `--topological`, but whether it can order a graph with a cycle in
-it has not been measured here, and this graph has one. So: run `--verify-only` against the registry
-afterwards, and treat a green sweep as unproven until it does.
+`gjsify foreach` does have `-t` / `--topological`, and it cannot order this graph. Measured
+2026-09-11 over the 703 `types-dev` workspaces: with `-t`, `@girs/gtk-4.0` started before the
+`@girs/pango-1.0` it depends on, and the start order of the whole set violated 3019 dependency
+edges — `@gjsify/workspace` counts only `workspace:`-protocol specs as edges (`graph.ts`), and the
+committed tree declares carets, so `-t` sees no graph at all. A tree regenerated with
+`--workspace=true` does declare `workspace:^`, and there the same ordering code refuses a cycle
+outright (`dependency cycle detected`) — and this graph has one. So: run `--verify-only` against
+the registry afterwards, and treat a green sweep as unproven until it does.

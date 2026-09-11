@@ -21,6 +21,7 @@
 //
 // Usage: node --no-warnings scripts/check-dependency-closure.mjs [dir]   (default: ./types-dev)
 
+import { spawnSync } from "node:child_process";
 import {
   existsSync,
   mkdirSync,
@@ -32,6 +33,7 @@ import {
 } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 
 const RUNTIME_FIELDS = ["dependencies", "peerDependencies", "optionalDependencies"];
 
@@ -330,6 +332,9 @@ const RANGE_VECTORS = [
 
 const SILENT = { log: () => {}, error: () => {} };
 
+/** Set in the child spawned below, so it runs the check instead of spawning a child of its own. */
+const SELFTEST_CHILD = "GIRS_CLOSURE_SELFTEST_CHILD";
+
 /**
  * Synthetic trees on disk, run through the REAL reader and the REAL decision, carrying every
  * finding this script can make and every field it claims to read: dangling edges reached through
@@ -417,6 +422,25 @@ function syntheticTreeFailures() {
     if (code(join(root, "not-generated")) !== 1) {
       failures.push("an unreadable directory must exit non-zero");
     }
+    // `checkTree` RETURNING 1 and the PROCESS exiting 1 are two different facts, and the line that
+    // joins them is unreachable from here: running it would end this run. So prove it once from
+    // outside -- one child, pointed at the broken tree above, which has to come back non-zero AND
+    // say why. Deleting that line leaves a script that still prints every finding and exits 0,
+    // which is the quietest way this whole file could fail. The child sees SELFTEST_CHILD and
+    // skips this branch, so the spawn cannot recurse.
+    if (!process.env[SELFTEST_CHILD]) {
+      const child = spawnSync(
+        process.execPath,
+        ["--no-warnings", fileURLToPath(import.meta.url), broken],
+        { encoding: "utf8", env: { ...process.env, [SELFTEST_CHILD]: "1" } },
+      );
+      if (child.error) {
+        failures.push(`could not spawn the exit-code child: ${child.error.message}`);
+      } else if (child.status !== 1 || !child.stderr.includes("finding(s)")) {
+        const saw = `exit ${child.status}, signal ${child.signal}`;
+        failures.push(`a child over a broken tree must exit 1 naming its findings; saw ${saw}`);
+      }
+    }
     return failures;
   } finally {
     rmSync(root, { recursive: true, force: true });
@@ -436,7 +460,11 @@ if (selfTestFailures.length > 0) {
 console.log(
   `🧪 closure self-test green — ${RANGE_VECTORS.length} range vectors; two synthetic trees: ` +
     "5 broken edges caught across all three runtime fields, 3 unreadable manifests named, " +
-    "1 dev-only edge ignored, 1 legal cycle left alone, and the exit code checked both ways",
+    "1 dev-only edge ignored, 1 legal cycle left alone, the exit code checked both ways" +
+    // The child skips the spawn, so it must not print the claim the spawn earns.
+    (process.env[SELFTEST_CHILD]
+      ? " — and this run IS that child"
+      : ", and one child proving a broken tree really does exit non-zero"),
 );
 
 // --- The tree ----------------------------------------------------------------

@@ -150,7 +150,10 @@ node --experimental-strip-types --experimental-transform-types --no-warnings \
 
 ## The workspace-local publish path
 
-`gjsify run publish:types` in this repository publishes the `types-dev` workspaces and is a manual
-escape hatch, not the release path — CI publishes from gjsify/types. It has no closure gate. Add
-`-t` (`gjsify foreach --topological`) before using it on anything that matters, and prefer
-`--verify-only` above afterwards.
+`gjsify run publish:types` in this repository publishes the `types-dev` workspaces. It is a manual
+escape hatch, not the release path — CI publishes from gjsify/types — and it has **neither half**:
+no topological order and no closure gate, so it can reproduce the v4.9.0 window on its own.
+
+`gjsify foreach` does have `-t` / `--topological`, but whether it can order a graph with a cycle in
+it has not been measured here, and this graph has one. So: run `--verify-only` against the registry
+afterwards, and treat a green sweep as unproven until it does.

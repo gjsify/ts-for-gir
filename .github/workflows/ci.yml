@@ -258,6 +258,10 @@ jobs:
       # it. Asked here, where the fix is a regeneration; the publisher in gjsify/types asks the
       # same question of the registry, but only once part of the set is already out. See
       # PUBLISHING.md.
+      #
+      # The `check` job already runs this script on the COMMITTED types-dev (it is part of
+      # `gjsify run check`); this step asks it again of the tree `build:types` just wrote, which
+      # is the one a generator change can break -- hence the same guard as `build:types`.
       - run: node --no-warnings scripts/check-dependency-closure.mjs ./types-dev
         if: steps.filter.outputs.generator == 'true' || github.event_name == 'workflow_dispatch'
       - run: PATH="$PWD/node_modules/.bin:$PATH" gjsify run build:examples

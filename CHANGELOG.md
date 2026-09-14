@@ -1,5 +1,11 @@
 # Changelog
 
+## [5.1.0](https://github.com/gjsify/ts-for-gir/compare/v5.0.0...v5.1.0) (2026-09-14)
+
+### Features
+
+* the ARIA value type of each accessible name ([#473](https://github.com/gjsify/ts-for-gir/issues/473)) ([d616436](https://github.com/gjsify/ts-for-gir/commit/d616436b6f66934819759000aca3b9adb176063b)), references [#465](https://github.com/gjsify/ts-for-gir/issues/465) [#467](https://github.com/gjsify/ts-for-gir/issues/467)
+
 ## [5.0.0](https://github.com/gjsify/ts-for-gir/compare/v4.9.0...v5.0.0) (2026-09-11)
 
 ### ⚠ BREAKING CHANGES

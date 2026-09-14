@@ -349,8 +349,8 @@ if (data.ENUM_NICKS?.GtkStateFlags) {
 //
 // A suite that only checked `GtkOrientation` would pass either way: its values ARE its
 // positions. `GtkOdd.below` is -1 at position 0, so counting answers 0 and reading answers
-// -1, and only one of those can pass. That is the shape the real corpus has -- 6 of the 129
-// enums in a GTK 4 vocabulary (104 in Gtk-4.0, 25 in Adw-1) disagree with counting, `GtkConstraintStrength.required`
+// -1, and only one of those can pass. That is the shape the real corpus has -- 6 of the 137
+// enums in a GTK 4 vocabulary (112 in Gtk-4.0, 25 in Adw-1) disagree with counting, `GtkConstraintStrength.required`
 // by 1001001000.
 if (data.ENUM_VALUES?.["GtkOdd.below"] !== -1) {
   fail(
@@ -484,9 +484,9 @@ for (const key of Object.keys(data.PROP_ENUMS ?? {})) {
 // THE BITFIELDS, which `ENUM_NICKS` refuses and which still have numbers.
 //
 // `GtkStateFlags.insensitive` is 8 at position 2, so this separates read from counted the
-// way `GtkOdd.below` does for the enums -- and it is the shape that matters most: 95 of 121
-// Gtk-4.0 bitfield members disagree with their position, against 29 of 685 enumeration
-// members.
+// way `GtkOdd.below` does for the enums -- and it is the shape that matters most: 119 of the
+// 156 bitfield members the Gtk-4.0 vocabulary carries disagree with their declaration
+// position, against 29 of 672 enumeration members.
 if (data.FLAG_VALUES?.["GtkStateFlags.insensitive"] !== 8) {
   fail(
     `FLAG_VALUES lost the GIR value: GtkStateFlags.insensitive is ${data.FLAG_VALUES?.["GtkStateFlags.insensitive"]}, GIR says 8`,

@@ -152,7 +152,12 @@ while reaching neither `Widgets` nor `ChildHolders` nor `SLOT_CANDIDATES`; and a
 declaration its owner's vocabulary leaves out is inlined rather than imported). The emitted
 vocabulary is also in each package's
 own `tsconfig.json#include`, so `gjsify run check:types` compiles it — the only thing that
-catches it referencing a name the main emitter did not emit.
+catches it referencing a name the main emitter did not emit. One refusal has no fixture,
+because only Clutter, St, Gtk, Gio and GLib are generified, by name: a property typed by its
+class's own type parameter prints the type the parameter REPLACED, and that hand-written
+record (`packages/lib/src/generics/`) is refused when it disagrees with the bound the class
+declares — two of the four were wrong, and `@girs/shell-11` shipped `Clutter.Content` for a
+`ClutterLayoutManager`. `gjsify run build:types` is what exercises it.
 
 ### GIR → TS Mapping
 

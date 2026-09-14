@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!-- AriaStale-1.0.gir — the control for the OTHER direction of the exception list.
+
+     `GtkAccessibleState.busy` here DOES state its value type, so the declared exception
+     for it has stopped being needed and generation must exit non-zero saying so. Without
+     this control the exception list can only grow: a GTK release that fixes the doc would
+     leave a hand-written answer standing beside an authoritative one, and the day the two
+     disagree nothing would say which is which.
+
+     This is the shape upstream fixes look like, so it is not hypothetical — it is what
+     `fixtures/Mini-1.0.gir` will turn into when GTK writes the sentence. -->
+<repository version="1.2" xmlns="http://www.gtk.org/introspection/core/1.0" xmlns:c="http://www.gtk.org/introspection/c/1.0" xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="GLib" version="2.0"/>
+  <package name="ariastale"/>
+  <c:include name="ariastale.h"/>
+  <namespace name="AriaStale" version="1.0" shared-library="libariastale.so" c:prefix="Gtk" c:identifier-prefixes="Gtk" c:symbol-prefixes="gtk">
+
+    <enumeration name="AccessibleProperty" c:type="GtkAccessibleProperty" glib:type-name="GtkAccessibleProperty" glib:get-type="gtk_accessible_property_get_type">
+      <member name="level" value="0" c:identifier="GTK_ACCESSIBLE_PROPERTY_LEVEL" glib:nick="level">
+        <doc xml:space="preserve">The hierarchical level. Value type: integer</doc>
+      </member>
+    </enumeration>
+
+    <enumeration name="AccessibleRelation" c:type="GtkAccessibleRelation" glib:type-name="GtkAccessibleRelation" glib:get-type="gtk_accessible_relation_get_type">
+      <member name="col_count" value="0" c:identifier="GTK_ACCESSIBLE_RELATION_COL_COUNT" glib:nick="col-count">
+        <doc xml:space="preserve">The number of columns. Value type: integer</doc>
+      </member>
+    </enumeration>
+
+    <enumeration name="AccessibleState" c:type="GtkAccessibleState" glib:type-name="GtkAccessibleState" glib:get-type="gtk_accessible_state_get_type">
+      <!-- THE FIX, arriving upstream: the convention now covers this member too. -->
+      <member name="busy" value="0" c:identifier="GTK_ACCESSIBLE_STATE_BUSY" glib:nick="busy">
+        <doc xml:space="preserve">A “busy” state. Value type: boolean</doc>
+      </member>
+    </enumeration>
+
+    <class name="Widget" c:symbol-prefix="widget" c:type="GtkWidget" glib:type-name="GtkWidget" glib:get-type="gtk_widget_get_type" parent="GObject.Object" abstract="1">
+      <property name="visible" writable="1" transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+    </class>
+
+    <class name="Box" c:symbol-prefix="box" c:type="GtkBox" glib:type-name="GtkBox" glib:get-type="gtk_box_get_type" parent="Widget">
+      <property name="spacing" writable="1" transfer-ownership="none">
+        <type name="gint" c:type="gint"/>
+      </property>
+    </class>
+
+  </namespace>
+</repository>

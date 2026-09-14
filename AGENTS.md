@@ -90,7 +90,13 @@ SET, and whose members still carry numbers 21 bitfield-typed widget properties n
 declaration-keyed join saying WHICH enum or bitfield a settable property is (without it the
 numbers are half an answer: nothing else says `orientation` is a `GtkOrientation`; every GType
 it names has numbers in SOME vocabulary — a referenced bitfield whose owner emits none is
-inlined, which `GtkGLArea:allowed-apis` needed and 4 more rows in the corpus with it), a
+inlined, which `GtkGLArea:allowed-apis` needed and 4 more rows in the corpus with it), the ARIA
+VALUE TYPE of every accessible property/relation/state — the one row not about a ParamSpec,
+because an `accessibility { }` block is typed by GTK's ARIA table and not by the widget
+(`orientation` is settable on a `GtkLabel` that has no such property, `checked: true` is a
+tristate 1 and not a boolean), read from each member's own doc sentence and COMPLETE OR
+REFUSED, its only remainder a declared exception list carrying a reason per entry, each entry
+failing once it stops being needed — a
 GType-keyed `Widgets` map, and the same facts again as runtime data in the sibling `.js` —
 because types are erased and the only check that can go red for a real reason is a consumer asking the
 INSTALLED library whether every name is real. Code:
@@ -117,9 +123,12 @@ contradict nothing, which is how a derived nick passes review; `gjsify run check
 re-measures that over `girs/` and asserts the two invariants the fallback rests on — the
 dashed property name from `IntrospectedProperty.girName`, the GType from `glibTypeName`.
 
-Gate: `tests/widget-vocabulary` — positives plus three controls that must go the other way (flag
-off emits nothing, a broken fixture exits non-zero naming the declaration, and the `.d.ts` and
-`.js` halves are read separately and compared). The emitted surface is also in each package's
+Gate: `tests/widget-vocabulary` — positives plus six controls that must go the other way (flag
+off emits nothing, a broken fixture exits non-zero naming the declaration, the `.d.ts` and
+`.js` halves are read separately and compared, an ARIA member whose doc states no value type is
+refused, a declared ARIA exception that is no longer needed is refused, and `noComments` with
+`widgetVocabulary` is refused rather than emitting an empty ARIA table). The emitted surface
+is also in each package's
 own `tsconfig.json#include`, so `gjsify run check:types` compiles it — the only thing that
 catches a surface referencing a name the main emitter did not emit.
 

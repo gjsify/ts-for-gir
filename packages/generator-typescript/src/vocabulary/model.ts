@@ -47,12 +47,11 @@ import {
   TypeIdentifier,
   type TypeExpression,
 } from "@ts-for-gir/lib";
+import { type AriaValueTypes, buildAriaValueTypes } from "./aria.ts";
+import { VocabularyError } from "./errors.ts";
 
 /** The GType every widget descends from. Matched by GType, so Gtk-3.0 qualifies too. */
 const WIDGET_ROOT_GTYPE = "GtkWidget";
-
-/** Thrown with the offending member named — never swallowed into a fallback type. */
-export class VocabularyError extends Error {}
 
 /**
  * A property whose printed type accepts no value at all.
@@ -281,6 +280,16 @@ export interface WidgetVocabulary {
    * members disagree with their position, against 29 of 685 enumeration members.
    */
   readonly flags: ReadonlyMap<string, VocabularyEnum>;
+  /**
+   * The ARIA value-type table, empty for every namespace that does not declare it.
+   *
+   * The one part of a widget vocabulary that is not a fact about a ParamSpec: an
+   * `accessibility { … }` block is typed by GTK's ARIA table instead, and the two
+   * disagree — `orientation` is settable on any widget there, `checked` is a
+   * `GtkAccessibleTristate` rather than a boolean. Read from GIR documentation and
+   * refused where GIR is silent; see `./aria.ts`.
+   */
+  readonly aria: AriaValueTypes;
   /** GIR namespace -> the import this surface needs for its VALUE types. */
   readonly namespaceImports: ReadonlyMap<string, string>;
   /** `@girs/<pkg>/vocabulary` -> the names imported from another namespace's vocabulary. */
@@ -1084,6 +1093,7 @@ export function buildWidgetVocabulary(
     declarations: withBases,
     enums,
     flags,
+    aria: buildAriaValueTypes(module, config),
     namespaceImports,
     surfaceImports: new Map([...surfaceImports].map(([k, v]) => [k, [...v].sort()])),
     omissions: computeOmissions(withBases),

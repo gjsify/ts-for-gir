@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!-- AriaBroken-1.0.gir — the NEGATIVE control for the ARIA value-type table.
+
+     `GtkAccessibleProperty.label` documents no value type and is not in the declared
+     exception list, so generation must exit non-zero and NAME it. Everything else here
+     is the smallest namespace that reaches the ARIA builder at all: a widget root, one
+     concrete widget, and all three ARIA enums, because a namespace declaring only some
+     of them is refused for a different reason and would prove nothing about this one. -->
+<repository version="1.2" xmlns="http://www.gtk.org/introspection/core/1.0" xmlns:c="http://www.gtk.org/introspection/c/1.0" xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="GLib" version="2.0"/>
+  <package name="ariabroken"/>
+  <c:include name="ariabroken.h"/>
+  <namespace name="AriaBroken" version="1.0" shared-library="libariabroken.so" c:prefix="Gtk" c:identifier-prefixes="Gtk" c:symbol-prefixes="gtk">
+
+    <enumeration name="AccessibleProperty" c:type="GtkAccessibleProperty" glib:type-name="GtkAccessibleProperty" glib:get-type="gtk_accessible_property_get_type">
+      <!-- THE DEFECT. A doc string that says what the property means and never says what
+           it takes. Guessing `string` from the name is what a partial table invites and
+           is wrong for `checked`, `level` and `orientation` alike. -->
+      <member name="label" value="0" c:identifier="GTK_ACCESSIBLE_PROPERTY_LABEL" glib:nick="label">
+        <doc xml:space="preserve">A human-readable name for the element.</doc>
+      </member>
+      <member name="level" value="1" c:identifier="GTK_ACCESSIBLE_PROPERTY_LEVEL" glib:nick="level">
+        <doc xml:space="preserve">The hierarchical level. Value type: integer</doc>
+      </member>
+    </enumeration>
+
+    <enumeration name="AccessibleRelation" c:type="GtkAccessibleRelation" glib:type-name="GtkAccessibleRelation" glib:get-type="gtk_accessible_relation_get_type">
+      <member name="col_count" value="0" c:identifier="GTK_ACCESSIBLE_RELATION_COL_COUNT" glib:nick="col-count">
+        <doc xml:space="preserve">The number of columns. Value type: integer</doc>
+      </member>
+    </enumeration>
+
+    <enumeration name="AccessibleState" c:type="GtkAccessibleState" glib:type-name="GtkAccessibleState" glib:get-type="gtk_accessible_state_get_type">
+      <member name="busy" value="0" c:identifier="GTK_ACCESSIBLE_STATE_BUSY" glib:nick="busy">
+        <doc xml:space="preserve">A “busy” state. This state has boolean values</doc>
+      </member>
+    </enumeration>
+
+    <class name="Widget" c:symbol-prefix="widget" c:type="GtkWidget" glib:type-name="GtkWidget" glib:get-type="gtk_widget_get_type" parent="GObject.Object" abstract="1">
+      <property name="visible" writable="1" transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+    </class>
+
+    <class name="Box" c:symbol-prefix="box" c:type="GtkBox" glib:type-name="GtkBox" glib:get-type="gtk_box_get_type" parent="Widget">
+      <property name="spacing" writable="1" transfer-ownership="none">
+        <type name="gint" c:type="gint"/>
+      </property>
+    </class>
+
+  </namespace>
+</repository>

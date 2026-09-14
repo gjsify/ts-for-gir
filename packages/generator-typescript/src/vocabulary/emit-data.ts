@@ -101,6 +101,17 @@ export function emitVocabularyData(surface: WidgetVocabulary): string {
     [...entry.deprecated].sort().map((nick) => `${entry.gtype}.${nick}`),
   );
 
+  // Keyed `<enum GType>.<nick>` like `ENUM_VALUES` beside it: the ARIA names ARE members of
+  // `GtkAccessibleProperty`, `GtkAccessibleRelation` and `GtkAccessibleState`, so a consumer
+  // reads the name out of `ENUM_NICKS` and the value type out of here with one key parser.
+  const ariaTypes = [...surface.aria.kinds]
+    .sort(([a], [b]) => (a < b ? -1 : 1))
+    .map(([member, kind]) => `    '${member}': '${kind}',`);
+
+  const ariaEnums = [...surface.aria.enums]
+    .sort(([a], [b]) => (a < b ? -1 : 1))
+    .map(([member, gtype]) => `    '${member}': '${gtype}',`);
+
   // Same two shapes as the enum tables above, over the bitfields — see `WidgetVocabulary.flags`
   // for why they are carried at all and why they are their own table.
   const bitfields = [...surface.flags.values()].sort((a, b) => (a.gtype < b.gtype ? -1 : 1));
@@ -248,6 +259,31 @@ export const FLAG_VALUES_UNREADABLE = ${record(flagUnreadable)};
 // that OWNS an enum publishes it, so 57 of the 438 entries a full run emits want the owner's
 // vocabulary loaded too. Owners that emit none (Gdk, Pango) are inlined into the tables above.
 export const PROP_ENUMS = ${record(propEnums)};
+
+// \`<enum GType>.<nick>\` -> the kind of value that ARIA slot takes.
+//
+// The one table here that is not about a ParamSpec. A GtkBuilder or Blueprint
+// \`accessibility { … }\` block is typed by GTK's ARIA table instead, and the two disagree
+// where it matters: \`orientation\` is settable on a \`GtkLabel\` that implements no
+// \`GtkOrientable\` and has no such property, and \`checked\` is a \`GtkAccessibleTristate\`, so
+// \`checked: true\` means the number 1 and not the boolean. A consumer typing those slots
+// from the widget gets both wrong, silently.
+//
+// Read from each member's own documentation, which is where GTK keeps the table --
+// \`gtk_accessible_property_init_value()\` is the C half and is not introspectable, the
+// sentence is. Complete or absent, never partial: a member whose documentation states no
+// value type fails generation and names itself, because a missing row is indistinguishable
+// from "GTK has no such name" and the plausible fallback emits \`true\` where GTK means 1.
+export const ARIA_VALUE_TYPES = ${record(ariaTypes)};
+
+// The same keys, for the \`'enum'\` rows only -> the GType of the enum.
+//
+// The join on from a kind to a number, and a table of its own for the reason \`PROP_ENUMS\`
+// is one: folding the GType into \`ARIA_VALUE_TYPES\` would make its values a mix of six
+// reserved words and arbitrary GTypes, and telling them apart would be the consumer's
+// problem. With this, \`ARIA_VALUE_TYPES[k] === 'enum'\` is the whole test, and
+// \`ENUM_NICKS[ARIA_VALUE_ENUMS[k]]\` is the nick list.
+export const ARIA_VALUE_ENUMS = ${record(ariaEnums)};
 
 export const SLOT_CANDIDATES = ${record(slots)};
 

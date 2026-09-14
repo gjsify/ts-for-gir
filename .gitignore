@@ -26,6 +26,9 @@ tests/**/generated-off/
 tests/**/generated-inline/
 tests/**/generated-cross/
 tests/**/generated-broken/
+tests/**/generated-aria-broken/
+tests/**/generated-aria-stale/
+tests/**/generated-no-comments/
 
 # Local Claude Code state (plans, settings)
 .claude/

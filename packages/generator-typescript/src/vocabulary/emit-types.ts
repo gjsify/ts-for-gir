@@ -375,6 +375,45 @@ export const FLAG_VALUES_UNREADABLE: Readonly<Record<string, string>>;
  */
 export const PROP_ENUMS: Readonly<Record<string, string>>;
 
+/**
+ * The kinds of value a GTK accessible property, relation or state takes.
+ *
+ * \`enum\` is the one that needs a second lookup: \`ARIA_VALUE_ENUMS\` names the enum GType,
+ * and \`ENUM_NICKS\` and \`ENUM_VALUES\` answer from there.
+ */
+export type AriaValueType = 'string' | 'integer' | 'double' | 'boolean' | 'reference' | 'enum';
+
+/**
+ * \`<enum GType>.<nick>\` -> the kind of value that ARIA slot takes.
+ *
+ * The one table in this file that is not a fact about a ParamSpec. A GtkBuilder or
+ * Blueprint \`accessibility { … }\` block is typed by GTK's ARIA table, not by the widget,
+ * and the two disagree where it costs most: \`orientation\` is settable on a \`GtkLabel\`
+ * that implements no \`GtkOrientable\`, and \`checked\` is a \`GtkAccessibleTristate\`, so
+ * \`checked: true\` is the number 1 rather than a boolean. Typing those slots from the
+ * widget's properties gets both wrong and raises nothing.
+ *
+ * Keyed like \`ENUM_VALUES\` because the ARIA names ARE enum members — of
+ * \`GtkAccessibleProperty\`, \`GtkAccessibleRelation\` and \`GtkAccessibleState\` — so
+ * \`ENUM_NICKS\` already lists them and one key parser reads both.
+ *
+ * Read from each member's own GIR documentation. \`gtk_accessible_property_init_value()\`
+ * is the C half of this table and is not introspectable; the doc sentence is, and states
+ * the type for 52 of the 53 members in gtk4 4.23.3. Complete or absent, never partial: a
+ * member the generator cannot answer for fails the build and names itself.
+ */
+export const ARIA_VALUE_TYPES: Readonly<Record<string, AriaValueType>>;
+
+/**
+ * The same keys, for the \`'enum'\` rows only -> the GType of that enum.
+ *
+ * A table of its own for the reason \`PROP_ENUMS\` is one: folded in, the values of
+ * \`ARIA_VALUE_TYPES\` would be six reserved words mixed with arbitrary GTypes and telling
+ * them apart would be the consumer's problem. Apart, \`ARIA_VALUE_TYPES[k] === 'enum'\` is
+ * the whole test and \`ENUM_NICKS[ARIA_VALUE_ENUMS[k]]\` is the nick list.
+ */
+export const ARIA_VALUE_ENUMS: Readonly<Record<string, string>>;
+
 /** Widget GType -> slot name -> the method that may adopt a child there. */
 export const SLOT_CANDIDATES: Readonly<Record<string, Readonly<Record<string, string>>>>;
 

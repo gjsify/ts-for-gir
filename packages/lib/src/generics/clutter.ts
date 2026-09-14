@@ -33,8 +33,12 @@ function applyClutterGenerics(namespace: IntrospectedNamespace): void {
 		constraint: Content.getType(),
 	});
 
-	// Update layout_manager properties
-	updatePropertyType(Actor, ["layout_manager", "layoutManager"], new GenericType("A", Content.getType()));
+	// The second argument is what the parameter REPLACED: the property's GIR type, which is also
+	// the bound of `A` and `B` above. The widget vocabulary reads it back, because its props
+	// interfaces are not generic and print this instead of the parameter name — and it refuses a
+	// record that disagrees with the bound. Both used to say `Content`; `layout-manager` is a
+	// `ClutterLayoutManager`, and `@girs/shell-11/vocabulary` shipped `Clutter.Content` for it.
+	updatePropertyType(Actor, ["layout_manager", "layoutManager"], new GenericType("A", LayoutManager.getType()));
 
 	// Update content properties
 	updatePropertyType(Actor, ["content"], new GenericType("B", Content.getType()));
@@ -46,7 +50,8 @@ function applyClutterGenerics(namespace: IntrospectedNamespace): void {
 		constraint: Actor.getType(),
 	});
 
-	updatePropertyType(Clone, ["source"], new GenericType("A", Content.getType()));
+	// `source` is a `ClutterActor`, the bound of `A` above — not a `Content`.
+	updatePropertyType(Clone, ["source"], new GenericType("A", Actor.getType()));
 }
 
 function updatePropertyType(

@@ -5,7 +5,7 @@
 // WHY THE NEGATIVE HALVES ARE NOT OPTIONAL. A suite of positive assertions over a
 // generator's own output cannot tell "the rule works" from "the rule never ran": a
 // `mustNot` list that passes because the emitter produced nothing at all reads exactly
-// like one that passes because the emitter filtered correctly. So this file carries three
+// like one that passes because the emitter filtered correctly. So this file carries six
 // controls beside the positives, each of which has to go the other way:
 //
 //   1. FLAG OFF, same input — no surface file and no `./vocabulary` in the package.json. A
@@ -23,6 +23,18 @@
 //   3. TYPE HALF vs RUNTIME HALF — the two are read independently (regex over the `.d.ts`,
 //      `import()` of the `.js`) and compared. Emitting both from one model means the
 //      generator agrees with itself; this is the only check that notices if it stops.
+//   4. AN ARIA MEMBER WHOSE DOC STATES NO VALUE TYPE, covered by no declared exception.
+//      The table is complete or absent: a dropped row is indistinguishable from "GTK has
+//      no such name", and the fallback a consumer reaches for next emits `true` for
+//      `checked: true` where GTK means the tristate 1.
+//   5. A DECLARED EXCEPTION THAT IS NO LONGER NEEDED. The exception for
+//      `GtkAccessibleState.busy` is data, and data that can only grow is a second source
+//      of truth with no expiry. `fixtures-aria/AriaStale-1.0.gir` is that entry's own
+//      upstream fix, and generation must refuse rather than keep a hand-written answer
+//      beside an authoritative one.
+//   6. `noComments` WITH `widgetVocabulary`. The ARIA value types live in GIR
+//      documentation, so the flag that discards it must refuse rather than quietly emit
+//      an empty table — control 4's failure arrived at through an option instead.
 //
 // And one positive case that is easy to get wrong in the safe-looking direction: a base
 // from a namespace with no surface of its own. Dropping it is what a reader would do; it
@@ -98,6 +110,12 @@ const must = [
   // hovers, carried none.
   ["property documents its default", /@default 6/],
   ["helper types", /export type WidgetGType = keyof Widgets;/],
+  // The ARIA kinds are a closed union in the type half, so a consumer that switches on
+  // one is told by tsc when a kind it does not handle appears.
+  [
+    "ARIA value kinds are a closed union",
+    /export type AriaValueType = 'string' \| 'integer' \| 'double' \| 'boolean' \| 'reference' \| 'enum';/,
+  ],
   // Deprecation, in the same shape the main `.d.ts` uses. The surface read a base
   // field the property parser never sets, so it emitted none at all — 0 against 136
   // in the `.d.ts` for the same namespace.
@@ -377,9 +395,14 @@ for (const key of Object.keys(data.PROP_ENUMS ?? {})) {
 // Gtk-4.0 bitfield members disagree with their position, against 29 of 685 enumeration
 // members.
 if (data.FLAG_VALUES?.["GtkStateFlags.insensitive"] !== 8) {
-  fail(`FLAG_VALUES lost the GIR value: GtkStateFlags.insensitive is ${data.FLAG_VALUES?.["GtkStateFlags.insensitive"]}, GIR says 8`);
+  fail(
+    `FLAG_VALUES lost the GIR value: GtkStateFlags.insensitive is ${data.FLAG_VALUES?.["GtkStateFlags.insensitive"]}, GIR says 8`,
+  );
 }
-if (data.FLAG_VALUES?.["GtkStateFlags.active"] !== 1 || data.FLAG_VALUES?.["GtkStateFlags.focused"] !== 2) {
+if (
+  data.FLAG_VALUES?.["GtkStateFlags.active"] !== 1 ||
+  data.FLAG_VALUES?.["GtkStateFlags.focused"] !== 2
+) {
   fail(`FLAG_VALUES is ${JSON.stringify(data.FLAG_VALUES)}`);
 }
 if (data.FLAG_VALUES?.["GtkStateFlags.insensitive"] === 2) {
@@ -402,6 +425,109 @@ for (const key of Object.keys(data.FLAG_VALUES ?? {})) {
   }
 }
 
+// ------------------------------------------------------------- the ARIA value types
+//
+// The one table here that is not a fact about a ParamSpec. An `accessibility { }` block in
+// a GtkBuilder or Blueprint file is typed by GTK's ARIA table instead, and a consumer that
+// types it from the widget's properties gets it wrong in both directions at once.
+
+// COMPLETE, not "the ones that parsed". Six, two and four is every member of the three
+// fixture enums, and a count is what notices a row quietly dropping out — every other
+// assertion below only looks at rows that are already there.
+{
+  const perEnum = {};
+  for (const key of Object.keys(data.ARIA_VALUE_TYPES ?? {})) {
+    const gtype = key.slice(0, key.indexOf("."));
+    perEnum[gtype] = (perEnum[gtype] ?? 0) + 1;
+  }
+  const expected = { GtkAccessibleProperty: 6, GtkAccessibleRelation: 2, GtkAccessibleState: 4 };
+  for (const [gtype, count] of Object.entries(expected)) {
+    if (perEnum[gtype] !== count) {
+      fail(
+        `ARIA_VALUE_TYPES has ${perEnum[gtype] ?? 0} row(s) for ${gtype}, the fixture declares ${count}`,
+      );
+    }
+  }
+}
+// Keyed the way `ENUM_VALUES` is, because the ARIA names ARE enum members: one key parser
+// reads both, and `ENUM_NICKS` already lists the names.
+for (const key of Object.keys(data.ARIA_VALUE_TYPES ?? {})) {
+  const at = key.indexOf(".");
+  if (!(data.ENUM_NICKS?.[key.slice(0, at)] ?? []).includes(key.slice(at + 1))) {
+    fail(`ARIA_VALUE_TYPES keys ${key}, which is not a nick of that enum in ENUM_NICKS`);
+  }
+}
+// THE FOUR SHAPES THE SENTENCE TAKES, each of which defeats a "rest of the line" capture in
+// a different way, and all four are in the real Gtk-4.0.gir.
+if (data.ARIA_VALUE_TYPES?.["GtkAccessibleProperty.key-shortcuts"] !== "string") {
+  fail("a sentence that continues after the type was not cut at the first token");
+}
+if (data.ARIA_VALUE_TYPES?.["GtkAccessibleState.expanded"] !== "boolean") {
+  fail("a type whose qualifier wraps onto the next line was not read");
+}
+if (data.ARIA_VALUE_TYPES?.["GtkAccessibleState.visited"] !== "boolean") {
+  fail("a sentence-final period was carried into the type token");
+}
+if (data.ARIA_VALUE_ENUMS?.["GtkAccessibleState.checked"] !== "GtkAccessibleTristate") {
+  fail(
+    `a qualified [enum@Ns.Name] link was not resolved: ${JSON.stringify(data.ARIA_VALUE_ENUMS)}`,
+  );
+}
+// THE DECLARED EXCEPTION, which is data and not a branch: `busy` states its type in prose
+// and the list in `aria.ts` answers for it. `fixtures-aria-stale` holds the other half —
+// an entry that has stopped being needed must fail, so the list cannot only grow.
+if (data.ARIA_VALUE_TYPES?.["GtkAccessibleState.busy"] !== "boolean") {
+  fail("the declared exception for GtkAccessibleState.busy did not reach the table");
+}
+// `checked: true` is the number 1 of a tristate and not the boolean, and `orientation` is
+// settable on a widget that implements no GtkOrientable. Those two are the whole reason the
+// table exists, so they are walked end to end the way a consumer does.
+{
+  const kind = data.ARIA_VALUE_TYPES?.["GtkAccessibleState.checked"];
+  const gtype = data.ARIA_VALUE_ENUMS?.["GtkAccessibleState.checked"];
+  const resolved = data.ENUM_VALUES?.[`${gtype}.true`];
+  if (kind !== "enum" || resolved !== 1) {
+    fail(
+      `walking ARIA_VALUE_TYPES -> ARIA_VALUE_ENUMS -> ENUM_VALUES for \`checked: true\` gave ${kind}/${resolved}, expected enum/1`,
+    );
+  }
+}
+{
+  const gtype = data.ARIA_VALUE_ENUMS?.["GtkAccessibleProperty.orientation"];
+  const resolved = data.ENUM_VALUES?.[`${gtype}.vertical`];
+  if (resolved !== 1) fail(`ARIA \`orientation: vertical\` resolved to ${resolved}, expected 1`);
+  // …and it must NOT have come from the widget. The ARIA slot exists on every widget
+  // whether or not the ParamSpec does, which is exactly what a widget-derived answer
+  // cannot express — so if the root ever grows the property, this stops being a control.
+  if ((data.OWN_PROPS?.GtkWidget ?? []).includes("orientation")) {
+    fail("the fixture stopped being a control: GtkWidget now has an `orientation` property");
+  }
+}
+// The two tables are one answer, in both directions. A GType named here with no nicks
+// anywhere is a join into nothing — the shape `PROP_ENUMS` shipped 5 of before inlining.
+{
+  const enumKeys = Object.keys(data.ARIA_VALUE_TYPES ?? {})
+    .filter((key) => data.ARIA_VALUE_TYPES[key] === "enum")
+    .sort();
+  const joined = Object.keys(data.ARIA_VALUE_ENUMS ?? {}).sort();
+  if (enumKeys.join(",") !== joined.join(",")) {
+    fail(`the 'enum' rows and ARIA_VALUE_ENUMS disagree: ${enumKeys} vs ${joined}`);
+  }
+  for (const [key, gtype] of Object.entries(data.ARIA_VALUE_ENUMS ?? {})) {
+    if (!data.ENUM_NICKS?.[gtype]) {
+      fail(`ARIA_VALUE_ENUMS says ${key} is a ${gtype}, which ENUM_NICKS does not carry`);
+    }
+  }
+}
+// The six kinds are closed. A seventh would be a token the reader invented rather than one
+// GIR wrote, and the `.d.ts` union beside it would no longer describe the data.
+{
+  const kinds = new Set(["string", "integer", "double", "boolean", "reference", "enum"]);
+  for (const [key, kind] of Object.entries(data.ARIA_VALUE_TYPES ?? {})) {
+    if (!kinds.has(kind)) fail(`ARIA_VALUE_TYPES gives ${key} the unknown kind '${kind}'`);
+  }
+}
+
 // The TYPE half declares all three, or the two halves have stopped describing one surface.
 for (const name of [
   "ENUM_VALUES",
@@ -410,6 +536,8 @@ for (const name of [
   "FLAG_VALUES",
   "FLAG_VALUES_UNREADABLE",
   "PROP_ENUMS",
+  "ARIA_VALUE_TYPES",
+  "ARIA_VALUE_ENUMS",
 ]) {
   if (!new RegExp(`export const ${name}\\s*:`).test(types)) {
     fail(`the .d.ts half does not declare ${name}`);
@@ -717,34 +845,86 @@ if (!existsSync(crossFile)) {
   if (!/holder\?: Derived\.Thing/.test(cross)) fail("the redeclared property lost its own type");
 }
 
-// ---------------------------------------------------------------- control 2: broken input
+// ------------------------------------------------- control 2: inputs that must be refused
 
 const cli = join(here, "..", "..", "packages", "cli", "bin", "ts-for-gir-dev");
-let brokenExit = 0;
-let brokenOutput = "";
-try {
-  brokenOutput = execFileSync(
-    process.execPath,
-    [cli, "generate", "--configName", ".ts-for-gir.broken.rc.js"],
-    {
+
+/** Generate with one config and report how it went, never throwing. */
+const generate = (configName) => {
+  try {
+    const output = execFileSync(process.execPath, [cli, "generate", "--configName", configName], {
       cwd: here,
       encoding: "utf8",
       stdio: ["ignore", "pipe", "pipe"],
-    },
-  );
-} catch (error) {
-  brokenExit = typeof error.status === "number" ? error.status : 1;
-  brokenOutput = `${error.stdout ?? ""}${error.stderr ?? ""}`;
-}
-if (brokenExit === 0) {
-  fail("the broken fixture generated successfully — an unmappable property type is not refused");
-} else if (!/GtkPanel\.mystery|Broken\.Panel\.mystery/.test(brokenOutput)) {
-  // A non-zero exit for some other reason would be a gate that goes red without
-  // measuring anything, which is the failure this whole file is shaped against.
-  fail(`the broken fixture failed without naming the property:\n${brokenOutput.slice(-2000)}`);
-}
+    });
+    return { exit: 0, output };
+  } catch (error) {
+    return {
+      exit: typeof error.status === "number" ? error.status : 1,
+      output: `${error.stdout ?? ""}${error.stderr ?? ""}`,
+    };
+  }
+};
+
+/**
+ * One refusal: non-zero AND saying which thing it refused.
+ *
+ * The second half is not decoration. A gate that exits non-zero for some other reason —
+ * a missing fixture, a changed flag name — is a gate that goes red without measuring
+ * anything, and it reads exactly like one that works.
+ */
+const mustRefuse = (label, configName, names) => {
+  const { exit, output } = generate(configName);
+  if (exit === 0) {
+    fail(`${label}: generated successfully`);
+    return 0;
+  }
+  if (!names.test(output)) fail(`${label}: failed without naming it:\n${output.slice(-2000)}`);
+  return exit;
+};
+
+const brokenExit = mustRefuse(
+  "an unmappable property type",
+  ".ts-for-gir.broken.rc.js",
+  /GtkPanel\.mystery|Broken\.Panel\.mystery/,
+);
 const brokenSurface = join(here, "generated-broken", "broken-1.0", "broken-1.0-vocabulary.d.ts");
 if (existsSync(brokenSurface)) fail("the broken fixture wrote a surface file before failing");
+
+// The ARIA table is complete or absent, never partial. A dropped row is indistinguishable
+// from "GTK has no such name", and the fallback a consumer reaches for next emits `true`
+// where GTK means 1 — which is the divergence this whole table was built to close.
+const ariaBrokenExit = mustRefuse(
+  "an ARIA member whose documentation states no value type",
+  ".ts-for-gir.aria-broken.rc.js",
+  /GtkAccessibleProperty\.label/,
+);
+// The exception list, checked in the direction that keeps it from only growing. `busy`
+// states its type here, so the declared exception for it is obsolete.
+const ariaStaleExit = mustRefuse(
+  "a declared ARIA exception that is no longer needed",
+  ".ts-for-gir.aria-stale.rc.js",
+  /GtkAccessibleState\.busy/,
+);
+// Neither refusal may leave a vocabulary behind. A half-written surface on disk is the one
+// outcome worse than the failure itself: the build is red and the file a consumer imports
+// is there, so a rerun that skips the failing namespace picks up a partial table.
+for (const [dir, pkg] of [
+  ["generated-aria-broken", "ariabroken-1.0"],
+  ["generated-aria-stale", "ariastale-1.0"],
+]) {
+  if (existsSync(join(here, dir, pkg, `${pkg}-vocabulary.d.ts`))) {
+    fail(`${dir} wrote a vocabulary file before failing`);
+  }
+}
+// `noComments` discards the only source these value types have. Emitting the rest of the
+// vocabulary with an empty ARIA table would be the silent-partial failure above, arrived at
+// through a flag instead of a doc defect.
+const noCommentsExit = mustRefuse(
+  "widgetVocabulary with noComments",
+  ".ts-for-gir.no-comments.rc.js",
+  /noComments/,
+);
 
 // ----------------------------------------------------------------------------------
 
@@ -760,7 +940,9 @@ console.log(
     `${Object.keys(data.ENUM_NICKS).length} nick union(s), ` +
     `${Object.keys(data.ENUM_VALUES).length} enum value(s) with ${Object.keys(data.ENUM_VALUES_UNREADABLE).length} declared unreadable, ` +
     `${Object.keys(data.FLAG_VALUES).length} flag value(s) with ${Object.keys(data.FLAG_VALUES_UNREADABLE).length} declared unreadable, ` +
-    `${Object.keys(data.PROP_ENUMS).length} property/enum join(s); ` +
+    `${Object.keys(data.PROP_ENUMS).length} property/enum join(s), ` +
+    `${Object.keys(data.ARIA_VALUE_TYPES).length} ARIA value type(s) with ${Object.keys(data.ARIA_VALUE_ENUMS).length} enum join(s); ` +
     `flag-off control clean; ` +
-    `broken fixture rejected with exit ${brokenExit}`,
+    `refused: broken type ${brokenExit}, silent ARIA doc ${ariaBrokenExit}, ` +
+    `stale ARIA exception ${ariaStaleExit}, noComments ${noCommentsExit}`,
 );

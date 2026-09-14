@@ -9,7 +9,7 @@
         "generate:inline": "ts-for-gir-dev generate --configName .ts-for-gir.inline.rc.js",
         "generate:cross": "ts-for-gir-dev generate --configName .ts-for-gir.cross.rc.js",
         "assert": "node --no-warnings assert.mjs",
-        "clear": "rm -rf generated generated-off generated-inline generated-cross generated-broken"
+        "clear": "rm -rf generated generated-off generated-inline generated-cross generated-broken generated-aria-broken generated-aria-stale generated-no-comments"
     },
     "devDependencies": {
         "@ts-for-gir/cli": "workspace:^"

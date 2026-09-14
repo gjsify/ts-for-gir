@@ -58,6 +58,87 @@ newline" c:identifier="GTK_ODD_HOSTILE" glib:nick="hostile"/>
       <member name="two" value="1" c:identifier="GTK_UNREFERENCED_TWO" glib:nick="two"/>
     </enumeration>
 
+    <!-- THE ARIA TABLE, all three enums, because a namespace that declares part of it is
+         refused: one renamed upstream would otherwise shrink the table by a third in
+         silence. The members are chosen for the SHAPES the doc sentence takes in the real
+         Gtk-4.0.gir, not for coverage of GTK's actual list. -->
+    <enumeration name="AccessibleProperty" c:type="GtkAccessibleProperty" glib:type-name="GtkAccessibleProperty" glib:get-type="gtk_accessible_property_get_type">
+      <member name="label" value="0" c:identifier="GTK_ACCESSIBLE_PROPERTY_LABEL" glib:nick="label">
+        <doc xml:space="preserve">A human-readable name. Value type: string</doc>
+      </member>
+      <!-- The sentence CONTINUES after the type. A "rest of the line" capture reads
+           `string. The format of the value is a space-separated list of shortcuts, with`
+           and matches no known type — the real `key-shortcuts` is exactly this. -->
+      <member name="key_shortcuts" value="1" c:identifier="GTK_ACCESSIBLE_PROPERTY_KEY_SHORTCUTS" glib:nick="key-shortcuts">
+        <doc xml:space="preserve">A keyboard shortcut. Value type: string. The format of the value is a
+  space-separated list of shortcuts, with each modifier joined by `+`.</doc>
+      </member>
+      <member name="level" value="2" c:identifier="GTK_ACCESSIBLE_PROPERTY_LEVEL" glib:nick="level">
+        <doc xml:space="preserve">The hierarchical level. Value type: integer</doc>
+      </member>
+      <member name="value_max" value="3" c:identifier="GTK_ACCESSIBLE_PROPERTY_VALUE_MAX" glib:nick="value-max">
+        <doc xml:space="preserve">The upper bound of a range. Value type: double</doc>
+      </member>
+      <member name="modal" value="4" c:identifier="GTK_ACCESSIBLE_PROPERTY_MODAL" glib:nick="modal">
+        <doc xml:space="preserve">Whether interaction is blocked. Value type: boolean</doc>
+      </member>
+      <!-- THE CASE THE WIDGET CANNOT ANSWER, and the reason this table exists at all:
+           `orientation` is settable in an `accessibility { }` block on any widget, and
+           `GtkLabel` implements no `GtkOrientable` and has no such property. A consumer
+           typing the slot from the ParamSpecs has nothing to resolve `vertical` against. -->
+      <member name="orientation" value="5" c:identifier="GTK_ACCESSIBLE_PROPERTY_ORIENTATION" glib:nick="orientation">
+        <doc xml:space="preserve">The orientation of the element. Value type: [enum@Orientation]</doc>
+      </member>
+    </enumeration>
+
+    <enumeration name="AccessibleRelation" c:type="GtkAccessibleRelation" glib:type-name="GtkAccessibleRelation" glib:get-type="gtk_accessible_relation_get_type">
+      <!-- `reference` is a kind of its own: the value stays the id it was written as,
+           and collapsing it into `string` would quote a name that must not be quoted. -->
+      <member name="active_descendant" value="0" c:identifier="GTK_ACCESSIBLE_RELATION_ACTIVE_DESCENDANT" glib:nick="active-descendant">
+        <doc xml:space="preserve">Identifies the currently active element. Value type: reference</doc>
+      </member>
+      <member name="col_count" value="1" c:identifier="GTK_ACCESSIBLE_RELATION_COL_COUNT" glib:nick="col-count">
+        <doc xml:space="preserve">The number of columns. Value type: integer</doc>
+      </member>
+    </enumeration>
+
+    <enumeration name="AccessibleState" c:type="GtkAccessibleState" glib:type-name="GtkAccessibleState" glib:get-type="gtk_accessible_state_get_type">
+      <!-- THE DECLARED EXCEPTION. GTK writes this one in prose — "This state has boolean
+           values" — and every other member of the three enums ends with `Value type: …`.
+           The exception list in `aria.ts` names it, and this member is what keeps that
+           list honest: give it a `Value type:` sentence and generation must fail with
+           "no longer needed", which `fixtures-aria-stale` does on purpose. -->
+      <member name="busy" value="0" c:identifier="GTK_ACCESSIBLE_STATE_BUSY" glib:nick="busy">
+        <doc xml:space="preserve">A “busy” state. This state has boolean values</doc>
+      </member>
+      <!-- NOT a boolean, although the name and the literal both look like one:
+           `checked: true` in a Blueprint file is the number 1 of a tristate. -->
+      <member name="checked" value="1" c:identifier="GTK_ACCESSIBLE_STATE_CHECKED" glib:nick="checked">
+        <doc xml:space="preserve">A “checked” state. Value type: [enum@Mini.AccessibleTristate]</doc>
+      </member>
+      <!-- GTK WRAPS the doc, so the qualifier lands on the next line. A capture that took
+           the rest of the line would read `boolean` here and `boolean or undefined` in
+           `selected`, which is the same fact spelled two ways. -->
+      <member name="expanded" value="2" c:identifier="GTK_ACCESSIBLE_STATE_EXPANDED" glib:nick="expanded">
+        <doc xml:space="preserve">An “expanded” state. Value type: boolean
+  or undefined</doc>
+      </member>
+      <!-- Sentence-final period, which `visited` carries in the real GIR. -->
+      <member name="visited" value="3" c:identifier="GTK_ACCESSIBLE_STATE_VISITED" glib:nick="visited">
+        <doc xml:space="preserve">Whether a link has been visited.
+Value type: boolean.</doc>
+      </member>
+    </enumeration>
+
+    <!-- The enum `checked` links to. Its `true` is 1 and its `false` is 0, so a consumer
+         that read `checked: true` as a boolean and one that resolved the nick agree by
+         accident — `mixed` is where they part, which is why the join is not optional. -->
+    <enumeration name="AccessibleTristate" c:type="GtkAccessibleTristate" glib:type-name="GtkAccessibleTristate" glib:get-type="gtk_accessible_tristate_get_type">
+      <member name="false" value="0" c:identifier="GTK_ACCESSIBLE_TRISTATE_FALSE" glib:nick="false"/>
+      <member name="true" value="1" c:identifier="GTK_ACCESSIBLE_TRISTATE_TRUE" glib:nick="true"/>
+      <member name="mixed" value="2" c:identifier="GTK_ACCESSIBLE_TRISTATE_MIXED" glib:nick="mixed"/>
+    </enumeration>
+
     <!-- A bitfield, which must stay `number`: GObject exposes no way to resolve a nick SET. -->
     <bitfield name="StateFlags" c:type="GtkStateFlags" glib:type-name="GtkStateFlags" glib:get-type="gtk_state_flags_get_type">
       <member name="active" value="1" c:identifier="GTK_STATE_FLAG_ACTIVE" glib:nick="active"/>

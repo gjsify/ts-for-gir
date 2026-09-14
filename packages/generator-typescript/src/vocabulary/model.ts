@@ -34,6 +34,7 @@
 
 import {
   ArrayType,
+  type Generic,
   GenericType,
   type GirModule,
   IntrospectedClass,
@@ -615,12 +616,16 @@ interface PrintedType {
  *
  * The identifiers themselves still come from the model's own resolution, so a name
  * this surface references is a name the main emitter emitted.
+ *
+ * `generics` are the owning declaration's own type parameters, read only when the
+ * property's type IS one of them — see the `GenericType` branch.
  */
 function printPropType(
   module: GirModule,
   config: OptionsGeneration,
   type: TypeExpression,
   where: string,
+  generics: readonly Generic[],
 ): PrintedType {
   const namespaces = new Set<string>();
   const enums = new Map<string, VocabularyEnum>();
@@ -650,9 +655,26 @@ function printPropType(
     //
     // A generic with nothing recorded is still refused: there is no second answer to fall
     // back on, and inventing `unknown` would type a property that accepts a specific class.
+    //
+    // AND THE RECORD IS CHECKED, because it is hand-written. The injection that replaced
+    // the type names both the parameter and what it replaced, and the class's own generic
+    // declares the bound that parameter must satisfy; the two name one type when the
+    // injection is right. `generics/clutter.ts` recorded `Content` for
+    // `Clutter.Actor:layout-manager` and `Clutter.Clone:source`, whose bounds are
+    // `LayoutManager` and `Actor`, and the first version of this branch printed the
+    // record unchecked — `@girs/shell-11/vocabulary` shipped `'layout-manager'?:
+    // Clutter.Content`. A disagreement is a generator defect, not a GIR fact, so it is
+    // refused with both names rather than printed as either.
     if (node instanceof GenericType) {
       if (!node.replacedType)
         throw new VocabularyError(`${where}: generic ${node.identifier} replaced nothing`);
+      const declared = generics.find((generic) => generic.type.identifier === node.identifier);
+      const bound = declared?.constraint ?? declared?.defaultType ?? null;
+      if (bound && !bound.unwrap().equals(node.replacedType.unwrap())) {
+        throw new VocabularyError(
+          `${where}: generic ${node.identifier} records ${node.replacedType.print(module, config)} as what it replaced, but the declaration bounds it by ${bound.print(module, config)}`,
+        );
+      }
       return walk(node.replacedType, depth);
     }
     if (node instanceof TypeIdentifier) {
@@ -780,7 +802,13 @@ function ownProps(
     const girName = prop.girName;
     if (!girName) continue;
     if (byName.has(girName)) continue;
-    const printed = printPropType(module, config, prop.type, `${keyOf(cls)}.${girName}`);
+    const printed = printPropType(
+      module,
+      config,
+      prop.type,
+      `${keyOf(cls)}.${girName}`,
+      cls.generics,
+    );
     collect(printed);
     byName.set(girName, {
       girName,

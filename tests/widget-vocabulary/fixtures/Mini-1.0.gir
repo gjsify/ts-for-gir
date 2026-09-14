@@ -366,6 +366,49 @@ Value type: boolean.</doc>
       </method>
     </class>
 
+    <!-- INSTANTIABLE AND NOT A WIDGET, which is the whole point of the coverage rule.
+         A UI description file names a GType and GtkBuilder resolves it through
+         `g_type_from_name`, which knows nothing about widgets — so a `.ui` file is full of
+         objects like this one. The real shape is `GtkSizeGroup`, and it is the case that
+         paid for the rule: `Gtk.SizeGroup { mode: horizontal; }` compiled to the string
+         `horizontal` where `blueprint-compiler` writes `1`, because no widget chain reached
+         `GtkSizeGroup` and it therefore had no `PROP_ENUMS` row to resolve the nick with.
+
+         Three things must be true of it at once, and they pull in different directions:
+         it gets a props interface, a `DECLS` chain and a `PROP_ENUMS` row; it must NOT
+         appear in `Widgets` or `ChildHolders`; and although `add_widget` takes exactly one
+         widget — the very shape `slotNameOf` derives a slot from — it must get no
+         `SLOT_CANDIDATES` row, because slots are about placing children and this is not a
+         container. -->
+    <class name="SizeGroup" c:symbol-prefix="size_group" c:type="GtkSizeGroup" glib:type-name="GtkSizeGroup" glib:get-type="gtk_size_group_get_type" parent="GObject.Object">
+      <property name="mode" writable="1" transfer-ownership="none">
+        <type name="Orientation" c:type="GtkOrientation"/>
+      </property>
+      <method name="add_widget" c:identifier="gtk_size_group_add_widget">
+        <return-value transfer-ownership="none"><type name="none" c:type="void"/></return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none"><type name="Mini.SizeGroup" c:type="GtkSizeGroup*"/></instance-parameter>
+          <parameter name="widget" transfer-ownership="none"><type name="Widget" c:type="GtkWidget*"/></parameter>
+        </parameters>
+      </method>
+    </class>
+
+    <!-- CONTROL for the other edge of the same rule: ABSTRACT, so `g_object_new` refuses
+         it and no UI file can name it, and nothing concrete derives from it, so no chain
+         reaches it either. It must be absent from the vocabulary ENTIRELY — no props
+         interface, no `DECLS` row, no `OWN_PROPS` key — and its settable property is what
+         makes that visible rather than vacuous.
+
+         Without this control "every registered class" and "every declaration" produce the
+         same fixture output, and the rule could quietly become the latter. `GtkWidget`
+         above holds the opposite half: abstract, reached as a base, and therefore emitted
+         as an interface while still getting no `Widgets` row. -->
+    <class name="Tool" c:symbol-prefix="tool" c:type="GtkTool" glib:type-name="GtkTool" glib:get-type="gtk_tool_get_type" parent="GObject.Object" abstract="1">
+      <property name="sharpness" writable="1" transfer-ownership="none">
+        <type name="gint" c:type="gint"/>
+      </property>
+    </class>
+
     <!-- CONTROL, and the one that decides whether the rule is the PAIR or either half:
          a setter with no getter. If this reaches CHILD_HOLDERS the rule matched one
          accessor, which would also sweep in every `set_child`-carrying non-widget the

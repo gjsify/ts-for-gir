@@ -1,6 +1,6 @@
 {
 	"name": "@ts-for-gir/templates",
-	"version": "5.1.0",
+	"version": "5.2.0",
 	"description": "Templates for ts-for-gir",
 	"type": "module",
 	"main": "package.json",

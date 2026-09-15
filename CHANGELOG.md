@@ -1,5 +1,15 @@
 # Changelog
 
+## [5.2.0](https://github.com/gjsify/ts-for-gir/compare/v5.1.0...v5.2.0) (2026-09-15)
+
+### Features
+
+* **vocabulary:** cover every declaration a UI file can instantiate ([#474](https://github.com/gjsify/ts-for-gir/issues/474)) ([24b49e1](https://github.com/gjsify/ts-for-gir/commit/24b49e191d575c3ac5bc91bd2f546a6a82dd7acc))
+
+### Bug Fixes
+
+* publish with the CLI the job names, and pin it past the read-back ([#475](https://github.com/gjsify/ts-for-gir/issues/475)) ([9c3d350](https://github.com/gjsify/ts-for-gir/commit/9c3d35071042545b1fdd62b378be4b4bb9dbab19)), references [gjsify#1509](https://github.com/gjsify/issues/1509) [gjsify#1509](https://github.com/gjsify/issues/1509) [gjsify#1682](https://github.com/gjsify/issues/1682)
+
 ## [5.1.0](https://github.com/gjsify/ts-for-gir/compare/v5.0.0...v5.1.0) (2026-09-14)
 
 ### Features

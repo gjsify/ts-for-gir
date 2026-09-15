@@ -173,6 +173,62 @@ export function guardProblems(workflows) {
   return found;
 }
 
+// --- Rule 3: the release states its own patience and failure mode ----------
+
+/** `gjsify publish` reached through `--exec --`, which is how the sweep invokes it. */
+const invokesPublish = (body) => /\bgjsify\s+publish\b/.test(collapseQuoted(String(body)));
+
+/** Script names a publishing workflow block reaches via `gjsify run <name>`. */
+export function publishedScriptNames(workflows) {
+  const names = new Set();
+  for (const { text } of workflows) {
+    for (const block of runBlocks(text)) {
+      for (const line of commandLines(block)) {
+        if (!publishes(line)) continue;
+        for (const position of commandPositions(line)) {
+          const match = /\bgjsify\s+run\s+([\w:.-]+)/.exec(position);
+          if (match) names.add(match[1]);
+        }
+      }
+    }
+  }
+  return [...names];
+}
+
+/**
+ * Only the scripts a publishing workflow actually runs. `publish:types` is a documented
+ * manual escape hatch (PUBLISHING.md, "The workspace-local publish path") that no workflow
+ * calls, and holding it to the release path's rules would be a claim about a path CI does
+ * not take.
+ * @returns {string[]} one line per problem.
+ */
+export function publishScriptProblems(rootJson, names) {
+  const scripts = JSON.parse(rootJson).scripts ?? {};
+  const found = [];
+  for (const name of names) {
+    const body = scripts[name];
+    if (body === undefined || !invokesPublish(body)) continue;
+    if (/--verify-defer\b/.test(body)) {
+      found.push(
+        `package.json script \`${name}\` passes \`--verify-defer\`, which downgrades an ` +
+          "unconfirmed publish to exit 0. The CLI documents that flag as being ONLY for a caller " +
+          "that re-checks the same set afterwards; this repository has no such sweep, so " +
+          "deferring restores exactly the silence that lost three packages from v5.1.0.",
+      );
+    }
+    if (!/--verify-timeout(?:=|\s+)\d+/.test(body)) {
+      found.push(
+        `package.json script \`${name}\` does not state \`--verify-timeout\`. The read-back is ` +
+          "fatal, so how long the release waits for the registry decides whether a slow package " +
+          "reddens the job -- measured on v5.1.0, eight of twelve packages were recorded after " +
+          "the PUT returned, the slowest at +368s. That budget belongs here, not in a CLI default " +
+          "that can change under this repository the way the `^0.44.0` pin did.",
+      );
+    }
+  }
+  return found;
+}
+
 // --- SELF-TEST FIRST: a check that cannot go red is worse than no check. -----
 
 const manifest = (range) => JSON.stringify({ devDependencies: { "@gjsify/cli": range } });
@@ -268,6 +324,36 @@ const GUARD_VECTORS = [
   ],
 ];
 
+const scriptManifest = (body) => JSON.stringify({ scripts: { "publish:app": body } });
+const SCRIPT_VECTORS = [
+  [
+    "the release budget stated here",
+    "gjsify foreach -p --exec -- gjsify publish --trusted --tolerate-republish --verify-timeout 600",
+    0,
+  ],
+  [
+    "inheriting whatever the CLI defaults to",
+    "gjsify foreach -p --exec -- gjsify publish --trusted --tolerate-republish",
+    1,
+  ],
+  [
+    "deferring with no sweep to defer TO",
+    "gjsify foreach -p --exec -- gjsify publish --trusted --tolerate-republish --verify-defer --verify-timeout 600",
+    1,
+  ],
+  [
+    "both at once is two problems",
+    "gjsify foreach -p --exec -- gjsify publish --trusted --tolerate-republish --verify-defer",
+    2,
+  ],
+  [
+    "`--verify-timeout=600` is stating it too",
+    "gjsify foreach -p --exec -- gjsify publish --trusted --tolerate-republish --verify-timeout=600",
+    0,
+  ],
+  ["a script that runs no publish is not judged", "gjsify run build:app", 0],
+];
+
 const selfTestFailures = [];
 for (const [label, range, expected] of PIN_VECTORS) {
   const got = pinProblems([{ file: "v.json", json: manifest(range) }], MIN_CLI_VERSION).length;
@@ -276,6 +362,13 @@ for (const [label, range, expected] of PIN_VECTORS) {
 for (const [label, text, expected] of GUARD_VECTORS) {
   const got = guardProblems([{ file: "v.yml", text }]).length;
   if (got !== expected) selfTestFailures.push(`guard/${label}: expected ${expected}, got ${got}`);
+}
+for (const [label, body, expected] of SCRIPT_VECTORS) {
+  const got = publishScriptProblems(scriptManifest(body), ["publish:app"]).length;
+  if (got !== expected) selfTestFailures.push(`script/${label}: expected ${expected}, got ${got}`);
+}
+if (publishedScriptNames([{ file: "v.yml", text: GOOD_BLOCK }]).join() !== "publish:app") {
+  selfTestFailures.push("publishedScriptNames: a publishing block must name the script it runs");
 }
 if (runBlocks(GOOD_BLOCK).length !== 1) {
   selfTestFailures.push("runBlocks: a block scalar must come back as one block");
@@ -307,7 +400,13 @@ function main() {
         }))
     : [];
 
-  const problems = [...pinProblems(manifests, MIN_CLI_VERSION), ...guardProblems(workflows)];
+  const rootJson = manifests.find(({ file }) => file === "package.json")?.json;
+  const scriptNames = publishedScriptNames(workflows);
+  const problems = [
+    ...pinProblems(manifests, MIN_CLI_VERSION),
+    ...guardProblems(workflows),
+    ...(rootJson ? publishScriptProblems(rootJson, scriptNames) : []),
+  ];
   if (problems.length > 0) {
     console.error("check-publish-cli: the npm publish path cannot prove what it published:");
     for (const problem of problems) console.error(`  - ${problem}`);
@@ -318,9 +417,10 @@ function main() {
     runBlocks(text).some((b) => commandLines(b).some(publishes)),
   );
   console.log(
-    `check-publish-cli: self-test green -- ${PIN_VECTORS.length + GUARD_VECTORS.length} vector(s). ` +
+    `check-publish-cli: self-test green -- ${PIN_VECTORS.length + GUARD_VECTORS.length + SCRIPT_VECTORS.length} vector(s). ` +
       `${manifests.length} manifest(s) pin \`@gjsify/cli\` at or above ${MIN_CLI_VERSION}; ` +
       `${publishing.length} publishing workflow(s) of ${workflows.length} state the binary they ` +
-      "publish with, in the step that publishes.",
+      `publish with, in the step that publishes; ${scriptNames.join(", ") || "no"} states its own ` +
+      "read-back budget.",
   );
 }

@@ -74,8 +74,8 @@
   ],
   "devDependencies": {
     "@biomejs/biome": "^2.5.11",
-    "@gjsify/cli": "^0.44.0",
-    "@gjsify/rolldown-native": "^0.44.0",
+    "@gjsify/cli": "^0.51.1",
+    "@gjsify/rolldown-native": "^0.51.1",
     "@release-it/bumper": "^8.0.0",
     "@release-it/conventional-changelog": "^12.0.0",
     "@ts-for-gir/cli": "workspace:^",

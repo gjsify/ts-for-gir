@@ -8,11 +8,20 @@
 // registry and had to be published by a manual dispatch.
 //
 // `gjsify publish` has read back what it PUT since @gjsify/cli 0.47.0 (gjsify#1509),
-// which turns exactly that silence into a failed step. The code never ran. The job
-// bootstrapped 0.51.1 and printed `gjsify --version` -> 0.51.1 in a step of its own,
-// then published with `PATH="$WS_PATH/node_modules/.bin:$PATH" gjsify run publish:app`
-// -- the workspace's own 0.44.0, pinned `^0.44.0`, a range that cannot reach 0.47.
-// The version the job printed was about a different binary than the one that worked.
+// which turns exactly that silence into a failed step. That code did not run. With
+// `GJSIFY_PUBLISH_DEBUG=1` the step logged `PUT`, `auth-mode:` and `payload size:`
+// twelve times each and not one read-back line -- the output shape of a CLI below 0.47,
+// which here means the workspace's own 0.44.0, pinned `^0.44.0`, a range that cannot
+// reach 0.47. The version the job PRINTED, in a step of its own, was 0.51.1.
+//
+// WHICH of the two binaries won is not fully settled, and this deliberately does not
+// depend on the answer. Measured with 0.51.1, a nested `gjsify` resolves through a
+// `/tmp/gjsify-shim-*` directory to the OUTER CLI, which would have made the publish
+// 0.51.1; and the `PATH=` prefix the step carried named `${{ github.workspace }}`, a
+// HOST path absent from the container, so it cannot be what selected 0.44.0 either.
+// Something in between chose it. So both candidate binaries are held to the floor --
+// the one on PATH and the one in `node_modules` -- and the guard is correct whichever
+// mechanism applies.
 //
 // Nothing caught it. gjsify's own "version skew" warning compares the running CLI
 // against the one ALREADY INSTALLED, so on a fresh container -- where `gjsify install`

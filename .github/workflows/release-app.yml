@@ -77,20 +77,40 @@ jobs:
         rm /tmp/g.mjs
         echo "$HOME/.local/bin" >> "$GITHUB_PATH"
 
-    - run: gjsify --version
+    # The BOOTSTRAPPED CLI. It runs the install below and nothing else; the steps that
+    # build and publish run the workspace's own copy, reported separately after the
+    # install. Printing one binary's version and doing the work with another is how
+    # v5.1.0 reported success while three of twelve packages never reached npm.
+    - name: Report the bootstrapped CLI (it runs the install only)
+      run: gjsify --version
 
     - name: Install dependencies (full workspace)
       run: gjsify install --immutable
 
+    # Everything below runs the WORKSPACE's own @gjsify/cli -- the version this repo pins
+    # and `gjsify-lock.json` records -- so what ships is built by a known version rather
+    # than by whatever `latest` bootstrapped that morning.
+    #
+    # It goes on PATH ONCE, for the whole job, rather than as a `PATH=... gjsify ...`
+    # prefix repeated per step. Two copies of that prefix are what let a job report one
+    # binary and use another. This one was worse than a duplicate: it read
+    # `${{ github.workspace }}`, which is the HOST path (/home/runner/work/ts-for-gir/...),
+    # while a step inside the fedora container works in /__w/ts-for-gir/ts-for-gir -- the
+    # same run logged both. `$PWD` is the step's own working directory, which is what
+    # ci.yml already uses.
+    - name: Put the workspace CLI on PATH for every step below
+      run: echo "$PWD/node_modules/.bin" >> "$GITHUB_PATH"
+
+    - name: Report the CLI that builds and publishes
+      run: |
+        echo "resolved: $(command -v gjsify)"
+        gjsify --version
+
     - name: Build Node.js app bundle
-      env:
-        WS_PATH: ${{ github.workspace }}
-      run: PATH="$WS_PATH/node_modules/.bin:$PATH" gjsify run build:app
+      run: gjsify run build:app
 
     - name: Build GJS bundle
-      env:
-        WS_PATH: ${{ github.workspace }}
-      run: PATH="$WS_PATH/node_modules/.bin:$PATH" gjsify run build:app:gjs
+      run: gjsify run build:app:gjs
 
     # The GJS bundle ships inside the npm tarball under bin/ts-for-gir-gjs
     # (declared via `gjsify.bin` in @ts-for-gir/cli's package.json). Both
@@ -103,14 +123,38 @@ jobs:
     # once); use skip_publish=true (the default) when the goal is just to
     # (re-)upload missing release assets without touching npm.
     - name: Publish app packages to npm
+      id: publish
       if: ${{ github.event_name == 'release' || inputs.skip_publish == false }}
       env:
-        WS_PATH: ${{ github.workspace }}
         # Surface OIDC mode + per-package PUT URLs in the job log so a
         # failed exchange can be debugged without re-running with a
         # local patch. Equivalent of gjsify/gjsify's release.yml.
         GJSIFY_PUBLISH_DEBUG: "1"
-      run: PATH="$WS_PATH/node_modules/.bin:$PATH" gjsify run publish:app
+      # The guard runs in THIS shell, immediately before the publish, so it resolves the
+      # same `gjsify` the next line does -- a separate step could not vouch for this one.
+      # It refuses anything below the release that made `gjsify publish` read back what it
+      # PUT, and it names both binaries a nested `gjsify publish` could resolve to.
+      #
+      # IF THIS STEP GOES RED ON `publish-unconfirmed`, READ THIS BEFORE RE-CUTTING.
+      # An unconfirmed read-back is FATAL here, deliberately: `publish:app` passes
+      # `--verify-timeout 600` and no `--verify-defer`, so a package npm accepted but has
+      # not served within 600s fails the job. That is a real outcome, not a hypothetical --
+      # on v5.1.0 eight of twelve packages were recorded after their PUT returned, the
+      # slowest (`@ts-for-gir/reporter`) at +368s.
+      #
+      # Deferring instead would need a sweep at the end of the job to re-check the same
+      # set; this repository has none, and `--verify-defer` without one is exactly the
+      # silence that let v5.1.0 report success having shipped nine of twelve. So the
+      # trade is taken the other way: a loud false red beats a quiet half-release.
+      #
+      # The remedy is to RE-RUN this workflow, not to publish by hand. `gjsify publish`
+      # carries `--tolerate-republish`, and its 409 path reads back too, so a re-run
+      # either confirms the version that was already stored or fails again with a real
+      # reason. Check the registry first; if the version is there, the re-run is a no-op
+      # that turns the job green.
+      run: |
+        node --no-warnings scripts/assert-publish-cli.mjs
+        gjsify run publish:app
 
     # Ship the Node-free install path:
     #   - install.js          bootstrap script users curl to install ts-for-gir
@@ -132,6 +176,7 @@ jobs:
         cat ts-for-gir-gjs.sha256
 
     - name: Upload installer + GJS bundle to GitHub release
+      id: upload
       if: github.event_name == 'release' || inputs.release_tag != ''
       uses: softprops/action-gh-release@v3
       with:
@@ -145,10 +190,25 @@ jobs:
           packages/cli/bin/ts-for-gir-gjs
           packages/cli/bin/ts-for-gir-gjs.sha256
 
+    # Both halves of this job are conditional, so the summary reports the OUTCOME each
+    # one actually had -- success, failure or skipped -- rather than restating the `if:`
+    # that decided whether it ran. It used to claim the publish and the asset upload
+    # unconditionally, so a dispatch that ran neither still printed "App packages
+    # successfully published to npm"; running it on failure as well would have made that
+    # worse, not better, without reading the outcomes.
     - name: Summary
+      if: ${{ always() }}
       env:
         RELEASE_TAG: ${{ github.event.release.tag_name || github.event.inputs.release_tag || 'unknown' }}
+        PUBLISH_OUTCOME: ${{ steps.publish.outcome }}
+        UPLOAD_OUTCOME: ${{ steps.upload.outcome }}
       run: |
-        echo "App packages successfully published to npm for release ${RELEASE_TAG}"
-        echo "Published packages: @ts-for-gir/* and @gi.ts/*"
-        echo "Release assets uploaded: install.js, ts-for-gir-gjs, ts-for-gir-gjs.sha256"
+        echo "Release tag:  ${RELEASE_TAG}"
+        echo "npm publish:  ${PUBLISH_OUTCOME:-skipped}"
+        echo "asset upload: ${UPLOAD_OUTCOME:-skipped}"
+        if [ "$PUBLISH_OUTCOME" = "success" ]; then
+          echo "  @ts-for-gir/* and @gi.ts/* published; gjsify publish confirmed each on the registry"
+        fi
+        if [ "$UPLOAD_OUTCOME" = "success" ]; then
+          echo "  assets: install.js, ts-for-gir-gjs, ts-for-gir-gjs.sha256"
+        fi

@@ -13,7 +13,7 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.4.13",
-		"@gjsify/cli": "^0.30.0",
+		"@gjsify/cli": "^0.51.1",
 		"typescript": "^6.0.2"
 	},
 	"dependencies": {

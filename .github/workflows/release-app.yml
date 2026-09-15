@@ -134,6 +134,24 @@ jobs:
       # same `gjsify` the next line does -- a separate step could not vouch for this one.
       # It refuses anything below the release that made `gjsify publish` read back what it
       # PUT, and it names both binaries a nested `gjsify publish` could resolve to.
+      #
+      # IF THIS STEP GOES RED ON `publish-unconfirmed`, READ THIS BEFORE RE-CUTTING.
+      # An unconfirmed read-back is FATAL here, deliberately: `publish:app` passes
+      # `--verify-timeout 600` and no `--verify-defer`, so a package npm accepted but has
+      # not served within 600s fails the job. That is a real outcome, not a hypothetical --
+      # on v5.1.0 eight of twelve packages were recorded after their PUT returned, the
+      # slowest (`@ts-for-gir/reporter`) at +368s.
+      #
+      # Deferring instead would need a sweep at the end of the job to re-check the same
+      # set; this repository has none, and `--verify-defer` without one is exactly the
+      # silence that let v5.1.0 report success having shipped nine of twelve. So the
+      # trade is taken the other way: a loud false red beats a quiet half-release.
+      #
+      # The remedy is to RE-RUN this workflow, not to publish by hand. `gjsify publish`
+      # carries `--tolerate-republish`, and its 409 path reads back too, so a re-run
+      # either confirms the version that was already stored or fails again with a real
+      # reason. Check the registry first; if the version is there, the re-run is a no-op
+      # that turns the job green.
       run: |
         node --no-warnings scripts/assert-publish-cli.mjs
         gjsify run publish:app

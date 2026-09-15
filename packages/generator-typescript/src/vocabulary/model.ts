@@ -34,6 +34,8 @@
 
 import {
   ArrayType,
+  type Generic,
+  GenericType,
   type GirModule,
   IntrospectedClass,
   IntrospectedEnum,
@@ -56,13 +58,14 @@ const WIDGET_ROOT_GTYPE = "GtkWidget";
 /**
  * A property whose printed type accepts no value at all.
  *
- * There are two ways a property can end up unusable, and only one of them is a
- * generator defect. An UNRESOLVABLE identifier is: the model has no such type, so the
- * surface would reference a name the main emitter never emitted, and
- * {@link printPropType} throws. A RESOLVABLE type TypeScript cannot express is not:
- * `GcrTreeSelector:columns` is a writable `gpointer` and `GimpDialog:help-func` is a C
- * callback, and the model prints both as `never` on purpose — a caller cannot pass one
- * from GJS either.
+ * There are three ways a property can end up unusable, and they have three different
+ * fixes, so the provenance line keeps them apart. A RESOLVABLE type TypeScript cannot
+ * express is this one: `GcrTreeSelector:columns` is a writable `gpointer` and
+ * `GimpDialog:help-func` is a C callback, and the model prints both as `never` on purpose
+ * — a caller cannot pass one from GJS either. An identifier the model cannot resolve
+ * ACROSS namespaces is the second, and it is named in `unresolvedProps` instead. An
+ * identifier it cannot resolve WITHIN one namespace is the third, and it is a defect in
+ * that GIR or in this generator, so {@link printPropType} throws. See there.
  *
  * So `never` stays in the interface rather than being dropped (dropping shrinks the
  * vocabulary by a property nobody would notice was missing, and the name is still a
@@ -98,6 +101,12 @@ export interface VocabularyProp {
    */
   readonly enumType?: string;
   readonly ts: string;
+  /**
+   * The identifiers the printed type could not resolve, where it holds `never` for that
+   * reason rather than because nothing in TypeScript satisfies the type. See
+   * {@link printPropType}; the provenance line separates the two.
+   */
+  readonly unresolvedTypes?: readonly string[];
   readonly constructOnly: boolean;
   readonly since?: string;
   readonly doc?: string;
@@ -164,8 +173,6 @@ export interface VocabularyWidget {
   readonly gtype: string;
   /** Slot name -> the method that might adopt a child there. Candidates only. */
   readonly slotCandidates: ReadonlyMap<string, string>;
-  /** Every declaration this widget draws members from, self first, by GType. */
-  readonly chain: readonly string[];
 }
 
 export interface VocabularyEnum {
@@ -177,7 +184,7 @@ export interface VocabularyEnum {
    * Nick -> the integer GObject registers for it, straight from GIR's `value`.
    *
    * Position in `nicks` is NOT this number and never was. Counting is wrong on 6 of the
-   * 129 enums a GTK 4 vocabulary carries -- 104 in Gtk-4.0 and 25 in Adw-1 -- and
+   * 137 enums a GTK 4 vocabulary carries -- 112 in Gtk-4.0 and 25 in Adw-1 -- and
    * `GtkConstraintStrength.required` is why
    * "off by one" is the wrong mental model for it: counting answers 0 where the library
    * means 1001001000.
@@ -238,6 +245,7 @@ export interface VocabularyProvenance {
   readonly droppedBases: readonly string[];
   readonly inlinedBases: readonly string[];
   readonly unsettableProps: readonly string[];
+  readonly unresolvedProps: readonly string[];
 }
 
 export interface WidgetVocabulary {
@@ -264,6 +272,16 @@ export interface WidgetVocabulary {
   readonly childHolders: readonly VocabularyWidget[];
   /** Key -> declaration, own and foreign, in emit order. */
   readonly declarations: ReadonlyMap<string, VocabularyDecl>;
+  /**
+   * Instantiable GType -> every declaration it draws members from, self first.
+   *
+   * The whole covered population, which is WIDER than `widgets` + `childHolders`: a
+   * `.ui` file instantiates `GtkSizeGroup`, `GtkTextTag` and every `GtkEventController`
+   * without any of them being a widget or holding one. Keyed by GType because that is
+   * the name a UI file writes and the key `OWN_PROPS`, `OWN_SIGNALS` and `PROP_ENUMS`
+   * are read at.
+   */
+  readonly chains: ReadonlyMap<string, readonly string[]>;
   /** Nick unions this surface must emit itself, by enum GType. */
   readonly enums: ReadonlyMap<string, VocabularyEnum>;
   /**
@@ -273,11 +291,12 @@ export interface WidgetVocabulary {
    * different questions and one of them has to stay narrow. `ENUM_NICKS` refuses a
    * bitfield on purpose: GObject cannot resolve a nick SET, so a union of nicks would
    * type something every host rejects. That reason says nothing about a single member's
-   * NUMBER, and the number is what a host without GI needs — 21 writable widget
-   * properties in Gtk-4.0 and Adw-1 are bitfield-typed (`GtkEntry:input-hints`,
-   * `GtkPopoverMenu:flags`, `AdwTabView:shortcuts`, …), typed bare `number` with nothing
-   * to compute one from. Counting is worst exactly here: 95 of 121 Gtk-4.0 bitfield
-   * members disagree with their position, against 29 of 685 enumeration members.
+   * NUMBER, and the number is what a host without GI needs — 23 settable properties in
+   * Gtk-4.0 and Adw-1 are bitfield-typed (`GtkEntry:input-hints`, `GtkPopoverMenu:flags`,
+   * `AdwTabView:shortcuts`, `GtkDropTarget:actions`, …), typed bare `number` with nothing
+   * to compute one from. Counting is worst exactly here: 119 of the 156 Gtk-4.0 bitfield
+   * members this vocabulary carries disagree with their declaration position, against
+   * 29 of 672 enumeration members.
    */
   readonly flags: ReadonlyMap<string, VocabularyEnum>;
   /**
@@ -395,16 +414,62 @@ const isWidgetClass = (module: GirModule, cls: IntrospectedBaseClass): boolean =
   cls.glibTypeName === WIDGET_ROOT_GTYPE ||
   ancestorsOf(module, cls).some((a) => a.glibTypeName === WIDGET_ROOT_GTYPE);
 
-/** The concrete widgets of one namespace — the set a renderer can actually create. */
-function concreteWidgetsOf(module: GirModule): IntrospectedClass[] {
+/**
+ * Everything a UI description file can INSTANTIATE in one namespace.
+ *
+ * This is the coverage rule, and it is the consumer's question rather than the
+ * renderer's: a GtkBuilder or Blueprint file names a GType and sets properties on it,
+ * and GtkBuilder resolves that name through `g_type_from_name`, which knows nothing
+ * about widgets. So the set is every registered, non-abstract, introspectable class —
+ * abstract because `g_object_new` refuses one, registered because an unregistered class
+ * has no name for a UI file to write.
+ *
+ * "Registered" is read as `glib:type-name`, and the two GIR attributes are the same
+ * fact: over the 719 GIRs in `girs/`, all 16209 `<class>` and `<interface>` elements
+ * carry BOTH `glib:type-name` and `glib:get-type`, and none carries one without the
+ * other. So there is no third state to decide, and no second attribute to read.
+ *
+ * WHAT THIS REPLACES, and why the narrower rule was wrong. The first version covered
+ * declarations reachable from a concrete WIDGET, plus the child holders. It is a
+ * renderer's rule — "what can I put on screen" — and a UI file asks something wider.
+ * Measured on Gtk-4.0, which has 301 registered declarations: 127 were covered and 174
+ * were not, and the uncovered set is not a tail. It is every `GtkCellRenderer*`, every
+ * `GtkEventController*` / `GtkGesture*`, `GtkDragSource`, `GtkDropTarget*`, `GtkTextTag`,
+ * the layout managers, `GtkSizeGroup`, `GtkTreeSelection`, `GtkTreeViewColumn`,
+ * `GtkIMContext`, `AdwToast`, `AdwStyleManager`, `AdwTimedAnimation` — the objects a
+ * `.ui` file is FULL of. The cost was measurable at the consumer:
+ * `Gtk.SizeGroup { mode: horizontal; }` compiled to the string `horizontal` where
+ * `blueprint-compiler` writes `1`, because `GtkSizeGroup` reached no `PROP_ENUMS` row.
+ *
+ * The NAMESPACE gate is untouched by this and stays what it was: only a namespace that
+ * declares a concrete `GtkWidget` descendant emits a vocabulary at all. Widening the
+ * declaration rule inside those namespaces adds names a UI file can write; widening the
+ * namespace rule would publish a vocabulary for 373 namespaces with no UI in them.
+ *
+ * `Widgets` and `CHILD_HOLDERS` are NOT widened — they are the index of what IS a
+ * widget, and a consumer asking that question gets the same answer as before.
+ */
+function instantiableClassesOf(module: GirModule): IntrospectedClass[] {
   return classLikeMembers(module).filter(
     (cls): cls is IntrospectedClass =>
       cls instanceof IntrospectedClass &&
+      // `g_object_new` on an abstract type warns and returns NULL, so no UI file names
+      // one. It still reaches the vocabulary as a BASE of something concrete — that is
+      // the chain's job, not this list's.
       !cls.isAbstract &&
       cls.isIntrospectable &&
-      typeof cls.glibTypeName === "string" &&
-      isWidgetClass(module, cls),
+      typeof cls.glibTypeName === "string",
   );
+}
+
+/**
+ * The concrete widgets of one namespace — the set a renderer can put on screen.
+ *
+ * A strict subset of {@link instantiableClassesOf}, and it stays separate because
+ * `Widgets` answers "is this a widget" and nothing else in the vocabulary does.
+ */
+function concreteWidgetsOf(module: GirModule): IntrospectedClass[] {
+  return instantiableClassesOf(module).filter((cls) => isWidgetClass(module, cls));
 }
 
 /**
@@ -438,10 +503,7 @@ function concreteWidgetsOf(module: GirModule): IntrospectedClass[] {
  * is its sibling.
  */
 function childHoldersOf(module: GirModule, config: OptionsGeneration): IntrospectedClass[] {
-  return classLikeMembers(module).filter((cls): cls is IntrospectedClass => {
-    if (!(cls instanceof IntrospectedClass)) return false;
-    if (cls.isAbstract || !cls.isIntrospectable) return false;
-    if (typeof cls.glibTypeName !== "string") return false;
+  return instantiableClassesOf(module).filter((cls) => {
     // A widget is served by `concreteWidgetsOf`. Emitting it twice would put one GType
     // in two lists a consumer is entitled to concatenate.
     if (isWidgetClass(module, cls)) return false;
@@ -472,6 +534,41 @@ export function declaresWidgets(module: GirModule): boolean {
   return answer;
 }
 
+/**
+ * The declaration keys one namespace's OWN vocabulary emits.
+ *
+ * The import rule needs it, and needed it the moment coverage widened. A cross-namespace
+ * base is IMPORTED from its owner rather than copied, and that is only sound while the
+ * owner emits it — which used to follow from the rule being the same on both sides: two
+ * namespaces walking widget chains reached the same declarations. They no longer do. A
+ * consumer's instantiable set can reach a declaration the owner's cannot, and
+ * `@girs/ide-46/vocabulary` shipped `import type { GtkSourceCompletionProposalProps } from
+ * '@girs/gtksource-5/vocabulary'` for a name that package does not export — TS2724, caught
+ * by the per-package `tsc --project` and by nothing else. `GtkSource.CompletionProposal` is
+ * an interface NO class in GtkSource-5 implements; Ide-46 has one that does.
+ *
+ * So "does the owner have a vocabulary" is not the question. "Does the owner's vocabulary
+ * carry THIS declaration" is, and a declaration it does not carry is inlined here exactly
+ * as one from a namespace with no vocabulary at all — the `Gcr.Prompt` path, one condition
+ * wider.
+ *
+ * Memoised per module: a consumer asks it once per foreign declaration, and the answer is
+ * a property of the owner alone.
+ */
+const coveredKeys = new WeakMap<GirModule, ReadonlySet<string>>();
+function coveredDeclarationsOf(module: GirModule): ReadonlySet<string> {
+  const cached = coveredKeys.get(module);
+  if (cached) return cached;
+  const keys = new Set<string>();
+  // A namespace with no widgets emits no vocabulary at all, so it carries nothing.
+  if (declaresWidgets(module)) {
+    for (const cls of instantiableClassesOf(module))
+      for (const decl of declarationChain(module, cls)) keys.add(keyOf(decl));
+  }
+  coveredKeys.set(module, keys);
+  return keys;
+}
+
 interface PrintedType {
   readonly text: string;
   /** GIR namespaces whose value import the text needs. */
@@ -488,6 +585,14 @@ interface PrintedType {
    * vocabulary carried.
    */
   readonly flags: readonly VocabularyEnum[];
+  /**
+   * `<Namespace>.<Name>` for every identifier this text could not resolve.
+   *
+   * The cross-namespace half of {@link printPropType}'s resolution failure — the model
+   * answers `never` and so does this, and the entry is what keeps that from being silent.
+   * A same-namespace failure is not here, because it throws.
+   */
+  readonly unresolved: readonly string[];
   /**
    * The GType of the property's OWN type, when that type is a registered enum or bitfield.
    *
@@ -511,16 +616,21 @@ interface PrintedType {
  *
  * The identifiers themselves still come from the model's own resolution, so a name
  * this surface references is a name the main emitter emitted.
+ *
+ * `generics` are the owning declaration's own type parameters, read only when the
+ * property's type IS one of them — see the `GenericType` branch.
  */
 function printPropType(
   module: GirModule,
   config: OptionsGeneration,
   type: TypeExpression,
   where: string,
+  generics: readonly Generic[],
 ): PrintedType {
   const namespaces = new Set<string>();
   const enums = new Map<string, VocabularyEnum>();
   const flags = new Map<string, VocabularyEnum>();
+  const unresolved: string[] = [];
   /** Set only from depth 0 — see `PrintedType.ownEnumType`. */
   let ownEnumType: string | undefined;
 
@@ -537,10 +647,67 @@ function printPropType(
       const ordered = [...parts.filter((p) => p !== "null"), ...parts.filter((p) => p === "null")];
       return [...new Set(ordered)].join(" | ");
     }
+    // A property whose type is the class's own TYPE PARAMETER — `St.Bin:child` is an
+    // `A extends Clutter.Actor`, injected by `packages/lib/src/generics/`. The props
+    // interfaces are not generic, so the parameter NAME is out of scope here and printing
+    // it is TS2304. The model records what it replaced; that is the type GObject registered
+    // and the one a setter has to satisfy, so it is what this prints.
+    //
+    // A generic with nothing recorded is still refused: there is no second answer to fall
+    // back on, and inventing `unknown` would type a property that accepts a specific class.
+    //
+    // AND THE RECORD IS CHECKED, because it is hand-written. The injection that replaced
+    // the type names both the parameter and what it replaced, and the class's own generic
+    // declares the bound that parameter must satisfy; the two name one type when the
+    // injection is right. `generics/clutter.ts` recorded `Content` for
+    // `Clutter.Actor:layout-manager` and `Clutter.Clone:source`, whose bounds are
+    // `LayoutManager` and `Actor`, and the first version of this branch printed the
+    // record unchecked — `@girs/shell-11/vocabulary` shipped `'layout-manager'?:
+    // Clutter.Content`. A disagreement is a generator defect, not a GIR fact, so it is
+    // refused with both names rather than printed as either.
+    if (node instanceof GenericType) {
+      if (!node.replacedType)
+        throw new VocabularyError(`${where}: generic ${node.identifier} replaced nothing`);
+      const declared = generics.find((generic) => generic.type.identifier === node.identifier);
+      const bound = declared?.constraint ?? declared?.defaultType ?? null;
+      if (bound && !bound.unwrap().equals(node.replacedType.unwrap())) {
+        throw new VocabularyError(
+          `${where}: generic ${node.identifier} records ${node.replacedType.print(module, config)} as what it replaced, but the declaration bounds it by ${bound.print(module, config)}`,
+        );
+      }
+      return walk(node.replacedType, depth);
+    }
     if (node instanceof TypeIdentifier) {
       const resolved = node.resolveIdentifier(module, config);
-      if (!resolved)
-        throw new VocabularyError(`${where}: cannot resolve ${node.namespace}.${node.name}`);
+      if (!resolved) {
+        // TWO failures wear one shape here, and the model itself tells them apart — it
+        // logs "Unable to resolve type X in same namespace Y!" for one and
+        // "Type X could not be resolved in Y" for the other.
+        //
+        // SAME NAMESPACE is a file that contradicts itself: the GIR names a type it
+        // declares nowhere, nothing outside it can be the cause, and the vocabulary
+        // REFUSES rather than degrade — a property the model has no type for would hide a
+        // later rename in the main emitter.
+        //
+        // CROSS NAMESPACE is two independently released GIRs disagreeing, which no rule in
+        // this generator can repair. The corpus has it: `Shell-*.gir` names
+        // `Gio.DesktopAppInfo`, and glib moved that type to the `GioUnix` namespace, so
+        // `Gio-2.0.gir` declares it no more. The MAIN EMITTER's answer there is `never`
+        // (`TypeIdentifier.resolve()` — "if we can't resolve a type it is not
+        // introspectable"), and `shell-0.1.d.ts` ships `app_info: never` today. So `never`
+        // is not a fallback this invents: it is the one model's own answer, which is the
+        // whole reason the vocabulary reads that model. Refusing it would take a
+        // 705-namespace run down over one stale reference in a third-party GIR and lose
+        // the other 24 declarations of the namespace with it.
+        //
+        // Never silent either way: the identifier is named in the provenance line, in a
+        // remainder of its own rather than in `unsettableProps`, because "the model has no
+        // such type" and "no TypeScript value satisfies this" have different fixes.
+        if (node.namespace === module.namespace)
+          throw new VocabularyError(`${where}: cannot resolve ${node.namespace}.${node.name}`);
+        unresolved.push(`${node.namespace}.${node.name}`);
+        return "never";
+      }
       const owner = module.getInstalledImport(resolved.namespace);
       if (!owner)
         throw new VocabularyError(`${where}: namespace ${resolved.namespace} is not installed`);
@@ -548,10 +715,13 @@ function printPropType(
       if (enumeration) {
         // A bitfield's GType is recorded even though its TEXT is `number`: the reason
         // `ENUM_NICKS` refuses one is that GObject cannot resolve a nick SET, and that says
-        // nothing about a single member's number. 10 of the 104 properties this table keys
-        // in Gtk-4.0 and Adw-1 are bitfield-typed (8 + 2), and nothing else says which
-        // bitfield. The 21 counted for `FLAG_VALUES` is a different set: it covers every
-        // Gtk/Adw class, and 11 of those 21 sit on declarations no widget chain reaches.
+        // nothing about a single member's number. 23 of the 176 properties this table keys
+        // in Gtk-4.0 and Adw-1 are bitfield-typed (19 + 4), and nothing else says which
+        // bitfield. That was 10 of 104 while coverage was widget-reachability: the 13 that
+        // arrived with the instantiable rule sit on `GtkDragSource`, `GtkDropTarget`,
+        // `GtkDropTargetAsync`, `GtkEventControllerScroll`, `GtkShortcutController`,
+        // `GtkKeyvalTrigger`, `GtkCellRendererAccel`, `GtkIMContext`, `GtkTextTag` and
+        // `AdwCssClassBinding` — objects a `.ui` file creates and no widget chain reaches.
         if (depth === 0 && enumeration.glibTypeName) ownEnumType = enumeration.glibTypeName;
         const gtype = enumeration.glibTypeName;
         const reference = `${resolved.namespace}.${resolved.name}`;
@@ -586,6 +756,7 @@ function printPropType(
     namespaces: [...namespaces],
     enums: [...enums.values()],
     flags: [...flags.values()],
+    unresolved,
     ...(ownEnumType === undefined ? {} : { ownEnumType }),
   };
 }
@@ -631,12 +802,19 @@ function ownProps(
     const girName = prop.girName;
     if (!girName) continue;
     if (byName.has(girName)) continue;
-    const printed = printPropType(module, config, prop.type, `${keyOf(cls)}.${girName}`);
+    const printed = printPropType(
+      module,
+      config,
+      prop.type,
+      `${keyOf(cls)}.${girName}`,
+      cls.generics,
+    );
     collect(printed);
     byName.set(girName, {
       girName,
       ...(printed.ownEnumType === undefined ? {} : { enumType: printed.ownEnumType }),
       ts: printed.text,
+      ...(printed.unresolved.length === 0 ? {} : { unresolvedTypes: printed.unresolved }),
       constructOnly: prop.constructOnly,
       since: prop.metadata?.introducedVersion,
       doc: blurb(prop.doc),
@@ -799,16 +977,20 @@ function computeOmissions(
  *  - settable properties — INLINED here, because dropping it would silently shrink the
  *    vocabulary by properties nobody would notice were missing.
  *
+ * "No vocabulary to import from" is the common shape of the condition and not the
+ * condition: what is asked is whether the OWNER'S vocabulary carries that declaration, and
+ * a namespace with a vocabulary can fail it too — see {@link coveredDeclarationsOf}.
+ *
  * Both halves are measured over the 475 namespaces in `girs/`, of which 102 declare
  * widgets. The drop case is ordinary: Gtk-4.0 and Adw-1 each reach exactly four such
  * declarations (`GObject.Object`, `GObject.InitiallyUnowned`, `Gio.ActionGroup`,
- * `Gio.ActionMap`), all empty. The inline case happens EXACTLY ONCE in the whole
- * corpus — `Gcr.Prompt`, a GObject interface with ten writable properties, in a
- * namespace whose widgets live in a different one — and it is the reason the rule is not
- * simply "drop it": the first version of this generator refused the input outright and
- * took the 705-namespace run down with it. One counterexample is a bounded bill, not an
- * argument for a vocabulary per namespace: `@girs/gcr-3/vocabulary` would be a widget vocabulary
- * with no widgets in it.
+ * `Gio.ActionMap`), all empty. The inline case was EXACTLY ONE declaration in the whole
+ * corpus while coverage was widget-reachability — `Gcr.Prompt`, a GObject interface with
+ * ten writable properties, in a namespace whose widgets live in a different one — and it is
+ * the reason the rule is not simply "drop it": the first version of this generator refused
+ * the input outright and took the 705-namespace run down with it. A bounded bill is not an
+ * argument for a vocabulary per namespace: `@girs/gcr-3/vocabulary` would be a widget
+ * vocabulary with no widgets in it.
  */
 export function buildWidgetVocabulary(
   module: GirModule,
@@ -819,6 +1001,10 @@ export function buildWidgetVocabulary(
   // Holders ride the SAME pipeline — they need declarations, props and since-versions
   // exactly as widgets do, or a consumer cannot type them. Only the list differs.
   const holderClasses = childHoldersOf(module, config);
+  // The COVERED population: everything a UI file can name, of which the two lists above
+  // are subsets. `Widgets` and `ChildHolders` are still built from those two, so what
+  // widens is the declaration graph and never the answer to "is this a widget".
+  const instantiableClasses = instantiableClassesOf(module);
 
   const namespaceImports = new Map<string, string>();
   const enums = new Map<string, VocabularyEnum>();
@@ -867,9 +1053,9 @@ export function buildWidgetVocabulary(
 
   const needed = new Map<string, IntrospectedBaseClass>();
   const chains = new Map<string, IntrospectedBaseClass[]>();
-  for (const widget of [...widgetClasses, ...holderClasses]) {
-    const chain = declarationChain(module, widget);
-    chains.set(keyOf(widget), chain);
+  for (const creatable of instantiableClasses) {
+    const chain = declarationChain(module, creatable);
+    chains.set(keyOf(creatable), chain);
     for (const decl of chain) needed.set(keyOf(decl), decl);
   }
 
@@ -890,7 +1076,9 @@ export function buildWidgetVocabulary(
     }
     const owner = cls.namespace as GirModule;
     const own = owner.namespace === module.namespace;
-    const foreignWithoutSurface = !own && !declaresWidgets(owner);
+    // Not "does the owner have a vocabulary" but "does the owner's vocabulary carry this
+    // declaration" — see `coveredDeclarationsOf`.
+    const foreignWithoutSurface = !own && !coveredDeclarationsOf(owner).has(key);
     if (foreignWithoutSurface && !(cls.props as IntrospectedProperty[]).some((p) => p.writable)) {
       dropped.push(key);
       continue;
@@ -945,14 +1133,26 @@ export function buildWidgetVocabulary(
         local: widget.name,
         gtype: widget.glibTypeName!,
         slotCandidates: slotCandidatesOf(module, config, widget),
-        chain: (chains.get(keyOf(widget)) ?? [])
-          .filter((decl) => withBases.has(keyOf(decl)))
-          .map((decl) => decl.glibTypeName!),
       }))
       .sort((a, b) => (a.gtype < b.gtype ? -1 : 1));
 
   const widgets = toEntries(widgetClasses);
   const childHolders = toEntries(holderClasses);
+
+  // The chain of EVERY instantiable GType, which is what `DECLS` publishes. Kept once,
+  // here, rather than on the widget entries: a widget's chain and an instantiable's are
+  // the same fact, and two copies of it would be two answers with nothing comparing them.
+  const declChains = new Map<string, readonly string[]>(
+    instantiableClasses
+      .filter((cls) => withBases.has(keyOf(cls)))
+      .map((cls): [string, readonly string[]] => [
+        cls.glibTypeName!,
+        (chains.get(keyOf(cls)) ?? [])
+          .filter((decl) => withBases.has(keyOf(decl)))
+          .map((decl) => decl.glibTypeName!),
+      ])
+      .sort(([a], [b]) => (a < b ? -1 : 1)),
+  );
 
   for (const widget of [...widgets, ...childHolders]) {
     const owner = module.getInstalledImport(widget.namespace);
@@ -1060,18 +1260,42 @@ export function buildWidgetVocabulary(
   if (dropped.length > 0) provenanceParts.push(`dropped empty base(s): ${dropped.join(" ")}`);
   if (inlined.length > 0)
     provenanceParts.push(
-      `inlined base(s) from a namespace with no vocabulary: ${inlined.join(" ")}`,
+      `inlined base(s) their owner's vocabulary does not emit: ${inlined.join(" ")}`,
     );
-  const unsettable = [...withBases.values()]
-    .filter((decl) => decl.emitted)
+  const emittedDecls = [...withBases.values()].filter((decl) => decl.emitted);
+  // Named, and in a remainder of its OWN: a `never` because the model has no such type is
+  // a different fact from a `never` because nothing in TypeScript satisfies a writable
+  // `gpointer`, and the two have different fixes. Every `never` property is in exactly one
+  // of the two lists, so neither can hide the other.
+  const unresolvedProps = emittedDecls
+    .flatMap((decl) =>
+      decl.props
+        .filter((prop) => prop.unresolvedTypes !== undefined)
+        .map((prop) => `${decl.key}.${prop.girName}: ${prop.unresolvedTypes!.join(" ")}`),
+    )
+    .sort();
+  const unresolvedKeys = new Set(
+    emittedDecls.flatMap((decl) =>
+      decl.props
+        .filter((prop) => prop.unresolvedTypes !== undefined)
+        .map((prop) => `${decl.key}.${prop.girName}`),
+    ),
+  );
+  const unsettable = emittedDecls
     .flatMap((decl) =>
       decl.props
         .filter((prop) => acceptsNothing(prop.ts))
         .map((prop) => `${decl.key}.${prop.girName}`),
     )
+    .filter((entry) => !unresolvedKeys.has(entry))
     .sort();
   if (unsettable.length > 0) {
     provenanceParts.push(`prop(s) no TypeScript value satisfies: ${unsettable.join(" ")}`);
+  }
+  if (unresolvedProps.length > 0) {
+    provenanceParts.push(
+      `prop(s) whose type the model cannot resolve: ${unresolvedProps.join(" ")}`,
+    );
   }
 
   return {
@@ -1087,10 +1311,12 @@ export function buildWidgetVocabulary(
       droppedBases: dropped,
       inlinedBases: inlined,
       unsettableProps: unsettable,
+      unresolvedProps,
     },
     widgets,
     childHolders,
     declarations: withBases,
+    chains: declChains,
     enums,
     flags,
     aria: buildAriaValueTypes(module, config),

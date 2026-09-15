@@ -78,15 +78,16 @@ When modifying generators, templates, injections, or lib code that affects gener
 
 **Important:** Examples import from `@girs/*` packages which resolve to `/types-dev/`. Generator changes will NOT be reflected in examples or `gjsify run check` until `gjsify run build:types` has been run.
 
-### Widget surface (`@girs/<ns>/vocabulary`)
+### Instantiable vocabulary (`@girs/<ns>/vocabulary`)
 
 Opt-in subpath (`widgetVocabulary`, on in `.ts-for-gir.packages-all.rc.js`) carrying the
-GIR-derived widget VOCABULARY: a writable-only, optional, GObject-keyed props interface per
+GIR-derived VOCABULARY of everything a UI description file can create: a writable-only,
+optional, GObject-keyed props interface per
 declaration, the construct-only name union, enum nick unions from `glib:nick`, the number
 behind each of those nicks from `value` (plus each nick GIR marks deprecated — evidence only,
 4 members in 718 GIRs carry it, so absence is silence not currency), the same numbers again
 for the registered BITFIELDS — which get no nick union, because GObject cannot resolve a nick
-SET, and whose members still carry numbers 21 bitfield-typed widget properties need — the
+SET, and whose members still carry numbers 23 bitfield-typed settable properties need — the
 declaration-keyed join saying WHICH enum or bitfield a settable property is (without it the
 numbers are half an answer: nothing else says `orientation` is a `GtkOrientation`; every GType
 it names has numbers in SOME vocabulary — a referenced bitfield whose owner emits none is
@@ -97,40 +98,66 @@ because an `accessibility { }` block is typed by GTK's ARIA table and not by the
 tristate 1 and not a boolean), read from each member's own doc sentence and COMPLETE OR
 REFUSED, its only remainder a declared exception list carrying a reason per entry, each entry
 failing once it stops being needed — a
-GType-keyed `Widgets` map, and the same facts again as runtime data in the sibling `.js` —
+GType-keyed `Widgets` map for the subset that IS a widget, and the same facts again as
+runtime data in the sibling `.js` —
 because types are erased and the only check that can go red for a real reason is a consumer asking the
 INSTALLED library whether every name is real. Code:
 `packages/generator-typescript/src/vocabulary/`.
 Decided in gjsify's ADR 0029.
 
-Three rules bind work here. **The vocabulary ships, the dialect does not** — no tag spelling,
+Four rules bind work here. **Coverage is what a UI description file can INSTANTIATE** —
+operationally, a registered non-abstract class (`glib:get-type`; over the 719 GIRs all 16209
+`<class>`/`<interface>` carry it) plus everything its base chain reaches. NOT "reachable from
+a concrete widget", which is a renderer's question and was the first rule: GtkBuilder resolves
+`<object class="…">` through `g_type_from_name`, which knows nothing about widgets, so a `.ui`
+file is full of `GtkSizeGroup`, `GtkTextTag`, `GtkCellRenderer*` and every `GtkEventController`.
+Measured, the narrower rule covered 127 of Gtk-4.0's 301 registered declarations and 64 of
+Adw-1's 92, and it cost a consumer a real defect — `Gtk.SizeGroup { mode: horizontal; }`
+emitting `horizontal` where `blueprint-compiler` writes `1`, because no `PROP_ENUMS` row
+existed to resolve the nick. **`Widgets` and `CHILD_HOLDERS` do NOT widen with it**: they are
+the index of what IS a widget, and a consumer asking that gets the pre-widening answer (proved
+over all 142 vocabularies — 0 changed). **The vocabulary ships, the dialect does not** — no tag spelling,
 no `on<Signal>` prop, no `JSX.IntrinsicElements`, no Vue `GlobalComponents`, no camelCase
 property key. The shape to refuse is the GLOBAL AUGMENT, not JSX: a `declare global` on
 `React.JSX` collides with every other library on a shared tag, while a module-scoped `JSX`
 behind a `jsxImportSource` does not (gjsify's gtk-host ships two of them, Solid and React,
 in one package). `@girs/*` is used by projects that want nothing to do with JSX, so it emits
 neither -- but a consumer declaring a module-scoped namespace is doing it right.
-**Only namespaces that DECLARE a concrete `GtkWidget` descendant emit one** — a handful of the
-705 GIRs; a cross-namespace base is imported from its owner's `./surface`, and a base owned by
-a namespace with no surface is dropped when it contributes no settable property and INLINED
+**Only namespaces that DECLARE a concrete `GtkWidget` descendant emit one** — 142 of the
+705 GIRs, and this gate is untouched by the coverage rule above; a cross-namespace base is
+imported from its owner's `./vocabulary` only where that vocabulary CARRIES it — a namespace
+with widgets can still leave a declaration out, and importing on "the owner has one" shipped
+`@girs/ide-46` a TS2724 against `@girs/gtksource-5`. A base the owner does not emit is dropped
+when it contributes no settable property and INLINED
 when it does, named in that file's provenance line. (Refusing it was the first version, and it
 took a 705-namespace run down at namespace 265 on `Gcr.Prompt` — the only such base in the
-corpus.) **Nothing is derived that GIR carries**: the nick comes from `glib:nick` and the
+corpus while coverage was widget-reachability.) **Nothing is derived that GIR carries**: the nick comes from `glib:nick` and the
 number from `value` — position in the nick list is NOT the value, and counting is wrong on
-6 of the 129 enums a GTK 4 vocabulary carries (104 in Gtk-4.0, 25 in Adw-1) — substitution
+6 of the 137 enums a GTK 4 vocabulary carries (112 in Gtk-4.0, 25 in Adw-1) — substitution
 is not a law, some nicks keep an underscore it would have replaced, and Gtk-4.0 and Adw-1
 contradict nothing, which is how a derived nick passes review; `gjsify run check:girs`
 re-measures that over `girs/` and asserts the two invariants the fallback rests on — the
 dashed property name from `IntrospectedProperty.girName`, the GType from `glibTypeName`.
 
-Gate: `tests/widget-vocabulary` — positives plus six controls that must go the other way (flag
-off emits nothing, a broken fixture exits non-zero naming the declaration, the `.d.ts` and
-`.js` halves are read separately and compared, an ARIA member whose doc states no value type is
-refused, a declared ARIA exception that is no longer needed is refused, and `noComments` with
-`widgetVocabulary` is refused rather than emitting an empty ARIA table). The emitted surface
-is also in each package's
+Gate: `tests/widget-vocabulary` — positives plus ten controls that must go the other way (flag
+off emits nothing; an identifier missing from a namespace's OWN GIR exits non-zero naming the
+property, while one missing across a namespace boundary is printed `never` like the main
+emitter does and named in its own provenance remainder; the `.d.ts` and
+`.js` halves are read separately and compared; an ARIA member whose doc states no value type is
+refused; a declared ARIA exception that is no longer needed is refused; `noComments` with
+`widgetVocabulary` is refused rather than emitting an empty ARIA table; an abstract class no
+chain reaches is absent ENTIRELY, which is what keeps "instantiable" from becoming "every
+declaration"; a non-widget instantiable gets props, a `DECLS` chain and a `PROP_ENUMS` row
+while reaching neither `Widgets` nor `ChildHolders` nor `SLOT_CANDIDATES`; and a foreign
+declaration its owner's vocabulary leaves out is inlined rather than imported). The emitted
+vocabulary is also in each package's
 own `tsconfig.json#include`, so `gjsify run check:types` compiles it — the only thing that
-catches a surface referencing a name the main emitter did not emit.
+catches it referencing a name the main emitter did not emit. One refusal has no fixture,
+because only Clutter, St, Gtk, Gio and GLib are generified, by name: a property typed by its
+class's own type parameter prints the type the parameter REPLACED, and that hand-written
+record (`packages/lib/src/generics/`) is refused when it disagrees with the bound the class
+declares — two of the four were wrong, and `@girs/shell-11` shipped `Clutter.Content` for a
+`ClutterLayoutManager`. `gjsify run build:types` is what exercises it.
 
 ### GIR → TS Mapping
 

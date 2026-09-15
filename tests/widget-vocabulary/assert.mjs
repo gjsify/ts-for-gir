@@ -5,15 +5,17 @@
 // WHY THE NEGATIVE HALVES ARE NOT OPTIONAL. A suite of positive assertions over a
 // generator's own output cannot tell "the rule works" from "the rule never ran": a
 // `mustNot` list that passes because the emitter produced nothing at all reads exactly
-// like one that passes because the emitter filtered correctly. So this file carries six
+// like one that passes because the emitter filtered correctly. So this file carries ten
 // controls beside the positives, each of which has to go the other way:
 //
 //   1. FLAG OFF, same input — no surface file and no `./vocabulary` in the package.json. A
 //      subpath that appears either way is not opt-in.
-//   2. A BROKEN input — a widget with a settable property whose GIR type resolves to
-//      NOTHING. The surface would reference a name the main emitter never emitted, so the
-//      generator must exit non-zero and name the property. Note the scope: what is refused
-//      is an unresolvable identifier, NOT every property that prints `never`. A writable
+//   2. A BROKEN input — a widget with a settable property naming a type its OWN namespace
+//      declares nowhere. That GIR contradicts itself and nothing outside it can be the
+//      cause, so the generator must exit non-zero and name the property. Note the scope
+//      twice over: what is refused is an unresolvable identifier, NOT every property that
+//      prints `never`, and it is refused only WITHIN one namespace — control 9 carries the
+//      cross-namespace half, which is a declared remainder instead. A writable
 //      `gpointer` resolves fine and no TypeScript value satisfies it — `GcrTreeSelector:
 //      columns`, `Wnck.ActionMenu:window`, eleven on `AgsGui.Cartesian` — as does one C
 //      callback, `GimpDialog:help-func`. Those are emitted as `never`, kept in `OWN_PROPS`
@@ -35,6 +37,30 @@
 //   6. `noComments` WITH `widgetVocabulary`. The ARIA value types live in GIR
 //      documentation, so the flag that discards it must refuse rather than quietly emit
 //      an empty table — control 4's failure arrived at through an option instead.
+//   7. AN ABSTRACT CLASS NO CHAIN REACHES. Coverage is "what a UI description file can
+//      INSTANTIATE", and without this control that rule and "every declaration in the
+//      namespace" produce the same output here, so the first could silently become the
+//      second. `Mini.Tool` is abstract, has a settable property and nothing derives from
+//      it: it must be absent from the vocabulary entirely. `GtkWidget` holds the opposite
+//      half — abstract, reached as a base, so emitted as an interface with no widget row.
+//   8. AN INSTANTIABLE THAT IS NOT A WIDGET. `Mini.SizeGroup` must get a props interface,
+//      a `DECLS` chain and a `PROP_ENUMS` row, and must appear in NEITHER `Widgets` nor
+//      `ChildHolders` nor `SLOT_CANDIDATES` — even though its `add_widget` is exactly the
+//      shape `slotNameOf` derives a slot from. `Widgets` is the index of what IS a widget
+//      and the widening must not have moved it; `GtkAdjustment`, `GtkSetter`,
+//      `GtkActorBin` and `GtkFlipper` are held to the same line below.
+//   9. AN UNRESOLVABLE TYPE FROM ANOTHER NAMESPACE, which must NOT be refused — see
+//      control 2 for the half that is. `Derived.Panel:ghost` names a type its installed
+//      `Base` does not declare, which is what `Shell.App:app-info` is in the real corpus,
+//      and the main emitter's own answer there is `never`. The vocabulary prints `never`,
+//      keeps the property in `OWN_PROPS` because the ParamSpec is real, and names the
+//      identifier in a provenance remainder of its own.
+//  10. A FOREIGN DECLARATION ITS OWNER'S VOCABULARY DOES NOT CARRY. A cross-namespace base
+//      is imported rather than copied, and that is sound only while the owner emits it —
+//      which used to follow from both sides walking widget chains and no longer does.
+//      `Base.Extra` is implemented by nothing in Base and by `Derived.Panel`, so Derived
+//      must INLINE it; importing names an export that does not exist. `@girs/ide-46`
+//      shipped exactly that against `@girs/gtksource-5`.
 //
 // And one positive case that is easy to get wrong in the safe-looking direction: a base
 // from a namespace with no surface of its own. Dropping it is what a reader would do; it
@@ -123,6 +149,13 @@ const must = [
     "deprecated property carries version and reason",
     /@deprecated since 1\.4: Use the style class instead\./,
   ],
+  // COVERAGE IS WHAT A UI FILE CAN INSTANTIATE, not what a widget chain reaches. Each of
+  // these is a registered, non-abstract class that no widget inherits from, and every one
+  // of them is something a `.ui` file creates.
+  ["a non-widget instantiable gets a props interface", /export interface GtkSizeGroupProps\b/],
+  ["…and so does one with half an accessor pair", /export interface GtkSetterProps\b/],
+  ["…and one with neither accessor", /export interface GtkAdjustmentProps\b/],
+  ["…and one whose child is not a widget", /export interface GtkActorBinProps\b/],
   // Child holders: a sibling table, never four more rows in `Widgets`.
   ["child holder table", /export interface ChildHolders \{/],
   ["child holder helper type", /export type ChildHolderGType = keyof ChildHolders;/],
@@ -145,11 +178,15 @@ const mustNot = [
   ["a camelCase property key", /cssClasses\?:/],
   // An abstract class cannot be created, so it gets no row — but it does get an interface.
   ["abstract class as a widget row", /\n {4}GtkWidget: \{/],
-  // A non-widget gets neither.
-  ["non-widget row", /GtkAdjustment: \{/],
-  ["non-widget props interface", /GtkAdjustmentProps/],
-  // Half the accessor pair is not a holder, so it reaches no table at all.
-  ["a set_child-only class anywhere", /GtkSetter/],
+  // A non-widget is INSTANTIABLE — it gets a props interface, below — and it is still not
+  // a widget, so it gets no row in either GType-keyed table.
+  ["non-widget row", /\n {4}GtkAdjustment: \{/],
+  ["a set_child-only class as a row", /\n {4}GtkSetter: \{/],
+  ["a non-widget child carrier as a row", /\n {4}GtkActorBin: \{/],
+  ["an instantiable non-widget as a row", /\n {4}GtkSizeGroup: \{/],
+  // Abstract AND unreached: `g_object_new` refuses it and no chain needs it, so nothing
+  // about it is emitted. Without this the coverage rule and "every declaration" agree.
+  ["an abstract class no chain reaches", /GtkTool/],
 ];
 
 // The `mustNot` list runs against the DECLARATIONS with comments stripped. The header
@@ -177,14 +214,22 @@ for (const name of Object.keys(data)) {
   if (!declaredNames.has(name)) fail(`exported by the .js but not declared in the .d.ts: ${name}`);
 }
 
-// The runtime data must name the same widgets the type map does.
+// `DECLS` is the COVERED population — every GType a UI description file can instantiate —
+// so it is a SUPERSET of the two GType-keyed type maps, and the containment runs one way
+// only. The other direction is against the props interfaces: a `DECLS` key a consumer
+// cannot type is a key it has to re-read the GIR for.
 const rowGTypes = new Set([...types.matchAll(/^ {4}(\w+): \{$/gm)].map((match) => match[1]));
 const dataGTypes = new Set(Object.keys(data.DECLS ?? {}));
 for (const gtype of rowGTypes) {
   if (!dataGTypes.has(gtype)) fail(`in a surface row but not in DECLS: ${gtype}`);
 }
 for (const gtype of dataGTypes) {
-  if (!rowGTypes.has(gtype)) fail(`in DECLS but in no surface row: ${gtype}`);
+  if (!new RegExp(`export interface ${gtype}Props\\b`).test(types)) {
+    fail(`in DECLS but the .d.ts has no ${gtype}Props: ${gtype}`);
+  }
+  // Self first, and the chain's own links must be describable too.
+  const chain = data.DECLS[gtype];
+  if (chain[0] !== gtype) fail(`DECLS[${gtype}] does not start with itself: ${chain[0]}`);
 }
 
 // ------------------------------------------------------- child holders vs widgets
@@ -229,6 +274,54 @@ if (!data.OWN_PROPS?.GtkListItem?.includes("activatable")) {
   fail(`OWN_PROPS lost the holder's own property: ${JSON.stringify(data.OWN_PROPS?.GtkListItem)}`);
 }
 
+// ------------------------------------------------- coverage: what a UI file can instantiate
+//
+// The rule is "every declaration a UI description file can instantiate" — operationally, a
+// registered, non-abstract class — and not "everything a widget chain reaches". GtkBuilder
+// resolves `<object class="…">` through `g_type_from_name`, which knows nothing about
+// widgets, so a `.ui` file names layout managers, event controllers, cell renderers and
+// `GtkSizeGroup` as readily as it names a box. The narrower rule cost a real consumer a
+// real defect: `Gtk.SizeGroup { mode: horizontal; }` compiled to the string `horizontal`
+// where `blueprint-compiler` writes `1`, because no widget chain reached `GtkSizeGroup`
+// and it therefore had no `PROP_ENUMS` row to resolve the nick against.
+//
+// Held from both ends, because a rule that only widens is a rule that stops discriminating.
+const coveredNonWidgets = ["GtkSizeGroup", "GtkAdjustment", "GtkSetter", "GtkActorBin"];
+for (const gtype of coveredNonWidgets) {
+  if (!data.DECLS?.[gtype]) fail(`DECLS omits the instantiable non-widget ${gtype}`);
+  if (widgetsBlock?.includes(`${gtype}:`)) fail(`${gtype} is not a widget and has a Widgets row`);
+  if (holdersBlock?.includes(`${gtype}:`)) fail(`${gtype} reached ChildHolders`);
+  if (holders.has(gtype) && gtype !== "GtkListItem") fail(`CHILD_HOLDERS took ${gtype}`);
+}
+// THE ROW THE CONSUMER CAME FOR, walked the way it walks it: a non-widget's enum property
+// resolves to the number GObject registered. Keyed by DECLARATION like every other row.
+if (data.PROP_ENUMS?.["GtkSizeGroup.mode"] !== "GtkOrientation") {
+  fail(
+    `PROP_ENUMS has no row for the instantiable non-widget: ${data.PROP_ENUMS?.["GtkSizeGroup.mode"]}`,
+  );
+}
+if (data.ENUM_VALUES?.[`${data.PROP_ENUMS?.["GtkSizeGroup.mode"]}.vertical`] !== 1) {
+  fail("the non-widget's enum nick does not resolve to a number — the join is half an answer");
+}
+// …and ONLY the declaration tables widened. Slot candidates are about placing children, so
+// a non-container keeps none even though `add_widget` is exactly the shape they derive from.
+if (data.SLOT_CANDIDATES?.GtkSizeGroup) {
+  fail(
+    `SLOT_CANDIDATES widened to a non-widget: ${JSON.stringify(data.SLOT_CANDIDATES.GtkSizeGroup)}`,
+  );
+}
+// THE OTHER EDGE. `Mini.Tool` is abstract with a settable property and nothing derives from
+// it, so `g_object_new` refuses it and no chain needs it. Absent means the rule is
+// "instantiable" and not "every declaration" — without this the two agree on this fixture.
+if (data.DECLS?.GtkTool) fail("DECLS took an abstract class no chain reaches");
+if (data.OWN_PROPS?.GtkTool) fail("OWN_PROPS took an abstract class no chain reaches");
+// …while an abstract class a chain DOES reach keeps its interface, because every widget
+// inherits from it. Both halves, or "abstract is excluded" would be the wrong lesson.
+if (!/export interface GtkWidgetProps\b/.test(types)) {
+  fail("the abstract base reached by the chain lost its props interface");
+}
+if (data.DECLS?.GtkWidget) fail("DECLS took the abstract base; it cannot be instantiated");
+
 // Every property the runtime data offers must be a key of the interface it belongs to.
 for (const [gtype, props] of Object.entries(data.OWN_PROPS ?? {})) {
   const block = new RegExp(`export interface ${gtype}Props[^{]*\\{([^}]*)\\}`, "s").exec(types);
@@ -256,8 +349,8 @@ if (data.ENUM_NICKS?.GtkStateFlags) {
 //
 // A suite that only checked `GtkOrientation` would pass either way: its values ARE its
 // positions. `GtkOdd.below` is -1 at position 0, so counting answers 0 and reading answers
-// -1, and only one of those can pass. That is the shape the real corpus has -- 6 of the 129
-// enums in a GTK 4 vocabulary (104 in Gtk-4.0, 25 in Adw-1) disagree with counting, `GtkConstraintStrength.required`
+// -1, and only one of those can pass. That is the shape the real corpus has -- 6 of the 137
+// enums in a GTK 4 vocabulary (112 in Gtk-4.0, 25 in Adw-1) disagree with counting, `GtkConstraintStrength.required`
 // by 1001001000.
 if (data.ENUM_VALUES?.["GtkOdd.below"] !== -1) {
   fail(
@@ -391,9 +484,9 @@ for (const key of Object.keys(data.PROP_ENUMS ?? {})) {
 // THE BITFIELDS, which `ENUM_NICKS` refuses and which still have numbers.
 //
 // `GtkStateFlags.insensitive` is 8 at position 2, so this separates read from counted the
-// way `GtkOdd.below` does for the enums -- and it is the shape that matters most: 95 of 121
-// Gtk-4.0 bitfield members disagree with their position, against 29 of 685 enumeration
-// members.
+// way `GtkOdd.below` does for the enums -- and it is the shape that matters most: 119 of the
+// 156 bitfield members the Gtk-4.0 vocabulary carries disagree with their declaration
+// position, against 29 of 672 enumeration members.
 if (data.FLAG_VALUES?.["GtkStateFlags.insensitive"] !== 8) {
   fail(
     `FLAG_VALUES lost the GIR value: GtkStateFlags.insensitive is ${data.FLAG_VALUES?.["GtkStateFlags.insensitive"]}, GIR says 8`,
@@ -809,7 +902,7 @@ if (!existsSync(inlineFile)) {
   if (!/interface GtkWidgetProps extends CarrierHolderProps/.test(inline)) {
     fail("the inlined base is emitted but nothing extends it");
   }
-  if (!/inlined base\(s\) from a namespace with no vocabulary: Carrier\.Holder/.test(inline)) {
+  if (!/inlined base\(s\) their owner's vocabulary does not emit: Carrier\.Holder/.test(inline)) {
     // Named in the provenance line, so a dependency release that changes the base graph
     // shows up in a diff instead of in a support question.
     fail("the provenance line does not name the inlined base");
@@ -843,6 +936,66 @@ if (!existsSync(crossFile)) {
     fail("the redeclared property is not Omit-ed from the imported base");
   }
   if (!/holder\?: Derived\.Thing/.test(cross)) fail("the redeclared property lost its own type");
+  // CONTROL 9, the half of the unresolvable-type rule that must NOT be refused. `ghost`
+  // names a type the installed `Base` does not declare — two independently released GIRs
+  // disagreeing, not a file contradicting itself — and the MAIN emitter answers `never`
+  // there. So the vocabulary answers `never` too rather than take the run down with it.
+  if (!/ghost\?: never;/.test(cross)) {
+    fail(
+      "a type unresolvable ACROSS namespaces was not printed as never, the way the model resolves it",
+    );
+  }
+  if (
+    !/prop\(s\) whose type the model cannot resolve: Derived\.Panel\.ghost: Base\.NoSuchThing/.test(
+      cross,
+    )
+  ) {
+    // A remainder of its OWN, never folded into `unsettableProps`: "the model has no such
+    // type" and "no TypeScript value satisfies this" have different fixes, and a reader of
+    // one list must not have to guess which it is looking at.
+    fail("the provenance line does not name the unresolvable identifier");
+  }
+  if (/no TypeScript value satisfies:[^\n]*Derived\.Panel\.ghost/.test(cross)) {
+    fail("the unresolvable property is in BOTH remainders; each never-property belongs to one");
+  }
+  // CONTROL 10. `Base.Extra` is an interface Base implements nowhere, so Base's own
+  // vocabulary does not emit `GtkExtraProps` — and Derived's `Panel` implements it. An
+  // import decided on "the owner HAS a vocabulary" names an export that does not exist:
+  // `@girs/ide-46` shipped exactly that against `@girs/gtksource-5` (TS2724), caught by the
+  // per-package `tsc --project` and by nothing else. The question is whether the owner's
+  // vocabulary CARRIES the declaration, and one it does not is inlined here.
+  if (/GtkExtra(Props|ConstructOnly)[^\n]*from '@girs\/base-1\.0\/vocabulary'/.test(cross)) {
+    fail("a declaration the owner's vocabulary does not emit was imported from it anyway");
+  }
+  if (!/export interface GtkExtraProps \{[^}]*'extra-label'\?: string;/s.test(cross)) {
+    fail(
+      "the uncovered foreign declaration was neither imported nor inlined — its members are lost",
+    );
+  }
+  if (!/inlined base\(s\) their owner's vocabulary does not emit:[^\n]*Base\.Extra/.test(cross)) {
+    fail(
+      "the provenance line does not name the base inlined from a namespace that HAS a vocabulary",
+    );
+  }
+  // …and the fixture is only a control while Base really does leave it out.
+  const baseFile = join(here, "generated-cross", "base-1.0", "base-1.0-vocabulary.d.ts");
+  if (/export interface GtkExtraProps/.test(readFileSync(baseFile, "utf8"))) {
+    fail("Base now emits GtkExtraProps, so the fixture has stopped being a control");
+  }
+  const crossData = await import(
+    `file://${join(here, "generated-cross", "derived-1.0", "derived-1.0-vocabulary.js")}`
+  );
+  // The ParamSpec is real, so the name stays where a consumer's runtime check looks for it.
+  if (!crossData.OWN_PROPS?.DrvPanel?.includes("ghost")) {
+    fail(
+      `OWN_PROPS dropped the unresolvable property: ${JSON.stringify(crossData.OWN_PROPS?.DrvPanel)}`,
+    );
+  }
+  if (
+    crossData.PROVENANCE?.unresolvedProps?.join(",") !== "Derived.Panel.ghost: Base.NoSuchThing"
+  ) {
+    fail(`PROVENANCE.unresolvedProps is ${JSON.stringify(crossData.PROVENANCE?.unresolvedProps)}`);
+  }
 }
 
 // ------------------------------------------------- control 2: inputs that must be refused

@@ -20,5 +20,18 @@
       </property>
     </class>
     <class name="Bin" c:symbol-prefix="bin" c:type="GtkBin" glib:type-name="GtkBin" glib:get-type="gtk_bin_get_type" parent="Widget"/>
+    <!-- AN INTERFACE THIS NAMESPACE IMPLEMENTS NOWHERE, and a consumer does. Base declares
+         widgets, so it has a vocabulary — and its own coverage never reaches this, so its
+         vocabulary does not emit `GtkExtraProps`. A consumer that IMPORTS on the strength
+         of "the owner has a vocabulary" then names an export that does not exist: TS2724,
+         and `@girs/ide-46` shipped exactly it against `@girs/gtksource-5` —
+         `GtkSource.CompletionProposal` is implemented by no class in GtkSource-5 and by one
+         in Ide. Derived must INLINE this, the way it would a base from a namespace with no
+         vocabulary at all. -->
+    <interface name="Extra" c:symbol-prefix="extra" c:type="GtkExtra" glib:type-name="GtkExtra" glib:get-type="gtk_extra_get_type">
+      <property name="extra-label" writable="1" transfer-ownership="none">
+        <type name="utf8" c:type="const gchar*"/>
+      </property>
+    </interface>
   </namespace>
 </repository>

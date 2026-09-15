@@ -22,9 +22,12 @@
 //
 // Usage: node --no-warnings scripts/check-publish-cli.mjs
 
-import { existsSync, readFileSync, readdirSync } from "node:fs";
+import { spawnSync } from "node:child_process";
+import { existsSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { MIN_CLI_VERSION, isAtLeast, parseVersion } from "./assert-publish-cli.mjs";
+import { fileURLToPath } from "node:url";
+import { MIN_CLI_VERSION, isAtLeast, isEntryPoint, parseVersion } from "./assert-publish-cli.mjs";
 
 const ROOT = process.cwd();
 const GUARD = "scripts/assert-publish-cli.mjs";
@@ -229,6 +232,47 @@ export function publishScriptProblems(rootJson, names) {
   return found;
 }
 
+// --- Rule 4: the guard the workflow names must actually RUN ----------------
+
+/**
+ * Rules 1-3 read text. They can all be satisfied by a `scripts/assert-publish-cli.mjs`
+ * that runs and does NOTHING -- which is a state it can reach on its own, because it is a
+ * dual-role module and has to decide whether it was imported or executed. Get that
+ * decision wrong and it exits 0 having printed nothing, and the publish on the next line
+ * proceeds unguarded under a green check: the v5.1.0 shape again, this time produced by
+ * the guard against it. Measured before {@link isEntryPoint} replaced the string compare:
+ * a repository path containing a space, and one reached through a symlinked directory,
+ * both silenced it.
+ *
+ * So the entry point is exercised rather than trusted. The guard is spawned exactly the
+ * way the workflow spawns it, with a `gjsify` on PATH that is certainly below the floor,
+ * and it has to refuse. Nothing about this repository's own installed CLI is involved, so
+ * the verdict is the same on a clean container and on a developer's machine.
+ *
+ * @returns {string[]} one line per problem.
+ */
+export function guardRunsProblems(scriptPath) {
+  const dir = mkdtempSync(join(tmpdir(), "check-publish-cli-"));
+  try {
+    writeFileSync(join(dir, "gjsify"), "#!/bin/sh\necho 0.0.1\n", { mode: 0o755 });
+    const run = spawnSync(process.execPath, ["--no-warnings", scriptPath], {
+      encoding: "utf8",
+      env: { ...process.env, PATH: `${dir}:${process.env.PATH ?? ""}` },
+    });
+    const output = `${run.stdout ?? ""}${run.stderr ?? ""}`;
+    if (run.status === 1 && output.includes("REFUSING to publish")) return [];
+    return [
+      `${GUARD} did not refuse a \`gjsify\` reporting 0.0.1: it exited ${run.status} and said ` +
+        `${JSON.stringify(output.trim().slice(0, 200)) || "nothing"}. The publish step runs it ` +
+        "for one reason, to stop a release that cannot verify itself. A copy that exits 0 " +
+        "silently -- an entry-point test that no longer recognises its own file is enough -- " +
+        "leaves the publish unguarded while every other rule here still passes.",
+    ];
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+}
+
 // --- SELF-TEST FIRST: a check that cannot go red is worse than no check. -----
 
 const manifest = (range) => JSON.stringify({ devDependencies: { "@gjsify/cli": range } });
@@ -382,7 +426,7 @@ if (selfTestFailures.length > 0) {
 // --- The repository --------------------------------------------------------
 
 // Importing this module for its helpers must not run the repository check below.
-if (process.argv[1] && import.meta.url === `file://${process.argv[1]}`) main();
+if (isEntryPoint(import.meta.url)) main();
 
 function main() {
   const manifests = MANIFESTS.filter((f) => existsSync(join(ROOT, f))).map((file) => ({
@@ -406,6 +450,7 @@ function main() {
     ...pinProblems(manifests, MIN_CLI_VERSION),
     ...guardProblems(workflows),
     ...(rootJson ? publishScriptProblems(rootJson, scriptNames) : []),
+    ...guardRunsProblems(fileURLToPath(new URL("./assert-publish-cli.mjs", import.meta.url))),
   ];
   if (problems.length > 0) {
     console.error("check-publish-cli: the npm publish path cannot prove what it published:");
@@ -421,6 +466,6 @@ function main() {
       `${manifests.length} manifest(s) pin \`@gjsify/cli\` at or above ${MIN_CLI_VERSION}; ` +
       `${publishing.length} publishing workflow(s) of ${workflows.length} state the binary they ` +
       `publish with, in the step that publishes; ${scriptNames.join(", ") || "no"} states its own ` +
-      "read-back budget.",
+      `read-back budget; ${GUARD} refused a below-floor CLI when spawned.`,
   );
 }

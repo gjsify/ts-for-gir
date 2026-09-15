@@ -34,7 +34,8 @@
 // Usage: node --no-warnings scripts/assert-publish-cli.mjs
 
 import { spawnSync } from "node:child_process";
-import { readFileSync } from "node:fs";
+import { readFileSync, realpathSync } from "node:fs";
+import { fileURLToPath } from "node:url";
 
 /**
  * Lowest @gjsify/cli that verifies a publish against the registry before reporting
@@ -71,6 +72,36 @@ export function isAtLeast(version, floor) {
   return true;
 }
 
+/**
+ * Is this module the program node was asked to run, rather than an import?
+ *
+ * Both halves of the pair are dual-role -- imported for their constants, executed by a
+ * workflow -- so both have to answer this, and answering it WRONG is silent: the module
+ * body runs, `main()` does not, and the process exits 0 having printed nothing. In the
+ * publish step that is an unguarded publish wearing a green check, which is the failure
+ * this pair exists to prevent, reintroduced by the guard itself.
+ *
+ * The obvious spelling, `import.meta.url === \`file://${process.argv[1]}\``, is wrong in
+ * two ways that were measured against this very file:
+ *
+ *   - a path containing a SPACE -- `import.meta.url` percent-encodes it (`%20`),
+ *     `argv[1]` does not, so the strings never match;
+ *   - a path reached through a SYMLINKED directory -- node's ESM loader resolves symlinks
+ *     before it builds `import.meta.url`, `argv[1]` keeps the path as given.
+ *
+ * Both exited 0 with no output at all. Comparing real paths decides the same question
+ * without depending on how the path was spelled.
+ */
+export function isEntryPoint(moduleUrl) {
+  const entry = process.argv[1];
+  if (!entry) return false;
+  try {
+    return realpathSync(entry) === realpathSync(fileURLToPath(moduleUrl));
+  } catch {
+    return false;
+  }
+}
+
 // --- SELF-TEST FIRST: a check that cannot go red is worse than no check. -----
 
 const VECTORS = [
@@ -98,7 +129,7 @@ if (selfTestFailures.length > 0) {
 }
 
 // Importing this module for its constants must not run the assertion below.
-if (process.argv[1] && import.meta.url === `file://${process.argv[1]}`) main();
+if (isEntryPoint(import.meta.url)) main();
 
 // --- The binary this step will actually run --------------------------------
 

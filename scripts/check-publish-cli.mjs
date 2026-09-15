@@ -124,7 +124,15 @@ const commandLines = (block) => block.split("\n").filter((l) => !l.trim().starts
  * `a | b` each hold several, and only the position a word sits in says whether it is the
  * program being run or an argument to `echo`.
  */
-const commandPositions = (line) => line.split(/&&|\|\||;|\|/);
+/**
+ * Collapse every quoted span to a single opaque token. Quoted text is DATA: a `;` inside
+ * `echo "a; b"` does not start a command, and a `gjsify publish` inside one is prose. The
+ * token is one non-space character, so a real `PATH="..." gjsify` prefix still reads as an
+ * assignment followed by a program.
+ */
+const collapseQuoted = (line) => line.replace(/"[^"]*"/g, "Q").replace(/'[^']*'/g, "Q");
+
+const commandPositions = (line) => collapseQuoted(line).split(/&&|\|\||;|\|/);
 
 /** A command whose PROGRAM is gjsify, and whose subcommand publishes. */
 const PUBLISH_COMMAND = /^\s*(?:[A-Za-z_]\w*=\S*\s+)*gjsify\s+(?:run\s+)?publish\b/;
@@ -233,6 +241,18 @@ const GUARD_VECTORS = [
       '      - run: |\n          echo "npm: published @ts-for-gir/* (confirmed by gjsify publish)"\n',
     ),
     0,
+  ],
+  [
+    "a `;` INSIDE a quoted string does not open a command position",
+    wf('      - run: |\n          echo "published; gjsify publish confirmed on the registry"\n'),
+    0,
+  ],
+  [
+    "collapsing quotes must not hide a real PATH prefix",
+    wf(
+      `      - run: |\n          node --no-warnings ${GUARD}\n          PATH="$W/node_modules/.bin:$PATH" gjsify run publish:app\n`,
+    ),
+    1,
   ],
   [
     "a publish chained after another command still counts",

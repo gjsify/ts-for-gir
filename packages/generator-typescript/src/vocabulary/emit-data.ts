@@ -16,11 +16,9 @@
 
 import type { WidgetVocabulary } from "./model.ts";
 
-const record = (rows: readonly string[]): string =>
-  rows.length === 0 ? "{}" : `{\n${rows.join("\n")}\n}`;
+const record = (rows: readonly string[]): string => (rows.length === 0 ? "{}" : `{\n${rows.join("\n")}\n}`);
 
-const list = (items: readonly string[]): string =>
-  `[${items.map((item) => `'${item}'`).join(", ")}]`;
+const list = (items: readonly string[]): string => `[${items.map((item) => `'${item}'`).join(", ")}]`;
 
 /**
  * A single-quoted literal for text that is NOT an identifier.
@@ -38,144 +36,140 @@ const list = (items: readonly string[]): string =>
  * into a `value` reaches here as a newline.
  */
 const quote = (text: string): string =>
-  `'${text
-    .replace(/\\/g, "\\\\")
-    .replace(/'/g, "\\'")
-    .replace(/\n/g, "\\n")
-    .replace(/\r/g, "\\r")
-    .replace(/\u2028/g, "\\u2028")
-    .replace(/\u2029/g, "\\u2029")}'`;
+	`'${text
+		.replace(/\\/g, "\\\\")
+		.replace(/'/g, "\\'")
+		.replace(/\n/g, "\\n")
+		.replace(/\r/g, "\\r")
+		.replace(/\u2028/g, "\\u2028")
+		.replace(/\u2029/g, "\\u2029")}'`;
 
 export function emitVocabularyData(surface: WidgetVocabulary): string {
-  // `OWN_PROPS` and `OWN_SIGNALS` are keyed by DECLARATION, not by creatable widget, and
-  // they must stay keyed the same way: `DECLS` hands the consumer a chain of GTypes, and
-  // it reads both tables at every link of it. Keying signals by concrete widget is what
-  // this fixes — `GtkWidget` owns 13 signals and no `Widgets` row, so the two tables
-  // disagreed about which GTypes the vocabulary describes.
-  const byGType = [...surface.declarations.values()]
-    .filter((decl) => decl.emitted)
-    .sort((a, b) => (a.gtype < b.gtype ? -1 : 1));
+	// `OWN_PROPS` and `OWN_SIGNALS` are keyed by DECLARATION, not by creatable widget, and
+	// they must stay keyed the same way: `DECLS` hands the consumer a chain of GTypes, and
+	// it reads both tables at every link of it. Keying signals by concrete widget is what
+	// this fixes — `GtkWidget` owns 13 signals and no `Widgets` row, so the two tables
+	// disagreed about which GTypes the vocabulary describes.
+	const byGType = [...surface.declarations.values()]
+		.filter((decl) => decl.emitted)
+		.sort((a, b) => (a.gtype < b.gtype ? -1 : 1));
 
-  const ownProps = byGType
-    .filter((decl) => decl.props.length > 0)
-    .map((decl) => `    ${decl.gtype}: ${list(decl.props.map((prop) => prop.girName))},`);
+	const ownProps = byGType
+		.filter((decl) => decl.props.length > 0)
+		.map((decl) => `    ${decl.gtype}: ${list(decl.props.map((prop) => prop.girName))},`);
 
-  // The join `ENUM_VALUES` needs and nothing else in the vocabulary carries: which enum or
-  // bitfield a settable property IS. Keyed by DECLARATION, like `OWN_PROPS` beside it, so a
-  // consumer walks a `DECLS` chain and reads all three at every link — `orientation` is
-  // registered on `GtkOrientable`, not on the `GtkBox` a caller starts from.
-  const propEnums = byGType.flatMap((decl) =>
-    decl.props
-      .filter((prop) => prop.enumType !== undefined)
-      .map((prop) => `    '${decl.gtype}.${prop.girName}': '${prop.enumType}',`),
-  );
+	// The join `ENUM_VALUES` needs and nothing else in the vocabulary carries: which enum or
+	// bitfield a settable property IS. Keyed by DECLARATION, like `OWN_PROPS` beside it, so a
+	// consumer walks a `DECLS` chain and reads all three at every link — `orientation` is
+	// registered on `GtkOrientable`, not on the `GtkBox` a caller starts from.
+	const propEnums = byGType.flatMap((decl) =>
+		decl.props
+			.filter((prop) => prop.enumType !== undefined)
+			.map((prop) => `    '${decl.gtype}.${prop.girName}': '${prop.enumType}',`),
+	);
 
-  const ownSignals = byGType
-    .filter((decl) => decl.signals.length > 0)
-    .map((decl) => `    ${decl.gtype}: ${list(decl.signals)},`);
+	const ownSignals = byGType
+		.filter((decl) => decl.signals.length > 0)
+		.map((decl) => `    ${decl.gtype}: ${list(decl.signals)},`);
 
-  // The runtime data describes EVERYTHING the surface knows, widgets and holders alike:
-  // a holder a consumer cannot look up is a holder it has to re-read the GIR for.
-  // `CHILD_HOLDERS` is the line between the two kinds, not a second data set.
-  const all = [...surface.widgets, ...surface.childHolders].sort((a, b) =>
-    a.gtype < b.gtype ? -1 : 1,
-  );
+	// The runtime data describes EVERYTHING the surface knows, widgets and holders alike:
+	// a holder a consumer cannot look up is a holder it has to re-read the GIR for.
+	// `CHILD_HOLDERS` is the line between the two kinds, not a second data set.
+	const all = [...surface.widgets, ...surface.childHolders].sort((a, b) => (a.gtype < b.gtype ? -1 : 1));
 
-  // Over every INSTANTIABLE GType, which is wider than `all` above: a `.ui` file names
-  // `GtkSizeGroup` and `GtkTextTag` as readily as it names `GtkBox`, and a chain is the
-  // only way to reach the declaration that owns a property.
-  const decls = [...surface.chains].map(([gtype, chain]) => `    ${gtype}: ${list(chain)},`);
+	// Over every INSTANTIABLE GType, which is wider than `all` above: a `.ui` file names
+	// `GtkSizeGroup` and `GtkTextTag` as readily as it names `GtkBox`, and a chain is the
+	// only way to reach the declaration that owns a property.
+	const decls = [...surface.chains].map(([gtype, chain]) => `    ${gtype}: ${list(chain)},`);
 
-  // Both buckets, because this is the DATA half. `surface.enums` is what the `.d.ts` emits a
-  // nick union for; `surface.foreignEnums` is what it IMPORTS one for, and a consumer asking
-  // this file for a number must not have to know which of the two an enum fell into. The
-  // split exists for nominal identity in the type half and has no counterpart here.
-  const enums = [...surface.enums.values(), ...surface.foreignEnums.values()].sort((a, b) =>
-    a.gtype < b.gtype ? -1 : 1,
-  );
+	// Both buckets, because this is the DATA half. `surface.enums` is what the `.d.ts` emits a
+	// nick union for; `surface.foreignEnums` is what it IMPORTS one for, and a consumer asking
+	// this file for a number must not have to know which of the two an enum fell into. The
+	// split exists for nominal identity in the type half and has no counterpart here.
+	const enums = [...surface.enums.values(), ...surface.foreignEnums.values()].sort((a, b) =>
+		a.gtype < b.gtype ? -1 : 1,
+	);
 
-  const nicks = enums.map((entry) => `    ${entry.gtype}: ${list(entry.nicks)},`);
+	const nicks = enums.map((entry) => `    ${entry.gtype}: ${list(entry.nicks)},`);
 
-  // `<GType>.<nick>`, the same grammar `SINCE` uses for a member, because a consumer that
-  // reads both should not need two key parsers. Emitted for exactly the enums `ENUM_NICKS`
-  // covers, so "every nick has a number or is named in the remainder" is a claim about one
-  // subject rather than about the overlap of two.
-  const values = enums.flatMap((entry) =>
-    [...entry.values]
-      .sort(([a], [b]) => (a < b ? -1 : 1))
-      .map(([nick, value]) => `    '${entry.gtype}.${nick}': ${value},`),
-  );
+	// `<GType>.<nick>`, the same grammar `SINCE` uses for a member, because a consumer that
+	// reads both should not need two key parsers. Emitted for exactly the enums `ENUM_NICKS`
+	// covers, so "every nick has a number or is named in the remainder" is a claim about one
+	// subject rather than about the overlap of two.
+	const values = enums.flatMap((entry) =>
+		[...entry.values]
+			.sort(([a], [b]) => (a < b ? -1 : 1))
+			.map(([nick, value]) => `    '${entry.gtype}.${nick}': ${value},`),
+	);
 
-  const deprecated = enums.flatMap((entry) =>
-    [...entry.deprecated].sort().map((nick) => `${entry.gtype}.${nick}`),
-  );
+	const deprecated = enums.flatMap((entry) => [...entry.deprecated].sort().map((nick) => `${entry.gtype}.${nick}`));
 
-  // Keyed `<enum GType>.<nick>` like `ENUM_VALUES` beside it: the ARIA names ARE members of
-  // `GtkAccessibleProperty`, `GtkAccessibleRelation` and `GtkAccessibleState`, so a consumer
-  // reads the name out of `ENUM_NICKS` and the value type out of here with one key parser.
-  const ariaTypes = [...surface.aria.kinds]
-    .sort(([a], [b]) => (a < b ? -1 : 1))
-    .map(([member, kind]) => `    '${member}': '${kind}',`);
+	// Keyed `<enum GType>.<nick>` like `ENUM_VALUES` beside it: the ARIA names ARE members of
+	// `GtkAccessibleProperty`, `GtkAccessibleRelation` and `GtkAccessibleState`, so a consumer
+	// reads the name out of `ENUM_NICKS` and the value type out of here with one key parser.
+	const ariaTypes = [...surface.aria.kinds]
+		.sort(([a], [b]) => (a < b ? -1 : 1))
+		.map(([member, kind]) => `    '${member}': '${kind}',`);
 
-  const ariaEnums = [...surface.aria.enums]
-    .sort(([a], [b]) => (a < b ? -1 : 1))
-    .map(([member, gtype]) => `    '${member}': '${gtype}',`);
+	const ariaEnums = [...surface.aria.enums]
+		.sort(([a], [b]) => (a < b ? -1 : 1))
+		.map(([member, gtype]) => `    '${member}': '${gtype}',`);
 
-  // Same two shapes as the enum tables above, over the bitfields — see `WidgetVocabulary.flags`
-  // for why they are carried at all and why they are their own table.
-  const bitfields = [...surface.flags.values()].sort((a, b) => (a.gtype < b.gtype ? -1 : 1));
+	// Same two shapes as the enum tables above, over the bitfields — see `WidgetVocabulary.flags`
+	// for why they are carried at all and why they are their own table.
+	const bitfields = [...surface.flags.values()].sort((a, b) => (a.gtype < b.gtype ? -1 : 1));
 
-  const flagValues = bitfields.flatMap((entry) =>
-    [...entry.values]
-      .sort(([a], [b]) => (a < b ? -1 : 1))
-      .map(([nick, value]) => `    '${entry.gtype}.${nick}': ${value},`),
-  );
+	const flagValues = bitfields.flatMap((entry) =>
+		[...entry.values]
+			.sort(([a], [b]) => (a < b ? -1 : 1))
+			.map(([nick, value]) => `    '${entry.gtype}.${nick}': ${value},`),
+	);
 
-  const flagUnreadable = bitfields.flatMap((entry) =>
-    [...entry.unreadable]
-      .sort(([a], [b]) => (a < b ? -1 : 1))
-      .map(([nick, raw]) => `    '${entry.gtype}.${nick}': ${quote(raw)},`),
-  );
+	const flagUnreadable = bitfields.flatMap((entry) =>
+		[...entry.unreadable]
+			.sort(([a], [b]) => (a < b ? -1 : 1))
+			.map(([nick, raw]) => `    '${entry.gtype}.${nick}': ${quote(raw)},`),
+	);
 
-  const unreadable = enums.flatMap((entry) =>
-    [...entry.unreadable]
-      .sort(([a], [b]) => (a < b ? -1 : 1))
-      .map(([nick, raw]) => `    '${entry.gtype}.${nick}': ${quote(raw)},`),
-  );
+	const unreadable = enums.flatMap((entry) =>
+		[...entry.unreadable]
+			.sort(([a], [b]) => (a < b ? -1 : 1))
+			.map(([nick, raw]) => `    '${entry.gtype}.${nick}': ${quote(raw)},`),
+	);
 
-  const slots = all
-    .filter((widget) => widget.slotCandidates.size > 0)
-    .map((widget) => {
-      const rows = [...widget.slotCandidates]
-        .sort(([a], [b]) => (a < b ? -1 : 1))
-        .map(([slot, method]) => `        '${slot}': '${method}',`);
-      return `    ${widget.gtype}: {\n${rows.join("\n")}\n    },`;
-    });
+	const slots = all
+		.filter((widget) => widget.slotCandidates.size > 0)
+		.map((widget) => {
+			const rows = [...widget.slotCandidates]
+				.sort(([a], [b]) => (a < b ? -1 : 1))
+				.map(([slot, method]) => `        '${slot}': '${method}',`);
+			return `    ${widget.gtype}: {\n${rows.join("\n")}\n    },`;
+		});
 
-  const since = [...surface.since]
-    .sort(([a], [b]) => (a < b ? -1 : 1))
-    .map(([member, version]) => `    '${member}': '${version}',`);
+	const since = [...surface.since]
+		.sort(([a], [b]) => (a < b ? -1 : 1))
+		.map(([member, version]) => `    '${member}': '${version}',`);
 
-  // Structured, not the prose line. The header sentence is for a reader; a consumer
-  // comparing this vocabulary against the library it runs against needs the version as a
-  // value, and pulling it out of a sentence is a parser nobody should have to write.
-  const p = surface.provenanceData;
-  const provenance = [
-    "{",
-    `    namespace: '${p.namespace}',`,
-    `    version: '${p.version}',`,
-    `    libraryVersion: ${p.libraryVersion === null ? "null" : `'${p.libraryVersion}'`},`,
-    `    childHolders: ${p.childHolders},`,
-    `    droppedBases: ${list(p.droppedBases)},`,
-    `    inlinedBases: ${list(p.inlinedBases)},`,
-    `    unsettableProps: ${list(p.unsettableProps)},`,
-    `    unresolvedProps: ${list(p.unresolvedProps)},`,
-    `    identifierPrefixes: ${list(p.identifierPrefixes)},`,
-    `    requiredVocabularies: ${list(p.requiredVocabularies)},`,
-    "}",
-  ].join("\n");
+	// Structured, not the prose line. The header sentence is for a reader; a consumer
+	// comparing this vocabulary against the library it runs against needs the version as a
+	// value, and pulling it out of a sentence is a parser nobody should have to write.
+	const p = surface.provenanceData;
+	const provenance = [
+		"{",
+		`    namespace: '${p.namespace}',`,
+		`    version: '${p.version}',`,
+		`    libraryVersion: ${p.libraryVersion === null ? "null" : `'${p.libraryVersion}'`},`,
+		`    childHolders: ${p.childHolders},`,
+		`    droppedBases: ${list(p.droppedBases)},`,
+		`    inlinedBases: ${list(p.inlinedBases)},`,
+		`    unsettableProps: ${list(p.unsettableProps)},`,
+		`    unresolvedProps: ${list(p.unresolvedProps)},`,
+		`    identifierPrefixes: ${list(p.identifierPrefixes)},`,
+		`    requiredVocabularies: ${list(p.requiredVocabularies)},`,
+		"}",
+	].join("\n");
 
-  return `// The widget vocabulary of ${surface.namespace}-${surface.version} as runtime data.
+	return `// The widget vocabulary of ${surface.namespace}-${surface.version} as runtime data.
 //
 // GENERATED — do not edit. Provenance: ${surface.provenance}
 //

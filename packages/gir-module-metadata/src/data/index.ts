@@ -7,218 +7,213 @@ import { clutter, cogl, gvc, meta, mtk, shell, shew, st } from "./gnome-shell.ts
 import { graphene } from "./graphene.ts";
 import { grl, grlNet } from "./grilo.ts";
 import {
-  ges,
-  gst,
-  gstApp,
-  gstAudio,
-  gstBase,
-  gstController,
-  gstGL,
-  gstPbutils,
-  gstPlayer,
-  gstTag,
-  gstVideo,
-  gstWebRTC,
+	ges,
+	gst,
+	gstApp,
+	gstAudio,
+	gstBase,
+	gstController,
+	gstGL,
+	gstPbutils,
+	gstPlayer,
+	gstTag,
+	gstVideo,
+	gstWebRTC,
 } from "./gstreamer.ts";
 import { gdk3, gtk3 } from "./gtk3.ts";
 import { gdk4, gdkMacos, gdkWayland, gdkWin32, gdkX11, gsk4, gtk4 } from "./gtk4.ts";
 import { gwebgl } from "./gwebgl.ts";
 import { freetype2, harfBuzz } from "./harfbuzz.ts";
 import {
-  adw,
-  appStream,
-  atk,
-  atspi,
-  dbus,
-  dex,
-  flatpak,
-  gck,
-  gcr,
-  gdesktopEnums,
-  geocodeGlib,
-  gl,
-  goa,
-  gssdp,
-  gstSdp,
-  gtksource5,
-  gudev,
-  gupnp,
-  gweather,
-  json,
-  jsonrpc,
-  libosinfo,
-  libxml2,
-  nm,
-  notify,
-  panel,
-  peas,
-  polkit,
-  polkitAgent,
-  poppler,
-  rest,
-  rsvg,
-  secret,
-  shumate,
-  spelling,
-  template,
-  tsparql,
-  vte,
-  win32,
-  wnck,
-  xdp,
-  xdpGtk4,
-  xfixes,
-  xlib,
+	adw,
+	appStream,
+	atk,
+	atspi,
+	dbus,
+	dex,
+	flatpak,
+	gck,
+	gcr,
+	gdesktopEnums,
+	geocodeGlib,
+	gl,
+	goa,
+	gssdp,
+	gstSdp,
+	gtksource5,
+	gudev,
+	gupnp,
+	gweather,
+	json,
+	jsonrpc,
+	libosinfo,
+	libxml2,
+	nm,
+	notify,
+	panel,
+	peas,
+	polkit,
+	polkitAgent,
+	poppler,
+	rest,
+	rsvg,
+	secret,
+	shumate,
+	spelling,
+	template,
+	tsparql,
+	vte,
+	win32,
+	wnck,
+	xdp,
+	xdpGtk4,
+	xfixes,
+	xlib,
 } from "./misc.ts";
 import { pango, pangoCairo } from "./pango.ts";
 import { soup3 } from "./soup.ts";
-import {
-  javaScriptCore6,
-  webkit6,
-  webkitWebExtension6,
-  webkitWebProcessExtension6,
-} from "./webkit.ts";
+import { javaScriptCore6, webkit6, webkitWebExtension6, webkitWebProcessExtension6 } from "./webkit.ts";
 
 const ALL_ENTRIES: GirModuleMetadata[] = [
-  // GJS core
-  gjs,
-  gwebgl,
-  // GLib family
-  glib,
-  gobject,
-  gio,
-  gmodule,
-  glibUnix,
-  glibWin32,
-  gioUnix,
-  gioWin32,
-  // GTK 4
-  gtk4,
-  gdk4,
-  gsk4,
-  gdkMacos,
-  gdkWin32,
-  gdkWayland,
-  gdkX11,
-  // GTK 3
-  gtk3,
-  gdk3,
-  // Pango
-  pango,
-  pangoCairo,
-  // Pixel formats & graphics
-  gdkPixbuf,
-  graphene,
-  cairo,
-  rsvg,
-  // Text rendering
-  harfBuzz,
-  freetype2,
-  // Multimedia
-  gst,
-  gstBase,
-  gstAudio,
-  gstVideo,
-  gstPbutils,
-  gstTag,
-  gstApp,
-  gstController,
-  gstPlayer,
-  gstGL,
-  gstWebRTC,
-  ges,
-  grl,
-  grlNet,
-  // GNOME Shell
-  meta,
-  clutter,
-  cogl,
-  mtk,
-  st,
-  shell,
-  gvc,
-  shew,
-  // Web
-  webkit6,
-  webkitWebExtension6,
-  webkitWebProcessExtension6,
-  javaScriptCore6,
-  goa,
-  // Networking
-  soup3,
-  rest,
-  nm,
-  gupnp,
-  gssdp,
-  // Data & Markup
-  json,
-  libxml2,
-  tsparql,
-  template,
-  jsonrpc,
-  // Security
-  secret,
-  gcr,
-  gck,
-  polkit,
-  polkitAgent,
-  // System
-  gudev,
-  flatpak,
-  appStream,
-  libosinfo,
-  xdp,
-  xdpGtk4,
-  // GNOME Desktop
-  adw,
-  gtksource5,
-  shumate,
-  notify,
-  vte,
-  panel,
-  peas,
-  spelling,
-  gweather,
-  geocodeGlib,
-  poppler,
-  wnck,
-  dex,
-  atspi,
-  atk,
-  gdesktopEnums,
-  // Low-level / transitive
-  dbus,
-  gl,
-  gstSdp,
-  win32,
-  xfixes,
-  xlib,
+	// GJS core
+	gjs,
+	gwebgl,
+	// GLib family
+	glib,
+	gobject,
+	gio,
+	gmodule,
+	glibUnix,
+	glibWin32,
+	gioUnix,
+	gioWin32,
+	// GTK 4
+	gtk4,
+	gdk4,
+	gsk4,
+	gdkMacos,
+	gdkWin32,
+	gdkWayland,
+	gdkX11,
+	// GTK 3
+	gtk3,
+	gdk3,
+	// Pango
+	pango,
+	pangoCairo,
+	// Pixel formats & graphics
+	gdkPixbuf,
+	graphene,
+	cairo,
+	rsvg,
+	// Text rendering
+	harfBuzz,
+	freetype2,
+	// Multimedia
+	gst,
+	gstBase,
+	gstAudio,
+	gstVideo,
+	gstPbutils,
+	gstTag,
+	gstApp,
+	gstController,
+	gstPlayer,
+	gstGL,
+	gstWebRTC,
+	ges,
+	grl,
+	grlNet,
+	// GNOME Shell
+	meta,
+	clutter,
+	cogl,
+	mtk,
+	st,
+	shell,
+	gvc,
+	shew,
+	// Web
+	webkit6,
+	webkitWebExtension6,
+	webkitWebProcessExtension6,
+	javaScriptCore6,
+	goa,
+	// Networking
+	soup3,
+	rest,
+	nm,
+	gupnp,
+	gssdp,
+	// Data & Markup
+	json,
+	libxml2,
+	tsparql,
+	template,
+	jsonrpc,
+	// Security
+	secret,
+	gcr,
+	gck,
+	polkit,
+	polkitAgent,
+	// System
+	gudev,
+	flatpak,
+	appStream,
+	libosinfo,
+	xdp,
+	xdpGtk4,
+	// GNOME Desktop
+	adw,
+	gtksource5,
+	shumate,
+	notify,
+	vte,
+	panel,
+	peas,
+	spelling,
+	gweather,
+	geocodeGlib,
+	poppler,
+	wnck,
+	dex,
+	atspi,
+	atk,
+	gdesktopEnums,
+	// Low-level / transitive
+	dbus,
+	gl,
+	gstSdp,
+	win32,
+	xfixes,
+	xlib,
 ];
 
 const METADATA = new Map<string, GirModuleMetadata>();
 for (const entry of ALL_ENTRIES) {
-  METADATA.set(entry.girId, entry);
+	METADATA.set(entry.girId, entry);
 }
 
 /** Namespace of a GIR id: everything before the last `-`. `Gtk-4.0` -> `Gtk`. */
 const namespaceOf = (girId: string): string => {
-  const dash = girId.lastIndexOf("-");
-  return dash === -1 ? girId : girId.slice(0, dash);
+	const dash = girId.lastIndexOf("-");
+	return dash === -1 ? girId : girId.slice(0, dash);
 };
 
 /** Entries that answer for every version of their namespace — see `versionAgnostic`. */
 const BY_NAMESPACE = new Map<string, GirModuleMetadata>();
 for (const entry of ALL_ENTRIES) {
-  if (!entry.versionAgnostic) continue;
-  const ns = namespaceOf(entry.girId);
-  const existing = BY_NAMESPACE.get(ns);
-  if (existing) {
-    throw new Error(
-      `gir-module-metadata: ${existing.girId} and ${entry.girId} both claim every version of "${ns}". ` +
-        "At most one entry per namespace may set versionAgnostic.",
-    );
-  }
-  BY_NAMESPACE.set(ns, entry);
+	if (!entry.versionAgnostic) continue;
+	const ns = namespaceOf(entry.girId);
+	const existing = BY_NAMESPACE.get(ns);
+	if (existing) {
+		throw new Error(
+			`gir-module-metadata: ${existing.girId} and ${entry.girId} both claim every version of "${ns}". ` +
+				"At most one entry per namespace may set versionAgnostic.",
+		);
+	}
+	BY_NAMESPACE.set(ns, entry);
 }
 
 /**
@@ -228,10 +223,10 @@ for (const entry of ALL_ENTRIES) {
  * version-agnostic entry. See {@link GirModuleMetadata.versionAgnostic}.
  */
 export function getModuleMetadata(girId: string): GirModuleMetadata | undefined {
-  return METADATA.get(girId) ?? BY_NAMESPACE.get(namespaceOf(girId));
+	return METADATA.get(girId) ?? BY_NAMESPACE.get(namespaceOf(girId));
 }
 
 /** Get all registered metadata entries. */
 export function getAllModuleMetadata(): ReadonlyMap<string, GirModuleMetadata> {
-  return METADATA;
+	return METADATA;
 }

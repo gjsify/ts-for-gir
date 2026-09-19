@@ -14,12 +14,12 @@
  */
 
 import {
-  constructOnlyAliasOf,
-  nickAliasOf,
-  propsInterfaceOf,
-  type VocabularyDecl,
-  type VocabularyWidget,
-  type WidgetVocabulary,
+	constructOnlyAliasOf,
+	nickAliasOf,
+	propsInterfaceOf,
+	type VocabularyDecl,
+	type VocabularyWidget,
+	type WidgetVocabulary,
 } from "./model.ts";
 
 const RUNTIME_DATA_DOC = `/**
@@ -33,136 +33,128 @@ const RUNTIME_DATA_DOC = `/**
  */`;
 
 const jsdoc = (
-  indent: string,
-  doc: string | undefined,
-  deprecated: boolean,
-  since?: string,
-  deprecatedSince?: string,
-  deprecatedDoc?: string,
-  defaultValue?: string,
+	indent: string,
+	doc: string | undefined,
+	deprecated: boolean,
+	since?: string,
+	deprecatedSince?: string,
+	deprecatedDoc?: string,
+	defaultValue?: string,
 ): string => {
-  const lines: string[] = [];
-  if (doc) lines.push(doc);
-  if (since) lines.push(`@since ${since}`);
-  // "Do I have to set this?" is the question a template author has at the attribute. The
-  // main `.d.ts` answers it (2004 `@default` tags in Gtk-4.0); the vocabulary, which is
-  // the file a JSX or Vue author actually hovers, did not.
-  if (defaultValue) lines.push(`@default ${defaultValue}`);
-  if (deprecated) {
-    // Same shape the main `.d.ts` uses, so an editor renders one thing for both.
-    const detail = [deprecatedSince ? `since ${deprecatedSince}` : "", deprecatedDoc ?? ""]
-      .filter(Boolean)
-      .join(": ");
-    lines.push(detail ? `@deprecated ${detail}` : "@deprecated");
-  }
-  if (lines.length === 0) return "";
-  if (lines.length === 1) return `${indent}/** ${lines[0]} */\n`;
-  return `${indent}/**\n${lines.map((l) => `${indent} * ${l}`).join("\n")}\n${indent} */\n`;
+	const lines: string[] = [];
+	if (doc) lines.push(doc);
+	if (since) lines.push(`@since ${since}`);
+	// "Do I have to set this?" is the question a template author has at the attribute. The
+	// main `.d.ts` answers it (2004 `@default` tags in Gtk-4.0); the vocabulary, which is
+	// the file a JSX or Vue author actually hovers, did not.
+	if (defaultValue) lines.push(`@default ${defaultValue}`);
+	if (deprecated) {
+		// Same shape the main `.d.ts` uses, so an editor renders one thing for both.
+		const detail = [deprecatedSince ? `since ${deprecatedSince}` : "", deprecatedDoc ?? ""].filter(Boolean).join(": ");
+		lines.push(detail ? `@deprecated ${detail}` : "@deprecated");
+	}
+	if (lines.length === 0) return "";
+	if (lines.length === 1) return `${indent}/** ${lines[0]} */\n`;
+	return `${indent}/**\n${lines.map((l) => `${indent} * ${l}`).join("\n")}\n${indent} */\n`;
 };
 
 /** A GObject property name is dashed, so every key needs quoting; be exact anyway. */
-const key = (name: string): string =>
-  /^[A-Za-z_$][A-Za-z0-9_$]*$/.test(name) ? name : `'${name}'`;
+const key = (name: string): string => (/^[A-Za-z_$][A-Za-z0-9_$]*$/.test(name) ? name : `'${name}'`);
 
 function renderBases(decl: VocabularyDecl, surface: WidgetVocabulary): string {
-  if (decl.bases.length === 0) return "";
-  const omissions = surface.omissions.get(decl.key);
-  const rendered = decl.bases.map((base) => {
-    const target = surface.declarations.get(base);
-    const name = target ? propsInterfaceOf(target.gtype) : base;
-    const drop = omissions?.get(base);
-    if (!drop || drop.length === 0) return name;
-    return `Omit<${name}, ${drop.map((d) => `'${d}'`).join(" | ")}>`;
-  });
-  return ` extends ${rendered.join(", ")}`;
+	if (decl.bases.length === 0) return "";
+	const omissions = surface.omissions.get(decl.key);
+	const rendered = decl.bases.map((base) => {
+		const target = surface.declarations.get(base);
+		const name = target ? propsInterfaceOf(target.gtype) : base;
+		const drop = omissions?.get(base);
+		if (!drop || drop.length === 0) return name;
+		return `Omit<${name}, ${drop.map((d) => `'${d}'`).join(" | ")}>`;
+	});
+	return ` extends ${rendered.join(", ")}`;
 }
 
 function renderDeclaration(decl: VocabularyDecl, surface: WidgetVocabulary): string {
-  const body = decl.props
-    .map(
-      (prop) =>
-        jsdoc(
-          "    ",
-          prop.doc,
-          prop.deprecated,
-          prop.since,
-          prop.deprecatedSince,
-          prop.deprecatedDoc,
-          prop.defaultValue,
-        ) + `    ${key(prop.girName)}?: ${prop.ts};\n`,
-    )
-    .join("");
-  const constructOnly = decl.props
-    .filter((prop) => prop.constructOnly)
-    .map((prop) => `'${prop.girName}'`);
-  const baseAliases = decl.bases
-    .map((base) => surface.declarations.get(base))
-    .filter((base): base is VocabularyDecl => base !== undefined)
-    .map((base) => constructOnlyAliasOf(base.gtype));
-  const parts = [...baseAliases, ...constructOnly];
-  return (
-    jsdoc("", decl.doc, false) +
-    `export interface ${propsInterfaceOf(decl.gtype)}${renderBases(decl, surface)} {\n${body}}\n` +
-    `/** Settable only at construction — a renderer must REBUILD, not patch. */\n` +
-    `export type ${constructOnlyAliasOf(decl.gtype)} = ${parts.length > 0 ? parts.join(" | ") : "never"};\n`
-  );
+	const body = decl.props
+		.map(
+			(prop) =>
+				jsdoc(
+					"    ",
+					prop.doc,
+					prop.deprecated,
+					prop.since,
+					prop.deprecatedSince,
+					prop.deprecatedDoc,
+					prop.defaultValue,
+				) + `    ${key(prop.girName)}?: ${prop.ts};\n`,
+		)
+		.join("");
+	const constructOnly = decl.props.filter((prop) => prop.constructOnly).map((prop) => `'${prop.girName}'`);
+	const baseAliases = decl.bases
+		.map((base) => surface.declarations.get(base))
+		.filter((base): base is VocabularyDecl => base !== undefined)
+		.map((base) => constructOnlyAliasOf(base.gtype));
+	const parts = [...baseAliases, ...constructOnly];
+	return (
+		jsdoc("", decl.doc, false) +
+		`export interface ${propsInterfaceOf(decl.gtype)}${renderBases(decl, surface)} {\n${body}}\n` +
+		`/** Settable only at construction — a renderer must REBUILD, not patch. */\n` +
+		`export type ${constructOnlyAliasOf(decl.gtype)} = ${parts.length > 0 ? parts.join(" | ") : "never"};\n`
+	);
 }
 
 function renderImports(surface: WidgetVocabulary): string[] {
-  const lines: string[] = [];
-  for (const [ns, importPath] of [...surface.namespaceImports].sort(([a], [b]) =>
-    a < b ? -1 : 1,
-  )) {
-    // The own namespace is a SIBLING file, not a package self-reference: the
-    // surface ships inside the package it describes.
-    const from = ns === surface.namespace ? `./${surface.importName}.js` : importPath;
-    lines.push(`import type ${ns} from '${from}';`);
-  }
-  for (const [subpath, names] of [...surface.surfaceImports].sort(([a], [b]) => (a < b ? -1 : 1))) {
-    lines.push(`import type { ${names.join(", ")} } from '${subpath}';`);
-  }
-  return lines;
+	const lines: string[] = [];
+	for (const [ns, importPath] of [...surface.namespaceImports].sort(([a], [b]) => (a < b ? -1 : 1))) {
+		// The own namespace is a SIBLING file, not a package self-reference: the
+		// surface ships inside the package it describes.
+		const from = ns === surface.namespace ? `./${surface.importName}.js` : importPath;
+		lines.push(`import type ${ns} from '${from}';`);
+	}
+	for (const [subpath, names] of [...surface.surfaceImports].sort(([a], [b]) => (a < b ? -1 : 1))) {
+		lines.push(`import type { ${names.join(", ")} } from '${subpath}';`);
+	}
+	return lines;
 }
 
 export function emitVocabularyTypes(surface: WidgetVocabulary): string {
-  const emitted = [...surface.declarations.values()]
-    .filter((decl) => decl.emitted)
-    .sort((a, b) => (a.gtype < b.gtype ? -1 : 1));
-  const inlined = emitted.filter((decl) => decl.inlined);
+	const emitted = [...surface.declarations.values()]
+		.filter((decl) => decl.emitted)
+		.sort((a, b) => (a.gtype < b.gtype ? -1 : 1));
+	const inlined = emitted.filter((decl) => decl.inlined);
 
-  const nicks = [...surface.enums.values()]
-    .sort((a, b) => (a.gtype < b.gtype ? -1 : 1))
-    .map((entry) => {
-      const union =
-        entry.nicks.length === 0 ? "never" : entry.nicks.map((nick) => `'${nick}'`).join(" | ");
-      return `export type ${nickAliasOf(entry.gtype)} = ${union};`;
-    });
+	const nicks = [...surface.enums.values()]
+		.sort((a, b) => (a.gtype < b.gtype ? -1 : 1))
+		.map((entry) => {
+			const union = entry.nicks.length === 0 ? "never" : entry.nicks.map((nick) => `'${nick}'`).join(" | ");
+			return `export type ${nickAliasOf(entry.gtype)} = ${union};`;
+		});
 
-  const rowsOf = (entries: readonly VocabularyWidget[]): string[] =>
-    entries.map((widget) => {
-      const slots = [...widget.slotCandidates]
-        .sort(([a], [b]) => (a < b ? -1 : 1))
-        .map(([slot, method]) => `        '${slot}': '${method}';`);
-      return (
-        `    ${widget.gtype}: {\n` +
-        `        class: ${widget.namespace}.${widget.local};\n` +
-        `        props: ${propsInterfaceOf(widget.gtype)};\n` +
-        `        signals: ${widget.namespace}.${widget.local}.SignalSignatures;\n` +
-        `        constructOnly: ${constructOnlyAliasOf(widget.gtype)};\n` +
-        `        slotCandidates: ${slots.length > 0 ? `{\n${slots.join("\n")}\n        }` : "{}"};\n` +
-        `    };`
-      );
-    });
+	const rowsOf = (entries: readonly VocabularyWidget[]): string[] =>
+		entries.map((widget) => {
+			const slots = [...widget.slotCandidates]
+				.sort(([a], [b]) => (a < b ? -1 : 1))
+				.map(([slot, method]) => `        '${slot}': '${method}';`);
+			return (
+				`    ${widget.gtype}: {\n` +
+				`        class: ${widget.namespace}.${widget.local};\n` +
+				`        props: ${propsInterfaceOf(widget.gtype)};\n` +
+				`        signals: ${widget.namespace}.${widget.local}.SignalSignatures;\n` +
+				`        constructOnly: ${constructOnlyAliasOf(widget.gtype)};\n` +
+				`        slotCandidates: ${slots.length > 0 ? `{\n${slots.join("\n")}\n        }` : "{}"};\n` +
+				`    };`
+			);
+		});
 
-  const rows = rowsOf(surface.widgets);
-  const holderRows = rowsOf(surface.childHolders);
+	const rows = rowsOf(surface.widgets);
+	const holderRows = rowsOf(surface.childHolders);
 
-  const slotTotal = [...surface.widgets, ...surface.childHolders].reduce(
-    (n, widget) => n + widget.slotCandidates.size,
-    0,
-  );
+	const slotTotal = [...surface.widgets, ...surface.childHolders].reduce(
+		(n, widget) => n + widget.slotCandidates.size,
+		0,
+	);
 
-  return `/**
+	return `/**
  * The GIR-derived widget VOCABULARY for ${surface.namespace}-${surface.version}.
  *
  * GENERATED — do not edit. Provenance: ${surface.provenance}

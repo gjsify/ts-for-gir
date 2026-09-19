@@ -18,9 +18,9 @@ export default {
   ],
   ignoreVersionConflicts: true,
   promisify: true,
-  // The GIR-derived widget vocabulary on `@girs/<ns>/surface`. Namespaces that declare no
-  // GtkWidget descendant emit nothing regardless, so this turns it on for the handful that
-  // do (Gtk-4.0, Gtk-3.0, Adw-1, GtkSource, WebKit, …) and leaves the rest untouched.
+  // The GIR-derived vocabulary on `@girs/<ns>/vocabulary`. A namespace that can instantiate
+  // nothing emits none regardless — the 88 record-and-enum GIRs (`cairo-1.0`, `GLib-2.0`,
+  // `Graphene-1.0`, the `Gst*` parsers) — so this turns it on for the 627 that can.
   widgetVocabulary: true,
   onlyVersionPrefix: false,
   package: true,

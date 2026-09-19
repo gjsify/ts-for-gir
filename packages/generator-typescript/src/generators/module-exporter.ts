@@ -78,13 +78,15 @@ export class ModuleExporter {
   }
 
   /**
-   * Emit the opt-in `@girs/<ns>/vocabulary` subpath, if this namespace declares widgets.
+   * Emit the opt-in `@girs/<ns>/vocabulary` subpath, if this namespace has one.
    *
-   * Two gates, and the second is the one that keeps the count honest: the config flag
-   * has to be on, and the namespace has to declare at least one concrete descendant of
-   * `GtkWidget`. Of the 705 GIRs in this repository a handful do; emitting an empty
-   * vocabulary for the rest would put a `./vocabulary` entry in every package that resolves
-   * to a file with no widgets in it.
+   * Two gates, and the second is the one that keeps the count honest: the config flag has
+   * to be on, and the namespace has to declare something a UI description file can
+   * instantiate — a registered, non-abstract class. Of the 716 packages this repository
+   * generates, 89 declare none, and emitting for those would put a `./vocabulary` entry in a package
+   * whose `DECLS` is empty: a subpath that resolves to a file answering no question.
+   * `buildWidgetVocabulary` returns null for exactly that set, so the count is decided in
+   * one place rather than tested twice.
    *
    * `package` mode only: the subpath needs an `exports` entry to be reachable at all,
    * and `externalDeps` mode deliberately emits one flat ambient `.d.ts` with no package
@@ -111,7 +113,7 @@ export class ModuleExporter {
     // Read by the package.json and tsconfig.json templates, which run after this.
     girModule.hasWidgetVocabulary = true;
     this.log.log(
-      `${girModule.packageName}: widget surface — ${surface.widgets.length} widgets, ` +
+      `${girModule.packageName}: vocabulary — ${surface.widgets.length} widgets, ` +
         `${[...surface.declarations.values()].filter((d) => d.emitted).length} declarations, ` +
         `${surface.enums.size} enum nick unions`,
     );

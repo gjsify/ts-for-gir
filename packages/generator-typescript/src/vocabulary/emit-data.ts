@@ -86,7 +86,13 @@ export function emitVocabularyData(surface: WidgetVocabulary): string {
   // only way to reach the declaration that owns a property.
   const decls = [...surface.chains].map(([gtype, chain]) => `    ${gtype}: ${list(chain)},`);
 
-  const enums = [...surface.enums.values()].sort((a, b) => (a.gtype < b.gtype ? -1 : 1));
+  // Both buckets, because this is the DATA half. `surface.enums` is what the `.d.ts` emits a
+  // nick union for; `surface.foreignEnums` is what it IMPORTS one for, and a consumer asking
+  // this file for a number must not have to know which of the two an enum fell into. The
+  // split exists for nominal identity in the type half and has no counterpart here.
+  const enums = [...surface.enums.values(), ...surface.foreignEnums.values()].sort((a, b) =>
+    a.gtype < b.gtype ? -1 : 1,
+  );
 
   const nicks = enums.map((entry) => `    ${entry.gtype}: ${list(entry.nicks)},`);
 
@@ -164,6 +170,8 @@ export function emitVocabularyData(surface: WidgetVocabulary): string {
     `    inlinedBases: ${list(p.inlinedBases)},`,
     `    unsettableProps: ${list(p.unsettableProps)},`,
     `    unresolvedProps: ${list(p.unresolvedProps)},`,
+    `    identifierPrefixes: ${list(p.identifierPrefixes)},`,
+    `    requiredVocabularies: ${list(p.requiredVocabularies)},`,
     "}",
   ].join("\n");
 

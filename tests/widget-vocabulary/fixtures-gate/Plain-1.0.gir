@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!-- Plain-1.0.gir — a namespace with NO widget in it at all, which must still emit a
+     vocabulary. This is the namespace gate's positive half, and the case the old gate cost:
+     `Gio`, `Gdk` and `GObject` declare no `GtkWidget` descendant, so a Blueprint cast
+     `as <Gio.Icon>` had no `@girs/gio-2.0/vocabulary` to resolve against however complete
+     Gtk-4.0's own vocabulary was. Naming a type is not instantiating one, and no widening
+     INSIDE the widget namespaces could ever reach it.
+
+     `Group` is concrete and registered, so the namespace can instantiate something and the
+     gate opens. `Tool` is abstract and nothing derives from it, so it must be absent
+     ENTIRELY — control 7's rule, re-asserted at namespace scope, where it is the only thing
+     keeping "has something instantiable" from decaying into "has any declaration".
+
+     THE PREFIXES ARE DELIBERATELY NEITHER THE NAMESPACE NAME NOR DERIVABLE. `c:identifier-
+     prefixes` is `Pn,pn` while the namespace is `Plain`: an implementation that defaults to
+     the namespace name writes `Plain`, and one that derives the prefix from the `DECLS`
+     keys — longest common prefix backed off to a CamelCase boundary, which is what a
+     consumer reaches for when the vocabulary withholds the fact — cannot produce a two-
+     element list at all. Read straight off the shipped vocabularies, the derivation is
+     wrong wherever the C prefix is not a prefix of the type names: `gdkx11-4.0` and
+     `gdkwayland-4.0` both state `Gdk` while every `DECLS` key begins `GdkX11`/`GdkWayland`,
+     and `gstgl-1.0`/`gstva-1.0` state `Gst` against keys beginning `GstGL`/`GstVa`. -->
+<repository version="1.2" xmlns="http://www.gtk.org/introspection/core/1.0" xmlns:c="http://www.gtk.org/introspection/c/1.0" xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="GLib" version="2.0"/>
+  <package name="plain"/>
+  <c:include name="plain.h"/>
+  <namespace name="Plain" version="1.0" shared-library="libplain.so" c:prefix="Pn" c:identifier-prefixes="Pn,pn" c:symbol-prefixes="pn">
+    <enumeration name="Mode" c:type="PnMode" glib:type-name="PnMode" glib:get-type="pn_mode_get_type">
+      <member name="wide" value="0" c:identifier="PN_MODE_WIDE" glib:nick="wide"/>
+      <member name="tall" value="7" c:identifier="PN_MODE_TALL" glib:nick="tall"/>
+    </enumeration>
+    <class name="Group" c:symbol-prefix="group" c:type="PnGroup" glib:type-name="PnGroup" glib:get-type="pn_group_get_type" parent="GObject.Object">
+      <property name="mode" writable="1" transfer-ownership="none">
+        <type name="Mode" c:type="PnMode"/>
+      </property>
+      <property name="label" writable="1" transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+    </class>
+    <class name="Tool" c:symbol-prefix="tool" c:type="PnTool" glib:type-name="PnTool" glib:get-type="pn_tool_get_type" parent="GObject.Object" abstract="1">
+      <property name="active" writable="1" transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+    </class>
+  </namespace>
+</repository>

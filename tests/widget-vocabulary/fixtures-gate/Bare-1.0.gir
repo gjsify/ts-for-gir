@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!-- Bare-1.0.gir — a namespace that states `c:identifier-prefixes=""`, which is not the same
+     as stating nothing and is not the same as stating one. `"".split(",")` is `[""]`, so a
+     naive read ships an empty string as though it were a prefix, and an empty prefix
+     concatenated onto a type name yields the name back: a consumer would resolve
+     `Bare.Thing` to `Thing` and hand GtkBuilder a GType that does not exist, confidently.
+
+     Real, not hypothetical: `tracker-2.0` and `restextras-0.7` declare exactly this, and the
+     first version of `identifierPrefixes` shipped `['']` for both. 17 of the 627 emitting
+     namespaces state no usable prefix; every one must come out as an EMPTY LIST, which is a
+     consumer's signal to refuse rather than to guess. -->
+<repository version="1.2" xmlns="http://www.gtk.org/introspection/core/1.0" xmlns:c="http://www.gtk.org/introspection/c/1.0" xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="GLib" version="2.0"/>
+  <package name="bare"/>
+  <c:include name="bare.h"/>
+  <namespace name="Bare" version="1.0" shared-library="libbare.so" c:prefix="Bare" c:identifier-prefixes="" c:symbol-prefixes="bare">
+    <class name="Thing" c:symbol-prefix="thing" c:type="BareThing" glib:type-name="BareThing" glib:get-type="bare_thing_get_type" parent="GObject.Object">
+      <property name="label" writable="1" transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+    </class>
+  </namespace>
+</repository>

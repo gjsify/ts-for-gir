@@ -288,6 +288,16 @@ export const PROVENANCE: {
      * GIRs disagreeing, which is what the main emitter answers \`never\` for as well.
      */
     readonly unresolvedProps: readonly string[];
+    /**
+     * \`c:identifier-prefixes\` from the GIR, verbatim and in order — \`['G']\` for Gio.
+     *
+     * The C prefix a type REFERENCE needs: resolving \`Gio.Icon\` means producing \`GIcon\`,
+     * and nothing else in this package states that \`Gio\` spells itself \`G\`. Carried
+     * because GIR carries it; deriving it from the \`DECLS\` keys is wrong for about a
+     * quarter of the namespaces that emit a vocabulary. Empty where the GIR states none,
+     * and a LIST because 4 namespaces in the corpus state more than one.
+     */
+    readonly identifierPrefixes: readonly string[];
 };
 
 /** Declaration GType -> its own settable properties, as GObject registered them. */

@@ -164,6 +164,7 @@ export function emitVocabularyData(surface: WidgetVocabulary): string {
     `    inlinedBases: ${list(p.inlinedBases)},`,
     `    unsettableProps: ${list(p.unsettableProps)},`,
     `    unresolvedProps: ${list(p.unresolvedProps)},`,
+    `    identifierPrefixes: ${list(p.identifierPrefixes)},`,
     "}",
   ].join("\n");
 

@@ -123,8 +123,26 @@ property key. The shape to refuse is the GLOBAL AUGMENT, not JSX: a `declare glo
 behind a `jsxImportSource` does not (gjsify's gtk-host ships two of them, Solid and React,
 in one package). `@girs/*` is used by projects that want nothing to do with JSX, so it emits
 neither -- but a consumer declaring a module-scoped namespace is doing it right.
-**Only namespaces that DECLARE a concrete `GtkWidget` descendant emit one** — 142 of the
-705 GIRs, and this gate is untouched by the coverage rule above; a cross-namespace base is
+**A namespace emits one when it HAS one** — when it declares something instantiable, 627 of
+the 715 GIRs; the gate is the coverage rule above read one level up, not a second rule beside
+it. It was "declares a concrete `GtkWidget` descendant", 142 GIRs, and that is the renderer's
+question the coverage rule already stopped asking: a UI file NAMES types it never
+instantiates. A Blueprint cast `as <Gio.Icon>` compiles to `type="GIcon"`, a consumer resolves
+that per NAMESPACE, and `Gio`, `Gdk` and `GObject` shipped nothing to resolve it against — no
+widening INSIDE the 142 could ever reach it, because the type named in a cast appears in no
+`<object class="…">`. ADR 0029 defended the narrow gate as "a widget SURFACE with no widgets
+in it"; the artefact was renamed to `vocabulary` — the names a namespace registers — before it
+shipped, and the argument did not survive the rename. The 88 excluded declare no registered
+non-abstract class at all (`cairo-1.0`, `GLib-2.0`, `Graphene-1.0`, the record-only `Gst*`):
+their `DECLS` would be EMPTY, which is not a smaller answer but none. Measured over the
+corpus: vocabularies 142 → 627, emitted bytes 7.47 → 28.43 MB, the 142 pre-existing net
+±0 (foreign tables move home to their owner as often as `identifierPrefixes` adds a line),
+every main `.d.ts` byte-identical, and `Widgets`/`ChildHolders`/`CHILD_HOLDERS`/
+`SLOT_CANDIDATES` unchanged in 0 of 142 — a consumer asking "is this a widget" is untouched.
+`PROVENANCE.identifierPrefixes` carries `c:identifier-prefixes` VERBATIM, because a type
+reference needs the C prefix (`Gio` spells itself `G`) and nothing else in the package states
+it; deriving it from the `DECLS` keys is wrong for about a quarter of the namespaces that now
+emit. A cross-namespace base is
 imported from its owner's `./vocabulary` only where that vocabulary CARRIES it — a namespace
 with widgets can still leave a declaration out, and importing on "the owner has one" shipped
 `@girs/ide-46` a TS2724 against `@girs/gtksource-5`. A base the owner does not emit is dropped
@@ -149,7 +167,11 @@ refused; a declared ARIA exception that is no longer needed is refused; `noComme
 chain reaches is absent ENTIRELY, which is what keeps "instantiable" from becoming "every
 declaration"; a non-widget instantiable gets props, a `DECLS` chain and a `PROP_ENUMS` row
 while reaching neither `Widgets` nor `ChildHolders` nor `SLOT_CANDIDATES`; and a foreign
-declaration its owner's vocabulary leaves out is inlined rather than imported). The emitted
+declaration its owner's vocabulary leaves out is inlined rather than imported; a namespace
+with NO widget in it emits anyway and carries the GIR's own `c:identifier-prefixes`, while one
+that can instantiate NOTHING emits neither the file nor the `./vocabulary` export — the two
+halves of the namespace gate, held over real GIRs by `gobject-2.0` and `glib-2.0` side by side
+in one generated tree). The emitted
 vocabulary is also in each package's
 own `tsconfig.json#include`, so `gjsify run check:types` compiles it — the only thing that
 catches it referencing a name the main emitter did not emit. One refusal has no fixture,

@@ -25,6 +25,7 @@ tests/**/generated/
 tests/**/generated-off/
 tests/**/generated-inline/
 tests/**/generated-cross/
+tests/**/generated-gate/
 tests/**/generated-broken/
 tests/**/generated-aria-broken/
 tests/**/generated-aria-stale/

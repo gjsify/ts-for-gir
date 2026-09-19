@@ -246,6 +246,29 @@ export interface VocabularyProvenance {
   readonly inlinedBases: readonly string[];
   readonly unsettableProps: readonly string[];
   readonly unresolvedProps: readonly string[];
+  /**
+   * `c:identifier-prefixes` from the GIR, verbatim and in order.
+   *
+   * The C prefix of a namespace is the missing half of a type REFERENCE. A consumer that
+   * resolves `Gio.Icon` has to produce `GIcon`, and nothing else in this package says that
+   * `Gio` spells itself `G`: not the package name (`@girs/gtksource-5` is `GtkSource`), not
+   * `namespace`, not a GType key. Until the namespace gate widened, the only vocabularies
+   * that existed were ones a consumer could hard-code, so the fact was never missed.
+   *
+   * It is carried rather than derived because GIR carries it. Deriving it — longest common
+   * prefix over the `DECLS` keys, backed off to a CamelCase boundary — is what a consumer
+   * reaches for next, and measured over the GIRs that declare a concrete class it is wrong
+   * for roughly a quarter of them: `GdkX11` and `GdkWayland` answer themselves where their
+   * GIR says `Gdk`, eight `Gst*` answer `GstGL`/`GstVa` where it says `Gst`, `Nice` backs
+   * off to nothing. None of those was reachable while 142 namespaces emitted; most of them
+   * are now, which is exactly why this ships in the same change as the gate.
+   *
+   * A LIST, not a string, because the attribute is comma-separated and 4 namespaces in the
+   * corpus state more than one (`Camel,camel`). Empty where the GIR states none — silence,
+   * not a default: inventing `namespace` here would hand a consumer a confident wrong
+   * answer in place of a missing one.
+   */
+  readonly identifierPrefixes: readonly string[];
 }
 
 export interface WidgetVocabulary {
@@ -518,18 +541,48 @@ function childHoldersOf(module: GirModule, config: OptionsGeneration): Introspec
 /**
  * Does this namespace get a `./vocabulary` at all?
  *
- * Only namespaces that DECLARE widgets, not the 700-odd that merely appear in a
- * widget's property types. Answered per namespace and cached, because a widget's
- * base chain asks it once per foreign declaration.
+ * It does when it HAS one: a namespace emits a vocabulary exactly when
+ * {@link instantiableClassesOf} finds something in it. That is not a second rule beside the
+ * coverage rule, it is the same rule read one level up, and the gate is now a consequence
+ * of the population rather than an independent test that can disagree with it.
+ *
+ * WHAT THIS REPLACES. The gate was "declares a concrete `GtkWidget` descendant" — 142 of
+ * the 705 GIRs — and it was the last place the RENDERER's question was still being asked.
+ * {@link instantiableClassesOf} stopped asking it for declarations because GtkBuilder
+ * resolves `<object class="…">` through `g_type_from_name`, which knows nothing about
+ * widgets; nothing about that argument was ever specific to declarations. ADR 0029 defended
+ * the narrow gate as "giving a namespace with no widgets a surface would publish a widget
+ * SURFACE with no widgets in it" — an argument about what the artefact IS, made while the
+ * artefact was called `surface`. It shipped as `vocabulary`, the names a namespace
+ * REGISTERS, and a namespace that registers `GThemedIcon` has one of those whether or not
+ * it has a widget.
+ *
+ * NAMING A TYPE IS NOT INSTANTIATING ONE, and that is the case the narrow gate cost. A
+ * Blueprint cast `as <Gio.Icon>` compiles to `type="GIcon"`; a consumer resolves that per
+ * NAMESPACE, and `Gio`, `Gdk` and `GObject` shipped nothing to resolve it against no matter
+ * how complete Gtk-4.0's own vocabulary was. The type named in a cast, a `<lookup>` or a
+ * `<constant>` never appears in `<object class="…">` at all, so no amount of widening
+ * INSIDE the 142 could reach it.
+ *
+ * WHAT IT STILL EXCLUDES, which is what keeps this a rule and not "emit everything": 88 of
+ * the 715 GIRs declare no registered non-abstract class at all — `cairo-1.0`, `GLib-2.0`,
+ * `Graphene-1.0`, `HarfBuzz-0.0`, `xlib-2.0`, `PangoCairo-1.0` and the `Gst*`
+ * record-and-function namespaces. Their `DECLS` would be EMPTY, and an empty `DECLS` is not
+ * a smaller answer but no answer: it names nothing a UI file can write and nothing a
+ * consumer can key. Their types are boxed records and enums, which this vocabulary has
+ * never described from either side of the gate — a cast to `GLib.Bytes` is out of scope
+ * before this function is reached, not because of it.
+ *
+ * Answered per namespace and cached, because a consumer's base chain asks it once per
+ * foreign declaration. No pre-seeded `false` guards the recursion any more: the predicate
+ * reads `isAbstract`, `isIntrospectable` and `glibTypeName` off this namespace's own
+ * members and never walks a parent chain, so unlike `isWidgetClass` it cannot re-enter.
  */
 const qualifies = new WeakMap<GirModule, boolean>();
-export function declaresWidgets(module: GirModule): boolean {
+export function emitsVocabulary(module: GirModule): boolean {
   const cached = qualifies.get(module);
   if (cached !== undefined) return cached;
-  // Set before recursing: `isWidgetClass` walks parents, which can re-enter here
-  // through a namespace that depends on this one.
-  qualifies.set(module, false);
-  const answer = concreteWidgetsOf(module).length > 0;
+  const answer = instantiableClassesOf(module).length > 0;
   qualifies.set(module, answer);
   return answer;
 }
@@ -560,8 +613,8 @@ function coveredDeclarationsOf(module: GirModule): ReadonlySet<string> {
   const cached = coveredKeys.get(module);
   if (cached) return cached;
   const keys = new Set<string>();
-  // A namespace with no widgets emits no vocabulary at all, so it carries nothing.
-  if (declaresWidgets(module)) {
+  // A namespace that emits no vocabulary at all carries nothing.
+  if (emitsVocabulary(module)) {
     for (const cls of instantiableClassesOf(module))
       for (const decl of declarationChain(module, cls)) keys.add(keyOf(decl));
   }
@@ -996,8 +1049,12 @@ export function buildWidgetVocabulary(
   module: GirModule,
   config: OptionsGeneration,
 ): WidgetVocabulary | null {
+  // The namespace gate, and it is the population itself: a namespace with nothing
+  // instantiable in it has an empty vocabulary to offer, so it offers none. See
+  // {@link emitsVocabulary} — the two must stay the same test, or a consumer can import a
+  // subpath whose owner's own gate says it does not exist.
+  if (!emitsVocabulary(module)) return null;
   const widgetClasses = concreteWidgetsOf(module);
-  if (widgetClasses.length === 0) return null;
   // Holders ride the SAME pipeline — they need declarations, props and since-versions
   // exactly as widgets do, or a consumer cannot type them. Only the list differs.
   const holderClasses = childHoldersOf(module, config);
@@ -1026,13 +1083,18 @@ export function buildWidgetVocabulary(
       const owner = module.getInstalledImport(
         enumeration.reference.slice(0, enumeration.reference.indexOf(".")),
       );
-      // A nick union is emitted ONCE, by the surface that owns the enum, and imported
+      // A nick union is emitted ONCE, by the vocabulary that owns the enum, and imported
       // from there — `AdwHeaderBarProps` reads `GtkPackTypeNick` out of
-      // `@girs/gtk-4.0/vocabulary`. Enums from namespaces with no widgets (Pango, Gdk)
-      // have no surface to live in, so each consumer emits its own alias for those.
-      // Skipping the emission without adding the IMPORT is the shape the per-package
-      // `tsc --project` caught first: 9 × TS2304 in Adw-1, naming 6 Gtk enums.
-      if (owner && owner !== module && declaresWidgets(owner)) {
+      // `@girs/gtk-4.0/vocabulary`. An owner that emits NO vocabulary has nowhere to put
+      // one, so each consumer emits its own alias for those. Skipping the emission without
+      // adding the IMPORT is the shape the per-package `tsc --project` caught first: 9 ×
+      // TS2304 in Adw-1, naming 6 Gtk enums.
+      //
+      // Sound only because a vocabulary emits a nick union for EVERY registered enum its
+      // namespace declares, never only the ones its own properties reach — see the loop
+      // below. The declaration import cannot lean on that and asks
+      // {@link coveredDeclarationsOf} instead.
+      if (owner && owner !== module && emitsVocabulary(owner)) {
         importFromVocabulary(owner, nickAliasOf(enumeration.gtype));
         continue;
       }
@@ -1045,8 +1107,9 @@ export function buildWidgetVocabulary(
       // Same division as the enums above, minus the import: a bitfield gets no nick union,
       // so there is no NAME to bring over, only numbers. They live in the owner's own
       // vocabulary when it has one and here when it does not — which is the case
-      // `PROP_ENUMS` broke, Gdk owning `GdkGLAPI` and declaring no widget to emit it.
-      if (owner && owner !== module && declaresWidgets(owner)) continue;
+      // `PROP_ENUMS` broke, Gdk owning `GdkGLAPI` and declaring no widget to emit it. Gdk
+      // emits its own vocabulary now, so that one moved home rather than staying inlined.
+      if (owner && owner !== module && emitsVocabulary(owner)) continue;
       flags.set(bitfield.gtype, bitfield);
     }
   };
@@ -1312,6 +1375,7 @@ export function buildWidgetVocabulary(
       inlinedBases: inlined,
       unsettableProps: unsettable,
       unresolvedProps,
+      identifierPrefixes: [...module.c_prefixes],
     },
     widgets,
     childHolders,

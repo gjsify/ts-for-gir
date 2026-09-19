@@ -1,17 +1,28 @@
 <?xml version="1.0"?>
-<!-- Carrier-1.0.gir — a namespace that declares NO widgets and yet contributes a settable
-     property to a widget's base chain. There is no `@girs/carrier-1.0/surface` to import
+<!-- Carrier-1.0.gir — a namespace that emits NO vocabulary and yet contributes a settable
+     property to a widget's base chain. There is no `@girs/carrier-1.0/vocabulary` to import
      `CarrierHolderProps` from, and dropping the base would shrink the vocabulary by a
-     property nobody would notice was missing — so the consuming surface inlines it. A
-     surface for Carrier itself is the wrong answer: it would be a widget surface with no
-     widgets in it. -->
+     property nobody would notice was missing — so the consuming vocabulary inlines it.
+     Measured in the real corpus as `Gcr.Prompt`, which is why this is a positive fixture
+     and not an error case.
+
+     THIS FIXTURE CARRIES THE NAMESPACE GATE'S NEGATIVE HALF. `Holder` is abstract and
+     nothing in Carrier derives from it, so Carrier declares nothing a UI file can
+     instantiate and gets no vocabulary of its own — the 88 GIRs of `cairo-1.0`,
+     `GLib-2.0`, `Graphene-1.0` and the record-only `Gst*` namespaces in one file. It was
+     CONCRETE while the gate read "declares a concrete GtkWidget descendant", where
+     abstractness made no difference to the answer; under a gate that asks what the
+     namespace can instantiate it decides it, and a concrete `Holder` would make Carrier
+     emit a vocabulary carrying `CarrierHolderProps` — which the consumer would then
+     IMPORT, and this control would pass while testing nothing. Making it abstract is what
+     keeps the inline path under test at all. -->
 <repository version="1.2" xmlns="http://www.gtk.org/introspection/core/1.0" xmlns:c="http://www.gtk.org/introspection/c/1.0" xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <include name="GLib" version="2.0"/>
   <package name="carrier"/>
   <c:include name="carrier.h"/>
   <namespace name="Carrier" version="1.0" shared-library="libcarrier.so" c:prefix="Carrier" c:identifier-prefixes="Carrier" c:symbol-prefixes="carrier">
-    <class name="Holder" c:symbol-prefix="holder" c:type="CarrierHolder" glib:type-name="CarrierHolder" glib:get-type="carrier_holder_get_type" parent="GObject.Object">
+    <class name="Holder" c:symbol-prefix="holder" c:type="CarrierHolder" glib:type-name="CarrierHolder" glib:get-type="carrier_holder_get_type" parent="GObject.Object" abstract="1">
       <property name="title" writable="1" transfer-ownership="none">
         <type name="utf8" c:type="gchar*"/>
       </property>

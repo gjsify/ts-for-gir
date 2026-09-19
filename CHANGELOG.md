@@ -1,5 +1,11 @@
 # Changelog
 
+## [5.3.0](https://github.com/gjsify/ts-for-gir/compare/v5.2.0...v5.3.0) (2026-09-19)
+
+### Features
+
+* **vocabulary:** emit one for every namespace a UI file can name ([#476](https://github.com/gjsify/ts-for-gir/issues/476)) ([ada7b9e](https://github.com/gjsify/ts-for-gir/commit/ada7b9e8c3fedd0407e51b07d868d77d90e88d49)), references [#474](https://github.com/gjsify/ts-for-gir/issues/474) [#474](https://github.com/gjsify/ts-for-gir/issues/474) [#474](https://github.com/gjsify/ts-for-gir/issues/474)
+
 ## [5.2.0](https://github.com/gjsify/ts-for-gir/compare/v5.1.0...v5.2.0) (2026-09-15)
 
 ### Features

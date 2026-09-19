@@ -135,8 +135,12 @@ in it"; the artefact was renamed to `vocabulary` — the names a namespace regis
 shipped, and the argument did not survive the rename. The 89 excluded declare no registered
 non-abstract class at all (`cairo-1.0`, `GLib-2.0`, `Graphene-1.0`, the record-only `Gst*`):
 their `DECLS` would be EMPTY, which is not a smaller answer but none. Measured over the
-corpus: vocabularies 142 → 627, emitted bytes 7.47 → 28.60 MB, the 142 pre-existing 119 grew
-/ 23 shrank for a net +38.5 kB, every main `.d.ts` byte-identical, and
+corpus, every byte figure over BOTH halves of a vocabulary (`.d.ts` + `.js`): vocabularies
+142 → 627, emitted bytes 7.47 → 29.23 MB, tree 201.3 → 223.5 MB, the 142 pre-existing 129
+grew / 13 shrank for a net +186.6 kB. Name the half or the split is unreadable — the same
+change is 135/7 over the `.d.ts` alone and 118/24 over the `.js` alone, because
+`requiredVocabularies` replicates 384 kB of JSDoc into 627 type files while foreign tables
+moving home shrink the data files. Every main `.d.ts` is byte-identical, and
 `Widgets`/`ChildHolders`/`CHILD_HOLDERS`/`SLOT_CANDIDATES` unchanged in 0 of 142 — a consumer
 asking "is this a widget" is untouched. **The change is NOT additive**: a foreign enum or
 bitfield table used to be inlined only when its owner emitted nothing, so widening moved

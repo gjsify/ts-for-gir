@@ -152,6 +152,74 @@ answered `E404` to `npm install` — a manifest without a tarball. The final ins
 sees that. That version has a tarball again since, so the case no longer reproduces; it is kept
 here because nothing except an actual install would have caught it while it was true.
 
+## Before you cut: npm's own status page
+
+A release is not an event, it is a sweep — the tag starts something that publishes 716 packages
+one at a time and runs for three and a half hours. So the question at cut time is not "is npm up"
+but "will npm still be up in four hours".
+
+**This went wrong in v5.3.0.** npm ran a scheduled maintenance window on `Package publishing`
+from 17:00 to 19:00Z; the sweep ran 14:44 → 18:15 and walked straight into it.
+
+| | |
+|---|---|
+| tag pushed | 2026-09-19 14:41Z |
+| sweep starts | 14:44Z |
+| window opens, `Package publishing` → `under_maintenance` | 17:00Z |
+| `@girs/atrilview-1.5.0` gets `E503` on its PUT | 17:18Z |
+| gives up after 10 retries, on `E404` | 17:37Z |
+| sweep ends: **715 of 716**, run red | 18:15Z |
+| window closes | 19:00Z |
+| a re-run publishes the missing package | 19:02Z, in **4 seconds** |
+
+`scripts/check-npm-status.mjs` runs from `.release-it.json`'s `before:init`, so a cut into a
+window is refused before the tag exists. Two things about it are load-bearing:
+
+**Asking "is publishing operational right now" would NOT have caught this.** At 14:41 it was.
+The window was created at 2026-09-18T21:00:58Z — nearly eighteen hours before the cut — and
+listed `Package publishing` the whole time. So the check also asks whether any *scheduled* window
+overlaps the next `--horizon` hours (default 4, the measured sweep length rounded up). That
+second question is the one that pays.
+
+**It reads the component, never the page banner.** During the incident the page said
+`maintenance` while `Package installation` stayed `operational`. The banner cannot tell "the
+website is down" from "nobody can publish", and only the second half-lands a release.
+
+Unreadable is **unknown**, and unknown blocks — a status API that times out has not told you
+anything, least of all that everything is fine. To ship anyway, say why:
+
+```bash
+gjsify run check:npm                                    # ask by hand
+NPM_STATUS_OVERRIDE="<reason>" npx release-it …         # ship inside a window, on the record
+node --no-warnings scripts/check-npm-status.mjs --status-url=file:///abs/fixture   # prove it red
+```
+
+It is deliberately **not** part of `gjsify run check`: a maintenance window is no reason to
+red-line every pull request, and a gate that cries wolf on unrelated work gets switched off.
+
+## When the sweep half-lands
+
+Two facts worth knowing before you need them, because this is what you reach for under pressure:
+
+**`release.yml` in gjsify/types has no `workflow_dispatch`.** It triggers on `release: published`
+and `push: main` — nothing else. So there is no "run the release workflow" button, and looking for
+one costs time you do not have mid-incident. The recovery verb is a re-run:
+
+```bash
+gh run rerun --failed <run-id> -R gjsify/types
+```
+
+That is safe, and not by luck: the publisher checks the registry for every package before it
+publishes anything, so a re-run republishes only what is genuinely missing. Measured on the
+v5.3.0 recovery — `715 already published, 1 to publish`, four seconds of publishing, then the
+full closure gate and cold-install probe as usual.
+
+**Visible is not installable.** A packument read says a version EXISTS; a tarball fetch says it
+INSTALLS. Those came apart for real at v5.2.0, where all four `@girs/sdk-*` bundles were visible
+at a version nobody could install yet. When you verify a recovery, verify both — and read the
+registry with a cache buster, because `npm view` and a bare `curl` will hand back a stale
+packument and look authoritative while doing it.
+
 ## Running the checks by hand
 
 Here, against a generated tree — the build-time half. It is part of `gjsify run check`, and CI

@@ -29,6 +29,7 @@
     "check:girs": "node --no-warnings scripts/check-nick-derivation.mjs girs",
     "check:pm": "node --no-warnings scripts/check-package-manager.mjs",
     "check:prereqs": "node --no-warnings scripts/check-workflow-prereqs.mjs",
+    "check:npm": "node --no-warnings scripts/check-npm-status.mjs",
     "check:publish": "node --no-warnings scripts/check-publish-cli.mjs",
     "check:docs": "node --no-warnings scripts/check-readme-examples.mjs",
     "check:closure": "node --no-warnings scripts/check-dependency-closure.mjs",

@@ -120,14 +120,7 @@ export class GirEnumMember extends IntrospectedBase<IntrospectedEnum> {
 	copy(): GirEnumMember {
 		const { value, name, parent, c_identifier, nick, deprecated } = this;
 
-		return new GirEnumMember(
-			name,
-			value,
-			parent,
-			c_identifier,
-			nick,
-			deprecated,
-		)._copyBaseProperties(this);
+		return new GirEnumMember(name, value, parent, c_identifier, nick, deprecated)._copyBaseProperties(this);
 	}
 
 	static fromXML(element: GirMemberElement, parent: IntrospectedEnum, options: OptionsLoad): GirEnumMember {
@@ -138,14 +131,7 @@ export class GirEnumMember extends IntrospectedBase<IntrospectedEnum> {
 		// case, because a nick never differs from its name by case -- see `nick` above.
 		const nick = element.$["glib:nick"] ?? element.$.name.replace(/_/g, "-");
 
-		const enumMember = new GirEnumMember(
-			upper,
-			element.$.value,
-			parent,
-			c_identifier,
-			nick,
-			isDeprecated(element),
-		);
+		const enumMember = new GirEnumMember(upper, element.$.value, parent, c_identifier, nick, isDeprecated(element));
 
 		if (options.loadDocs) {
 			enumMember.doc = parseDoc(element);

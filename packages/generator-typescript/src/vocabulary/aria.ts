@@ -25,12 +25,7 @@
  * GIR does not state is refused rather than guessed: see {@link buildAriaValueTypes}.
  */
 
-import {
-  type GirEnumMember,
-  type GirModule,
-  IntrospectedEnum,
-  type OptionsGeneration,
-} from "@ts-for-gir/lib";
+import { type GirEnumMember, type GirModule, IntrospectedEnum, type OptionsGeneration } from "@ts-for-gir/lib";
 import { VocabularyError } from "./errors.ts";
 
 /**
@@ -43,11 +38,7 @@ import { VocabularyError } from "./errors.ts";
  * sentence appears on 52 members, all of them in these three enums, and only
  * `Gtk-4.0.gir` declares any of them.
  */
-const ARIA_ENUM_GTYPES = [
-  "GtkAccessibleProperty",
-  "GtkAccessibleRelation",
-  "GtkAccessibleState",
-] as const;
+const ARIA_ENUM_GTYPES = ["GtkAccessibleProperty", "GtkAccessibleRelation", "GtkAccessibleState"] as const;
 
 /**
  * The kinds of value an ARIA slot takes.
@@ -66,11 +57,11 @@ export type AriaValueType = "string" | "integer" | "double" | "boolean" | "refer
  * {@link VocabularyError} naming the member, never a default.
  */
 const PRIMITIVE_VALUE_TYPES = new Map<string, AriaValueType>([
-  ["string", "string"],
-  ["integer", "integer"],
-  ["double", "double"],
-  ["boolean", "boolean"],
-  ["reference", "reference"],
+	["string", "string"],
+	["integer", "integer"],
+	["double", "double"],
+	["boolean", "boolean"],
+	["reference", "reference"],
 ]);
 
 /**
@@ -107,11 +98,11 @@ const ENUM_LINK = /^\[enum@(?:([A-Za-z][A-Za-z0-9_]*)\.)?([A-Za-z][A-Za-z0-9_]*)
  * beside an authoritative one.
  */
 interface AriaValueTypeException {
-  /** `<enum GType>.<nick>`, the key the tables use. */
-  readonly member: string;
-  readonly valueType: AriaValueType;
-  /** Quote GTK's actual prose, so the next reader can check the claim in one grep. */
-  readonly reason: string;
+	/** `<enum GType>.<nick>`, the key the tables use. */
+	readonly member: string;
+	readonly valueType: AriaValueType;
+	/** Quote GTK's actual prose, so the next reader can check the claim in one grep. */
+	readonly reason: string;
 }
 
 /**
@@ -124,37 +115,36 @@ interface AriaValueTypeException {
  * one-off, and it costs the same.
  */
 const ARIA_VALUE_TYPE_EXCEPTIONS: readonly AriaValueTypeException[] = [
-  {
-    member: "GtkAccessibleState.busy",
-    valueType: "boolean",
-    reason:
-      'GTK states the type in prose instead of the convention: "A “busy” state. ' +
-      'This state has boolean values". Every other member of the three enums ends with ' +
-      '"Value type: <type>".',
-  },
+	{
+		member: "GtkAccessibleState.busy",
+		valueType: "boolean",
+		reason:
+			'GTK states the type in prose instead of the convention: "A “busy” state. ' +
+			'This state has boolean values". Every other member of the three enums ends with ' +
+			'"Value type: <type>".',
+	},
 ];
 
 /** `<enum GType>.<nick>` -> value kind, plus the enum GType for the `enum` rows. */
 export interface AriaValueTypes {
-  readonly kinds: ReadonlyMap<string, AriaValueType>;
-  /** The same keys, for the `'enum'` rows only. */
-  readonly enums: ReadonlyMap<string, string>;
+	readonly kinds: ReadonlyMap<string, AriaValueType>;
+	/** The same keys, for the `'enum'` rows only. */
+	readonly enums: ReadonlyMap<string, string>;
 }
 
 const EMPTY: AriaValueTypes = { kinds: new Map(), enums: new Map() };
 
 /** The ARIA enums this namespace itself declares, by GType. */
 function ariaEnumsOf(module: GirModule): Map<string, IntrospectedEnum> {
-  const found = new Map<string, IntrospectedEnum>();
-  for (const member of module.members.values()) {
-    for (const candidate of Array.isArray(member) ? member : [member]) {
-      if (!(candidate instanceof IntrospectedEnum)) continue;
-      const gtype = candidate.glibTypeName;
-      if (gtype && (ARIA_ENUM_GTYPES as readonly string[]).includes(gtype))
-        found.set(gtype, candidate);
-    }
-  }
-  return found;
+	const found = new Map<string, IntrospectedEnum>();
+	for (const member of module.members.values()) {
+		for (const candidate of Array.isArray(member) ? member : [member]) {
+			if (!(candidate instanceof IntrospectedEnum)) continue;
+			const gtype = candidate.glibTypeName;
+			if (gtype && (ARIA_ENUM_GTYPES as readonly string[]).includes(gtype)) found.set(gtype, candidate);
+		}
+	}
+	return found;
 }
 
 /**
@@ -171,26 +161,24 @@ function ariaEnumsOf(module: GirModule): Map<string, IntrospectedEnum> {
  * failure rather than a dangling key.
  */
 function resolveEnumLink(module: GirModule, token: string, where: string): string | null {
-  const link = ENUM_LINK.exec(token);
-  if (!link) return null;
-  const [, namespace, name] = link;
-  if (namespace !== undefined && namespace !== module.namespace) {
-    throw new VocabularyError(`${where}: value type links ${namespace}.${name}, another namespace`);
-  }
-  const target = module.getEnum(name);
-  if (!target)
-    throw new VocabularyError(`${where}: value type links ${name}, which is not declared here`);
-  if (!target.glibTypeName)
-    throw new VocabularyError(`${where}: value type links ${name}, an unregistered enum`);
-  return target.glibTypeName;
+	const link = ENUM_LINK.exec(token);
+	if (!link) return null;
+	const [, namespace, name] = link;
+	if (namespace !== undefined && namespace !== module.namespace) {
+		throw new VocabularyError(`${where}: value type links ${namespace}.${name}, another namespace`);
+	}
+	const target = module.getEnum(name);
+	if (!target) throw new VocabularyError(`${where}: value type links ${name}, which is not declared here`);
+	if (!target.glibTypeName) throw new VocabularyError(`${where}: value type links ${name}, an unregistered enum`);
+	return target.glibTypeName;
 }
 
 /** The value type one member's doc states, or null where it states none. */
 function statedValueType(member: GirEnumMember): string | null {
-  const stated = VALUE_TYPE_SENTENCE.exec(member.doc ?? "");
-  // `visited` ends `Value type: boolean.` and `key-shortcuts` runs on after `string.`,
-  // so the token carries a sentence-final period into the lookup unless it is dropped.
-  return stated ? stated[1].replace(/\.+$/, "") : null;
+	const stated = VALUE_TYPE_SENTENCE.exec(member.doc ?? "");
+	// `visited` ends `Value type: boolean.` and `key-shortcuts` runs on after `string.`,
+	// so the token carries a sentence-final period into the lookup unless it is dropped.
+	return stated ? stated[1].replace(/\.+$/, "") : null;
 }
 
 /**
@@ -216,52 +204,49 @@ function statedValueType(member: GirEnumMember): string | null {
  * would shrink the table by a third and raise nothing.
  */
 export function buildAriaValueTypes(module: GirModule, config: OptionsGeneration): AriaValueTypes {
-  const declared = ariaEnumsOf(module);
-  if (declared.size === 0) return EMPTY;
-  if (declared.size !== ARIA_ENUM_GTYPES.length) {
-    const missing = ARIA_ENUM_GTYPES.filter((gtype) => !declared.has(gtype));
-    throw new VocabularyError(
-      `${module.packageName} declares part of the ARIA table but not ${missing.join(", ")}`,
-    );
-  }
-  if (config.noComments) {
-    throw new VocabularyError(
-      `${module.packageName}: the ARIA value types are documented, and noComments discards documentation — ` +
-        "generate with comments or without widgetVocabulary",
-    );
-  }
+	const declared = ariaEnumsOf(module);
+	if (declared.size === 0) return EMPTY;
+	if (declared.size !== ARIA_ENUM_GTYPES.length) {
+		const missing = ARIA_ENUM_GTYPES.filter((gtype) => !declared.has(gtype));
+		throw new VocabularyError(`${module.packageName} declares part of the ARIA table but not ${missing.join(", ")}`);
+	}
+	if (config.noComments) {
+		throw new VocabularyError(
+			`${module.packageName}: the ARIA value types are documented, and noComments discards documentation — ` +
+				"generate with comments or without widgetVocabulary",
+		);
+	}
 
-  const exceptions = new Map(ARIA_VALUE_TYPE_EXCEPTIONS.map((entry) => [entry.member, entry]));
-  const kinds = new Map<string, AriaValueType>();
-  const enums = new Map<string, string>();
-  const stated = new Set<string>();
+	const exceptions = new Map(ARIA_VALUE_TYPE_EXCEPTIONS.map((entry) => [entry.member, entry]));
+	const kinds = new Map<string, AriaValueType>();
+	const enums = new Map<string, string>();
+	const stated = new Set<string>();
 
-  for (const gtype of ARIA_ENUM_GTYPES) {
-    for (const member of declared.get(gtype)?.members.values() ?? []) {
-      const key = `${gtype}.${member.nick}`;
-      const token = statedValueType(member);
-      if (token === null) {
-        const exception = exceptions.get(key);
-        if (!exception) throw new VocabularyError(`${key}: documentation states no value type`);
-        kinds.set(key, exception.valueType);
-        continue;
-      }
-      stated.add(key);
-      const primitive = PRIMITIVE_VALUE_TYPES.get(token);
-      if (primitive) {
-        kinds.set(key, primitive);
-        continue;
-      }
-      const enumType = resolveEnumLink(module, token, key);
-      if (enumType === null)
-        throw new VocabularyError(`${key}: value type "${token}" is not understood`);
-      kinds.set(key, "enum");
-      enums.set(key, enumType);
-    }
-  }
+	for (const gtype of ARIA_ENUM_GTYPES) {
+		for (const member of declared.get(gtype)?.members.values() ?? []) {
+			const key = `${gtype}.${member.nick}`;
+			const token = statedValueType(member);
+			if (token === null) {
+				const exception = exceptions.get(key);
+				if (!exception) throw new VocabularyError(`${key}: documentation states no value type`);
+				kinds.set(key, exception.valueType);
+				continue;
+			}
+			stated.add(key);
+			const primitive = PRIMITIVE_VALUE_TYPES.get(token);
+			if (primitive) {
+				kinds.set(key, primitive);
+				continue;
+			}
+			const enumType = resolveEnumLink(module, token, key);
+			if (enumType === null) throw new VocabularyError(`${key}: value type "${token}" is not understood`);
+			kinds.set(key, "enum");
+			enums.set(key, enumType);
+		}
+	}
 
-  assertExceptionsStillNeeded(kinds, stated);
-  return { kinds, enums };
+	assertExceptionsStillNeeded(kinds, stated);
+	return { kinds, enums };
 }
 
 /**
@@ -272,24 +257,19 @@ export function buildAriaValueTypes(module: GirModule, config: OptionsGeneration
  * type is an exception asserting by hand what the authoritative source already says,
  * and the two would drift without a word.
  */
-function assertExceptionsStillNeeded(
-  kinds: ReadonlyMap<string, AriaValueType>,
-  stated: ReadonlySet<string>,
-): void {
-  for (const entry of ARIA_VALUE_TYPE_EXCEPTIONS) {
-    if (!kinds.has(entry.member)) {
-      throw new VocabularyError(
-        `declared ARIA exception ${entry.member} names no member of this GIR`,
-      );
-    }
-    if (stated.has(entry.member)) {
-      // The reason travels with the refusal, because the person reading it has to decide
-      // whether to delete the entry, and "why was this here" is the question they are
-      // about to go looking for.
-      throw new VocabularyError(
-        `declared ARIA exception ${entry.member} is no longer needed — its documentation now ` +
-          `states a value type. It was declared because: ${entry.reason}`,
-      );
-    }
-  }
+function assertExceptionsStillNeeded(kinds: ReadonlyMap<string, AriaValueType>, stated: ReadonlySet<string>): void {
+	for (const entry of ARIA_VALUE_TYPE_EXCEPTIONS) {
+		if (!kinds.has(entry.member)) {
+			throw new VocabularyError(`declared ARIA exception ${entry.member} names no member of this GIR`);
+		}
+		if (stated.has(entry.member)) {
+			// The reason travels with the refusal, because the person reading it has to decide
+			// whether to delete the entry, and "why was this here" is the question they are
+			// about to go looking for.
+			throw new VocabularyError(
+				`declared ARIA exception ${entry.member} is no longer needed — its documentation now ` +
+					`states a value type. It was declared because: ${entry.reason}`,
+			);
+		}
+	}
 }

@@ -1,1 +1,11 @@
-gjsify run format
+# CHECKS, never writes.
+#
+# This hook used to be `gjsify run format`, and it had no `git add`. So it
+# rewrote the WORKING TREE while the commit captured the already-staged,
+# unformatted content: it could not improve a single commit, and it left
+# 120+ modified files behind every time. That is where the parked
+# "formatter drift" stashes came from. A hook that writes what it cannot
+# stage is pure loss.
+#
+# A check cannot do that. If this fails, run `gjsify run format`.
+gjsify run check:format

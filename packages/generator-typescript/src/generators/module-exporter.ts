@@ -82,8 +82,8 @@ export class ModuleExporter {
    *
    * Two gates, and the second is the one that keeps the count honest: the config flag has
    * to be on, and the namespace has to declare something a UI description file can
-   * instantiate — a registered, non-abstract class. Of the 715 GIRs in this repository 88
-   * declare none, and emitting for those would put a `./vocabulary` entry in a package
+   * instantiate — a registered, non-abstract class. Of the 716 packages this repository
+   * generates, 89 declare none, and emitting for those would put a `./vocabulary` entry in a package
    * whose `DECLS` is empty: a subpath that resolves to a file answering no question.
    * `buildWidgetVocabulary` returns null for exactly that set, so the count is decided in
    * one place rather than tested twice.

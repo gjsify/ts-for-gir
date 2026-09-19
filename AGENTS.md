@@ -124,7 +124,7 @@ behind a `jsxImportSource` does not (gjsify's gtk-host ships two of them, Solid 
 in one package). `@girs/*` is used by projects that want nothing to do with JSX, so it emits
 neither -- but a consumer declaring a module-scoped namespace is doing it right.
 **A namespace emits one when it HAS one** — when it declares something instantiable, 627 of
-the 715 GIRs; the gate is the coverage rule above read one level up, not a second rule beside
+the 716 packages; the gate is the coverage rule above read one level up, not a second rule beside
 it. It was "declares a concrete `GtkWidget` descendant", 142 GIRs, and that is the renderer's
 question the coverage rule already stopped asking: a UI file NAMES types it never
 instantiates. A Blueprint cast `as <Gio.Icon>` compiles to `type="GIcon"`, a consumer resolves
@@ -132,17 +132,24 @@ that per NAMESPACE, and `Gio`, `Gdk` and `GObject` shipped nothing to resolve it
 widening INSIDE the 142 could ever reach it, because the type named in a cast appears in no
 `<object class="…">`. ADR 0029 defended the narrow gate as "a widget SURFACE with no widgets
 in it"; the artefact was renamed to `vocabulary` — the names a namespace registers — before it
-shipped, and the argument did not survive the rename. The 88 excluded declare no registered
+shipped, and the argument did not survive the rename. The 89 excluded declare no registered
 non-abstract class at all (`cairo-1.0`, `GLib-2.0`, `Graphene-1.0`, the record-only `Gst*`):
 their `DECLS` would be EMPTY, which is not a smaller answer but none. Measured over the
-corpus: vocabularies 142 → 627, emitted bytes 7.47 → 28.43 MB, the 142 pre-existing net
-±0 (foreign tables move home to their owner as often as `identifierPrefixes` adds a line),
-every main `.d.ts` byte-identical, and `Widgets`/`ChildHolders`/`CHILD_HOLDERS`/
-`SLOT_CANDIDATES` unchanged in 0 of 142 — a consumer asking "is this a widget" is untouched.
+corpus: vocabularies 142 → 627, emitted bytes 7.47 → 28.60 MB, the 142 pre-existing 119 grew
+/ 23 shrank for a net +38.5 kB, every main `.d.ts` byte-identical, and
+`Widgets`/`ChildHolders`/`CHILD_HOLDERS`/`SLOT_CANDIDATES` unchanged in 0 of 142 — a consumer
+asking "is this a widget" is untouched. **The change is NOT additive**: a foreign enum or
+bitfield table used to be inlined only when its owner emitted nothing, so widening moved
+tables home and broke joins a CURATED consumer could still reach — gtk-4.0 + adw-1 alone lost
+26 rows over 14 GTypes, `GtkGLArea:allowed-apis → GdkGLAPI` among them, the very defect #474
+fixed. So the numbers of every referenced enum and bitfield are now CARRIED unconditionally
+(types are imported, data is carried) and that consumer is back to 0 unresolvable.
 `PROVENANCE.identifierPrefixes` carries `c:identifier-prefixes` VERBATIM, because a type
 reference needs the C prefix (`Gio` spells itself `G`) and nothing else in the package states
-it; deriving it from the `DECLS` keys is wrong for about a quarter of the namespaces that now
-emit. A cross-namespace base is
+it; a derivation over the `DECLS` keys is wrong wherever the prefix is not a prefix of the
+type names (`gdkx11-4.0` states `Gdk` against `GdkX11…`) and cannot express the 20 namespaces
+that state two. `PROVENANCE.requiredVocabularies` names the siblings a DECLARATION comes
+from, which is the half a consumer CAN see and act on. A cross-namespace base is
 imported from its owner's `./vocabulary` only where that vocabulary CARRIES it — a namespace
 with widgets can still leave a declaration out, and importing on "the owner has one" shipped
 `@girs/ide-46` a TS2724 against `@girs/gtksource-5`. A base the owner does not emit is dropped
@@ -157,7 +164,7 @@ contradict nothing, which is how a derived nick passes review; `gjsify run check
 re-measures that over `girs/` and asserts the two invariants the fallback rests on — the
 dashed property name from `IntrospectedProperty.girName`, the GType from `glibTypeName`.
 
-Gate: `tests/widget-vocabulary` — positives plus ten controls that must go the other way (flag
+Gate: `tests/widget-vocabulary` — positives plus thirteen controls that must go the other way (flag
 off emits nothing; an identifier missing from a namespace's OWN GIR exits non-zero naming the
 property, while one missing across a namespace boundary is printed `never` like the main
 emitter does and named in its own provenance remainder; the `.d.ts` and

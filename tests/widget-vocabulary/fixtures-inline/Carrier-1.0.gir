@@ -8,7 +8,7 @@
 
      THIS FIXTURE CARRIES THE NAMESPACE GATE'S NEGATIVE HALF. `Holder` is abstract and
      nothing in Carrier derives from it, so Carrier declares nothing a UI file can
-     instantiate and gets no vocabulary of its own — the 88 GIRs of `cairo-1.0`,
+     instantiate and gets no vocabulary of its own — the 89 packages of `cairo-1.0`,
      `GLib-2.0`, `Graphene-1.0` and the record-only `Gst*` namespaces in one file. It was
      CONCRETE while the gate read "declares a concrete GtkWidget descendant", where
      abstractness made no difference to the answer; under a gate that asks what the

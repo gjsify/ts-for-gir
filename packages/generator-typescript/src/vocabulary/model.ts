@@ -256,19 +256,40 @@ export interface VocabularyProvenance {
    * that existed were ones a consumer could hard-code, so the fact was never missed.
    *
    * It is carried rather than derived because GIR carries it. Deriving it — longest common
-   * prefix over the `DECLS` keys, backed off to a CamelCase boundary — is what a consumer
-   * reaches for next, and measured over the GIRs that declare a concrete class it is wrong
-   * for roughly a quarter of them: `GdkX11` and `GdkWayland` answer themselves where their
-   * GIR says `Gdk`, eight `Gst*` answer `GstGL`/`GstVa` where it says `Gst`, `Nice` backs
-   * off to nothing. None of those was reachable while 142 namespaces emitted; most of them
-   * are now, which is exactly why this ships in the same change as the gate.
+   * prefix over the `DECLS` keys — is what a consumer reaches for next, and it is wrong
+   * wherever the C prefix is not a prefix of the type NAMES. Read straight off the shipped
+   * vocabularies: `gdkx11-4.0` and `gdkwayland-4.0` both state `Gdk` while every one of
+   * their `DECLS` keys begins `GdkX11`/`GdkWayland`; `gstgl-1.0` and `gstva-1.0` state
+   * `Gst` against keys beginning `GstGL`/`GstVa`. None of those was reachable while 142
+   * namespaces emitted; all four are now, which is why this ships with the gate.
    *
-   * A LIST, not a string, because the attribute is comma-separated and 4 namespaces in the
-   * corpus state more than one (`Camel,camel`). Empty where the GIR states none — silence,
+   * A LIST, not a string, because the attribute is comma-separated and 20 of the 627
+   * emitting namespaces state more than one (`camel-1.2` is `Camel,camel`, `ecal-2.0` is
+   * `ECal,E`) — which no single-string derivation can express at all. Empty where the GIR states none — silence,
    * not a default: inventing `namespace` here would hand a consumer a confident wrong
    * answer in place of a missing one.
    */
   readonly identifierPrefixes: readonly string[];
+  /**
+   * Sibling vocabularies this one's DECLARATIONS come from, as import specifiers.
+   *
+   * The other half of the division this file makes between carrying a fact and importing
+   * it, and it exists because the two halves fail differently. A `PROP_ENUMS` row naming a
+   * GType whose numbers live elsewhere fails INVISIBLY: the row says `GdkGLAPI` and nothing
+   * says which package holds it, and a `.ui` file instantiating a `GtkGLArea` never names
+   * `Gdk`, so no consumer rule reaches it. Those numbers are therefore CARRIED — see
+   * {@link WidgetVocabulary.foreignEnums}.
+   *
+   * A declaration is the opposite: `DECLS` NAMES the foreign link (`GtkApplication` chains
+   * through `GApplication`), so the gap is visible — but not attributable, because a link
+   * with no `OWN_PROPS` row reads the same whether it has no settable property or lives in
+   * a package the consumer has not loaded. `GtkSeparator` is the first, `GApplication` the
+   * second, and this list is what tells them apart. Measured on gtk-4.0 + adw-1: 9 chain
+   * links became foreign and 2 of them carry properties, 21 property slots in total.
+   *
+   * Import specifiers, not namespace names, because that is what a consumer has to act on.
+   */
+  readonly requiredVocabularies: readonly string[];
 }
 
 export interface WidgetVocabulary {
@@ -307,6 +328,22 @@ export interface WidgetVocabulary {
   readonly chains: ReadonlyMap<string, readonly string[]>;
   /** Nick unions this surface must emit itself, by enum GType. */
   readonly enums: ReadonlyMap<string, VocabularyEnum>;
+  /**
+   * Foreign enums whose NUMBERS this vocabulary carries and whose nick UNION it imports.
+   *
+   * Types are imported, data is carried, and the line between them is nominal identity: a
+   * second `GtkPackTypeNick` beside the owner's is a second TYPE for one GObject enum, while
+   * a second `{'PangoStyle.italic': 2}` is the same fact written twice. `ENUM_NICKS` and
+   * `ENUM_VALUES` take both this and {@link enums}; the `.d.ts` nick alias takes only
+   * {@link enums}.
+   *
+   * Why the owner cannot be left to answer: a consumer's vocabulary set is a CURATED LIST,
+   * not a dependency closure. A `.ui` file instantiating a `GtkGLArea` never names `Gdk`, so
+   * no rule of the form "load every namespace the file mentions" reaches `GdkGLAPI`.
+   * Measured on gjsify's own shape — gtk-4.0 + adw-1 and nothing else — 176 joins resolve
+   * with the numbers carried and 26 across 14 GTypes do not without them.
+   */
+  readonly foreignEnums: ReadonlyMap<string, VocabularyEnum>;
   /**
    * Registered BITFIELDS this namespace declares, by GType — values only, no nicks.
    *
@@ -464,10 +501,10 @@ const isWidgetClass = (module: GirModule, cls: IntrospectedBaseClass): boolean =
  * `Gtk.SizeGroup { mode: horizontal; }` compiled to the string `horizontal` where
  * `blueprint-compiler` writes `1`, because `GtkSizeGroup` reached no `PROP_ENUMS` row.
  *
- * The NAMESPACE gate is untouched by this and stays what it was: only a namespace that
- * declares a concrete `GtkWidget` descendant emits a vocabulary at all. Widening the
- * declaration rule inside those namespaces adds names a UI file can write; widening the
- * namespace rule would publish a vocabulary for 373 namespaces with no UI in them.
+ * The NAMESPACE gate asks this same question of the namespace — see {@link emitsVocabulary},
+ * which is this predicate applied to the module rather than to a declaration. It used to be
+ * a separate test ("declares a concrete `GtkWidget` descendant") and the two could disagree;
+ * they no longer can, because there is only one rule.
  *
  * `Widgets` and `CHILD_HOLDERS` are NOT widened — they are the index of what IS a
  * widget, and a consumer asking that question gets the same answer as before.
@@ -564,8 +601,8 @@ function childHoldersOf(module: GirModule, config: OptionsGeneration): Introspec
  * `<constant>` never appears in `<object class="…">` at all, so no amount of widening
  * INSIDE the 142 could reach it.
  *
- * WHAT IT STILL EXCLUDES, which is what keeps this a rule and not "emit everything": 88 of
- * the 715 GIRs declare no registered non-abstract class at all — `cairo-1.0`, `GLib-2.0`,
+ * WHAT IT STILL EXCLUDES, which is what keeps this a rule and not "emit everything": 89 of
+ * the 716 packages declare no registered non-abstract class at all — `cairo-1.0`, `GLib-2.0`,
  * `Graphene-1.0`, `HarfBuzz-0.0`, `xlib-2.0`, `PangoCairo-1.0` and the `Gst*`
  * record-and-function namespaces. Their `DECLS` would be EMPTY, and an empty `DECLS` is not
  * a smaller answer but no answer: it names nothing a UI file can write and nothing a
@@ -1065,6 +1102,24 @@ export function buildWidgetVocabulary(
 
   const namespaceImports = new Map<string, string>();
   const enums = new Map<string, VocabularyEnum>();
+  /**
+   * Foreign enums whose NUMBERS this vocabulary carries and whose nick UNION it imports.
+   *
+   * The split is the difference between a type and a datum, and it is the whole reason this
+   * map exists rather than a fourth branch in `enums`. A nick union is a TYPE: emitting a
+   * second `GtkPackTypeNick` beside the owner's makes two nominally distinct types for one
+   * GObject enum, which is why it is imported. `ENUM_NICKS` and `ENUM_VALUES` are DATA:
+   * copying `{'PangoStyle.italic': 2}` into a consumer costs 30 bytes and has no identity
+   * to collide with.
+   *
+   * Carried and not left to the owner because a consumer's vocabulary set is a CURATED LIST,
+   * not a dependency closure. A `.ui` file that instantiates a `GtkGLArea` never names `Gdk`,
+   * so "load every namespace the file uses" does not reach `GdkGLAPI` — and that join is the
+   * exact defect the widened coverage was written to fix. Measured on gjsify's own shape, a
+   * consumer holding gtk-4.0 + adw-1 alone: 176 joins, 0 unresolvable when every referenced
+   * table is carried, 26 unresolvable across 14 GTypes when they are left to their owners.
+   */
+  const foreignEnums = new Map<string, VocabularyEnum>();
   const flags = new Map<string, VocabularyEnum>();
   const surfaceImports = new Map<string, Set<string>>();
   const importFromVocabulary = (owner: GirModule, name: string) => {
@@ -1096,6 +1151,9 @@ export function buildWidgetVocabulary(
       // {@link coveredDeclarationsOf} instead.
       if (owner && owner !== module && emitsVocabulary(owner)) {
         importFromVocabulary(owner, nickAliasOf(enumeration.gtype));
+        // The TYPE comes from the owner; the NUMBERS stay here, or a `PROP_ENUMS` row
+        // naming this GType is a join into a table the consumer may never have loaded.
+        foreignEnums.set(enumeration.gtype, enumeration);
         continue;
       }
       enums.set(enumeration.gtype, enumeration);
@@ -1104,12 +1162,13 @@ export function buildWidgetVocabulary(
       const owner = module.getInstalledImport(
         bitfield.reference.slice(0, bitfield.reference.indexOf(".")),
       );
-      // Same division as the enums above, minus the import: a bitfield gets no nick union,
-      // so there is no NAME to bring over, only numbers. They live in the owner's own
-      // vocabulary when it has one and here when it does not — which is the case
-      // `PROP_ENUMS` broke, Gdk owning `GdkGLAPI` and declaring no widget to emit it. Gdk
-      // emits its own vocabulary now, so that one moved home rather than staying inlined.
-      if (owner && owner !== module && emitsVocabulary(owner)) continue;
+      // A bitfield gets no nick union, so there is no NAME to bring over and nothing to
+      // import — it is numbers or nothing. Which makes the owner's own vocabulary
+      // irrelevant here: the numbers are carried unconditionally, the same way the enums
+      // above keep theirs. `GtkGLArea:allowed-apis` is the case that proves the rule and
+      // the one that broke when it was conditional — a `GdkGLAPI` whose `gl=1, gles=2`
+      // gtk-4.0 carried while Gdk emitted nothing, and stopped carrying the moment Gdk
+      // did, in a consumer that has no reason to load Gdk at all.
       flags.set(bitfield.gtype, bitfield);
     }
   };
@@ -1375,13 +1434,20 @@ export function buildWidgetVocabulary(
       inlinedBases: inlined,
       unsettableProps: unsettable,
       unresolvedProps,
-      identifierPrefixes: [...module.c_prefixes],
+      // Filtered, because `"".split(",")` is `[""]` and not `[]`: `tracker-2.0` and
+      // `restextras-0.7` declare `c:identifier-prefixes=""`, which would otherwise ship an
+      // empty string as if it were a prefix and contradict this field's own "empty where
+      // GIR states none". An empty prefix concatenated onto a type name yields the name
+      // back, so a consumer would resolve `Tracker.Notifier` to `Notifier`.
+      identifierPrefixes: module.c_prefixes.filter((prefix) => prefix !== ""),
+      requiredVocabularies: [...surfaceImports.keys()].sort(),
     },
     widgets,
     childHolders,
     declarations: withBases,
     chains: declChains,
     enums,
+    foreignEnums,
     flags,
     aria: buildAriaValueTypes(module, config),
     namespaceImports,

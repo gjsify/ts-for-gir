@@ -16,9 +16,10 @@
      the namespace name writes `Plain`, and one that derives the prefix from the `DECLS`
      keys — longest common prefix backed off to a CamelCase boundary, which is what a
      consumer reaches for when the vocabulary withholds the fact — cannot produce a two-
-     element list at all. Over the real GIRs that derivation is wrong for about a quarter of
-     the namespaces that now emit: `GdkX11` and `GdkWayland` answer themselves where their
-     GIR says `Gdk`, eight `Gst*` answer `GstGL`/`GstVa` where it says `Gst`. -->
+     element list at all. Read straight off the shipped vocabularies, the derivation is
+     wrong wherever the C prefix is not a prefix of the type names: `gdkx11-4.0` and
+     `gdkwayland-4.0` both state `Gdk` while every `DECLS` key begins `GdkX11`/`GdkWayland`,
+     and `gstgl-1.0`/`gstva-1.0` state `Gst` against keys beginning `GstGL`/`GstVa`. -->
 <repository version="1.2" xmlns="http://www.gtk.org/introspection/core/1.0" xmlns:c="http://www.gtk.org/introspection/c/1.0" xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <include name="GLib" version="2.0"/>

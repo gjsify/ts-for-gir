@@ -114,6 +114,10 @@ const must = [
     "a declaration with no own construct-only props is rooted in its base's union",
     /GtkOrientableConstructOnly = GObjectConstructOnly/,
   ],
+  // The forwarding reference above is only as strong as what it forwards TO; the terminal
+  // value is asserted against GObject's own vocabulary further down, because it no longer
+  // lives in this file. Pinning a reference while the value it names drifts is exactly the
+  // loosening that assertion's rationale denied.
   [
     "construct-only unions inherit",
     /GtkBoxConstructOnly = GtkWidgetConstructOnly \| GtkOrientableConstructOnly/,
@@ -454,51 +458,47 @@ if (data.PROP_ENUMS?.["GtkWidget.binding-flags"] !== "GBindingFlags") {
   fail(`PROP_ENUMS omits the foreign bitfield: ${JSON.stringify(data.PROP_ENUMS)}`);
 }
 // The invariant that makes the join a join, and the same one `ENUM_NICKS` is held to above:
-// a GType named here has numbers to be resolved against.
+// a GType named here has numbers to be resolved against, IN THIS FILE.
 //
-// Resolved across the DEPENDENCY CLOSURE, not within this one package, and that is the
-// consumer's own shape: a vocabulary carries the numbers for the enums and bitfields its
-// namespace DECLARES, so a join naming a foreign GType is answered by the owner's
-// vocabulary — which a consumer has loaded, because it resolves a UI file against every
-// namespace the file uses. Inlining a foreign table is now the exception (the owner emits
-// nothing) rather than the rule, so a per-package check would assert the old topology and
-// would go red for a vocabulary that is right.
-const valueTablesOf = (vocabulary) =>
+// Per-package, deliberately, and this assertion was briefly relaxed to a dependency-closure
+// check on the rationale that "a consumer has loaded the owner, because it resolves a UI file
+// against every namespace the file uses". That rationale is FALSE, and the case that proves
+// it is the one the widened coverage was written for: `GtkGLArea:allowed-apis` is a
+// `GdkGLAPI`, and a `.ui` file containing a `GtkGLArea` never names `Gdk` anywhere. A
+// consumer's vocabulary set is a curated list — gjsify's is five entries in a source file —
+// so a join whose table moved to its owner does not become indirect, it becomes unresolvable.
+// Measured on gtk-4.0 + adw-1 alone: 26 rows across 14 GTypes, silently, at the next release.
+//
+// So the numbers of every referenced enum and bitfield are CARRIED, and this check is the
+// thing that keeps them carried. It is the strongest form available: no sibling is consulted.
+const numbered = new Set(
   [
-    ...Object.keys(vocabulary.ENUM_VALUES ?? {}),
-    ...Object.keys(vocabulary.FLAG_VALUES ?? {}),
-    ...Object.keys(vocabulary.ENUM_VALUES_UNREADABLE ?? {}),
-    ...Object.keys(vocabulary.FLAG_VALUES_UNREADABLE ?? {}),
-  ].map((key) => key.slice(0, key.lastIndexOf(".")));
-
-const numbered = new Set(valueTablesOf(data));
-/** Where a GType's numbers came from, so a reader sees the join actually crossing a package. */
-const numberedBy = new Map([...numbered].map((gtype) => [gtype, "mini-1.0"]));
-for (const dir of readdirSync(join(here, "generated"))) {
-  if (dir === "mini-1.0") continue;
-  const sibling = join(here, "generated", dir, `${dir}-vocabulary.js`);
-  if (!existsSync(sibling)) continue;
-  for (const gtype of valueTablesOf(await import(`file://${sibling}`))) {
-    numbered.add(gtype);
-    if (!numberedBy.has(gtype)) numberedBy.set(gtype, dir);
-  }
-}
+    ...Object.keys(data.ENUM_VALUES ?? {}),
+    ...Object.keys(data.FLAG_VALUES ?? {}),
+    ...Object.keys(data.ENUM_VALUES_UNREADABLE ?? {}),
+    ...Object.keys(data.FLAG_VALUES_UNREADABLE ?? {}),
+  ].map((key) => key.slice(0, key.lastIndexOf("."))),
+);
 for (const [key, gtype] of Object.entries(data.PROP_ENUMS ?? {})) {
   if (numbered.has(gtype)) continue;
   fail(
     `PROP_ENUMS says ${key} is a ${gtype}, and no value table carries one — a join into nothing`,
   );
 }
-// And the crossing is REAL, not a coincidence of everything landing in one file: the
-// foreign bitfield above has to be answered by the package that declares it. Asserting only
-// "some table has it" would pass just as well if the generator went back to inlining every
-// foreign table, which is the growth this split exists to prevent.
-if (numberedBy.get("GBindingFlags") !== "gobject-2.0") {
-  fail(
-    `GBindingFlags numbers come from ${numberedBy.get("GBindingFlags")}, not from the ` +
-      "vocabulary of the namespace that declares it",
-  );
+// The FOREIGN half of that, named rather than left to the count: `GBindingFlags` is declared
+// by GObject-2.0, which emits its own vocabulary, and its numbers are here anyway. Asserting
+// only "some table has it" would pass if the generator went back to deferring to the owner,
+// which is exactly the regression this fixture exists to catch.
+if (!numbered.has("GBindingFlags")) {
+  fail("the foreign bitfield's numbers were left to its owner instead of carried here");
 }
+// And the type half went the other way for the same enum family: a nick UNION is imported,
+// never copied, because two `GtkPackTypeNick` declarations are two distinct types for one
+// GObject enum. Data carried, types imported — if this file ever emits its own alias for a
+// foreign enum, the split has collapsed in the direction that breaks assignability.
+const foreignAlias = /export type GBindingFlagsNick\b/.test(types);
+if (foreignAlias) fail("a nick alias was emitted for an enum this vocabulary does not own");
+
 // The other half of the same containment `OWN_PROPS` is held to above: a key here names a
 // declaration and a property that declaration actually offers. A table keyed by anything
 // else — the concrete widget, the underscored spelling — is one a `DECLS` walk cannot hit.
@@ -905,6 +905,16 @@ if (!tsconfig.include?.includes("./mini-1.0-vocabulary.d.ts")) {
   fail(`tsconfig.json include does not cover the surface: ${JSON.stringify(tsconfig.include)}`);
 }
 
+// The terminal value the `GtkOrientableConstructOnly` assertion above forwards to. Read from
+// GObject's OWN vocabulary, because that is where the base moved when the gate widened: the
+// union used to end in a literal `never` written here and now ends in a name written there.
+const gobjectVocabulary = join(here, "generated", "gobject-2.0", "gobject-2.0-vocabulary.d.ts");
+if (!existsSync(gobjectVocabulary)) {
+  fail("gobject-2.0 emitted no vocabulary, so the construct-only chain has no terminal value");
+} else if (!/export type GObjectConstructOnly = never;/.test(readFileSync(gobjectVocabulary, "utf8"))) {
+  fail("GObjectConstructOnly is no longer `never`, so every chain rooted in it silently widened");
+}
+
 // THE NAMESPACE GATE, over real GIRs rather than a fixture, and it has to cut both ways in
 // the same generated tree — the two namespaces below sit side by side and must come out
 // differently.
@@ -914,7 +924,7 @@ if (!tsconfig.include?.includes("./mini-1.0-vocabulary.d.ts")) {
 // while the gate read "declares a concrete GtkWidget descendant" there was nothing for such
 // a reference to resolve against. `GLib-2.0` declares none at all — its types are boxed
 // records and enums — so its `DECLS` would be empty and it stays out, with `cairo-1.0`,
-// `Graphene-1.0` and 85 more of the 715 GIRs.
+// `Graphene-1.0` and 86 more of the 716 packages.
 //
 // Rationale: this loop asserted the pre-widening answer for BOTH. Keeping it one-sided
 // would have made it agree with a generator that emits nothing at all.
@@ -964,9 +974,10 @@ if (!existsSync(inlineFile)) {
   fail(`the inline fixture did not generate: ${inlineFile}`);
 } else {
   const inline = readFileSync(inlineFile, "utf8");
-  // `extends GObjectProps` now sits between the name and the brace, so the pattern has to
-  // admit a heritage clause. Matching `Props \{` exactly asserted the ABSENCE of a base.
-  if (!/export interface CarrierHolderProps (?:extends [^{]+)?\{[^}]*title\?: string;/s.test(inline)) {
+  // `extends GObjectProps` now sits between the name and the brace. Pinned, not made
+  // optional: `(?:extends [^{]+)?` would pass whether or not the base is there, which is
+  // weaker than what it replaced — the old pattern at least asserted the absence of one.
+  if (!/export interface CarrierHolderProps extends GObjectProps \{[^}]*title\?: string;/s.test(inline)) {
     fail("Carrier.Holder was not inlined — its `title` property is missing from the surface");
   }
   if (!/interface GtkWidgetProps extends CarrierHolderProps/.test(inline)) {
@@ -982,7 +993,7 @@ if (!existsSync(inlineFile)) {
   }
   // CONTROL 12, and it shares this fixture on purpose. Carrier's only declaration is
   // ABSTRACT, so the namespace can instantiate nothing and must emit nothing — the
-  // `cairo-1.0` / `GLib-2.0` / `Graphene-1.0` shape, 88 of the 715 GIRs. This is the half
+  // `cairo-1.0` / `GLib-2.0` / `Graphene-1.0` shape, 89 of the 716 packages. This is the half
   // that keeps the widened namespace gate from meaning "every namespace": without it,
   // control 11 below passes just as well for a generator that emits unconditionally.
   if (existsSync(join(here, "generated-inline", "carrier-1.0", "carrier-1.0-vocabulary.d.ts"))) {
@@ -1051,7 +1062,7 @@ if (!existsSync(crossFile)) {
   if (/GtkExtra(Props|ConstructOnly)[^\n]*from '@girs\/base-1\.0\/vocabulary'/.test(cross)) {
     fail("a declaration the owner's vocabulary does not emit was imported from it anyway");
   }
-  if (!/export interface GtkExtraProps (?:extends [^{]+)?\{[^}]*'extra-label'\?: string;/s.test(cross)) {
+  if (!/export interface GtkExtraProps extends GObjectProps \{[^}]*'extra-label'\?: string;/s.test(cross)) {
     fail(
       "the uncovered foreign declaration was neither imported nor inlined — its members are lost",
     );
@@ -1147,6 +1158,22 @@ if (!existsSync(gateFile)) {
   if (!/readonly identifierPrefixes: readonly string\[\];/.test(gate)) {
     fail("the type half does not declare `identifierPrefixes`");
   }
+  // The empty-prefix half of control 13. `Bare-1.0.gir` states `c:identifier-prefixes=""`,
+  // which `String.split` turns into `[""]` rather than `[]` — and an empty prefix
+  // concatenated onto a type name gives the name back, so a consumer resolves `Bare.Thing`
+  // to a GType that does not exist instead of refusing. `tracker-2.0` and `restextras-0.7`
+  // are the real ones, and the first version of this field shipped `['']` for both.
+  const bareDir = join(here, "generated-gate", "bare-1.0");
+  if (!existsSync(join(bareDir, "bare-1.0-vocabulary.js"))) {
+    fail("the empty-prefix fixture did not generate");
+  } else {
+    const bare = await import(`file://${join(bareDir, "bare-1.0-vocabulary.js")}`);
+    const barePrefixes = bare.PROVENANCE?.identifierPrefixes;
+    if (JSON.stringify(barePrefixes) !== "[]") {
+      fail(`a namespace stating no prefix shipped ${JSON.stringify(barePrefixes)}, not []`);
+    }
+  }
+
   const gatePkg = JSON.parse(readFileSync(join(gateDir, "package.json"), "utf8"));
   if (gatePkg.exports?.["./vocabulary"] === undefined) {
     fail("a widget-free namespace emits a vocabulary its package.json does not export");

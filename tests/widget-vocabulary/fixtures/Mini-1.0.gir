@@ -437,6 +437,13 @@ Value type: boolean.</doc>
       <property name="tint" writable="1" transfer-ownership="none">
         <type name="utf8" c:type="const gchar*"/>
       </property>
+      <!-- NULLABLE and object-typed: `Gtk.Widget | null` is ONE type and an absence, not two
+           types, so its GType is still GtkWidget. Without the nullable arm keeping the
+           caller's depth this row vanishes, which is what GtkButton:child did while
+           GtkNotebookPage:child did not. -->
+      <property name="anchor" writable="1" nullable="1" transfer-ownership="none">
+        <type name="Widget" c:type="GtkWidget*"/>
+      </property>
       <method name="set_child" c:identifier="gtk_actor_bin_set_child">
         <return-value transfer-ownership="none"><type name="none" c:type="void"/></return-value>
         <parameters>

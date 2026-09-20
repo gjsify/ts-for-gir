@@ -755,7 +755,14 @@ function printPropType(
 			return `${element}${"[]".repeat(Math.max(node.arrayDepth, 1))}`;
 		}
 		if (node instanceof OrType) {
-			const parts = node.types.map((t) => walk(t, depth + 1));
+			// `T | null` is ONE type and an absence, not two types, so the nullable arm keeps the
+			// caller's depth and a property typed `Gtk.Widget | null` still names `GtkWidget`.
+			// Measured: without this `GtkButton:child` carried no GType while `GtkNotebookPage:child`
+			// did, and nothing about either spelling said why. A union of two REAL types keeps
+			// depth + 1 and therefore names none, which is correct — there is no single GType.
+			const real = node.types.filter((t) => t !== NullType);
+			const nullableDepth = real.length === 1 ? depth : depth + 1;
+			const parts = node.types.map((t) => walk(t, t === NullType ? depth + 1 : nullableDepth));
 			// `null` last, so `Gdk.Cursor | null` reads the way a human writes it.
 			const ordered = [...parts.filter((p) => p !== "null"), ...parts.filter((p) => p === "null")];
 			return [...new Set(ordered)].join(" | ");

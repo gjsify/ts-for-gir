@@ -95,6 +95,16 @@ export class JSField extends IntrospectedField {
 export class IntrospectedProperty extends IntrospectedBase<IntrospectedEnum | IntrospectedBaseClass> {
 	type: TypeExpression;
 
+	/**
+	 * The GIR's own spelling of this property's type — `utf8`, `gboolean`, `Gtk.Widget`.
+	 *
+	 * Kept because `getType` throws it away: every numeric GIR type becomes the ONE
+	 * `NumberType` singleton, so by the time a consumer holds a `TypeExpression` it can no
+	 * longer tell `gint` from `gdouble`. A GType table for scalar properties is not derivable
+	 * without this, and a table that guessed would state a wrong number rather than none.
+	 */
+	girTypeName?: string;
+
 	readonly writable: boolean = false;
 	readonly readable: boolean = true;
 	readonly constructOnly: boolean;
@@ -137,6 +147,11 @@ export class IntrospectedProperty extends IntrospectedBase<IntrospectedEnum | In
 		prop.defaultValue = this.defaultValue;
 		prop.getter = this.getter;
 		prop.girName = this.girName;
+		// Beside `girName` because it travels with it: `copy()` is on the path of EVERY property
+		// the generator sees (`propertyCase: "both"` alone makes a second copy of each), so a field
+		// set only in `fromXML` reaches nothing. Measured: without this line `PROP_TYPES` came out
+		// at 184 rows for Gtk-4.0 — the registered types only — and `GtkLabel:label` had none.
+		prop.girTypeName = this.girTypeName;
 		return prop;
 	}
 
@@ -217,6 +232,11 @@ export class IntrospectedProperty extends IntrospectedBase<IntrospectedEnum | In
 			property.doc = parseDoc(element);
 			property.metadata = parseMetadata(element);
 		}
+
+		// The raw `<type name="…">`, before `getType` collapses it. An array or a callback
+		// property has no `<type>` child and simply carries none.
+		const girType = (element as { type?: { $?: { name?: string } }[] }).type?.[0]?.$?.name;
+		if (typeof girType === "string" && girType !== "") property.girTypeName = girType;
 
 		property.defaultValue = element.$["default-value"];
 

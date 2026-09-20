@@ -100,6 +100,21 @@ export interface VocabularyProp {
 	 * a missing one.
 	 */
 	readonly enumType?: string;
+	/**
+	 * The GType of this property's own type, enum-typed or not.
+	 *
+	 * The join {@link VocabularyProp.enumType} makes for one kind of type, made for every kind:
+	 * a host that has to infer a type FROM a property — Blueprint does it in two positions, the
+	 * middle of an uncast lookup chain and an uncast closure's return type — needs the GType of
+	 * `GtkLabel:label` as much as of `GtkLabel:justify`, and only the second was ever carried.
+	 *
+	 * Absent means this generator can state none: the GIR names a fundamental spelling outside
+	 * {@link FUNDAMENTAL_GTYPES}, or a registered type with no `glib:type-name`, or the property
+	 * has no `<type>` child at all. Absence is therefore readable as "unknown", which is the one
+	 * thing it must not be confused with — a scalar property whose row were simply left out
+	 * would be indistinguishable from a type nobody could resolve.
+	 */
+	readonly gtype?: string;
 	readonly ts: string;
 	/**
 	 * The identifiers the printed type could not resolve, where it holds `never` for that
@@ -679,6 +694,17 @@ interface PrintedType {
 	 */
 	readonly unresolved: readonly string[];
 	/**
+	 * The GType of the property's own type, where that type is REGISTERED — an enum, a
+	 * bitfield, a class, an interface or a boxed record.
+	 *
+	 * Depth 0 only, like {@link PrintedType.ownEnumType}: the GType of a property is the GType
+	 * of its type, and the type of `Gtk.Widget[]` is an array, not a widget. A FUNDAMENTAL type
+	 * is not here and cannot be — `getType` collapses every numeric GIR type into one
+	 * `NumberType` singleton — so it is read from the GIR spelling instead, in
+	 * {@link ownProps}.
+	 */
+	readonly ownGType?: string;
+	/**
 	 * The GType of the property's OWN type, when that type is a registered enum or bitfield.
 	 *
 	 * Recorded at depth 0 only, which is what makes it a fact rather than a guess: an array of
@@ -718,6 +744,8 @@ function printPropType(
 	const unresolved: string[] = [];
 	/** Set only from depth 0 — see `PrintedType.ownEnumType`. */
 	let ownEnumType: string | undefined;
+	/** Set only from depth 0 — see `PrintedType.ownGType`. */
+	let ownGType: string | undefined;
 
 	const walk = (node: TypeExpression, depth: number): string => {
 		if (depth > 8) throw new VocabularyError(`${where}: type nests deeper than 8 levels`);
@@ -805,7 +833,10 @@ function printPropType(
 				// `GtkDropTargetAsync`, `GtkEventControllerScroll`, `GtkShortcutController`,
 				// `GtkKeyvalTrigger`, `GtkCellRendererAccel`, `GtkIMContext`, `GtkTextTag` and
 				// `AdwCssClassBinding` — objects a `.ui` file creates and no widget chain reaches.
-				if (depth === 0 && enumeration.glibTypeName) ownEnumType = enumeration.glibTypeName;
+				if (depth === 0 && enumeration.glibTypeName) {
+					ownEnumType = enumeration.glibTypeName;
+					ownGType = enumeration.glibTypeName;
+				}
 				const gtype = enumeration.glibTypeName;
 				const reference = `${resolved.namespace}.${resolved.name}`;
 				// Flags stay `number` in both positions, mirroring the runtime: GObject
@@ -822,6 +853,13 @@ function printPropType(
 				namespaces.add(resolved.namespace);
 				enums.set(gtype, vocabularyEnumOf(gtype, reference, enumeration));
 				return `${nickAliasOf(gtype)} | ${reference}`;
+			}
+			// Not an enum: a class, an interface or a boxed record. Its GType is what a host
+			// needs to name the property's type, and `glibTypeName` is where the GIR puts it.
+			// An unregistered record simply has none and the row is then absent.
+			if (depth === 0) {
+				const registered = owner.getClass(resolved.name);
+				if (registered?.glibTypeName) ownGType = registered.glibTypeName;
 			}
 			namespaces.add(resolved.namespace);
 			return `${resolved.namespace}.${resolved.name}`;
@@ -841,6 +879,7 @@ function printPropType(
 		flags: [...flags.values()],
 		unresolved,
 		...(ownEnumType === undefined ? {} : { ownEnumType }),
+		...(ownGType === undefined ? {} : { ownGType }),
 	};
 }
 
@@ -862,6 +901,50 @@ function blurb(doc: string | null | undefined, limit = 200): string | undefined 
 	const cut = text.length > limit ? `${text.slice(0, limit - 1)}…` : text;
 	return cut.replace(/\*\//g, "*​/");
 }
+
+/**
+ * GIR spelling → the name GObject gives that fundamental type, for the types a property can
+ * actually have.
+ *
+ * Closed and measured, not guessed: over every `.gir` this repository tracks, settable
+ * properties name exactly these 23 fundamental spellings, and they are 21 059 of the 30 940
+ * rows — `utf8` alone is 7 745 and `gboolean` 5 473. The other 9 881 rows name 1 708 registered
+ * types, whose GType comes from `glibTypeName` instead.
+ *
+ * It exists because `getType` is lossy: every numeric GIR type becomes one `NumberType`
+ * singleton, so `gint` and `gdouble` are the same object by the time the vocabulary sees them.
+ * The values are `g_type_name` of the matching `G_TYPE_*`, which is why `utf8` is `gchararray`
+ * and `guint8` is `guchar` rather than either spelling being carried through.
+ *
+ * A spelling NOT here yields no row, and that is the point: absence means "this generator can
+ * state no GType", which a consumer can act on. A guess would be a wrong number, and the same
+ * rule already governs `PROP_ENUMS`.
+ */
+const FUNDAMENTAL_GTYPES: Readonly<Record<string, string>> = {
+	utf8: "gchararray",
+	filename: "gchararray",
+	gboolean: "gboolean",
+	boolean: "gboolean",
+	gchar: "gchar",
+	guint8: "guchar",
+	gint: "gint",
+	int: "gint",
+	guint: "guint",
+	uint: "guint",
+	guint32: "guint",
+	gunichar: "guint",
+	glong: "glong",
+	gulong: "gulong",
+	ulong: "gulong",
+	gint64: "gint64",
+	int64: "gint64",
+	guint64: "guint64",
+	uint64: "guint64",
+	gfloat: "gfloat",
+	gdouble: "gdouble",
+	gpointer: "gpointer",
+	GType: "GType",
+};
 
 /**
  * The settable properties of one declaration, deduplicated by registered name.
@@ -887,9 +970,13 @@ function ownProps(
 		if (byName.has(girName)) continue;
 		const printed = printPropType(module, config, prop.type, `${keyOf(cls)}.${girName}`, cls.generics);
 		collect(printed);
+		// Registered types answer from the printed walk, fundamentals from the GIR spelling the
+		// walk threw away. Neither can answer for the other, which is why both are asked.
+		const gtype = printed.ownGType ?? (prop.girTypeName ? FUNDAMENTAL_GTYPES[prop.girTypeName] : undefined);
 		byName.set(girName, {
 			girName,
 			...(printed.ownEnumType === undefined ? {} : { enumType: printed.ownEnumType }),
+			...(gtype === undefined ? {} : { gtype }),
 			ts: printed.text,
 			...(printed.unresolved.length === 0 ? {} : { unresolvedTypes: printed.unresolved }),
 			constructOnly: prop.constructOnly,

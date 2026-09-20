@@ -162,7 +162,7 @@ their `DECLS` would be EMPTY, which is not a smaller answer but none. Measured o
 corpus, every byte figure over BOTH halves of a vocabulary (`.d.ts` + `.js`): vocabularies
 142 → 627, emitted bytes 7.47 → 29.23 MB, tree 201.3 → 223.5 MB, the 142 pre-existing 129
 grew / 13 shrank for a net +186.6 kB. That sentence is a RECORD of one change and stays as
-written; the tree **as it stands: vocabularies 627, emitted 31.4 MB, tree 225.8 MB**, derived
+written; the tree **as it stands: vocabularies 627, emitted 31.41 MB, tree 225.8 MB**, derived
 and held there by `scripts/check-vocabulary-cost.mjs`. The two are not the same claim, and
 keeping one sentence for both is how the figures drifted in #476 — measured, then invalidated
 by a field that landed in the same pull request, and never re-measured. Name the half or the split is unreadable — the same

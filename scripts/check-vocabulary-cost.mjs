@@ -89,6 +89,20 @@ for (const entry of readdirSync(typesDir, { withFileTypes: true })) {
   });
 }
 
+// A tree with no vocabulary in it is not a tree with 0 MB of them, it is a tree nobody
+// generated — `types-dev` is a submodule whose pin carries none, so a plain checkout is exactly
+// that. Reporting 0 against a stated 627 reads like the figures are wrong; passing would be
+// worse, because the gate would be green having measured nothing. Exit 2 says "could not
+// measure", which is neither.
+if (vocabularies.length === 0) {
+	console.error(
+		`check-vocabulary-cost: ${relative(root, typesDir)} holds no vocabulary — the figures describe a ` +
+			"GENERATED tree, and this one has not been. Run `gjsify run build:types` first, or point " +
+			"--types at a tree that has one. NOT measured, and therefore neither passed nor failed.",
+	);
+	process.exit(2);
+}
+
 const sum = (pick) => vocabularies.reduce((n, v) => n + pick(v), 0);
 const emitted = { both: sum((v) => v.js + v.dts), js: sum((v) => v.js), dts: sum((v) => v.dts) };
 const mb = (bytes) => bytes / 1_000_000;

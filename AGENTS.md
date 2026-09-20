@@ -114,7 +114,31 @@ file is full of `GtkSizeGroup`, `GtkTextTag`, `GtkCellRenderer*` and every `GtkE
 Measured, the narrower rule covered 127 of Gtk-4.0's 301 registered declarations and 64 of
 Adw-1's 92, and it cost a consumer a real defect — `Gtk.SizeGroup { mode: horizontal; }`
 emitting `horizontal` where `blueprint-compiler` writes `1`, because no `PROP_ENUMS` row
-existed to resolve the nick. **`Widgets` and `CHILD_HOLDERS` do NOT widen with it**: they are
+existed to resolve the nick.
+
+**`PROP_TYPES` is `PROP_ENUMS` one case wider, and a SEPARATE table.** `PROP_ENUMS` promises the
+GType it names has NUMBERS; `PROP_TYPES` promises only that the GType is the property's. Folding
+them together would mix "resolvable to numbers" with "not" and hand the distinction to the
+consumer — `ARIA_VALUE_ENUMS` beside `ARIA_VALUE_TYPES` is the same split. It exists because a
+host inferring a type FROM a property needs `GtkLabel:label` as much as `GtkLabel:justify`, and
+only the second was ever carried: Blueprint refuses an uncast lookup chain and an uncast closure
+return type for exactly that reason. Measured cost, not estimated: **26 980 rows, +1.76 MB of
+31.4 MB — 1.34 MB of data and 0.42 MB of declarations, +5.9 %** over the same tree without it.
+The issue that asked for it guessed +2.73 MB / +9 %; deriving it gave two thirds of that.
+
+Fundamental types are CARRIED, not omitted, and that is the decision the shape rests on. A
+scalar property whose row were left out would be indistinguishable from a type nobody could
+resolve, and the uncast-closure case needs exactly that distinction. So `utf8` reads
+`gchararray`, `guint8` reads `guchar` — `g_type_name` of the matching `G_TYPE_*`, through a
+closed map of the 23 fundamental spellings settable properties actually use (21 059 of 30 940
+rows; `utf8` alone is 7 745). A spelling outside that map yields NO row, so absence stays
+readable as "this generator can state none". The map has to exist because `getType` is lossy:
+every numeric GIR type becomes one `NumberType` singleton, so `gint` and `gdouble` are the same
+object by the time the vocabulary sees them — the GIR spelling is kept on
+`IntrospectedProperty.girTypeName` for this, and it must be carried in `copy()` beside `girName`
+or it reaches nothing (measured: 184 rows instead of 962 for Gtk-4.0).
+
+**`Widgets` and `CHILD_HOLDERS` do NOT widen with it**: they are
 the index of what IS a widget, and a consumer asking that gets the pre-widening answer (proved
 over all 142 vocabularies — 0 changed). **The vocabulary ships, the dialect does not** — no tag spelling,
 no `on<Signal>` prop, no `JSX.IntrinsicElements`, no Vue `GlobalComponents`, no camelCase
@@ -137,7 +161,11 @@ non-abstract class at all (`cairo-1.0`, `GLib-2.0`, `Graphene-1.0`, the record-o
 their `DECLS` would be EMPTY, which is not a smaller answer but none. Measured over the
 corpus, every byte figure over BOTH halves of a vocabulary (`.d.ts` + `.js`): vocabularies
 142 → 627, emitted bytes 7.47 → 29.23 MB, tree 201.3 → 223.5 MB, the 142 pre-existing 129
-grew / 13 shrank for a net +186.6 kB. Name the half or the split is unreadable — the same
+grew / 13 shrank for a net +186.6 kB. That sentence is a RECORD of one change and stays as
+written; the tree **as it stands: vocabularies 627, emitted 31.41 MB, tree 225.8 MB**, derived
+and held there by `scripts/check-vocabulary-cost.mjs`. The two are not the same claim, and
+keeping one sentence for both is how the figures drifted in #476 — measured, then invalidated
+by a field that landed in the same pull request, and never re-measured. Name the half or the split is unreadable — the same
 change is 135/7 over the `.d.ts` alone and 118/24 over the `.js` alone, because
 `requiredVocabularies` replicates 384 kB of JSDoc into 627 type files while foreign tables
 moving home shrink the data files. Every main `.d.ts` is byte-identical, and

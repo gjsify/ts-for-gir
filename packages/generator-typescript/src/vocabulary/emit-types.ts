@@ -414,6 +414,19 @@ export const FLAG_VALUES_UNREADABLE: Readonly<Record<string, string>>;
 export const PROP_ENUMS: Readonly<Record<string, string>>;
 
 /**
+ * \`<declaration GType>.<property>\` -> the GType of that property's own type.
+ *
+ * \`PROP_ENUMS\` one case wider, and separate on purpose: that table promises the GType it names
+ * has NUMBERS, and this one promises only that the GType is the property's. A host inferring a
+ * type from a property — the middle of an uncast lookup chain, an uncast closure's return type —
+ * reads this one; a host resolving a nick to a number reads that one.
+ *
+ * Absent means no GType can be stated, not that the property is scalar: \`gchararray\` is carried
+ * like any other, so absence is readable as "unknown".
+ */
+export const PROP_TYPES: Readonly<Record<string, string>>;
+
+/**
  * The kinds of value a GTK accessible property, relation or state takes.
  *
  * \`enum\` is the one that needs a second lookup: \`ARIA_VALUE_ENUMS\` names the enum GType,

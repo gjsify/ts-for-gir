@@ -109,7 +109,10 @@ const must = [
   // any other foreign declaration and the union names it. The control is unchanged in
   // force — the chain still bottoms out in `never`, asserted below against GObject's own
   // vocabulary rather than against a hole where a base used to be dropped.
-  ["construct-only union names the property", /GtkWidgetConstructOnly = GObjectConstructOnly \| 'css-name'/],
+  [
+    "construct-only union names the property",
+    /GtkWidgetConstructOnly = GObjectConstructOnly \| 'css-name'/,
+  ],
   [
     "a declaration with no own construct-only props is rooted in its base's union",
     /GtkOrientableConstructOnly = GObjectConstructOnly/,
@@ -524,6 +527,60 @@ for (const key of Object.keys(data.PROP_ENUMS ?? {})) {
   }
 }
 
+// PROP_TYPES — the same join one case wider, and the three things that make it useful.
+//
+// 1. FUNDAMENTALS ARE CARRIED. This is the whole reason the table exists: a host inferring a
+//    type FROM a property needs `GtkLabel:label` as much as `GtkLabel:justify`, and only the
+//    second was ever carried. Every value here is `g_type_name` of the matching `G_TYPE_*`,
+//    which is why a `utf8` property reads `gchararray` and not `utf8`.
+for (const [key, want] of [
+  ["GtkActorBin.tint", "gchararray"],
+  ["GtkAdjustment.value", "gdouble"],
+  ["GtkBox.spacing", "gint"],
+  ["GtkBox.user-data", "gpointer"],
+  ["GtkListItem.activatable", "gboolean"],
+  // NULLABLE and object-typed. `Gtk.Widget | null` is one type and an absence, not two types,
+  // so the GType is still the widget's. Measured before this row existed: `GtkButton:child`
+  // carried none while `GtkNotebookPage:child` did, and nothing about either spelling said
+  // why — 138 of 1 100 Gtk-4.0 rows turn on it.
+  ["GtkActorBin.anchor", "GtkWidget"],
+]) {
+  const got = data.PROP_TYPES?.[key];
+  if (got !== want) fail(`PROP_TYPES[${key}] is ${JSON.stringify(got)}, expected ${want}`);
+}
+
+// 2. ABSENCE IS ABSENCE, and it has to stay readable as "this generator can state no GType".
+//    Both of these are settable and both are offered by OWN_PROPS; neither names a type the
+//    generator can resolve to one. A later change that starts guessing — `gpointer` for an
+//    array, say — turns a missing answer into a wrong one, and that is the failure this row
+//    exists to catch, not the missing row itself.
+for (const key of ["GtkWidget.axes", "GtkWidget.css-classes"]) {
+  const prop = key.slice(key.indexOf(".") + 1);
+  if (!(data.OWN_PROPS?.GtkWidget ?? []).includes(prop)) {
+    fail(`the fixture no longer offers ${key}, so the absence below proves nothing`);
+  }
+  if (key in (data.PROP_TYPES ?? {})) {
+    fail(`PROP_TYPES carries ${key} as ${data.PROP_TYPES[key]}, but no GType is derivable for it`);
+  }
+}
+
+// 3. CONTAINMENT, both ways it can break. Every PROP_ENUMS row must appear here with the SAME
+//    value — an enum-typed property's GType is its enum's GType, and two tables disagreeing
+//    about that would make the wider one unusable for the narrow case. And every key here must
+//    name a property its declaration offers, the same rule OWN_PROPS holds PROP_ENUMS to.
+for (const [key, gtype] of Object.entries(data.PROP_ENUMS ?? {})) {
+  const wide = data.PROP_TYPES?.[key];
+  if (wide !== gtype) {
+    fail(`PROP_ENUMS[${key}] is ${gtype} and PROP_TYPES[${key}] is ${JSON.stringify(wide)}`);
+  }
+}
+for (const key of Object.keys(data.PROP_TYPES ?? {})) {
+  const gtype = key.slice(0, key.indexOf("."));
+  const prop = key.slice(key.indexOf(".") + 1);
+  if ((data.OWN_PROPS?.[gtype] ?? []).includes(prop)) continue;
+  fail(`PROP_TYPES keys ${key}, which OWN_PROPS[${gtype}] does not offer`);
+}
+
 // THE BITFIELDS, which `ENUM_NICKS` refuses and which still have numbers.
 //
 // `GtkStateFlags.insensitive` is 8 at position 2, so this separates read from counted the
@@ -911,7 +968,9 @@ if (!tsconfig.include?.includes("./mini-1.0-vocabulary.d.ts")) {
 const gobjectVocabulary = join(here, "generated", "gobject-2.0", "gobject-2.0-vocabulary.d.ts");
 if (!existsSync(gobjectVocabulary)) {
   fail("gobject-2.0 emitted no vocabulary, so the construct-only chain has no terminal value");
-} else if (!/export type GObjectConstructOnly = never;/.test(readFileSync(gobjectVocabulary, "utf8"))) {
+} else if (
+  !/export type GObjectConstructOnly = never;/.test(readFileSync(gobjectVocabulary, "utf8"))
+) {
   fail("GObjectConstructOnly is no longer `never`, so every chain rooted in it silently widened");
 }
 
@@ -977,7 +1036,11 @@ if (!existsSync(inlineFile)) {
   // `extends GObjectProps` now sits between the name and the brace. Pinned, not made
   // optional: `(?:extends [^{]+)?` would pass whether or not the base is there, which is
   // weaker than what it replaced — the old pattern at least asserted the absence of one.
-  if (!/export interface CarrierHolderProps extends GObjectProps \{[^}]*title\?: string;/s.test(inline)) {
+  if (
+    !/export interface CarrierHolderProps extends GObjectProps \{[^}]*title\?: string;/s.test(
+      inline,
+    )
+  ) {
     fail("Carrier.Holder was not inlined — its `title` property is missing from the surface");
   }
   if (!/interface GtkWidgetProps extends CarrierHolderProps/.test(inline)) {
@@ -1062,7 +1125,11 @@ if (!existsSync(crossFile)) {
   if (/GtkExtra(Props|ConstructOnly)[^\n]*from '@girs\/base-1\.0\/vocabulary'/.test(cross)) {
     fail("a declaration the owner's vocabulary does not emit was imported from it anyway");
   }
-  if (!/export interface GtkExtraProps extends GObjectProps \{[^}]*'extra-label'\?: string;/s.test(cross)) {
+  if (
+    !/export interface GtkExtraProps extends GObjectProps \{[^}]*'extra-label'\?: string;/s.test(
+      cross,
+    )
+  ) {
     fail(
       "the uncovered foreign declaration was neither imported nor inlined — its members are lost",
     );
@@ -1140,7 +1207,9 @@ if (!existsSync(gateFile)) {
   if (!gateWidgets) {
     fail("a widget-free vocabulary omits the `Widgets` interface instead of emitting it empty");
   } else if (gateWidgets[1].trim() !== "") {
-    fail(`a namespace with no widgets emitted Widgets rows: ${gateWidgets[1].trim().slice(0, 120)}`);
+    fail(
+      `a namespace with no widgets emitted Widgets rows: ${gateWidgets[1].trim().slice(0, 120)}`,
+    );
   }
 
   // CONTROL 13: the C identifier prefixes are READ, not derived and not defaulted.

@@ -1,5 +1,19 @@
 # Changelog
 
+## [5.4.0](https://github.com/gjsify/ts-for-gir/compare/v5.3.0...v5.4.0) (2026-09-21)
+
+### Features
+
+* **vocabulary:** carry every settable property's GType ([#482](https://github.com/gjsify/ts-for-gir/issues/482)) ([b4004d5](https://github.com/gjsify/ts-for-gir/commit/b4004d5b22eed7db4f46522e41026b3e0d4a9423)), closes [#478](https://github.com/gjsify/ts-for-gir/issues/478) [#477](https://github.com/gjsify/ts-for-gir/issues/477), references [#476](https://github.com/gjsify/ts-for-gir/issues/476) [#476](https://github.com/gjsify/ts-for-gir/issues/476) [#476](https://github.com/gjsify/ts-for-gir/issues/476)
+
+### Build System
+
+* **format:** run one formatter, the declared one ([#480](https://github.com/gjsify/ts-for-gir/issues/480)) ([0ea4817](https://github.com/gjsify/ts-for-gir/commit/0ea48172f3efad11421c621d022147fe8ed92f65)), closes [#441](https://github.com/gjsify/ts-for-gir/issues/441), references [#441](https://github.com/gjsify/ts-for-gir/issues/441)
+
+### Continuous Integration
+
+* **release:** refuse a cut into an npm outage ([#479](https://github.com/gjsify/ts-for-gir/issues/479)) ([a927b97](https://github.com/gjsify/ts-for-gir/commit/a927b97c6cefaa4a66b859333f19ac8fd5e54a1c))
+
 ## [5.3.0](https://github.com/gjsify/ts-for-gir/compare/v5.2.0...v5.3.0) (2026-09-19)
 
 ### Features

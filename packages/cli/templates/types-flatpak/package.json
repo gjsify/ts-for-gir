@@ -1,0 +1,21 @@
+{
+	"name": "__PROJECT_NAME__",
+	"version": "0.1.0",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"check": "tsc --noEmit && tsc --noEmit -p build-aux",
+		"build": "node esbuild.ts",
+		"start": "gjs -m dist/main.js",
+		"clear": "rm -rf dist _build"
+	},
+	"devDependencies": {
+		"@girs/adw-1": "^5.0.0",
+		"@girs/gio-2.0": "^5.0.0",
+		"@girs/gjs": "^5.0.0",
+		"@girs/gtk-4.0": "^5.0.0",
+		"@types/node": "^24.0.0",
+		"esbuild": "^0.28.0",
+		"typescript": "^6.0.2"
+	}
+}

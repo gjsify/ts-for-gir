@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=__PROJECT_NAME__
+Comment=__PROJECT_NAME__
+Exec=@APP_ID@
+Icon=@APP_ID@
+Terminal=false
+Type=Application
+Categories=Utility;
+StartupNotify=true
+X-GNOME-UsesNotifications=false

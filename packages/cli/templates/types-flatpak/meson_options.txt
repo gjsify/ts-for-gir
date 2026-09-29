@@ -1,0 +1,12 @@
+# The app id has one home: the `"id"` in the Flatpak manifest, which passes it
+# in as `-Dapp_id=`. Everything else — the desktop entry, the metainfo, the
+# installed launcher, the icon — reads it from here rather than repeating it.
+#
+# The default only applies to a bare local `meson setup`, which has no manifest
+# to read it from. Set it in the manifest, not here.
+option(
+	'app_id',
+	type: 'string',
+	value: 'com.example.__PROJECT_NAME__',
+	description: 'The application id, matching the Flatpak manifest',
+)

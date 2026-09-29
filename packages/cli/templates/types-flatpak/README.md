@@ -11,7 +11,7 @@ inside the app.
 | --- | --- |
 | `main.ts` | The app. Bundled to `dist/main.js`. |
 | `esbuild.ts` | The bundle step Meson calls. |
-| `env.d.ts` | Types for `.ui` / `.css` imports (see below). |
+| `env.d.ts` | Types for `.ui` / `.css` imports, and for the `__APP_ID__` constant. |
 | `meson.build` | Installs the dependencies, bundles, installs the app. |
 | `build-aux/` | Type-check config for the build scripts (they run on Node, not GJS). |
 | `data/` | Launcher, desktop entry, AppStream metainfo, icon. |
@@ -64,12 +64,8 @@ URLs. Bump `<release version=… date=…>` on every release; the date is not op
 
 ## The app id
 
-It has one home: the `"id"` in the Flatpak manifest, which passes it to Meson as
-`-Dapp_id=`. The desktop entry, the metainfo and the installed launcher all read it from
-there. Change it there — and in `applicationId` in `main.ts`.
-
-## The app id
-
-It has one home: the `"id"` in the Flatpak manifest, which passes it to Meson as
-`-Dapp_id=`. The desktop entry, the metainfo and the installed launcher all read it from
-there. Change it there — and in `applicationId` in `main.ts`.
+One home: the `"id"` in the Flatpak manifest, which passes it to Meson as
+`-Dapp_id=`. From there it reaches the desktop entry, the metainfo, the launcher,
+the icon **and** the running app — `applicationId` in `main.ts` is the esbuild
+constant `__APP_ID__`, which the build substitutes from that same value. Rename
+the app in the manifest and everything follows.

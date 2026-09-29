@@ -130,7 +130,11 @@ jobs:
     steps:
       - name: Install container prerequisites
         run: |
-          dnf install -y git tar xz findutils curl gjs libsoup3 json-glib
+          # `meson` + `ninja` for the `types-flatpak` create subtest, which
+          # configures, compiles and installs the scaffolded Meson project. The
+          # subtest skips when they are absent, so without this package the
+          # whole app-id-propagation check would silently never run.
+          dnf install -y git tar xz findutils curl gjs libsoup3 json-glib meson ninja-build
           git config --global --add safe.directory "*"
       - name: Set up Node.js 24
         uses: actions/setup-node@v4

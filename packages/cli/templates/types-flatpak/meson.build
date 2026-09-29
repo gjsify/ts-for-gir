@@ -51,7 +51,7 @@ custom_target(
 	'bundle',
 	input: files('main.ts'),
 	output: 'main.js',
-	command: [node, files('esbuild.ts'), '--entry', '@INPUT@', '--outfile', '@OUTPUT@'],
+	command: [node, files('esbuild.ts'), '--entry', '@INPUT@', '--outfile', '@OUTPUT@', '--app-id', app_id],
 	build_by_default: true,
 	install: true,
 	install_dir: pkgdatadir,

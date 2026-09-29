@@ -161,43 +161,41 @@ function substituteInFile(filePath: string, projectName: string): void {
 	writeFileSync(filePath, content.replaceAll(PROJECT_NAME_PLACEHOLDER, projectName));
 }
 
-function walkAndSubstitute(rootDir: string, projectName: string): void {
+/**
+ * Walks a scaffolded tree, applying the project-name placeholder to file
+ * CONTENT and to file and directory NAMES.
+ *
+ * One traversal, because the two halves must agree about which entries exist:
+ * they are not independent passes, they are two edits of the same tree, and a
+ * second walk would re-derive the entry list for no gain.
+ *
+ * Two orderings matter, both forced by the placeholder:
+ *
+ * - Content before names, per entry, and a file's content is substituted while
+ *   it still sits at its original path.
+ * - Names depth-first, children before their parent, so a placeholder inside a
+ *   nested path is rewritten before the path containing it moves.
+ *
+ * `cpSync` copies the tree with its original names, which is why the name half
+ * exists at all: a Flatpak template needs its manifest named after the app id
+ * (convention, and the Flathub build expects it), and leaving it as
+ * `com.example.__PROJECT_NAME__.json` hands the user a rename whose absence
+ * silently breaks the documented `flatpak-builder <app-id>.json` command.
+ */
+function applyProjectName(rootDir: string, projectName: string): void {
 	for (const entry of readdirSync(rootDir, { withFileTypes: true })) {
 		const full = join(rootDir, entry.name);
-		if (entry.isDirectory()) {
-			if (entry.name === "node_modules") continue;
-			walkAndSubstitute(full, projectName);
-			continue;
-		}
-		if (!entry.isFile()) continue;
-		const ext = entry.name.slice(entry.name.lastIndexOf("."));
-		if (!TEXT_FILE_EXT.has(ext)) continue;
-		substituteInFile(full, projectName);
-	}
-}
+		if (entry.isDirectory() && entry.name === "node_modules") continue;
 
-/**
- * Renames files and directories whose *name* carries the placeholder.
- *
- * The content substitution above cannot do this: `cpSync` copies the tree with
- * its original names. A Flatpak template needs it, because convention (and the
- * Flathub build) expects the manifest to be named after the app id — leaving it
- * as `com.example.__PROJECT_NAME__.json` hands the user a file they must rename
- * by hand, and that rename is the one step whose absence silently breaks the
- * documented `flatpak-builder <app-id>.json` command.
- *
- * Depth-first, children before their parent, so a placeholder inside a nested
- * path is rewritten before the path containing it moves.
- */
-function renameWithProjectName(dir: string, projectName: string): void {
-	for (const entry of readdirSync(dir, { withFileTypes: true })) {
-		const full = join(dir, entry.name);
-		if (entry.isDirectory()) {
-			if (entry.name === "node_modules") continue;
-			renameWithProjectName(full, projectName);
+		if (entry.isFile()) {
+			const ext = entry.name.slice(entry.name.lastIndexOf("."));
+			if (TEXT_FILE_EXT.has(ext)) substituteInFile(full, projectName);
 		}
+
+		if (entry.isDirectory()) applyProjectName(full, projectName);
+
 		if (!entry.name.includes(PROJECT_NAME_PLACEHOLDER)) continue;
-		renameSync(full, join(dir, entry.name.replaceAll(PROJECT_NAME_PLACEHOLDER, projectName)));
+		renameSync(full, join(rootDir, entry.name.replaceAll(PROJECT_NAME_PLACEHOLDER, projectName)));
 	}
 }
 
@@ -277,8 +275,7 @@ const handler = async (args: ConfigFlags) => {
 
 	const templateDir = join(templatesRoot, template);
 	cpSync(templateDir, targetDir, { recursive: true });
-	renameWithProjectName(targetDir, projectName);
-	walkAndSubstitute(targetDir, projectName);
+	applyProjectName(targetDir, projectName);
 
 	log.success(`Scaffolded ${template} into ${targetDir}`);
 

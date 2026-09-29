@@ -16,6 +16,14 @@ function argValue(flag: string): string | undefined {
 await build({
 	entryPoints: [argValue("--entry") ?? "main.ts"],
 	outfile: argValue("--outfile") ?? "dist/main.js",
+	// The app id, from `-Dapp_id=` in the Flatpak manifest. GJS reads
+	// `applicationId` at RUNTIME, so Meson cannot fill it in after the fact —
+	// but a build-time `define` is the same substitution one step earlier, and
+	// it keeps the manifest the single home for the id instead of leaving a
+	// second literal in `main.ts` for a rename to miss.
+	define: {
+		__APP_ID__: JSON.stringify(argValue("--app-id") ?? "com.example.__PROJECT_NAME__"),
+	},
 	bundle: true,
 	target: "firefox128",
 	format: "esm",

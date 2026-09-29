@@ -214,7 +214,7 @@ describe("ts-for-gir create E2E", { timeout: 20 * 60 * 1000 }, () => {
     assert.ok(existsSync(join(projectDir, "dist", "main.js")), "dist/main.js missing");
   });
 
-  it("types-flatpak: install, check, build, meson", () => {
+  it("types-flatpak: install, check, build, meson", (t) => {
     // No flatpak-builder here: a Flatpak build needs the GNOME SDK and a network
     // phase. What this covers is the part a scaffold can actually get wrong and
     // that a developer hits first — the Meson build must configure, bundle and
@@ -240,11 +240,16 @@ describe("ts-for-gir create E2E", { timeout: 20 * 60 * 1000 }, () => {
       "org.freedesktop.Sdk.Extension.node24",
     ]);
 
-    // `meson` and `node` are both required; skip rather than fail where absent.
-    for (const tool of ["meson", "node"]) {
-      if (spawnSync(tool, ["--version"], { encoding: "utf8" }).status !== 0) {
-        return; // eslint-disable-line no-undefined -- a missing tool is not a defect
-      }
+    // Skip, do not fail, where the tools are absent — but SAY so. A silent
+    // `return` here reads as "passed" in a CI log while having checked nothing,
+    // which is how an entire assertion block goes missing unnoticed; CI
+    // installs meson/ninja for exactly this job (see ci.yml).
+    const missing = ["meson", "ninja", "node"].filter(
+      (tool) => spawnSync(tool, ["--version"], { encoding: "utf8" }).status !== 0,
+    );
+    if (missing.length > 0) {
+      t.diagnostic(`SKIPPED the Meson assertions: ${missing.join(", ")} not on PATH`);
+      return;
     }
 
     const buildDir = join(projectDir, "_build");
@@ -282,6 +287,19 @@ describe("ts-for-gir create E2E", { timeout: 20 * 60 * 1000 }, () => {
     ]) {
       assert.ok(existsSync(join(stage, "app", installed)), `not installed: ${installed}`);
     }
+
+    // And it reaches the RUNNING app, via the esbuild `define`. Asserted on the
+    // installed bundle, so it covers what ships rather than the dev build: the
+    // D-Bus name has to match the `.desktop` the app is launched through.
+    const installedBundle = readFileSync(join(stage, "app", `share/${appId}/main.js`), "utf8");
+    assert.ok(
+      installedBundle.includes(appId),
+      `bundled main.js does not carry the app id: ${appId}`,
+    );
+    assert.ok(
+      !installedBundle.includes("__APP_ID__"),
+      "bundled main.js still holds the unsubstituted __APP_ID__ placeholder",
+    );
   });
 
   it("types-workspace: install, generate types, re-install, check sub-package", () => {

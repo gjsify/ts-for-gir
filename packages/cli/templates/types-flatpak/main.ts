@@ -3,7 +3,7 @@ import Gio from "gi://Gio?version=2.0";
 import Gtk from "gi://Gtk?version=4.0";
 
 const app = new Adw.Application({
-	applicationId: "com.example.__PROJECT_NAME__",
+	applicationId: __APP_ID__,
 	flags: Gio.ApplicationFlags.FLAGS_NONE,
 });
 

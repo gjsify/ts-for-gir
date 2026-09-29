@@ -95,7 +95,7 @@ export interface DocCommandArgs extends GenerateCommandArgs {
 /**
  * Available scaffolding template identifiers for the create command.
  */
-export type CreateTemplateId = "types-locally" | "types-npm" | "types-workspace" | "types-gjsify";
+export type CreateTemplateId = "types-locally" | "types-npm" | "types-workspace" | "types-gjsify" | "types-flatpak";
 
 /**
  * Arguments for the create command

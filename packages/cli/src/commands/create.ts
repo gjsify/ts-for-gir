@@ -3,7 +3,16 @@
  */
 
 import { spawnSync } from "node:child_process";
-import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, realpathSync, writeFileSync } from "node:fs";
+import {
+	cpSync,
+	existsSync,
+	mkdirSync,
+	readdirSync,
+	readFileSync,
+	realpathSync,
+	renameSync,
+	writeFileSync,
+} from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -25,6 +34,10 @@ const examples: ReadonlyArray<[string, string?]> = [
 	[
 		`${APP_NAME} create my-app --template types-workspace`,
 		"Scaffold an npm workspace with types as workspace packages",
+	],
+	[
+		`${APP_NAME} create my-app --template types-flatpak`,
+		"Scaffold a Meson project with a Flatpak manifest (builds and installs offline)",
 	],
 	[`${APP_NAME} create`, "Interactive: prompts for name and template"],
 ];
@@ -54,11 +67,19 @@ const TEMPLATE_CHOICES: ReadonlyArray<{
 		name: "types-workspace",
 		description: "npm workspace; generate @girs/* as workspace packages under ./@girs/",
 	},
+	{
+		value: "types-flatpak",
+		name: "types-flatpak",
+		description: "Meson project + Flatpak manifest: bundles with esbuild, installs dependencies offline",
+	},
 ];
 
 const PROJECT_NAME_PLACEHOLDER = "__PROJECT_NAME__";
 
-const TEXT_FILE_EXT = new Set([".json", ".md", ".ts", ".tsx", ".js", ".mjs", ".cjs"]);
+// `meson.build`, `meson_options.txt` and the `.in` sources Meson configures carry
+// the app id and the display name, so they need the same substitution the code
+// files get. All are text; nothing else in a template should hold the placeholder.
+const TEXT_FILE_EXT = new Set([".json", ".md", ".ts", ".tsx", ".js", ".mjs", ".cjs", ".txt", ".build", ".in"]);
 
 const builder = createBuilder<CreateCommandArgs>(createOptions, examples);
 
@@ -155,6 +176,31 @@ function walkAndSubstitute(rootDir: string, projectName: string): void {
 	}
 }
 
+/**
+ * Renames files and directories whose *name* carries the placeholder.
+ *
+ * The content substitution above cannot do this: `cpSync` copies the tree with
+ * its original names. A Flatpak template needs it, because convention (and the
+ * Flathub build) expects the manifest to be named after the app id — leaving it
+ * as `com.example.__PROJECT_NAME__.json` hands the user a file they must rename
+ * by hand, and that rename is the one step whose absence silently breaks the
+ * documented `flatpak-builder <app-id>.json` command.
+ *
+ * Depth-first, children before their parent, so a placeholder inside a nested
+ * path is rewritten before the path containing it moves.
+ */
+function renameWithProjectName(dir: string, projectName: string): void {
+	for (const entry of readdirSync(dir, { withFileTypes: true })) {
+		const full = join(dir, entry.name);
+		if (entry.isDirectory()) {
+			if (entry.name === "node_modules") continue;
+			renameWithProjectName(full, projectName);
+		}
+		if (!entry.name.includes(PROJECT_NAME_PLACEHOLDER)) continue;
+		renameSync(full, join(dir, entry.name.replaceAll(PROJECT_NAME_PLACEHOLDER, projectName)));
+	}
+}
+
 declare const __GJS_BUNDLE__: boolean | undefined;
 
 const handler = async (args: ConfigFlags) => {
@@ -231,6 +277,7 @@ const handler = async (args: ConfigFlags) => {
 
 	const templateDir = join(templatesRoot, template);
 	cpSync(templateDir, targetDir, { recursive: true });
+	renameWithProjectName(targetDir, projectName);
 	walkAndSubstitute(targetDir, projectName);
 
 	log.success(`Scaffolded ${template} into ${targetDir}`);
@@ -277,6 +324,14 @@ const handler = async (args: ConfigFlags) => {
 		case "types-gjsify":
 			log.white("  gjsify run check");
 			log.white("  gjsify run build && gjsify run start");
+			break;
+		case "types-flatpak":
+			log.white("  npm run check");
+			log.white("  npm run build && npm start");
+			log.white("");
+			log.white("  # then, to ship it:");
+			log.white("  flatpak-node-generator npm package-lock.json -o node-sources.json");
+			log.white("  flatpak-builder --install com.example.my-app.json");
 			break;
 	}
 };

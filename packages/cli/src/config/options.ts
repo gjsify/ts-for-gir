@@ -277,8 +277,8 @@ export const createOptions = {
 	template: {
 		type: "string" as const,
 		alias: "t",
-		description: "Template to scaffold (types-locally, types-npm, types-workspace, types-gjsify)",
-		choices: ["types-locally", "types-npm", "types-workspace", "types-gjsify"] as const,
+		description: "Template to scaffold (types-locally, types-npm, types-workspace, types-gjsify, types-flatpak)",
+		choices: ["types-locally", "types-npm", "types-workspace", "types-gjsify", "types-flatpak"] as const,
 	},
 	install: {
 		type: "boolean" as const,

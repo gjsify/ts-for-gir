@@ -42,7 +42,7 @@ const GIRS_TO_PACK = [
 // `types-gjsify` template was added in 4.0 for the Node-free gjsify-CLI
 // install path; its absence from this list is what let the 4.0.0
 // "no templates found" regression slip through to the npm tarball.
-const TEMPLATES = ["types-gjsify", "types-locally", "types-npm", "types-workspace"];
+const TEMPLATES = ["types-gjsify", "types-locally", "types-npm", "types-workspace", "types-flatpak"];
 
 function rewriteWorkspaceProtocolToTarballs(pkgPath, tarballMap, tarballsDir) {
   const pkg = JSON.parse(readFileSync(pkgPath, "utf8"));
@@ -212,6 +212,76 @@ describe("ts-for-gir create E2E", { timeout: 20 * 60 * 1000 }, () => {
     const build = npmRun(projectDir, "build");
     assert.equal(build.status, 0, `build failed: ${build.stderr}\n${build.stdout}`);
     assert.ok(existsSync(join(projectDir, "dist", "main.js")), "dist/main.js missing");
+  });
+
+  it("types-flatpak: install, check, build, meson", () => {
+    // No flatpak-builder here: a Flatpak build needs the GNOME SDK and a network
+    // phase. What this covers is the part a scaffold can actually get wrong and
+    // that a developer hits first — the Meson build must configure, bundle and
+    // install with `npm ci --offline` against a populated tree.
+    const projectDir = join(tmpDir, "scaffolds", "types-flatpak", "app-types-flatpak");
+    rewriteWorkspaceProtocolToTarballs(join(projectDir, "package.json"), tarballMap, tarballsDir);
+    npmInstall(projectDir);
+
+    const check = npmRun(projectDir, "check");
+    assert.equal(check.status, 0, `check failed: ${check.stderr}\n${check.stdout}`);
+
+    const build = npmRun(projectDir, "build");
+    assert.equal(build.status, 0, `build failed: ${build.stderr}\n${build.stdout}`);
+    assert.ok(existsSync(join(projectDir, "dist", "main.js")), "dist/main.js missing");
+
+    // The manifest is the one file whose NAME carries the app id, so assert the
+    // rename happened and not just the substitution inside it.
+    const manifest = join(projectDir, "com.example.app-types-flatpak.json");
+    assert.ok(existsSync(manifest), `manifest not renamed to the app id: ${manifest}`);
+    const manifestJson = JSON.parse(readFileSync(manifest, "utf8"));
+    assert.equal(manifestJson.id, "com.example.app-types-flatpak", "app id not substituted");
+    assert.deepEqual(manifestJson.sdkExtensions ?? manifestJson["sdk-extensions"], [
+      "org.freedesktop.Sdk.Extension.node24",
+    ]);
+
+    // `meson` and `node` are both required; skip rather than fail where absent.
+    for (const tool of ["meson", "node"]) {
+      if (spawnSync(tool, ["--version"], { encoding: "utf8" }).status !== 0) {
+        return; // eslint-disable-line no-undefined -- a missing tool is not a defect
+      }
+    }
+
+    const buildDir = join(projectDir, "_build");
+    const setup = spawnSync("meson", ["setup", buildDir, "--prefix=/app"], {
+      cwd: projectDir,
+      encoding: "utf8",
+      timeout: 5 * 60 * 1000,
+    });
+    assert.equal(setup.status, 0, `meson setup failed: ${setup.stderr}\n${setup.stdout}`);
+
+    const compile = spawnSync("meson", ["compile", "-C", buildDir], {
+      cwd: projectDir,
+      encoding: "utf8",
+      timeout: 5 * 60 * 1000,
+    });
+    assert.equal(compile.status, 0, `meson compile failed: ${compile.stderr}\n${compile.stdout}`);
+
+    const stage = join(projectDir, "_stage");
+    const install = spawnSync("meson", ["install", "-C", buildDir, "--destdir", stage], {
+      cwd: projectDir,
+      encoding: "utf8",
+      timeout: 5 * 60 * 1000,
+    });
+    assert.equal(install.status, 0, `meson install failed: ${install.stderr}\n${install.stdout}`);
+
+    // The app id reaches the launcher, the desktop entry, the metainfo and the
+    // icon — each from `-Dapp_id=`, none repeating the literal.
+    const appId = "com.example.app-types-flatpak";
+    for (const installed of [
+      `bin/${appId}`,
+      `share/applications/${appId}.desktop`,
+      `share/metainfo/${appId}.metainfo.xml`,
+      `share/icons/hicolor/scalable/apps/${appId}.svg`,
+      `share/${appId}/main.js`,
+    ]) {
+      assert.ok(existsSync(join(stage, "app", installed)), `not installed: ${installed}`);
+    }
   });
 
   it("types-workspace: install, generate types, re-install, check sub-package", () => {

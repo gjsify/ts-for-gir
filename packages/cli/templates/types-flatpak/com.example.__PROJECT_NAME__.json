@@ -2,16 +2,6 @@
 	"id": "com.example.__PROJECT_NAME__",
 	"runtime": "org.gnome.Platform",
 	"runtime-version": "51",
-	"build-options": {
-		"append-path": "/usr/lib/sdk/node24/bin",
-		"env": {
-			"XDG_CACHE_HOME": "/run/build/app/flatpak-node/cache",
-			"npm_config_cache": "/run/build/app/flatpak-node/npm-cache",
-			"npm_config_nodedir": "/usr/lib/sdk/node24",
-			"npm_config_offline": "true",
-			"APP_ID": "com.example.__PROJECT_NAME__"
-		}
-	},
 	"sdk": "org.gnome.Sdk",
 	"sdk-extensions": ["org.freedesktop.Sdk.Extension.node24"],
 	"command": "com.example.__PROJECT_NAME__",
@@ -26,6 +16,7 @@
 			"buildsystem": "meson",
 			"config-opts": ["-Dapp_id=com.example.__PROJECT_NAME__"],
 			"build-options": {
+				"append-path": "/usr/lib/sdk/node24/bin",
 				"env": {
 					"XDG_CACHE_HOME": "/run/build/app/flatpak-node/cache",
 					"npm_config_cache": "/run/build/app/flatpak-node/npm-cache",

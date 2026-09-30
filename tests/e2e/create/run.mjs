@@ -215,10 +215,9 @@ describe("ts-for-gir create E2E", { timeout: 20 * 60 * 1000 }, () => {
   });
 
   it("types-flatpak: install, check, build, meson", (t) => {
-    // No flatpak-builder here: a Flatpak build needs the GNOME SDK and a network
-    // phase. What this covers is the part a scaffold can actually get wrong and
-    // that a developer hits first — the Meson build must configure, bundle and
-    // install with `npm ci --offline` against a populated tree.
+    // This does not run flatpak-builder, which needs the GNOME SDK and network
+    // access. It checks that the scaffolded Meson project configures, bundles
+    // and installs, with `npm ci --offline` against the installed packages.
     const projectDir = join(tmpDir, "scaffolds", "types-flatpak", "app-types-flatpak");
     rewriteWorkspaceProtocolToTarballs(join(projectDir, "package.json"), tarballMap, tarballsDir);
     npmInstall(projectDir);
@@ -230,8 +229,7 @@ describe("ts-for-gir create E2E", { timeout: 20 * 60 * 1000 }, () => {
     assert.equal(build.status, 0, `build failed: ${build.stderr}\n${build.stdout}`);
     assert.ok(existsSync(join(projectDir, "dist", "main.js")), "dist/main.js missing");
 
-    // The manifest is the one file whose NAME carries the app id, so assert the
-    // rename happened and not just the substitution inside it.
+    // The manifest is the only template file with the app id in its name.
     const manifest = join(projectDir, "com.example.app-types-flatpak.json");
     assert.ok(existsSync(manifest), `manifest not renamed to the app id: ${manifest}`);
     const manifestJson = JSON.parse(readFileSync(manifest, "utf8"));
@@ -240,10 +238,9 @@ describe("ts-for-gir create E2E", { timeout: 20 * 60 * 1000 }, () => {
       "org.freedesktop.Sdk.Extension.node24",
     ]);
 
-    // Skip, do not fail, where the tools are absent — but SAY so. A silent
-    // `return` here reads as "passed" in a CI log while having checked nothing,
-    // which is how an entire assertion block goes missing unnoticed; CI
-    // installs meson/ninja for exactly this job (see ci.yml).
+    // Without meson the rest cannot run. Log that instead of returning
+    // silently, otherwise the test looks like a pass. CI installs meson and
+    // ninja for this job, see ci.yml.
     const missing = ["meson", "ninja", "node"].filter(
       (tool) => spawnSync(tool, ["--version"], { encoding: "utf8" }).status !== 0,
     );
@@ -275,8 +272,7 @@ describe("ts-for-gir create E2E", { timeout: 20 * 60 * 1000 }, () => {
     });
     assert.equal(install.status, 0, `meson install failed: ${install.stderr}\n${install.stdout}`);
 
-    // The app id reaches the launcher, the desktop entry, the metainfo and the
-    // icon — each from `-Dapp_id=`, none repeating the literal.
+    // Meson names the installed files after the app id from `-Dapp_id=`.
     const appId = "com.example.app-types-flatpak";
     for (const installed of [
       `bin/${appId}`,
@@ -288,9 +284,8 @@ describe("ts-for-gir create E2E", { timeout: 20 * 60 * 1000 }, () => {
       assert.ok(existsSync(join(stage, "app", installed)), `not installed: ${installed}`);
     }
 
-    // And it reaches the RUNNING app, via the esbuild `define`. Asserted on the
-    // installed bundle, so it covers what ships rather than the dev build: the
-    // D-Bus name has to match the `.desktop` the app is launched through.
+    // The installed bundle must use the same id as `applicationId`, otherwise
+    // the app's D-Bus name does not match its desktop file.
     const installedBundle = readFileSync(join(stage, "app", `share/${appId}/main.js`), "utf8");
     assert.ok(
       installedBundle.includes(appId),

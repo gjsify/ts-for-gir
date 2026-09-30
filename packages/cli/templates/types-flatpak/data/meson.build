@@ -1,5 +1,5 @@
-# The bundle is a module, not an executable, so `bindir` gets a two-line launcher
-# that execs it with `gjs -m` and everything the app owns goes to `pkgdatadir`.
+# main.js is an ES module and cannot run by itself. The launcher in `bindir`
+# starts it with `gjs -m`.
 launcher_conf = configuration_data()
 launcher_conf.set('APP_ID', app_id)
 launcher_conf.set('PKGDATADIR', pkgdatadir)
@@ -13,10 +13,9 @@ configure_file(
 	install_mode: 'rwxr-xr-x',
 )
 
-# The icon is installed under the app id, because that is what the desktop
-# entry's `Icon=` asks the icon theme for. `install_data` cannot rename a file,
-# so `configure_file` does it — with `copy: true`, since the source is not a
-# template and needs no substitution.
+# The desktop entry says `Icon=<app id>`, so the icon has to be installed under
+# that name. `install_data` cannot rename files, `configure_file` with
+# `copy: true` can.
 icon = configure_file(
 	input: 'app.svg',
 	output: app_id + '.svg',
@@ -25,8 +24,8 @@ icon = configure_file(
 	install_dir: datadir / 'icons/hicolor/scalable/apps',
 )
 
-# `.in` files so the translatable strings reach `xgettext` — a literal string built
-# in Meson or TypeScript has no `translatable` attribute and never gets extracted.
+# The desktop entry and metainfo stay separate `.in` files so that gettext can
+# find their strings and translate them.
 i18n = import('i18n')
 
 desktop_in = configure_file(

@@ -162,25 +162,15 @@ function substituteInFile(filePath: string, projectName: string): void {
 }
 
 /**
- * Walks a scaffolded tree, applying the project-name placeholder to file
- * CONTENT and to file and directory NAMES.
+ * Replaces the project-name placeholder in file contents and in file and
+ * directory names.
  *
- * One traversal, because the two halves must agree about which entries exist:
- * they are not independent passes, they are two edits of the same tree, and a
- * second walk would re-derive the entry list for no gain.
+ * Names matter for the Flatpak template: its manifest has to be named after the
+ * app id, `com.example.<project>.json`.
  *
- * Two orderings matter, both forced by the placeholder:
- *
- * - Content before names, per entry, and a file's content is substituted while
- *   it still sits at its original path.
- * - Names depth-first, children before their parent, so a placeholder inside a
- *   nested path is rewritten before the path containing it moves.
- *
- * `cpSync` copies the tree with its original names, which is why the name half
- * exists at all: a Flatpak template needs its manifest named after the app id
- * (convention, and the Flathub build expects it), and leaving it as
- * `com.example.__PROJECT_NAME__.json` hands the user a rename whose absence
- * silently breaks the documented `flatpak-builder <app-id>.json` command.
+ * Each entry is renamed last, after its content has been replaced or, for a
+ * directory, after its children have been handled. Renaming earlier would leave
+ * `full` pointing at a path that no longer exists.
  */
 function applyProjectName(rootDir: string, projectName: string): void {
 	for (const entry of readdirSync(rootDir, { withFileTypes: true })) {

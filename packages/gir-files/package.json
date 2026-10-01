@@ -1,6 +1,6 @@
 {
   "name": "@ts-for-gir/gir-files",
-  "version": "4.3.0",
+  "version": "5.4.0",
   "description": "The original GIR XML files behind @girs/*, with per-namespace provenance and upstream licence attribution",
   "main": "src/index.ts",
   "module": "src/index.ts",

@@ -22,7 +22,10 @@ export interface SignalDefinition {
     flags?: SignalFlags
     accumulator: number
     return_type?: GTypeInput
-    param_types?: GTypeInput[]
+    // `readonly` matches `SignalDefinitionType` below, and for the same reason: GJS reads the array
+    // length and its elements to build the C `GType` array (`JS::GetArrayLength` / `JS_GetElement`)
+    // and never writes to it.
+    param_types?: readonly GTypeInput[]
 }
 
 export interface MetaInfo<Props, Interfaces, Sigs> {
@@ -33,9 +36,16 @@ export interface MetaInfo<Props, Interfaces, Sigs> {
     Implements?: Interfaces
     CssName?: string
     Template?: Uint8Array | GLib.Bytes | string
-    Children?: string[]
-    InternalChildren?: string[]
-    Requires?: Object[]
+    // `Children`, `InternalChildren`, `Requires` and `Implements` are `readonly` because GJS only
+    // ever READS them: `registerClass` stores the array on the class and later iterates it
+    // (`for (let child of children)`, `children.forEach(...)`, `requires.filter(...)`,
+    // `[...gobjectInterfaces].reverse()` -- a copy). Nothing pushes, splices or sorts in place.
+    // A mutable type made a consumer's own `const` data reject its own value: a typed export from a
+    // `.blp` template, or any `as const` list, is a `readonly` tuple and produced TS4104 against a
+    // field the caller may not write to anyway.
+    Children?: readonly string[]
+    InternalChildren?: readonly string[]
+    Requires?: readonly Object[]
 }
 
 export type Property<K extends ParamSpec> = K extends ParamSpec<infer T> ? T : any
@@ -57,7 +67,11 @@ type SnakeToUnderscore<T> = { [P in keyof T as P extends string ? SnakeToUndersc
 // Advanced utility types for class registration
 type UnionToIntersection<T> = (T extends any ? (x: T) => any : never) extends (x: infer R) => any ? R : never
 
-type IFaces<Interfaces extends { $gtype: GType<any> }[]> = {
+// `readonly` on every `Interfaces` constraint below, for the same reason as `MetaInfo.Implements`:
+// a caller passing `Implements: [Gio.ListModel] as const` infers a `readonly` tuple, which a
+// mutable-array constraint rejects (TS4104) even though GJS never writes to the array. The
+// constraints stay satisfied by an ordinary mutable array, so existing consumers are unaffected.
+type IFaces<Interfaces extends readonly { $gtype: GType<any> }[]> = {
     [key in keyof Interfaces]: Interfaces[key] extends { $gtype: GType<infer I> } ? I : never
 }
 
@@ -75,7 +89,7 @@ export type Properties<
 export type RegisteredPrototype<
     P extends {},
     Props extends { [key: string]: ParamSpec },
-    Interfaces extends any[],
+    Interfaces extends readonly any[],
 > = Properties<P, SnakeToUnderscore<Props>> & UnionToIntersection<Interfaces[number]> & P
 
 type Ctor = new (...a: any[]) => object
@@ -84,7 +98,7 @@ type Init = { _init(...args: any[]): void }
 export type RegisteredClass<
     T extends Ctor,
     Props extends { [key: string]: ParamSpec },
-    Interfaces extends { $gtype: GType<any> }[],
+    Interfaces extends readonly { $gtype: GType<any> }[],
 > = T extends { prototype: infer P extends {} }
     ? {
           $gtype: GType<RegisteredClass<T, Props, IFaces<Interfaces>>>
@@ -341,7 +355,7 @@ export function registerClass<T extends ObjectConstructor>(cls: T): T
 export function registerClass<
     T extends ObjectConstructor,
     Props extends { [key: string]: ParamSpec },
-    Interfaces extends { $gtype: GType }[],
+    Interfaces extends readonly { $gtype: GType }[],
     Sigs extends {
         [key: string]: {
             param_types?: readonly GTypeInput[]
@@ -369,7 +383,7 @@ export function registerClass<P extends {}, T extends new (...args: any[]) => P>
 export function registerClass<
     T extends Ctor,
     Props extends { [key: string]: ParamSpec },
-    Interfaces extends { $gtype: GType }[],
+    Interfaces extends readonly { $gtype: GType }[],
     Sigs extends {
         [key: string]: {
             param_types?: readonly GTypeInput[]

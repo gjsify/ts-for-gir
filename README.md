@@ -137,6 +137,7 @@ ts-for-gir consists of several packages:
 - [`@ts-for-gir/generator-base`](/packages/generator-base): Shared base class for generators
 - [`@ts-for-gir/typedoc-theme`](/packages/typedoc-theme): Custom TypeDoc theme inspired by gi-docgen
 - [`@ts-for-gir/gir-module-metadata`](/packages/gir-module-metadata): Curated metadata (descriptions, logos, licenses) for GIR namespaces
+- [`@ts-for-gir/gir-files`](/packages/gir-files): The original GIR XML the types are generated from, with per-namespace provenance and upstream licence attribution
 - [`@ts-for-gir/templates`](/packages/templates): Template files for generated packages (tsconfig, typedoc config, ambient declarations)
 - [`@ts-for-gir/tsconfig`](/packages/tsconfig): Shared TypeScript configuration
 - [`@ts-for-gir/language-server`](/packages/language-server): Language server for GIR files (experimental)

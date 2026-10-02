@@ -37,9 +37,9 @@ export interface MetaInfo<Props, Interfaces, Sigs> {
     CssName?: string
     Template?: Uint8Array | GLib.Bytes | string
     // `Children`, `InternalChildren`, `Requires` and `Implements` are `readonly` because GJS only
-    // ever READS them: `registerClass` stores the array on the class and later iterates it
-    // (`for (let child of children)`, `children.forEach(...)`, `requires.filter(...)`,
-    // `[...gobjectInterfaces].reverse()` -- a copy). Nothing pushes, splices or sorts in place.
+    // ever READS them: `registerClass` stores the array on the class and later iterates it --
+    // `for (let child of children)`, `internalChildren.forEach(...)`, `requires.filter(...)` and
+    // `[...gobjectInterfaces].reverse()`, a copy. Nothing pushes, splices or sorts in place.
     // A mutable type made a consumer's own `const` data reject its own value: a typed export from a
     // `.blp` template, or any `as const` list, is a `readonly` tuple and produced TS4104 against a
     // field the caller may not write to anyway.

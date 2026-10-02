@@ -13,12 +13,12 @@ import Style from "./gtk4-template.css?inline";
 
 Gtk.init();
 
-/* The child names of a template, named once and shared with the type declarations below.
+/* The child names of a template, named once and handed to the class below.
  *
  * GJS only ever READS `Children` / `InternalChildren` -- `registerClass` stores the array on the
  * class and iterates it when the template is bound -- so `MetaInfo` types them as
  * `readonly string[]`. A tool that emits a typed export for a `.blp` template produces exactly
- * this shape, so it is written here as the `as const` list a generator would hand over.
+ * this shape, so they are written here as the `as const` lists such a generator hands over.
  */
 const CHILD_NAMES = ["box"] as const;
 const INTERNAL_CHILD_NAMES = ["button"] as const;

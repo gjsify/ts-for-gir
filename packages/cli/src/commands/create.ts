@@ -3,7 +3,16 @@
  */
 
 import { spawnSync } from "node:child_process";
-import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, realpathSync, writeFileSync } from "node:fs";
+import {
+	cpSync,
+	existsSync,
+	mkdirSync,
+	readdirSync,
+	readFileSync,
+	realpathSync,
+	renameSync,
+	writeFileSync,
+} from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -25,6 +34,10 @@ const examples: ReadonlyArray<[string, string?]> = [
 	[
 		`${APP_NAME} create my-app --template types-workspace`,
 		"Scaffold an npm workspace with types as workspace packages",
+	],
+	[
+		`${APP_NAME} create my-app --template types-flatpak`,
+		"Scaffold a Meson project with a Flatpak manifest (builds and installs offline)",
 	],
 	[`${APP_NAME} create`, "Interactive: prompts for name and template"],
 ];
@@ -54,11 +67,19 @@ const TEMPLATE_CHOICES: ReadonlyArray<{
 		name: "types-workspace",
 		description: "npm workspace; generate @girs/* as workspace packages under ./@girs/",
 	},
+	{
+		value: "types-flatpak",
+		name: "types-flatpak",
+		description: "Meson project + Flatpak manifest: bundles with esbuild, installs dependencies offline",
+	},
 ];
 
 const PROJECT_NAME_PLACEHOLDER = "__PROJECT_NAME__";
 
-const TEXT_FILE_EXT = new Set([".json", ".md", ".ts", ".tsx", ".js", ".mjs", ".cjs"]);
+// `meson.build`, `meson_options.txt` and the `.in` sources Meson configures carry
+// the app id and the display name, so they need the same substitution the code
+// files get. All are text; nothing else in a template should hold the placeholder.
+const TEXT_FILE_EXT = new Set([".json", ".md", ".ts", ".tsx", ".js", ".mjs", ".cjs", ".txt", ".build", ".in"]);
 
 const builder = createBuilder<CreateCommandArgs>(createOptions, examples);
 
@@ -140,18 +161,31 @@ function substituteInFile(filePath: string, projectName: string): void {
 	writeFileSync(filePath, content.replaceAll(PROJECT_NAME_PLACEHOLDER, projectName));
 }
 
-function walkAndSubstitute(rootDir: string, projectName: string): void {
+/**
+ * Replaces the project-name placeholder in file contents and in file and
+ * directory names.
+ *
+ * Names matter for the Flatpak template: its manifest has to be named after the
+ * app id, `com.example.<project>.json`.
+ *
+ * Each entry is renamed last, after its content has been replaced or, for a
+ * directory, after its children have been handled. Renaming earlier would leave
+ * `full` pointing at a path that no longer exists.
+ */
+function applyProjectName(rootDir: string, projectName: string): void {
 	for (const entry of readdirSync(rootDir, { withFileTypes: true })) {
 		const full = join(rootDir, entry.name);
-		if (entry.isDirectory()) {
-			if (entry.name === "node_modules") continue;
-			walkAndSubstitute(full, projectName);
-			continue;
+		if (entry.isDirectory() && entry.name === "node_modules") continue;
+
+		if (entry.isFile()) {
+			const ext = entry.name.slice(entry.name.lastIndexOf("."));
+			if (TEXT_FILE_EXT.has(ext)) substituteInFile(full, projectName);
 		}
-		if (!entry.isFile()) continue;
-		const ext = entry.name.slice(entry.name.lastIndexOf("."));
-		if (!TEXT_FILE_EXT.has(ext)) continue;
-		substituteInFile(full, projectName);
+
+		if (entry.isDirectory()) applyProjectName(full, projectName);
+
+		if (!entry.name.includes(PROJECT_NAME_PLACEHOLDER)) continue;
+		renameSync(full, join(rootDir, entry.name.replaceAll(PROJECT_NAME_PLACEHOLDER, projectName)));
 	}
 }
 
@@ -231,7 +265,7 @@ const handler = async (args: ConfigFlags) => {
 
 	const templateDir = join(templatesRoot, template);
 	cpSync(templateDir, targetDir, { recursive: true });
-	walkAndSubstitute(targetDir, projectName);
+	applyProjectName(targetDir, projectName);
 
 	log.success(`Scaffolded ${template} into ${targetDir}`);
 
@@ -277,6 +311,14 @@ const handler = async (args: ConfigFlags) => {
 		case "types-gjsify":
 			log.white("  gjsify run check");
 			log.white("  gjsify run build && gjsify run start");
+			break;
+		case "types-flatpak":
+			log.white("  npm run check");
+			log.white("  npm run build && npm start");
+			log.white("");
+			log.white("  # then, to ship it:");
+			log.white("  flatpak-node-generator npm package-lock.json -o node-sources.json");
+			log.white("  flatpak-builder --install com.example.my-app.json");
 			break;
 	}
 };

@@ -26,21 +26,28 @@
 import { describe, it, before, after } from "node:test";
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
-import { existsSync, mkdtempSync, rmSync } from "node:fs";
+import { existsSync, mkdtempSync, readdirSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
-import { join, dirname } from "node:path";
+import { join, dirname, relative, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const MONOREPO_ROOT = join(__dirname, "..", "..", "..");
 const CLI_DIR = join(MONOREPO_ROOT, "packages", "cli");
+const TEMPLATES_DIR = join(CLI_DIR, "templates");
 
 // All scaffold templates that must be present in the packed tarball under
 // `package/dist-templates/<name>/`. Keep in sync with the templates that
 // ship in packages/cli/templates/ — the create-command's
 // TEMPLATE_CHOICES is the source of truth, this mirror catches drift in
 // the packer's output.
-const REQUIRED_TEMPLATES = ["types-gjsify", "types-locally", "types-npm", "types-workspace"];
+const REQUIRED_TEMPLATES = [
+  "types-flatpak",
+  "types-gjsify",
+  "types-locally",
+  "types-npm",
+  "types-workspace",
+];
 
 function gjsifyPackAvailable() {
   try {
@@ -78,6 +85,23 @@ function listTarballEntries(tgzPath) {
     maxBuffer: 50 * 1024 * 1024,
   });
   return stdout.split("\n").filter((l) => l.length > 0);
+}
+
+/**
+ * Every FILE under `dir`, as `/`-joined paths relative to `dir` — the shape
+ * `tar -tzf` prints, so the two sets compare directly. Dot-files included:
+ * packers filter those by default and a scaffold that silently lost
+ * `.ts-for-girrc.js` would still type-check and generate nothing.
+ */
+function listFilesRecursively(dir) {
+  return readdirSync(dir, { withFileTypes: true, recursive: true })
+    .filter((entry) => entry.isFile())
+    .map((entry) =>
+      relative(dir, join(entry.parentPath ?? entry.path, entry.name))
+        .split(sep)
+        .join("/"),
+    )
+    .sort();
 }
 
 describe("@ts-for-gir/cli tarball shape (gjsify pack — production packer)", () => {
@@ -159,5 +183,27 @@ describe("@ts-for-gir/cli tarball shape (gjsify pack — production packer)", ()
       [...REQUIRED_TEMPLATES].sort(),
       "Mismatch between expected templates and tarball contents — update REQUIRED_TEMPLATES or fix packages/cli/templates/",
     );
+  });
+
+  // The per-template assertions above only prove each template's ROOT
+  // package.json is inside the tarball. A packer that ships the directory and
+  // drops its contents passes every one of them, and the scaffolded project
+  // then fails at its first build step instead of at `create`. The packed file
+  // set must therefore equal the source tree's: process-templates.mjs only
+  // rewrites package.json CONTENT, never the path set, so any difference is
+  // the packer filtering (dot-files, nested directories) — the 4.0.0 incident
+  // class, one level down.
+  it("every template file is packed, not just the template directory", () => {
+    if (!gjsifyPackAvailable()) return;
+    for (const template of REQUIRED_TEMPLATES) {
+      const prefix = `package/dist-templates/${template}/`;
+      const packed = new Set(entries.filter((entry) => entry.startsWith(prefix)));
+      assert.deepEqual(
+        [...packed].map((entry) => entry.slice(prefix.length)).sort(),
+        listFilesRecursively(join(TEMPLATES_DIR, template)),
+        `Template "${template}" does not ship its full payload — ` +
+          `packages/cli/templates/${template}/ and ${prefix}* disagree`,
+      );
+    }
   });
 });

@@ -1,0 +1,3 @@
+#!/bin/sh
+# Meson generates this launcher from data/launcher.sh.in.
+exec gjs -m "@PKGDATADIR@/main.js" "$@"

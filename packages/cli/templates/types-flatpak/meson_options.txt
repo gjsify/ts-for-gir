@@ -1,0 +1,8 @@
+# Set the app id in the Flatpak manifest, not here. This default is only used
+# when you run `meson setup` yourself without `-Dapp_id=`.
+option(
+	'app_id',
+	type: 'string',
+	value: 'com.example.__PROJECT_NAME__',
+	description: 'The application id, matching the Flatpak manifest',
+)

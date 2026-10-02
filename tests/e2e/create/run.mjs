@@ -42,7 +42,7 @@ const GIRS_TO_PACK = [
 // `types-gjsify` template was added in 4.0 for the Node-free gjsify-CLI
 // install path; its absence from this list is what let the 4.0.0
 // "no templates found" regression slip through to the npm tarball.
-const TEMPLATES = ["types-gjsify", "types-locally", "types-npm", "types-workspace"];
+const TEMPLATES = ["types-gjsify", "types-locally", "types-npm", "types-workspace", "types-flatpak"];
 
 function rewriteWorkspaceProtocolToTarballs(pkgPath, tarballMap, tarballsDir) {
   const pkg = JSON.parse(readFileSync(pkgPath, "utf8"));
@@ -212,6 +212,89 @@ describe("ts-for-gir create E2E", { timeout: 20 * 60 * 1000 }, () => {
     const build = npmRun(projectDir, "build");
     assert.equal(build.status, 0, `build failed: ${build.stderr}\n${build.stdout}`);
     assert.ok(existsSync(join(projectDir, "dist", "main.js")), "dist/main.js missing");
+  });
+
+  it("types-flatpak: install, check, build, meson", (t) => {
+    // This does not run flatpak-builder, which needs the GNOME SDK and network
+    // access. It checks that the scaffolded Meson project configures, bundles
+    // and installs, with `npm ci --offline` against the installed packages.
+    const projectDir = join(tmpDir, "scaffolds", "types-flatpak", "app-types-flatpak");
+    rewriteWorkspaceProtocolToTarballs(join(projectDir, "package.json"), tarballMap, tarballsDir);
+    npmInstall(projectDir);
+
+    const check = npmRun(projectDir, "check");
+    assert.equal(check.status, 0, `check failed: ${check.stderr}\n${check.stdout}`);
+
+    const build = npmRun(projectDir, "build");
+    assert.equal(build.status, 0, `build failed: ${build.stderr}\n${build.stdout}`);
+    assert.ok(existsSync(join(projectDir, "dist", "main.js")), "dist/main.js missing");
+
+    // The manifest is the only template file with the app id in its name.
+    const manifest = join(projectDir, "com.example.app-types-flatpak.json");
+    assert.ok(existsSync(manifest), `manifest not renamed to the app id: ${manifest}`);
+    const manifestJson = JSON.parse(readFileSync(manifest, "utf8"));
+    assert.equal(manifestJson.id, "com.example.app-types-flatpak", "app id not substituted");
+    assert.deepEqual(manifestJson.sdkExtensions ?? manifestJson["sdk-extensions"], [
+      "org.freedesktop.Sdk.Extension.node24",
+    ]);
+
+    // Without meson the rest cannot run. Log that instead of returning
+    // silently, otherwise the test looks like a pass. CI installs meson and
+    // ninja for this job, see ci.yml.
+    const missing = ["meson", "ninja", "node"].filter(
+      (tool) => spawnSync(tool, ["--version"], { encoding: "utf8" }).status !== 0,
+    );
+    if (missing.length > 0) {
+      t.diagnostic(`SKIPPED the Meson assertions: ${missing.join(", ")} not on PATH`);
+      return;
+    }
+
+    const buildDir = join(projectDir, "_build");
+    const setup = spawnSync("meson", ["setup", buildDir, "--prefix=/app"], {
+      cwd: projectDir,
+      encoding: "utf8",
+      timeout: 5 * 60 * 1000,
+    });
+    assert.equal(setup.status, 0, `meson setup failed: ${setup.stderr}\n${setup.stdout}`);
+
+    const compile = spawnSync("meson", ["compile", "-C", buildDir], {
+      cwd: projectDir,
+      encoding: "utf8",
+      timeout: 5 * 60 * 1000,
+    });
+    assert.equal(compile.status, 0, `meson compile failed: ${compile.stderr}\n${compile.stdout}`);
+
+    const stage = join(projectDir, "_stage");
+    const install = spawnSync("meson", ["install", "-C", buildDir, "--destdir", stage], {
+      cwd: projectDir,
+      encoding: "utf8",
+      timeout: 5 * 60 * 1000,
+    });
+    assert.equal(install.status, 0, `meson install failed: ${install.stderr}\n${install.stdout}`);
+
+    // Meson names the installed files after the app id from `-Dapp_id=`.
+    const appId = "com.example.app-types-flatpak";
+    for (const installed of [
+      `bin/${appId}`,
+      `share/applications/${appId}.desktop`,
+      `share/metainfo/${appId}.metainfo.xml`,
+      `share/icons/hicolor/scalable/apps/${appId}.svg`,
+      `share/${appId}/main.js`,
+    ]) {
+      assert.ok(existsSync(join(stage, "app", installed)), `not installed: ${installed}`);
+    }
+
+    // The installed bundle must use the same id as `applicationId`, otherwise
+    // the app's D-Bus name does not match its desktop file.
+    const installedBundle = readFileSync(join(stage, "app", `share/${appId}/main.js`), "utf8");
+    assert.ok(
+      installedBundle.includes(appId),
+      `bundled main.js does not carry the app id: ${appId}`,
+    );
+    assert.ok(
+      !installedBundle.includes("__APP_ID__"),
+      "bundled main.js still holds the unsubstituted __APP_ID__ placeholder",
+    );
   });
 
   it("types-workspace: install, generate types, re-install, check sub-package", () => {

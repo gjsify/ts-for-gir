@@ -95,6 +95,73 @@ const button = new Gtk.Button();
 
 All packages are listed at [gjsify/types](https://github.com/gjsify/types). Missing a module? [Open an issue](https://github.com/gjsify/ts-for-gir/issues).
 
+## Building a GNOME app that ships as a Flatpak
+
+The quickest start is the template. It sets up Meson, the Flatpak manifest and
+everything described below:
+
+```sh
+gjsify dlx @ts-for-gir/cli create my-app --template types-flatpak
+```
+
+If you are adding TypeScript to an existing app instead, read on. You keep Meson as
+your build system. Two facts about Flathub decide the rest: the build runs without
+network access, and the GNOME SDK does not include Node.js.
+
+### Do you need ts-for-gir in the build?
+
+Usually not.
+
+| You need types for | Run ts-for-gir in the Flatpak build? | Where the types come from |
+| --- | --- | --- |
+| Public GNOME libraries (`Gtk-4.0`, `Adw-1`, ...) | No | `@girs/*` packages from npm |
+| Your own `.gir` files | Better not | Generate them once, commit the output |
+| A `.gir` that changes with every build | Yes | ts-for-gir runs offline in the sandbox, so it has to be in `sources` like every other npm package |
+
+Most apps are in the first row. The `@girs/*` packages contain only types, and the
+bundler removes types. The finished app contains one JavaScript bundle and no npm
+packages, the same as an app written in JavaScript.
+
+### Getting npm packages into an offline build
+
+You still need npm packages while building: the compiler, the bundler and the
+`@girs/*` types. `flatpak-builder` works in two phases. First it downloads everything
+listed in the manifest's `sources` and checks each checksum. Then it runs the build
+with the network switched off. So every package has to be listed in `sources`:
+
+1. Commit a lockfile.
+2. Generate a sources file from it, with one entry and checksum per package.
+3. Add that file to your module's `sources` and tell npm to install from what was
+   downloaded. With `flatpak-node-generator` that means these `build-options.env`
+   entries:
+   `"npm_config_cache": "/run/build/<module>/flatpak-node/npm-cache"` and
+   `"npm_config_offline": "true"`.
+4. Install the bundle, not `node_modules`.
+
+[`flatpak-node-generator`](https://github.com/flatpak/flatpak-builder-tools) does step
+2 for npm, yarn and pnpm lockfiles. If you use gjsify,
+[`gjsify flatpak sources`](https://gjsify.github.io/gjsify/guides/flatpak-app/) does
+the same without needing Python.
+
+Regenerate the sources file every time you change a dependency. The lockfile and the
+sources file come from different commands. If you only update the lockfile, everything
+works on your machine and the Flatpak build fails later with `ENOTCACHED`, because the
+new package was never downloaded.
+
+The TypeScript build step that Meson runs also runs inside the offline sandbox, so it
+has to install from the same cache.
+
+### Node.js comes from an SDK extension
+
+Add `org.freedesktop.Sdk.Extension.node24` to `sdk-extensions`. Two things tripped us up:
+
+- Write the name without a branch. With `//25.08` appended, `flatpak-builder` looks up
+  the extension under the GNOME runtime's version and fails with
+  `Requested extension ... not installed`.
+- The extension is mounted at `/usr/lib/sdk/node24`, which is not on `PATH`. Add
+  `/usr/lib/sdk/node24/bin` with `append-path` in `build-options`, or Meson will not
+  find `npm`.
+
 ## Showcase
 
 **GNOME Applications**

@@ -1,5 +1,15 @@
 # Changelog
 
+## [5.5.0](https://github.com/gjsify/ts-for-gir/compare/v5.4.0...v5.5.0) (2026-10-02)
+
+### Features
+
+* **cli:** add types-flatpak template and document the Flatpak build path ([#483](https://github.com/gjsify/ts-for-gir/issues/483)) ([dc4a47d](https://github.com/gjsify/ts-for-gir/commit/dc4a47d6b51161b6ab97cf42b768295189799e76))
+
+### Bug Fixes
+
+* **gobject:** accept readonly arrays in MetaInfo ([#484](https://github.com/gjsify/ts-for-gir/issues/484)) ([053cdad](https://github.com/gjsify/ts-for-gir/commit/053cdad248452be5f421f0914c1ec743da474a74))
+
 ## [5.4.0](https://github.com/gjsify/ts-for-gir/compare/v5.3.0...v5.4.0) (2026-09-21)
 
 ### Features

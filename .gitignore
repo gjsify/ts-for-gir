@@ -59,3 +59,8 @@ repo/
 # come back into git.
 girs/*.typelib
 tests/**/control-package/
+
+# Generated payload of packages/gir-files (rebuilt by build:app from girs/).
+# NOTICE.md and provenance.json ARE committed: they are the licence record and
+# have to be reviewable in a diff.
+packages/gir-files/payload/

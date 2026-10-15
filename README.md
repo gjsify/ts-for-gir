@@ -18,9 +18,9 @@
 
 `ts-for-gir` reads [GObject Introspection](https://gi.readthedocs.io/en/latest/) data and writes TypeScript definitions for [GJS](https://gitlab.gnome.org/GNOME/gjs/) projects. Your editor then knows the whole GNOME stack: jump to definition, autocompletion, and a type error when you pass the wrong thing to `g_object_set()`.
 
-**Project page on the gjsify website**: [gjsify.github.io/gjsify/projects/ts-for-gir](https://gjsify.github.io/gjsify/projects/ts-for-gir/). Install paths, quickstart, generator usage, and links to the [Patterns](https://gjsify.github.io/gjsify/patterns/) docs.
+**Project page on the gjsify website**: [gjsify.org/gjsify/projects/ts-for-gir](https://gjsify.org/gjsify/projects/ts-for-gir/). Install paths, quickstart, generator usage, and links to the [Patterns](https://gjsify.org/gjsify/patterns/) docs.
 
-Browse the full **[TypeScript API Documentation](https://gjsify.github.io/docs)** for GLib, GTK, GStreamer, and more.
+Browse the full **[TypeScript API Documentation](https://gjsify.org/docs)** for GLib, GTK, GStreamer, and more.
 
 ## Quick Start
 
@@ -34,7 +34,7 @@ Pick a template interactively, or pass `--template <id>`:
 
 | Template | Best for |
 |---|---|
-| **`types-gjsify`** | A GJS app with no Node.js. Install, build, run and format all go through [gjsify](https://gjsify.github.io/gjsify/) |
+| **`types-gjsify`** | A GJS app with no Node.js. Install, build, run and format all go through [gjsify](https://gjsify.org/gjsify/) |
 | **`types-npm`** | Single-package, types from [`@girs/*`](https://github.com/gjsify/types) NPM, esbuild + node |
 | **`types-locally`** | Generate types into `./@types/` (no `@girs/*` dep) |
 | **`types-workspace`** | npm workspace with `@girs/*` as locally-generated workspace packages |
@@ -52,9 +52,9 @@ curl -fsSL https://raw.githubusercontent.com/gjsify/ts-for-gir/main/install.js -
 gjs -m /tmp/install.js && rm /tmp/install.js
 ```
 
-Installs to `~/.local/bin/`. Update later with `ts-for-gir self-update`. Powered by [GJSify](https://gjsify.github.io/gjsify/).
+Installs to `~/.local/bin/`. Update later with `ts-for-gir self-update`. Powered by [GJSify](https://gjsify.org/gjsify/).
 
-If you already have the [gjsify CLI](https://gjsify.github.io/gjsify/), skip that. `gjsify dlx @ts-for-gir/cli <args>` runs it without installing, `gjsify install -g @ts-for-gir/cli` installs it globally.
+If you already have the [gjsify CLI](https://gjsify.org/gjsify/), skip that. `gjsify dlx @ts-for-gir/cli <args>` runs it without installing, `gjsify install -g @ts-for-gir/cli` installs it globally.
 
 ### Node.js
 
@@ -140,7 +140,7 @@ with the network switched off. So every package has to be listed in `sources`:
 
 [`flatpak-node-generator`](https://github.com/flatpak/flatpak-builder-tools) does step
 2 for npm, yarn and pnpm lockfiles. If you use gjsify,
-[`gjsify flatpak sources`](https://gjsify.github.io/gjsify/guides/flatpak-app/) does
+[`gjsify flatpak sources`](https://gjsify.org/gjsify/guides/flatpak-app/) does
 the same without needing Python.
 
 Regenerate the sources file every time you change a dependency. The lockfile and the
@@ -214,7 +214,7 @@ This repo contains Git submodules for pre-generated types and documentation:
 
 - `types-dev` (branch `dev`): used during local development. Scripts write generated packages here.
 - `types-release` (branch `main`): updated by the release workflow on tags.
-- `docs` (branch `main`): generated HTML documentation, deployed to [gjsify.github.io/docs](https://gjsify.github.io/docs).
+- `docs` (branch `main`): generated HTML documentation, deployed to [gjsify.org/docs](https://gjsify.org/docs).
 
 Useful scripts:
 
@@ -226,7 +226,7 @@ gjsify run build:doc            # build HTML docs into ./docs
 
 ## Further Reading
 
-- [TypeScript API Documentation](https://gjsify.github.io/docs)
+- [TypeScript API Documentation](https://gjsify.org/docs)
 - [Examples](/examples/README.md)
 - [CLI Documentation](/packages/cli/README.md)
 - [Using ts-for-gir as a library](/packages/lib/README.md#using-ts-for-gir-as-a-library): building

@@ -20,7 +20,7 @@
  *   - the corrected static-block-last class registers + runs vfunc_init
  *   - the inline-metadata class registers + runs vfunc_init
  *
- * See https://gjsify.github.io/gjsify/patterns/gobject-classes/ for the
+ * See https://gjsify.org/gjsify/patterns/gobject-classes/ for the
  * full pattern reference.
  */
 
@@ -123,4 +123,4 @@ inline.init(null);
 print("✓ InlineFoo.init() ran the vfunc body");
 
 print("");
-print("Done — see https://gjsify.github.io/gjsify/patterns/gobject-classes/ for the pattern reference.");
+print("Done — see https://gjsify.org/gjsify/patterns/gobject-classes/ for the pattern reference.");

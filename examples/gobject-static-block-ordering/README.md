@@ -34,6 +34,6 @@ The script exits with status 1 if `BrokenFoo` doesn't throw. That is the regress
 
 ## See also
 
-- [Patterns → GObject classes](https://gjsify.github.io/gjsify/patterns/gobject-classes/): the full reference, covering the three `registerClass()` shapes, the recommended `registerClass({...}, this)` idiom, and when (rarely) `static override $gtype: GType<This>` is worth adding.
+- [Patterns → GObject classes](https://gjsify.org/gjsify/patterns/gobject-classes/): the full reference, covering the three `registerClass()` shapes, the recommended `registerClass({...}, this)` idiom, and when (rarely) `static override $gtype: GType<This>` is worth adding.
 - [`examples/gobject-param-spec`](../gobject-param-spec): Form A in production-shaped use, with the full ParamSpec set.
 - [`examples/gobject-register-class-inference`](../gobject-register-class-inference): Form C, functional and with no static block, plus type-inference assertions.

@@ -16,7 +16,7 @@ if (System.version < 18200) {
 // Example class demonstrating different ParamSpec usages.
 //
 // This follows pattern *Form A* from
-// https://gjsify.github.io/gjsify/patterns/gobject-classes/ — all
+// https://gjsify.org/gjsify/patterns/gobject-classes/ — all
 // `GObject.registerClass()` metadata (`GTypeName`, `Properties`,
 // `Signals`, `Implements`) is passed inline in the static block's
 // call, instead of as separate `static [GObject.properties] = …`

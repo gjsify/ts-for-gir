@@ -22,7 +22,7 @@
     <name translate="no">gjsify contributors</name>
     <email>pascal@artandcode.studio</email>
   </developer>
-  <url type="homepage">https://gjsify.github.io/gjsify/projects/ts-for-gir/</url>
+  <url type="homepage">https://gjsify.org/gjsify/projects/ts-for-gir/</url>
   <url type="vcs-browser">https://github.com/gjsify/ts-for-gir</url>
   <content_rating type="oars-1.1" />
   <categories>

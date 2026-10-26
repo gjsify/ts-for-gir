@@ -1,0 +1,603 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <package name="speech-provider-1.0"/>
+  <c:include name="speech-provider/speech-provider.h"/>
+  <doc:format name="unknown"/>
+  <namespace name="SpeechProvider"
+             version="1.0"
+             shared-library="libspeech-provider.so.1.0"
+             c:identifier-prefixes="SpeechProvider"
+             c:symbol-prefixes="speech_provider">
+    <enumeration name="ChunkType" c:type="SpeechProviderChunkType">
+      <source-position filename="libspeechprovider/speech-provider-common.h"
+                       line="36"/>
+      <member name="none"
+              value="0"
+              c:identifier="SPEECH_PROVIDER_CHUNK_TYPE_NONE">
+      </member>
+      <member name="audio"
+              value="1"
+              c:identifier="SPEECH_PROVIDER_CHUNK_TYPE_AUDIO">
+      </member>
+      <member name="event"
+              value="2"
+              c:identifier="SPEECH_PROVIDER_CHUNK_TYPE_EVENT">
+      </member>
+    </enumeration>
+    <record name="EventData" c:type="SpeechProviderEventData">
+      <source-position filename="libspeechprovider/speech-provider-common.h"
+                       line="53"/>
+      <field name="event_type" writable="1">
+        <type name="guint8" c:type="guint8"/>
+      </field>
+      <field name="range_start" writable="1">
+        <type name="guint32" c:type="guint32"/>
+      </field>
+      <field name="range_end" writable="1">
+        <type name="guint32" c:type="guint32"/>
+      </field>
+      <field name="mark_name_length" writable="1">
+        <type name="guint32" c:type="guint32"/>
+      </field>
+    </record>
+    <enumeration name="EventType" c:type="SpeechProviderEventType">
+      <source-position filename="libspeechprovider/speech-provider-common.h"
+                       line="45"/>
+      <member name="none"
+              value="0"
+              c:identifier="SPEECH_PROVIDER_EVENT_TYPE_NONE">
+      </member>
+      <member name="word"
+              value="1"
+              c:identifier="SPEECH_PROVIDER_EVENT_TYPE_WORD">
+      </member>
+      <member name="sentence"
+              value="2"
+              c:identifier="SPEECH_PROVIDER_EVENT_TYPE_SENTENCE">
+      </member>
+      <member name="range"
+              value="3"
+              c:identifier="SPEECH_PROVIDER_EVENT_TYPE_RANGE">
+      </member>
+      <member name="mark"
+              value="4"
+              c:identifier="SPEECH_PROVIDER_EVENT_TYPE_MARK">
+      </member>
+    </enumeration>
+    <constant name="STREAM_PROTOCOL_VERSION"
+              value="0.01"
+              c:type="SPEECH_PROVIDER_STREAM_PROTOCOL_VERSION">
+      <source-position filename="libspeechprovider/speech-provider-common.h"
+                       line="24"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <record name="StreamHeader" c:type="SpeechProviderStreamHeader">
+      <source-position filename="libspeechprovider/speech-provider-common.h"
+                       line="29"/>
+      <field name="version" writable="1">
+        <array zero-terminated="0" fixed-size="4">
+          <type name="gchar" c:type="char"/>
+        </array>
+      </field>
+    </record>
+    <class name="StreamReader"
+           c:symbol-prefix="stream_reader"
+           c:type="SpeechProviderStreamReader"
+           version="1.0"
+           parent="GObject.Object"
+           final="1"
+           glib:type-name="SpeechProviderStreamReader"
+           glib:get-type="speech_provider_stream_reader_get_type"
+           glib:type-struct="StreamReaderClass">
+      <doc xml:space="preserve"
+           filename="libspeechprovider/speech-provider-stream-reader.c"
+           line="27">A provider audio stream reader.</doc>
+      <source-position filename="libspeechprovider/speech-provider-stream-reader.h"
+                       line="29"/>
+      <constructor name="new"
+                   c:identifier="speech_provider_stream_reader_new"
+                   version="1.0">
+        <doc xml:space="preserve"
+             filename="libspeechprovider/speech-provider-stream-reader.c"
+             line="55">Creates a new [class@SpeechProvider.StreamReader].</doc>
+        <source-position filename="libspeechprovider/speech-provider-stream-reader.h"
+                         line="35"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libspeechprovider/speech-provider-stream-reader.c"
+               line="61">The new `SpeechProviderStreamReader`.</doc>
+          <type name="StreamReader" c:type="SpeechProviderStreamReader*"/>
+        </return-value>
+        <parameters>
+          <parameter name="fd" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspeechprovider/speech-provider-stream-reader.c"
+                 line="57">The file descriptor for a pipe</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="close"
+              c:identifier="speech_provider_stream_reader_close"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="libspeechprovider/speech-provider-stream-reader.c"
+             line="77">Close the pipe.</doc>
+        <source-position filename="libspeechprovider/speech-provider-stream-reader.h"
+                         line="37"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspeechprovider/speech-provider-stream-reader.c"
+                 line="79">`SpeechProviderStreamReader`</doc>
+            <type name="StreamReader" c:type="SpeechProviderStreamReader*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_audio"
+              c:identifier="speech_provider_stream_reader_get_audio"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="libspeechprovider/speech-provider-stream-reader.c"
+             line="130">Retrieves audio data</doc>
+        <source-position filename="libspeechprovider/speech-provider-stream-reader.h"
+                         line="42"/>
+        <return-value transfer-ownership="none" skip="1">
+          <doc xml:space="preserve"
+               filename="libspeechprovider/speech-provider-stream-reader.c"
+               line="139">%TRUE if the call succeeds.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspeechprovider/speech-provider-stream-reader.c"
+                 line="132">`SpeechProviderStreamReader`</doc>
+            <type name="StreamReader" c:type="SpeechProviderStreamReader*"/>
+          </instance-parameter>
+          <parameter name="chunk"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libspeechprovider/speech-provider-stream-reader.c"
+                 line="133">
+       Location to store audio data</doc>
+            <array length="1" zero-terminated="0" c:type="guint8**">
+              <type name="guint8" c:type="guint8*"/>
+            </array>
+          </parameter>
+          <parameter name="chunk_size"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libspeechprovider/speech-provider-stream-reader.c"
+                 line="135">Location to store size of chunk</doc>
+            <type name="guint32" c:type="guint32*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_event"
+              c:identifier="speech_provider_stream_reader_get_event"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="libspeechprovider/speech-provider-stream-reader.c"
+             line="169">Retrieves event data</doc>
+        <source-position filename="libspeechprovider/speech-provider-stream-reader.h"
+                         line="46"/>
+        <return-value transfer-ownership="none" skip="1">
+          <doc xml:space="preserve"
+               filename="libspeechprovider/speech-provider-stream-reader.c"
+               line="179">%TRUE if the call succeeds.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspeechprovider/speech-provider-stream-reader.c"
+                 line="171">a `SpeechProviderStreamReader`</doc>
+            <type name="StreamReader" c:type="SpeechProviderStreamReader*"/>
+          </instance-parameter>
+          <parameter name="event_type"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libspeechprovider/speech-provider-stream-reader.c"
+                 line="172">type of event</doc>
+            <type name="EventType" c:type="SpeechProviderEventType*"/>
+          </parameter>
+          <parameter name="range_start"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libspeechprovider/speech-provider-stream-reader.c"
+                 line="173">text range start</doc>
+            <type name="guint32" c:type="guint32*"/>
+          </parameter>
+          <parameter name="range_end"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libspeechprovider/speech-provider-stream-reader.c"
+                 line="174">text range end</doc>
+            <type name="guint32" c:type="guint32*"/>
+          </parameter>
+          <parameter name="mark_name"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="libspeechprovider/speech-provider-stream-reader.c"
+                 line="175">mark name</doc>
+            <type name="utf8" c:type="char**"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_stream_header"
+              c:identifier="speech_provider_stream_reader_get_stream_header"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="libspeechprovider/speech-provider-stream-reader.c"
+             line="94">Retrieves stream header.</doc>
+        <source-position filename="libspeechprovider/speech-provider-stream-reader.h"
+                         line="39"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libspeechprovider/speech-provider-stream-reader.c"
+               line="100">%TRUE if header successfully received.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspeechprovider/speech-provider-stream-reader.c"
+                 line="96">`SpeechProviderStreamReader`</doc>
+            <type name="StreamReader" c:type="SpeechProviderStreamReader*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="fd"
+                version="1.0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="libspeechprovider/speech-provider-stream-reader.c"
+             line="264">File descriptor for pipe.</doc>
+        <type name="gint" c:type="gint"/>
+      </property>
+    </class>
+    <record name="StreamReaderClass"
+            c:type="SpeechProviderStreamReaderClass"
+            glib:is-gtype-struct-for="StreamReader">
+      <source-position filename="libspeechprovider/speech-provider-stream-reader.h"
+                       line="29"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="StreamWriter"
+           c:symbol-prefix="stream_writer"
+           c:type="SpeechProviderStreamWriter"
+           version="1.0"
+           parent="GObject.Object"
+           final="1"
+           glib:type-name="SpeechProviderStreamWriter"
+           glib:get-type="speech_provider_stream_writer_get_type"
+           glib:type-struct="StreamWriterClass">
+      <doc xml:space="preserve"
+           filename="libspeechprovider/speech-provider-stream-writer.c"
+           line="27">A provider audio stream writer.</doc>
+      <source-position filename="libspeechprovider/speech-provider-stream-writer.h"
+                       line="29"/>
+      <constructor name="new"
+                   c:identifier="speech_provider_stream_writer_new"
+                   version="1.0">
+        <doc xml:space="preserve"
+             filename="libspeechprovider/speech-provider-stream-writer.c"
+             line="54">Creates a new [class@SpeechProvider.StreamWriter].</doc>
+        <source-position filename="libspeechprovider/speech-provider-stream-writer.h"
+                         line="35"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libspeechprovider/speech-provider-stream-writer.c"
+               line="60">The new `SpeechProviderStreamWriter`</doc>
+          <type name="StreamWriter" c:type="SpeechProviderStreamWriter*"/>
+        </return-value>
+        <parameters>
+          <parameter name="fd" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspeechprovider/speech-provider-stream-writer.c"
+                 line="56">The file descriptor for a pipe</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="close"
+              c:identifier="speech_provider_stream_writer_close"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="libspeechprovider/speech-provider-stream-writer.c"
+             line="76">Close the writer.</doc>
+        <source-position filename="libspeechprovider/speech-provider-stream-writer.h"
+                         line="37"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspeechprovider/speech-provider-stream-writer.c"
+                 line="78">a `SpeechProviderStreamWriter`</doc>
+            <type name="StreamWriter" c:type="SpeechProviderStreamWriter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="send_audio"
+              c:identifier="speech_provider_stream_writer_send_audio"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="libspeechprovider/speech-provider-stream-writer.c"
+             line="116">Sends a chunk of audio data.</doc>
+        <source-position filename="libspeechprovider/speech-provider-stream-writer.h"
+                         line="42"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspeechprovider/speech-provider-stream-writer.c"
+                 line="118">a `SpeechProviderStreamWriter`</doc>
+            <type name="StreamWriter" c:type="SpeechProviderStreamWriter*"/>
+          </instance-parameter>
+          <parameter name="chunk" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspeechprovider/speech-provider-stream-writer.c"
+                 line="119">audio data</doc>
+            <array length="1" zero-terminated="0" c:type="guint8*">
+              <type name="guint8" c:type="guint8"/>
+            </array>
+          </parameter>
+          <parameter name="chunk_size" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspeechprovider/speech-provider-stream-writer.c"
+                 line="120">audio chunk size</doc>
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="send_event"
+              c:identifier="speech_provider_stream_writer_send_event"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="libspeechprovider/speech-provider-stream-writer.c"
+             line="142">Sends an event.</doc>
+        <source-position filename="libspeechprovider/speech-provider-stream-writer.h"
+                         line="47"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspeechprovider/speech-provider-stream-writer.c"
+                 line="144">a `SpeechProviderStreamWriter`</doc>
+            <type name="StreamWriter" c:type="SpeechProviderStreamWriter*"/>
+          </instance-parameter>
+          <parameter name="event_type" transfer-ownership="none">
+            <type name="EventType" c:type="SpeechProviderEventType"/>
+          </parameter>
+          <parameter name="range_start" transfer-ownership="none">
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="range_end" transfer-ownership="none">
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="mark_name" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="send_stream_header"
+              c:identifier="speech_provider_stream_writer_send_stream_header"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="libspeechprovider/speech-provider-stream-writer.c"
+             line="93">Sends the initial stream header.</doc>
+        <source-position filename="libspeechprovider/speech-provider-stream-writer.h"
+                         line="39"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspeechprovider/speech-provider-stream-writer.c"
+                 line="95">a `SpeechProviderStreamWriter`</doc>
+            <type name="StreamWriter" c:type="SpeechProviderStreamWriter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="fd"
+                version="1.0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="0">
+        <doc xml:space="preserve"
+             filename="libspeechprovider/speech-provider-stream-writer.c"
+             line="231">File descriptor for the stream.</doc>
+        <type name="gint" c:type="gint"/>
+      </property>
+    </class>
+    <record name="StreamWriterClass"
+            c:type="SpeechProviderStreamWriterClass"
+            glib:is-gtype-struct-for="StreamWriter">
+      <source-position filename="libspeechprovider/speech-provider-stream-writer.h"
+                       line="29"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <bitfield name="VoiceFeature"
+              glib:type-name="SpeechProviderVoiceFeature"
+              glib:get-type="speech_provider_voice_feature_get_type"
+              c:type="SpeechProviderVoiceFeature">
+      <doc xml:space="preserve"
+           filename="libspeechprovider/speech-provider-dbus-enums.h"
+           line="10">A bitfield of potential voice features that can be advertised to consumers.</doc>
+      <member name="none"
+              value="0"
+              c:identifier="SPEECH_PROVIDER_VOICE_FEATURE_NONE"
+              glib:nick="none"
+              glib:name="SPEECH_PROVIDER_VOICE_FEATURE_NONE">
+        <doc xml:space="preserve"
+             filename="libspeechprovider/speech-provider-dbus-enums.h"
+             line="12">No features</doc>
+      </member>
+      <member name="events_word"
+              value="1"
+              c:identifier="SPEECH_PROVIDER_VOICE_FEATURE_EVENTS_WORD"
+              glib:nick="events-word"
+              glib:name="SPEECH_PROVIDER_VOICE_FEATURE_EVENTS_WORD">
+        <doc xml:space="preserve"
+             filename="libspeechprovider/speech-provider-dbus-enums.h"
+             line="13">Provider dispatches event when about to speak word.</doc>
+      </member>
+      <member name="events_sentence"
+              value="2"
+              c:identifier="SPEECH_PROVIDER_VOICE_FEATURE_EVENTS_SENTENCE"
+              glib:nick="events-sentence"
+              glib:name="SPEECH_PROVIDER_VOICE_FEATURE_EVENTS_SENTENCE">
+        <doc xml:space="preserve"
+             filename="libspeechprovider/speech-provider-dbus-enums.h"
+             line="14">Provider dispatches event when about to speak sentence.</doc>
+      </member>
+      <member name="events_range"
+              value="4"
+              c:identifier="SPEECH_PROVIDER_VOICE_FEATURE_EVENTS_RANGE"
+              glib:nick="events-range"
+              glib:name="SPEECH_PROVIDER_VOICE_FEATURE_EVENTS_RANGE">
+        <doc xml:space="preserve"
+             filename="libspeechprovider/speech-provider-dbus-enums.h"
+             line="15">Provider dispatches event when about to speak unspecified range.</doc>
+      </member>
+      <member name="events_ssml_mark"
+              value="8"
+              c:identifier="SPEECH_PROVIDER_VOICE_FEATURE_EVENTS_SSML_MARK"
+              glib:nick="events-ssml-mark"
+              glib:name="SPEECH_PROVIDER_VOICE_FEATURE_EVENTS_SSML_MARK">
+        <doc xml:space="preserve"
+             filename="libspeechprovider/speech-provider-dbus-enums.h"
+             line="16">Provider dispatches event when SSML mark is reached.</doc>
+      </member>
+      <member name="ssml_say_as_date"
+              value="16"
+              c:identifier="SPEECH_PROVIDER_VOICE_FEATURE_SSML_SAY_AS_DATE"
+              glib:nick="ssml-say-as-date"
+              glib:name="SPEECH_PROVIDER_VOICE_FEATURE_SSML_SAY_AS_DATE">
+      </member>
+      <member name="ssml_say_as_time"
+              value="32"
+              c:identifier="SPEECH_PROVIDER_VOICE_FEATURE_SSML_SAY_AS_TIME"
+              glib:nick="ssml-say-as-time"
+              glib:name="SPEECH_PROVIDER_VOICE_FEATURE_SSML_SAY_AS_TIME">
+      </member>
+      <member name="ssml_say_as_telephone"
+              value="64"
+              c:identifier="SPEECH_PROVIDER_VOICE_FEATURE_SSML_SAY_AS_TELEPHONE"
+              glib:nick="ssml-say-as-telephone"
+              glib:name="SPEECH_PROVIDER_VOICE_FEATURE_SSML_SAY_AS_TELEPHONE">
+      </member>
+      <member name="ssml_say_as_characters"
+              value="128"
+              c:identifier="SPEECH_PROVIDER_VOICE_FEATURE_SSML_SAY_AS_CHARACTERS"
+              glib:nick="ssml-say-as-characters"
+              glib:name="SPEECH_PROVIDER_VOICE_FEATURE_SSML_SAY_AS_CHARACTERS">
+      </member>
+      <member name="ssml_say_as_characters_glyphs"
+              value="256"
+              c:identifier="SPEECH_PROVIDER_VOICE_FEATURE_SSML_SAY_AS_CHARACTERS_GLYPHS"
+              glib:nick="ssml-say-as-characters-glyphs"
+              glib:name="SPEECH_PROVIDER_VOICE_FEATURE_SSML_SAY_AS_CHARACTERS_GLYPHS">
+      </member>
+      <member name="ssml_say_as_cardinal"
+              value="512"
+              c:identifier="SPEECH_PROVIDER_VOICE_FEATURE_SSML_SAY_AS_CARDINAL"
+              glib:nick="ssml-say-as-cardinal"
+              glib:name="SPEECH_PROVIDER_VOICE_FEATURE_SSML_SAY_AS_CARDINAL">
+      </member>
+      <member name="ssml_say_as_ordinal"
+              value="1024"
+              c:identifier="SPEECH_PROVIDER_VOICE_FEATURE_SSML_SAY_AS_ORDINAL"
+              glib:nick="ssml-say-as-ordinal"
+              glib:name="SPEECH_PROVIDER_VOICE_FEATURE_SSML_SAY_AS_ORDINAL">
+      </member>
+      <member name="ssml_say_as_currency"
+              value="2048"
+              c:identifier="SPEECH_PROVIDER_VOICE_FEATURE_SSML_SAY_AS_CURRENCY"
+              glib:nick="ssml-say-as-currency"
+              glib:name="SPEECH_PROVIDER_VOICE_FEATURE_SSML_SAY_AS_CURRENCY">
+      </member>
+      <member name="ssml_break"
+              value="4096"
+              c:identifier="SPEECH_PROVIDER_VOICE_FEATURE_SSML_BREAK"
+              glib:nick="ssml-break"
+              glib:name="SPEECH_PROVIDER_VOICE_FEATURE_SSML_BREAK">
+      </member>
+      <member name="ssml_sub"
+              value="8192"
+              c:identifier="SPEECH_PROVIDER_VOICE_FEATURE_SSML_SUB"
+              glib:nick="ssml-sub"
+              glib:name="SPEECH_PROVIDER_VOICE_FEATURE_SSML_SUB">
+      </member>
+      <member name="ssml_phoneme"
+              value="16384"
+              c:identifier="SPEECH_PROVIDER_VOICE_FEATURE_SSML_PHONEME"
+              glib:nick="ssml-phoneme"
+              glib:name="SPEECH_PROVIDER_VOICE_FEATURE_SSML_PHONEME">
+      </member>
+      <member name="ssml_emphasis"
+              value="32768"
+              c:identifier="SPEECH_PROVIDER_VOICE_FEATURE_SSML_EMPHASIS"
+              glib:nick="ssml-emphasis"
+              glib:name="SPEECH_PROVIDER_VOICE_FEATURE_SSML_EMPHASIS">
+      </member>
+      <member name="ssml_prosody"
+              value="65536"
+              c:identifier="SPEECH_PROVIDER_VOICE_FEATURE_SSML_PROSODY"
+              glib:nick="ssml-prosody"
+              glib:name="SPEECH_PROVIDER_VOICE_FEATURE_SSML_PROSODY">
+      </member>
+      <member name="ssml_sentence_paragraph"
+              value="131072"
+              c:identifier="SPEECH_PROVIDER_VOICE_FEATURE_SSML_SENTENCE_PARAGRAPH"
+              glib:nick="ssml-sentence-paragraph"
+              glib:name="SPEECH_PROVIDER_VOICE_FEATURE_SSML_SENTENCE_PARAGRAPH">
+      </member>
+      <member name="ssml_token"
+              value="262144"
+              c:identifier="SPEECH_PROVIDER_VOICE_FEATURE_SSML_TOKEN"
+              glib:nick="ssml-token"
+              glib:name="SPEECH_PROVIDER_VOICE_FEATURE_SSML_TOKEN">
+      </member>
+    </bitfield>
+  </namespace>
+</repository>

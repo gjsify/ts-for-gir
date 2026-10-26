@@ -1,0 +1,1706 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gio" version="2.0"/>
+  <package name="spiel"/>
+  <c:include name="spiel/spiel.h"/>
+  <doc:format name="unknown"/>
+  <namespace name="Spiel"
+             version="1.0"
+             shared-library="libspiel-1.0.so.1"
+             c:identifier-prefixes="Spiel"
+             c:symbol-prefixes="spiel">
+    <enumeration name="Error"
+                 c:type="SpielError"
+                 glib:error-domain="spiel-error-quark">
+      <doc xml:space="preserve"
+           filename="libspiel/spiel-speaker.h"
+           line="62">Error codes in the `SPIEL_ERROR` domain that can be emitted in the
+`utterance-error` signal.</doc>
+      <source-position filename="libspiel/spiel-speaker.h" line="80"/>
+      <member name="no_providers"
+              value="0"
+              c:identifier="SPIEL_ERROR_NO_PROVIDERS">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-speaker.h"
+             line="64">No speech providers are available</doc>
+      </member>
+      <member name="misconfigured_voice"
+              value="1"
+              c:identifier="SPIEL_ERROR_MISCONFIGURED_VOICE">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-speaker.h"
+             line="65">Voice is not configured correctly</doc>
+      </member>
+      <member name="provider_unexpectedly_died"
+              value="2"
+              c:identifier="SPIEL_ERROR_PROVIDER_UNEXPECTEDLY_DIED">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-speaker.h"
+             line="66">Speech provider unexpectedly
+died</doc>
+      </member>
+      <member name="internal_provider_failure"
+              value="3"
+              c:identifier="SPIEL_ERROR_INTERNAL_PROVIDER_FAILURE">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-speaker.h"
+             line="68">Internal error in speech
+provider</doc>
+      </member>
+    </enumeration>
+    <class name="Provider"
+           c:symbol-prefix="provider"
+           c:type="SpielProvider"
+           version="1.0"
+           parent="GObject.Object"
+           final="1"
+           glib:type-name="SpielProvider"
+           glib:get-type="spiel_provider_get_type"
+           glib:type-struct="ProviderClass">
+      <doc xml:space="preserve"
+           filename="libspiel/spiel-provider.c"
+           line="26">Represents a provider speech backend.</doc>
+      <source-position filename="libspiel/spiel-provider.h" line="28"/>
+      <method name="get_identifier"
+              c:identifier="spiel_provider_get_identifier"
+              glib:get-property="identifier"
+              version="1.0.4">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-provider.c"
+             line="188">Gets the provider's unique identifier.</doc>
+        <source-position filename="libspiel/spiel-provider.h" line="34"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libspiel/spiel-provider.c"
+               line="194">the identifier.</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-provider.c"
+                 line="190">a `SpielProvider`</doc>
+            <type name="Provider" c:type="SpielProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name"
+              c:identifier="spiel_provider_get_name"
+              glib:get-property="name"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-provider.c"
+             line="152">Gets a human readable name of this provider</doc>
+        <source-position filename="libspiel/spiel-provider.h" line="30"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libspiel/spiel-provider.c"
+               line="158">the human readable name.</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-provider.c"
+                 line="154">a `SpielProvider`</doc>
+            <type name="Provider" c:type="SpielProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_voices"
+              c:identifier="spiel_provider_get_voices"
+              glib:get-property="voices"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-provider.c"
+             line="207">Gets the provider's voices.</doc>
+        <source-position filename="libspiel/spiel-provider.h" line="36"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libspiel/spiel-provider.c"
+               line="213">A list of available voices</doc>
+          <type name="Gio.ListModel" c:type="GListModel*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-provider.c"
+                 line="209">a `SpielProvider`</doc>
+            <type name="Provider" c:type="SpielProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_well_known_name"
+              c:identifier="spiel_provider_get_well_known_name"
+              glib:get-property="well-known-name"
+              deprecated="1"
+              deprecated-version="1.0.4">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-provider.c"
+             line="171">Gets the provider's D-Bus well known name.</doc>
+        <doc-deprecated xml:space="preserve">Use spiel_provider_get_identifier() instead</doc-deprecated>
+        <source-position filename="libspiel/spiel-provider.h" line="32"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libspiel/spiel-provider.c"
+               line="177">the well known name.</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-provider.c"
+                 line="173">a `SpielProvider`</doc>
+            <type name="Provider" c:type="SpielProvider*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="identifier"
+                version="1.0.4"
+                transfer-ownership="none"
+                getter="get_identifier"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-provider.c"
+             line="480">The provider's unique identifer.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="name"
+                version="1.0"
+                transfer-ownership="none"
+                getter="get_name"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-provider.c"
+             line="447">The provider's human readable name</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="voices"
+                version="1.0"
+                transfer-ownership="none"
+                getter="get_voices">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-provider.c"
+             line="469">The list of available [class@Spiel.Voice]s that are provided.</doc>
+        <type name="Gio.ListModel"/>
+      </property>
+      <property name="well-known-name"
+                deprecated="1"
+                deprecated-version="1.0.4"
+                transfer-ownership="none"
+                getter="get_well_known_name"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-provider.c"
+             line="458">The provider's D-Bus well known name.</doc>
+        <doc-deprecated xml:space="preserve">Use #SpielProvider:identifier instead.</doc-deprecated>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+    </class>
+    <record name="ProviderClass"
+            c:type="SpielProviderClass"
+            glib:is-gtype-struct-for="Provider">
+      <source-position filename="libspiel/spiel-provider.h" line="28"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="Speaker"
+           c:symbol-prefix="speaker"
+           c:type="SpielSpeaker"
+           version="1.0"
+           parent="GObject.Object"
+           final="1"
+           glib:type-name="SpielSpeaker"
+           glib:get-type="spiel_speaker_get_type"
+           glib:type-struct="SpeakerClass">
+      <doc xml:space="preserve"
+           filename="libspiel/spiel-speaker.c"
+           line="33">A virtual speaker for speech synthesis
+
+The `SpielSpeaker` class represents a single "individual" speaker. Its
+primary method is [method@Spiel.Speaker.speak] which queues utterances to be
+spoken.
+
+This class also provides a list of available voices provided by DBus speech
+providers that are activatable on the session bus.
+
+`SpielSpeaker`'s initialization may perform blocking IO if it the first
+instance in the process. The default constructor is asynchronous
+([func@Spiel.Speaker.new]), although there is a synchronous blocking
+alternative ([ctor@Spiel.Speaker.new_sync]).</doc>
+      <source-position filename="libspiel/spiel-speaker.h" line="30"/>
+      <implements name="Gio.AsyncInitable"/>
+      <implements name="Gio.Initable"/>
+      <constructor name="new_finish"
+                   c:identifier="spiel_speaker_new_finish"
+                   version="1.0"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-speaker.c"
+             line="177">Finishes an operation started with [func@Spiel.Speaker.new].</doc>
+        <source-position filename="libspiel/spiel-speaker.h" line="36"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libspiel/spiel-speaker.c"
+               line="185">The new `SpielSpeaker`, or %NULL with @error set</doc>
+          <type name="Speaker" c:type="SpielSpeaker*"/>
+        </return-value>
+        <parameters>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-speaker.c"
+                 line="179">The `GAsyncResult` obtained from the `GAsyncReadyCallback` passed to
+[func@Spiel.Speaker.new].</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_sync"
+                   c:identifier="spiel_speaker_new_sync"
+                   version="1.0"
+                   throws="1">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-speaker.c"
+             line="206">Synchronously creates a SpielSpeaker.
+
+The calling thread is blocked until a reply is received.
+
+See spiel_speaker_new() for the asynchronous version of this constructor.</doc>
+        <source-position filename="libspiel/spiel-speaker.h" line="38"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libspiel/spiel-speaker.c"
+               line="217">The constructed speaker object
+or %NULL if @error is set.</doc>
+          <type name="Speaker" c:type="SpielSpeaker*"/>
+        </return-value>
+        <parameters>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-speaker.c"
+                 line="208">A optional `GCancellable`.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <function name="new"
+                c:identifier="spiel_speaker_new"
+                version="1.0"
+                glib:finish-func="spiel_speaker_new_finish">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-speaker.c"
+             line="148">Asynchronously creates a [class@Spiel.Speaker].
+
+When the operation is finished, @callback will be invoked in the
+thread-default main loop of the thread you are calling this method from (see
+[method@GLib.MainContext.push_thread_default]). You can then call
+[ctor@Spiel.Speaker.new_finish] to get the result of the operation.
+
+See [ctor@Spiel.Speaker.new_sync] for the synchronous, blocking version of
+this constructor.</doc>
+        <source-position filename="libspiel/spiel-speaker.h" line="32"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-speaker.c"
+                 line="150">optional `GCancellable`.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="2">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-speaker.c"
+                 line="151">A #GAsyncReadyCallback to call when the request is satisfied.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-speaker.c"
+                 line="152">User data to pass to @callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </function>
+      <method name="cancel" c:identifier="spiel_speaker_cancel" version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-speaker.c"
+             line="929">Stops the current utterance from being spoken and dumps the utterance queue.</doc>
+        <source-position filename="libspiel/spiel-speaker.h" line="47"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-speaker.c"
+                 line="931">a `SpielSpeaker`</doc>
+            <type name="Speaker" c:type="SpielSpeaker*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_providers"
+              c:identifier="spiel_speaker_get_providers"
+              glib:get-property="providers"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-speaker.c"
+             line="835">Gets the speech providers that offer voices to this speaker.</doc>
+        <source-position filename="libspiel/spiel-speaker.h" line="51"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libspiel/spiel-speaker.c"
+               line="841">A `GListModel` of `SpielProvider`</doc>
+          <type name="Gio.ListModel" c:type="GListModel*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-speaker.c"
+                 line="837">a `SpielSpeaker`</doc>
+            <type name="Speaker" c:type="SpielSpeaker*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_voices"
+              c:identifier="spiel_speaker_get_voices"
+              glib:get-property="voices"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-speaker.c"
+             line="817">Gets the voices available to this speaker.</doc>
+        <source-position filename="libspiel/spiel-speaker.h" line="49"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libspiel/spiel-speaker.c"
+               line="823">A `GListModel` of `SpielVoice`</doc>
+          <type name="Gio.ListModel" c:type="GListModel*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-speaker.c"
+                 line="819">a `SpielSpeaker`</doc>
+            <type name="Speaker" c:type="SpielSpeaker*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="pause" c:identifier="spiel_speaker_pause" version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-speaker.c"
+             line="853">Pause the given speaker. If an utterance is being spoken, it will pause
+until [method@Speaker.resume] is called.
+
+If the speaker isn't speaking, calling [method@Speaker.speak] will store
+new utterances in a queue until [method@Speaker.resume] is called.</doc>
+        <source-position filename="libspiel/spiel-speaker.h" line="43"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-speaker.c"
+                 line="855">a `SpielSpeaker`</doc>
+            <type name="Speaker" c:type="SpielSpeaker*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="resume" c:identifier="spiel_speaker_resume" version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-speaker.c"
+             line="892">Resumes the given paused speaker.
+
+If the speaker isn't paused this will do nothing.</doc>
+        <source-position filename="libspiel/spiel-speaker.h" line="45"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-speaker.c"
+                 line="894">a `SpielSpeaker`</doc>
+            <type name="Speaker" c:type="SpielSpeaker*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="speak" c:identifier="spiel_speaker_speak" version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-speaker.c"
+             line="683">Speak the given utterance. If an utterance is already being spoken
+the provided utterances will be added to a queue and will be spoken
+in the order received.</doc>
+        <source-position filename="libspiel/spiel-speaker.h" line="41"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-speaker.c"
+                 line="685">a `SpielSpeaker`</doc>
+            <type name="Speaker" c:type="SpielSpeaker*"/>
+          </instance-parameter>
+          <parameter name="utterance" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-speaker.c"
+                 line="686">an `SpielUtterance` to speak</doc>
+            <type name="Utterance" c:type="SpielUtterance*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="paused"
+                version="1.0"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-speaker.c"
+             line="329">The speaker is in a paused state.
+
+See [method@Spiel.Speaker.pause] and [method@Spiel.Speaker.resume].</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="providers"
+                version="1.0"
+                transfer-ownership="none"
+                getter="get_providers">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-speaker.c"
+             line="353">The list of available [class@Provider]s that offer voices.</doc>
+        <type name="Gio.ListModel"/>
+      </property>
+      <property name="sink"
+                version="1.0"
+                introspectable="0"
+                writable="1"
+                transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-speaker.c"
+             line="364">The gstreamer sink this speaker is connected to.</doc>
+        <type/>
+      </property>
+      <property name="speaking"
+                version="1.0"
+                transfer-ownership="none"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-speaker.c"
+             line="318">The speaker has an utterance queued or speaking.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="voices"
+                version="1.0"
+                transfer-ownership="none"
+                getter="get_voices">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-speaker.c"
+             line="342">The list of available [class@Voice]s that can be used in an utterance.</doc>
+        <type name="Gio.ListModel"/>
+      </property>
+      <glib:signal name="mark-reached" when="first" version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-speaker.c"
+             line="481">Emitted when an SSML mark element is reached</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="utterance" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-speaker.c"
+                 line="484">A `SpielUtterance`</doc>
+            <type name="Utterance"/>
+          </parameter>
+          <parameter name="name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-speaker.c"
+                 line="485">Name of mark reached</doc>
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="range-started" when="first" version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-speaker.c"
+             line="464">Emitted when a range will be spoken in a given utterance. Not all
+voices are capable of notifying when a range will be spoken.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="utterance" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-speaker.c"
+                 line="467">A `SpielUtterance`</doc>
+            <type name="Utterance"/>
+          </parameter>
+          <parameter name="start" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-speaker.c"
+                 line="468">Character start offset of speech range</doc>
+            <type name="guint64" c:type="guint64"/>
+          </parameter>
+          <parameter name="end" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-speaker.c"
+                 line="469">Character end offset of speech range</doc>
+            <type name="guint64" c:type="guint64"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="sentence-started" when="first" version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-speaker.c"
+             line="447">Emitted when a sentence will be spoken in a given utterance. Not all
+voices are capable of notifying when a sentence will be spoken.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="utterance" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-speaker.c"
+                 line="450">A `SpielUtterance`</doc>
+            <type name="Utterance"/>
+          </parameter>
+          <parameter name="start" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-speaker.c"
+                 line="451">Character start offset of speech sentence</doc>
+            <type name="guint64" c:type="guint64"/>
+          </parameter>
+          <parameter name="end" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-speaker.c"
+                 line="452">Character end offset of speech sentence</doc>
+            <type name="guint64" c:type="guint64"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="utterance-canceled" when="first" version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-speaker.c"
+             line="402">Emitted when a given utterance has been canceled after it has started
+speaking</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="utterance" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-speaker.c"
+                 line="405">A `SpielUtterance`</doc>
+            <type name="Utterance"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="utterance-error" when="first" version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-speaker.c"
+             line="416">Emitted when a given utterance has failed to start or complete.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="utterance" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-speaker.c"
+                 line="419">A `SpielUtterance`</doc>
+            <type name="Utterance"/>
+          </parameter>
+          <parameter name="error" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-speaker.c"
+                 line="420">A #GError</doc>
+            <type name="GLib.Error"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="utterance-finished" when="first" version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-speaker.c"
+             line="389">Emitted when a given utterance has completed speaking</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="utterance" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-speaker.c"
+                 line="392">A `SpielUtterance`</doc>
+            <type name="Utterance"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="utterance-started" when="first" version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-speaker.c"
+             line="376">Emitted when the given utterance is actively being spoken.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="utterance" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-speaker.c"
+                 line="379">A `SpielUtterance`</doc>
+            <type name="Utterance"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="word-started" when="first" version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-speaker.c"
+             line="430">Emitted when a word will be spoken in a given utterance. Not all
+voices are capable of notifying when a word will be spoken.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="utterance" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-speaker.c"
+                 line="433">A `SpielUtterance`</doc>
+            <type name="Utterance"/>
+          </parameter>
+          <parameter name="start" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-speaker.c"
+                 line="434">Character start offset of speech word</doc>
+            <type name="guint64" c:type="guint64"/>
+          </parameter>
+          <parameter name="end" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-speaker.c"
+                 line="435">Character end offset of speech word</doc>
+            <type name="guint64" c:type="guint64"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="SpeakerClass"
+            c:type="SpielSpeakerClass"
+            glib:is-gtype-struct-for="Speaker">
+      <source-position filename="libspiel/spiel-speaker.h" line="30"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="Utterance"
+           c:symbol-prefix="utterance"
+           c:type="SpielUtterance"
+           version="1.0"
+           parent="GObject.Object"
+           final="1"
+           glib:type-name="SpielUtterance"
+           glib:get-type="spiel_utterance_get_type"
+           glib:type-struct="UtteranceClass">
+      <doc xml:space="preserve"
+           filename="libspiel/spiel-utterance.c"
+           line="23">Represents an utterance to be spoken by a `SpielSpeaker`.
+
+An utterance consists of the text to be spoken and other properties that
+affect the speech, like rate, pitch or voice used.</doc>
+      <source-position filename="libspiel/spiel-utterance.h" line="28"/>
+      <constructor name="new" c:identifier="spiel_utterance_new" version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-utterance.c"
+             line="63">Creates a new [class@Spiel.Utterance].</doc>
+        <source-position filename="libspiel/spiel-utterance.h" line="31"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libspiel/spiel-utterance.c"
+               line="69">The new `SpielUtterance`.</doc>
+          <type name="Utterance" c:type="SpielUtterance*"/>
+        </return-value>
+        <parameters>
+          <parameter name="text"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-utterance.c"
+                 line="65">The utterance text to be spoken.</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_is_ssml"
+              c:identifier="spiel_utterance_get_is_ssml"
+              glib:get-property="is-ssml"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-utterance.c"
+             line="301">Gets whether the current utterance an SSML snippet.</doc>
+        <source-position filename="libspiel/spiel-utterance.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libspiel/spiel-utterance.c"
+               line="307">%TRUE if the utterance text is SSML</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-utterance.c"
+                 line="303">a `SpielUtterance`</doc>
+            <type name="Utterance" c:type="SpielUtterance*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_language"
+              c:identifier="spiel_utterance_get_language"
+              glib:get-property="language"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-utterance.c"
+             line="264">Gets the language used in this utterance.</doc>
+        <source-position filename="libspiel/spiel-utterance.h" line="53"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libspiel/spiel-utterance.c"
+               line="270">the language</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-utterance.c"
+                 line="266">a `SpielUtterance`</doc>
+            <type name="Utterance" c:type="SpielUtterance*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_pitch"
+              c:identifier="spiel_utterance_get_pitch"
+              glib:get-property="pitch"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-utterance.c"
+             line="117">Gets the pitch used in this utterance.</doc>
+        <source-position filename="libspiel/spiel-utterance.h" line="37"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libspiel/spiel-utterance.c"
+               line="123">the pitch value</doc>
+          <type name="gdouble" c:type="double"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-utterance.c"
+                 line="119">a `SpielUtterance`</doc>
+            <type name="Utterance" c:type="SpielUtterance*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_rate"
+              c:identifier="spiel_utterance_get_rate"
+              glib:get-property="rate"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-utterance.c"
+             line="153">Gets the rate used in this utterance.</doc>
+        <source-position filename="libspiel/spiel-utterance.h" line="41"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libspiel/spiel-utterance.c"
+               line="159">the rate value</doc>
+          <type name="gdouble" c:type="double"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-utterance.c"
+                 line="155">a `SpielUtterance`</doc>
+            <type name="Utterance" c:type="SpielUtterance*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_text"
+              c:identifier="spiel_utterance_get_text"
+              glib:get-property="text"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-utterance.c"
+             line="79">Gets the text spoken in this utterance.</doc>
+        <source-position filename="libspiel/spiel-utterance.h" line="33"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libspiel/spiel-utterance.c"
+               line="85">the text</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-utterance.c"
+                 line="81">a `SpielUtterance`</doc>
+            <type name="Utterance" c:type="SpielUtterance*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_voice"
+              c:identifier="spiel_utterance_get_voice"
+              glib:get-property="voice"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-utterance.c"
+             line="225">Gets the voice used in this utterance</doc>
+        <source-position filename="libspiel/spiel-utterance.h" line="49"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="libspiel/spiel-utterance.c"
+               line="231">a `SpielVoice`</doc>
+          <type name="Voice" c:type="SpielVoice*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-utterance.c"
+                 line="227">a `SpielUtterance`</doc>
+            <type name="Utterance" c:type="SpielUtterance*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_volume"
+              c:identifier="spiel_utterance_get_volume"
+              glib:get-property="volume"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-utterance.c"
+             line="189">Gets the volume used in this utterance.</doc>
+        <source-position filename="libspiel/spiel-utterance.h" line="45"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libspiel/spiel-utterance.c"
+               line="195">the volume value</doc>
+          <type name="gdouble" c:type="double"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-utterance.c"
+                 line="191">a `SpielUtterance`</doc>
+            <type name="Utterance" c:type="SpielUtterance*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_is_ssml"
+              c:identifier="spiel_utterance_set_is_ssml"
+              glib:set-property="is-ssml"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-utterance.c"
+             line="319">Indicates whether this utterance should be interpreted as SSML.</doc>
+        <source-position filename="libspiel/spiel-utterance.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-utterance.c"
+                 line="321">a `SpielUtterance`</doc>
+            <type name="Utterance" c:type="SpielUtterance*"/>
+          </instance-parameter>
+          <parameter name="is_ssml" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-utterance.c"
+                 line="322">whether the utterance text is an SSML snippet</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_language"
+              c:identifier="spiel_utterance_set_language"
+              glib:set-property="language"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-utterance.c"
+             line="282">Sets the language of this utterance</doc>
+        <source-position filename="libspiel/spiel-utterance.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-utterance.c"
+                 line="284">a `SpielUtterance`</doc>
+            <type name="Utterance" c:type="SpielUtterance*"/>
+          </instance-parameter>
+          <parameter name="language" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-utterance.c"
+                 line="285">the language to assign to this utterance</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_pitch"
+              c:identifier="spiel_utterance_set_pitch"
+              glib:set-property="pitch"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-utterance.c"
+             line="135">Sets a pitch on this utterance.</doc>
+        <source-position filename="libspiel/spiel-utterance.h" line="39"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-utterance.c"
+                 line="137">a `SpielUtterance`</doc>
+            <type name="Utterance" c:type="SpielUtterance*"/>
+          </instance-parameter>
+          <parameter name="pitch" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-utterance.c"
+                 line="138">a pitch to assign to this utterance</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_rate"
+              c:identifier="spiel_utterance_set_rate"
+              glib:set-property="rate"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-utterance.c"
+             line="171">Sets a rate on this utterance.</doc>
+        <source-position filename="libspiel/spiel-utterance.h" line="43"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-utterance.c"
+                 line="173">a `SpielUtterance`</doc>
+            <type name="Utterance" c:type="SpielUtterance*"/>
+          </instance-parameter>
+          <parameter name="rate" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-utterance.c"
+                 line="174">a rate to assign to this utterance</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_text"
+              c:identifier="spiel_utterance_set_text"
+              glib:set-property="text"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-utterance.c"
+             line="98">Sets the text to be spoken by this utterance.</doc>
+        <source-position filename="libspiel/spiel-utterance.h" line="35"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-utterance.c"
+                 line="100">a `SpielUtterance`</doc>
+            <type name="Utterance" c:type="SpielUtterance*"/>
+          </instance-parameter>
+          <parameter name="text" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-utterance.c"
+                 line="101">the text to assign to this utterance</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_voice"
+              c:identifier="spiel_utterance_set_voice"
+              glib:set-property="voice"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-utterance.c"
+             line="243">Sets a voice on this utterance.</doc>
+        <source-position filename="libspiel/spiel-utterance.h" line="51"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-utterance.c"
+                 line="245">a `SpielUtterance`</doc>
+            <type name="Utterance" c:type="SpielUtterance*"/>
+          </instance-parameter>
+          <parameter name="voice" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-utterance.c"
+                 line="246">a `SpielVoice` to assign to this utterance</doc>
+            <type name="Voice" c:type="SpielVoice*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_volume"
+              c:identifier="spiel_utterance_set_volume"
+              glib:set-property="volume"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-utterance.c"
+             line="207">Sets a volume on this utterance.</doc>
+        <source-position filename="libspiel/spiel-utterance.h" line="47"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-utterance.c"
+                 line="209">a `SpielUtterance`</doc>
+            <type name="Utterance" c:type="SpielUtterance*"/>
+          </instance-parameter>
+          <parameter name="volume" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-utterance.c"
+                 line="210">a volume to assign to this utterance</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="is-ssml"
+                version="1.0"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_is_ssml"
+                getter="get_is_ssml"
+                default-value="FALSE">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-utterance.c"
+             line="495">Whether the utterance's text should be interpreted as an SSML snippet.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="language"
+                version="1.0"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_language"
+                getter="get_language"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-utterance.c"
+             line="483">The utterance language. If no voice is set this language will be used to
+select the best matching voice.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="pitch"
+                version="1.0"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_pitch"
+                getter="get_pitch"
+                default-value="1.000000">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-utterance.c"
+             line="440">The pitch at which the utterance will be spoken.</doc>
+        <type name="gdouble" c:type="gdouble"/>
+      </property>
+      <property name="rate"
+                version="1.0"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_rate"
+                getter="get_rate"
+                default-value="1.000000">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-utterance.c"
+             line="450">The speed at which the utterance will be spoken.</doc>
+        <type name="gdouble" c:type="gdouble"/>
+      </property>
+      <property name="text"
+                version="1.0"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_text"
+                getter="get_text"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-utterance.c"
+             line="429">The utterance text that will be spoken.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="voice"
+                version="1.0"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_voice"
+                getter="get_voice">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-utterance.c"
+             line="472">The voice with which the utterance will be spoken.</doc>
+        <type name="Voice"/>
+      </property>
+      <property name="volume"
+                version="1.0"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_volume"
+                getter="get_volume"
+                default-value="1.000000">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-utterance.c"
+             line="461">The volume at which the utterance will be spoken.</doc>
+        <type name="gdouble" c:type="gdouble"/>
+      </property>
+    </class>
+    <record name="UtteranceClass"
+            c:type="SpielUtteranceClass"
+            glib:is-gtype-struct-for="Utterance">
+      <source-position filename="libspiel/spiel-utterance.h" line="28"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="Voice"
+           c:symbol-prefix="voice"
+           c:type="SpielVoice"
+           parent="GObject.Object"
+           final="1"
+           glib:type-name="SpielVoice"
+           glib:get-type="spiel_voice_get_type"
+           glib:type-struct="VoiceClass">
+      <doc xml:space="preserve"
+           filename="libspiel/spiel-voice.c"
+           line="24">Represents a voice implemented by a speech provider.
+
+A DBus speech provider advertises a list of voices that it implements.
+Each voice will have human-readable name, a unique identifier, and a list
+of languages supported by the voice.</doc>
+      <source-position filename="libspiel/spiel-voice.h" line="30"/>
+      <method name="compare" c:identifier="spiel_voice_compare" version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-voice.c"
+             line="268">Compares the two [class@Spiel.Voice] values and returns a negative integer
+if the first value comes before the second, 0 if they are equal, or a
+positive integer if the first value comes after the second.</doc>
+        <source-position filename="libspiel/spiel-voice.h" line="52"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libspiel/spiel-voice.c"
+               line="278">an integer indicating order</doc>
+          <type name="gint" c:type="gint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-voice.c"
+                 line="270">a `SpielVoice`</doc>
+            <type name="Voice" c:type="SpielVoice*"/>
+          </instance-parameter>
+          <parameter name="other" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-voice.c"
+                 line="271">a `SpielVoice` to compare with @self</doc>
+            <type name="Voice" c:type="SpielVoice*"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-voice.c"
+                 line="272">user-defined callback data</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="equal" c:identifier="spiel_voice_equal" version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-voice.c"
+             line="221">Compares the two [class@Spiel.Voice] values and returns %TRUE if equal.</doc>
+        <source-position filename="libspiel/spiel-voice.h" line="49"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libspiel/spiel-voice.c"
+               line="228">%TRUE if the two voices match.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-voice.c"
+                 line="223">a `SpielVoice`</doc>
+            <type name="Voice" c:type="SpielVoice*"/>
+          </instance-parameter>
+          <parameter name="other" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-voice.c"
+                 line="224">a `SpielVoice` to compare with @self</doc>
+            <type name="Voice" c:type="SpielVoice*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_features"
+              c:identifier="spiel_voice_get_features"
+              glib:get-property="features"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-voice.c"
+             line="133">Gets the list of supported features.</doc>
+        <source-position filename="libspiel/spiel-voice.h" line="40"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libspiel/spiel-voice.c"
+               line="139">a bit-field of `SpielVoiceFeature`</doc>
+          <type name="VoiceFeature" c:type="SpielVoiceFeature"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-voice.c"
+                 line="135">a `SpielVoice`</doc>
+            <type name="Voice" c:type="SpielVoice*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_identifier"
+              c:identifier="spiel_voice_get_identifier"
+              glib:get-property="identifier"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-voice.c"
+             line="79">Gets the identifier, unique to [property@Spiel.Voice:provider].</doc>
+        <source-position filename="libspiel/spiel-voice.h" line="34"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libspiel/spiel-voice.c"
+               line="85">the identifier</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-voice.c"
+                 line="81">a `SpielVoice`</doc>
+            <type name="Voice" c:type="SpielVoice*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_languages"
+              c:identifier="spiel_voice_get_languages"
+              glib:get-property="languages"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-voice.c"
+             line="115">Gets the list of supported languages.</doc>
+        <source-position filename="libspiel/spiel-voice.h" line="38"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libspiel/spiel-voice.c"
+               line="121">a list of BCP 47 tags</doc>
+          <array c:type="const char* const*">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-voice.c"
+                 line="117">a `SpielVoice`</doc>
+            <type name="Voice" c:type="SpielVoice*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name"
+              c:identifier="spiel_voice_get_name"
+              glib:get-property="name"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-voice.c"
+             line="61">Gets the name.</doc>
+        <source-position filename="libspiel/spiel-voice.h" line="32"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libspiel/spiel-voice.c"
+               line="67">the name</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-voice.c"
+                 line="63">a `SpielVoice`</doc>
+            <type name="Voice" c:type="SpielVoice*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_output_format"
+              c:identifier="spiel_voice_get_output_format"
+              glib:get-property="output-format"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-voice.c"
+             line="151">Gets the output format.</doc>
+        <source-position filename="libspiel/spiel-voice.h" line="42"/>
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-voice.c"
+                 line="153">a `SpielVoice`</doc>
+            <type name="Voice" c:type="SpielVoice*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_provider"
+              c:identifier="spiel_voice_get_provider"
+              glib:get-property="provider"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-voice.c"
+             line="97">Gets the provider associated with this voice</doc>
+        <source-position filename="libspiel/spiel-voice.h" line="36"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="libspiel/spiel-voice.c"
+               line="103">a `SpielProvider`</doc>
+          <type name="Provider" c:type="SpielProvider*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-voice.c"
+                 line="99">a `SpielVoice`</doc>
+            <type name="Voice" c:type="SpielVoice*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="hash" c:identifier="spiel_voice_hash" version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-voice.c"
+             line="186">Converts a [class@Spiel.Voice] to a hash value.</doc>
+        <source-position filename="libspiel/spiel-voice.h" line="47"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="libspiel/spiel-voice.c"
+               line="192">a hash value corresponding to @self</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-voice.c"
+                 line="188">a `SpielVoice`</doc>
+            <type name="Voice" c:type="SpielVoice*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_output_format"
+              c:identifier="spiel_voice_set_output_format"
+              glib:set-property="output-format"
+              version="1.0">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-voice.c"
+             line="167">Sets the audio output format.</doc>
+        <source-position filename="libspiel/spiel-voice.h" line="44"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-voice.c"
+                 line="169">a `SpielVoice`</doc>
+            <type name="Voice" c:type="SpielVoice*"/>
+          </instance-parameter>
+          <parameter name="output_format" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libspiel/spiel-voice.c"
+                 line="170">an output format string.</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="features"
+                version="1.0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_features"
+                default-value="SPIEL_VOICE_FEATURE_NONE">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-voice.c"
+             line="449">A bitfield of supported features.</doc>
+        <type name="VoiceFeature"/>
+      </property>
+      <property name="identifier"
+                version="1.0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_identifier"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-voice.c"
+             line="414">A unique identifier of the voice. The uniqueness should be considered
+in the scope of the provider (ie. two providers can use the same
+identifier).</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="languages"
+                version="1.0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_languages">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-voice.c"
+             line="427">A list of supported languages encoded as BCP 47 tags.</doc>
+        <array>
+          <type name="utf8"/>
+        </array>
+      </property>
+      <property name="name"
+                version="1.0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_name"
+                default-value="NULL">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-voice.c"
+             line="402">A human readable name for the voice. Not guaranteed to be unique.
+May, or may not, be localized by the speech provider.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="provider"
+                version="1.0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_provider">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-voice.c"
+             line="438">The speech provider that implements this voice.</doc>
+        <type name="Provider"/>
+      </property>
+    </class>
+    <record name="VoiceClass"
+            c:type="SpielVoiceClass"
+            glib:is-gtype-struct-for="Voice">
+      <source-position filename="libspiel/spiel-voice.h" line="30"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <bitfield name="VoiceFeature"
+              glib:type-name="SpielVoiceFeature"
+              glib:get-type="spiel_voice_feature_get_type"
+              c:type="SpielVoiceFeature">
+      <doc xml:space="preserve"
+           filename="libspiel/spiel-dbus-enums.h"
+           line="10">A bitfield of potential voice features that can be advertised to consumers.</doc>
+      <member name="none"
+              value="0"
+              c:identifier="SPIEL_VOICE_FEATURE_NONE"
+              glib:nick="none"
+              glib:name="SPIEL_VOICE_FEATURE_NONE">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-dbus-enums.h"
+             line="12">No features</doc>
+      </member>
+      <member name="events_word"
+              value="1"
+              c:identifier="SPIEL_VOICE_FEATURE_EVENTS_WORD"
+              glib:nick="events-word"
+              glib:name="SPIEL_VOICE_FEATURE_EVENTS_WORD">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-dbus-enums.h"
+             line="13">Provider dispatches event when about to speak word.</doc>
+      </member>
+      <member name="events_sentence"
+              value="2"
+              c:identifier="SPIEL_VOICE_FEATURE_EVENTS_SENTENCE"
+              glib:nick="events-sentence"
+              glib:name="SPIEL_VOICE_FEATURE_EVENTS_SENTENCE">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-dbus-enums.h"
+             line="14">Provider dispatches event when about to speak sentence.</doc>
+      </member>
+      <member name="events_range"
+              value="4"
+              c:identifier="SPIEL_VOICE_FEATURE_EVENTS_RANGE"
+              glib:nick="events-range"
+              glib:name="SPIEL_VOICE_FEATURE_EVENTS_RANGE">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-dbus-enums.h"
+             line="15">Provider dispatches event when about to speak unspecified range.</doc>
+      </member>
+      <member name="events_ssml_mark"
+              value="8"
+              c:identifier="SPIEL_VOICE_FEATURE_EVENTS_SSML_MARK"
+              glib:nick="events-ssml-mark"
+              glib:name="SPIEL_VOICE_FEATURE_EVENTS_SSML_MARK">
+        <doc xml:space="preserve"
+             filename="libspiel/spiel-dbus-enums.h"
+             line="16">Provider dispatches event when SSML mark is reached.</doc>
+      </member>
+      <member name="ssml_say_as_date"
+              value="16"
+              c:identifier="SPIEL_VOICE_FEATURE_SSML_SAY_AS_DATE"
+              glib:nick="ssml-say-as-date"
+              glib:name="SPIEL_VOICE_FEATURE_SSML_SAY_AS_DATE">
+      </member>
+      <member name="ssml_say_as_time"
+              value="32"
+              c:identifier="SPIEL_VOICE_FEATURE_SSML_SAY_AS_TIME"
+              glib:nick="ssml-say-as-time"
+              glib:name="SPIEL_VOICE_FEATURE_SSML_SAY_AS_TIME">
+      </member>
+      <member name="ssml_say_as_telephone"
+              value="64"
+              c:identifier="SPIEL_VOICE_FEATURE_SSML_SAY_AS_TELEPHONE"
+              glib:nick="ssml-say-as-telephone"
+              glib:name="SPIEL_VOICE_FEATURE_SSML_SAY_AS_TELEPHONE">
+      </member>
+      <member name="ssml_say_as_characters"
+              value="128"
+              c:identifier="SPIEL_VOICE_FEATURE_SSML_SAY_AS_CHARACTERS"
+              glib:nick="ssml-say-as-characters"
+              glib:name="SPIEL_VOICE_FEATURE_SSML_SAY_AS_CHARACTERS">
+      </member>
+      <member name="ssml_say_as_characters_glyphs"
+              value="256"
+              c:identifier="SPIEL_VOICE_FEATURE_SSML_SAY_AS_CHARACTERS_GLYPHS"
+              glib:nick="ssml-say-as-characters-glyphs"
+              glib:name="SPIEL_VOICE_FEATURE_SSML_SAY_AS_CHARACTERS_GLYPHS">
+      </member>
+      <member name="ssml_say_as_cardinal"
+              value="512"
+              c:identifier="SPIEL_VOICE_FEATURE_SSML_SAY_AS_CARDINAL"
+              glib:nick="ssml-say-as-cardinal"
+              glib:name="SPIEL_VOICE_FEATURE_SSML_SAY_AS_CARDINAL">
+      </member>
+      <member name="ssml_say_as_ordinal"
+              value="1024"
+              c:identifier="SPIEL_VOICE_FEATURE_SSML_SAY_AS_ORDINAL"
+              glib:nick="ssml-say-as-ordinal"
+              glib:name="SPIEL_VOICE_FEATURE_SSML_SAY_AS_ORDINAL">
+      </member>
+      <member name="ssml_say_as_currency"
+              value="2048"
+              c:identifier="SPIEL_VOICE_FEATURE_SSML_SAY_AS_CURRENCY"
+              glib:nick="ssml-say-as-currency"
+              glib:name="SPIEL_VOICE_FEATURE_SSML_SAY_AS_CURRENCY">
+      </member>
+      <member name="ssml_break"
+              value="4096"
+              c:identifier="SPIEL_VOICE_FEATURE_SSML_BREAK"
+              glib:nick="ssml-break"
+              glib:name="SPIEL_VOICE_FEATURE_SSML_BREAK">
+      </member>
+      <member name="ssml_sub"
+              value="8192"
+              c:identifier="SPIEL_VOICE_FEATURE_SSML_SUB"
+              glib:nick="ssml-sub"
+              glib:name="SPIEL_VOICE_FEATURE_SSML_SUB">
+      </member>
+      <member name="ssml_phoneme"
+              value="16384"
+              c:identifier="SPIEL_VOICE_FEATURE_SSML_PHONEME"
+              glib:nick="ssml-phoneme"
+              glib:name="SPIEL_VOICE_FEATURE_SSML_PHONEME">
+      </member>
+      <member name="ssml_emphasis"
+              value="32768"
+              c:identifier="SPIEL_VOICE_FEATURE_SSML_EMPHASIS"
+              glib:nick="ssml-emphasis"
+              glib:name="SPIEL_VOICE_FEATURE_SSML_EMPHASIS">
+      </member>
+      <member name="ssml_prosody"
+              value="65536"
+              c:identifier="SPIEL_VOICE_FEATURE_SSML_PROSODY"
+              glib:nick="ssml-prosody"
+              glib:name="SPIEL_VOICE_FEATURE_SSML_PROSODY">
+      </member>
+      <member name="ssml_sentence_paragraph"
+              value="131072"
+              c:identifier="SPIEL_VOICE_FEATURE_SSML_SENTENCE_PARAGRAPH"
+              glib:nick="ssml-sentence-paragraph"
+              glib:name="SPIEL_VOICE_FEATURE_SSML_SENTENCE_PARAGRAPH">
+      </member>
+      <member name="ssml_token"
+              value="262144"
+              c:identifier="SPIEL_VOICE_FEATURE_SSML_TOKEN"
+              glib:nick="ssml-token"
+              glib:name="SPIEL_VOICE_FEATURE_SSML_TOKEN">
+      </member>
+    </bitfield>
+    <class name="VoicesListModel"
+           c:symbol-prefix="voices_list_model"
+           c:type="SpielVoicesListModel"
+           parent="GObject.Object"
+           glib:type-name="SpielVoicesListModel"
+           glib:get-type="spiel_voices_list_model_get_type"
+           glib:type-struct="VoicesListModelClass">
+      <doc xml:space="preserve"
+           filename="libspiel/spiel-voices-list-model.c"
+           line="24">Represents an aggregate of all the voices available to Spiel.</doc>
+      <source-position filename="libspiel/spiel-voices-list-model.h"
+                       line="28"/>
+      <implements name="Gio.ListModel"/>
+      <constructor name="new" c:identifier="spiel_voices_list_model_new">
+        <source-position filename="libspiel/spiel-voices-list-model.h"
+                         line="34"/>
+        <return-value transfer-ownership="full">
+          <type name="VoicesListModel" c:type="SpielVoicesListModel*"/>
+        </return-value>
+        <parameters>
+          <parameter name="providers" transfer-ownership="none">
+            <type name="Gio.ListModel" c:type="GListModel*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+    </class>
+    <record name="VoicesListModelClass"
+            c:type="SpielVoicesListModelClass"
+            glib:is-gtype-struct-for="VoicesListModel">
+      <source-position filename="libspiel/spiel-voices-list-model.h"
+                       line="28"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <function name="error_quark" c:identifier="spiel_error_quark">
+      <return-value transfer-ownership="none">
+        <type name="GLib.Quark" c:type="GQuark"/>
+      </return-value>
+    </function>
+  </namespace>
+</repository>

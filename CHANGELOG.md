@@ -1,5 +1,15 @@
 # Changelog
 
+## [5.6.0](https://github.com/gjsify/ts-for-gir/compare/v5.5.0...v5.6.0) (2026-10-27)
+
+### Features
+
+* **girs:** add Spiel-1.0 and SpeechProvider-1.0 ([#488](https://github.com/gjsify/ts-for-gir/issues/488)) ([6cbc35f](https://github.com/gjsify/ts-for-gir/commit/6cbc35ffc8d47b1c34d2b6c9b92bafac1177c80c))
+
+### Maintenance
+
+* **github:** add funding links ([#486](https://github.com/gjsify/ts-for-gir/issues/486)) ([ff43fc4](https://github.com/gjsify/ts-for-gir/commit/ff43fc43c3af5ec3ee55108d69794efe57629a5a))
+
 ## [5.5.0](https://github.com/gjsify/ts-for-gir/compare/v5.4.0...v5.5.0) (2026-10-02)
 
 ### Features

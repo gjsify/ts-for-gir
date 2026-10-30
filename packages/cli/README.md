@@ -218,7 +218,7 @@ Generates a browsable HTML API reference using TypeDoc. Supports two modes:
 
 The generated documentation uses a custom theme inspired by [gi-docgen](https://gnome.pages.gitlab.gnome.org/gi-docgen/) with a 3-column layout, GIR metadata badges, and categorized module listings.
 
-See the live documentation at [gjsify.github.io/docs](https://gjsify.github.io/docs).
+See the live documentation at [gjsify.org/docs](https://gjsify.org/docs).
 
 ```
 ts-for-gir doc [modules..]
